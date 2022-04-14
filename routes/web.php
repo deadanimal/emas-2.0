@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\FokusutamaController;
+use App\Http\Controllers\PerkarautamaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +24,15 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+//Fokus Utama
+Route::resource('/fokusutama',FokusutamaController::class);
+
+//Perkara Utama
+Route::resource('/perkarautama',PerkarautamaController::class);
+
+
+
+
+
+

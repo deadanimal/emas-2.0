@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\BabController;
 use App\Http\Controllers\FokusutamaController;
+use App\Http\Controllers\PemangkindasarController;
 use App\Http\Controllers\PerkarautamaController;
+use Database\Factories\BabFactory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +33,19 @@ Route::resource('/fokusutama',FokusutamaController::class);
 
 //Perkara Utama
 Route::resource('/perkarautama',PerkarautamaController::class);
+
+//Indikator
+
+//Tema
+
+//PemangkinDasar
+Route::resource('/pemangkin',PemangkindasarController::class);
+
+//Bab
+Route::resource('/bab',BabController::class);
+
+
+
 
 
 

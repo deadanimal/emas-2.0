@@ -81,27 +81,24 @@
                                     <i class="ni ni-circle-08 text-pink"></i>
                                     <span class="nav-link-text">Perkara Utama</span>
                                 </a>
-                                <a class="nav-link" href="/indikator">
-                                    <i class="ni ni-circle-08 text-pink"></i>
-                                    <span class="nav-link-text">Indikator</span>
-                                </a>
-                                <a class="nav-link" href="">
+
+                                <a class="nav-link" href="/pemangkindasar">
                                     <i class="ni ni-circle-08 text-pink"></i>
                                     <span class="nav-link-text">Tema/Pemangkin Dasar</span>
                                 </a>
-                                <a class="nav-link" href="">
+                                <a class="nav-link" href="/bab">
                                     <i class="ni ni-circle-08 text-pink"></i>
                                     <span class="nav-link-text">Bab</span>
                                 </a>
-                                <a class="nav-link" href="">
+                                <a class="nav-link" href="/pemacu">
                                     <i class="ni ni-circle-08 text-pink"></i>
                                     <span class="nav-link-text">Pemacu Perubahan</span>
                                 </a>
-                                <a class="nav-link" href="">
+                                <a class="nav-link" href="/bidang">
                                     <i class="ni ni-circle-08 text-pink"></i>
                                     <span class="nav-link-text">Bidang Keutamaan</span>
                                 </a>
-                                <a class="nav-link" href="">
+                                <a class="nav-link" href="/outcome">
                                     <i class="ni ni-circle-08 text-pink"></i>
                                     <span class="nav-link-text">Outcome Nasional</span>
                                 </a>

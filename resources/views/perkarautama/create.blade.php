@@ -37,15 +37,18 @@
                     <textarea class="form-control" name="keteranganPerkaraUtama" rows="5"></textarea>
                 </div>
 
-                <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                    href="/perkarautama">
-                    <span class="fas fa-times-circle"></span>&nbsp;Batal
-                </a>
+                <div class="row">
+                    <div class="col">
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3" href="/perkarautama">
+                            <span class="fas fa-times-circle"></span>&nbsp;Batal
+                        </a>
+                    </div>
 
-                <div align="right">
-                    <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                        type="submit"><span class="fas fa-save"></span>&nbsp;Simpan
-                    </button>
+                    <div class="col" style="text-align: right">
+                        <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
+                            type="submit"><span class="fas fa-save"></span>&nbsp;Simpan
+                        </button>
+                    </div>
                 </div>
 
                 <input class="form-control" name="user_id" type="hidden" value="{{ $user->id }}" />

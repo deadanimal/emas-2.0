@@ -382,9 +382,9 @@
   /* --------------------------------- Default -------------------------------- */
   --falcon-navbar-vertical-collapsed-hover-shadow-color: rgba(0, 0, 0, 0.2);
   --falcon-navbar-vertical-bg-color: var(--falcon-bg-navbar-glass);
-  --falcon-navbar-vertical-link-color: #5e6e82;
-  --falcon-navbar-vertical-link-hover-color: #232e3c;
-  --falcon-navbar-vertical-link-active-color: #2c7be5;
+  --falcon-navbar-vertical-link-color: white;
+  --falcon-navbar-vertical-link-hover-color: white;
+  --falcon-navbar-vertical-link-active-color: white;
   --falcon-navbar-vertical-link-disable-color: #b6c1d2;
   --falcon-navbar-vertical-hr-color: rgba(0, 0, 0, 0.08);
   --falcon-navbar-vertical-scrollbar-color: rgba(116, 129, 148, 0.3);
@@ -699,9 +699,9 @@
   /* --------------------------------- Default -------------------------------- */
   --falcon-navbar-vertical-collapsed-hover-shadow-color: rgba(0, 0, 0, 0.2);
   --falcon-navbar-vertical-bg-color: var(--falcon-bg-navbar-glass);
-  --falcon-navbar-vertical-link-color: #9da9bb;
+  --falcon-navbar-vertical-link-color: white;
   --falcon-navbar-vertical-link-hover-color: #edf2f9;
-  --falcon-navbar-vertical-link-active-color: #2c7be5;
+  --falcon-navbar-vertical-link-active-color: white;
   --falcon-navbar-vertical-link-disable-color: #4d5969;
   --falcon-navbar-vertical-hr-color: rgba(255, 255, 255, 0.08);
   --falcon-navbar-vertical-scrollbar-color: rgba(116, 129, 148, 0.3);
@@ -26247,7 +26247,7 @@ a[href].bg-200:hover, a[href].bg-200:focus {
   }
 }
 /*-----------------------------------------------
-|  Back to top button   
+|  Back to top button
 -----------------------------------------------*/
 .btn-back-to-top {
   background-color: #0b1727;

@@ -1,6 +1,8 @@
 @extends('base')
 @section('content')
     <div class="container">
+            <br>
+
         <div class="mb-4 text-center">
             <H2>PELAN PELAKSANAAN DASAR</H2>
         </div>
@@ -24,7 +26,7 @@
                 </select>
             </div>
             <div class="col" style="text-align: right">
-                <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/kpi/create">
+                <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/markah/create">
                     &nbsp;Kemas Kini Markah
                 </a>
             </div>
@@ -60,9 +62,12 @@
                                         @csrf
                                         @method('DELETE')
 
-                                        <button type="submit" class="btn btn-danger" style="border-radius: 38px">
+                                        <button type="submit" onclick="myFunction()" class="btn btn-danger"
+                                            style="border-radius: 38px">
                                             <i class="fas fa-trash"></i>
                                         </button>
+                                        <p id="ppd"></p>
+
                                     </form>
                                 </div>
                             </td>
@@ -76,4 +81,16 @@
 
 
     </div>
+
+    <script>
+        function myFunction() {
+            let text = "Adakah anda mahu membuang data?";
+            if (confirm(text) == true) {
+                text = "Berjaya di buang!";
+            } else {
+                text = "Dibatalkan!";
+            }
+            document.getElementById("ppd").innerHTML = text;
+        }
+    </script>
 @endsection

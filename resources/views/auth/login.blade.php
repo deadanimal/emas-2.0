@@ -369,7 +369,7 @@
             <div class="row min-vh-100 bg-100">
                 <div class="col-6 d-none d-lg-block position-relative">
                     <div class="bg-holder"
-                        style="background-image:url(/img/login.png);background-position: 50% 20%;">
+                        style="background-image:url(/img/login.jpeg);background-position: 50% 20%;">
                     </div>
                     <!--/.bg-holder-->
 
@@ -377,44 +377,102 @@
                 <div class="col-sm-10 col-md-6 px-sm-0 align-self-center mx-auto py-5">
                     <div class="row justify-content-center g-0">
                         <div class="col-lg-9 col-xl-8 col-xxl-6">
-                                <div class="card-body pb-3">
+                            <div class="card-body pb-3">
 
-                                    <form method="POST" action="{{ route('login') }}">
-                                        @csrf
 
-                                        <!-- Session Status -->
-                                        <x-auth-session-status class="mb-3" :status="session('status')" />
 
-                                        <!-- Validation Errors -->
-                                        <x-auth-validation-errors class="mb-3" :errors="$errors" />
+                                <form method="POST" action="{{ route('login') }}">
+                                    @csrf
 
-                                        <div class="mb-3">
-                                            <label class="form-label" for="email">ID Pengguna</label>
-                                            <input class="form-control" id="email" type="email" name="email"
-                                                :value="old('email')" required autofocus />
+                                    <!-- Session Status -->
+                                    <x-auth-session-status class="mb-3" :status="session('status')" />
+
+                                    <!-- Validation Errors -->
+                                    <x-auth-validation-errors class="mb-3" :errors="$errors" />
+
+                                    <div class="mb-3">
+                                        <label class="form-label" for="email">ID Pengguna</label>
+                                        <input class="form-control" id="email" type="email" name="email"
+                                            :value="old('email')" required autofocus />
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between">
+                                            <label class="form-label" for="password">Kata
+                                                Laluan</label>
                                         </div>
-                                        <div class="mb-3">
-                                            <div class="d-flex justify-content-between">
-                                                <label class="form-label" for="password">Kata Laluan</label>
+                                        <input class="form-control" id="password" type="password" name="password" />
+                                    </div>
+                                    <div class="form-check mb-0">
+                                        <input class="form-check-input" type="checkbox" id="card-checkbox"
+                                            checked="checked" />
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <label class="form-check-label" for="card-checkbox">Ingati
+                                                    Saya
+                                                </label>
                                             </div>
-                                            <input class="form-control" id="password" type="password"
-                                                name="password" />
-                                        </div>
-                                        <div class="form-check mb-0">
-                                            <input class="form-check-input" type="checkbox" id="card-checkbox"
-                                                checked="checked" />
-                                            <label class="form-check-label" for="card-checkbox">Ingat Saya</label>
-
-                                            <a class="fs--1" href="{{ route('password.request') }}">Lupa Kata
-                                                Laluan?</a>
+                                            <div class="col" style="text-align: right">
+                                                <a class="fs--1" data-bs-toggle="modal"
+                                                    data-bs-target="#error-modal">Lupa Kata Laluan?
+                                                </a>
+                                            </div>
 
                                         </div>
-                                        <div class="mb-3">
-                                            <button class="btn btn-primary d-block w-100 mt-3" style="background-color: #047FC3; color:white" type="submit"
-                                                name="submit">Log Masuk</button>
+
+
+                                        <div class="modal fade" id="error-modal" tabindex="-1" role="dialog"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document"
+                                                style="max-width: 500px">
+                                                <div class="modal-content position-relative">
+                                                    <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                                                        <button
+                                                            class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                                                            data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body p-0">
+
+                                                        <div class="p-4 pb-0">
+
+                                                            <form method="POST"
+                                                                action="{{ route('password.email') }}">
+                                                                @csrf
+
+                                                                <!-- Email Address -->
+                                                                <div>
+                                                                    <x-label for="email" :value="__('E-mel Pengguna')" />
+
+                                                                    <x-input id="email" class="block mt-1 w-full"
+                                                                        type="email" name="email" :value="old('email')"
+                                                                        required autofocus />
+                                                                </div>
+
+
+
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-primary d-block w-100 mt-3"
+                                                            style="background-color: #047FC3; color:white" type="submit"
+                                                            name="submit">Sahkan</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </form>
-                                </div>
+
+                                    </div>
+                                    <div class="mb-3">
+                                        <button class="btn btn-primary d-block w-100 mt-3"
+                                            style="background-color: #047FC3; color:white" type="submit"
+                                            name="submit">Log Masuk</button>
+                                    </div>
+
+                                </form>
+
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -450,6 +508,9 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
     <script src="../../../vendors/list.js/list.min.js"></script>
     <script src="../../../assets/js/theme.js"></script>
+
+
+
 
 </body>
 

@@ -369,7 +369,7 @@
             <div class="row min-vh-100 bg-100">
                 <div class="col-6 d-none d-lg-block position-relative">
                     <div class="bg-holder"
-                        style="background-image:url(/img/login.png);background-position: 50% 20%;">
+                        style="background-image:url(/img/login.jpeg);background-position: 50% 20%;">
                     </div>
                     <!--/.bg-holder-->
 
@@ -378,39 +378,43 @@
                     <div class="row justify-content-center g-0">
                         <div class="col-lg-9 col-xl-8 col-xxl-6">
                             <x-guest-layout>
-                                    <x-slot name="logo">
-                                        <a href="/">
-                                            <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                                        </a>
-                                    </x-slot>
+                                <x-slot name="logo">
+                                    <a href="/">
+                                        <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                                    </a>
+                                </x-slot>
 
-                                    <div class="mb-4 text-sm text-gray-600">
-                                        {{ __('Lupa kata laluan anda? Sila masukkan ID Pengguna atau Emel anda') }}
+                                <div class="mb-4 text-sm text-gray-600">
+                                    {{ __('Lupa kata laluan anda? Sila masukkan ID Pengguna atau Emel anda') }}
+                                </div>
+
+                                <!-- Session Status -->
+                                <x-auth-session-status class="mb-4" :status="session('status')" />
+
+                                <!-- Validation Errors -->
+                                <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
+
+                                <form method="POST" action="{{ route('password.email') }}">
+                                    @csrf
+
+                                    <!-- Email Address -->
+                                    <div>
+                                        <x-label for="email" :value="__('Emel atau ID Pengguna')" />
+
+                                        <x-input id="email" class="block mt-1 w-full" type="email" name="email"
+                                            :value="old('email')" required autofocus />
                                     </div>
 
-                                    <!-- Session Status -->
-                                    <x-auth-session-status class="mb-4" :status="session('status')" />
-
-                                    <!-- Validation Errors -->
-                                    <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-                                    <form method="POST" action="{{ route('password.email') }}">
-                                        @csrf
-
-                                        <!-- Email Address -->
-                                        <div>
-                                            <x-label for="email" :value="__('Emel atau ID Pengguna')" />
-
-                                            <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                                    <div class="flex items-center justify-end mt-4">
+                                        <div class="mb-3">
+                                            <button class="btn btn-primary d-block w-100 mt-3"
+                                                style="background-color: #047FC3; color:white" type="submit"
+                                                name="submit">Sahkan</button>
                                         </div>
+                                    </div>
 
-                                        <div class="flex items-center justify-end mt-4">
-                                            <div class="mb-3">
-                                                <button class="btn btn-primary d-block w-100 mt-3" style="background-color: #047FC3; color:white" type="submit"
-                                                    name="submit">Sahkan</button>
-                                            </div>
-                                        </div>
-                                    </form>
+                                </form>
                             </x-guest-layout>
 
                         </div>

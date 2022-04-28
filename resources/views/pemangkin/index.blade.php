@@ -1,6 +1,7 @@
 @extends('base')
 @section('content')
     <div class="container">
+        <br>
         <div class="mb-4 text-center">
             <H2>PELAN PELAKSANAAN DASAR</H2>
         </div>
@@ -18,7 +19,7 @@
             <option selected="">PILIH KATEGORI</option>
             <option value="1">TEMA</option>
             <option value="2">PEMANGKIN DASAR</option>
-          </select>
+        </select>
 
         <div class="table-responsive scrollbar">
             <table class="table table-hover table-striped overflow-hidden">
@@ -42,15 +43,19 @@
                                     <form action="{{ route('pemangkin.destroy', $pemangkin->id) }}" method="POST">
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="{{ route('pemangkin.edit', $pemangkin->id) }}"><i class="fas fa-edit"></i>
+                                            href="{{ route('pemangkin.edit', $pemangkin->id) }}"><i
+                                                class="fas fa-edit"></i>
                                         </a>
 
                                         @csrf
                                         @method('DELETE')
 
-                                        <button type="submit" class="btn btn-danger" style="border-radius: 38px">
+                                        <button type="submit" onclick="myFunction()" class="btn btn-danger"
+                                            style="border-radius: 38px">
                                             <i class="fas fa-trash"></i>
                                         </button>
+                                        <p id="ppd"></p>
+
                                     </form>
                                 </div>
                             </td>
@@ -64,4 +69,16 @@
 
 
     </div>
+
+    <script>
+        function myFunction() {
+            let text = "Adakah anda mahu membuang data?";
+            if (confirm(text) == true) {
+                text = "Berjaya di buang!";
+            } else {
+                text = "Dibatalkan!";
+            }
+            document.getElementById("ppd").innerHTML = text;
+        }
+    </script>
 @endsection

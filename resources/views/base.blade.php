@@ -80,15 +80,14 @@
 <img src="/img/banner.png" alt="banner" width="100%">
 
 <body>
-    {{-- @include('sweet::alert') --}}
     <style>
 
         .form-control {
-            border-color: #009640;
+            border-color: #76bbe9;
         }
 
         .emas-dg {
-            color: #0F5E31;
+            color: #76bbe9;
         }
 
         .emas-bg-dg {
@@ -98,7 +97,7 @@
         }
 
         .emas-g {
-            color: #009640;
+            color: #76bbe9;
         }
 
         .emas-bg-g {
@@ -110,19 +109,19 @@
         }
 
         .nav-link-emas.active {
-            background-color: #0F5E31;
+            background-color: #047FC3;
             color: white;
         }
 
         .nav-link.active {
-            background-color: #0F5E31;
+            background-color: #76bbe9;
             color: white;
         }
 
         .nav-pills .nav-link.active,
         .nav-pills .show>.nav-link {
             color: #fff;
-            background-color: #0F5E31;
+            background-color: #76bbe9;
         }
 
         .nav-link {
@@ -137,7 +136,7 @@
         .nav-link:hover,
         .nav-link:focus {
             color: #fff;
-            background-color: #06558a;
+            background-color: #76bbe9;
             text-decoration: none;
             border-radius: 5px;
         }
@@ -184,8 +183,8 @@
 
         .btn-outline-primary:hover {
             color: #fff;
-            background-color: #3679ed;
-            border-color: #0F5E31;
+            background-color: #047FC3;
+            border-color: #76bbe9;
         }
 
         .nav-link-side {
@@ -208,7 +207,7 @@
         .nav-link-side:hover,
         .nav-link-side:focus {
             color: #fff;
-            background-color: #06558a;
+            background-color: #047FC3;
             text-decoration: none;
             border-radius: 5px;
         }
@@ -260,42 +259,44 @@
 
         @media (min-width: 601px) {
             .navbar-vertical.navbar-expand-xl {
-                max-width: 350px;
+                max-width: 250px;
                 top: 0;
                 height: 100%;
                 margin: 0;
             }
 
+
             .navbar-vertical.navbar-expand-xl .navbar-collapse {
                 width: 100%;
                 height: 100%;
-                background: #009640;
+                background: #ffffff;
             }
 
             .navbar-vertical.navbar-expand-xl .navbar-vertical-content {
                 width: 100%;
-                height: 100%;
+                height: auto;
                 padding: 0.5rem 0 0 0;
             }
 
             .navbar-vertical {
                 position: absolute;
-                background: #f1f4f2;
+                background: #ffffff;
                 max-width: 350px;
             }
 
             .navbar-vertical-content {
-                background: #f1f4f2;
+                background: #ffffff;
                 width: 350px;
             }
 
             .navbar-nav {
-                background: #f1f4f2;
+                background: #ffffff;
                 width: 350px;
             }
 
             .emas-m {
-                margin-left: 350px;
+                margin-left: 250px;
+
             }
 
             .navbar-vertical .navbar-collapse .navbar-vertical-content {
@@ -363,33 +364,27 @@
     <main class="main" id="top">
         <div class="container-fluid px-0" data-layout="container">
             @include('layouts.emas-side-bar')
+
             <div class="row">
 
                 <div class="content" style="background: white;">
-                    <button class="btn navbar-toggler-humburger-icon navbar-toggler me-1 me-sm-3" style="text-align: left" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse"
-                        aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle Navigation">
-                        <span class="navbar-toggle-icon">
-                            <span class="toggle-line"></span>
-                        </span>
-                    </button>
 
-                    <div class="row px-4 emas-m">
+
+                    <div class="row px-2 emas-m">
                         @yield('content')
                     </div>
 
-                    {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-                  @include('sweet::alert') --}}
+
+
                 </div>
-                {{-- </div> --}}
             </div>
         </div>
 
 
         <footer class="emas-bg-dg">
-            <div class="row p-4">
+            <div class="row p-">
                 <div class="col">
-                    <div class="text-600 text-white text-center">
+                    <div class="text-100 text-white text-center">
                         Copyright ©️ UNIT PERANCANG EKONOMI
                     </div>
                 </div>

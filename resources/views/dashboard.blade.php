@@ -80,7 +80,6 @@
 <img src="/img/banner.png" alt="banner" width="100%">
 
 <body>
-    {{-- @include('sweet::alert') --}}
     <style>
         .form-control {
             border-color: #009640;
@@ -266,7 +265,7 @@
             .navbar-vertical.navbar-expand-xl .navbar-collapse {
                 width: 100%;
                 height: 100%;
-                background: #009640;
+                background: white;
             }
 
             .navbar-vertical.navbar-expand-xl .navbar-vertical-content {
@@ -277,17 +276,17 @@
 
             .navbar-vertical {
                 position: absolute;
-                background: #f1f4f2;
+                background: white;
                 max-width: 350px;
             }
 
             .navbar-vertical-content {
-                background: #f1f4f2;
+                background: white;
                 width: 350px;
             }
 
             .navbar-nav {
-                background: #f1f4f2;
+                background: white;
                 width: 350px;
             }
 
@@ -403,9 +402,9 @@
         </div>
 
         <footer class="risda-bg-dg">
-            <div class="row p-4">
+            <div class="row p-">
                 <div class="col">
-                    <div class="text-600 text-white text-center">
+                    <div class="text-100 text-white text-center">
                         Copyright ©️ UNIT PERANCANG EKONOMI
                     </div>
                 </div>

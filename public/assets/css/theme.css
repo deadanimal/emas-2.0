@@ -280,7 +280,7 @@
   --falcon-body-color: #5e6e82;
   --falcon-headings-color: #344050;
   --falcon-link-color: #2c7be5;
-  --falcon-link-hover-color: #2362b7;
+  --falcon-link-hover-color: #047FC3;
   --falcon-border-color: #d8e2ef;
   /* --------------------------------- Shadow --------------------------------- */
   --falcon-box-shadow: 0 7px 14px 0 rgba(65, 69, 88, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.07);
@@ -296,7 +296,7 @@
   --falcon-mark-bg: #fcf8e3;
   --falcon-input-btn-focus-color: rgba(44, 123, 229, 0.25);
   --falcon-btn-link-color: #2c7be5;
-  --falcon-btn-link-hover-color: #2362b7;
+  --falcon-btn-link-hover-color: #047FC3;
   --falcon-btn-disabled-color: #748194;
   --falcon-heading-color: #344050;
   /* ---------------------------------- Form ---------------------------------- */
@@ -353,7 +353,7 @@
   --falcon-form-feedback-icon-invalid-color: var(--falcon-form-feedback-invalid-color);
   /* ----------------------------------- Nav ---------------------------------- */
   --falcon-nav-link-color: null;
-  --falcon-nav-link-hover-color: null;
+  --falcon-nav-link-hover-color: #047FC3;
   --falcon-nav-link-disabled-color: #748194;
   --falcon-nav-tabs-border-color: #d8e2ef;
   --falcon-nav-tabs-link-hover-border-color: #edf2f9 #edf2f9 #d8e2ef;
@@ -382,9 +382,9 @@
   /* --------------------------------- Default -------------------------------- */
   --falcon-navbar-vertical-collapsed-hover-shadow-color: rgba(0, 0, 0, 0.2);
   --falcon-navbar-vertical-bg-color: var(--falcon-bg-navbar-glass);
-  --falcon-navbar-vertical-link-color: #5e6e82;
-  --falcon-navbar-vertical-link-hover-color: #232e3c;
-  --falcon-navbar-vertical-link-active-color: #2c7be5;
+  --falcon-navbar-vertical-link-color: white;
+  --falcon-navbar-vertical-link-hover-color: white;
+  --falcon-navbar-vertical-link-active-color: white;
   --falcon-navbar-vertical-link-disable-color: #b6c1d2;
   --falcon-navbar-vertical-hr-color: rgba(0, 0, 0, 0.08);
   --falcon-navbar-vertical-scrollbar-color: rgba(116, 129, 148, 0.3);
@@ -699,9 +699,9 @@
   /* --------------------------------- Default -------------------------------- */
   --falcon-navbar-vertical-collapsed-hover-shadow-color: rgba(0, 0, 0, 0.2);
   --falcon-navbar-vertical-bg-color: var(--falcon-bg-navbar-glass);
-  --falcon-navbar-vertical-link-color: #9da9bb;
+  --falcon-navbar-vertical-link-color: white;
   --falcon-navbar-vertical-link-hover-color: #edf2f9;
-  --falcon-navbar-vertical-link-active-color: #2c7be5;
+  --falcon-navbar-vertical-link-active-color: white;
   --falcon-navbar-vertical-link-disable-color: #4d5969;
   --falcon-navbar-vertical-hr-color: rgba(255, 255, 255, 0.08);
   --falcon-navbar-vertical-scrollbar-color: rgba(116, 129, 148, 0.3);
@@ -26262,7 +26262,7 @@ a[href].bg-200:hover, a[href].bg-200:focus {
   }
 }
 /*-----------------------------------------------
-|  Back to top button   
+|  Back to top button
 -----------------------------------------------*/
 .btn-back-to-top {
   background-color: #0b1727;

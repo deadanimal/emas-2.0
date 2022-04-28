@@ -39,15 +39,19 @@
                     <textarea class="form-control" name="keteranganPerkaraUtama"
                         rows="5">{{ $perkarautama->keteranganPerkaraUtama }}</textarea>
                 </div>
+                <div class="row">
+                    <div class="col">
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3" href="/perkarautama">
+                            <span class="fas fa-times-circle"></span>&nbsp;Batal
+                        </a>
+                    </div>
 
-                <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                    href="/perkarautama">
-                    <span class="fas fa-times-circle"></span>&nbsp;Batal
-                </a>
-
-                <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                    type="submit"><span class="fas fa-save"></span>&nbsp;Simpan
-                </button>
+                    <div class="col" style="text-align: right">
+                        <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
+                            type="submit"><span class="fas fa-save"></span>&nbsp;Simpan
+                        </button>
+                    </div>
+                </div>
 
             </form>
 

@@ -136,7 +136,7 @@
         .nav-link:hover,
         .nav-link:focus {
             color: #fff;
-            background-color: #76bbe9;
+            background-color: #047FC3;
             text-decoration: none;
             border-radius: 5px;
         }

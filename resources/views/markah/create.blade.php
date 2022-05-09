@@ -1,5 +1,21 @@
 @extends('base')
 @section('content')
+
+    <style>
+        .low-risk {
+            background: green;
+        }
+
+        .medium-risk {
+            background: orange;
+        }
+
+        .high-risk {
+            background: red;
+        }
+
+    </style>
+
     <div class="container">
         <br>
         <div class="mb-4 text-center">
@@ -116,8 +132,35 @@
                             </span>
                         @endif --}}
 
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                        <script>
+                            function changeInputColor(input, value) {
+                                $(input).removeClass();
+                                if (value < 6) {
+                                    $(input).addClass('low-risk');
+                                } else if (value >= 6 && value <= 9) {
+                                    $(input).addClass('medium-risk');
+                                } else {
+                                    $(input).addClass('high-risk');
+                                }
+                            }
+                        </script>
+                        </head>
+
+                        <body>
+
+                            <p style="background-color:#04C367"> > 80%</p>
+                            <p style="background-color:yellow">
+                                < 50%-79.99%</p>
+                                    <p style="background-color:red">
+                                        < 50%</p>
+
+                        </body>
+
 
                     </div>
+
+
 
                     {{-- if peratus pencapaian <50%, display red color,
                     else if peratus pencapaian == 50% and 79.99, display yellow,
@@ -142,13 +185,14 @@
                     <label class="col-sm-2 col-form-label" for="pencapaian">Pencapaian</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="pencapaian" type="text" />
+                        <input type="text" name="pencapaian" type="text" class="percent form-control"/>
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="sasaran">Sasaran</label>
 
+
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="sasaran" type="text" />
+                        <input type="text" name="sasaran" type="text" class="percent form-control"/>
                     </div>
 
                 </div>
@@ -157,13 +201,13 @@
                     <label class="col-sm-2 col-form-label" for="hadVarian">Had Varian</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="hadVarian" type="text" />
+                        <input type="text" name="hadVarian" type="text" class="percent form-control"/>
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="hadToleransi">Had Toleransi</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="hadToleransi" type="text" />
+                        <input type="text" name="hadToleransi" type="text" class="percent form-control"/>
                     </div>
 
                 </div>
@@ -178,7 +222,7 @@
                     <label class="col-sm-2 col-form-label" for="wajaran">Wajaran</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="wajaran" type="text" />
+                        <input type="text" name="wajaran" type="text" class="percent form-control"/>
                     </div>
 
                 </div>
@@ -187,7 +231,8 @@
                     <label class="col-sm-2 col-form-label" for="peratusPencapaian">Peratus Pencapaian</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="peratusPencapaian" type="text" />
+                        <input type="text" name="peratusPencapaian" type="text" class="percent form-control"/>
+
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="tahunAsas">Tahun Asas</label>
@@ -207,7 +252,8 @@
                     <label class="col-sm-2 col-form-label" for="peratusPencapaianAsas">Peratus Pencapaian Tahun Asas</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="peratusPencapaianAsas" type="text" />
+                        <input type="text" name="peratusPencapaianAsas" type="text" class="percent form-control"/>
+
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="sumberData">Sumber Data</label>
@@ -222,7 +268,7 @@
                     <label class="col-sm-2 col-form-label" for="sasaran2021">Sasaran 2021</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="sasaran2021" type="text" />
+                        <input type="text" name="sasaran2021" type="text" class="percent form-control"/>
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="sumberPengesahan">Sumber Pengesahan</label>
@@ -237,7 +283,7 @@
                     <label class="col-sm-2 col-form-label" for="sasaran2022">Sasaran 2022</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="sasaran2022" type="text" />
+                        <input type="text" name="sasaran2022" type="text" class="percent form-control"/>
                     </div>
 
                 </div>
@@ -246,7 +292,7 @@
                     <label class="col-sm-2 col-form-label" for="sasaran2023">Sasaran 2023</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="sasaran2023" type="text" />
+                        <input type="text" name="sasaran2023" type="text" class="percent form-control"/>
                     </div>
 
                 </div>
@@ -255,7 +301,7 @@
                     <label class="col-sm-2 col-form-label" for="sasaran2024">Sasaran 2024</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="sasaran2024" type="text" />
+                        <input type="text" name="sasaran2024" type="text" class="percent form-control"/>
                     </div>
 
                 </div>
@@ -264,7 +310,8 @@
                     <label class="col-sm-2 col-form-label" for="sasaran2025">Sasaran 2025</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="sasaran2025" type="text" />
+                        <input type="text" name="sasaran2025" type="text" class="percent form-control"/>
+
                     </div>
 
                 </div>
@@ -274,7 +321,39 @@
             </form>
         </div>
 
+        <script>
+
+
+            $(".percent").keyup(function(e){
+                let int = e.target.value.slice(0, e.target.value.length - 1);
+
+                    if (int.includes('%')) {
+                        e.target.value = '%';
+                    } else if (int.length >= 3 && int.length <= 4 && !int.includes('.')) {
+                        e.target.value = int.slice(0, 2) + '.' + int.slice(2, 3) + '%';
+                        e.target.setSelectionRange(4, 4);
+                    } else if (int.length >= 5 & int.length <= 6) {
+                        let whole = int.slice(0, 2);
+                        let fraction = int.slice(3, 5);
+                        e.target.value = whole + '.' + fraction + '%';
+                    } else {
+                        e.target.value = int + '%';
+                        e.target.setSelectionRange(e.target.value.length - 1, e.target.value.length - 1);
+                    }
+            })
+
+            function getInt(val) {
+                let v = parseFloat(val);
+                if (v % 1 === 0) {
+                    return v;
+                } else {
+                    let n = v.toString().split('.').join('');
+                    return parseInt(n);
+                }
+            }
+        </script>
     </div>
+
 
 
 @endsection

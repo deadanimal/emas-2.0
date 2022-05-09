@@ -43,8 +43,8 @@
 
             <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip"
                 data-bs-placement="left" title="" data-bs-original-title="Tutup" aria-label="Tutup">
-                <span class="navbar-toggle-icon">
-                    <span class="toggle-line"></span>
+                <span class="fas fa-angle-right">
+                    <span class="fas fa-angle-left"></span>
                 </span>
             </button>
 
@@ -109,30 +109,31 @@
 
                     <br>
 
+
                     <!-- parent pages-->
                     <a class="nav-link dropdown-indicator" href="#dashboard" role="button" data-bs-toggle="collapse"
-                        aria-expanded="true" aria-controls="dashboard">
-                        <div class="d-flex justify-content-center">
+                        aria-expanded="true" aria-controls="dashboard" style="background-color: #C4D4ED">
+                        <div class="d-flex justify-content-center" style="color: #047FC3">
                             <span class="nav-link-text ps-1">Data</span>
                         </div>
                     </a>
                     <div class="card">
-                        <ul class="nav collapse show" id="dashboard">
-                            <li class="nav-item"><a class="nav-link" href="/fokusutama">
+                        <ul class="nav collapse show" id="dashboard" style="background-color: #E7EFFD" >
+                            <li class="nav-item"><a class="nav-link" href="/fokusutama" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-2">Fokus
                                             Utama</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/perkarautama">
+                            <li class="nav-item"><a class="nav-link" href="/perkarautama" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Perkara
                                             Utama</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/pemangkin">
+                            <li class="nav-item"><a class="nav-link" href="/pemangkin" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span
                                             class="nav-link-text ps-1">Tema/Pemangkin
                                             Dasar</span>
@@ -140,62 +141,62 @@
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/bab">
+                            <li class="nav-item"><a class="nav-link" href="/bab" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Bab</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/pemacu">
+                            <li class="nav-item"><a class="nav-link" href="/pemacu" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Pemacu
                                             Perubahan</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/bidang">
+                            <li class="nav-item"><a class="nav-link" href="/bidang" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Bidang
                                             Keutamaan</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/outcome">
+                            <li class="nav-item"><a class="nav-link" href="/outcome" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Outcome
                                             Nasional</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/kpi">
+                            <li class="nav-item"><a class="nav-link" href="/kpi" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-1">KPI
                                             Nasional</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/strategi">
+                            <li class="nav-item"><a class="nav-link" href="/strategi" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span
                                             class="nav-link-text ps-1">Strategi</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/inisiatif">
+                            <li class="nav-item"><a class="nav-link" href="/inisiatif" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span
                                             class="nav-link-text ps-1">Inisiatif</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/tindakan">
+                            <li class="nav-item"><a class="nav-link" href="/tindakan" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span
                                             class="nav-link-text ps-1">Tindakan</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/sdg">
+                            <li class="nav-item"><a class="nav-link" href="/sdg" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-1">SDG</span>
                                     </div>
                                 </a>
@@ -206,9 +207,10 @@
 
                 </li>
                 <br>
+
                 <li class="nav-item mx-3 mx-md-0">
                     <!-- label-->
-                    <a class="nav-link" href="/markah/create" role="button">
+                    {{-- <a class="nav-link" href="/markah/create" role="button">
 
                         <div class="d-flex align-items-center">
                             <div class="col-2">
@@ -246,7 +248,8 @@
                             </div>
                         </div>
                     </a>
-                    <a class="nav-link" href="/markah/create" role="button">
+                     --}}
+                    <a class="nav-link" href="/" role="button">
 
                         <div class="d-flex align-items-center">
                             <div class="col-2">
@@ -269,7 +272,7 @@
                 <hr style="width:100%;text-align:center;">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/markah/create" role="button">
+                    <a class="nav-link" href="/" role="button">
 
 
                         <div class="d-flex align-items-center">

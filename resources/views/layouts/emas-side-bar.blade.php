@@ -98,7 +98,7 @@
                                     <span class="fas fa-tasks"></span>
                                 </span>
                             </div>
-                            <div class="col text-center">
+                            <div class="col text-center" style="color: #047FC3">
                                 <span class="nav-link-text ps-1">Pelan Pelaksanaan Dasar</span>
                             </div>
                             <div class="col-2">

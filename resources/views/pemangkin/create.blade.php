@@ -20,7 +20,7 @@
                     <label class="col-sm-2 col-form-label" for="kategori_id">Kategori</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="kategori_id">
-                            <option value="">Pilih Kategori</option>
+                            <option value disabled hidden>Pilih Kategori</option>
                             <option value="1">Tema</option>
                             <option value="2">Pemangkin Dasar</option>
 

@@ -15,8 +15,8 @@
 
         <hr style="width:100%;text-align:center;">
 
-        <select class="form-select" style="width:30%" aria-label="Default select example">
-            <option selected="">PILIH KATEGORI</option>
+        <select class="form-select searchKategori" style="width:30%" aria-label="Default select example">
+            <option selected disabled hidden>PILIH KATEGORI</option>
             <option value="1">TEMA</option>
             <option value="2">PEMANGKIN DASAR</option>
         </select>
@@ -29,7 +29,7 @@
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tablebody">
                     @foreach ($pemangkindasar as $pemangkin)
                         <tr class="align-middle">
                             <td class="text-nowrap">
@@ -71,6 +71,89 @@
     </div>
 
     <script>
+
+    $('.searchKategori').change(function(e){
+       let val = this.value;
+       console.log(val);
+       var pemangkin = @json($pemangkindasar->toArray());
+       //tema
+       $("#tablebody").html('');
+       if (val == 1) {
+        pemangkin.forEach(e => {
+            if (e.kategori_id == 1) {
+                $("#tablebody").append(`
+                <tr class="align-middle">
+                        <td class="text-nowrap">
+                            <div class="d-flex align-items-center">
+                                <div class="ms-2"><b>`+e.keteranganTema+`</b></div>
+                            </div>
+                        </td>
+
+                        <td align="right">
+                            <div>
+                                <form action="/pemangkin/`+e.id+`" method="POST">
+
+                                    <a class="btn btn-primary" style="border-radius: 38px"
+                                        href="/pemangkin/`+e.id+`"><i
+                                            class="fas fa-edit"></i>
+                                    </a>
+
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit" onclick="myFunction()" class="btn btn-danger"
+                                        style="border-radius: 38px">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                `);
+            }
+        });
+       }
+
+       if (val==2) {
+        pemangkin.forEach(e => {
+            if (e.kategori_id == 2) {
+                $("#tablebody").append(`
+                <tr class="align-middle">
+                        <td class="text-nowrap">
+                            <div class="d-flex align-items-center">
+                                <div class="ms-2"><b>`+e.keteranganTema+`</b></div>
+                            </div>
+                        </td>
+
+                        <td align="right">
+                            <div>
+                                <form action="/pemangkin/`+e.id+`" method="POST">
+
+                                    <a class="btn btn-primary" style="border-radius: 38px"
+                                        href="/pemangkin/`+e.id+`"><i
+                                            class="fas fa-edit"></i>
+                                    </a>
+
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit" onclick="myFunction()" class="btn btn-danger"
+                                        style="border-radius: 38px">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                `);
+            }
+        });
+       }
+
+    });
+
         function myFunction() {
             let text = "Adakah anda mahu membuang data?";
             if (confirm(text) == true) {

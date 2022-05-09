@@ -62,18 +62,7 @@
                                     <td class="align-middle">{{ $markah->sumberPengesahan }}</td>
                                     <td class="align-middle">
                                         <div class="col-auto ms-auto">
-                                            {{-- <div class="nav nav-pills nav-pills-falcon flex-grow-1 mt-2" role="tablist">
-                                                <button class="btn btn-sm" data-bs-toggle="pill"
-                                                    data-bs-target="#dom-6a05ee6c-f8cc-4d6d-a6d7-81ac7af99e47" type="button"
-                                                    role="tab" aria-controls="dom-6a05ee6c-f8cc-4d6d-a6d7-81ac7af99e47"
-                                                    aria-selected="false"
-                                                    name="lulus">Lulus</button>
-                                                <button class="btn btn-sm active" data-bs-toggle="pill"
-                                                    data-bs-target="#dom-e484bb89-9bfa-49ef-9a6c-5b01376ee3c8" type="button"
-                                                    role="tab" aria-controls="dom-e484bb89-9bfa-49ef-9a6c-5b01376ee3c8"
-                                                    aria-selected="true"
-                                                    name="tolak">Tolak</button>
-                                            </div> --}}
+                                        
 
                                             @if ($markah->lulus == 1)
                                                 <button class="badge badge-success badge-sm">Lulus</button>

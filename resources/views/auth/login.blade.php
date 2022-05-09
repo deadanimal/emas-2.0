@@ -421,7 +421,7 @@
                                         </div>
 
 
-                                        <div class="modal fade" id="error-modal" tabindex="-1" role="dialog"
+                                        {{-- <div class="modal fade" id="error-modal" tabindex="-1" role="dialog"
                                             aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document"
                                                 style="max-width: 500px">
@@ -460,7 +460,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
 
                                     </div>
                                     <div class="mb-3">

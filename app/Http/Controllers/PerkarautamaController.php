@@ -18,11 +18,13 @@ class PerkarautamaController extends Controller
      */
     public function index()
     {
+
         $perkarautama = Perkarautama::all();
 
+        $list= Fokusutama::all();
 
 
-        return view('perkarautama.index', compact('perkarautama'));
+        return view('perkarautama.index', compact('perkarautama', 'list'));
     }
 
     /**

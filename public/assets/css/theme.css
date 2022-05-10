@@ -352,7 +352,7 @@
   --falcon-form-feedback-icon-valid-color: var(--falcon-form-feedback-valid-color);
   --falcon-form-feedback-icon-invalid-color: var(--falcon-form-feedback-invalid-color);
   /* ----------------------------------- Nav ---------------------------------- */
-  --falcon-nav-link-color: null;
+  --falcon-nav-link-color: white;
   --falcon-nav-link-hover-color: #047FC3;
   --falcon-nav-link-disabled-color: #748194;
   --falcon-nav-tabs-border-color: #d8e2ef;

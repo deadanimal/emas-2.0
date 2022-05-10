@@ -19,8 +19,10 @@ class BidangController extends Controller
     public function index()
     {
         $bidang = Bidang::all();
+        $list= Bab::all();
 
-        return view('bidang.index', compact('bidang'));
+
+        return view('bidang.index', compact('bidang', 'list'));
     }
 
     /**

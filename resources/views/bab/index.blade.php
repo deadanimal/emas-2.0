@@ -16,11 +16,10 @@
 
         <hr style="width:100%;text-align:center;">
 
-        <select class="form-select" style="width:30%" aria-label="Default select example">
+        <select class="form-select searchBab" style="width:30%" aria-label="Default select example">
             <option selected disabled hidden>PILIH TEMA/PEMANGKIN DASAR</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option value="1">TEMA</option>
+            <option value="2">PEMANGKIN DASAR</option>
         </select>
 
         <div class="table-responsive scrollbar">
@@ -31,7 +30,7 @@
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tablebody">
                     @foreach ($bab as $bab)
                         <tr class="align-middle">
                             <td class="text-nowrap">
@@ -57,6 +56,7 @@
                                         </button>
                                         <p id="ppd"></p>
 
+
                                     </form>
                                 </div>
                             </td>
@@ -72,6 +72,88 @@
     </div>
 
     <script>
+        $('.searchBab').change(function(e) {
+            let val = this.value;
+            console.log(val);
+            var bab = @json($bab->toArray());
+            //tema
+            $("#tablebody").html('');
+            if (val == 1) {
+                bab.forEach(e => {
+                    if (e.pemangkin_id == 1) {
+                        $("#tablebody").append(`
+                <tr class="align-middle">
+                        <td class="text-nowrap">
+                            <div class="d-flex align-items-center">
+                                <div class="ms-2"><b>` + e.keteranganBab + `</b></div>
+                            </div>
+                        </td>
+
+                        <td align="right">
+                            <div>
+                                <form action="/bab/` + e.id + `" method="POST">
+
+                                    <a class="btn btn-primary" style="border-radius: 38px"
+                                        href="/bab/` + e.id + `"><i
+                                            class="fas fa-edit"></i>
+                                    </a>
+
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit" onclick="myFunction()" class="btn btn-danger"
+                                        style="border-radius: 38px">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                `);
+                    }
+                });
+            }
+
+            if (val == 2) {
+                bab.forEach(e => {
+                    if (e.pemangkin_id == 2) {
+                        $("#tablebody").append(`
+                <tr class="align-middle">
+                        <td class="text-nowrap">
+                            <div class="d-flex align-items-center">
+                                <div class="ms-2"><b>` + e.keteranganBab + `</b></div>
+                            </div>
+                        </td>
+
+                        <td align="right">
+                            <div>
+                                <form action="/bab/` + e.id + `" method="POST">
+
+                                    <a class="btn btn-primary" style="border-radius: 38px"
+                                        href="/bab/` + e.id + `"><i
+                                            class="fas fa-edit"></i>
+                                    </a>
+
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit" onclick="myFunction()" class="btn btn-danger"
+                                        style="border-radius: 38px">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                `);
+                    }
+                });
+            }
+
+        });
+
         function myFunction() {
             let text = "Adakah anda mahu membuang data?";
             if (confirm(text) == true) {

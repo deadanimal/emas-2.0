@@ -1,24 +1,7 @@
 <style>
-    .emas-side {
-        /* margin-top: 225px; */
-        /* padding: 20px; */
-        /* width: 350px; */
-        /* position: fixed; */
-        /* overflow-y: auto;
-        top: 0;
-        bottom: 0; */
-        background-color: #f9faf9;
-        color: white;
+    :hover {
+        color: var(--hover-color);
     }
-
-    /* .nav-link-text {
-        color: white;
-    }
-
-    .nav-link-text.active {
-        color: white;
-        background-color: #009640;
-    } */
 
 </style>
 <script>
@@ -71,7 +54,7 @@
                     </a>
                     <br>
 
-                    <a class="nav-link " href="/dashboard" role="button">
+                    <a class="nav-link " href="/dashboard" role="button" style="--hover-color: white">
                         <div class="row d-flex align-items-center ">
                             <div class="col-2">
                                 <span class="nav-link-icon">
@@ -91,14 +74,14 @@
                         </div>
                     </a>
 
-                    <a class="nav-link" href="" role="button">
+                    <a class="nav-link" href="" role="button" style="--hover-color: white">
                         <div class="d-flex align-items-center">
                             <div class="col-2">
                                 <span class="nav-link-icon">
                                     <span class="fas fa-tasks"></span>
                                 </span>
                             </div>
-                            <div class="col text-center" style="color: #047FC3">
+                            <div class="col text-center" style="color: #047FC3" >
                                 <span class="nav-link-text ps-1">Pelan Pelaksanaan Dasar</span>
                             </div>
                             <div class="col-2">
@@ -117,23 +100,27 @@
                             <span class="nav-link-text ps-1">Data</span>
                         </div>
                     </a>
-                    <div class="card">
-                        <ul class="nav collapse show" id="dashboard" style="background-color: #E7EFFD" >
-                            <li class="nav-item"><a class="nav-link" href="/fokusutama" style="color: #047FC3">
+
+                    <div class="card" style="--hover-color: white">
+                        <ul class="nav collapse show" id="dashboard" style="background-color: #E7EFFD">
+                            <li class="nav-item"><a class="nav-link" href="/fokusutama"
+                                    style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-2">Fokus
                                             Utama</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/perkarautama" style="color: #047FC3">
+                            <li class="nav-item"><a class="nav-link" href="/perkarautama"
+                                    style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Perkara
                                             Utama</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/pemangkin" style="color: #047FC3">
+                            <li class="nav-item"><a class="nav-link" href="/pemangkin"
+                                    style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span
                                             class="nav-link-text ps-1">Tema/Pemangkin
                                             Dasar</span>
@@ -175,21 +162,24 @@
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/strategi" style="color: #047FC3">
+                            <li class="nav-item"><a class="nav-link" href="/strategi"
+                                    style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span
                                             class="nav-link-text ps-1">Strategi</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/inisiatif" style="color: #047FC3">
+                            <li class="nav-item"><a class="nav-link" href="/inisiatif"
+                                    style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span
                                             class="nav-link-text ps-1">Inisiatif</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/tindakan" style="color: #047FC3">
+                            <li class="nav-item"><a class="nav-link" href="/tindakan"
+                                    style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span
                                             class="nav-link-text ps-1">Tindakan</span>
                                     </div>
@@ -247,9 +237,8 @@
 
                             </div>
                         </div>
-                    </a>
-                     --}}
-                    <a class="nav-link" href="/" role="button">
+                    </a> --}}
+                    <a class="nav-link" href="/" role="button" style="--hover-color: white">
 
                         <div class="d-flex align-items-center">
                             <div class="col-2">
@@ -297,7 +286,7 @@
                 <br>
 
 
-                <li class="btn btn-falcon-default btn-sm">
+                <li class="btn btn-falcon-default btn-sm" style="--hover-color: white">
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <a class="nav-link" role="button" :href="route('logout')" onclick="event.preventDefault();

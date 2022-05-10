@@ -19,8 +19,9 @@ class InisiatifController extends Controller
     public function index()
     {
         $inisiatif = Inisiatif::all();
+        $list= Strategi::all();
 
-        return view('inisiatif.index', compact('inisiatif'));
+        return view('inisiatif.index', compact('inisiatif', 'list'));
     }
 
     /**

@@ -30,8 +30,8 @@
     {{-- <script src="vendors/dropzone/dropzone.min.js"></script> --}}
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <script type="text/javascript" src="/assets/js/datatables.min.js"></script>
-    <script type="text/javascript" src="/assets/js/datatables.js"></script>
+    {{-- <script type="text/javascript" src="/assets/js/datatables.min.js"></script>
+    <script type="text/javascript" src="/assets/js/datatables.js"></script> --}}
     <script src="/assets/js/flatpickr.js"></script>
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
@@ -57,8 +57,8 @@
     <link href="/assets/css/theme.min.css" rel="stylesheet" id="style-default">
     <link href="/assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
     <link href="/assets/css/user.min.css" rel="stylesheet" id="user-style-default">
-    <link rel="stylesheet" type="text/css" href="/assets/css/datatables.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/datatables.min.css" />
+    {{-- <link rel="stylesheet" type="text/css" href="/assets/css/datatables.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/datatables.min.css" /> --}}
     <script>
         var APP_URL = {!! json_encode(url('/')) !!}
 
@@ -420,42 +420,42 @@
     <script src="/vendors/list.js/list.min.js"></script>
     <script src="/assets/js/theme.js"></script>
 
-    <script src="/js/sweetalert2.all.min.js"></script>
+    {{-- <script src="/js/sweetalert2.all.min.js"></script> --}}
 
-    <script>
-        $(document).ready(function() {
-            setInterval(() => {
-                const today = new Date();
-                let day = today.getDate();
-                const bulan = ['Januari', 'Februari', 'Mac', 'April', 'May', 'Jun', 'Julai', 'Ogos',
-                    'September', 'Oktober', 'November', 'Disember'
-                ];
-                let month = bulan[today.getMonth()];
-                let year = today.getFullYear();
-                let h = today.getHours();
-                let m = today.getMinutes();
-                let s = today.getSeconds();
-                if (m < 10) m = "0" + m;
-                if (s < 10) s = "0" + s;
-                if (day < 10) day = "0" + day;
-                document.getElementById("time").innerHTML = h + ":" + m + ":" + s;
-                document.getElementById("date").innerHTML =
-                    day + " " + month + " " + year;
-            }, 1000);
+    {{-- <script>
+        // $(document).ready(function() {
+        //     setInterval(() => {
+        //         const today = new Date();
+        //         let day = today.getDate();
+        //         const bulan = ['Januari', 'Februari', 'Mac', 'April', 'May', 'Jun', 'Julai', 'Ogos',
+        //             'September', 'Oktober', 'November', 'Disember'
+        //         ];
+        //         let month = bulan[today.getMonth()];
+        //         let year = today.getFullYear();
+        //         let h = today.getHours();
+        //         let m = today.getMinutes();
+        //         let s = today.getSeconds();
+        //         if (m < 10) m = "0" + m;
+        //         if (s < 10) s = "0" + s;
+        //         if (day < 10) day = "0" + day;
+        //         document.getElementById("time").innerHTML = h + ":" + m + ":" + s;
+        //         document.getElementById("date").innerHTML =
+        //             day + " " + month + " " + year;
+        //     }, 1000);
 
 
 
-            $('.datatable').DataTable();
+            // $('.datatable').DataTable();
 
-            $(".tahun").datepicker({
-                format: "yyyy",
-                viewMode: "years",
-                minViewMode: "years",
-                autoclose: true
-            });
+            // $(".tahun").datepicker({
+            //     format: "yyyy",
+            //     viewMode: "years",
+            //     minViewMode: "years",
+            //     autoclose: true
+            // });
 
         });
-    </script>
+    </script> --}}
 </body>
 
 </html>

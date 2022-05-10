@@ -17,9 +17,10 @@
         <hr style="width:100%;text-align:center;">
 
         <select class="form-select" style="width:30%" aria-label="Default select example">
-            <option selected="">PILIH TEMA/PEMANGKIN DASAR</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
+            <option selected disabled hidden>PILIH TEMA/PEMANGKIN DASAR</option>
+            @foreach ($list as $list)
+                <option value="{{ $list->id }}">{{ $list->keteranganTema }}</option>
+            @endforeach
         </select>
 
         <div class="table-responsive scrollbar">
@@ -50,7 +51,8 @@
                                         @csrf
                                         @method('DELETE')
 
-                                        <button type="submit" onclick="myFunction()" class="btn btn-danger" style="border-radius: 38px">
+                                        <button type="submit" onclick="myFunction()" class="btn btn-danger"
+                                            style="border-radius: 38px">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                         <p id="ppd"></p>

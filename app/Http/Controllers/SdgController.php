@@ -19,8 +19,9 @@ class SdgController extends Controller
     public function index()
     {
         $sdg = Sdg::all();
+        $list= Pemangkindasar::all();
 
-        return view('sdg.index', compact('sdg'));
+        return view('sdg.index', compact('sdg', 'list'));
     }
 
     /**

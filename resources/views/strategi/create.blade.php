@@ -30,8 +30,8 @@
                             <option value="">SILA PILIH</option>
 
                             @foreach ($list as $list)
-                        <option value="{{ $list->id }}">{{ $list->keteranganBidang }}</option>
-                    @endforeach
+                                <option value="{{ $list->id }}">{{ $list->keteranganBidang }}</option>
+                            @endforeach
 
                         </select>
                     </div>
@@ -48,7 +48,8 @@
 
                 <div class="row">
                     <div class="col">
-                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3" href="/strategi">
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
+                            href="/strategi">
                             <span class="fas fa-times-circle"></span>&nbsp;Batal
                         </a>
                     </div>

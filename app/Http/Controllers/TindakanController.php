@@ -19,8 +19,9 @@ class TindakanController extends Controller
     public function index()
     {
         $tindakan = Tindakan::all();
+        $list= Inisiatif::all();
 
-        return view('tindakan.index', compact('tindakan'));
+        return view('tindakan.index', compact('tindakan', 'list'));
     }
 
     /**

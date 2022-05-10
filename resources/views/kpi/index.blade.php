@@ -1,7 +1,7 @@
 @extends('base')
 @section('content')
     <div class="container">
-            <br>
+        <br>
 
         <div class="mb-4 text-center">
             <H2>PELAN PELAKSANAAN DASAR</H2>
@@ -19,14 +19,15 @@
         <div class="row">
             <div class="col">
                 <select class="form-select" style="width:70%" aria-label="Default select example">
-                    <option selected="">PILIH OUTCOME NASIONAL</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option selected disabled hidden>PILIH OUTCOME NASIONAL</option>
+                    @foreach ($list as $list)
+                        <option value="{{ $list->id }}">{{ $list->keteranganOutcome }}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="col" style="text-align: right">
-                <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/markah/create">
+                <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                    href="/markah/create">
                     &nbsp;Kemas Kini Markah
                 </a>
             </div>

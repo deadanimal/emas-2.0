@@ -18,9 +18,11 @@
 
         <select class="form-select" style="width:30%" aria-label="Default select example">
             <option selected="">PILIH BAB</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+
+            @foreach ($list as $list)
+                <option value="{{ $list->id }}">{{ $list->keteranganBab }}</option>
+            @endforeach
+
         </select>
 
         <div class="table-responsive scrollbar">

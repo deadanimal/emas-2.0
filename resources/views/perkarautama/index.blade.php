@@ -17,10 +17,12 @@
 
         <select class="form-select" style="width:30%" aria-label="Default select example">
             <option selected disabled hidden>PILIH FOKUS UTAMA</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
+
+            @foreach ($list as $list)
+                <option value="{{ $list->id }}">{{ $list->keteranganFokus }}</option>
+            @endforeach
+
+        </select>
 
         <div class="table-responsive scrollbar">
             <table class="table table-hover table-striped overflow-hidden">
@@ -44,13 +46,15 @@
                                     <form action="{{ route('perkarautama.destroy', $perkara->id) }}" method="POST">
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="{{ route('perkarautama.edit', $perkara->id) }}"><i class="fas fa-edit"></i>
+                                            href="{{ route('perkarautama.edit', $perkara->id) }}"><i
+                                                class="fas fa-edit"></i>
                                         </a>
 
                                         @csrf
                                         @method('DELETE')
 
-                                        <button type="submit" onclick="myFunction()" class="btn btn-danger" style="border-radius: 38px">
+                                        <button type="submit" onclick="myFunction()" class="btn btn-danger"
+                                            style="border-radius: 38px">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                         <p id="ppd"></p>

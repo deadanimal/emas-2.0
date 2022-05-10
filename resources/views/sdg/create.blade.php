@@ -30,8 +30,8 @@
                             <option value="">SILA PILIH</option>
 
                             @foreach ($list as $list)
-                        <option value="{{ $list->id }}">{{ $list->keteranganTema }}</option>
-                    @endforeach
+                                <option value="{{ $list->id }}">{{ $list->keteranganTema }}</option>
+                            @endforeach
 
                         </select>
                     </div>

@@ -19,8 +19,9 @@ class PemacuController extends Controller
     public function index()
     {
         $pemacu = Pemacu::all();
+        $list= Bab::all();
 
-        return view('pemacu.index', compact('pemacu'));
+        return view('pemacu.index', compact('pemacu', 'list'));
     }
 
     /**

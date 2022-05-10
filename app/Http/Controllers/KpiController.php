@@ -19,8 +19,10 @@ class KpiController extends Controller
     public function index()
     {
         $kpi = Kpi::all();
+        $list= Outcome::all();
 
-        return view('kpi.index', compact('kpi'));
+
+        return view('kpi.index', compact('kpi', 'list'));
     }
 
     /**

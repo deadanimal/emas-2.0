@@ -19,8 +19,10 @@ class StrategiController extends Controller
     public function index()
     {
         $strategi = Strategi::all();
+        $list= Bidang::all();
 
-        return view('strategi.index', compact('strategi'));
+
+        return view('strategi.index', compact('strategi', 'list'));
     }
 
     /**

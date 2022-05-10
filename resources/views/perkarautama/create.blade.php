@@ -18,7 +18,7 @@
                     <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="fokus_id">
-                            <option value="">PILIH FOKUS UTAMA</option>
+                            <option selected disabled hidden>PILIH FOKUS UTAMA</option>
 
                             @foreach ($list as $list)
                                 <option value="{{ $list->id }}">{{ $list->keteranganFokus }}</option>

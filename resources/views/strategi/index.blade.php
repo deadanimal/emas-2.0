@@ -17,10 +17,10 @@
         <hr style="width:100%;text-align:center;">
 
         <select class="form-select" style="width:30%" aria-label="Default select example">
-            <option selected="">PILIH BIDANG KEUTAMAAN</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option selected disabled hidden>PILIH BIDANG KEUTAMAAN</option>
+            @foreach ($list as $list)
+                <option value="{{ $list->id }}">{{ $list->keteranganBidang }}</option>
+            @endforeach
         </select>
 
         <div class="table-responsive scrollbar">

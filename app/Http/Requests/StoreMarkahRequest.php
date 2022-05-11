@@ -91,7 +91,7 @@ class StoreMarkahRequest extends FormRequest
             ],
 
             'prestasiKpi' => [
-                'string',
+                // 'string',
                 // 'required',
             ],
 
@@ -101,7 +101,7 @@ class StoreMarkahRequest extends FormRequest
             ],
 
             'peratusPencapaian' => [
-                'integer',
+                'string',
                 'required',
             ],
 
@@ -135,7 +135,7 @@ class StoreMarkahRequest extends FormRequest
                 'required',
             ],
 
-            
+
         ];
     }
 }

@@ -53,7 +53,7 @@ class MarkahController extends Controller
      */
     public function store(StoreMarkahRequest $request)
     {
-        dd($request);
+        // dd($request);
 
         $markah = Markah::create($request->all());
         return redirect()->route('markah.index');

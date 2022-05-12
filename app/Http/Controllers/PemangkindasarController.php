@@ -68,10 +68,9 @@ class PemangkindasarController extends Controller
      * @param  \App\Models\Pemangkindasar  $pemangkindasar
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pemangkindasar $pemangkindasar)
+    public function edit($id)
     {
-
-        
+        $pemangkindasar = Pemangkindasar::find($id);
         return view('pemangkin.edit', compact('pemangkindasar'));
 
     }
@@ -95,8 +94,9 @@ class PemangkindasarController extends Controller
      * @param  \App\Models\Pemangkindasar  $pemangkindasar
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pemangkindasar $pemangkindasar)
+    public function destroy($id)
     {
+        $pemangkindasar = Pemangkindasar::find($id);
         $pemangkindasar->delete();
 
         return redirect()->route('pemangkin.index')

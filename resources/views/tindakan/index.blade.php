@@ -47,22 +47,21 @@
 
                             <td align="right">
                                 <div>
-                                    <form action="{{ route('tindakan.destroy', $tindakan->id) }}" method="POST">
+                                    {{-- <form action="{{ route('tindakan.destroy', $tindakan->id) }}" method="POST"> --}}
 
-                                        <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="{{ route('tindakan.edit', $tindakan->id) }}"><i
-                                                class="fas fa-edit"></i>
-                                        </a>
+                                    <a class="btn btn-primary" style="border-radius: 38px"
+                                        href="{{ route('tindakan.edit', $tindakan->id) }}"><i class="fas fa-edit"></i>
+                                    </a>
 
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" onclick="myFunction()" class="btn btn-danger"
-                                            style="border-radius: 38px">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                        <p id="ppd"></p>
+                                    {{-- @csrf
+                                        @method('DELETE') --}}
+                                    <button type="submit" onclick="myFunction({{ $tindakan->id }})" class="btn btn-danger"
+                                        style="border-radius: 38px">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                    <p id="ppd"></p>
 
-                                    </form>
+                                    {{-- </form> --}}
                                 </div>
                             </td>
                         </tr>
@@ -77,12 +76,24 @@
     </div>
 
     <script>
-        function myFunction() {
-            let text = "Adakah anda mahu membuang data?";
-            if (confirm(text) == true) {
-                text = "Berjaya di buang!";
+        function myFunction(id) {
+
+
+            let alert = "Adakah anda mahu membuang data?";
+            if (confirm(alert) == true) {
+                $.ajax({
+                    method: "DELETE",
+                    url: "/tindakan/" + id,
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                    }
+                });
+
+                alert = "Berjaya di buang!";
+                location.reload();
+
             } else {
-                text = "Dibatalkan!";
+                alert("Dibatalkan!");
             }
             document.getElementById("ppd").innerHTML = text;
         }

@@ -21,7 +21,7 @@
                     <label class="col-sm-2 col-form-label" for="kategori_id">Kategori</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="kategori_id">
-                            <option value="">Pilih Kategori</option>
+                            <option value disabled hidden>Pilih Kategori</option>
                             <option value="1">Tema</option>
                             <option value="2">Pemangkin Dasar</option>
 
@@ -40,7 +40,8 @@
 
                 <div class="row">
                     <div class="col">
-                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3" href="/pemangkin">
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
+                            href="/pemangkin">
                             <span class="fas fa-times-circle"></span>&nbsp;Batal
                         </a>
                     </div>

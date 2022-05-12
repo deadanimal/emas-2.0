@@ -40,23 +40,23 @@
 
                             <td align="right">
                                 <div>
-                                    <form action="{{ route('pemangkin.destroy', $pemangkin->id) }}" method="POST">
+                                    {{-- <form action="{{ route('pemangkin.destroy', $pemangkin->id) }}" method="POST"> --}}
 
-                                        <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="{{ route('pemangkin.edit', $pemangkin->id) }}"><i
-                                                class="fas fa-edit"></i>
-                                        </a>
+                                    <a class="btn btn-primary" style="border-radius: 38px"
+                                        href="{{ route('pemangkin.edit', $pemangkin->id) }}"><i
+                                            class="fas fa-edit"></i>
+                                    </a>
 
-                                        @csrf
-                                        @method('DELETE')
+                                    {{-- @csrf --}}
+                                    {{-- @method('DELETE') --}}
 
-                                        <button type="submit" onclick="myFunction()" class="btn btn-danger"
-                                            style="border-radius: 38px">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                        <p id="ppd"></p>
+                                    <button type="button" onclick="myFunction({{ $pemangkin->id }})"
+                                        class="btn btn-danger" style="border-radius: 38px">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                    <p id="ppd"></p>
 
-                                    </form>
+                                    {{-- </form> --}}
                                 </div>
                             </td>
                         </tr>
@@ -71,30 +71,29 @@
     </div>
 
     <script>
-
-    $('.searchKategori').change(function(e){
-       let val = this.value;
-       console.log(val);
-       var pemangkin = @json($pemangkindasar->toArray());
-       //tema
-       $("#tablebody").html('');
-       if (val == 1) {
-        pemangkin.forEach(e => {
-            if (e.kategori_id == 1) {
-                $("#tablebody").append(`
+        $('.searchKategori').change(function(e) {
+            let val = this.value;
+            console.log(val);
+            var pemangkin = @json($pemangkindasar->toArray());
+            //tema
+            $("#tablebody").html('');
+            if (val == 1) {
+                pemangkin.forEach(e => {
+                    if (e.kategori_id == 1) {
+                        $("#tablebody").append(`
                 <tr class="align-middle">
                         <td class="text-nowrap">
                             <div class="d-flex align-items-center">
-                                <div class="ms-2"><b>`+e.keteranganTema+`</b></div>
+                                <div class="ms-2"><b>` + e.keteranganTema + `</b></div>
                             </div>
                         </td>
 
                         <td align="right">
                             <div>
-                                <form action="/pemangkin/`+e.id+`" method="POST">
+                                <form action="/pemangkin/` + e.id + `" method="POST">
 
                                     <a class="btn btn-primary" style="border-radius: 38px"
-                                        href="/pemangkin/`+e.id+`"><i
+                                        href="/pemangkin/` + e.id + `"><i
                                             class="fas fa-edit"></i>
                                     </a>
 
@@ -111,27 +110,27 @@
                         </td>
                     </tr>
                 `);
+                    }
+                });
             }
-        });
-       }
 
-       if (val==2) {
-        pemangkin.forEach(e => {
-            if (e.kategori_id == 2) {
-                $("#tablebody").append(`
+            if (val == 2) {
+                pemangkin.forEach(e => {
+                    if (e.kategori_id == 2) {
+                        $("#tablebody").append(`
                 <tr class="align-middle">
                         <td class="text-nowrap">
                             <div class="d-flex align-items-center">
-                                <div class="ms-2"><b>`+e.keteranganTema+`</b></div>
+                                <div class="ms-2"><b>` + e.keteranganTema + `</b></div>
                             </div>
                         </td>
 
                         <td align="right">
                             <div>
-                                <form action="/pemangkin/`+e.id+`" method="POST">
+                                <form action="/pemangkin/` + e.id + `" method="POST">
 
                                     <a class="btn btn-primary" style="border-radius: 38px"
-                                        href="/pemangkin/`+e.id+`"><i
+                                        href="/pemangkin/` + e.id + `"><i
                                             class="fas fa-edit"></i>
                                     </a>
 
@@ -148,20 +147,42 @@
                         </td>
                     </tr>
                 `);
+                    }
+                });
             }
+
         });
-       }
 
-    });
+        function myFunction(id) {
 
-        function myFunction() {
-            let text = "Adakah anda mahu membuang data?";
-            if (confirm(text) == true) {
-                text = "Berjaya di buang!";
+
+            let alert = "Adakah anda mahu membuang data?";
+            if (confirm(alert) == true) {
+                $.ajax({
+                    method: "DELETE",
+                    url: "/pemangkin/" + id,
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                    }
+                });
+
+                alert = "Berjaya di buang!";
+                location.reload();
+
             } else {
-                text = "Dibatalkan!";
+                alert("Dibatalkan!");
             }
             document.getElementById("ppd").innerHTML = text;
+
+            // e.preventDefault();
+            // console.log(e);
+            // let text = confirm("Adakah anda mahu membuang data?");
+            // if (text) {
+            //     alert("Berjaya di buang!");
+            // } else {
+            //     alert("Dibatalkan!");
+            // }
+            // document.getElementById("ppd").innerHTML = text;
         }
     </script>
 @endsection

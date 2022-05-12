@@ -42,23 +42,22 @@
 
                             <td align="right">
                                 <div>
-                                    <form action="{{ route('outcome.destroy', $outcome->id) }}" method="POST">
+                                    {{-- <form action="{{ route('outcome.destroy', $outcome->id) }}" method="POST"> --}}
 
-                                        <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="{{ route('outcome.edit', $outcome->id) }}"><i
-                                                class="fas fa-edit"></i>
-                                        </a>
+                                    <a class="btn btn-primary" style="border-radius: 38px"
+                                        href="{{ route('outcome.edit', $outcome->id) }}"><i class="fas fa-edit"></i>
+                                    </a>
 
-                                        @csrf
-                                        @method('DELETE')
+                                    {{-- @csrf
+                                        @method('DELETE') --}}
 
-                                        <button type="submit" onclick="myFunction()" class="btn btn-danger"
-                                            style="border-radius: 38px">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                        <p id="ppd"></p>
+                                    <button type="button" onclick="myFunction({{ $outcome->id }})" class="btn btn-danger"
+                                        style="border-radius: 38px">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                    <p id="ppd"></p>
 
-                                    </form>
+                                    {{-- </form> --}}
                                 </div>
                             </td>
                         </tr>
@@ -73,12 +72,24 @@
     </div>
 
     <script>
-        function myFunction() {
-            let text = "Adakah anda mahu membuang data?";
-            if (confirm(text) == true) {
-                text = "Berjaya di buang!";
+        function myFunction(id) {
+
+
+            let alert = "Adakah anda mahu membuang data?";
+            if (confirm(alert) == true) {
+                $.ajax({
+                    method: "DELETE",
+                    url: "/outcome/" + id,
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                    }
+                });
+
+                alert = "Berjaya di buang!";
+                location.reload();
+
             } else {
-                text = "Dibatalkan!";
+                alert("Dibatalkan!");
             }
             document.getElementById("ppd").innerHTML = text;
         }

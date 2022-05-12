@@ -44,22 +44,22 @@
 
                             <td align="right">
                                 <div>
-                                    <form action="{{ route('bidang.destroy', $bidang->id) }}" method="POST">
+                                    {{-- <form action="{{ route('bidang.destroy', $bidang->id) }}" method="POST"> --}}
 
-                                        <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="{{ route('bidang.edit', $bidang->id) }}"><i class="fas fa-edit"></i>
-                                        </a>
+                                    <a class="btn btn-primary" style="border-radius: 38px"
+                                        href="{{ route('bidang.edit', $bidang->id) }}"><i class="fas fa-edit"></i>
+                                    </a>
 
-                                        @csrf
-                                        @method('DELETE')
+                                    {{-- @csrf
+                                        @method('DELETE') --}}
 
-                                        <button type="submit" onclick="myFunction()" class="btn btn-danger"
-                                            style="border-radius: 38px">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                        <p id="ppd"></p>
+                                    <button type="submit" onclick="myFunction({{ $bidang->id }})" class="btn btn-danger"
+                                        style="border-radius: 38px">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                    <p id="ppd"></p>
 
-                                    </form>
+                                    {{-- </form> --}}
                                 </div>
                             </td>
                         </tr>
@@ -74,12 +74,24 @@
     </div>
 
     <script>
-        function myFunction() {
-            let text = "Adakah anda mahu membuang data?";
-            if (confirm(text) == true) {
-                text = "Berjaya di buang!";
+        function myFunction(id) {
+
+
+            let alert = "Adakah anda mahu membuang data?";
+            if (confirm(alert) == true) {
+                $.ajax({
+                    method: "DELETE",
+                    url: "/bidang/" + id,
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                    }
+                });
+
+                alert = "Berjaya di buang!";
+                location.reload();
+
             } else {
-                text = "Dibatalkan!";
+                alert("Dibatalkan!");
             }
             document.getElementById("ppd").innerHTML = text;
         }

@@ -29,7 +29,7 @@
 
                     <div class="col" style="text-align: right">
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit"><span class="fas fa-save"></span>&nbsp;Simpan
+                            type="submit" value="Save"  onclick=ConfirmSave()><span class="fas fa-save"></span>&nbsp;Simpan
                         </button>
                     </div>
                 </div>
@@ -40,9 +40,17 @@
 
     </div>
 
+    <script>
+        function ConfirmSave() {
+            var isconfirm = window.confirm("Adakah anda mahu mengubah data?");
+            if (isconfirm)
+                self.location = "Save.php";
+        }
+    </script>
+
     @if ($errors->any())
         <div class="alert alert-danger">
-            <strong>Ooops!</strong> There were some problems with your input.<br><br>
+            <strong>Ooops!</strong> Input tidak mencukupi<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>

@@ -82,8 +82,11 @@ class PemangkindasarController extends Controller
      * @param  \App\Models\Pemangkindasar  $pemangkindasar
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePemangkindasarRequest $request, Pemangkindasar $pemangkindasar)
+    public function update(UpdatePemangkindasarRequest $request, $id)
     {
+
+        $pemangkindasar = Pemangkindasar::find($id);
+
         $pemangkindasar->update($request->all());
         return redirect()->route('pemangkin.index');
     }

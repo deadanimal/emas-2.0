@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('pemacus', function (Blueprint $table) {
             $table->id();
-            $table->string('keteranganBab');
+            $table->string('namaPemacu');
+            $table->longText('keteranganBab');
             $table->string('user_id')->nullable();
             $table->timestamps();
         });

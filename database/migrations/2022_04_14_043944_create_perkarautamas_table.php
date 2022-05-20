@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('perkarautamas', function (Blueprint $table) {
             $table->id();
-            $table->string('keteranganPerkaraUtama');
+            $table->string('namaPerkara');
+            $table->longText('keteranganPerkaraUtama');
             $table->string('kategoriUcapan')->nullable();
             $table->string('fokus_id')->nullable();
             $table->string('user_id')->nullable();

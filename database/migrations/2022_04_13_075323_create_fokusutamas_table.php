@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('fokusutamas', function (Blueprint $table) {
             $table->id();
-            $table->string('keteranganFokus');
+            $table->string('namaFokus');
+            $table->longText('keteranganFokus');
             $table->string('user_id')->nullable();
             $table->timestamps();
         });

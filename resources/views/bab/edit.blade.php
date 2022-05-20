@@ -30,6 +30,20 @@
                     </div>
                 </div>
 
+                <div class="mb-3 row" >
+                    <label class="col-sm-2 col-form-label" for="fokus_id">Nama Bab</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" name="fokus_id" placeholder="Sila isi"/>
+                    </div>
+                </div>
+
+                <div class="mb-3 row" >
+                    <label class="col-sm-2 col-form-label" for="fokus_id">No Bab</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" name="fokus_id" placeholder="Sila Pilih"/>
+                    </div>
+                </div>
+
                 <br>
                 <br>
 

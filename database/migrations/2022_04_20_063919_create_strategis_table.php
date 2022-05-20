@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('strategis', function (Blueprint $table) {
             $table->id();
-            $table->string('keteranganStrategi');
+            $table->string('namaStrategi');
+
+            $table->longText('keteranganStrategi');
             $table->string('bidang_id')->nullable();
             $table->string('user_id')->nullable();
             $table->timestamps();

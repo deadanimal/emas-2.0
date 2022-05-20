@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('sdgs', function (Blueprint $table) {
             $table->id();
-            $table->string('keteranganSdg');
+            $table->string('namaSdg');
+
+            $table->longText('keteranganSdg');
             $table->string('pemangkin_id')->nullable();
             $table->string('user_id')->nullable();
             $table->timestamps();

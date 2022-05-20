@@ -30,6 +30,11 @@ class StorePerkarautamaRequest extends FormRequest
                 'required',
             ],
 
+            'namaPerkara' => [
+                'string',
+                'required',
+            ],
+
             'focus_id' => [
                 'string',
 

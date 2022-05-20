@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('tindakans', function (Blueprint $table) {
             $table->id();
-            $table->string('keteranganTindakan');
+            $table->string('namaTindakan');
+
+            $table->longText('keteranganTindakan');
             $table->string('inisiatif_id')->nullable();
             $table->string('perkara_id')->nullable();
             $table->string('user_id')->nullable();

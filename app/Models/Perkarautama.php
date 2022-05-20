@@ -14,6 +14,7 @@ class Perkarautama extends Model
     protected $fillable = [
 
         'keteranganPerkaraUtama',
+        'namaPerkara',
         'fokus_id',
         'user_id',
     ];

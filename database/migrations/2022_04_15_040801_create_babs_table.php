@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('babs', function (Blueprint $table) {
             $table->id();
-            $table->string('keteranganBab');
+            $table->string('namaBab');
+            $table->string('noBab');
+            $table->longText('keteranganBab');
             $table->string('markahPencapaian')->nullable();
-
             $table->string('pemangkin_id')->nullable();
             $table->string('user_id')->nullable();
             $table->timestamps();

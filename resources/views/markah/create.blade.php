@@ -52,7 +52,7 @@
                     <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="pemangkin_id">
-                            <option value=""></option>
+                            <option selected disabled hidden>Sila Pilih</option>
 
                             @foreach ($listTema as $listTema)
                                 <option value="{{ $listTema->id }}">{{ $listTema->keteranganTema }}</option>
@@ -64,7 +64,7 @@
                     <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="bab_id">
-                            <option value=""></option>
+                            <option selected disabled hidden>Sila Pilih</option>
 
                             @foreach ($listBab as $listBab)
                                 <option value="{{ $listBab->id }}">{{ $listBab->keteranganBab }}</option>
@@ -78,7 +78,7 @@
                     <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="bidang_id">
-                            <option value=""></option>
+                            <option selected disabled hidden>Sila Pilih</option>
 
                             @foreach ($listBidang as $listBidang)
                                 <option value="{{ $listBidang->id }}">{{ $listBidang->keteranganBidang }}</option>
@@ -90,7 +90,7 @@
                     <label class="col-sm-2 col-form-label" for="outcome_id">Outcome Nasional</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="outcome_id">
-                            <option value=""></option>
+                            <option selected disabled hidden>Sila Pilih</option>
 
                             @foreach ($list as $list)
                                 <option value="{{ $list->id }}">{{ $list->keteranganOutcome }}</option>

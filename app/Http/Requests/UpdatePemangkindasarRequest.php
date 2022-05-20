@@ -29,6 +29,13 @@ class UpdatePemangkindasarRequest extends FormRequest
                 'required',
             ],
 
+            'namaTema' => [
+                'string',
+                'required',
+            ],
+
+
+
             'kategori_id' => [
                 'string',
 

@@ -3,6 +3,27 @@
         color: var(--hover-color);
     }
 
+    /* Style the buttons */
+    .nav-item {
+        border: none;
+        outline: none;
+        /* padding: 10px 16px; */
+        background-color: #ffffff;
+        color: white;
+        cursor: pointer;
+        /* font-size: 18px; */
+
+    }
+
+    /* Style the active class, and buttons on mouse-over */
+    .active,
+
+
+    .nav-item:hover {
+        /* background-color: #666; */
+        color: white;
+    }
+
 </style>
 <script>
     var isFluid = JSON.parse(localStorage.getItem('isFluid'));
@@ -81,7 +102,7 @@
                                     <span class="fas fa-tasks"></span>
                                 </span>
                             </div>
-                            <div class="col text-center" style="color: #047FC3" >
+                            <div class="col text-center" style="color: #047FC3">
                                 <span class="nav-link-text ps-1">Pelan Pelaksanaan Dasar</span>
                             </div>
                             <div class="col-2">
@@ -103,15 +124,15 @@
 
                     <div class="card" style="--hover-color: white">
                         <ul class="nav collapse show" id="dashboard" style="background-color: #E7EFFD">
-                            <li class="nav-item"><a class="nav-link" href="/fokusutama"
+                            <li class="nav-item"><a class="nav-link {{ Request::is('fokusutama')? 'active' : '' }}" href="/fokusutama"
                                     style="color: #047FC3">
-                                    <div class="d-flex align-items-center"><span class="nav-link-text ps-2">Fokus
+                                    <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Fokus
                                             Utama</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/perkarautama"
+                            <li class="nav-item"><a class="nav-link {{ Request::is('perkarautama')? 'active' : '' }}" href="/perkarautama"
                                     style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Perkara
                                             Utama</span>
@@ -119,7 +140,7 @@
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/pemangkin"
+                            <li class="nav-item"><a class="nav-link {{ Request::is('pemangkin')? 'active' : '' }}" href="/pemangkin"
                                     style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span
                                             class="nav-link-text ps-1">Tema/Pemangkin
@@ -128,41 +149,41 @@
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/bab" style="color: #047FC3">
+                            <li class="nav-item"><a class="nav-link {{ Request::is('bab')? 'active' : '' }}" href="/bab" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Bab</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/pemacu" style="color: #047FC3">
+                            <li class="nav-item"><a class="nav-link {{ Request::is('pemacu')? 'active' : '' }}" href="/pemacu" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Pemacu
                                             Perubahan</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/bidang" style="color: #047FC3">
+                            <li class="nav-item"><a class="nav-link {{ Request::is('bidang')? 'active' : '' }}" href="/bidang" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Bidang
                                             Keutamaan</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/outcome" style="color: #047FC3">
+                            <li class="nav-item"><a class="nav-link {{ Request::is('outcome')? 'active' : '' }}" href="/outcome" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Outcome
                                             Nasional</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/kpi" style="color: #047FC3">
+                            <li class="nav-item"><a class="nav-link {{ Request::is('kpi')? 'active' : '' }}" href="/kpi" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-1">KPI
                                             Nasional</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/strategi"
+                            <li class="nav-item"><a class="nav-link {{ Request::is('strategi')? 'active' : '' }}" href="/strategi"
                                     style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span
                                             class="nav-link-text ps-1">Strategi</span>
@@ -170,7 +191,7 @@
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/inisiatif"
+                            <li class="nav-item"><a class="nav-link {{ Request::is('inisiatif')? 'active' : '' }}" href="/inisiatif"
                                     style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span
                                             class="nav-link-text ps-1">Inisiatif</span>
@@ -178,7 +199,7 @@
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/tindakan"
+                            <li class="nav-item"><a class="nav-link {{ Request::is('tindakan')? 'active' : '' }}" href="/tindakan"
                                     style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span
                                             class="nav-link-text ps-1">Tindakan</span>
@@ -186,7 +207,7 @@
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/sdg" style="color: #047FC3">
+                            <li class="nav-item"><a class="nav-link {{ Request::is('sdg')? 'active' : '' }}" href="/sdg" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-1">SDG</span>
                                     </div>
                                 </a>
@@ -311,4 +332,20 @@
             </ul>
         </div>
     </div>
+
+
+    {{-- <script>
+        // Add active class to the current button (highlight it)
+        var header = document.getElementById("myDIV");
+        var navitem = header.getElementsByClassName("nav-item");
+        for (var i = 0; i < navitem.length; i++) {
+            navitem[i].addEventListener("click", function() {
+                var current = document.getElementsByClassName("active");
+                if (current.length > 0) {
+                    current[0].className = current[0].className.replace(" active", "");
+                }
+                this.className += " active";
+            });
+        }
+    </script> --}}
 </nav>

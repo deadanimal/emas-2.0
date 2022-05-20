@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('pemangkindasars', function (Blueprint $table) {
             $table->id();
-            $table->string('keteranganTema');
+            $table->string('namaTema');
+
+            $table->longText('keteranganTema');
             $table->string('kategori_id')->nullable();
 
             $table->string('perkara_id')->nullable();

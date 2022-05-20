@@ -30,6 +30,11 @@ class UpdateFokusutamaRequest extends FormRequest
                 'required',
             ],
 
+            'namaFokus' => [
+                'string',
+                'required',
+            ],
+
             'user_id' => [
                 'string',
             ],

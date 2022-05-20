@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('inisiatifs', function (Blueprint $table) {
             $table->id();
-            $table->string('keteranganInisiatif');
+            $table->string('namaInisiatif');
+
+            $table->longText('keteranganInisiatif');
             $table->string('strategi_id')->nullable();
             $table->string('user_id')->nullable();
             $table->timestamps();

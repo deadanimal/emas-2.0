@@ -86,27 +86,27 @@
             border-color: #009640;
         }
 
-        .risda-dg {
+        .emas-dg {
             color: #0F5E31;
         }
 
-        .risda-bg-dg {
+        .emas-bg-dg {
             background-color: #76bbe9;
         }
 
-        .risda-g {
+        .emas-g {
             color: #009640;
         }
 
-        .risda-bg-g {
+        .emas-bg-g {
             background-color: #e8efeb;
         }
 
-        .nav-link-risda {
+        .nav-link-emas {
             color: #0F5E31;
         }
 
-        .nav-link-risda.active {
+        .nav-link-emas.active {
             background-color: #0F5E31;
             color: white;
         }
@@ -291,7 +291,7 @@
                 width: 350px;
             }
 
-            .risda-m {
+            .emas-m {
                 margin-left: 350px;
             }
 
@@ -306,7 +306,7 @@
         }
 
         @media only screen and (max-width: 600px) {
-            .risda-m {
+            .emas-m {
                 margin-left: 0px;
             }
 
@@ -420,48 +420,6 @@
 
                                         </div>
 
-
-                                        {{-- <div class="modal fade" id="error-modal" tabindex="-1" role="dialog"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document"
-                                                style="max-width: 500px">
-                                                <div class="modal-content position-relative">
-                                                    <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
-                                                        <button
-                                                            class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
-                                                            data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body p-0">
-
-                                                        <div class="p-4 pb-0">
-
-                                                            <form method="POST"
-                                                                action="{{ route('password.email') }}">
-                                                                @csrf
-
-                                                                <!-- Email Address -->
-                                                                <div>
-                                                                    <x-label for="email" :value="__('E-mel Pengguna')" />
-
-                                                                    <x-input id="email" class="block mt-1 w-full"
-                                                                        type="email" name="email" :value="old('email')"
-                                                                        required autofocus />
-                                                                </div>
-
-
-
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button class="btn btn-primary d-block w-100 mt-3"
-                                                            style="background-color: #047FC3; color:white" type="submit"
-                                                            name="submit">Sahkan</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> --}}
-
                                     </div>
                                     <div class="mb-3">
                                         <button class="btn btn-primary d-block w-100 mt-3"
@@ -470,6 +428,44 @@
                                     </div>
 
                                 </form>
+
+                                <div class="modal fade" id="error-modal" tabindex="-1" role="dialog"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document"
+                                        style="max-width: 500px">
+                                        <div class="modal-content position-relative">
+                                            <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                                                <button
+                                                    class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body p-0">
+
+                                                <div class="p-4 pb-0">
+
+                                                    <form method="POST" action="{{ route('password.email') }}">
+                                                        @csrf
+
+                                                        <!-- Email Address -->
+                                                        <div class="mb-3">
+                                                            <label class="form-label" for="email">E-mel Pengguna</label>
+                                                            <input class="form-control" id="email" type="email" name="email"
+                                                            :value="old('email')" required autofocus />
+                                                        </div>
+
+
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-primary d-block w-100 mt-3"
+                                                    style="background-color: #047FC3; color:white" type="submit"
+                                                    name="submit">Hantar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
 
                             </div>
@@ -480,10 +476,10 @@
         </div>
 
 
-        <footer class="risda-bg-dg">
-            <div class="row p-4">
+        <footer class="emas-bg-dg">
+            <div class="row p-">
                 <div class="col">
-                    <div class="text-600 text-white text-center">
+                    <div class="text-100 text-white text-center">
                         Copyright ©️ UNIT PERANCANG EKONOMI
                     </div>
                 </div>

@@ -32,7 +32,7 @@ return new class extends Migration
             $table->string('pemangkin_id')->nullable();
             $table->string('bidang_id')->nullable();
             $table->string('namaKpi');
-            $table->string('prestasiKpi');
+            $table->string('prestasiKpi')->nullable();
             $table->string('pencapaian');
             $table->string('hadVarian');
             $table->string('kekerapan');
@@ -44,7 +44,7 @@ return new class extends Migration
             $table->string('sasaran2024');
             $table->string('sasaran2025');
 
-            
+
             $table->boolean('lulus')->nullable();
             $table->string('ditolak')->nullable();
 

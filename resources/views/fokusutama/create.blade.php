@@ -1,6 +1,8 @@
 @extends('base')
 @section('content')
     <div class="container">
+        <br>
+
         <div class="mb-4 text-center">
             <H2>KEMASUKAN DATA</H2>
         </div>
@@ -12,10 +14,20 @@
             <form action="{{ route('fokusutama.store') }}" method="POST">
                 @csrf
 
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="namaFokus">Nama Fokus Utama</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="namaFokus" />
+
+                    </div>
+                </div>
+
                 <div class="mb-3">
                     <label class="form-label" for="keteranganFokus"><b>Keterangan Fokus Utama</b></label>
                     <textarea class="form-control" name="keteranganFokus" rows="5"></textarea>
                 </div>
+
+
 
                 <div class="row">
                     <div class="col">

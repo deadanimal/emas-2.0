@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('bidangs', function (Blueprint $table) {
             $table->id();
-            $table->string('keteranganBidang');
+            $table->string('namaBidang');
+
+            $table->longText('keteranganBidang');
             $table->string('pemacu_id')->nullable();
             $table->string('bab_id')->nullable();
             $table->string('user_id')->nullable();

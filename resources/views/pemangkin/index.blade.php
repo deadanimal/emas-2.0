@@ -33,10 +33,42 @@
                     @foreach ($pemangkindasar as $pemangkin)
                         <tr class="align-middle">
                             <td class="text-nowrap">
-                                <div class="d-flex align-items-center">
-                                    <div class="ms-2"><b>{{ $pemangkin->keteranganTema }}</b></div>
+                                <div class="d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#error-modal-{{ $pemangkin->id }}">
+                                    <div class="ms-2"><b>{{ $pemangkin->namaTema }}</b></div>
                                 </div>
                             </td>
+
+                            <div class="modal fade" id="error-modal-{{ $pemangkin->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
+                                    <div class="modal-content position-relative">
+                                        <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                                            <button
+                                                class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body p-0">
+
+                                            <div class="p-4 pb-0">
+                                                <form>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Nama Tema/Pemangkin:</label>
+                                                        <label class="form-control" disabled="disabled">{{ $pemangkin->namaTema }}</label>
+
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Keterangan:</label>
+                                                        <label class="form-control" disabled="disabled">{{ $pemangkin->keteranganTema }}</label>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-secondary" type="button"
+                                                data-bs-dismiss="modal">Tutup</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <td align="right">
                                 <div>

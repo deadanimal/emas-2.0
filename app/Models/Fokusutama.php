@@ -14,6 +14,7 @@ class Fokusutama extends Model
     protected $fillable = [
 
         'keteranganFokus',
+        'namaFokus',
         'user_id',
     ];
 

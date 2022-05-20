@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('kpis', function (Blueprint $table) {
             $table->id();
-            $table->string('keteranganKpi');
+            $table->string('namaKpi');
+
+            $table->longText('keteranganKpi');
             $table->string('outcome_id')->nullable();
             $table->string('user_id')->nullable();
             $table->timestamps();

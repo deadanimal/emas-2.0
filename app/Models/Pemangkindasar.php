@@ -14,7 +14,7 @@ class Pemangkindasar extends Model
     protected $fillable = [
 
         'keteranganTema',
-
+        'namaTema',
         'kategori_id',
         'fokus_id',
         'perkara_id',

@@ -8,7 +8,7 @@
         border: none;
         outline: none;
         /* padding: 10px 16px; */
-        background-color: #ffffff;
+        background-color: #E7EFFD;
         color: white;
         cursor: pointer;
         /* font-size: 18px; */
@@ -66,7 +66,7 @@
     <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
         <div class="navbar-vertical-content scrollbar ">
             <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
-                <li class="nav-item">
+                <li class="nav-item1">
 
                     <a class="navbar-brand" href="/dashboard">
                         <div class="d-flex justify-content-center">
@@ -219,7 +219,7 @@
                 </li>
                 <br>
 
-                <li class="nav-item mx-3 mx-md-0">
+                <li class="nav-item1 mx-3 mx-md-0">
                     <!-- label-->
                     {{-- <a class="nav-link" href="/markah/create" role="button">
 
@@ -281,7 +281,7 @@
 
                 <hr style="width:100%;text-align:center;">
 
-                <li class="nav-item">
+                <li class="nav-item1">
                     <a class="nav-link" href="/" role="button">
 
 

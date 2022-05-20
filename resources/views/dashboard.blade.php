@@ -383,6 +383,27 @@
                         </div>
                     </a>
                 </div>
+                {{-- <div class="col-md-6 col-lg-4 text-center">
+                    <a class="mb-3" href="/">
+                        <div class="px-4 pt-4">
+                            <img src="img/MD.png" class="img-fluid card-img-hover landing-img" alt="">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4 text-center">
+                    <a class="mb-3" href="/">
+                        <div class="px-4 pt-4">
+                            <img src="img/ED.png" class="img-fluid card-img-hover landing-img" alt="">
+                        </div>
+                    </a>
+                </div> --}}
+
+            </div>
+
+            <div class="row pb-3">
+                <div class="col-md-6 col-lg-2 text-center">
+
+                </div>
                 <div class="col-md-6 col-lg-4 text-center">
                     <a class="mb-3" href="/">
                         <div class="px-4 pt-4">
@@ -396,6 +417,9 @@
                             <img src="img/ED.png" class="img-fluid card-img-hover landing-img" alt="">
                         </div>
                     </a>
+                </div>
+                <div class="col-md-6 col-lg-2 text-center">
+
                 </div>
 
             </div>

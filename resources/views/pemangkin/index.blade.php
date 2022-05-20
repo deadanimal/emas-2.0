@@ -63,8 +63,7 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="btn btn-secondary" type="button"
-                                                data-bs-dismiss="modal">Tutup</button>
+
                                         </div>
                                     </div>
                                 </div>

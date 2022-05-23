@@ -29,6 +29,11 @@ class UpdateInisiatifRequest extends FormRequest
                 'required',
             ],
 
+            'namaInisiatif' => [
+                'string',
+                'required',
+            ],
+
             'strategi_id' => [
                 'string',
             ],

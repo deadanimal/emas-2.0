@@ -14,6 +14,7 @@ class Sdg extends Model
     protected $fillable = [
 
         'keteranganSdg',
+        'namaSdg',
         'pemangkin_id',
         'user_id',
     ];

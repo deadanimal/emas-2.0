@@ -29,6 +29,11 @@ class StoreStrategiRequest extends FormRequest
                 'required',
             ],
 
+            'namaStrategi' => [
+                'string',
+                'required',
+            ],
+
             'user_id' => [
                 'string',
             ],

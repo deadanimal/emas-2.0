@@ -14,6 +14,7 @@ class Pemacu extends Model
     protected $fillable = [
 
         'keteranganBab',
+        'namaPemacu',
         'user_id',
     ];
 

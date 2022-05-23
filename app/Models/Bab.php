@@ -14,6 +14,8 @@ class Bab extends Model
     protected $fillable = [
 
         'keteranganBab',
+        'namaBab',
+        'noBab',
         'pemangkin_id',
         'user_id',
     ];

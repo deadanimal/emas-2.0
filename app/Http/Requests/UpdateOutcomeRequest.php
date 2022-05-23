@@ -29,6 +29,11 @@ class UpdateOutcomeRequest extends FormRequest
                 'required',
             ],
 
+            'namaOutcome' => [
+                'string',
+                'required',
+            ],
+
             'bidang_id' => [
                 'string',
             ],

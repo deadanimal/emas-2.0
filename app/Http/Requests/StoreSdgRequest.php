@@ -29,6 +29,11 @@ class StoreSdgRequest extends FormRequest
                 'required',
             ],
 
+            'namaSdg' => [
+                'string',
+                'required',
+            ],
+
             'pemangkin_id' => [
                 'string',
             ],

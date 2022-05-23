@@ -29,6 +29,11 @@ class StoreBidangRequest extends FormRequest
                 'required',
             ],
 
+            'namaBidang' => [
+                'string',
+                'required',
+            ],
+
             'bab_id' => [
                 'string',
             ],

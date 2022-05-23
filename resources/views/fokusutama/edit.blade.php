@@ -1,6 +1,7 @@
 @extends('base')
 @section('content')
     <div class="container">
+        <br>
         <div class="mb-4 text-center">
             <H2>KEMAS KINI DATA</H2>
         </div>
@@ -21,6 +22,8 @@
 
                     </div>
                 </div>
+
+                <br><br>
 
                 <div class="mb-3">
                     <label class="form-label" for="keteranganFokus"><b>Keterangan Fokus Utama</b></label>

@@ -14,6 +14,7 @@ class Bidang extends Model
     protected $fillable = [
 
         'keteranganBidang',
+        'namaBidang',
         'bab_id',
         'pemacu_id',
         'user_id',

@@ -1,6 +1,7 @@
 @extends('base')
 @section('content')
     <div class="container">
+        <br>
         <div class="mb-4 text-center">
             <H2>KEMASUKAN DATA</H2>
         </div>
@@ -27,13 +28,22 @@
                     <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="bidang_id">
-                            <option value="">SILA PILIH</option>
+                            <option selected disabled hidden>SILA PILIH</option>
 
                             @foreach ($list as $list)
                                 <option value="{{ $list->id }}">{{ $list->keteranganBidang }}</option>
                             @endforeach
 
                         </select>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+
+                    <label class="col-sm-2 col-form-label" for="namaOutcome">Nama Outcome Nasional</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="namaOutcome" />
+
                     </div>
                 </div>
 
@@ -56,7 +66,9 @@
 
                     <div class="col" style="text-align: right">
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save" onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span class="fas fa-save"></span>&nbsp;Simpan
+                            type="submit" value="Save"
+                            onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span
+                                class="fas fa-save"></span>&nbsp;Simpan
                         </button>
                     </div>
                 </div>

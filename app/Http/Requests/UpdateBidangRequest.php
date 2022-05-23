@@ -29,6 +29,11 @@ class UpdateBidangRequest extends FormRequest
                 'required',
             ],
 
+            'namaBidang' => [
+                'string',
+                'required',
+            ],
+
             'bab_id' => [
                 'string',
             ],

@@ -30,6 +30,14 @@
                     </div>
                 </div>
 
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="namaStrategi">Nama Strategi</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="namaStrategi" value="{{ $strategi->namaStrategi }}" />
+
+                    </div>
+                </div>
+
                 <br>
                 <br>
 

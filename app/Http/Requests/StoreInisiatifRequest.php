@@ -29,6 +29,11 @@ class StoreInisiatifRequest extends FormRequest
                 'required',
             ],
 
+            'namaInisiatif' => [
+                'string',
+                'required',
+            ],
+
             'strategi_id' => [
                 'string',
             ],

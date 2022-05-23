@@ -29,6 +29,11 @@ class StoreTindakanRequest extends FormRequest
                 'required',
             ],
 
+            'namaTindakan' => [
+                'string',
+                'required',
+            ],
+
             'user_id' => [
                 'string',
             ],

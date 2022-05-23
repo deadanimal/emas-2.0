@@ -14,6 +14,7 @@ class Tindakan extends Model
     protected $fillable = [
 
         'keteranganTindakan',
+        'namaTindakan',
         'user_id',
         'inisiatif_id',
         'perkara_id',

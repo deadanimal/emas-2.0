@@ -29,6 +29,11 @@ class UpdateStrategiRequest extends FormRequest
                 'required',
             ],
 
+            'namaStrategi' => [
+                'string',
+                'required',
+            ],
+
             'user_id' => [
                 'string',
             ],

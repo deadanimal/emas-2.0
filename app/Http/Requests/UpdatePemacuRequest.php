@@ -29,6 +29,11 @@ class UpdatePemacuRequest extends FormRequest
                 'required',
             ],
 
+            'namaPemacu' => [
+                'string',
+                'required',
+            ],
+
             'user_id' => [
                 'string',
             ],

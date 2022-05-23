@@ -29,6 +29,16 @@ class UpdateBabRequest extends FormRequest
                 'required',
             ],
 
+            'namaBab' => [
+                'string',
+                'required',
+            ],
+
+            'noBab' => [
+                'string',
+                'required',
+            ],
+
             'tema_id' => [
                 'string',
             ],

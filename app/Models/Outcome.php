@@ -14,6 +14,7 @@ class Outcome extends Model
     protected $fillable = [
 
         'keteranganOutcome',
+        'namaOutcome',
         'bidang_id',
         'user_id',
     ];

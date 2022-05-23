@@ -32,7 +32,7 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="namaPemangkin">Nama Tema/Pemangkin</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaPemangkin" value="{{ $pemangkin->namaTema }}" />
+                        <input class="form-control" type="text" name="namaPemangkin" value="{{ $pemangkindasar->namaTema }}" />
 
                     </div>
                 </div>

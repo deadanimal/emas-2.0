@@ -22,6 +22,9 @@
                     </div>
                 </div>
 
+                <br>
+                <br>
+
                 <div class="mb-3">
                     <label class="form-label" for="keteranganFokus"><b>Keterangan Fokus Utama</b></label>
                     <textarea class="form-control" name="keteranganFokus" rows="5"></textarea>

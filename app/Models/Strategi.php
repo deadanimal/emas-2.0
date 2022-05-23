@@ -15,6 +15,7 @@ class Strategi extends Model
     protected $fillable = [
 
         'keteranganStrategi',
+        'namaStrategi',
         'user_id',
         'bidang_id',
 

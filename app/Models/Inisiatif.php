@@ -14,6 +14,7 @@ class Inisiatif extends Model
     protected $fillable = [
 
         'keteranganInisiatif',
+        'namaInisiatif',
         'strategi_id',
         'user_id',
     ];

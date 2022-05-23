@@ -29,6 +29,11 @@ class UpdateSdgRequest extends FormRequest
                 'required',
             ],
 
+            'namaSdg' => [
+                'string',
+                'required',
+            ],
+
             'pemangkin_id' => [
                 'string',
             ],

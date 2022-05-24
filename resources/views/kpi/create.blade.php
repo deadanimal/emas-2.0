@@ -40,12 +40,10 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="outcome">Indikator Terpilih</label>
+                    <label class="col-sm-2 col-form-label" for="namaKpi">Nama KPI</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="outcome">
-                            <option selected disabled hidden>SILA PILIH</option>
+                        <input class="form-control" type="text" name="namaKpi" />
 
-                        </select>
                     </div>
                 </div>
 

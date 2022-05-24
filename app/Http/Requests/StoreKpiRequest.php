@@ -29,6 +29,11 @@ class StoreKpiRequest extends FormRequest
                 'required',
             ],
 
+            'namaKpi' => [
+                'string',
+                'required',
+            ],
+
             'outcome_id' => [
                 'string',
             ],

@@ -31,14 +31,13 @@
                     </div>
                 </div>
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="">Pilih Indikator</label>
+                <div class="mb-3 row" >
+                    <label class="col-sm-2 col-form-label" for="namaKpi">Nama KPI</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="">
-                            <option value="">SILA PILIH</option>
-                        </select>
+                        <input class="form-control" name="namaKpi" value="{{ $kpi->namaKpi }}"/>
                     </div>
                 </div>
+
 
                 <br>
                 <br>

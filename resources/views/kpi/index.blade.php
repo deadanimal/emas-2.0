@@ -48,7 +48,7 @@
                         <tr class="align-middle">
                             <td class="text-nowrap">
                                 <div class="d-flex align-items-center">
-                                    <div class="ms-2"><b>{{ $kpi->keteranganKpi }}</b></div>
+                                    <div class="ms-2"><b>{{ $kpi->namaKpi }}</b></div>
                                 </div>
                             </td>
 

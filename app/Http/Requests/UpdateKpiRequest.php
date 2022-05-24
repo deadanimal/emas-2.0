@@ -29,6 +29,11 @@ class UpdateKpiRequest extends FormRequest
                 'required',
             ],
 
+            'namaKpi' => [
+                'string',
+                'required',
+            ],
+
             'outcome_id' => [
                 'string',
             ],

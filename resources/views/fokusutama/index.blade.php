@@ -12,8 +12,23 @@
         <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/fokusutama/create">
             <span class="fas fa-plus-circle"></span>&nbsp;Tambah</a>
 
+            @role('admin')
+             <table class="table">
+                 <tr>
+                     <th>No</th>
+                     <th>Nama</th>
+                     <th>Tindakan</th>
+                 </tr>
+                 @foreach ($role as $r)
+                 <tr>
+                     <td>{{ $loop->iteration }}</td>
+                     <td>{{ $r->name }}</td>
+                     <td></td>
+                 </tr>
 
-
+                 @endforeach
+                </table>
+            @endrole
         <hr style="width:100%;text-align:center;">
 
         <div class="table-responsive scrollbar" >

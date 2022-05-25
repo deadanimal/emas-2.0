@@ -39,6 +39,12 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('roles', RoleController::class);
+    Route::resource('users', UserController::class);
+    Route::resource('fokusutama', FokusutamaController::class);
+});
+
 //Fokus Utama
 Route::resource('/fokusutama',FokusutamaController::class);
 

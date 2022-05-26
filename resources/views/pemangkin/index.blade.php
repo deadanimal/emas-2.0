@@ -9,9 +9,11 @@
         <br>
 
         <span><b>Tema/Pemangkin Dasar</b></span>
-        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/pemangkin/create">
-            <span class="fas fa-plus-circle"></span>&nbsp;Tambah
-        </a>
+        @role('admin')
+            <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/pemangkin/create">
+                <span class="fas fa-plus-circle"></span>&nbsp;Tambah
+            </a>
+        @endrole
 
         <hr style="width:100%;text-align:center;">
 
@@ -33,12 +35,14 @@
                     @foreach ($pemangkindasar as $pemangkin)
                         <tr class="align-middle">
                             <td class="text-nowrap">
-                                <div class="d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#error-modal-{{ $pemangkin->id }}">
+                                <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#error-modal-{{ $pemangkin->id }}">
                                     <div class="ms-2"><b>{{ $pemangkin->namaTema }}</b></div>
                                 </div>
                             </td>
 
-                            <div class="modal fade" id="error-modal-{{ $pemangkin->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal fade" id="error-modal-{{ $pemangkin->id }}" tabindex="-1" role="dialog"
+                                aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
                                     <div class="modal-content position-relative">
                                         <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
@@ -52,12 +56,14 @@
                                                 <form>
                                                     <div class="mb-3">
                                                         <label class="col-form-label">Nama Tema/Pemangkin:</label>
-                                                        <label class="form-control" disabled="disabled">{{ $pemangkin->namaTema }}</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $pemangkin->namaTema }}</label>
 
                                                     </div>
                                                     <div class="mb-3">
                                                         <label class="col-form-label">Keterangan:</label>
-                                                        <label class="form-control" disabled="disabled">{{ $pemangkin->keteranganTema }}</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $pemangkin->keteranganTema }}</label>
                                                     </div>
                                                 </form>
                                             </div>
@@ -69,27 +75,29 @@
                                 </div>
                             </div>
 
-                            <td align="right">
-                                <div>
-                                    {{-- <form action="{{ route('pemangkin.destroy', $pemangkin->id) }}" method="POST"> --}}
+                            @role('admin')
+                                <td align="right">
+                                    <div>
+                                        {{-- <form action="{{ route('pemangkin.destroy', $pemangkin->id) }}" method="POST"> --}}
 
-                                    <a class="btn btn-primary" style="border-radius: 38px"
-                                        href="{{ route('pemangkin.edit', $pemangkin->id) }}"><i
-                                            class="fas fa-edit"></i>
-                                    </a>
+                                        <a class="btn btn-primary" style="border-radius: 38px"
+                                            href="{{ route('pemangkin.edit', $pemangkin->id) }}"><i
+                                                class="fas fa-edit"></i>
+                                        </a>
 
-                                    {{-- @csrf --}}
-                                    {{-- @method('DELETE') --}}
+                                        {{-- @csrf --}}
+                                        {{-- @method('DELETE') --}}
 
-                                    <button type="button" onclick="myFunction({{ $pemangkin->id }})"
-                                        class="btn btn-danger" style="border-radius: 38px">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                    <p id="ppd"></p>
+                                        <button type="button" onclick="myFunction({{ $pemangkin->id }})"
+                                            class="btn btn-danger" style="border-radius: 38px">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <p id="ppd"></p>
 
-                                    {{-- </form> --}}
-                                </div>
-                            </td>
+                                        {{-- </form> --}}
+                                    </div>
+                                </td>
+                            @endrole
                         </tr>
                     @endforeach
 

@@ -9,9 +9,12 @@
         <br>
 
         <span><b>Perkara Utama</b></span>
-        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/perkarautama/create">
-            <span class="fas fa-plus-circle"></span>&nbsp;Tambah
-        </a>
+
+        @role('admin')
+            <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/perkarautama/create">
+                <span class="fas fa-plus-circle"></span>&nbsp;Tambah
+            </a>
+        @endrole
 
         <hr style="width:100%;text-align:center;">
 
@@ -47,7 +50,8 @@
                                 <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
                                     <div class="modal-content position-relative">
                                         <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
-                                            <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                                            <button
+                                                class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
                                                 data-bs-dismiss="modal" aria-label="Close">
                                             </button>
                                         </div>
@@ -75,28 +79,29 @@
                                     </div>
                                 </div>
                             </div>
+                            @role('admin')
+                                <td align="right">
+                                    <div>
+                                        {{-- <form action="{{ route('perkarautama.destroy', $perkara->id) }}" method="POST"> --}}
 
-                            <td align="right">
-                                <div>
-                                    {{-- <form action="{{ route('perkarautama.destroy', $perkara->id) }}" method="POST"> --}}
+                                        <a class="btn btn-primary" style="border-radius: 38px"
+                                            href="{{ route('perkarautama.edit', $perkara->id) }}"><i
+                                                class="fas fa-edit"></i>
+                                        </a>
 
-                                    <a class="btn btn-primary" style="border-radius: 38px"
-                                        href="{{ route('perkarautama.edit', $perkara->id) }}"><i
-                                            class="fas fa-edit"></i>
-                                    </a>
-
-                                    {{-- @csrf
+                                        {{-- @csrf
                                         @method('DELETE') --}}
 
-                                    <button type="submit" onclick="myFunction({{ $perkara->id }})" class="btn btn-danger"
-                                        style="border-radius: 38px">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                    <p id="ppd"></p>
+                                        <button type="submit" onclick="myFunction({{ $perkara->id }})" class="btn btn-danger"
+                                            style="border-radius: 38px">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <p id="ppd"></p>
 
-                                    {{-- </form> --}}
-                                </div>
-                            </td>
+                                        {{-- </form> --}}
+                                    </div>
+                                </td>
+                            @endrole
                         </tr>
                     @endforeach
 

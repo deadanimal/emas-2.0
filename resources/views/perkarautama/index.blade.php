@@ -22,7 +22,7 @@
             <option selected disabled hidden>PILIH FOKUS UTAMA</option>
 
             @foreach ($list as $list)
-                <option value="{{ $list->id }}">{{ $list->keteranganFokus }}</option>
+                <option value="{{ $list->id }}">{{ $list->namaFokus }}</option>
             @endforeach
 
         </select>

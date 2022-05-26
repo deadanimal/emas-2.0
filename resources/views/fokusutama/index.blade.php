@@ -10,12 +10,12 @@
         <br>
 
         <span><b>Fokus Utama</b></span>
-        @role('admin')
+        @role('admin|bahagian|kementerian')
             <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/fokusutama/create">
                 <span class="fas fa-plus-circle"></span>&nbsp;Tambah</a>
         @endrole
 
-        @role('admin|bahagian|menteri')
+        @role('admin|bahagian|kementerian')
             <table class="table">
                 <tr>
                     <th>No</th>
@@ -84,7 +84,7 @@
                                 </div>
                             </div>
 
-                            @role('admin')
+                            @role('admin|bahagian|kementerian')
                                 <td align="right">
                                     <div>
                                         {{-- <form action="{{ route('fokusutama.destroy', $fokus->id) }}" method="POST"> --}}
@@ -132,7 +132,7 @@
                 });
 
                 alert = "Berjaya di buang!";
-                location.reload();
+                location.href = "/fokusutama";
 
             } else {
                 alert("Dibatalkan!");

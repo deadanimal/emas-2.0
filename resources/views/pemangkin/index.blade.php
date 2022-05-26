@@ -9,7 +9,7 @@
         <br>
 
         <span><b>Tema/Pemangkin Dasar</b></span>
-        @role('admin')
+        @role('admin|bahagian|kementerian')
             <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/pemangkin/create">
                 <span class="fas fa-plus-circle"></span>&nbsp;Tambah
             </a>
@@ -75,7 +75,7 @@
                                 </div>
                             </div>
 
-                            @role('admin')
+                            @role('admin|bahagian|kementerian')
                                 <td align="right">
                                     <div>
                                         {{-- <form action="{{ route('pemangkin.destroy', $pemangkin->id) }}" method="POST"> --}}

@@ -10,7 +10,7 @@
 
         <span><b>Perkara Utama</b></span>
 
-        @role('admin')
+        @role('admin|bahagian|kementerian')
             <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/perkarautama/create">
                 <span class="fas fa-plus-circle"></span>&nbsp;Tambah
             </a>
@@ -79,7 +79,7 @@
                                     </div>
                                 </div>
                             </div>
-                            @role('admin')
+                            @role('admin|bahagian|kementerian')
                                 <td align="right">
                                     <div>
                                         {{-- <form action="{{ route('perkarautama.destroy', $perkara->id) }}" method="POST"> --}}

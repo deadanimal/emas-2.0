@@ -29,16 +29,25 @@
                     <tr>
                         <th scope="col"></th>
                         <th scope="col"></th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody id="tablebody">
                     @foreach ($babs as $bab)
                         <tr class="align-middle">
+
                             <td class="text-nowrap">
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-{{ $bab->id }}">
-                                    <div class="ms-2"><b>{{ $bab->namaBab }}</b></div>
+                                    <div class="ms-2"><b>{{ $loop->iteration }}. {{ $bab->namaBab }}</b></div>
                                 </div>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#error-modal-{{ $bab->id }}">
+                                    <div class="ms-2"><b>Bab {{ $bab->noBab }}</b></div>
+                                </div>
+
                             </td>
 
                             <div class="modal fade" id="error-modal-{{ $bab->id }}" tabindex="-1" role="dialog"

@@ -20,7 +20,7 @@
             <option selected disabled hidden>PILIH BAB</option>
 
             @foreach ($list as $list)
-                <option value="{{ $list->id }}">{{ $list->namaBab }}</option>
+                <option value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}</option>
             @endforeach
 
         </select>

@@ -18,10 +18,10 @@ class InisiatifController extends Controller
      */
     public function index()
     {
-        $inisiatif = Inisiatif::all();
+        $inisiatifs = Inisiatif::all();
         $list= Strategi::all();
 
-        return view('inisiatif.index', compact('inisiatif', 'list'));
+        return view('inisiatif.index', compact('inisiatifs', 'list'));
     }
 
     /**

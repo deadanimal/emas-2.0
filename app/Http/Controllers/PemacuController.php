@@ -18,10 +18,10 @@ class PemacuController extends Controller
      */
     public function index()
     {
-        $pemacu = Pemacu::all();
+        $pemacus = Pemacu::all();
         $list= Bab::all();
 
-        return view('pemacu.index', compact('pemacu', 'list'));
+        return view('pemacu.index', compact('pemacus', 'list'));
     }
 
     /**
@@ -45,7 +45,7 @@ class PemacuController extends Controller
      */
     public function store(StorePemacuRequest $request)
     {
-        $pemacu = Pemacu::create($request->all());
+        $pemacus = Pemacu::create($request->all());
         return redirect()->route('pemacu.index');
     }
 
@@ -69,7 +69,9 @@ class PemacuController extends Controller
      */
     public function edit(Pemacu $pemacu)
     {
-        $list= Pemacu::all();
+        $user = Auth::user();
+
+        $list= Bab::all();
 
         return view('pemacu.edit', compact('pemacu', 'list'));
     }

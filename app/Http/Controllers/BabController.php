@@ -18,9 +18,11 @@ class BabController extends Controller
      */
     public function index()
     {
-        $bab = Bab::all();
+        $babs = Bab::all();
+        $list= Pemangkindasar::all();
 
-        return view('bab.index', compact('bab'));
+
+        return view('bab.index', compact('babs', 'list'));
     }
 
     /**

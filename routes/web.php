@@ -13,6 +13,7 @@ use App\Http\Controllers\PerkarautamaController;
 use App\Http\Controllers\SdgController;
 use App\Http\Controllers\StrategiController;
 use App\Http\Controllers\TindakanController;
+use App\Models\Perkarautama;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,12 +38,17 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+
 require __DIR__.'/auth.php';
 
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('fokusutama', FokusutamaController::class);
+    Route::resource('perkarautama', Perkarautama::class);
+    Route::get('/perkarautama', [Perkarautama::class, 'perakarautama'])->name('perkarautama');
+
+
 });
 
 //Fokus Utama

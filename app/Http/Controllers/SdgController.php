@@ -18,10 +18,10 @@ class SdgController extends Controller
      */
     public function index()
     {
-        $sdg = Sdg::all();
+        $sdgs = Sdg::all();
         $list= Pemangkindasar::all();
 
-        return view('sdg.index', compact('sdg', 'list'));
+        return view('sdg.index', compact('sdgs', 'list'));
     }
 
     /**
@@ -69,6 +69,8 @@ class SdgController extends Controller
      */
     public function edit(Sdg $sdg)
     {
+        $user = Auth::user();
+
         $list= Pemangkindasar::all();
 
         return view('sdg.edit', compact('sdg', 'list'));

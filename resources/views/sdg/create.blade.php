@@ -28,10 +28,10 @@
                     <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="pemangkin_id">
-                            <option value="">SILA PILIH</option>
+                            <option selected disabled hidden>SILA PILIH</option>
 
                             @foreach ($list as $list)
-                                <option value="{{ $list->id }}">{{ $list->keteranganTema }}</option>
+                                <option value="{{ $list->id }}">{{ $list->namaTema }}</option>
                             @endforeach
 
                         </select>

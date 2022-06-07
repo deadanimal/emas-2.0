@@ -28,10 +28,10 @@
                     <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="bidang_id">
-                            <option value="">SILA PILIH</option>
+                            <option selected disabled hidden>SILA PILIH</option>
 
                             @foreach ($list as $list)
-                                <option value="{{ $list->id }}">{{ $list->keteranganBidang }}</option>
+                                <option value="{{ $list->id }}">{{ $list->namaBidang }}</option>
                             @endforeach
 
                         </select>

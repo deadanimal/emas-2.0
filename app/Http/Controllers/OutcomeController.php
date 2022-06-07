@@ -18,11 +18,11 @@ class OutcomeController extends Controller
      */
     public function index()
     {
-        $outcome = Outcome::all();
+        $outcomes = Outcome::all();
         $list= Bidang::all();
 
 
-        return view('outcome.index', compact('outcome', 'list'));
+        return view('outcome.index', compact('outcomes', 'list'));
     }
 
     /**

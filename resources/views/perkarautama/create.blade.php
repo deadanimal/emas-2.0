@@ -20,7 +20,7 @@
                     <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="fokus_id">
-                            <option value="">SILA PILIH</option>
+                            <option selected disabled hidden>SILA PILIH</option>
 
                             @foreach ($list as $list)
                                 <option value="{{ $list->id }}">{{ $list->namaFokus }}</option>

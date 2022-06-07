@@ -23,7 +23,6 @@ class PerkarautamaController extends Controller
 
         $list= Fokusutama::all();
 
-
         return view('perkarautama.index', compact('perkarautama', 'list'));
     }
 
@@ -35,6 +34,7 @@ class PerkarautamaController extends Controller
     public function create()
     {
         $user = Auth::user();
+
 
         $list= Fokusutama::all();
 

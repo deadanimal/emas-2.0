@@ -92,6 +92,9 @@
 
         .emas-bg-dg {
             background-color: #76bbe9;
+            /* z-index: 99; */
+            /* overflow: hidden */
+            position: relative;
 
 
         }
@@ -268,7 +271,7 @@
 
             .navbar-vertical.navbar-expand-xl .navbar-collapse {
                 width: 100%;
-                height: 100%;
+                height: 95%;
                 background: #ffffff;
             }
 

@@ -21,10 +21,9 @@
                     <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="bab_id">
-                            <option value="">SILA PILIH</option>
 
                             @foreach ($list as $list)
-                                <option value="{{ $list->id }}">{{ $list->keteranganBab }}</option>
+                                <option @selected($bidang->bab_id == $list->id) value="{{ $list->id }}">{{ $list->namaBab }}</option>
                             @endforeach
 
                         </select>

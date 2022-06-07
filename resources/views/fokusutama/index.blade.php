@@ -15,7 +15,7 @@
                 <span class="fas fa-plus-circle"></span>&nbsp;Tambah</a>
         @endrole
 
-        @role('admin|bahagian|kementerian')
+        {{-- @role('admin|bahagian|kementerian')
             <table class="table">
                 <tr>
                     <th>No</th>
@@ -30,7 +30,7 @@
                     </tr>
                 @endforeach
             </table>
-        @endrole
+        @endrole --}}
         <hr style="width:100%;text-align:center;">
 
         <div class="table-responsive scrollbar">

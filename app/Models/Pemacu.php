@@ -16,6 +16,7 @@ class Pemacu extends Model
         'keteranganBab',
         'namaPemacu',
         'user_id',
+        'bab_id',
     ];
 
     protected $with = [

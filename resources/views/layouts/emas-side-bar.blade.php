@@ -124,24 +124,27 @@
 
                     <div class="card" style="--hover-color: white">
                         <ul class="nav collapse show" id="dashboard" style="background-color: #E7EFFD">
-                            <li class="nav-item"><a class="nav-link {{ Request::is('fokusutama')? 'active' : '' }}" href="/fokusutama"
-                                    style="color: #047FC3">
+                            <li class="nav-item"><a
+                                    class="nav-link {{ Request::is('fokusutama', 'fokusutama/*') ? 'active' : '' }}"
+                                    href="/fokusutama" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Fokus
                                             Utama</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link {{ Request::is('perkarautama')? 'active' : '' }}" href="/perkarautama"
-                                    style="color: #047FC3">
+                            <li class="nav-item"><a
+                                    class="nav-link {{ Request::is('perkarautama', 'perkarautama/*') ? 'active' : '' }}"
+                                    href="/perkarautama" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Perkara
                                             Utama</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link {{ Request::is('pemangkin')? 'active' : '' }}" href="/pemangkin"
-                                    style="color: #047FC3">
+                            <li class="nav-item"><a
+                                    class="nav-link {{ Request::is('pemangkin', 'pemangkin/*') ? 'active' : '' }}"
+                                    href="/pemangkin" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span
                                             class="nav-link-text ps-1">Tema/Pemangkin
                                             Dasar</span>
@@ -149,65 +152,80 @@
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link {{ Request::is('bab')? 'active' : '' }}" href="/bab" style="color: #047FC3">
+                            <li class="nav-item"><a
+                                    class="nav-link {{ Request::is('bab', 'bab/*') ? 'active' : '' }}" href="/bab"
+                                    style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Bab</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link {{ Request::is('pemacu')? 'active' : '' }}" href="/pemacu" style="color: #047FC3">
+                            <li class="nav-item"><a
+                                    class="nav-link {{ Request::is('pemacu', 'pemacu/*') ? 'active' : '' }}"
+                                    href="/pemacu" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Pemacu
                                             Perubahan</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link {{ Request::is('bidang')? 'active' : '' }}" href="/bidang" style="color: #047FC3">
+                            <li class="nav-item"><a
+                                    class="nav-link {{ Request::is('bidang', 'bidang/*') ? 'active' : '' }}"
+                                    href="/bidang" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Bidang
                                             Keutamaan</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link {{ Request::is('outcome')? 'active' : '' }}" href="/outcome" style="color: #047FC3">
+                            <li class="nav-item"><a
+                                    class="nav-link {{ Request::is('outcome', 'outcome/*') ? 'active' : '' }}"
+                                    href="/outcome" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Outcome
                                             Nasional</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link {{ Request::is('kpi')? 'active' : '' }}" href="/kpi" style="color: #047FC3">
+                            <li class="nav-item"><a
+                                    class="nav-link {{ Request::is('kpi', 'kpi/*') ? 'active' : '' }}" href="/kpi"
+                                    style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-1">KPI
                                             Nasional</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link {{ Request::is('strategi')? 'active' : '' }}" href="/strategi"
-                                    style="color: #047FC3">
+                            <li class="nav-item"><a
+                                    class="nav-link {{ Request::is('strategi', 'strategi/*') ? 'active' : '' }}"
+                                    href="/strategi" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span
                                             class="nav-link-text ps-1">Strategi</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link {{ Request::is('inisiatif')? 'active' : '' }}" href="/inisiatif"
-                                    style="color: #047FC3">
+                            <li class="nav-item"><a
+                                    class="nav-link {{ Request::is('inisiatif', 'inisiatif/*') ? 'active' : '' }}"
+                                    href="/inisiatif" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span
                                             class="nav-link-text ps-1">Inisiatif</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link {{ Request::is('tindakan')? 'active' : '' }}" href="/tindakan"
-                                    style="color: #047FC3">
+                            <li class="nav-item"><a
+                                    class="nav-link {{ Request::is('tindakan', 'tindakan/*') ? 'active' : '' }}"
+                                    href="/tindakan" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span
                                             class="nav-link-text ps-1">Tindakan</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link {{ Request::is('sdg')? 'active' : '' }}" href="/sdg" style="color: #047FC3">
+                            <li class="nav-item"><a
+                                    class="nav-link {{ Request::is('sdg', 'sdg/*') ? 'active' : '' }}" href="/sdg"
+                                    style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span class="nav-link-text ps-1">SDG</span>
                                     </div>
                                 </a>

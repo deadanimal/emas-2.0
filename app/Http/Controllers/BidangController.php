@@ -18,11 +18,10 @@ class BidangController extends Controller
      */
     public function index()
     {
-        $bidang = Bidang::all();
+        $bidangs = Bidang::all();
         $list= Bab::all();
 
-
-        return view('bidang.index', compact('bidang', 'list'));
+        return view('bidang.index', compact('bidangs', 'list'));
     }
 
     /**

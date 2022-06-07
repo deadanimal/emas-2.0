@@ -29,6 +29,11 @@ class UpdatePemacuRequest extends FormRequest
                 'required',
             ],
 
+            // 'namaBab' => [
+            //     'string',
+            //     'required',
+            // ],
+
             'namaPemacu' => [
                 'string',
                 'required',

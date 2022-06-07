@@ -18,10 +18,10 @@
 
         <div class="row">
             <div class="col">
-                <select class="form-select" style="width:30%" aria-label="Default select example">
+                <select class="form-select searchKategori" style="width:30%" aria-label="Default select example">
                     <option selected disabled hidden>PILIH INISIATIF</option>
                     @foreach ($list as $list)
-                        <option value="{{ $list->id }}">{{ $list->keteranganInisiatif }}</option>
+                        <option value="{{ $list->id }}">{{ $list->namaInisiatif }}</option>
                     @endforeach
                 </select>
             </div>
@@ -36,16 +36,18 @@
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody>
-                    @foreach ($tindakan as $tindakan)
+                <tbody id="tablebody">
+                    @foreach ($tindakans as $tindakan)
                         <tr class="align-middle">
                             <td class="text-nowrap">
-                                <div class="d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#error-modal-{{ $tindakan->id }}">
+                                <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#error-modal-{{ $tindakan->id }}">
                                     <div class="ms-2"><b>{{ $tindakan->namaTindakan }}</b></div>
                                 </div>
                             </td>
 
-                            <div class="modal fade" id="error-modal-{{ $tindakan->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal fade" id="error-modal-{{ $tindakan->id }}" tabindex="-1" role="dialog"
+                                aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
                                     <div class="modal-content position-relative">
                                         <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
@@ -59,13 +61,15 @@
                                                 <form>
                                                     <div class="mb-3">
                                                         <label class="col-form-label">Tindakan:</label>
-                                                        <label class="form-control" disabled="disabled">{{ $tindakan->namaTindakan }}</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $tindakan->namaTindakan }}</label>
 
                                                     </div>
 
                                                     <div class="mb-3">
                                                         <label class="col-form-label">Keterangan:</label>
-                                                        <label class="form-control" disabled="disabled">{{ $tindakan->keteranganTindakan }}</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $tindakan->keteranganTindakan }}</label>
                                                     </div>
                                                 </form>
                                                 <br>
@@ -80,6 +84,9 @@
                             <td align="right">
                                 <div>
                                     {{-- <form action="{{ route('tindakan.destroy', $tindakan->id) }}" method="POST"> --}}
+                                    <a class="btn btn-warning" style="border-radius: 38px"
+                                        href="{{ route('tindakan.edit', $tindakan->id) }}"><i class="fas fa-pencil-alt"></i>
+                                    </a>
 
                                     <a class="btn btn-primary" style="border-radius: 38px"
                                         href="{{ route('tindakan.edit', $tindakan->id) }}"><i class="fas fa-edit"></i>
@@ -108,6 +115,89 @@
     </div>
 
     <script>
+        $('.searchKategori').change(function(e) {
+            let val = this.value;
+            var tindakan = @json($tindakans->toArray());
+            $("#tablebody").html('');
+            tindakan.forEach(e => {
+
+                if (val == e.inisiatif_id) {
+                    $("#tablebody").append(`
+                    <tr class="align-middle">
+                            <td class="text-nowrap">
+                                <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#error-modal-` + e.id + `">
+                                    <div class="ms-2"><b>` + e.namaTindakan + `</b></div>
+                                </div>
+                            </td>
+
+                            <div class="modal fade" id="error-modal-` + e.id + `" tabindex="-1" role="dialog"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
+                                    <div class="modal-content position-relative">
+                                        <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                                            <button
+                                                class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                                                data-bs-dismiss="modal" aria-label="Close">
+                                            </button>
+                                        </div>
+                                        <div class="modal-body p-0">
+
+                                            <div class="p-4 pb-0">
+                                                <form>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Tindakan:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">` + e.namaTindakan + `</label>
+
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Keterangan:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">` + e.keteranganTindakan + `</label>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <td align="right">
+                                <div>
+                                    <form action="/tindakan/` + e.id + `" method="POST">
+
+                                        <a class="btn btn-primary" style="border-radius: 38px"
+                                            href="/tindakan/` + e.id + `"><i
+                                                class="fas fa-edit"></i>
+                                        </a>
+
+                                        @csrf
+                                        @method('DELETE')
+
+                                        <button type="submit" onclick="myFunction()" class="btn btn-danger"
+                                            style="border-radius: 38px">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    `);
+
+                }
+            });
+
+
+
+        });
+
+
+
         function myFunction(id) {
 
 

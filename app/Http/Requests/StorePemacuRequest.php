@@ -29,6 +29,12 @@ class StorePemacuRequest extends FormRequest
                 'required',
             ],
 
+            // 'namaBab' => [
+            //     'string',
+            //     'required',
+            // ],
+
+
             'namaPemacu' => [
                 'string',
                 'required',

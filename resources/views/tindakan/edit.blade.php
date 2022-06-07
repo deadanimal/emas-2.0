@@ -21,10 +21,9 @@
                     <label class="col-sm-2 col-form-label" for="insiatif_id">Inisiatif</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="insiatif_id">
-                            <option value="">SILA PILIH</option>
 
                             @foreach ($list as $list)
-                                <option value="{{ $list->id }}">{{ $list->keteranganInisiatif }}</option>
+                                <option @selected($tindakan->inisiatif_id == $list->id) value="{{ $list->id }}">{{ $list->namaInisiatif }}</option>
                             @endforeach
 
                         </select>

@@ -1,6 +1,7 @@
 @extends('base')
 @section('content')
     <div class="container">
+        <br>
         <div class="mb-4 text-center">
             <H2>KEMAS KINI DATA</H2>
         </div>
@@ -21,13 +22,20 @@
                     <label class="col-sm-2 col-form-label" for="bab_id">Pilih Bab</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="bab_id">
-                            <option value="">SILA PILIH</option>
 
                             @foreach ($list as $list)
-                                <option value="{{ $list->id }}">{{ $list->keteranganBab }}</option>
+                                <option @selected($pemacu->bab_id == $list->id) value="{{ $list->id }}">{{ $list->namaBab }}</option>
                             @endforeach
 
                         </select>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="namaPemacu" >Nama Pemacu Perubahan</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="namaPemacu" value="{{ $pemacu->namaPemacu }}"/>
+
                     </div>
                 </div>
 

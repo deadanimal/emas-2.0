@@ -31,7 +31,7 @@
                             <option selected disabled hidden>SILA PILIH</option>
 
                             @foreach ($list as $list)
-                                <option value="{{ $list->id }}">{{ $list->keteranganBidang }}</option>
+                                <option value="{{ $list->id }}">{{ $list->namaBidang }}</option>
                             @endforeach
 
                         </select>

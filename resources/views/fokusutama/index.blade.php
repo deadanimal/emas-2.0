@@ -15,23 +15,7 @@
                 <span class="fas fa-plus-circle"></span>&nbsp;Tambah</a>
         @endrole
 
-        {{-- @role('admin|bahagian|kementerian')
-            <table class="table">
-                <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Tindakan</th>
-                </tr>
-                @foreach ($role as $r)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $r->name }}</td>
-                        <td></td>
-                    </tr>
-                @endforeach
-            </table>
-        @endrole --}}
-        <hr style="width:100%;text-align:center;">
+        {{-- <hr style="width:100%;text-align:center;"> --}}
 
         <div class="table-responsive scrollbar">
             <table class="table table-hover table-striped overflow-hidden">

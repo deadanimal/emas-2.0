@@ -93,8 +93,10 @@
                                 <div>
                                     {{-- <form action="{{ route('kpi.destroy', $kpi->id) }}" method="POST"> --}}
 
+
+
                                     <a class="btn btn-warning" style="border-radius: 38px"
-                                        href="{{ route('kpi.edit', $kpi->id) }}"><i class="fas fa-pencil-alt"></i>
+                                        href="/kpi1/{{ $kpi->id }}/edit/"><i class="fas fa-pencil-alt"></i>
                                     </a>
 
                                     <a class="btn btn-primary" style="border-radius: 38px"

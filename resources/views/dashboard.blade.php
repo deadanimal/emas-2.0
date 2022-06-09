@@ -91,6 +91,8 @@
 
         .risda-bg-dg {
             background-color: #76bbe9;
+            color: #07385E;
+
         }
 
         .risda-g {
@@ -361,75 +363,114 @@
             <div class="mb-4 text-center">
             </div>
 
-            <div class="row pb-3">
-                <div class="col-md-6 col-lg-4 text-center">
-                    <a class="mb-3" href="/fokusutama">
-                        <div class="px-4 pt-4">
-                            <img src="img/PPD.png" class="img-fluid card-img-hover landing-img" alt="Pelan Pelaksanaan">
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-4 text-center">
-                    <a class="mb-3" href="/ppd">
-                        <div class="px-4 pt-4">
-                            <img src="img/MPB.png" class="img-fluid card-img-hover landing-img" alt="">
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-4 text-center">
-                    <a class="mb-3" href="/">
-                        <div class="px-4 pt-4">
-                            <img src="img/KT.png" class="img-fluid card-img-hover landing-img" alt="">
-                        </div>
-                    </a>
-                </div>
-                {{-- <div class="col-md-6 col-lg-4 text-center">
-                    <a class="mb-3" href="/">
-                        <div class="px-4 pt-4">
-                            <img src="img/MD.png" class="img-fluid card-img-hover landing-img" alt="">
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-4 text-center">
-                    <a class="mb-3" href="/">
-                        <div class="px-4 pt-4">
-                            <img src="img/ED.png" class="img-fluid card-img-hover landing-img" alt="">
-                        </div>
-                    </a>
-                </div> --}}
-
-            </div>
-
-            <div class="row pb-3">
-                <div class="col-md-6 col-lg-2 text-center">
-
-                </div>
-                <div class="col-md-6 col-lg-4 text-center">
-                    <a class="mb-3" href="/">
-                        <div class="px-4 pt-4">
-                            <img src="img/MD.png" class="img-fluid card-img-hover landing-img" alt="">
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-4 text-center">
-                    <a class="mb-3" href="/">
-                        <div class="px-4 pt-4">
-                            <img src="img/ED.png" class="img-fluid card-img-hover landing-img" alt="">
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-2 text-center">
+            @if (auth()->user() == 'admin' || auth()->user() == 'menteri')
+                <div class="row pb-3">
+                    <div class="col-md-6 col-lg-4 text-center">
+                        <a class="mb-3" href="/fokusutama">
+                            <div class="px-4 pt-4">
+                                <img src="img/PPD.png" class="img-fluid card-img-hover landing-img"
+                                    alt="Pelan Pelaksanaan">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 text-center">
+                        <a class="mb-3" href="/ppd">
+                            <div class="px-4 pt-4">
+                                <img src="img/MPB.png" class="img-fluid card-img-hover landing-img" alt="">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 text-center">
+                        <a class="mb-3" href="/">
+                            <div class="px-4 pt-4">
+                                <img src="img/KT.png" class="img-fluid card-img-hover landing-img" alt="">
+                            </div>
+                        </a>
+                    </div>
 
                 </div>
 
-            </div>
+                <div class="row pb-3">
+                    <div class="col-md-6 col-lg-2 text-center">
+
+                    </div>
+                    <div class="col-md-6 col-lg-4 text-center">
+                        <a class="mb-3" href="/">
+                            <div class="px-4 pt-4">
+                                <img src="img/MD.png" class="img-fluid card-img-hover landing-img" alt="">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 text-center">
+                        <a class="mb-3" href="/">
+                            <div class="px-4 pt-4">
+                                <img src="img/ED.png" class="img-fluid card-img-hover landing-img" alt="">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-2 text-center">
+                    </div>
+                </div>
+            @else
+                <div class="row pb-3">
+                    <div class="col-md-6 col-lg-4 text-center">
+                        <a class="mb-3" href="/fokusutama">
+                            <div class="px-4 pt-4">
+                                <img src="img/PPD.png" class="img-fluid card-img-hover landing-img"
+                                    alt="Pelan Pelaksanaan">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 text-center">
+                        <a class="mb-3" href="/ppd" id="myAnchor">
+                            <div class="px-4 pt-4">
+                                <img src="img/MPB.png" class="img-fluid card-img-hover landing-img" alt=""
+                                    style="opacity: 50%">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 text-center">
+                        <a class="mb-3" href="/" id="myAnchor">
+                            <div class="px-4 pt-4">
+                                <img src="img/KT.png" class="img-fluid card-img-hover landing-img" alt=""
+                                    style="opacity: 50%">
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="row pb-3">
+                    <div class="col-md-6 col-lg-2 text-center">
+
+                    </div>
+                    <div class="col-md-6 col-lg-4 text-center">
+                        <a class="mb-3" href="/" id="myAnchor">
+                            <div class="px-4 pt-4">
+                                <img src="img/MD.png" class="img-fluid card-img-hover landing-img" alt=""
+                                    style="opacity: 50%">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 text-center">
+                        <a class="mb-3" href="/" id="myAnchor">
+                            <div class="px-4 pt-4">
+                                <img src="img/ED.png" class="img-fluid card-img-hover landing-img" alt=""
+                                    style="opacity: 50%">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-2 text-center">
+                    </div>
+                </div>
+            @endif
         </div>
 
         <footer class="risda-bg-dg">
             <div class="row p-">
                 <div class="col">
-                    <div class="text-100 text-white text-center">
-                        Copyright ©️ UNIT PERANCANG EKONOMI
+                    <div class="text-center">
+                        <b>Copyright</b> ©️ <b>UNIT PERANCANG EKONOMI</b>
                     </div>
                 </div>
             </div>
@@ -454,6 +495,11 @@
     <script src="../../../vendors/list.js/list.min.js"></script>
     <script src="../../../assets/js/theme.js"></script>
 
+    <script>
+        document.getElementById("myAnchor").addEventListener("click", function(event) {
+            event.preventDefault()
+        });
+    </script>
 </body>
 
 </html>

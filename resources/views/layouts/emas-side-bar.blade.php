@@ -187,10 +187,27 @@
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a
-                                    class="nav-link {{ Request::is('kpi', 'kpi/*') ? 'active' : '' }}" href="/kpi"
+                            {{-- <a class="nav-link dropdown-indicator" href="#email" role="button" data-bs-toggle="collapse"
+                                aria-expanded="false" aria-controls="email">
+                                <div class="d-flex align-items-center"><span class="nav-link-icon"></span><span
+                                        class="nav-link-text ps-1">Email</span>
+                                </div>
+                            </a>
+                            <ul class="nav collapse false" id="email">
+                                <li class="nav-item"><a class="nav-link" href="app/email/inbox.html">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text ps-1">Inbox</span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
+
+                            </ul> --}}
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::is('kpi', 'kpi/*') ? 'active' : '' }}" href="/kpi"
                                     style="color: #047FC3">
-                                    <div class="d-flex align-items-center"><span class="nav-link-text ps-1">KPI
+                                    <div class="d-flex align-items-center">
+                                        <span class="nav-link-text ps-1">KPI
                                             Nasional</span>
                                     </div>
                                 </a>

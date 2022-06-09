@@ -92,6 +92,8 @@
 
         .emas-bg-dg {
             background-color: #76bbe9;
+            color: #07385E;
+
         }
 
         .emas-g {
@@ -479,8 +481,8 @@
         <footer class="emas-bg-dg">
             <div class="row p-">
                 <div class="col">
-                    <div class="text-100 text-white text-center">
-                        Copyright ©️ UNIT PERANCANG EKONOMI
+                    <div class="text-center">
+                        <b>Copyright</b> ©️ <b>UNIT PERANCANG EKONOMI</b>
                     </div>
                 </div>
             </div>

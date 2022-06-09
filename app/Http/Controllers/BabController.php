@@ -23,6 +23,7 @@ class BabController extends Controller
 
 
         return view('bab.index', compact('babs', 'list'));
+
     }
 
     /**

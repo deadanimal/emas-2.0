@@ -25,6 +25,44 @@
 
 
                 <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="pemangkin_id">
+                            <option selected disabled hidden>Sila Pilih</option>
+
+                            @foreach ($listTema as $listTema)
+                                <option value="{{ $listTema->id }}">{{ $listTema->namaTema }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+
+                    <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="bab_id">
+                            <option selected disabled hidden>Sila Pilih</option>
+
+                            @foreach ($listBab as $listBab)
+                                <option value="{{ $listBab->id }}">Bab {{ $listBab->noBab }}. {{ $listBab->namaBab }} </option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="bidang_id">
+                            <option selected disabled hidden>Sila Pilih</option>
+
+                            @foreach ($listBidang as $listBidang)
+                                <option value="{{ $listBidang->id }}">{{ $listBidang->namaBidang }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+
                     <label class="col-sm-2 col-form-label" for="outcome_id">Outcome Nasional</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="outcome_id">
@@ -65,7 +103,9 @@
 
                     <div class="col" style="text-align: right">
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save" onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span class="fas fa-save"></span>&nbsp;Simpan
+                            type="submit" value="Save"
+                            onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span
+                                class="fas fa-save"></span>&nbsp;Simpan
                         </button>
                     </div>
                 </div>

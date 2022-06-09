@@ -6,7 +6,12 @@ use App\Http\Requests\StoreKpiRequest;
 use App\Http\Requests\UpdateKpiRequest;
 use App\Models\Kpi;
 use App\Models\Outcome;
+use App\Models\Bidang;
+use App\Models\Pemangkindasar;
+use App\Models\Bab;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+
 
 
 class KpiController extends Controller
@@ -19,10 +24,18 @@ class KpiController extends Controller
     public function index()
     {
         $kpis = Kpi::all();
-        $list= Outcome::all();
+        $list = Outcome::all();
 
 
         return view('kpi.index', compact('kpis', 'list'));
+    }
+
+    public function index1()
+    {
+        $kpis = Kpi::all();
+
+
+        return view('kpi.index1', compact('kpis'));
     }
 
     /**
@@ -34,9 +47,15 @@ class KpiController extends Controller
     {
         $user = Auth::user();
 
-        $list= Outcome::all();
-        return view('kpi.create', compact('user', 'list'));
+        $list = Outcome::all();
+        $listBidang = Bidang::all();
+        $listBab = Bab::all();
+        $listTema = Pemangkindasar::all();
+
+        return view('kpi.create', compact('user', 'list', 'listBidang', 'listBab', 'listTema'));
     }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -56,10 +75,31 @@ class KpiController extends Controller
      * @param  \App\Models\Kpi  $kpi
      * @return \Illuminate\Http\Response
      */
+
+    public function lulus($id)
+    {
+
+        $kpi = Kpi::find($id);
+        $kpi->lulus = true;
+        $kpi->ditolak = false;
+        $kpi->save();
+
+
+        return redirect()->to('/kpi1/index1');
+    }
+
+    public function ditolak(Request $request)
+    {
+        $kpi = Kpi::find($request->id);
+        $kpi->lulus = false;
+        $kpi->ditolak = true;
+        $kpi->save();
+
+        return redirect()->to('/kpi1/index1');
+    }
     public function show(Kpi $kpi)
     {
         return view('kpi.show', compact('kpi'));
-
     }
 
     /**
@@ -71,10 +111,26 @@ class KpiController extends Controller
     public function edit(Kpi $kpi)
     {
         // $kpi = Kpi::find($kpi);
-        $list= Outcome::all();
+        $list = Outcome::all();
+        $listBidang = Bidang::all();
+        $listBab = Bab::all();
+        $listTema = Pemangkindasar::all();
 
-        return view('kpi.edit', compact('kpi', 'list'));
 
+        return view('kpi.edit', compact('kpi', 'list', 'listBidang', 'listBab', 'listTema'));
+    }
+
+    public function edit1($id_kpi)
+    {
+        $kpi = Kpi::find($id_kpi);
+        // dd($kpi);
+        // $list= Outcome::where('id', $kpi->outcome_id)->first();
+        // $listBidang= Bidang::where('id', $kpi->bidang_id)->first();
+        // $listBab= Bab::where('id', $kpi->bab_id)->first();
+        // $listTema= Pemangkindasar::where('id', $kpi->pemangkin_id)->first();
+
+
+        return view('kpi.edit1', compact('kpi'));
     }
 
     /**
@@ -85,6 +141,12 @@ class KpiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateKpiRequest $request, Kpi $kpi)
+    {
+        $kpi->update($request->all());
+        return redirect()->route('kpi.index');
+    }
+
+    public function update1(UpdateKpiRequest $request, Kpi $kpi)
     {
         $kpi->update($request->all());
         return redirect()->route('kpi.index');

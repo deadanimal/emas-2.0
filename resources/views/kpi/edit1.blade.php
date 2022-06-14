@@ -1,21 +1,6 @@
 @extends('base')
 @section('content')
 
-    <style>
-        .low-risk {
-            background: green;
-        }
-
-        .medium-risk {
-            background: orange;
-        }
-
-        .high-risk {
-            background: red;
-        }
-
-    </style>
-
     <div class="container">
         <br>
         <div class="mb-4 text-center">
@@ -32,6 +17,7 @@
                 </ul>
             </div>
         @endif
+
 
 
 
@@ -54,7 +40,8 @@
                     <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema</label>
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" value="{{ $kpi->pemangkin->namaTema }}" readonly />
-                        <input class="form-control" name="pemangkin_id" type="hidden" value="{{ $kpi->pemangkin->id }}" />
+                        <input class="form-control" name="pemangkin_id" type="hidden"
+                            value="{{ $kpi->pemangkin->id }}" />
 
 
                     </div>
@@ -85,14 +72,6 @@
                         <input class="form-control" name="outcome_id" type="hidden" value="{{ $kpi->outcome->id }}" />
 
 
-                        {{-- <select class="form-control" name="outcome_id">
-                            <option selected disabled hidden>Sila Pilih</option>
-
-                            @foreach ($list as $list)
-                                <option value="{{ $list->id }}">{{ $list->namaOutcome }}</option>
-                            @endforeach
-
-                        </select> --}}
                     </div>
                 </div>
 
@@ -114,10 +93,16 @@
                     </div>
                 </div>
 
+
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="prestasiKpi">Prestasi KPI</label>
 
                     <div class="col-sm-10" style="width:30%">
+
+                        <p id="prestasi">
+
+                        </p>
+
                         {{-- @if ($peratusanPencapaian == '100')
                             <span class="badge bg-success text white">
                                 {{ $peratusanPencapaian ?? '' }}
@@ -128,22 +113,7 @@
                             </span>
                         @endif --}}
 
-                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-                        <script>
-                            function changeInputColor(input, value) {
-                                $(input).removeClass();
-                                if (value < 6) {
-                                    $(input).addClass('low-risk');
-                                } else if (value >= 6 && value <= 9) {
-                                    $(input).addClass('medium-risk');
-                                } else {
-                                    $(input).addClass('high-risk');
-                                }
-                            }
-                        </script>
-                        </head>
-
-                        <body>
+                        {{-- <body>
 
                             <p style="background-color:#04C367"> > 80%</p>
                             <p style="background-color:yellow">
@@ -151,10 +121,11 @@
                                     <p style="background-color:red">
                                         < 50%</p>
 
-                        </body>
-
+                        </body> --}}
 
                     </div>
+
+
 
 
 
@@ -227,7 +198,8 @@
                     <label class="col-sm-2 col-form-label" for="peratusPencapaian">Peratus Pencapaian</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="peratusPencapaian" type="text" class="percent form-control" />
+                        <input type="text" name="peratusPencapaian" type="text" id="mySelect" onchange="myFunction()"
+                            class="percent form-control" />
 
                     </div>
 
@@ -316,6 +288,10 @@
             </form>
         </div>
 
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
         <script>
             $(".percent").keyup(function(e) {
                 let int = e.target.value.slice(0, e.target.value.length - 1);
@@ -335,15 +311,19 @@
                 }
             })
 
-            function getInt(val) {
-                let v = parseFloat(val);
-                if (v % 1 === 0) {
-                    return v;
+            function myFunction() {
+                var x = document.getElementById("mySelect").value;
+                document.getElementById("prestasi").innerHTML = "Prestasi: " + x;
+
+                if (x < 50) {
+
+                } else if (x < 80) {
+
                 } else {
-                    let n = v.toString().split('.').join('');
-                    return parseInt(n);
+                    
                 }
             }
+
         </script>
     </div>
 

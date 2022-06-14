@@ -71,6 +71,60 @@
                                                         <label class="form-control"
                                                             disabled="disabled">{{ $tindakan->keteranganTindakan }}</label>
                                                     </div>
+
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Kementerian/Agensi Penyelaras:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $tindakan->kementerian_penyelaras }}</label>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Kementerian/Agensi Pelaksana
+                                                            :</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $tindakan->kementerian_pelaksana }}</label>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Tempoh Siap:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $tindakan->tempohSiap }}</label>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Kategori Sasaran
+                                                            :</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $tindakan->kategoriSasaran }}</label>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Status Pelaksanaan 2022
+                                                            :</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $tindakan->statusPelaksanaan }}</label>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Catatan 2022
+                                                            :</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $tindakan->catatan2022 }}</label>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Sasaran 2022
+                                                            :</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $tindakan->sasaran2022 }}</label>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Pencapaian 2022
+                                                            :</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $tindakan->pencapaian2022 }}</label>
+                                                    </div>
                                                 </form>
                                                 <br>
                                             </div>
@@ -85,7 +139,7 @@
                                 <div>
                                     {{-- <form action="{{ route('tindakan.destroy', $tindakan->id) }}" method="POST"> --}}
                                     <a class="btn btn-warning" style="border-radius: 38px"
-                                        href="{{ route('tindakan.edit', $tindakan->id) }}"><i class="fas fa-pencil-alt"></i>
+                                        href="/tindakan1/{{ $tindakan->id }}/edit/"><i class="fas fa-pencil-alt"></i>
                                     </a>
 
                                     <a class="btn btn-primary" style="border-radius: 38px"
@@ -94,8 +148,8 @@
 
                                     {{-- @csrf
                                         @method('DELETE') --}}
-                                    <button type="submit" onclick="myFunction({{ $tindakan->id }})" class="btn btn-danger"
-                                        style="border-radius: 38px">
+                                    <button type="submit" onclick="myFunction({{ $tindakan->id }})"
+                                        class="btn btn-danger" style="border-radius: 38px">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                     <p id="ppd"></p>
@@ -169,6 +223,10 @@
                             <td align="right">
                                 <div>
                                     <form action="/tindakan/` + e.id + `" method="POST">
+
+                                        <a class="btn btn-warning" style="border-radius: 38px"
+                                        href="/tindakan1/` + e.id + `/edit/"><i class="fas fa-pencil-alt"></i>
+                                        </a>
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
                                             href="/tindakan/` + e.id + `"><i

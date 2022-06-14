@@ -23,7 +23,7 @@
                         <select class="form-control" name="pemangkin_id">
 
                             @foreach ($list as $list)
-                                <option @selected($bab->pemangkin_id == $list->id) value="{{ $list->id }}">{{ $list->keteranganTema }}</option>
+                                <option @selected($bab->pemangkin_id == $list->id) value="{{ $list->id }}">{{ $list->namaTema }}</option>
                             @endforeach
 
                         </select>

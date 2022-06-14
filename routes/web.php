@@ -4,14 +4,18 @@ use App\Http\Controllers\BabController;
 use App\Http\Controllers\BidangController;
 use App\Http\Controllers\FokusutamaController;
 use App\Http\Controllers\InisiatifController;
+use App\Http\Controllers\KeyController;
 use App\Http\Controllers\KpiController;
 use App\Http\Controllers\MarkahController;
+use App\Http\Controllers\NationalController;
 use App\Http\Controllers\OutcomeController;
 use App\Http\Controllers\PemacuController;
 use App\Http\Controllers\PemangkindasarController;
 use App\Http\Controllers\PerkarautamaController;
 use App\Http\Controllers\SdgController;
 use App\Http\Controllers\StrategiController;
+use App\Http\Controllers\SubController;
+use App\Http\Controllers\ThrustController;
 use App\Http\Controllers\TindakanController;
 use App\Models\Perkarautama;
 use Illuminate\Support\Facades\Route;
@@ -93,9 +97,40 @@ Route::resource('/inisiatif',InisiatifController::class);
 
 //Tindakan
 Route::resource('/tindakan',TindakanController::class);
+Route::get('/tindakan1/{id}/edit/', [TindakanController::class, 'edit1']);
+Route::post('/tindakan1/{id}', [TindakanController::class, 'update1']);
+Route::get('/tindakan1/index1/', [TindakanController::class, 'index1']);
 
 //SDG
 Route::resource('/sdg',SdgController::class);
+
+//ThrustInformation
+Route::resource('/thrust',ThrustController::class);
+
+//National
+Route::resource('/national',NationalController::class);
+
+//Key Activity
+Route::resource('/key',KeyController::class);
+
+
+//Sub Activity
+Route::resource('/sub',SubController::class);
+
+//Kpi MPB
+Route::resource('/kpi2',Kpi2Controller::class);
+
+
+//Milestone
+Route::resource('/milestone',MilestoneController::class);
+
+
+
+
+
+
+
+
 
 
 

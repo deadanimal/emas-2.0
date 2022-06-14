@@ -38,6 +38,23 @@
                     </div>
                 </div>
 
+                <div class="mb-3 row" >
+                    <label class="col-sm-2 col-form-label" for="noBidang">Bidang Keutamaan:</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="noBidang" >
+                            <option @selected($bab->noBidang == "1") value="1">BK A</option>
+                            <option @selected($bab->noBidang == "2") value="2">BK B</option>
+                            <option @selected($bab->noBidang == "3") value="3">BK C</option>
+                            <option @selected($bab->noBidang == "4") value="4">BK D</option>
+                            <option @selected($bab->noBidang == "5") value="5">BK E</option>
+                            <option @selected($bab->noBidang == "6") value="6">BK F</option>
+
+                        </select>
+
+
+                    </div>
+                </div>
+
                 <br>
                 <br>
 

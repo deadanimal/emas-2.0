@@ -123,7 +123,7 @@
                 <tr class="align-middle">
                         <td class="text-nowrap">
                             <div class="d-flex align-items-center">
-                                <div class="ms-2"><b>` + e.keteranganTema + `</b></div>
+                                <div class="ms-2"><b>` + e.namaTema + `</b></div>
                             </div>
                         </td>
 
@@ -160,7 +160,7 @@
                 <tr class="align-middle">
                         <td class="text-nowrap">
                             <div class="d-flex align-items-center">
-                                <div class="ms-2"><b>` + e.keteranganTema + `</b></div>
+                                <div class="ms-2"><b>` + e.namaTema + `</b></div>
                             </div>
                         </td>
 

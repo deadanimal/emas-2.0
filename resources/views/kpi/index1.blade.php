@@ -1,91 +1,91 @@
 @extends('base')
 @section('content')
-    {{-- <style>
-        table {
-            border-collapse: collapse;
-            width: 400%;
-            border: 1px solid #ddd;
+    {{-- @import "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" --}}
+
+    <style>
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 90px;
+            height: 34px;
+
         }
 
-        th,
-        td {
-            text-align: left;
-            padding: 16px;
+        .switch input {
+            display: none;
         }
 
-    </style> --}}
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ca2222;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 34px;
+
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: #2ab934;
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked+.slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(55px);
+        }
+
+        /*------ ADDED CSS ---------*/
+        .slider:after {
+            content: 'TOLAK';
+            color: white;
+            display: block;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 60%;
+            font-size: 10px;
+        }
+
+        input:checked+.slider:after {
+            content: 'LULUS';
+            display: block;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 40%;
+            font-size: 10px;
+        }
+
+        /*--------- END --------*/
+    </style>
 
     <div class="container">
         <br>
         <div class="mb-4 text-center">
             <H2>PELAN PELAKSANAAN DASAR</H2>
         </div>
-
-        {{-- <div class="table-responsive scrollbar">
-            <table>
-                <tr>
-                    @can('admin')
-                        <th>User</th>
-                    @endcan
-                    <th>KPI Nasional</th>
-                    <th>Tema </th>
-                    <th>Jenis KPI</th>
-                    <th>Prestasi KPI</th>
-                    <th>Unit</th>
-                    <th>Pencapaian </th>
-                    <th>Sasaran</th>
-                    <th>Had Varian</th>
-                    <th>Had Toleransi</th>
-                    <th>Kekerapan </th>
-                    <th>Wajaran (%)</th>
-                    <th>Peratus Pencapaian (%)</th>
-                    <th>Tahun Asas</th>
-                    <th>Peratus Pencapaian Tahun Asas (%) </th>
-                    <th>Sasaran 2021</th>
-                    <th>Sasaran 2022</th>
-                    <th>Sasaran 2023</th>
-                    <th>Sasaran 2024</th>
-                    <th>Sasaran 2025</th>
-                    <th>Sumber Data</th>
-                    <th>Sumber Pengesahan</th>
-
-                    @can('admin')
-                        <th>Tindakan</th>
-                    @endcan
-
-                </tr>
-                @foreach ($kpis as $kpi)
-                    <tr>
-                        @can('admin')
-                            <td>{{ $loop->iteration }}. {{ $kpi->user->name }}</td>
-                        @endcan
-                        <td>{{ $kpi->namaKpi }}</td>
-                        <td>{{ $kpi->pemangkin->namaTema ?? '' }}</td>
-                        <td>{{ $kpi->jenisKpi }}</td>
-                        <td>{{ $kpi->prestasiKpi }}</td>
-                        <td>{{ $kpi->unitUkuran }}</td>
-                        <td>{{ $kpi->pencapaian }}</td>
-                        <td>{{ $kpi->sasaran }}</td>
-                        <td>{{ $kpi->hadVarian }}</td>
-                        <td>{{ $kpi->hadToleransi }}</td>
-                        <td>{{ $kpi->kekerapan }}</td>
-                        <td>{{ $kpi->wajaran }}</td>
-                        <td>{{ $kpi->peratusPencapaian }}</td>
-                        <td>{{ $kpi->tahunAsas }}</td>
-                        <td>{{ $kpi->peratusPencapaianAsas }}</td>
-                        <td>{{ $kpi->sasaran2021 }}</td>
-                        <td>{{ $kpi->sasaran2022 }}</td>
-                        <td>{{ $kpi->sasaran2023 }}</td>
-                        <td>{{ $kpi->sasaran2024 }}</td>
-                        <td>{{ $kpi->sasaran2025 }}</td>
-                        <td>{{ $kpi->sumberData }}</td>
-                        <td>{{ $kpi->sumberPengesahan }}</td>
-
-                    </tr>
-                @endforeach
-
-            </table>
-        </div> --}}
 
         <div class="card mx-ncard my-ncard shadow-none">
             <div class="card-body">
@@ -154,6 +154,17 @@
                                     <td class="align-middle">{{ $kpi->sumberPengesahan }}</td>
                                     @role('admin')
                                         <td class="align-middle">
+
+                                            {{-- <label class="switch">
+                                                <input type="checkbox" id="togBtn">
+                                                <div class="slider round"></div>
+                                            </label> --}}
+
+                                            <div id="toggle-lulus" class="btn-group btn-toggle">
+                                                <button class="btn btn-xs btn-default">Tolak</button>
+                                                <button class="btn btn-xs btn-primary active">Lulus</button>
+                                            </div>
+
                                             <div class="col-auto ms-auto">
                                                 @if ($kpi->lulus == 1 && $kpi->ditolak == 0)
                                                     <span class="btn btn-primary" disabled>Lulus</span>
@@ -196,3 +207,41 @@
 
     </div>
 @endsection
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"></script>
+
+
+<script>
+    // only if pressed a non-active button
+    $("button", "#toggle-lulus").click(function(event) {
+        var $btn = $(event.currentTarget)
+
+        // only if not already active
+        if (!$btn.hasClass('active')) {
+            // you can switch the button as soon as clicked or in AJAX callback
+            changeActiveButton($btn)
+
+            $.post('https://jsonplaceholder.typicode.com/todos/1', {
+                lang: $btn.text()
+            }, function(data) {
+                // do whatever you want with your API callback data
+            })
+        }
+    })
+
+    function changeActiveButton($btn) {
+        // reset active & button type on previous button
+        $("button.active", "#toggle-lulus")
+            .removeClass('btn-primary active')
+            .addClass('btn-default')
+
+        // set active & button type on current button
+        $btn
+            .removeClass('btn-default')
+            .addClass('btn-primary active')
+    }
+</script>
+
+

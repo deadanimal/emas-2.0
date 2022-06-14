@@ -18,6 +18,16 @@ class Tindakan extends Model
         'user_id',
         'inisiatif_id',
         'perkara_id',
+        'kementerian_penyelaras',
+        'kementerian_pelaksana',
+        'tempohSiap',
+        'kategoriSasaran',
+        'statusPelaksanaan',
+        'catatan2022',
+        'sasaran2022',
+        'pencapaian2022',
+
+
 
     ];
 

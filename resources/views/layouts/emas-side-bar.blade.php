@@ -23,7 +23,6 @@
         /* background-color: #666; */
         color: white;
     }
-
 </style>
 <script>
     var isFluid = JSON.parse(localStorage.getItem('isFluid'));
@@ -204,8 +203,8 @@
 
                             </ul> --}}
                             <li class="nav-item">
-                                <a class="nav-link {{ Request::is('kpi', 'kpi/*') ? 'active' : '' }}" href="/kpi"
-                                    style="color: #047FC3">
+                                <a class="nav-link {{ Request::is('kpi', 'kpi/*', 'kpi1', 'kpi1/*') ? 'active' : '' }}"
+                                    href="/kpi" style="color: #047FC3">
                                     <div class="d-flex align-items-center">
                                         <span class="nav-link-text ps-1">KPI
                                             Nasional</span>
@@ -232,7 +231,7 @@
                                 <!-- more inner pages-->
                             </li>
                             <li class="nav-item"><a
-                                    class="nav-link {{ Request::is('tindakan', 'tindakan/*') ? 'active' : '' }}"
+                                    class="nav-link {{ Request::is('tindakan', 'tindakan/*', 'tindakan1', 'tindakan1/*') ? 'active' : '' }}"
                                     href="/tindakan" style="color: #047FC3">
                                     <div class="d-flex align-items-center"><span
                                             class="nav-link-text ps-1">Tindakan</span>
@@ -251,6 +250,78 @@
                         </ul>
                     </div>
 
+                    <br>
+
+                    @role('admin')
+                    <a class="nav-link dropdown-indicator" href="#dashboard" role="button" data-bs-toggle="collapse"
+                        aria-expanded="true" aria-controls="dashboard" style="background-color: #C4D4ED">
+                        <div class="d-flex justify-content-center" style="color: #047FC3">
+                            <span class="nav-link-text ps-1">Information</span>
+                        </div>
+                    </a>
+
+                    <div class="card" style="--hover-color: white">
+                        <ul class="nav collapse show" id="dashboard" style="background-color: #E7EFFD">
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::is('thrust', 'thrust/*') ? 'active' : '' }}"
+                                    href="/thrust" style="color: #047FC3">
+                                    <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Thrust
+                                        </span>
+                                    </div>
+                                </a>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::is('national', 'national/*') ? 'active' : '' }}"
+                                    href="/national" style="color: #047FC3">
+                                    <div class="d-flex align-items-center"><span class="nav-link-text ps-1">National
+                                            Initiave
+                                        </span>
+                                    </div>
+                                </a>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::is('key', 'key/*') ? 'active' : '' }}" href="/key"
+                                    style="color: #047FC3">
+                                    <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Key Activity
+                                        </span>
+                                    </div>
+                                </a>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::is('sub', 'sub/*') ? 'active' : '' }}" href="/sub"
+                                    style="color: #047FC3">
+                                    <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Sub
+                                            Activity</span>
+                                    </div>
+                                </a>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::is('kpi2', 'kpi2/*') ? 'active' : '' }}" href="/kpi2"
+                                    style="color: #047FC3">
+                                    <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Kpi
+                                        </span>
+                                    </div>
+                                </a>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::is('milestone', 'milestone/*') ? 'active' : '' }}"
+                                    href="/milestone" style="color: #047FC3">
+                                    <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Milestone
+                                        </span>
+                                    </div>
+                                </a>
+                                <!-- more inner pages-->
+                            </li>
+
+
+                        </ul>
+                    </div>
+                    @endrole
                 </li>
                 <br>
 

@@ -45,6 +45,38 @@ class UpdateTindakanRequest extends FormRequest
             'perkara_id' => [
                 'string',
             ],
+
+            'kementerian_penyelaras' => [
+                'string',
+            ],
+
+            'kementerian_pelaksana' => [
+                'string',
+            ],
+
+            'tempohSiap' => [
+                'string',
+            ],
+
+            'kategoriSasaran' => [
+                'string',
+            ],
+
+            'statusPelaksanaan' => [
+                'string',
+            ],
+
+            'catatan2022' => [
+                'string',
+            ],
+
+            'sasaran2022' => [
+                'string',
+            ],
+
+            'pencapaian2022' => [
+                'string',
+            ],
         ];
     }
 }

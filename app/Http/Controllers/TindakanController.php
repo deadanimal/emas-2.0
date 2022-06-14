@@ -24,6 +24,13 @@ class TindakanController extends Controller
         return view('tindakan.index', compact('tindakans', 'list'));
     }
 
+    public function index1()
+    {
+        $tindakans = Tindakan::all();
+
+        return view('tindakan.index1', compact('tindakans'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -74,6 +81,14 @@ class TindakanController extends Controller
 
     }
 
+    public function edit1($id_tindakan)
+    {
+        $tindakans = Tindakan::find($id_tindakan);
+
+        return view('tindakan.edit1', compact('tindakans'));
+
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -82,6 +97,12 @@ class TindakanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateTindakanRequest $request, Tindakan $tindakan)
+    {
+        $tindakan->update($request->all());
+        return redirect()->route('tindakan.index');
+    }
+
+    public function update1(UpdateTindakanRequest $request, Tindakan $tindakan)
     {
         $tindakan->update($request->all());
         return redirect()->route('tindakan.index');

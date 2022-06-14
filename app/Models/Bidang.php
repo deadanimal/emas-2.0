@@ -15,6 +15,7 @@ class Bidang extends Model
 
         'keteranganBidang',
         'namaBidang',
+        'noBidang',
         'bab_id',
         'pemacu_id',
         'user_id',

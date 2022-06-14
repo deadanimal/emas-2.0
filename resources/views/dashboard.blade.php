@@ -374,7 +374,7 @@
                         </a>
                     </div>
                     <div class="col-md-6 col-lg-4 text-center">
-                        <a class="mb-3" href="/ppd">
+                        <a class="mb-3" href="/thrust">
                             <div class="px-4 pt-4">
                                 <img src="img/MPB.png" class="img-fluid card-img-hover landing-img" alt="">
                             </div>
@@ -422,7 +422,7 @@
                         </a>
                     </div>
                     <div class="col-md-6 col-lg-4 text-center">
-                        <a class="mb-3" href="/ppd" id="myAnchor">
+                        <a class="mb-3" href="/thrust" id="myAnchor">
                             <div class="px-4 pt-4">
                                 <img src="img/MPB.png" class="img-fluid card-img-hover landing-img" alt=""
                                     style="opacity: 50%">

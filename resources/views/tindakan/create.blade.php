@@ -39,12 +39,69 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaTindakan" >Nama Tindakan</label>
+
+                    <label class="col-sm-2 col-form-label" for="namaTindakan">Nama Tindakan</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaTindakan"/>
+                        <input class="form-control" type="text" name="namaTindakan" />
 
                     </div>
                 </div>
+
+                {{-- <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="kementerian_penyelaras">Kementerian/Agensi Penyelaras</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" name="kementerian_penyelaras"/>
+
+                    </div>
+
+                    <label class="col-sm-2 col-form-label" for="kementerian_pelaksana">Kementerian/Agensi Pelaksana</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="kementerian_pelaksana" />
+
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="tempohSiap">Tempoh Siap</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" name="tempohSiap"/>
+
+                    </div>
+
+                    <label class="col-sm-2 col-form-label" for="kategoriSasaran">Kategori Sasaran</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="kategoriSasaran" />
+
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="statusPelaksanaan">Status Pelaksanaan 2022</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" name="statusPelaksanaan"/>
+
+                    </div>
+
+                    <label class="col-sm-2 col-form-label" for="catatan2022">Catatan 2022</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="catatan2022" />
+
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="sasaran2022">Sasaran 2022</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" name="sasaran2022"/>
+
+                    </div>
+
+                    <label class="col-sm-2 col-form-label" for="pencapaian2022">Pencapaian 2022</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="pencapaian2022" />
+
+                    </div>
+                </div> --}}
 
 
                 <br>
@@ -57,14 +114,17 @@
 
                 <div class="row">
                     <div class="col">
-                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3" href="/tindakan">
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
+                            href="/tindakan">
                             <span class="fas fa-times-circle"></span>&nbsp;Batal
                         </a>
                     </div>
 
                     <div class="col" style="text-align: right">
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save" onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span class="fas fa-save"></span>&nbsp;Simpan
+                            type="submit" value="Save"
+                            onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span
+                                class="fas fa-save"></span>&nbsp;Simpan
                         </button>
                     </div>
                 </div>

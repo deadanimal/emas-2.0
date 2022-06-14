@@ -46,6 +46,21 @@
                     </div>
                 </div>
 
+                <div class="mb-3 row" >
+                    <label class="col-sm-2 col-form-label" for="noBidang">Bidang Keutamaan:</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="noBidang" >
+                            <option selected disabled hidden>SILA PILIH</option>
+                            <option value="1">BK A</option>
+                            <option value="2">BK B</option>
+                            <option value="3">BK C</option>
+                            <option value="4">BK D</option>
+                            <option value="5">BK E</option>
+                            <option value="6">BK F</option>
+                        </select>
+
+                    </div>
+                </div>
 
                 <br>
                 <br>

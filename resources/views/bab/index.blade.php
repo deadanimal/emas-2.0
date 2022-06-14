@@ -127,7 +127,7 @@
             var bab = @json($babs->toArray());
             $("#tablebody").html('');
             bab.forEach(e => {
-                if (val == e.bab_id) {
+                if (val == e.pemangkin_id) {
                     $("#tablebody").append(`
                     <tr class="align-middle">
                             <td class="text-nowrap">

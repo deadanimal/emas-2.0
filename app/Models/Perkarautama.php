@@ -11,17 +11,19 @@ class Perkarautama extends Model
 
     public $table = 'perkarautamas';
 
-    protected $fillable = [
+    // protected $fillable = [
 
-        'keteranganPerkaraUtama',
-        'namaPerkara',
-        'fokus_id',
-        'user_id',
-    ];
+    //     'keteranganPerkaraUtama',
+    //     'namaPerkara',
+    //     'fokus_id',
+    //     'user_id',
+    // ];
+
+    protected $guarded = ['id'];
 
     protected $with = [
         'user',
-        'fokus'
+        'fokus',
 
     ];
 

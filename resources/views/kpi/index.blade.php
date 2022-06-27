@@ -19,7 +19,7 @@
         {{-- <div class="row">
             <div class="col">
                 <select class="form-select searchKategori" style="width:30%" aria-label="Default select example">
-                    <option selected disabled hidden>PILIH OUTCOME NASIONAL</option>
+                    <option selected disabled hidden value="null">PILIH OUTCOME NASIONAL</option>
                     @foreach ($list as $list)
                         <option value="{{ $list->id }}">{{ $list->namaOutcome }}</option>
                     @endforeach
@@ -31,12 +31,12 @@
         <div class="row g-3">
             <div class="col-sm" style="width:50%">
 
-                <select class="form-select searchBab" >
-                    <option selected disabled hidden>PILIH FOKUS UTAMA</option>
+                <select class="form-select search">
+                    <option selected disabled hidden value="null">PILIH FOKUS UTAMA</option>
 
-                    {{-- @foreach ($list as $list)
-                        <option value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}</option>
-                    @endforeach --}}
+                    @foreach ($fokusUtama as $fu)
+                        <option value="{{ $fu->id }}">{{ $fu->namaFokus }}</option>
+                    @endforeach
 
                 </select>
             </div>
@@ -45,66 +45,66 @@
 
             <div class="col-sm" style="width:50%">
 
-                <select class="form-select searchKategori" >
-                    <option selected disabled hidden>PILIH PERKARA UTAMA</option>
+                <select class="form-select search">
+                    <option selected disabled hidden value="null">PILIH PERKARA UTAMA</option>
 
-                    {{-- @foreach ($list as $list)
-                    <option value="{{ $list->id }}">{{ $list->namaKpi }}</option>
-                    @endforeach --}}
-
-                </select>
-            </div>
-
-            <div class="col-sm" style="width:50%">
-
-                <select class="form-select searchBab" >
-                    <option selected disabled hidden>PILIH TEMA/PEMANGKIN</option>
-
-                    {{-- @foreach ($list as $list)
-                        <option value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}</option>
-                    @endforeach --}}
+                    @foreach ($perkaraUtama as $pu)
+                        <option value="{{ $pu->id }}">{{ $pu->namaPerkara }}</option>
+                    @endforeach
 
                 </select>
             </div>
 
             <div class="col-sm" style="width:50%">
 
-                <select class="form-select searchBab" >
-                    <option selected disabled hidden>PILIH BAB</option>
+                <select class="form-select search">
+                    <option selected disabled hidden value="null">PILIH TEMA/PEMANGKIN</option>
 
-                    {{-- @foreach ($list as $list)
-                        <option value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}</option>
-                    @endforeach --}}
-
-                </select>
-            </div>
-
-            <div class="col-sm" style="width:50%">
-
-                <select class="form-select searchBab" >
-                    <option selected disabled hidden>PILIH BIDANG</option>
-
-                    {{-- @foreach ($list as $list)
-                        <option value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}</option>
-                    @endforeach --}}
+                    @foreach ($temaPemangkin as $tp)
+                        <option value="{{ $tp->id }}">{{ $tp->namaTema }}</option>
+                    @endforeach
 
                 </select>
             </div>
 
             <div class="col-sm" style="width:50%">
 
-                <select class="form-select searchKategori" >
-                        <option selected disabled hidden>PILIH OUTCOME NASIONAL</option>
-                        @foreach ($list as $list)
-                            <option value="{{ $list->id }}">{{ $list->namaOutcome }}</option>
-                        @endforeach
-                    </select>
+                <select class="form-select search">
+                    <option selected disabled hidden value="null">PILIH BAB</option>
+
+                    @foreach ($bab as $b)
+                        <option value="{{ $b->id }}">{{ $b->namaBab }}</option>
+                    @endforeach
+
+                </select>
+            </div>
+
+            <div class="col-sm" style="width:50%">
+
+                <select class="form-select search">
+                    <option selected disabled hidden value="null">PILIH BIDANG</option>
+
+                    @foreach ($bidang as $b)
+                        <option value="{{ $b->id }}">{{ $b->namaBidang }}</option>
+                    @endforeach
+
+                </select>
+            </div>
+
+            <div class="col-sm" style="width:50%">
+
+                <select class="form-select search">
+                    <option selected disabled hidden value="null">PILIH OUTCOME NASIONAL</option>
+                    @foreach ($list as $list)
+                        <option value="{{ $list->id }}">{{ $list->namaOutcome }}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
 
 
         <div class="table-responsive scrollbar">
-            <table class="table table-hover table-striped overflow-hidden">
+            <table class="table table-hover table-striped overflow-hidden value="null"">
                 <thead>
                     <tr>
                         <th scope="col"></th>
@@ -114,7 +114,7 @@
                 <tbody id="tablebody">
                     @foreach ($kpis as $kpi)
                         <tr class="align-middle">
-                            <td class="text-nowrap">
+                            <td class="text-nowrap" id="searchUpdateTable">
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-{{ $kpi->id }}">
 
@@ -122,8 +122,28 @@
                                 </div>
                             </td>
 
+
+
+                            <td align="right" id="searchUpdateTable2">
+                                <div>
+                                    <a class="btn btn-warning" style="border-radius: 38px"
+                                        href="/kpi1/{{ $kpi->id }}/edit/"><i class="fas fa-pencil-alt"></i>
+                                    </a>
+
+                                    <a class="btn btn-primary" style="border-radius: 38px"
+                                        href="{{ route('kpi.edit', $kpi->id) }}"><i class="fas fa-edit"></i>
+                                    </a>
+
+                                    <button type="submit" onclick="myFunction({{ $kpi->id }})" class="btn btn-danger"
+                                        style="border-radius: 38px">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+
+
                             <div class="modal fade" id="error-modal-{{ $kpi->id }}" tabindex="-1" role="dialog"
-                                aria-hidden="true">
+                                aria-hidden value="null"="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
                                     <div class="modal-content position-relative">
                                         <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
@@ -307,33 +327,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <td align="right">
-                                <div>
-                                    {{-- <form action="{{ route('kpi.destroy', $kpi->id) }}" method="POST"> --}}
-
-
-
-                                    <a class="btn btn-warning" style="border-radius: 38px"
-                                        href="/kpi1/{{ $kpi->id }}/edit/"><i class="fas fa-pencil-alt"></i>
-                                    </a>
-
-                                    <a class="btn btn-primary" style="border-radius: 38px"
-                                        href="{{ route('kpi.edit', $kpi->id) }}"><i class="fas fa-edit"></i>
-                                    </a>
-
-                                    {{-- @csrf
-                                        @method('DELETE') --}}
-
-                                    <button type="submit" onclick="myFunction({{ $kpi->id }})"
-                                        class="btn btn-danger" style="border-radius: 38px">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                    <p id="ppd"></p>
-
-                                    {{-- </form> --}}
-                                </div>
-                            </td>
                         </tr>
                     @endforeach
 
@@ -346,88 +339,50 @@
     </div>
 
     <script>
-        $('.searchKategori').change(function(e) {
-            let val = this.value;
-            var kpi = @json($kpis->toArray());
-            // console.log(kpi);
-            $("#tablebody").html('');
-            kpi.forEach(e => {
-
-                if (val == e.outcome_id) {
-                    $("#tablebody").append(`
-                    <tr class="align-middle">
-                            <td class="text-nowrap">
-                                <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                    data-bs-target="#error-modal-` + e.id + `">
-                                    <div class="ms-2"><b>` + e.namaKpi + `</b></div>
-                                </div>
-                            </td>
-
-                            <div class="modal fade" id="error-modal-` + e.id + `" tabindex="-1" role="dialog"
-                                aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
-                                    <div class="modal-content position-relative">
-                                        <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
-                                            <button
-                                                class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
-                                                data-bs-dismiss="modal" aria-label="Close">
-                                            </button>
-                                        </div>
-                                        <div class="modal-body p-0">
-
-                                            <div class="p-4 pb-0">
-                                                <form>
-                                                    <div class="mb-3">
-                                                        <label class="col-form-label">Kpi:</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">` + e.namaKpi + `</label>
-
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label class="col-form-label">Keterangan:</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">` + e.keteranganKpi + `</label>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <td align="right">
-                                <div>
-                                    <form action="/kpi/` + e.id + `" method="POST">
-
-                                        <a class="btn btn-warning" style="border-radius: 38px"
-                                        href="/kpi1/` + e.id + `/edit/"><i class="fas fa-pencil-alt"></i>
-                                        </a>
-
-                                        <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="/kpi/` + e.id + `"><i
-                                                class="fas fa-edit"></i>
-                                        </a>
-
-                                        @csrf
-                                        @method('DELETE')
-
-                                        <button type="submit" onclick="myFunction()" class="btn btn-danger"
-                                            style="border-radius: 38px">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
-                    `);
-
-                }
+        $(".search").change(function() {
+            var result = [];
+            jQuery.each($(".search"), function(key, val) {
+                result.push(val.value);
             });
 
+            $.ajax({
+                method: "POST",
+                url: "/search_kpi",
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    "result": result,
+                },
+            }).done(function(response) {
+                console.log(response);
+                $("#searchUpdateTable").html('');
+                $("#searchUpdateTable2").html('');
+
+                response.forEach(el => {
+                    $("#searchUpdateTable").append(`
+                        <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#error-modal-` + el.id + `">
+
+                                <div class="ms-2"><b>` + el.namaKpi + `</b></div>
+                        </div>
+                    `);
+                    $("#searchUpdateTable2").append(`
+                        <div>
+                            <a class="btn btn-warning" style="border-radius: 38px"
+                                href="/kpi1/` + el.id + `/edit/"><i class="fas fa-pencil-alt"></i>
+                            </a>
+
+                            <a class="btn btn-primary" style="border-radius: 38px"
+                                href="/kpi/` + el.id + `/edit"><i class="fas fa-edit"></i>
+                            </a>
+
+                            <button type="submit" onclick="myFunction({{ `+el.id+` }})" class="btn btn-danger"
+                                style="border-radius: 38px">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    `);
+                });
+            });
 
 
         });

@@ -11,12 +11,13 @@ class Fokusutama extends Model
 
     public $table = 'fokusutamas';
 
-    protected $fillable = [
+    // protected $fillable = [
 
-        'keteranganFokus',
-        'namaFokus',
-        'user_id',
-    ];
+    //     'keteranganFokus',
+    //     'namaFokus',
+    //     'user_id',
+    // ];
+    protected $guarded = ['id'];
 
     protected $with = [
         'user',

@@ -38,7 +38,7 @@
                 <tbody id="tablebody">
                     @foreach ($perkarautama as $perkara)
                         <tr class="align-middle">
-                            <td class="text-nowrap">
+                            <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-{{ $perkara->id }}">
                                     <div class="ms-2"><b>{{ $perkara->namaPerkara }}</b></div>

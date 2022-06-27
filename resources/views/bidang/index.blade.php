@@ -36,7 +36,7 @@
                 <tbody id="tablebody">
                     @foreach ($bidangs as $bidang)
                         <tr class="align-middle">
-                            <td class="text-nowrap">
+                            <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-{{ $bidang->id }}">
                                     <div class="ms-2"><b>{{ $bidang->namaBidang }}</b></div>
@@ -120,7 +120,7 @@
                 if (val == e.bab_id) {
                     $("#tablebody").append(`
                     <tr class="align-middle">
-                            <td class="text-nowrap">
+                            <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-` + e.id + `">
                                     <div class="ms-2"><b>` + e.namaBidang + `</b></div>

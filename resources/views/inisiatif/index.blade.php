@@ -116,10 +116,16 @@
     <script>
         $('.searchKategori').change(function(e) {
             let val = this.value;
+                        console.log(this.value);
+
+
             var inisiatif = @json($inisiatifs->toArray());
+            console.log(inisiatif);
+
             $("#tablebody").html('');
             inisiatif.forEach(e => {
-
+                console.log(e)
+                console.log(val)
                 if (val == e.strategi_id) {
                     $("#tablebody").append(`
                     <tr class="align-middle">

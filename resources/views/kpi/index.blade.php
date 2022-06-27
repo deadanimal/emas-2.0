@@ -16,7 +16,7 @@
 
         <hr style="width:100%;text-align:center;">
 
-        <div class="row">
+        {{-- <div class="row">
             <div class="col">
                 <select class="form-select searchKategori" style="width:30%" aria-label="Default select example">
                     <option selected disabled hidden>PILIH OUTCOME NASIONAL</option>
@@ -25,13 +25,81 @@
                     @endforeach
                 </select>
             </div>
-            {{-- <div class="col" style="text-align: right">
-                <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                    href="/markah/create">
-                    &nbsp;Kemas Kini Markah
-                </a>
-            </div> --}}
 
+        </div> --}}
+
+        <div class="row g-3">
+            <div class="col-sm" style="width:50%">
+
+                <select class="form-select searchBab" >
+                    <option selected disabled hidden>PILIH FOKUS UTAMA</option>
+
+                    {{-- @foreach ($list as $list)
+                        <option value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}</option>
+                    @endforeach --}}
+
+                </select>
+            </div>
+
+
+
+            <div class="col-sm" style="width:50%">
+
+                <select class="form-select searchKategori" >
+                    <option selected disabled hidden>PILIH PERKARA UTAMA</option>
+
+                    {{-- @foreach ($list as $list)
+                    <option value="{{ $list->id }}">{{ $list->namaKpi }}</option>
+                    @endforeach --}}
+
+                </select>
+            </div>
+
+            <div class="col-sm" style="width:50%">
+
+                <select class="form-select searchBab" >
+                    <option selected disabled hidden>PILIH TEMA/PEMANGKIN</option>
+
+                    {{-- @foreach ($list as $list)
+                        <option value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}</option>
+                    @endforeach --}}
+
+                </select>
+            </div>
+
+            <div class="col-sm" style="width:50%">
+
+                <select class="form-select searchBab" >
+                    <option selected disabled hidden>PILIH BAB</option>
+
+                    {{-- @foreach ($list as $list)
+                        <option value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}</option>
+                    @endforeach --}}
+
+                </select>
+            </div>
+
+            <div class="col-sm" style="width:50%">
+
+                <select class="form-select searchBab" >
+                    <option selected disabled hidden>PILIH BIDANG</option>
+
+                    {{-- @foreach ($list as $list)
+                        <option value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}</option>
+                    @endforeach --}}
+
+                </select>
+            </div>
+
+            <div class="col-sm" style="width:50%">
+
+                <select class="form-select searchKategori" >
+                        <option selected disabled hidden>PILIH OUTCOME NASIONAL</option>
+                        @foreach ($list as $list)
+                            <option value="{{ $list->id }}">{{ $list->namaOutcome }}</option>
+                        @endforeach
+                    </select>
+            </div>
         </div>
 
 
@@ -100,8 +168,12 @@
 
                                                     <div class="mb-3">
                                                         <label class="col-form-label">Outcome Nasional:</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">{{ $kpi->outcome->namaOutcome }}</label>
+                                                        @if ($kpi->outcome != null)
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $kpi->outcome->namaOutcome }}</label>
+                                                        @else
+                                                            <label>Outcome telah dipadam</label>
+                                                        @endif
                                                     </div>
 
                                                     <div class="mb-3">
@@ -177,7 +249,8 @@
                                                     </div>
 
                                                     <div class="mb-3">
-                                                        <label class="col-form-label">Peratus Pencapaian Tahun Asas:</label>
+                                                        <label class="col-form-label">Peratus Pencapaian Tahun
+                                                            Asas:</label>
                                                         <label class="form-control"
                                                             disabled="disabled">{{ $kpi->peratusPencapaianAsas }}</label>
                                                     </div>
@@ -252,8 +325,8 @@
                                     {{-- @csrf
                                         @method('DELETE') --}}
 
-                                    <button type="submit" onclick="myFunction({{ $kpi->id }})" class="btn btn-danger"
-                                        style="border-radius: 38px">
+                                    <button type="submit" onclick="myFunction({{ $kpi->id }})"
+                                        class="btn btn-danger" style="border-radius: 38px">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                     <p id="ppd"></p>

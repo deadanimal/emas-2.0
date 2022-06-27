@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreBabRequest;
 use App\Http\Requests\UpdateBabRequest;
 use App\Models\Bab;
+use App\Models\Fokusutama;
 use App\Models\Pemangkindasar;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,9 +21,11 @@ class BabController extends Controller
     {
         $babs = Bab::all();
         $list= Pemangkindasar::all();
+        $fokus= Fokusutama::all();
 
 
-        return view('bab.index', compact('babs', 'list'));
+
+        return view('bab.index', compact('babs', 'list', 'fokus'));
 
     }
 

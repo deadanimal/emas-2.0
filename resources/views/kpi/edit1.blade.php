@@ -68,8 +68,13 @@
                     <label class="col-sm-2 col-form-label" for="outcome_id">Outcome Nasional</label>
                     <div class="col-sm-10" style="width:30%">
 
-                        <input class="form-control" value="{{ $kpi->outcome->namaOutcome }}" readonly />
-                        <input class="form-control" name="outcome_id" type="hidden" value="{{ $kpi->outcome->id }}" />
+                        @if ($kpi->outcome != null)
+                            <input class="form-control" value="{{ $kpi->outcome->namaOutcome }}" readonly />
+                            <input class="form-control" name="outcome_id" type="hidden"
+                                value="{{ $kpi->outcome->id }}" />
+                        @else
+                            <label>Outcome telah dipadam</label>
+                        @endif
 
 
                     </div>
@@ -198,7 +203,7 @@
                     <label class="col-sm-2 col-form-label" for="peratusPencapaian">Peratus Pencapaian</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="peratusPencapaian" type="text" id="mySelect" onchange="myFunction()"
+                        <input type="text" name="peratusPencapaian" id="mySelect" onchange="myFunction()"
                             class="percent form-control" />
 
                     </div>
@@ -313,17 +318,29 @@
 
             function myFunction() {
                 var x = document.getElementById("mySelect").value;
-                document.getElementById("prestasi").innerHTML = "Prestasi: " + x;
-
+                x = x.substring(0, x.length - 1)
+                x = parseFloat(x)
+                var prestasiColor = "yellow"
                 if (x < 50) {
+                    prestasiColor = "green"
 
                 } else if (x < 80) {
 
                 } else {
-                    
-                }
-            }
+                    prestasiColor = "red"
 
+
+                }
+
+
+                var prestasiShown = document.getElementById("prestasi");
+                prestasiShown.innerHTML = "<img src='/img/red.png'></img> " + x ;
+
+
+                // prestasiShown.innerHTML = "<img src='/img/red.png'></img> " + x + "%";
+                prestasiShown.style.color = prestasiColor;
+
+            }
         </script>
     </div>
 

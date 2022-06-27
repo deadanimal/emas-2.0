@@ -160,10 +160,10 @@
                                                 <div class="slider round"></div>
                                             </label> --}}
 
-                                            <div id="toggle-lulus" class="btn-group btn-toggle">
+                                            {{-- <div id="toggle-lulus" class="btn-group btn-toggle">
                                                 <button class="btn btn-xs btn-default">Tolak</button>
                                                 <button class="btn btn-xs btn-primary active">Lulus</button>
-                                            </div>
+                                            </div> --}}
 
                                             <div class="col-auto ms-auto">
                                                 @if ($kpi->lulus == 1 && $kpi->ditolak == 0)

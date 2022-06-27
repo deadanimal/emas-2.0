@@ -104,10 +104,32 @@
                             <div class="col text-center" style="color: #047FC3">
                                 <span class="nav-link-text ps-1">Pelan Pelaksanaan Dasar</span>
                             </div>
+
                             <div class="col-2">
 
                             </div>
+
                         </div>
+                    </a>
+                    <a class="nav-link" href="" role="button" style="--hover-color: white">
+
+                        <div class="d-flex align-items-center">
+                            <div class="col-2">
+                                <span class="nav-link-icon">
+                                    <span class="fas fa-tasks"></span>
+                                </span>
+                            </div>
+                            <div class="col text-center" style="color: #047FC3">
+                                <span class="nav-link-text ps-1">Malaysia Productivity Blueprint</span>
+                            </div>
+
+                            <div class="col-2">
+
+                            </div>
+
+                        </div>
+
+
                     </a>
 
                     <br>
@@ -284,7 +306,8 @@
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::is('key', 'key/*') ? 'active' : '' }}" href="/key"
                                     style="color: #047FC3">
-                                    <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Key Activity
+                                    <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Key
+                                            Activity
                                         </span>
                                     </div>
                                 </a>

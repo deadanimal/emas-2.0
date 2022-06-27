@@ -16,14 +16,57 @@
 
         <hr style="width:100%;text-align:center;">
 
-        <select class="form-select searchBab" style="width:30%" aria-label="Default select example">
+        {{-- <select class="form-select searchBab" style="width:30%" aria-label="Default select example">
             <option selected disabled hidden>PILIH BAB</option>
 
             @foreach ($list as $list)
                 <option value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}</option>
             @endforeach
 
-        </select>
+        </select> --}}
+
+        <div class="row g-3">
+            <div class="col-sm" style="width:50%">
+
+                <select class="form-select searchBab">
+                    <option selected disabled hidden>PILIH FOKUS UTAMA</option>
+
+                    @foreach ($fokus as $fokus)
+                        <option value="{{ $fokus->id }}">{{ $fokus->namaFokus }}</option>
+                    @endforeach
+
+                </select>
+            </div>
+
+
+
+            <div class="col-sm" style="width:50%">
+
+                <select class="form-select searchBab">
+                    <option selected disabled hidden>PILIH PERKARA UTAMA</option>
+
+                    @foreach ($perkara as $perkara)
+                    <option value="{{ $perkara->id }}">{{ $perkara->namaPerkara }}</option>
+                    @endforeach
+
+                </select>
+            </div>
+
+            <div class="col-sm" style="width:50%">
+
+                <select class="form-select searchBab">
+                    <option selected disabled hidden>PILIH BAB</option>
+
+                    @foreach ($list as $list)
+                        <option value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}</option>
+                    @endforeach
+
+                </select>
+            </div>
+        </div>
+
+
+
 
         <div class="table-responsive scrollbar">
             <table class="table table-hover table-striped overflow-hidden">

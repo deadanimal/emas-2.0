@@ -16,12 +16,27 @@
 
         <hr style="width:100%;text-align:center;">
 
-        <select class="form-select searchBab" style="width:30%" aria-label="Default select example">
-            <option selected disabled hidden>PILIH TEMA/PEMANGKIN DASAR</option>
-            @foreach ($list as $list)
-                <option value="{{ $list->id }}">{{ $list->namaTema }}</option>
-            @endforeach
-        </select>
+        <div class="row g-3">
+            <div class="col-sm-10" style="width:40%">
+
+                <select class="form-select searchBab" style="width:70%" aria-label="Default select example">
+                    <option selected disabled hidden>PILIH FOKUS UTAMA</option>
+                    @foreach ($fokus as $fokus)
+                        <option value="{{ $fokus->id }}">{{ $fokus->namaFokus }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="col-sm-10" style="width:40%">
+
+                <select class="form-select searchBab" style="width:70%" aria-label="Default select example">
+                    <option selected disabled hidden>PILIH TEMA/PEMANGKIN DASAR</option>
+                    @foreach ($list as $list)
+                        <option value="{{ $list->id }}">{{ $list->namaTema }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
 
         <div class="table-responsive scrollbar">
             <table class="table table-hover table-striped overflow-hidden">
@@ -36,7 +51,7 @@
                     @foreach ($babs as $bab)
                         <tr class="align-middle">
 
-                            <td class="text-nowrap">
+                            <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-{{ $bab->id }}">
                                     <div class="ms-2"><b>{{ $loop->iteration }}. {{ $bab->namaBab }}</b></div>
@@ -130,7 +145,7 @@
                 if (val == e.pemangkin_id) {
                     $("#tablebody").append(`
                     <tr class="align-middle">
-                            <td class="text-nowrap">
+                            <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-` + e.id + `">
                                     <div class="ms-2"><b>` + e.namaBab + `</b></div>

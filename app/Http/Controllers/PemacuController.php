@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePemacuRequest;
 use App\Http\Requests\UpdatePemacuRequest;
 use App\Models\Bab;
+use App\Models\Fokusutama;
 use App\Models\Pemacu;
+use App\Models\Perkarautama;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -20,8 +22,12 @@ class PemacuController extends Controller
     {
         $pemacus = Pemacu::all();
         $list= Bab::all();
+        $fokus= Fokusutama::all();
+        $perkara= Perkarautama::all();
 
-        return view('pemacu.index', compact('pemacus', 'list'));
+
+
+        return view('pemacu.index', compact('pemacus', 'list', 'fokus', 'perkara'));
     }
 
     /**

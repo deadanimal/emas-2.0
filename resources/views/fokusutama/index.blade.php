@@ -18,7 +18,7 @@
         {{-- <hr style="width:100%;text-align:center;"> --}}
 
         <div class="table-responsive scrollbar">
-            <table class="table table-hover table-striped overflow-hidden">
+            <table class="table table-hover table-striped overflow-hidden testing" style="width: 100%">
                 <thead>
                     <tr>
                         <th scope="col"></th>
@@ -29,9 +29,13 @@
                 <tbody>
                     @foreach ($fokusutama as $fokus)
                         <tr class="align-middle">
-                            <td class="text-nowrap">
+                            <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-{{ $fokus->id }}">
+                                    {{-- @php
+                                        $text = $fokus->namaFokus;
+                                        $potong = wordwrap($text, 50, "<br/>\n");
+                                    @endphp --}}
                                     <div class="ms-2"><b>{{ $fokus->namaFokus }}</b></div>
                                 </div>
                             </td>
@@ -60,6 +64,7 @@
                                                         <label class="form-control"
                                                             disabled="disabled">{{ $fokus->keteranganFokus }}</label>
                                                     </div>
+                                                    <br>
                                                 </form>
                                             </div>
                                         </div>
@@ -123,5 +128,15 @@
             }
             document.getElementById("ppd").innerHTML = text;
         }
+
+
+        $('.testing'.dataTable({
+            "columns":[
+                {
+                    "word-wrap": "break-word"
+                },
+                null
+            ]
+        }));
     </script>
 @endsection

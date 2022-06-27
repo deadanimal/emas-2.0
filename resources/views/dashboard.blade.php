@@ -363,7 +363,7 @@
             <div class="mb-4 text-center">
             </div>
 
-            @if (auth()->user() == 'admin' || auth()->user() == 'menteri')
+            @if (auth()->user() == 'bahagian' || auth()->user() == 'kementerian')
                 <div class="row pb-3">
                     <div class="col-md-6 col-lg-4 text-center">
                         <a class="mb-3" href="/fokusutama">

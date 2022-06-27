@@ -34,7 +34,7 @@
                 <tbody id="tablebody">
                     @foreach ($pemangkindasar as $pemangkin)
                         <tr class="align-middle">
-                            <td class="text-nowrap">
+                            <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-{{ $pemangkin->id }}">
                                     <div class="ms-2"><b>{{ $pemangkin->namaTema }}</b></div>

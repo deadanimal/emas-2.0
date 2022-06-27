@@ -12,38 +12,7 @@ class Kpi extends Model
     public $table = 'kpis';
 
     protected $guarded = ['id'];
-    // protected $fillable = [
-
-    //     'keteranganKpi',
-    //     'namaKpi',
-    //     'outcome_id',
-    //     'pemangkin_id',
-    //     'user_id',
-    //     'bab_id',
-    //     'bidang_id',
-
-    //     'jenisKpi',
-    //     'unitUkuran',
-    //     'sasaran',
-    //     'hadToleransi',
-    //     'wajaran',
-    //     'tahunAsas',
-    //     'sumberData',
-    //     'sumberPengesahan',
-    //     'namaKpi',
-    //     'prestasiKpi',
-    //     'pencapaian',
-    //     'hadVarian',
-    //     'kekerapan',
-    //     'peratusPencapaian',
-    //     'peratusPencapaianAsas',
-    //     'sasaran2021',
-    //     'sasaran2022',
-    //     'sasaran2023',
-    //     'sasaran2024',
-    //     'sasaran2025',
-
-    // ];
+ 
 
     protected $with = [
         'user',
@@ -51,6 +20,8 @@ class Kpi extends Model
         'bab',
         'outcome',
         'bidang',
+        'fokus',
+        'perkara',
 
     ];
 
@@ -77,5 +48,15 @@ class Kpi extends Model
     public function bidang()
     {
         return $this->belongsTo(Bidang::class, 'bidang_id');
+    }
+
+    public function fokus()
+    {
+        return $this->belongsTo(Fokusutama::class, 'fokus_id');
+    }
+
+    public function perkara()
+    {
+        return $this->belongsTo(Perkarautama::class, 'perkara_id');
     }
 }

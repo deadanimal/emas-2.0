@@ -16,8 +16,8 @@
 
         <hr style="width:100%;text-align:center;">
 
-        <div class="mb-3 row">
-            <div class="col-sm-10" style="width:30%">
+        <div class="row g-3" style="width: 60%">
+            <div class="col-sm">
 
                 <select class="form-select searchKategori" style="width:70%">
                     <option selected disabled hidden>KPI</option>
@@ -31,7 +31,7 @@
 
 
 
-            <div class="col-sm-10" style="width:30%">
+            <div class="col-sm">
 
                 <select class="form-select searchKategori" style="width:70%">
                     <option selected disabled hidden>YEAR</option>
@@ -43,7 +43,7 @@
                 </select>
             </div>
 
-            <div class="col-sm-10" style="width:30%">
+            <div class="col-sm">
 
                 <select class="form-select searchKategori" style="width:70%">
                     <option selected disabled hidden>QUARTER</option>

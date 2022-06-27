@@ -20,6 +20,8 @@ class Kpi extends Model
         'user_id',
         'bab_id',
         'bidang_id',
+        'fokus_id',
+        'perkara_id',
 
         'jenisKpi',
         'unitUkuran',
@@ -51,6 +53,8 @@ class Kpi extends Model
         'bab',
         'outcome',
         'bidang',
+        'fokus',
+        'perkara',
 
     ];
 
@@ -77,5 +81,15 @@ class Kpi extends Model
     public function bidang()
     {
         return $this->belongsTo(Bidang::class, 'bidang_id');
+    }
+
+    public function fokus()
+    {
+        return $this->belongsTo(Fokusutama::class, 'fokus_id');
+    }
+
+    public function perkara()
+    {
+        return $this->belongsTo(Perkarautama::class, 'perkara_id');
     }
 }

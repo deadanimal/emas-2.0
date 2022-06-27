@@ -33,9 +33,14 @@ class KpiController extends Controller
     public function index1()
     {
         $kpis = Kpi::all();
+        $tema = Pemangkindasar::all();
+        $bab = Bab::all();
+        $bidang = Bidang::all();
 
 
-        return view('kpi.index1', compact('kpis'));
+
+
+        return view('kpi.index1', compact('kpis', 'tema', 'bab', 'bidang'));
     }
 
     /**

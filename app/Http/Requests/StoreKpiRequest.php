@@ -46,6 +46,14 @@ class StoreKpiRequest extends FormRequest
                 'string',
             ],
 
+            'fokus_id' => [
+                'string',
+            ],
+
+            'perkara_id' => [
+                'string',
+            ],
+
 
             'pemangkin_id' => [
                 'string',

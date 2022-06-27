@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTindakanRequest;
 use App\Http\Requests\UpdateTindakanRequest;
+use App\Models\Bab;
+use App\Models\Bidang;
 use App\Models\Inisiatif;
+use App\Models\Pemangkindasar;
 use App\Models\Tindakan;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,8 +30,11 @@ class TindakanController extends Controller
     public function index1()
     {
         $tindakans = Tindakan::all();
+        $tema = Pemangkindasar::all();
+        $bab = Bab::all();
+        $bidang = Bidang::all();
 
-        return view('tindakan.index1', compact('tindakans'));
+        return view('tindakan.index1', compact('tindakans', 'bab', 'tema', 'bidang'));
     }
 
     /**

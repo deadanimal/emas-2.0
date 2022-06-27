@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreKpiRequest;
 use App\Http\Requests\UpdateKpiRequest;
+use App\Models\Bab;
+use App\Models\Bidang;
+use App\Models\Fokusutama;
 use App\Models\Kpi;
 use App\Models\Outcome;
-use App\Models\Bidang;
 use App\Models\Pemangkindasar;
-use App\Models\Bab;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Perkarautama;
 use Illuminate\Http\Request;
-
-
+use Illuminate\Support\Facades\Auth;
 
 class KpiController extends Controller
 {
@@ -26,14 +26,19 @@ class KpiController extends Controller
         $kpis = Kpi::all();
         $list = Outcome::all();
 
+        //Filter
+        $fokusUtama = Fokusutama::all();
+        $perkaraUtama = Perkarautama::all();
+        $temaPemangkin = Pemangkindasar::all();
+        $bab = Bab::all();
+        $bidang = Bidang::all();
 
-        return view('kpi.index', compact('kpis', 'list'));
+        return view('kpi.index', compact('kpis', 'list', 'fokusUtama', 'perkaraUtama', 'temaPemangkin', 'bab', 'bidang'));
     }
 
     public function index1()
     {
         $kpis = Kpi::all();
-
 
         return view('kpi.index1', compact('kpis'));
     }
@@ -52,10 +57,11 @@ class KpiController extends Controller
         $listBab = Bab::all();
         $listTema = Pemangkindasar::all();
 
-        return view('kpi.create', compact('user', 'list', 'listBidang', 'listBab', 'listTema'));
+        $fokusUtama = Fokusutama::all();
+        $perkaraUtama = Perkarautama::all();
+
+        return view('kpi.create', compact('user', 'list', 'listBidang', 'listBab', 'listTema', 'fokusUtama', 'perkaraUtama'));
     }
-
-
 
     /**
      * Store a newly created resource in storage.
@@ -65,7 +71,9 @@ class KpiController extends Controller
      */
     public function store(StoreKpiRequest $request)
     {
-        $kpi = Kpi::create($request->all());
+
+        $kpi = Kpi::create($request->validated());
+
         return redirect()->route('kpi.index');
     }
 
@@ -83,7 +91,6 @@ class KpiController extends Controller
         $kpi->lulus = true;
         $kpi->ditolak = false;
         $kpi->save();
-
 
         return redirect()->to('/kpi1/index1');
     }
@@ -116,7 +123,6 @@ class KpiController extends Controller
         $listBab = Bab::all();
         $listTema = Pemangkindasar::all();
 
-
         return view('kpi.edit', compact('kpi', 'list', 'listBidang', 'listBab', 'listTema'));
     }
 
@@ -128,7 +134,6 @@ class KpiController extends Controller
         // $listBidang= Bidang::where('id', $kpi->bidang_id)->first();
         // $listBab= Bab::where('id', $kpi->bab_id)->first();
         // $listTema= Pemangkindasar::where('id', $kpi->pemangkin_id)->first();
-
 
         return view('kpi.edit1', compact('kpi'));
     }
@@ -164,5 +169,31 @@ class KpiController extends Controller
 
         return redirect()->route('kpi.index')
             ->with('Berjaya', 'Keterangan berjaya dibuang');
+    }
+
+    public function searchKpi(Request $request)
+    {
+        $kpi = Kpi::where('id', '!=', 'null');
+
+        if ($request->result[0] != 'null') {
+            $kpi->where('fokusutama_id', $request->result[0]);
+        }
+        if ($request->result[1] != 'null') {
+            $kpi->where('perkarautama_id', $request->result[1]);
+        }
+        if ($request->result[2] != 'null') {
+            $kpi->where('pemangkin_id', $request->result[2]);
+        }
+        if ($request->result[3] != 'null') {
+            $kpi->where('bab_id', $request->result[3]);
+        }
+        if ($request->result[4] != 'null') {
+            $kpi->where('bidang_id', $request->result[4]);
+        }
+        if ($request->result[5] != 'null') {
+            $kpi->where('outcome_id', $request->result[5]);
+        }
+
+        return response()->json($kpi->get());
     }
 }

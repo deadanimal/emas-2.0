@@ -25,6 +25,33 @@
 
 
                 <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="fokusutama_id">Fokus Utama</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="fokusutama_id">
+                            <option selected disabled hidden>Sila Pilih</option>
+
+                            @foreach ($fokusUtama as $fu)
+                                <option value="{{ $fu->id }}">{{ $fu->namaFokus }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+
+                    <label class="col-sm-2 col-form-label" for="perkarautama_id">Perkara Utama</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="perkarautama_id">
+                            <option selected disabled hidden>Sila Pilih</option>
+
+                            @foreach ($perkaraUtama as $pu)
+                                <option value="{{ $pu->id }}">{{ $pu->namaPerkara }}
+                                </option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="pemangkin_id">
@@ -43,7 +70,8 @@
                             <option selected disabled hidden>Sila Pilih</option>
 
                             @foreach ($listBab as $listBab)
-                                <option value="{{ $listBab->id }}">Bab {{ $listBab->noBab }}. {{ $listBab->namaBab }} </option>
+                                <option value="{{ $listBab->id }}">Bab {{ $listBab->noBab }}. {{ $listBab->namaBab }}
+                                </option>
                             @endforeach
 
                         </select>
@@ -96,7 +124,8 @@
 
                 <div class="row">
                     <div class="col">
-                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3" href="/kpi">
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
+                            href="/kpi">
                             <span class="fas fa-times-circle"></span>&nbsp;Batal
                         </a>
                     </div>

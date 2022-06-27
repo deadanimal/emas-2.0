@@ -8,7 +8,6 @@ use App\Models\Bab;
 use App\Models\Bidang;
 use Illuminate\Support\Facades\Auth;
 
-
 class BidangController extends Controller
 {
     /**
@@ -19,7 +18,7 @@ class BidangController extends Controller
     public function index()
     {
         $bidangs = Bidang::all();
-        $list= Bab::all();
+        $list = Bab::all();
 
         return view('bidang.index', compact('bidangs', 'list'));
     }
@@ -33,7 +32,7 @@ class BidangController extends Controller
     {
         $user = Auth::user();
 
-        $list= Bab::all();
+        $list = Bab::all();
         return view('bidang.create', compact('user', 'list'));
     }
 
@@ -45,7 +44,7 @@ class BidangController extends Controller
      */
     public function store(StoreBidangRequest $request)
     {
-        $bidang = Bidang::create($request->all());
+        $bidang = Bidang::create($request->except('noBidang'));
         return redirect()->route('bidang.index');
     }
 
@@ -69,7 +68,7 @@ class BidangController extends Controller
      */
     public function edit(Bidang $bidang)
     {
-        $list= Bab::all();
+        $list = Bab::all();
 
         return view('bidang.edit', compact('bidang', 'list'));
 

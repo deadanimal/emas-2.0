@@ -16,16 +16,82 @@
 
         <hr style="width:100%;text-align:center;">
 
-        <div class="row">
-            <div class="col">
-                <select class="form-select searchKategori" style="width:30%" aria-label="Default select example">
+        <div class="row g-3" style="width: 100%">
+            <div class="col-sm">
+
+                <select class="form-select searchBab">
+                    <option selected disabled hidden>PILIH FOKUS UTAMA</option>
+
+                    {{-- @foreach ($list as $list)
+                        <option value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}</option>
+                    @endforeach --}}
+
+                </select>
+            </div>
+
+
+
+            <div class="col-sm">
+
+                <select class="form-select searchKategori">
+                    <option selected disabled hidden>PILIH PERKARA UTAMA</option>
+
+                    {{-- @foreach ($list as $list)
+                    <option value="{{ $list->id }}">{{ $list->namaKpi }}</option>
+                    @endforeach --}}
+
+                </select>
+            </div>
+
+            <div class="col-sm">
+
+                <select class="form-select searchBab">
+                    <option selected disabled hidden>PILIH TEMA/PEMANGKIN</option>
+
+                    {{-- @foreach ($list as $list)
+                        <option value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}</option>
+                    @endforeach --}}
+
+                </select>
+            </div>
+
+            <div class="col-sm">
+
+                <select class="form-select searchBab">
+                    <option selected disabled hidden>PILIH BAB</option>
+
+                    {{-- @foreach ($list as $list)
+                        <option value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}</option>
+                    @endforeach --}}
+
+                </select>
+            </div>
+
+            <div class="col-sm">
+
+                <select class="form-select searchBab">
+                    <option selected disabled hidden>PILIH BIDANG</option>
+
+                    {{-- @foreach ($list as $list)
+                        <option value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}</option>
+                    @endforeach --}}
+
+                </select>
+            </div>
+
+            <div class="col-sm">
+                <select class="form-select searchKategori">
                     <option selected disabled hidden>PILIH STRATEGI</option>
                     @foreach ($list as $list)
                         <option value="{{ $list->id }}">{{ $list->namaStrategi }}</option>
                     @endforeach
                 </select>
+
             </div>
+
+
         </div>
+
 
 
         <div class="table-responsive scrollbar">
@@ -86,8 +152,7 @@
                                     {{-- <form action="{{ route('inisiatif.destroy', $inisiatif->id) }}" method="POST"> --}}
 
                                     <a class="btn btn-primary" style="border-radius: 38px"
-                                        href="{{ route('inisiatif.edit', $inisiatif->id) }}"><i
-                                            class="fas fa-edit"></i>
+                                        href="{{ route('inisiatif.edit', $inisiatif->id) }}"><i class="fas fa-edit"></i>
                                     </a>
 
                                     {{-- @csrf
@@ -116,7 +181,7 @@
     <script>
         $('.searchKategori').change(function(e) {
             let val = this.value;
-                        console.log(this.value);
+            console.log(this.value);
 
 
             var inisiatif = @json($inisiatifs->toArray());

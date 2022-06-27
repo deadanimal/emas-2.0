@@ -25,8 +25,8 @@
 
         </select> --}}
 
-        <div class="row g-3">
-            <div class="col-sm" style="width:50%">
+        <div class="row g-3" style="width: 70%">
+            <div class="col-sm">
 
                 <select class="form-select searchBab">
                     <option selected disabled hidden>PILIH FOKUS UTAMA</option>
@@ -40,7 +40,7 @@
 
 
 
-            <div class="col-sm" style="width:50%">
+            <div class="col-sm">
 
                 <select class="form-select searchBab">
                     <option selected disabled hidden>PILIH PERKARA UTAMA</option>
@@ -52,7 +52,7 @@
                 </select>
             </div>
 
-            <div class="col-sm" style="width:50%">
+            <div class="col-sm">
 
                 <select class="form-select searchBab">
                     <option selected disabled hidden>PILIH BAB</option>

@@ -16,10 +16,10 @@
 
         <hr style="width:100%;text-align:center;">
 
-        <div class="row g-3">
-            <div class="col-sm-10" style="width:40%">
+        <div class="row g-3" style="width: 60%">
+            <div class="col-sm">
 
-                <select class="form-select searchBab" style="width:70%" aria-label="Default select example">
+                <select class="form-select searchBab">
                     <option selected disabled hidden>PILIH FOKUS UTAMA</option>
                     @foreach ($fokus as $fokus)
                         <option value="{{ $fokus->id }}">{{ $fokus->namaFokus }}</option>
@@ -27,9 +27,9 @@
                 </select>
             </div>
 
-            <div class="col-sm-10" style="width:40%">
+            <div class="col-sm">
 
-                <select class="form-select searchBab" style="width:70%" aria-label="Default select example">
+                <select class="form-select searchBab">
                     <option selected disabled hidden>PILIH TEMA/PEMANGKIN DASAR</option>
                     @foreach ($list as $list)
                         <option value="{{ $list->id }}">{{ $list->namaTema }}</option>

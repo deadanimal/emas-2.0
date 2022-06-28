@@ -29,10 +29,6 @@ class UpdatePemacuRequest extends FormRequest
                 'required',
             ],
 
-            // 'namaBab' => [
-            //     'string',
-            //     'required',
-            // ],
 
             'namaPemacu' => [
                 'string',
@@ -42,6 +38,15 @@ class UpdatePemacuRequest extends FormRequest
             'user_id' => [
                 'string',
             ],
+
+            'fokus_id' => [
+                'required',
+            ],
+
+            'perkara_id' => [
+                'required',
+            ],
+
         ];
     }
 }

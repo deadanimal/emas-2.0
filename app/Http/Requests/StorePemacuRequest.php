@@ -29,10 +29,6 @@ class StorePemacuRequest extends FormRequest
                 'required',
             ],
 
-            // 'namaBab' => [
-            //     'string',
-            //     'required',
-            // ],
 
 
             'namaPemacu' => [
@@ -43,6 +39,15 @@ class StorePemacuRequest extends FormRequest
             'user_id' => [
                 'string',
             ],
+
+            'fokus_id' => [
+                'required',
+            ],
+
+            'perkara_id' => [
+                'required',
+            ],
+
         ];
     }
 }

@@ -8,6 +8,8 @@ use App\Models\Bab;
 use App\Models\Fokusutama;
 use App\Models\Pemangkindasar;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+
 
 
 class BabController extends Controller
@@ -20,6 +22,7 @@ class BabController extends Controller
     public function index()
     {
         $babs = Bab::all();
+
         $list= Pemangkindasar::all();
         $fokus= Fokusutama::all();
 
@@ -39,7 +42,8 @@ class BabController extends Controller
         $user = Auth::user();
 
         $list= Pemangkindasar::all();
-        return view('bab.create', compact('user', 'list'));
+        $fokus= Fokusutama::all();
+        return view('bab.create', compact('user', 'list', 'fokus'));
     }
 
     /**
@@ -50,7 +54,7 @@ class BabController extends Controller
      */
     public function store(StoreBabRequest $request)
     {
-        $bab = Bab::create($request->all());
+        $bab = Bab::create($request->validated());
         return redirect()->route('bab.index');
     }
 
@@ -76,7 +80,19 @@ class BabController extends Controller
     {
         $list= Pemangkindasar::all();
 
-        return view('bab.edit', compact('bab', 'list'));
+        $fokus= Fokusutama::all();
+
+        //cara baru dapatkan ID
+        $bab = Bab::with('pemangkin:id')->find($bab->id);
+
+        //cara lama dapatkan ID
+        // $bab = Bab::with(['pemangkin'=>function($query){
+        //     $query->select('id');
+        // }])->find($bab->id);
+
+        // dd($bab);
+
+        return view('bab.edit', compact('bab', 'list', 'fokus'));
 
     }
 
@@ -105,5 +121,20 @@ class BabController extends Controller
 
         return redirect()->route('bab.index')
             ->with('Berjaya', 'Keterangan berjaya dibuang');
+    }
+
+    public function searchBab(Request $request)
+    {
+        $bab = Bab::where('id', '!=', 'null');
+
+        if ($request->result[0] != 'null') {
+            $bab->where('fokus_id', $request->result[0]);
+        }
+        if ($request->result[1] != 'null') {
+            $bab->where('pemangkin_id', $request->result[1]);
+        }
+
+
+        return response()->json($bab->get());
     }
 }

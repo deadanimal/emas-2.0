@@ -42,7 +42,7 @@ class KpiController extends Controller
         $tema = Pemangkindasar::all();
         $bab = Bab::all();
         $bidang = Bidang::all();
-      
+
         return view('kpi.index1', compact('kpis', 'tema', 'bab', 'bidang'));
     }
 
@@ -126,7 +126,10 @@ class KpiController extends Controller
         $listBab = Bab::all();
         $listTema = Pemangkindasar::all();
 
-        return view('kpi.edit', compact('kpi', 'list', 'listBidang', 'listBab', 'listTema'));
+        $fokusUtama = Fokusutama::all();
+        $perkaraUtama = Perkarautama::all();
+
+        return view('kpi.edit', compact('kpi', 'list', 'listBidang', 'listBab', 'listTema', 'fokusUtama', 'perkaraUtama'));
     }
 
     public function edit1($id_kpi)

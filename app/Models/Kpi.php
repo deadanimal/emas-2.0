@@ -12,18 +12,18 @@ class Kpi extends Model
     public $table = 'kpis';
 
     protected $guarded = ['id'];
- 
 
-    protected $with = [
-        'user',
-        'pemangkin',
-        'bab',
-        'outcome',
-        'bidang',
-        'fokus',
-        'perkara',
 
-    ];
+    // protected $with = [
+    //     'user',
+    //     'pemangkin',
+    //     'bab',
+    //     'outcome',
+    //     'bidang',
+    //     'fokus',
+    //     'perkara',
+
+    // ];
 
     public function user()
     {

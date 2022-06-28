@@ -10,18 +10,44 @@
         <br>
         <br>
 
-        {{-- <div class="mb-3 row" >
-            <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
-            <div class="col-sm-10" style="width:30%">
-                <input class="form-control" name="fokus_id" placeholder="Sila Pilih"/>
-            </div>
-        </div> --}}
+
 
 
 
         <div class="form-floating;">
             <form action="{{ route('pemacu.store') }}" method="POST">
                 @csrf
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="fokus_id">
+                            <option selected disabled hidden>SILA PILIH</option>
+
+                            @foreach ($fokus as $fokus)
+                                <option value="{{ $fokus->id }}">{{ $fokus->namaFokus }}
+                                </option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="perkara_id">Perkara Utama</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="perkara_id">
+                            <option selected disabled hidden>SILA PILIH</option>
+
+                            @foreach ($perkara as $perkara)
+                            <option value="{{ $perkara->id }}">{{ $perkara->namaPerkara }}
+                            </option>
+                        @endforeach
+
+                        </select>
+                    </div>
+                </div>
 
 
                 <div class="mb-3 row">
@@ -31,7 +57,8 @@
                             <option selected disabled hidden>SILA PILIH</option>
 
                             @foreach ($list as $list)
-                                <option value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}</option>
+                                <option value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}
+                                </option>
                             @endforeach
 
                         </select>
@@ -39,9 +66,9 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaPemacu" >Nama Pemacu Perubahan</label>
+                    <label class="col-sm-2 col-form-label" for="namaPemacu">Nama Pemacu Perubahan</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaPemacu"/>
+                        <input class="form-control" type="text" name="namaPemacu" />
 
                     </div>
                 </div>
@@ -65,7 +92,9 @@
 
                     <div class="col" style="text-align: right">
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save" onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span class="fas fa-save"></span>&nbsp;Simpan
+                            type="submit" value="Save"
+                            onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span
+                                class="fas fa-save"></span>&nbsp;Simpan
                         </button>
                     </div>
                 </div>

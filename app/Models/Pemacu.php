@@ -11,19 +11,8 @@ class Pemacu extends Model
 
     public $table = 'pemacus';
 
-    protected $fillable = [
+    protected $guarded = ['id'];
 
-        'keteranganBab',
-        'namaPemacu',
-        'user_id',
-        'bab_id',
-    ];
-
-    protected $with = [
-        'user',
-        'bab',
-
-    ];
 
     public function user()
     {

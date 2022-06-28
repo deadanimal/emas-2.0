@@ -19,8 +19,8 @@
         <div class="row g-3" style="width: 60%">
             <div class="col-sm">
 
-                <select class="form-select searchBab">
-                    <option selected disabled hidden>PILIH FOKUS UTAMA</option>
+                <select class="form-select search">
+                    <option selected disabled hidden value="null">PILIH FOKUS UTAMA</option>
                     @foreach ($fokus as $fokus)
                         <option value="{{ $fokus->id }}">{{ $fokus->namaFokus }}</option>
                     @endforeach
@@ -29,8 +29,8 @@
 
             <div class="col-sm">
 
-                <select class="form-select searchBab">
-                    <option selected disabled hidden>PILIH TEMA/PEMANGKIN DASAR</option>
+                <select class="form-select search">
+                    <option selected disabled hidden value="null">PILIH TEMA/PEMANGKIN DASAR</option>
                     @foreach ($list as $list)
                         <option value="{{ $list->id }}">{{ $list->namaTema }}</option>
                     @endforeach
@@ -39,7 +39,7 @@
         </div>
 
         <div class="table-responsive scrollbar">
-            <table class="table table-hover table-striped overflow-hidden">
+            <table class="table table-hover table-striped overflow-hidden" value="null">
                 <thead>
                     <tr>
                         <th scope="col"></th>
@@ -47,7 +47,7 @@
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody id="tablebody">
+                <tbody id="searchUpdateTable">
                     @foreach ($babs as $bab)
                         <tr class="align-middle">
 
@@ -66,7 +66,7 @@
                             </td>
 
                             <div class="modal fade" id="error-modal-{{ $bab->id }}" tabindex="-1" role="dialog"
-                                aria-hidden="true">
+                                aria-hidden value="null"="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
                                     <div class="modal-content position-relative">
                                         <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
@@ -137,82 +137,76 @@
     </div>
 
     <script>
-        $('.searchBab').change(function(e) {
-            let val = this.value;
-            var bab = @json($babs->toArray());
-            $("#tablebody").html('');
-            bab.forEach(e => {
-                if (val == e.pemangkin_id) {
-                    $("#tablebody").append(`
-                    <tr class="align-middle">
-                            <td>
-                                <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                    data-bs-target="#error-modal-` + e.id + `">
-                                    <div class="ms-2"><b>` + e.namaBab + `</b></div>
-                                </div>
-                            </td>
-
-                            <div class="modal fade" id="error-modal-` + e.id + `" tabindex="-1" role="dialog"
-                                aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
-                                    <div class="modal-content position-relative">
-                                        <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
-                                            <button
-                                                class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
-                                                data-bs-dismiss="modal" aria-label="Close">
-                                            </button>
-                                        </div>
-                                        <div class="modal-body p-0">
-
-                                            <div class="p-4 pb-0">
-                                                <form>
-                                                    <div class="mb-3">
-                                                        <label class="col-form-label">Nama Bab:</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">` + e.namaBab + `</label>
-
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label class="col-form-label">Keterangan:</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">` + e.keteranganbab + `</label>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <td align="right">
-                                <div>
-                                    <form action="/bab/` + e.id + `" method="POST">
-
-                                        <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="/bab/` + e.id + `"><i
-                                                class="fas fa-edit"></i>
-                                        </a>
-
-                                        @csrf
-                                        @method('DELETE')
-
-                                        <button type="submit" onclick="myFunction()" class="btn btn-danger"
-                                            style="border-radius: 38px">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
-                    `);
-
-                }
+        $(".search").change(function() {
+            var result = [];
+            jQuery.each($(".search"), function(key, val) {
+                result.push(val.value);
             });
 
+            $.ajax({
+                method: "POST",
+                url: "/search_bab",
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    "result": result,
+                },
+            }).done(function(response) {
+                console.log(response);
+                $("#searchUpdateTable").html('');
+                // $("#searchUpdateTable2").html('');
+
+                response.forEach(el => {
+                    $("#searchUpdateTable").append(`
+                    <tr class="align-middle">
+
+                        <td>
+                                <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#error-modal-` + el.id + `">
+                                    <div class="ms-2"><b>` + el.noBab + `. ` + el.namaBab + `</b></div>
+                                </div>
+                        </td>
+                        <td>
+
+                            <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-` + el.id + `">
+
+                                    <div class="ms-2"><b>Bab ` + el.noBab + `</b></div>
+                            </div>
+                        </td>
+                        <td align="right">
+
+                            <div>
+
+                                    <a class="btn btn-primary" style="border-radius: 38px"
+                                        href="/bab/` + el.id + `/edit"><i class="fas fa-edit"></i>
+                                    </a>
+
+                                    <button type="submit" onclick="myFunction({{ `+el.id+` }})" class="btn btn-danger"
+                                        style="border-radius: 38px">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                        </td>
+
+                    </tr>
+
+                    `);
+
+                    // $("#searchUpdateTable2").append(`
+                //     <div>
+
+                //         <a class="btn btn-primary" style="border-radius: 38px"
+                //             href="/bab/` + el.id + `/edit"><i class="fas fa-edit"></i>
+                //         </a>
+
+                //         <button type="submit" onclick="myFunction({{ `+el.id+` }})" class="btn btn-danger"
+                //             style="border-radius: 38px">
+                //             <i class="fas fa-trash"></i>
+                //         </button>
+                //     </div>
+                // `);
+                });
+            });
 
 
         });
@@ -238,5 +232,85 @@
             }
             document.getElementById("ppd").innerHTML = text;
         }
+
+        // $('.searchBab').change(function(e) {
+        //     let val = this.value;
+        //     var bab = @json($babs->toArray());
+        //     $("#tablebody").html('');
+        //     bab.forEach(e => {
+        //         if (val == e.pemangkin_id) {
+        //             $("#tablebody").append(`
+    //             <tr class="align-middle">
+    //                     <td>
+    //                         <div class="d-flex align-items-center" data-bs-toggle="modal"
+    //                             data-bs-target="#error-modal-` + e.id + `">
+    //                             <div class="ms-2"><b>` + e.namaBab + `</b></div>
+    //                         </div>
+    //                     </td>
+
+    //                     <div class="modal fade" id="error-modal-` + e.id + `" tabindex="-1" role="dialog"
+    //                         aria-hidden="true">
+    //                         <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
+    //                             <div class="modal-content position-relative">
+    //                                 <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+    //                                     <button
+    //                                         class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+    //                                         data-bs-dismiss="modal" aria-label="Close">
+    //                                     </button>
+    //                                 </div>
+    //                                 <div class="modal-body p-0">
+
+    //                                     <div class="p-4 pb-0">
+    //                                         <form>
+    //                                             <div class="mb-3">
+    //                                                 <label class="col-form-label">Nama Bab:</label>
+    //                                                 <label class="form-control"
+    //                                                     disabled="disabled">` + e.namaBab + `</label>
+
+    //                                             </div>
+    //                                             <div class="mb-3">
+    //                                                 <label class="col-form-label">Keterangan:</label>
+    //                                                 <label class="form-control"
+    //                                                     disabled="disabled">` + e.keteranganbab + `</label>
+    //                                             </div>
+    //                                         </form>
+    //                                     </div>
+    //                                 </div>
+    //                                 <div class="modal-footer">
+
+    //                                 </div>
+    //                             </div>
+    //                         </div>
+    //                     </div>
+
+    //                     <td align="right">
+    //                         <div>
+    //                             <form action="/bab/` + e.id + `" method="POST">
+
+    //                                 <a class="btn btn-primary" style="border-radius: 38px"
+    //                                     href="/bab/` + e.id + `"><i
+    //                                         class="fas fa-edit"></i>
+    //                                 </a>
+
+    //                                 @csrf
+    //                                 @method('DELETE')
+
+    //                                 <button type="submit" onclick="myFunction()" class="btn btn-danger"
+    //                                     style="border-radius: 38px">
+    //                                     <i class="fas fa-trash"></i>
+    //                                 </button>
+
+    //                             </form>
+    //                         </div>
+    //                     </td>
+    //                 </tr>
+    //             `);
+
+        //         }
+        //     });
+
+
+
+        // });
     </script>
 @endsection

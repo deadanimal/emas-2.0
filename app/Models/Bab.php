@@ -11,20 +11,18 @@ class Bab extends Model
 
     public $table = 'babs';
 
-    protected $fillable = [
+    protected $guarded = ['id'];
 
-        'keteranganBab',
-        'namaBab',
-        'noBab',
-        'pemangkin_id',
-        'user_id',
-    ];
 
-    protected $with = [
-        'user',
-        'pemangkin'
+    // protected $fillable = [
 
-    ];
+    //     'keteranganBab',
+    //     'namaBab',
+    //     'noBab',
+    //     'pemangkin_id',
+    //     'user_id',
+    // ];
+
 
     public function user()
     {

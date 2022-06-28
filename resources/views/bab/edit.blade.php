@@ -18,41 +18,56 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar</label>
+                    <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="pemangkin_id">
+                        <select class="form-control" name="fokus_id">
 
-                            @foreach ($list as $list)
-                                <option @selected($bab->pemangkin_id == $list->id) value="{{ $list->id }}">{{ $list->namaTema }}</option>
+                            @foreach ($fokus as $fokus)
+                                <option @selected($bab->fokus_id == $fokus->id) value="{{ $fokus->id }}">{{ $fokus->namaFokus }}
+                                </option>
                             @endforeach
 
                         </select>
                     </div>
                 </div>
 
-                <div class="mb-3 row" >
-                    <label class="col-sm-2 col-form-label" for="namaBab">Nama Bab</label>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="namaBab" value="{{ $bab->namaBab }}"/>
+                        <select class="form-control" name="pemangkin_id">
+
+                            @foreach ($list as $list)
+                                <option @selected($bab->pemangkin_id == $list->id) value="{{ $list->id }}">{{ $list->namaTema }}
+                                </option>
+                            @endforeach
+
+                        </select>
                     </div>
                 </div>
 
-                <div class="mb-3 row" >
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="namaBab">Nama Bab</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" name="namaBab" value="{{ $bab->namaBab }}" />
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="noBab">No Bab</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="noBab" >
-                            <option @selected($bab->noBab == "1") value="1">1</option>
-                            <option @selected($bab->noBab == "2") value="2">2</option>
-                            <option @selected($bab->noBab == "3") value="3">3</option>
-                            <option @selected($bab->noBab == "4") value="4">4</option>
-                            <option @selected($bab->noBab == "5") value="5">5</option>
-                            <option @selected($bab->noBab == "6") value="6">6</option>
-                            <option @selected($bab->noBab == "7") value="7">7</option>
-                            <option @selected($bab->noBab == "8") value="8">8</option>
-                            <option @selected($bab->noBab == "9") value="9">9</option>
-                            <option @selected($bab->noBab == "10") value="10">10</option>
-                            <option @selected($bab->noBab == "11") value="11">11</option>
-                            <option @selected($bab->noBab == "12") value="12">12</option>
+                        <select class="form-control" name="noBab">
+                            <option @selected($bab->noBab == '1') value="1">1</option>
+                            <option @selected($bab->noBab == '2') value="2">2</option>
+                            <option @selected($bab->noBab == '3') value="3">3</option>
+                            <option @selected($bab->noBab == '4') value="4">4</option>
+                            <option @selected($bab->noBab == '5') value="5">5</option>
+                            <option @selected($bab->noBab == '6') value="6">6</option>
+                            <option @selected($bab->noBab == '7') value="7">7</option>
+                            <option @selected($bab->noBab == '8') value="8">8</option>
+                            <option @selected($bab->noBab == '9') value="9">9</option>
+                            <option @selected($bab->noBab == '10') value="10">10</option>
+                            <option @selected($bab->noBab == '11') value="11">11</option>
+                            <option @selected($bab->noBab == '12') value="12">12</option>
                         </select>
 
                         {{-- <select class="form-control" name="noBab" >
@@ -84,14 +99,17 @@
 
                 <div class="row">
                     <div class="col">
-                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3" href="/bab">
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
+                            href="/bab">
                             <span class="fas fa-times-circle"></span>&nbsp;Batal
                         </a>
                     </div>
 
                     <div class="col" style="text-align: right">
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save" onclick="return confirm('Adakah anda mahu mengubah data ini?')"><span class="fas fa-save"></span>&nbsp;Simpan
+                            type="submit" value="Save"
+                            onclick="return confirm('Adakah anda mahu mengubah data ini?')"><span
+                                class="fas fa-save"></span>&nbsp;Simpan
                         </button>
                     </div>
                 </div>

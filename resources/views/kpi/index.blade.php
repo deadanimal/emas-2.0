@@ -73,7 +73,7 @@
                     <option selected disabled hidden value="null">PILIH BAB</option>
 
                     @foreach ($bab as $b)
-                        <option value="{{ $b->id }}">{{ $b->namaBab }}</option>
+                        <option value="{{ $b->id }}">Bab {{ $b->noBab }}. {{ $b->namaBab }}</option>
                     @endforeach
 
                 </select>
@@ -104,17 +104,17 @@
 
 
         <div class="table-responsive scrollbar">
-            <table class="table table-hover table-striped overflow-hidden value="null"">
+            <table class="table table-hover table-striped overflow-hidden" value="null">
                 <thead>
                     <tr>
                         <th scope="col"></th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody id="tablebody">
+                <tbody id="searchUpdateTable">
                     @foreach ($kpis as $kpi)
                         <tr class="align-middle">
-                            <td class="text-nowrap" id="searchUpdateTable">
+                            <td id="searchUpdateTable">
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-{{ $kpi->id }}">
 
@@ -355,32 +355,61 @@
             }).done(function(response) {
                 console.log(response);
                 $("#searchUpdateTable").html('');
-                $("#searchUpdateTable2").html('');
+                // $("#searchUpdateTable2").html('');
 
                 response.forEach(el => {
                     $("#searchUpdateTable").append(`
-                        <div class="d-flex align-items-center" data-bs-toggle="modal"
+                    <tr class="align-middle">
+
+
+                        <td>
+                            <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-` + el.id + `">
 
                                 <div class="ms-2"><b>` + el.namaKpi + `</b></div>
-                        </div>
-                    `);
-                    $("#searchUpdateTable2").append(`
+                            </div>
+                     </td>
+
+                        <td align="right">
+
                         <div>
-                            <a class="btn btn-warning" style="border-radius: 38px"
-                                href="/kpi1/` + el.id + `/edit/"><i class="fas fa-pencil-alt"></i>
-                            </a>
+                                <a class="btn btn-warning" style="border-radius: 38px"
+                                    href="/kpi1/` + el.id + `/edit/"><i class="fas fa-pencil-alt"></i>
+                                </a>
 
-                            <a class="btn btn-primary" style="border-radius: 38px"
-                                href="/kpi/` + el.id + `/edit"><i class="fas fa-edit"></i>
-                            </a>
+                                <a class="btn btn-primary" style="border-radius: 38px"
+                                    href="/kpi/` + el.id + `/edit"><i class="fas fa-edit"></i>
+                                </a>
 
-                            <button type="submit" onclick="myFunction({{ `+el.id+` }})" class="btn btn-danger"
-                                style="border-radius: 38px">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </div>
+                                <button type="submit" onclick="myFunction({{ `+el.id+` }})" class="btn btn-danger"
+                                    style="border-radius: 38px">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+
+                    </tr>
+
+
+
                     `);
+
+                    // $("#searchUpdateTable2").append(`
+                    //     <div>
+                    //         <a class="btn btn-warning" style="border-radius: 38px"
+                    //             href="/kpi1/` + el.id + `/edit/"><i class="fas fa-pencil-alt"></i>
+                    //         </a>
+
+                    //         <a class="btn btn-primary" style="border-radius: 38px"
+                    //             href="/kpi/` + el.id + `/edit"><i class="fas fa-edit"></i>
+                    //         </a>
+
+                    //         <button type="submit" onclick="myFunction({{ `+el.id+` }})" class="btn btn-danger"
+                    //             style="border-radius: 38px">
+                    //             <i class="fas fa-trash"></i>
+                    //         </button>
+                    //     </div>
+                    // `);
                 });
             });
 

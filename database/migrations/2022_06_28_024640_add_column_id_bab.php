@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('kpis', function (Blueprint $table) {
+        Schema::table('babs', function (Blueprint $table) {
             $table->string('fokus_id')->nullable();
-            $table->string('perkara_id')->nullable();
 
         });
     }
@@ -27,10 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('kpis', function (Blueprint $table) {
+        Schema::table('babs', function (Blueprint $table) {
             $table->dropColumn('fokus_id')->nullable();
-            $table->dropColumn('perkara_id')->nullable();
-        });
 
+        });
     }
 };

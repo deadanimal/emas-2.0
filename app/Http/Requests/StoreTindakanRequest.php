@@ -77,6 +77,18 @@ class StoreTindakanRequest extends FormRequest
             'pencapaian2022' => [
                 'string',
             ],
+
+            'catatan2021' => [
+                'string',
+            ],
+
+            'sasaran2021' => [
+                'string',
+            ],
+
+            'statusPelaksanaan2021' => [
+                'string',
+            ],
         ];
     }
 }

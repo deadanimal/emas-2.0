@@ -9,6 +9,8 @@ use App\Models\Fokusutama;
 use App\Models\Pemacu;
 use App\Models\Perkarautama;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+
 
 
 class PemacuController extends Controller
@@ -40,7 +42,9 @@ class PemacuController extends Controller
         $user = Auth::user();
 
         $list= Bab::all();
-        return view('pemacu.create', compact('user', 'list'));
+        $fokus= Fokusutama::all();
+        $perkara= Perkarautama::all();
+        return view('pemacu.create', compact('user', 'list','fokus','perkara'));
     }
 
     /**
@@ -51,7 +55,7 @@ class PemacuController extends Controller
      */
     public function store(StorePemacuRequest $request)
     {
-        $pemacus = Pemacu::create($request->all());
+        $pemacu = Pemacu::create($request->all());
         return redirect()->route('pemacu.index');
     }
 
@@ -78,8 +82,10 @@ class PemacuController extends Controller
         $user = Auth::user();
 
         $list= Bab::all();
+        $fokus= Fokusutama::all();
+        $perkara= Perkarautama::all();
 
-        return view('pemacu.edit', compact('pemacu', 'list'));
+        return view('pemacu.edit', compact('pemacu', 'list','fokus','perkara'));
     }
 
     /**
@@ -107,5 +113,23 @@ class PemacuController extends Controller
 
         return redirect()->route('pemacu.index')
             ->with('Berjaya', 'Keterangan Pemacu Perubahan berjaya dibuang');
+    }
+
+    public function searchPemacu(Request $request)
+    {
+        $pemacu = Pemacu::where('id', '!=', 'null');
+
+        if ($request->result[0] != 'null') {
+            $pemacu->where('fokus_id', $request->result[0]);
+        }
+        if ($request->result[1] != 'null') {
+            $pemacu->where('perkara_id', $request->result[1]);
+        }
+        if ($request->result[2] != 'null') {
+            $pemacu->where('bab_id', $request->result[2]);
+        }
+
+
+        return response()->json($pemacu->get());
     }
 }

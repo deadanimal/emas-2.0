@@ -26,6 +26,9 @@ class Tindakan extends Model
         'catatan2022',
         'sasaran2022',
         'pencapaian2022',
+        'catatan2021',
+        'sasaran2021',
+        'statusPelaksanaan2021'
 
 
 

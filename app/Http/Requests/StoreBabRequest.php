@@ -39,13 +39,18 @@ class StoreBabRequest extends FormRequest
                 'required',
             ],
 
-            'tema_id' => [
-                'string',
+            'pemangkin_id' => [
+                'required',
             ],
 
             'user_id' => [
                 'string',
             ],
+
+            'fokus_id' => [
+                'required',
+            ],
+
         ];
     }
 }

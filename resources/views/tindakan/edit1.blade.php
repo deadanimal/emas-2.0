@@ -30,18 +30,29 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaTindakan">Nama Tindakan</label>
+                    <label class="col-sm-2 col-form-label" for="namaTindakan">Tindakan</label>
 
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" name="namaTindakan" value="{{ $tindakans->namaTindakan }}"
                             readonly />
                     </div>
 
-                    <label class="col-sm-2 col-form-label" for="keteranganTindakan" hidden >Keterangan Tindakan</label>
+                    
+                    <label class="col-sm-2 col-form-label" for="kementerian_penyelaras">Kementerian/Agensi
+                        Penyelaras</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="keteranganTindakan"
-                            value="{{ $tindakans->keteranganTindakan }}" readonly hidden />
+                        <select class="form-control" name="kementerian_penyelaras">
+                            <option selected disabled hidden>SILA PILIH</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+
+                        </select>
+
                     </div>
+
                 </div>
 
                 <div class="mb-3 row">

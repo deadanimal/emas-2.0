@@ -67,9 +67,14 @@ Route::resource('/pemangkin', PemangkindasarController::class);
 
 //Bab
 Route::resource('/bab', BabController::class);
+//Search
+Route::post('/search_bab', [BabController::class, 'searchBab']);
 
 //Pemacu
 Route::resource('/pemacu', PemacuController::class);
+//Search
+Route::post('/search_pemacu', [PemacuController::class, 'searchPemacu']);
+
 
 //Bidang
 Route::resource('/bidang', BidangController::class);
@@ -84,6 +89,8 @@ Route::post('/kpi1/{id}', [KpiController::class, 'update1']);
 Route::get('/kpi1/index1/', [KpiController::class, 'index1']);
 Route::post('/kpi/lulus/{id}', [KpiController::class, 'lulus'])->name('kpi.lulus');
 Route::post('/kpi/ditolak/{id}', [KpiController::class, 'ditolak'])->name('kpi.ditolak');
+//Search
+Route::post('/search_kpi', [KpiController::class, 'searchKpi']);
 
 //Strategi
 Route::resource('/strategi', StrategiController::class);
@@ -118,5 +125,4 @@ Route::resource('/kpi2', Kpi2Controller::class);
 //Milestone
 Route::resource('/milestone', MilestoneController::class);
 
-//Search
-Route::post('/search_kpi', [KpiController::class, 'searchKpi']);
+

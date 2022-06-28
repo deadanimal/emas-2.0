@@ -126,6 +126,7 @@ class StoreKpiRequest extends FormRequest
             'sasaran2025' => [
                 'string',
             ],
+            
             'fokusutama_id' => [
                 'required',
             ],

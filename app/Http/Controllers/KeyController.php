@@ -25,7 +25,7 @@ class KeyController extends Controller
 
         $list= National::all();
 
-        return view('key.index', compact('keys', 'list'));
+        return view('mpb.key.index', compact('keys', 'list'));
     }
 
     /**
@@ -40,7 +40,7 @@ class KeyController extends Controller
 
         $list= Thrust::all();
 
-        return view('key.create', compact('list', 'user'));
+        return view('mpb.key.create', compact('list', 'user'));
     }
 
     /**
@@ -63,7 +63,7 @@ class KeyController extends Controller
      */
     public function show(Key $key)
     {
-        return view('key.show', compact('key'));
+        return view('mpb.key.show', compact('key'));
 
     }
 
@@ -80,7 +80,7 @@ class KeyController extends Controller
 
         $list= Thrust::all();
 
-        return view('key.edit', compact('key', 'list'));
+        return view('mpb.key.edit', compact('key', 'list'));
     }
 
     /**

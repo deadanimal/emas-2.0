@@ -19,7 +19,7 @@ class PemangkindasarController extends Controller
     {
         $pemangkindasar = Pemangkindasar::all();
 
-        return view('pemangkin.index', compact('pemangkindasar'));
+        return view('ppd.pemangkin.index', compact('pemangkindasar'));
     }
 
     /**
@@ -35,7 +35,7 @@ class PemangkindasarController extends Controller
 
 
         // $list= Kategori::all();
-        return view('pemangkin.create', compact('user',));
+        return view('ppd.pemangkin.create', compact('user',));
     }
 
     /**
@@ -58,7 +58,7 @@ class PemangkindasarController extends Controller
      */
     public function show(Pemangkindasar $pemangkindasar)
     {
-        return view('pemangkin.show', compact('pemangkindasar'));
+        return view('ppd.pemangkin.show', compact('pemangkindasar'));
 
     }
 
@@ -71,7 +71,7 @@ class PemangkindasarController extends Controller
     public function edit($id)
     {
         $pemangkindasar = Pemangkindasar::find($id);
-        return view('pemangkin.edit', compact('pemangkindasar'));
+        return view('ppd.pemangkin.edit', compact('pemangkindasar'));
 
     }
 
@@ -102,7 +102,7 @@ class PemangkindasarController extends Controller
         $pemangkindasar = Pemangkindasar::find($id);
         $pemangkindasar->delete();
 
-        return redirect()->route('pemangkin.index')
+        return redirect()->route('ppd.pemangkin.index')
             ->with('Berjaya', 'Keterangan berjaya dibuang');
     }
 }

@@ -22,7 +22,7 @@ class NationalController extends Controller
 
         $list= Thrust::all();
 
-        return view('national.index', compact('national', 'list'));
+        return view('mpb.national.index', compact('national', 'list'));
 
     }
 
@@ -38,7 +38,7 @@ class NationalController extends Controller
 
         $list= Thrust::all();
 
-        return view('national.create', compact('list', 'user'));
+        return view('mpb.national.create', compact('list', 'user'));
 
     }
 
@@ -62,7 +62,7 @@ class NationalController extends Controller
      */
     public function show(National $national)
     {
-        return view('national.show', compact('national'));
+        return view('mpb.national.show', compact('national'));
 
     }
 
@@ -78,7 +78,7 @@ class NationalController extends Controller
 
         $list= Thrust::all();
 
-        return view('national.edit', compact('national', 'list'));
+        return view('mpb.national.edit', compact('national', 'list'));
 
     }
 

@@ -21,7 +21,7 @@ class SdgController extends Controller
         $sdgs = Sdg::all();
         $list= Pemangkindasar::all();
 
-        return view('sdg.index', compact('sdgs', 'list'));
+        return view('ppd.sdg.index', compact('sdgs', 'list'));
     }
 
     /**
@@ -34,7 +34,7 @@ class SdgController extends Controller
         $user = Auth::user();
 
         $list= Pemangkindasar::all();
-        return view('sdg.create', compact('user', 'list'));
+        return view('ppd.sdg.create', compact('user', 'list'));
     }
 
     /**
@@ -57,7 +57,7 @@ class SdgController extends Controller
      */
     public function show(Sdg $sdg)
     {
-        return view('sdg.show', compact('sdg'));
+        return view('ppd.sdg.show', compact('sdg'));
 
     }
 
@@ -73,7 +73,7 @@ class SdgController extends Controller
 
         $list= Pemangkindasar::all();
 
-        return view('sdg.edit', compact('sdg', 'list'));
+        return view('ppd.sdg.edit', compact('sdg', 'list'));
     }
 
     /**

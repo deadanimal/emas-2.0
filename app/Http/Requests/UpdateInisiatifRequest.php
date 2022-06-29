@@ -41,6 +41,26 @@ class UpdateInisiatifRequest extends FormRequest
             'user_id' => [
                 'string',
             ],
+
+            'fokus_id' => [
+                'required',
+            ],
+
+            'perkara_id' => [
+                'required',
+            ],
+
+            'pemangkin_id' => [
+                'required',
+            ],
+
+            'bab_id' => [
+                'required',
+            ],
+
+            'bidang_id' => [
+                'required',
+            ],
         ];
     }
 }

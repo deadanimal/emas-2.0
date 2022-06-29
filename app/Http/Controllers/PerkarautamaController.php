@@ -23,7 +23,7 @@ class PerkarautamaController extends Controller
 
         $list= Fokusutama::all();
 
-        return view('perkarautama.index', compact('perkarautama', 'list'));
+        return view('ppd.perkarautama.index', compact('perkarautama', 'list'));
     }
 
     /**
@@ -38,7 +38,7 @@ class PerkarautamaController extends Controller
 
         $list= Fokusutama::all();
 
-        return view('perkarautama.create', compact("user", "list"));
+        return view('ppd.perkarautama.create', compact("user", "list"));
     }
 
     /**
@@ -62,7 +62,7 @@ class PerkarautamaController extends Controller
      */
     public function show(Perkarautama $perkarautama)
     {
-        return view('perkarautama.show', compact('perkarautama'));
+        return view('ppd.perkarautama.show', compact('perkarautama'));
 
     }
 
@@ -78,7 +78,7 @@ class PerkarautamaController extends Controller
 
         $list= Fokusutama::all();
 
-        return view('perkarautama.edit', compact('perkarautama', 'list'));
+        return view('ppd.perkarautama.edit', compact('perkarautama', 'list'));
 
     }
 
@@ -105,7 +105,7 @@ class PerkarautamaController extends Controller
     {
         $perkarautama->delete();
 
-        return redirect()->route('perkarautama.index')
+        return redirect()->route('ppd.perkarautama.index')
             ->with('Berjaya', 'Berjaya dibuang');
     }
 }

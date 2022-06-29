@@ -33,7 +33,7 @@ class KpiController extends Controller
         $bab = Bab::all();
         $bidang = Bidang::all();
 
-        return view('kpi.index', compact('kpis', 'list', 'fokusUtama', 'perkaraUtama', 'temaPemangkin', 'bab', 'bidang'));
+        return view('ppd.kpi.index', compact('kpis', 'list', 'fokusUtama', 'perkaraUtama', 'temaPemangkin', 'bab', 'bidang'));
     }
 
     public function index1()
@@ -43,7 +43,7 @@ class KpiController extends Controller
         $bab = Bab::all();
         $bidang = Bidang::all();
 
-        return view('kpi.index1', compact('kpis', 'tema', 'bab', 'bidang'));
+        return view('ppd.kpi.index1', compact('kpis', 'tema', 'bab', 'bidang'));
     }
 
     /**
@@ -63,7 +63,7 @@ class KpiController extends Controller
         $fokusUtama = Fokusutama::all();
         $perkaraUtama = Perkarautama::all();
 
-        return view('kpi.create', compact('user', 'list', 'listBidang', 'listBab', 'listTema', 'fokusUtama', 'perkaraUtama'));
+        return view('ppd.kpi.create', compact('user', 'list', 'listBidang', 'listBab', 'listTema', 'fokusUtama', 'perkaraUtama'));
     }
 
     /**
@@ -95,7 +95,7 @@ class KpiController extends Controller
         $kpi->ditolak = false;
         $kpi->save();
 
-        return redirect()->to('/kpi1/index1');
+        return redirect()->to('kpi1/index1');
     }
 
     public function ditolak(Request $request)
@@ -105,11 +105,11 @@ class KpiController extends Controller
         $kpi->ditolak = true;
         $kpi->save();
 
-        return redirect()->to('/kpi1/index1');
+        return redirect()->to('kpi1/index1');
     }
     public function show(Kpi $kpi)
     {
-        return view('kpi.show', compact('kpi'));
+        return view('ppd.kpi.show', compact('kpi'));
     }
 
     /**
@@ -129,7 +129,7 @@ class KpiController extends Controller
         $fokusUtama = Fokusutama::all();
         $perkaraUtama = Perkarautama::all();
 
-        return view('kpi.edit', compact('kpi', 'list', 'listBidang', 'listBab', 'listTema', 'fokusUtama', 'perkaraUtama'));
+        return view('ppd.kpi.edit', compact('kpi', 'list', 'listBidang', 'listBab', 'listTema', 'fokusUtama', 'perkaraUtama'));
     }
 
     public function edit1($id_kpi)
@@ -141,7 +141,7 @@ class KpiController extends Controller
         // $listBab= Bab::where('id', $kpi->bab_id)->first();
         // $listTema= Pemangkindasar::where('id', $kpi->pemangkin_id)->first();
 
-        return view('kpi.edit1', compact('kpi'));
+        return view('ppd.kpi.edit1', compact('kpi'));
     }
 
     /**

@@ -6,10 +6,15 @@ use App\Http\Requests\StoreTindakanRequest;
 use App\Http\Requests\UpdateTindakanRequest;
 use App\Models\Bab;
 use App\Models\Bidang;
+use App\Models\Fokusutama;
+use App\Models\Perkarautama;
 use App\Models\Inisiatif;
 use App\Models\Pemangkindasar;
+use App\Models\Strategi;
 use App\Models\Tindakan;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+
 
 
 class TindakanController extends Controller
@@ -23,8 +28,14 @@ class TindakanController extends Controller
     {
         $tindakans = Tindakan::all();
         $list= Inisiatif::all();
+        $fokus= Fokusutama::all();
+        $perkara= Perkarautama::all();
+        $pemangkin= Pemangkindasar::all();
+        $bab= Bab::all();
+        $bidang= Bidang::all();
+        $strategi= Strategi::all();
 
-        return view('tindakan.index', compact('tindakans', 'list'));
+        return view('ppd.tindakan.index', compact('tindakans', 'list', 'fokus','perkara','pemangkin','bab','bidang','strategi'));
     }
 
     public function index1()
@@ -34,7 +45,7 @@ class TindakanController extends Controller
         $bab = Bab::all();
         $bidang = Bidang::all();
 
-        return view('tindakan.index1', compact('tindakans', 'bab', 'tema', 'bidang'));
+        return view('ppd.tindakan.index1', compact('tindakans', 'bab', 'tema', 'bidang'));
     }
 
     /**
@@ -47,7 +58,13 @@ class TindakanController extends Controller
         $user = Auth::user();
 
         $list= Inisiatif::all();
-        return view('tindakan.create', compact('user', 'list'));
+        $fokus= Fokusutama::all();
+        $perkara= Perkarautama::all();
+        $pemangkin= Pemangkindasar::all();
+        $bab= Bab::all();
+        $bidang= Bidang::all();
+        $strategi= Strategi::all();
+        return view('ppd.tindakan.create', compact('user', 'list', 'fokus','perkara','pemangkin','bab','bidang','strategi'));
     }
 
     /**
@@ -70,7 +87,7 @@ class TindakanController extends Controller
      */
     public function show(Tindakan $tindakan)
     {
-        return view('tindakan.show', compact('tindakan'));
+        return view('ppd.tindakan.show', compact('tindakan'));
 
     }
 
@@ -83,7 +100,13 @@ class TindakanController extends Controller
     public function edit(Tindakan $tindakan)
     {
         $list= Inisiatif::all();
-        return view('tindakan.edit', compact('tindakan', 'list'));
+        $fokus= Fokusutama::all();
+        $perkara= Perkarautama::all();
+        $pemangkin= Pemangkindasar::all();
+        $bab= Bab::all();
+        $bidang= Bidang::all();
+        $strategi= Strategi::all();
+        return view('ppd.tindakan.edit', compact('tindakan', 'list', 'fokus','perkara','pemangkin','bab','bidang','strategi'));
 
     }
 
@@ -91,7 +114,7 @@ class TindakanController extends Controller
     {
         $tindakans = Tindakan::find($id_tindakan);
 
-        return view('tindakan.edit1', compact('tindakans'));
+        return view('ppd.tindakan.edit1', compact('tindakans'));
 
     }
 
@@ -126,5 +149,34 @@ class TindakanController extends Controller
 
         return redirect()->route('tindakan.index')
             ->with('Berjaya', 'Keterangan berjaya dibuang');
+    }
+
+    public function searchTindakan(Request $request)
+    {
+        $tindakan = Tindakan::where('id', '!=', 'null');
+
+        if ($request->result[0] != 'null') {
+            $tindakan->where('fokus_id', $request->result[0]);
+        }
+        if ($request->result[1] != 'null') {
+            $tindakan->where('perkara_id', $request->result[1]);
+        }
+        if ($request->result[2] != 'null') {
+            $tindakan->where('pemangkin_id', $request->result[2]);
+        }
+        if ($request->result[3] != 'null') {
+            $tindakan->where('bab_id', $request->result[3]);
+        }
+        if ($request->result[4] != 'null') {
+            $tindakan->where('bidang_id', $request->result[4]);
+        }
+        if ($request->result[5] != 'null') {
+            $tindakan->where('strategi_id', $request->result[5]);
+        }
+        if ($request->result[6] != 'null') {
+            $tindakan->where('inisiatif_id', $request->result[6]);
+        }
+
+        return response()->json($tindakan->get());
     }
 }

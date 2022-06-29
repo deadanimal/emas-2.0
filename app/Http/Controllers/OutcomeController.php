@@ -22,7 +22,7 @@ class OutcomeController extends Controller
         $list= Bidang::all();
 
 
-        return view('outcome.index', compact('outcomes', 'list'));
+        return view('ppd.outcome.index', compact('outcomes', 'list'));
     }
 
     /**
@@ -35,7 +35,7 @@ class OutcomeController extends Controller
         $user = Auth::user();
 
         $list= Bidang::all();
-        return view('outcome.create', compact('user', 'list'));
+        return view('ppd.outcome.create', compact('user', 'list'));
     }
 
     /**
@@ -58,7 +58,7 @@ class OutcomeController extends Controller
      */
     public function show(Outcome $outcome)
     {
-        return view('outcome.show', compact('outcome', 'list'));
+        return view('ppd.outcome.show', compact('outcome', 'list'));
 
     }
 
@@ -73,7 +73,7 @@ class OutcomeController extends Controller
 
         $list= Bidang::all();
 
-        return view('outcome.edit', compact('outcome', 'list'));
+        return view('ppd.outcome.edit', compact('outcome', 'list'));
 
     }
 

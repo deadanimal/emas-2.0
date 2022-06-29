@@ -22,7 +22,7 @@ class StrategiController extends Controller
         $list= Bidang::all();
 
 
-        return view('strategi.index', compact('strategis', 'list'));
+        return view('ppd.strategi.index', compact('strategis', 'list'));
     }
 
     /**
@@ -35,7 +35,7 @@ class StrategiController extends Controller
         $user = Auth::user();
 
         $list= Bidang::all();
-        return view('strategi.create', compact('user', 'list'));
+        return view('ppd.strategi.create', compact('user', 'list'));
     }
 
     /**
@@ -58,7 +58,7 @@ class StrategiController extends Controller
      */
     public function show(Strategi $strategi)
     {
-        return view('strategi.show', compact('strategi'));
+        return view('ppd.strategi.show', compact('strategi'));
 
     }
 
@@ -72,7 +72,7 @@ class StrategiController extends Controller
     {
         $list= Bidang::all();
 
-        return view('strategi.edit', compact('strategi', 'list'));
+        return view('ppd.strategi.edit', compact('strategi', 'list'));
 
     }
 

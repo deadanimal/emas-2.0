@@ -21,7 +21,7 @@ class Kpi2Controller extends Controller
         $kpis = Kpi2::all();
         $list= Sub::all();
 
-        return view('kpi2.index', compact('kpis', 'list'));
+        return view('mpb.kpi2.index', compact('kpis', 'list'));
     }
 
     /**
@@ -36,7 +36,7 @@ class Kpi2Controller extends Controller
         $kpi2 = Kpi2::all();
 
         // $list= Pemangkindasar::all();
-        return view('kpi2.create', compact('user', 'kpi2'));
+        return view('mpb.kpi2.create', compact('user', 'kpi2'));
     }
 
     /**

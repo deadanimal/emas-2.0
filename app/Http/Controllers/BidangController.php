@@ -20,7 +20,7 @@ class BidangController extends Controller
         $bidangs = Bidang::all();
         $list = Bab::all();
 
-        return view('bidang.index', compact('bidangs', 'list'));
+        return view('ppd.bidang.index', compact('bidangs', 'list'));
     }
 
     /**
@@ -33,7 +33,7 @@ class BidangController extends Controller
         $user = Auth::user();
 
         $list = Bab::all();
-        return view('bidang.create', compact('user', 'list'));
+        return view('ppd.bidang.create', compact('user', 'list'));
     }
 
     /**
@@ -56,7 +56,7 @@ class BidangController extends Controller
      */
     public function show(Bidang $bidang)
     {
-        return view('bidang.show', compact('bidang'));
+        return view('ppd.bidang.show', compact('bidang'));
 
     }
 
@@ -70,7 +70,7 @@ class BidangController extends Controller
     {
         $list = Bab::all();
 
-        return view('bidang.edit', compact('bidang', 'list'));
+        return view('ppd.bidang.edit', compact('bidang', 'list'));
 
     }
 

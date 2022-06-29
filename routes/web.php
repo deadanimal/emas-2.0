@@ -53,6 +53,8 @@ Route::group(['middleware' => ['auth']], function () {
 
 });
 
+//MODULE 1 PPD
+
 //Fokus Utama
 Route::resource('/fokusutama', FokusutamaController::class);
 
@@ -97,15 +99,21 @@ Route::resource('/strategi', StrategiController::class);
 
 //Inisiatif
 Route::resource('/inisiatif', InisiatifController::class);
+Route::post('/search_inisiatif', [InisiatifController::class, 'searchInisiatif']);
+
 
 //Tindakan
 Route::resource('/tindakan', TindakanController::class);
 Route::get('/tindakan1/{id}/edit/', [TindakanController::class, 'edit1']);
 Route::post('/tindakan1/{id}', [TindakanController::class, 'update1']);
 Route::get('/tindakan1/index1/', [TindakanController::class, 'index1']);
+Route::post('/search_tindakan', [TindakanController::class, 'searchTindakan']);
+
 
 //SDG
 Route::resource('/sdg', SdgController::class);
+
+//MODULE 2 MPB
 
 //ThrustInformation
 Route::resource('/thrust', ThrustController::class);
@@ -124,5 +132,17 @@ Route::resource('/kpi2', Kpi2Controller::class);
 
 //Milestone
 Route::resource('/milestone', MilestoneController::class);
+
+// Module 3 KT
+
+
+
+
+// Module 4 MD
+
+
+
+
+// Module 5 ED
 
 

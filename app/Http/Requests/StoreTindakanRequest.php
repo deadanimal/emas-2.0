@@ -42,10 +42,6 @@ class StoreTindakanRequest extends FormRequest
                 'string',
             ],
 
-            'perkara_id' => [
-                'string',
-            ],
-
             'kementerian_penyelaras' => [
                 'string',
             ],
@@ -88,6 +84,30 @@ class StoreTindakanRequest extends FormRequest
 
             'statusPelaksanaan2021' => [
                 'string',
+            ],
+
+            'fokus_id' => [
+                'required',
+            ],
+
+            'perkara_id' => [
+                'required',
+            ],
+
+            'pemangkin_id' => [
+                'required',
+            ],
+
+            'bab_id' => [
+                'required',
+            ],
+
+            'bidang_id' => [
+                'required',
+            ],
+
+            'strategi_id' => [
+                'required',
             ],
         ];
     }

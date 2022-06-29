@@ -19,7 +19,7 @@ class ThrustController extends Controller
     {
         $thrust = Thrust::all();
 
-        return view('thrust.index', compact('thrust'));
+        return view('mpb.thrust.index', compact('thrust'));
     }
 
     /**
@@ -31,7 +31,7 @@ class ThrustController extends Controller
     {
         $user = Auth::user();
 
-        return view('thrust.create', compact('user'));
+        return view('mpb.thrust.create', compact('user'));
     }
 
     /**
@@ -54,7 +54,7 @@ class ThrustController extends Controller
      */
     public function show(Thrust $thrust)
     {
-        return view('thrust.show', compact('thrust'));
+        return view('mpb.thrust.show', compact('thrust'));
     }
 
     /**
@@ -66,7 +66,7 @@ class ThrustController extends Controller
     public function edit(Thrust $thrust)
     {
         $user = Auth::user();
-        return view('thrust.edit', compact('thrust'));
+        return view('mpb.thrust.edit', compact('thrust'));
     }
 
     /**

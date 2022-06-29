@@ -11,19 +11,22 @@ class Inisiatif extends Model
 
     public $table = 'inisiatifs';
 
-    protected $fillable = [
+    protected $guarded = ['id'];
 
-        'keteranganInisiatif',
-        'namaInisiatif',
-        'strategi_id',
-        'user_id',
-    ];
 
-    protected $with = [
-        'user',
-        'strategi',
+    // protected $fillable = [
 
-    ];
+    //     'keteranganInisiatif',
+    //     'namaInisiatif',
+    //     'strategi_id',
+    //     'user_id',
+    // ];
+
+    // protected $with = [
+    //     'user',
+    //     'strategi',
+
+    // ];
 
     public function user()
     {

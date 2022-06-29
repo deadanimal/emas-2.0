@@ -28,7 +28,7 @@ class BabController extends Controller
 
 
 
-        return view('bab.index', compact('babs', 'list', 'fokus'));
+        return view('ppd.bab.index', compact('babs', 'list', 'fokus'));
 
     }
 
@@ -43,7 +43,7 @@ class BabController extends Controller
 
         $list= Pemangkindasar::all();
         $fokus= Fokusutama::all();
-        return view('bab.create', compact('user', 'list', 'fokus'));
+        return view('ppd.bab.create', compact('user', 'list', 'fokus'));
     }
 
     /**
@@ -66,7 +66,7 @@ class BabController extends Controller
      */
     public function show(Bab $bab)
     {
-        return view('bab.show', compact('bab'));
+        return view('ppd.bab.show', compact('bab'));
 
     }
 
@@ -92,7 +92,7 @@ class BabController extends Controller
 
         // dd($bab);
 
-        return view('bab.edit', compact('bab', 'list', 'fokus'));
+        return view('ppd.bab.edit', compact('bab', 'list', 'fokus'));
 
     }
 
@@ -119,7 +119,7 @@ class BabController extends Controller
     {
         $bab->delete();
 
-        return redirect()->route('bab.index')
+        return redirect()->route('ppd.bab.index')
             ->with('Berjaya', 'Keterangan berjaya dibuang');
     }
 

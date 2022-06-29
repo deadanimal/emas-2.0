@@ -40,7 +40,7 @@ class FokusutamaController extends Controller
         $fokusutama = Fokusutama::all();
         $role = Role::all();
 
-        return view('fokusutama.index', compact('fokusutama','role'));
+        return view('ppd.fokusutama.index', compact('fokusutama','role'));
     }
 
     /**
@@ -52,7 +52,7 @@ class FokusutamaController extends Controller
     {
 
         $user = Auth::user();
-        return view('fokusutama.create', ['user' => $user]);
+        return view('ppd.fokusutama.create', ['user' => $user]);
     }
 
     /**
@@ -75,7 +75,7 @@ class FokusutamaController extends Controller
      */
     public function show(Fokusutama $fokusutama)
     {
-        return view('fokusutama.show', compact('fokusutama'));
+        return view('ppd.fokusutama.show', compact('fokusutama'));
     }
 
     /**
@@ -86,7 +86,7 @@ class FokusutamaController extends Controller
      */
     public function edit(Fokusutama $fokusutama)
     {
-        return view('fokusutama.edit', compact('fokusutama'));
+        return view('ppd.fokusutama.edit', compact('fokusutama'));
     }
 
     /**
@@ -112,7 +112,7 @@ class FokusutamaController extends Controller
     {
         $fokusutama->delete();
 
-        return redirect()->route('fokusutama.index')
+        return redirect()->route('ppd.fokusutama.index')
             ->with('Berjaya', 'Keterangan berjaya dibuang');
     }
 }

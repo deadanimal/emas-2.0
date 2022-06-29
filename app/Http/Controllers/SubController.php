@@ -22,7 +22,7 @@ class SubController extends Controller
 
         $list= Key::all();
 
-        return view('sub.index', compact('subs', 'list'));
+        return view('mpb.sub.index', compact('subs', 'list'));
 
     }
 
@@ -38,7 +38,7 @@ class SubController extends Controller
 
         $list= Key::all();
 
-        return view('sub.create', compact('list', 'user'));
+        return view('mpb.sub.create', compact('list', 'user'));
 
 
     }
@@ -63,7 +63,7 @@ class SubController extends Controller
      */
     public function show(Sub $sub)
     {
-        return view('sub.show', compact('sub'));
+        return view('mpb.sub.show', compact('sub'));
 
     }
 
@@ -79,7 +79,7 @@ class SubController extends Controller
 
         $list= Key::all();
 
-        return view('sub.edit', compact('sub', 'list'));
+        return view('mpb.sub.edit', compact('sub', 'list'));
 
 
     }

@@ -27,7 +27,7 @@ class MilestoneController extends Controller
         $list= Kpi2::all();
 
 
-        return view('milestone.index', compact('miles', 'list'));
+        return view('mpb.milestone.index', compact('miles', 'list'));
     }
 
     /**
@@ -50,7 +50,7 @@ class MilestoneController extends Controller
 
 
 
-        return view('milestone.create', compact('user', 'miles', 'thrust', 'nation', 'key', 'sub', 'kpi'));
+        return view('mpb.milestone.create', compact('user', 'miles', 'thrust', 'nation', 'key', 'sub', 'kpi'));
     }
 
     /**

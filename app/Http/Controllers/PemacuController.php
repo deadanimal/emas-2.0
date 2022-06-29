@@ -29,7 +29,7 @@ class PemacuController extends Controller
 
 
 
-        return view('pemacu.index', compact('pemacus', 'list', 'fokus', 'perkara'));
+        return view('ppd.pemacu.index', compact('pemacus', 'list', 'fokus', 'perkara'));
     }
 
     /**
@@ -44,7 +44,7 @@ class PemacuController extends Controller
         $list= Bab::all();
         $fokus= Fokusutama::all();
         $perkara= Perkarautama::all();
-        return view('pemacu.create', compact('user', 'list','fokus','perkara'));
+        return view('ppd.pemacu.create', compact('user', 'list','fokus','perkara'));
     }
 
     /**
@@ -67,7 +67,7 @@ class PemacuController extends Controller
      */
     public function show(Pemacu $pemacu)
     {
-        return view('pemacu.show', compact('pemacu'));
+        return view('ppd.pemacu.show', compact('pemacu'));
 
     }
 
@@ -85,7 +85,7 @@ class PemacuController extends Controller
         $fokus= Fokusutama::all();
         $perkara= Perkarautama::all();
 
-        return view('pemacu.edit', compact('pemacu', 'list','fokus','perkara'));
+        return view('ppd.pemacu.edit', compact('pemacu', 'list','fokus','perkara'));
     }
 
     /**

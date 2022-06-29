@@ -139,7 +139,7 @@
                     <a class="nav-link dropdown-indicator" href="#dashboard" role="button" data-bs-toggle="collapse"
                         aria-expanded="true" aria-controls="dashboard" style="background-color: #C4D4ED">
                         <div class="d-flex justify-content-center" style="color: #047FC3">
-                            <span class="nav-link-text ps-1">Data</span>
+                            <span class="nav-link-text ps-1">Senarai Maklumat</span>
                         </div>
                     </a>
 

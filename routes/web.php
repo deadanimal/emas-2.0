@@ -107,6 +107,8 @@ Route::resource('/tindakan', TindakanController::class);
 Route::get('/tindakan1/{id}/edit/', [TindakanController::class, 'edit1']);
 Route::post('/tindakan1/{id}', [TindakanController::class, 'update1']);
 Route::get('/tindakan1/index1/', [TindakanController::class, 'index1']);
+Route::post('/tindakan/lulus/{id}', [TindakanController::class, 'lulus'])->name('tindakan.lulus');
+Route::post('/tindakan/ditolak/{id}', [TindakanController::class, 'ditolak'])->name('tindakan.ditolak');
 Route::post('/search_tindakan', [TindakanController::class, 'searchTindakan']);
 
 

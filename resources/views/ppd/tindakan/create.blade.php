@@ -72,7 +72,7 @@
                             <option selected disabled hidden>SILA PILIH</option>
 
                             @foreach ($bab as $bab)
-                                <option value="{{ $bab->id }}">{{ $bab->namaBab }}</option>
+                                <option value="{{ $bab->id }}">Bab {{ $bab->noBab }}. {{ $bab->namaBab }}</option>
                             @endforeach
 
                         </select>

@@ -139,6 +139,7 @@
     <script>
         $(".search").change(function() {
             var result = [];
+            var iteration = 1;
             jQuery.each($(".search"), function(key, val) {
                 result.push(val.value);
             });
@@ -162,7 +163,7 @@
                         <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-` + el.id + `">
-                                    <div class="ms-2"><b>` + el.noBab + `. ` + el.namaBab + `</b></div>
+                                    <div class="ms-2"><b>` + iteration++ + `. ` + el.namaBab + `</b></div>
                                 </div>
                         </td>
                         <td>

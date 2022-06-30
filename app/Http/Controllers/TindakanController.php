@@ -9,6 +9,7 @@ use App\Models\Bidang;
 use App\Models\Fokusutama;
 use App\Models\Perkarautama;
 use App\Models\Inisiatif;
+use App\Models\Outcome;
 use App\Models\Pemangkindasar;
 use App\Models\Strategi;
 use App\Models\Tindakan;
@@ -79,6 +80,27 @@ class TindakanController extends Controller
         return redirect()->route('tindakan.index');
     }
 
+    public function lulus($id)
+    {
+
+        $tindakan = Tindakan::find($id);
+        $tindakan->lulus = true;
+        $tindakan->ditolak = false;
+        $tindakan->save();
+
+        return redirect()->to('tindakan1/index1');
+    }
+
+    public function ditolak(Request $request)
+    {
+        $tindakan = Tindakan::find($request->id);
+        $tindakan->lulus = false;
+        $tindakan->ditolak = true;
+        $tindakan->save();
+
+        return redirect()->to('tindakan1/index1');
+    }
+
     /**
      * Display the specified resource.
      *
@@ -113,6 +135,7 @@ class TindakanController extends Controller
     public function edit1($id_tindakan)
     {
         $tindakans = Tindakan::find($id_tindakan);
+
 
         return view('ppd.tindakan.edit1', compact('tindakans'));
 

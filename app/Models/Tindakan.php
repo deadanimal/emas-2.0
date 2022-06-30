@@ -58,4 +58,24 @@ class Tindakan extends Model
     {
         return $this->belongsTo(Perkarautama::class, 'perkara_id');
     }
+
+    public function outcome()
+    {
+        return $this->belongsTo(Outcome::class, 'outcome_id');
+    }
+
+    public function bidang()
+    {
+        return $this->belongsTo(Bidang::class, 'bidang_id');
+    }
+
+    public function bab()
+    {
+        return $this->belongsTo(Bab::class, 'bab_id');
+    }
+
+    public function pemangkin()
+    {
+        return $this->belongsTo(Pemangkindasar::class, 'pemangkin_id');
+    }
 }

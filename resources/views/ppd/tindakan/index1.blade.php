@@ -42,7 +42,7 @@
                         <option selected disabled hidden>Sila Pilih</option>
 
                         @foreach ($bab as $bab)
-                            <option value="{{ $bab->id }}">{{ $bab->namaBab }}</option>
+                            <option value="{{ $bab->id }}">Bab {{ $bab->noBab }}. {{ $bab->namaBab }}</option>
                         @endforeach
 
                     </select>
@@ -116,9 +116,8 @@
                                     <th class="align-middle">User</th>
                                 @endrole
                                 <th class="align-middle">Tindakan</th>
-                                <th class="align-middle">Tema </th>
-                                <th class="align-middle">Jenis KPI</th>
-                                <th class="align-middle">Prestasi KPI</th>
+                                <th class="align-middle">Jenis Tindakan </th>
+                                <th class="align-middle">Prestasi Tindakan</th>
                                 <th class="align-middle">Unit</th>
                                 <th class="align-middle">Pencapaian </th>
                                 <th class="align-middle">Sasaran</th>
@@ -152,7 +151,7 @@
                                     @endrole
                                     <td class="align-middle">{{ $tindakan->namaTindakan }}</td>
                                     {{-- <td class="align-middle">{{ $tindakan->pemangkin->namaTema ?? '' }}</td> --}}
-                                    <td class="align-middle">{{ $tindakan->jenistindakan }}</td>
+                                    <td class="align-middle">{{ $tindakan->jenisTindakan }}</td>
                                     <td class="align-middle">{{ $tindakan->prestasiTindakan }}</td>
                                     <td class="align-middle">{{ $tindakan->unitUkuran }}</td>
                                     <td class="align-middle">{{ $tindakan->pencapaian }}</td>
@@ -171,7 +170,7 @@
                                     <td class="align-middle">{{ $tindakan->sasaran2025 }}</td>
                                     <td class="align-middle">{{ $tindakan->sumberData }}</td>
                                     <td class="align-middle">{{ $tindakan->sumberPengesahan }}</td>
-                                    {{-- @role('admin')
+                                    @role('admin')
                                         <td class="align-middle">
 
                                             <div class="col-auto ms-auto">
@@ -206,7 +205,7 @@
                                                 @endif
                                             </div>
                                         </td>
-                                    @endrole --}}
+                                    @endrole
                                 </tr>
                             @endforeach
                         </tbody>

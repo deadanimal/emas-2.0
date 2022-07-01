@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreOutcomeRequest;
 use App\Http\Requests\UpdateOutcomeRequest;
 use App\Models\Bidang;
+use App\Models\Fokusutama;
 use App\Models\Outcome;
+use App\Models\Pemangkindasar;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -35,7 +37,9 @@ class OutcomeController extends Controller
         $user = Auth::user();
 
         $list= Bidang::all();
-        return view('ppd.outcome.create', compact('user', 'list'));
+        $fokus= Fokusutama::all();
+        $pemangkin= Pemangkindasar::all();
+        return view('ppd.outcome.create', compact('user', 'list', 'pemangkin', 'fokus'));
     }
 
     /**
@@ -72,8 +76,10 @@ class OutcomeController extends Controller
     {
 
         $list= Bidang::all();
+        $fokus= Fokusutama::all();
+        $pemangkin= Pemangkindasar::all();
 
-        return view('ppd.outcome.edit', compact('outcome', 'list'));
+        return view('ppd.outcome.edit', compact('outcome', 'list', 'pemangkin', 'fokus'));
 
     }
 

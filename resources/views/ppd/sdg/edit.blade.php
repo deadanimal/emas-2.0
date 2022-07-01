@@ -18,6 +18,30 @@
                 @csrf
                 @method('PUT')
 
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="fokus_id">
+
+                            @foreach ($fokus as $fokus)
+                                <option @selected($sdg->fokus_id == $fokus->id) value="{{ $fokus->id }}">{{ $fokus->namaFokus }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+
+                    <label class="col-sm-2 col-form-label" for="perkara_id">Perkara Utama</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="perkara_id">
+
+                            @foreach ($perkara as $perkara)
+                                <option @selected($sdg->perkara_id == $perkara->id) value="{{ $perkara->id }}">{{ $perkara->namaPerkara }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
+
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar</label>

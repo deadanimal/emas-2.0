@@ -6,6 +6,10 @@ use App\Http\Requests\StoreStrategiRequest;
 use App\Http\Requests\UpdateStrategiRequest;
 use App\Models\Bidang;
 use App\Models\Strategi;
+use App\Models\Fokusutama;
+use App\Models\Pemangkindasar;
+use App\Models\Perkarautama;
+use App\Models\Bab;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -35,7 +39,11 @@ class StrategiController extends Controller
         $user = Auth::user();
 
         $list= Bidang::all();
-        return view('ppd.strategi.create', compact('user', 'list'));
+        $fokus= Fokusutama::all();
+        $perkara= Perkarautama::all();
+        $pemangkin= Pemangkindasar::all();
+        $bab= Bab::all();
+        return view('ppd.strategi.create', compact('user', 'list', 'bab','perkara', 'pemangkin', 'fokus'));
     }
 
     /**
@@ -71,8 +79,12 @@ class StrategiController extends Controller
     public function edit(Strategi $strategi)
     {
         $list= Bidang::all();
+        $fokus= Fokusutama::all();
+        $perkara= Perkarautama::all();
+        $pemangkin= Pemangkindasar::all();
+        $bab= Bab::all();
 
-        return view('ppd.strategi.edit', compact('strategi', 'list'));
+        return view('ppd.strategi.edit', compact('strategi', 'list', 'bab','perkara', 'pemangkin', 'fokus'));
 
     }
 

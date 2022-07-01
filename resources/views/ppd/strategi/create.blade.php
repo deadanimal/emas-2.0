@@ -23,6 +23,60 @@
             <form action="{{ route('strategi.store') }}" method="POST">
                 @csrf
 
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="fokus_id">
+                            <option selected disabled hidden>SILA PILIH</option>
+
+                            @foreach ($fokus as $fokus)
+                                <option value="{{ $fokus->id }}">{{ $fokus->namaFokus }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+
+                    <label class="col-sm-2 col-form-label" for="perkara_id">Perkara Utama</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="perkara_id">
+                            <option selected disabled hidden>SILA PILIH</option>
+
+                            @foreach ($perkara as $perkara)
+                                <option value="{{ $perkara->id }}">{{ $perkara->namaPerkara }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="mb-3 row">
+
+                    <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="pemangkin_id">
+                            <option selected disabled hidden>SILA PILIH</option>
+
+                            @foreach ($pemangkin as $pemangkin)
+                                <option value="{{ $pemangkin->id }}">{{ $pemangkin->namaTema }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+
+                    <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="bab_id">
+                            <option selected disabled hidden>SILA PILIH</option>
+
+                            @foreach ($bab as $bab)
+                                <option value="{{ $bab->id }}">Bab {{ $bab->noBab }}. {{ $bab->namaBab }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
+
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan</label>

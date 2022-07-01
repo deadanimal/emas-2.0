@@ -12,20 +12,22 @@ class Strategi extends Model
 
     public $table = 'strategis';
 
-    protected $fillable = [
+    protected $guarded = ['id'];
 
-        'keteranganStrategi',
-        'namaStrategi',
-        'user_id',
-        'bidang_id',
+    // protected $fillable = [
 
-    ];
+    //     'keteranganStrategi',
+    //     'namaStrategi',
+    //     'user_id',
+    //     'bidang_id',
 
-    protected $with = [
-        'user',
-        'bidang'
+    // ];
 
-    ];
+    // protected $with = [
+    //     'user',
+    //     'bidang'
+
+    // ];
 
     public function user()
     {

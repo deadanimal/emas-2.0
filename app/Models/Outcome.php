@@ -11,19 +11,22 @@ class Outcome extends Model
 
     public $table = 'outcomes';
 
-    protected $fillable = [
+    protected $guarded = ['id'];
 
-        'keteranganOutcome',
-        'namaOutcome',
-        'bidang_id',
-        'user_id',
-    ];
 
-    protected $with = [
-        'user',
-        'bidang',
+    // protected $fillable = [
 
-    ];
+    //     'keteranganOutcome',
+    //     'namaOutcome',
+    //     'bidang_id',
+    //     'user_id',
+    // ];
+
+    // protected $with = [
+    //     'user',
+    //     'bidang',
+
+    // ];
 
     public function user()
     {

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreSdgRequest;
 use App\Http\Requests\UpdateSdgRequest;
+use App\Models\Fokusutama;
 use App\Models\Pemangkindasar;
+use App\Models\Perkarautama;
 use App\Models\Sdg;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,7 +36,9 @@ class SdgController extends Controller
         $user = Auth::user();
 
         $list= Pemangkindasar::all();
-        return view('ppd.sdg.create', compact('user', 'list'));
+        $fokus = Fokusutama::all();
+        $perkara = Perkarautama::all();
+        return view('ppd.sdg.create', compact('user', 'list', 'fokus', 'perkara'));
     }
 
     /**
@@ -72,8 +76,10 @@ class SdgController extends Controller
         $user = Auth::user();
 
         $list= Pemangkindasar::all();
+        $fokus = Fokusutama::all();
+        $perkara = Perkarautama::all();
 
-        return view('ppd.sdg.edit', compact('sdg', 'list'));
+        return view('ppd.sdg.edit', compact('sdg', 'list','fokus', 'perkara'));
     }
 
     /**

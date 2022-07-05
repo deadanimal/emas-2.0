@@ -31,7 +31,7 @@ class UpdatePemangkindasarRequest extends FormRequest
 
             'namaTema' => [
                 'string',
-                'required',
+                // 'required',
             ],
 
 

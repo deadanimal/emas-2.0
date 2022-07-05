@@ -11,24 +11,27 @@ class Pemangkindasar extends Model
 
     public $table = 'pemangkindasars';
 
-    protected $fillable = [
-
-        'keteranganTema',
-        'namaTema',
-        'kategori_id',
-        'fokus_id',
-        'perkara_id',
-        'user_id',
-    ];
-
-    protected $with = [
-        'user',
-        'fokus',
-        'perkara',
-        'kategori',
+    protected $guarded = ['id'];
 
 
-    ];
+    // protected $fillable = [
+
+    //     'keteranganTema',
+    //     'namaTema',
+    //     'kategori_id',
+    //     'fokus_id',
+    //     'perkara_id',
+    //     'user_id',
+    // ];
+
+    // protected $with = [
+    //     'user',
+    //     'fokus',
+    //     'perkara',
+    //     'kategori',
+
+
+    // ];
 
 
     public function kategori()

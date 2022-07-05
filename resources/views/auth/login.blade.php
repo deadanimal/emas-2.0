@@ -30,8 +30,8 @@
     {{-- <script src="vendors/dropzone/dropzone.min.js"></script> --}}
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <script type="text/javascript" src="/assets/js/datatables.min.js"></script>
-    <script type="text/javascript" src="/assets/js/datatables.js"></script>
+    {{-- <script type="text/javascript" src="/assets/js/datatables.min.js"></script>
+    <script type="text/javascript" src="/assets/js/datatables.js"></script> --}}
     <script src="/assets/js/flatpickr.js"></script>
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
@@ -57,8 +57,8 @@
     <link href="/assets/css/theme.min.css" rel="stylesheet" id="style-default">
     <link href="/assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
     <link href="/assets/css/user.min.css" rel="stylesheet" id="user-style-default">
-    <link rel="stylesheet" type="text/css" href="/assets/css/datatables.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/datatables.min.css" />
+    {{-- <link rel="stylesheet" type="text/css" href="/assets/css/datatables.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/datatables.min.css" /> --}}
     <script>
         var APP_URL = {!! json_encode(url('/')) !!}
 

@@ -29,6 +29,11 @@ class StorePemangkindasarRequest extends FormRequest
                 'required',
             ],
 
+            'namaTema' => [
+                'string',
+
+            ],
+
             'kategori_id' => [
                 'string',
 

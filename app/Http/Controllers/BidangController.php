@@ -6,6 +6,9 @@ use App\Http\Requests\StoreBidangRequest;
 use App\Http\Requests\UpdateBidangRequest;
 use App\Models\Bab;
 use App\Models\Bidang;
+use App\Models\Fokusutama;
+use App\Models\Pemangkindasar;
+use App\Models\Perkarautama;
 use Illuminate\Support\Facades\Auth;
 
 class BidangController extends Controller
@@ -33,7 +36,12 @@ class BidangController extends Controller
         $user = Auth::user();
 
         $list = Bab::all();
-        return view('ppd.bidang.create', compact('user', 'list'));
+        $fokus = Fokusutama::all();
+        $pemangkin = Pemangkindasar::all();
+        $perkara = Perkarautama::all();
+
+
+        return view('ppd.bidang.create', compact('user', 'list', 'fokus', 'pemangkin', 'perkara'));
     }
 
     /**
@@ -69,8 +77,11 @@ class BidangController extends Controller
     public function edit(Bidang $bidang)
     {
         $list = Bab::all();
+        $fokus = Fokusutama::all();
+        $pemangkin = Pemangkindasar::all();
+        $perkara = Perkarautama::all();
 
-        return view('ppd.bidang.edit', compact('bidang', 'list'));
+        return view('ppd.bidang.edit', compact('bidang', 'list', 'fokus', 'pemangkin', 'perkara'));
 
     }
 

@@ -15,13 +15,21 @@
 
     }
 
+    .nav-link-text1 {
+        color: #047FC3;
+    }
+
     /* Style the active class, and buttons on mouse-over */
     .active,
 
 
     .nav-item:hover {
         /* background-color: #666; */
-        color: white;
+        -webkit-text-fill-color: white;
+    }
+
+    .btn1:hover {
+        -webkit-text-fill-color: white;
     }
 </style>
 <script>
@@ -156,72 +164,72 @@
 
 
                     <!-- parent pages-->
-                    <a class="nav-link dropdown-indicator" href="#dashboard" role="button" data-bs-toggle="collapse"
-                        aria-expanded="true" aria-controls="dashboard" style="background-color: #C4D4ED">
+                    <a class="nav-link dropdown-indicator" href="#ppd" role="button" data-bs-toggle="collapse"
+                        aria-expanded="true" aria-controls="ppd" style="background-color: #C4D4ED">
                         <div class="d-flex justify-content-center" style="color: #047FC3">
                             <span class="nav-link-text ps-1">Senarai Maklumat</span>
                         </div>
                     </a>
 
                     <div class="card" style="--hover-color: white">
-                        <ul class="nav collapse show" id="dashboard" style="background-color: #E7EFFD">
+                        <ul class="nav collapse show" id="ppd" style="background-color: #E7EFFD">
                             <li class="nav-item"><a
-                                    class="nav-link {{ Request::is('fokusutama', 'fokusutama/*') ? 'active' : '' }}"
-                                    href="/fokusutama" style="color: #047FC3">
-                                    <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Fokus
+                                    class="nav-link btn1 {{ Request::is('fokusutama', 'fokusutama/*') ? 'active' : '' }}"
+                                    href="/fokusutama">
+                                    <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Fokus
                                             Utama</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
                             <li class="nav-item"><a
-                                    class="nav-link {{ Request::is('perkarautama', 'perkarautama/*') ? 'active' : '' }}"
-                                    href="/perkarautama" style="color: #047FC3">
-                                    <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Perkara
+                                    class="nav-link btn1 {{ Request::is('perkarautama', 'perkarautama/*') ? 'active' : '' }}"
+                                    href="/perkarautama">
+                                    <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Perkara
                                             Utama</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
                             <li class="nav-item"><a
-                                    class="nav-link {{ Request::is('pemangkin', 'pemangkin/*') ? 'active' : '' }}"
-                                    href="/pemangkin" style="color: #047FC3">
+                                    class="nav-link btn1 {{ Request::is('pemangkin', 'pemangkin/*') ? 'active' : '' }}"
+                                    href="/pemangkin">
                                     <div class="d-flex align-items-center"><span
-                                            class="nav-link-text ps-1">Tema/Pemangkin
+                                            class="nav-link-text1 ps-1">Tema/Pemangkin
                                             Dasar</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            <li class="nav-item"><a class="nav-link {{ Request::is('bab', 'bab/*') ? 'active' : '' }}"
-                                    href="/bab" style="color: #047FC3">
-                                    <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Bab</span>
+                            <li class="nav-item"><a class="nav-link btn1 {{ Request::is('bab', 'bab/*') ? 'active' : '' }}"
+                                    href="/bab">
+                                    <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Bab</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
                             <li class="nav-item"><a
-                                    class="nav-link {{ Request::is('pemacu', 'pemacu/*') ? 'active' : '' }}"
-                                    href="/pemacu" style="color: #047FC3">
-                                    <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Pemacu
+                                    class="nav-link btn1 {{ Request::is('pemacu', 'pemacu/*') ? 'active' : '' }}"
+                                    href="/pemacu">
+                                    <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Pemacu
                                             Perubahan</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
                             <li class="nav-item"><a
-                                    class="nav-link {{ Request::is('bidang', 'bidang/*') ? 'active' : '' }}"
-                                    href="/bidang" style="color: #047FC3">
-                                    <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Bidang
+                                    class="nav-link btn1 {{ Request::is('bidang', 'bidang/*') ? 'active' : '' }}"
+                                    href="/bidang">
+                                    <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Bidang
                                             Keutamaan</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
                             <li class="nav-item"><a
-                                    class="nav-link {{ Request::is('outcome', 'outcome/*') ? 'active' : '' }}"
-                                    href="/outcome" style="color: #047FC3">
-                                    <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Outcome
+                                    class="nav-link btn1 {{ Request::is('outcome', 'outcome/*') ? 'active' : '' }}"
+                                    href="/outcome">
+                                    <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Outcome
                                             Nasional</span>
                                     </div>
                                 </a>
@@ -229,46 +237,65 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link {{ Request::is('kpi', 'kpi/*', 'kpi1', 'kpi1/*') ? 'active' : '' }}"
-                                    href="/kpi" style="color: #047FC3">
+                                <a class="nav-link btn1 dropdown-indicator btn1 {{ Request::is('kpi', 'kpi/*', 'kpi1', 'kpi1/*') ? 'active' : '' }}"
+                                    href="#kpi" role="button" data-bs-toggle="collapse" aria-expanded="false"
+                                    aria-controls="kpi">
                                     <div class="d-flex align-items-center">
-                                        <span class="nav-link-text ps-1">KPI
+                                        <span class="nav-link-text1 ps-1">KPI
                                             Nasional</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
+                                <ul class="nav collapse false" id="kpi">
+                                    <li class="nav-item"><a class="nav-link btn1" href="/kpi">
+                                            <div class="d-flex align-items-center"><span
+                                                    class="nav-link-text1 btn1 ps-1">KPI Nasional</span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+                                </ul>
+                                <ul class="nav collapse false" id="kpi">
+                                    <li class="nav-item"><a class="nav-link" href="/kpi1/index1">
+                                            <div class="d-flex align-items-center"><span
+                                                    class="nav-link-text1 btn1 ps-1">Senarai Markah Berdasarkan Status</span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+                                </ul>
                             </li>
                             <li class="nav-item"><a
-                                    class="nav-link {{ Request::is('strategi', 'strategi/*') ? 'active' : '' }}"
-                                    href="/strategi" style="color: #047FC3">
+                                    class="nav-link btn1 {{ Request::is('strategi', 'strategi/*') ? 'active' : '' }}"
+                                    href="/strategi">
                                     <div class="d-flex align-items-center"><span
-                                            class="nav-link-text ps-1">Strategi</span>
+                                            class="nav-link-text1 ps-1">Strategi</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
                             <li class="nav-item"><a
-                                    class="nav-link {{ Request::is('inisiatif', 'inisiatif/*') ? 'active' : '' }}"
-                                    href="/inisiatif" style="color: #047FC3">
+                                    class="nav-link btn1 {{ Request::is('inisiatif', 'inisiatif/*') ? 'active' : '' }}"
+                                    href="/inisiatif">
                                     <div class="d-flex align-items-center"><span
-                                            class="nav-link-text ps-1">Inisiatif</span>
+                                            class="nav-link-text1 ps-1">Inisiatif</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
                             <li class="nav-item"><a
-                                    class="nav-link {{ Request::is('tindakan', 'tindakan/*', 'tindakan1', 'tindakan1/*') ? 'active' : '' }}"
-                                    href="/tindakan" style="color: #047FC3">
+                                    class="nav-link btn1 {{ Request::is('tindakan', 'tindakan/*', 'tindakan1', 'tindakan1/*') ? 'active' : '' }}"
+                                    href="/tindakan">
                                     <div class="d-flex align-items-center"><span
-                                            class="nav-link-text ps-1">Tindakan</span>
+                                            class="nav-link-text1 ps-1">Tindakan</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
                             <li class="nav-item"><a
-                                    class="nav-link {{ Request::is('sdg', 'sdg/*') ? 'active' : '' }}"
-                                    href="/sdg" style="color: #047FC3">
-                                    <div class="d-flex align-items-center"><span class="nav-link-text ps-1">SDG</span>
+                                    class="nav-link btn1 {{ Request::is('sdg', 'sdg/*') ? 'active' : '' }}"
+                                    href="/sdg">
+                                    <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">SDG</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
@@ -279,29 +306,29 @@
                     <br>
 
                     @role('admin')
-                        <a class="nav-link dropdown-indicator" href="#dashboard" role="button"
-                            data-bs-toggle="collapse" aria-expanded="true" aria-controls="dashboard"
+                        <a class="nav-link dropdown-indicator" href="#mpb" role="button"
+                            data-bs-toggle="collapse" aria-expanded="true" aria-controls="mpb"
                             style="background-color: #C4D4ED">
                             <div class="d-flex justify-content-center" style="color: #047FC3">
-                                <span class="nav-link-text ps-1">Information</span>
+                                <span class="nav-link-text1 ps-1">Information</span>
                             </div>
                         </a>
 
                         <div class="card" style="--hover-color: white">
-                            <ul class="nav collapse show" id="dashboard" style="background-color: #E7EFFD">
+                            <ul class="nav collapse show" id="mpb" style="background-color: #E7EFFD">
                                 <li class="nav-item">
-                                    <a class="nav-link {{ Request::is('thrust', 'thrust/*') ? 'active' : '' }}"
-                                        href="/thrust" style="color: #047FC3">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Thrust
+                                    <a class="nav-link btn1 {{ Request::is('thrust', 'thrust/*') ? 'active' : '' }}"
+                                        href="/thrust">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Thrust
                                             </span>
                                         </div>
                                     </a>
                                     <!-- more inner pages-->
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link {{ Request::is('national', 'national/*') ? 'active' : '' }}"
-                                        href="/national" style="color: #047FC3">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">National
+                                    <a class="nav-link btn1 {{ Request::is('national', 'national/*') ? 'active' : '' }}"
+                                        href="/national">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">National
                                                 Initiave
                                             </span>
                                         </div>
@@ -309,9 +336,9 @@
                                     <!-- more inner pages-->
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link {{ Request::is('key', 'key/*') ? 'active' : '' }}"
-                                        href="/key" style="color: #047FC3">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Key
+                                    <a class="nav-link btn1 {{ Request::is('key', 'key/*') ? 'active' : '' }}"
+                                        href="/key">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Key
                                                 Activity
                                             </span>
                                         </div>
@@ -319,27 +346,27 @@
                                     <!-- more inner pages-->
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link {{ Request::is('sub', 'sub/*') ? 'active' : '' }}"
-                                        href="/sub" style="color: #047FC3">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Sub
+                                    <a class="nav-link btn1 {{ Request::is('sub', 'sub/*') ? 'active' : '' }}"
+                                        href="/sub">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Sub
                                                 Activity</span>
                                         </div>
                                     </a>
                                     <!-- more inner pages-->
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link {{ Request::is('kpi2', 'kpi2/*') ? 'active' : '' }}"
-                                        href="/kpi2" style="color: #047FC3">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Kpi
+                                    <a class="nav-link btn1 {{ Request::is('kpi2', 'kpi2/*') ? 'active' : '' }}"
+                                        href="/kpi2">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Kpi
                                             </span>
                                         </div>
                                     </a>
                                     <!-- more inner pages-->
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link {{ Request::is('milestone', 'milestone/*') ? 'active' : '' }}"
-                                        href="/milestone" style="color: #047FC3">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Milestone
+                                    <a class="nav-link btn1 {{ Request::is('milestone', 'milestone/*') ? 'active' : '' }}"
+                                        href="/milestone">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Milestone
                                             </span>
                                         </div>
                                     </a>
@@ -352,20 +379,20 @@
 
                         <br>
 
-                        <a class="nav-link dropdown-indicator" href="#dashboard" role="button"
-                            data-bs-toggle="collapse" aria-expanded="true" aria-controls="dashboard"
+                        <a class="nav-link dropdown-indicator" href="#bmtkm" role="button"
+                            data-bs-toggle="collapse" aria-expanded="true" aria-controls="bmtkm"
                             style="background-color: #C4D4ED">
                             <div class="d-flex justify-content-center" style="color: #047FC3">
-                                <span class="nav-link-text ps-1">Senarai Maklumat</span>
+                                <span class="nav-link-text1 ps-1">Senarai Maklumat</span>
                             </div>
                         </a>
 
                         <div class="card" style="--hover-color: white">
-                            <ul class="nav collapse show" id="dashboard" style="background-color: #E7EFFD">
+                            <ul class="nav collapse show" id="bmtkm" style="background-color: #E7EFFD">
                                 <li class="nav-item">
-                                    <a class="nav-link {{ Request::is('lokaliti', 'lokaliti/*') ? 'active' : '' }}"
-                                        href="/lokaliti" style="color: #047FC3">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Lokaliti
+                                    <a class="nav-link btn1 {{ Request::is('lokaliti', 'lokaliti/*') ? 'active' : '' }}"
+                                        href="/lokaliti">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Lokaliti
                                             </span>
                                         </div>
                                     </a>
@@ -373,33 +400,33 @@
                                 </li>
 
                                 <!-- parent pages-->
-                                <a class="nav-link dropdown-indicator {{ Request::is('senaraiKir', 'senaraiKir/*') ? 'active' : '' }}"
+                                <a class="nav-link btn1 dropdown-indicator {{ Request::is('senaraiKir', 'senaraiKir/*') ? 'active' : '' }}"
                                     href="#email" role="button" data-bs-toggle="collapse" aria-expanded="false"
-                                    aria-controls="email" style="color: #047FC3">
+                                    aria-controls="email">
                                     <div class="d-flex align-items-center"><span class="nav-link-icon"></span><span
-                                            class="nav-link-text ps-1">Senarai
+                                            class="nav-link-text1 ps-1">Senarai
                                             KIR & AIR</span>
                                     </div>
                                 </a>
                                 <ul class="nav collapse false" id="email">
-                                    <li class="nav-item"><a class="nav-link" href="/" style="color: #047FC3">
+                                    <li class="nav-item"><a class="nav-link" href="/">
                                             <div class="d-flex align-items-center"><span
-                                                    class="nav-link-text ps-1">Senarai Mengikut Negeri</span>
+                                                    class="nav-link-text1 ps-1">Senarai Mengikut Negeri</span>
                                             </div>
                                         </a>
                                         <!-- more inner pages-->
                                     </li>
-                                    <li class="nav-item"><a class="nav-link" href="/" style="color: #047FC3">
+                                    <li class="nav-item"><a class="nav-link" href="/">
                                             <div class="d-flex align-items-center"><span
-                                                    class="nav-link-text ps-1">Senarai Mengikut Negeri dan
+                                                    class="nav-link-text1 ps-1">Senarai Mengikut Negeri dan
                                                     Daerah</span>
                                             </div>
                                         </a>
                                         <!-- more inner pages-->
                                     </li>
-                                    <li class="nav-item"><a class="nav-link" href="/" style="color: #047FC3">
+                                    <li class="nav-item"><a class="nav-link" href="/">
                                             <div class="d-flex align-items-center"><span
-                                                    class="nav-link-text ps-1">Senarai Mengikut Negeri,
+                                                    class="nav-link-text1 ps-1">Senarai Mengikut Negeri,
                                                     Daerah Dan Kampung</span>
                                             </div>
                                         </a>
@@ -409,9 +436,9 @@
 
 
                                 <li class="nav-item">
-                                    <a class="nav-link {{ Request::is('bantuan', 'bantuan/*') ? 'active' : '' }}"
-                                        href="/bantuan" style="color: #047FC3">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Jenis
+                                    <a class="nav-link btn1 {{ Request::is('bantuan', 'bantuan/*') ? 'active' : '' }}"
+                                        href="/bantuan">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Jenis
                                                 Bantuan
 
                                             </span>
@@ -420,9 +447,9 @@
                                     <!-- more inner pages-->
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link {{ Request::is('senaraiInformasi', 'senaraiInformasi/*') ? 'active' : '' }}"
-                                        href="/senaraiInformasi" style="color: #047FC3">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Senarai
+                                    <a class="nav-link btn1 {{ Request::is('senaraiInformasi', 'senaraiInformasi/*') ? 'active' : '' }}"
+                                        href="/senaraiInformasi">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Senarai
                                                 Informasi Berdasarkan KIR & AIR
                                             </span>
                                         </div>
@@ -500,7 +527,7 @@
                 <hr style="width:100%;text-align:center;">
 
                 <li class="nav-item1">
-                    <a class="nav-link" href="/" role="button">
+                    <a class="nav-link btn1" href="/" role="button">
 
 
                         <div class="d-flex align-items-center">

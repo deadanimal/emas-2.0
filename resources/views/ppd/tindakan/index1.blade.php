@@ -116,25 +116,17 @@
                                     <th class="align-middle">User</th>
                                 @endrole
                                 <th class="align-middle">Tindakan</th>
-                                <th class="align-middle">Jenis Tindakan </th>
-                                <th class="align-middle">Prestasi Tindakan</th>
-                                <th class="align-middle">Unit</th>
-                                <th class="align-middle">Pencapaian </th>
-                                <th class="align-middle">Sasaran</th>
-                                <th class="align-middle">Had Varian</th>
-                                <th class="align-middle">Had Toleransi</th>
-                                <th class="align-middle">Kekerapan </th>
-                                <th class="align-middle">Wajaran (%)</th>
-                                <th class="align-middle">Peratus Pencapaian (%)</th>
-                                <th class="align-middle">Tahun Asas</th>
-                                <th class="align-middle">Peratus Pencapaian Tahun Asas (%) </th>
-                                <th class="align-middle">Sasaran 2021</th>
-                                <th class="align-middle">Sasaran 2022</th>
-                                <th class="align-middle">Sasaran 2023</th>
-                                <th class="align-middle">Sasaran 2024</th>
-                                <th class="align-middle">Sasaran 2025</th>
-                                <th class="align-middle">Sumber Data</th>
-                                <th class="align-middle">Sumber Pengesahan</th>
+                                <th class="align-middle">Kementerian/ Agensi Penyelaras </th>
+                                <th class="align-middle">Kementerian/ Agensi Pelaksana</th>
+                                <th class="align-middle">Tempoh Siap</th>
+                                <th class="align-middle">Kategori Sasaran </th>
+                                <th class="align-middle">Status Pelaksanaan 2021</th>
+                                <th class="align-middle">Catatan 2021</th>
+                                <th class="align-middle">Pencapaian 2021</th>
+                                <th class="align-middle">Status Pelaksanaan 2022 </th>
+                                <th class="align-middle">Catatan 2022</th>
+                                <th class="align-middle">Pencapaian 2022</th>
+
                                 @role('bahagian')
                                     <th class="align-middle">Status</th>
                                 @endrole
@@ -151,25 +143,17 @@
                                     @endrole
                                     <td class="align-middle">{{ $tindakan->namaTindakan }}</td>
                                     {{-- <td class="align-middle">{{ $tindakan->pemangkin->namaTema ?? '' }}</td> --}}
-                                    <td class="align-middle">{{ $tindakan->jenisTindakan }}</td>
-                                    <td class="align-middle">{{ $tindakan->prestasiTindakan }}</td>
-                                    <td class="align-middle">{{ $tindakan->unitUkuran }}</td>
-                                    <td class="align-middle">{{ $tindakan->pencapaian }}</td>
-                                    <td class="align-middle">{{ $tindakan->sasaran }}</td>
-                                    <td class="align-middle">{{ $tindakan->hadVarian }}</td>
-                                    <td class="align-middle">{{ $tindakan->hadToleransi }}</td>
-                                    <td class="align-middle">{{ $tindakan->kekerapan }}</td>
-                                    <td class="align-middle">{{ $tindakan->wajaran }}</td>
-                                    <td class="align-middle">{{ $tindakan->peratusPencapaian }}</td>
-                                    <td class="align-middle">{{ $tindakan->tahunAsas }}</td>
-                                    <td class="align-middle">{{ $tindakan->peratusPencapaianAsas }}</td>
-                                    <td class="align-middle">{{ $tindakan->sasaran2021 }}</td>
-                                    <td class="align-middle">{{ $tindakan->sasaran2022 }}</td>
-                                    <td class="align-middle">{{ $tindakan->sasaran2023 }}</td>
-                                    <td class="align-middle">{{ $tindakan->sasaran2024 }}</td>
-                                    <td class="align-middle">{{ $tindakan->sasaran2025 }}</td>
-                                    <td class="align-middle">{{ $tindakan->sumberData }}</td>
-                                    <td class="align-middle">{{ $tindakan->sumberPengesahan }}</td>
+                                    <td class="align-middle">{{ $tindakan->kementerian_penyelaras }}</td>
+                                    <td class="align-middle">{{ $tindakan->kementerian_pelaksana }}</td>
+                                    <td class="align-middle">{{ $tindakan->tempohSiap }}</td>
+                                    <td class="align-middle">{{ $tindakan->kategoriSasaran }}</td>
+                                    <td class="align-middle">{{ $tindakan->statusPelaksanaan2021 }}</td>
+                                    <td class="align-middle">{{ $tindakan->catatan2021 }}</td>
+                                    <td class="align-middle">{{ $tindakan->pencapaian2021 }}</td>
+                                    <td class="align-middle">{{ $tindakan->statusPelaksanaan }}</td>
+                                    <td class="align-middle">{{ $tindakan->catatan2022 }}</td>
+                                    <td class="align-middle">{{ $tindakan->pencapaian2022 }}</td>
+
                                     @role('admin')
                                         <td class="align-middle">
 
@@ -218,9 +202,9 @@
 @endsection
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+{{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"></script> --}}
 
 
 <script>

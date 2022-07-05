@@ -202,4 +202,22 @@ class KpiController extends Controller
 
         return response()->json($kpi->get());
     }
+
+    public function searchKpi1(Request $request)
+    {
+        $kpi = Kpi::where('id', '!=', 'null');
+
+        if ($request->result[0] != 'null') {
+            $kpi->where('pemangkin_id', $request->result[0]);
+        }
+        if ($request->result[1] != 'null') {
+            $kpi->where('bab_id', $request->result[1]);
+        }
+        if ($request->result[2] != 'null') {
+            $kpi->where('bidang_id', $request->result[2]);
+        }
+
+
+        return response()->json($kpi->get());
+    }
 }

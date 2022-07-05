@@ -11,22 +11,24 @@ class Bidang extends Model
 
     public $table = 'bidangs';
 
-    protected $fillable = [
+    protected $guarded = ['id'];
 
-        'keteranganBidang',
-        'namaBidang',
-        'noBidang',
-        'bab_id',
-        'pemacu_id',
-        'user_id',
-    ];
+    // protected $fillable = [
 
-    protected $with = [
-        'user',
-        'bab',
-        'pemacu',
+    //     'keteranganBidang',
+    //     'namaBidang',
+    //     'noBidang',
+    //     'bab_id',
+    //     'pemacu_id',
+    //     'user_id',
+    // ];
 
-    ];
+    // protected $with = [
+    //     'user',
+    //     'bab',
+    //     'pemacu',
+
+    // ];
 
     public function user()
     {

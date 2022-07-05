@@ -1,85 +1,5 @@
 @extends('base')
 @section('content')
-    {{-- @import "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" --}}
-
-    {{-- <style>
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 90px;
-            height: 34px;
-
-        }
-
-        .switch input {
-            display: none;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ca2222;
-            -webkit-transition: .4s;
-            transition: .4s;
-            border-radius: 34px;
-
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            -webkit-transition: .4s;
-            transition: .4s;
-            border-radius: 50%;
-        }
-
-        input:checked+.slider {
-            background-color: #2ab934;
-        }
-
-        input:focus+.slider {
-            box-shadow: 0 0 1px #2196F3;
-        }
-
-        input:checked+.slider:before {
-            -webkit-transform: translateX(26px);
-            -ms-transform: translateX(26px);
-            transform: translateX(55px);
-        }
-
-        /*------ ADDED CSS ---------*/
-        .slider:after {
-            content: 'TOLAK';
-            color: white;
-            display: block;
-            position: absolute;
-            transform: translate(-50%, -50%);
-            top: 50%;
-            left: 60%;
-            font-size: 10px;
-        }
-
-        input:checked+.slider:after {
-            content: 'LULUS';
-            display: block;
-            position: absolute;
-            transform: translate(-50%, -50%);
-            top: 50%;
-            left: 40%;
-            font-size: 10px;
-        }
-
-        /*--------- END --------*/
-    </style> --}}
 
     <div class="container">
         <br>
@@ -89,99 +9,99 @@
         <br>
 
         @role('admin')
-        <div class="mb-3 row">
-            <label class="col-sm-2 col-form-label" for="tema_id">Tema/Pemangkin Dasar</label>
-            <div class="col-sm-10" style="width:40%">
-                <select class="form-control" name="tema_id">
-                    <option selected disabled hidden>Sila Pilih</option>
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label" for="tema_id">Tema/Pemangkin Dasar</label>
+                <div class="col-sm-10" style="width:40%">
+                    <select class="form-control search" name="tema_id">
+                        <option selected disabled hidden value="null">Sila Pilih</option>
 
-                    @foreach ($tema as $tema)
-                        <option value="{{ $tema->id }}">{{ $tema->namaTema }}</option>
-                    @endforeach
+                        @foreach ($tema as $tema)
+                            <option value="{{ $tema->id }}">{{ $tema->namaTema }}</option>
+                        @endforeach
 
-                </select>
-            </div>
+                    </select>
+                </div>
 
-            <label class="col-sm-2 col-form-label" for="bab_id">Sukuan Tahun</label>
-            <div class="col-sm-10" style="width:20%">
-                <select class="form-control" name="bab_id">
-                    <option selected disabled hidden>Sila Pilih</option>
+                <label class="col-sm-2 col-form-label" for="bab_id">Sukuan Tahun</label>
+                <div class="col-sm-10" style="width:20%">
+                    <select class="form-control" name="bab_id">
+                        <option selected disabled hidden>Sila Pilih</option>
 
-                    {{-- @foreach ($listBab as $listBab)
+                        {{-- @foreach ($listBab as $listBab)
                         <option value="{{ $listBab->id }}">Bab {{ $listBab->noBab }}. {{ $listBab->namaBab }} </option>
                     @endforeach --}}
 
-                </select>
-            </div>
-        </div>
-
-        <div class="mb-3 row">
-            <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
-            <div class="col-sm-10" style="width:40%">
-                <select class="form-control" name="bab_id">
-                    <option selected disabled hidden>Sila Pilih</option>
-
-                    @foreach ($bab as $bab)
-                        <option value="{{ $bab->id }}">{{ $bab->namaBab }}</option>
-                    @endforeach
-
-                </select>
+                    </select>
+                </div>
             </div>
 
-            <label class="col-sm-2 col-form-label" for="outcome_id">Tahun</label>
-            <div class="col-sm-10" style="width:20%">
-                <select class="form-control" name="outcome_id">
-                    <option selected disabled hidden>SILA PILIH</option>
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
+                <div class="col-sm-10" style="width:40%">
+                    <select class="form-control search" name="bab_id">
+                        <option selected disabled hidden value="null">Sila Pilih</option>
 
-                    {{-- @foreach ($list as $list)
+                        @foreach ($bab as $bab)
+                            <option value="{{ $bab->id }}">{{ $bab->namaBab }}</option>
+                        @endforeach
+
+                    </select>
+                </div>
+
+                <label class="col-sm-2 col-form-label" for="outcome_id">Tahun</label>
+                <div class="col-sm-10" style="width:20%">
+                    <select class="form-control" name="outcome_id">
+                        <option selected disabled hidden>SILA PILIH</option>
+
+                        {{-- @foreach ($list as $list)
                         <option value="{{ $list->id }}">{{ $list->namaOutcome }}</option>
                     @endforeach --}}
 
-                </select>
+                    </select>
+                </div>
             </div>
-        </div>
 
-        <div class="mb-3 row">
-            <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan</label>
-            <div class="col-sm-10" style="width:40%">
-                <select class="form-control" name="bidang_id">
-                    <option selected disabled hidden>Sila Pilih</option>
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan</label>
+                <div class="col-sm-10" style="width:40%">
+                    <select class="form-control search" name="bidang_id">
+                        <option selected disabled hidden value="null">Sila Pilih</option>
 
-                    @foreach ($bidang as $bidang)
-                        <option value="{{ $bidang->id }}">{{ $bidang->namaBidang }}</option>
-                    @endforeach
+                        @foreach ($bidang as $bidang)
+                            <option value="{{ $bidang->id }}">{{ $bidang->namaBidang }}</option>
+                        @endforeach
 
-                </select>
+                    </select>
+                </div>
             </div>
-        </div>
 
-        <div class="mb-3 row">
-            <label class="col-sm-2 col-form-label" for="bidang_id">Status KPI</label>
-            <div class="col-sm-10" style="width:40%">
-                <select class="form-control" name="bidang_id">
-                    <option selected disabled hidden>Sila Pilih</option>
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label" for="bidang_id">Status KPI</label>
+                <div class="col-sm-10" style="width:40%">
+                    <select class="form-control" name="bidang_id">
+                        <option selected disabled hidden>Sila Pilih</option>
 
-                    {{-- @foreach ($listBidang as $listBidang)
+                        {{-- @foreach ($listBidang as $listBidang)
                         <option value="{{ $listBidang->id }}">{{ $listBidang->namaBidang }}</option>
                     @endforeach --}}
 
-                </select>
+                    </select>
+                </div>
             </div>
-        </div>
 
-        <div class="mb-3 row">
-            <label class="col-sm-2 col-form-label" for="bidang_id">Kementerian/Bahagian </label>
-            <div class="col-sm-10" style="width:40%">
-                <select class="form-control" name="bidang_id">
-                    <option selected disabled hidden>Sila Pilih</option>
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label" for="bidang_id">Kementerian/Bahagian </label>
+                <div class="col-sm-10" style="width:40%">
+                    <select class="form-control" name="bidang_id">
+                        <option selected disabled hidden>Sila Pilih</option>
 
-                    {{-- @foreach ($listBidang as $listBidang)
+                        {{-- @foreach ($listBidang as $listBidang)
                         <option value="{{ $listBidang->id }}">{{ $listBidang->namaBidang }}</option>
                     @endforeach --}}
 
-                </select>
+                    </select>
+                </div>
             </div>
-        </div>
         @endrole
 
 
@@ -189,7 +109,7 @@
         <div class="card mx-ncard my-ncard shadow-none">
             <div class="card-body">
                 <div class="table-responsive scrollbar">
-                    <table class="table mb-0" style="width: 400%">
+                    <table class="table mb-0" style="width: 400%" value="null">
                         <thead class="text-black bg-200">
                             <tr>
                                 @role('admin')
@@ -224,7 +144,7 @@
                                 @endrole
                             </tr>
                         </thead>
-                        <tbody id="bulk-select-body">
+                        <tbody id="searchUpdateTable">
                             @foreach ($kpis as $kpi)
                                 <tr>
                                     @role('admin')
@@ -253,17 +173,6 @@
                                     <td class="align-middle">{{ $kpi->sumberPengesahan }}</td>
                                     @role('admin')
                                         <td class="align-middle">
-
-                                            {{-- <label class="switch">
-                                                <input type="checkbox" id="togBtn">
-                                                <div class="slider round"></div>
-                                            </label> --}}
-
-                                            {{-- <div id="toggle-lulus" class="btn-group btn-toggle">
-                                                <button class="btn btn-xs btn-default">Tolak</button>
-                                                <button class="btn btn-xs btn-primary active">Lulus</button>
-                                            </div> --}}
-
                                             <div class="col-auto ms-auto">
                                                 @if ($kpi->lulus == 1 && $kpi->ditolak == 0)
                                                     <span class="btn btn-primary" disabled>Lulus</span>
@@ -309,11 +218,81 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"></script>
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+</script>
+{{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"></script> --}}
 
 
 <script>
+    $(".search").change(function() {
+        var result = [];
+        var iteration = 1;
+
+        jQuery.each($(".search"), function(key, val) {
+            result.push(val.value);
+        });
+
+        $.ajax({
+            method: "POST",
+            url: "/search_kpi1",
+            data: {
+                "_token": "{{ csrf_token() }}",
+                "result": result,
+            },
+        }).done(function(response) {
+            console.log(response);
+            $("#searchUpdateTable").html('');
+            // $("#searchUpdateTable2").html('');
+
+            response.forEach(el => {
+                $("#searchUpdateTable").append(`
+                            <tr>
+                                    <td class="align-middle">` + iteration++ + `. ` + el.namaKpi + `</td>
+
+                                    <td class="align-middle"> ` + el.namaKpi + `</td>
+                                    <td class="align-middle">{{ $kpi->pemangkin->namaTema ?? '' }}</td>
+                                    <td class="align-middle">` + el.jenisKpi + `</td>
+                                    <td class="align-middle">` + el.prestasiKpi + `</td>
+                                    <td class="align-middle">` + el.unitUkuran + `</td>
+                                    <td class="align-middle">` + el.pencapaian + `</td>
+                                    <td class="align-middle">` + el.sasaran + `</td>
+                                    <td class="align-middle">` + el.hadVarian + `</td>
+                                    <td class="align-middle">` + el.hadToleransi + `</td>
+                                    <td class="align-middle">` + el.kekerapan + `</td>
+                                    <td class="align-middle">` + el.wajaran + `</td>
+                                    <td class="align-middle">` + el.peratusPencapaian + `</td>
+                                    <td class="align-middle">` + el.tahunAsas + `</td>
+                                    <td class="align-middle">` + el.peratusPencapaianAsas + `</td>
+                                    <td class="align-middle">` + el.sasaran2021 + `</td>
+                                    <td class="align-middle">` + el.sasaran2022 + `</td>
+                                    <td class="align-middle">` + el.sasaran2023 + `</td>
+                                    <td class="align-middle">` + el.sasaran2024 + `</td>
+                                    <td class="align-middle">` + el.sasaran2025 + `</td>
+                                    <td class="align-middle">` + el.sumberData + `</td>
+                                    <td class="align-middle">` + el.sumberPengesahan + `</td>
+                            </tr>
+
+                    `);
+
+                // $("#searchUpdateTable2").append(`
+                //     <div>
+
+                //         <a class="btn btn-primary" style="border-radius: 38px"
+                //             href="/kpi1/` + el.id + `/edit"><i class="fas fa-edit"></i>
+                //         </a>
+
+                //         <button type="submit" onclick="myFunction({{ `+el.id+` }})" class="btn btn-danger"
+                //             style="border-radius: 38px">
+                //             <i class="fas fa-trash"></i>
+                //         </button>
+                //     </div>
+                // `);
+            });
+        });
+
+
+    });
+
     // only if pressed a non-active button
     $("button", "#toggle-lulus").click(function(event) {
         var $btn = $(event.currentTarget)

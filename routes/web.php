@@ -93,6 +93,8 @@ Route::post('/kpi/lulus/{id}', [KpiController::class, 'lulus'])->name('kpi.lulus
 Route::post('/kpi/ditolak/{id}', [KpiController::class, 'ditolak'])->name('kpi.ditolak');
 //Search
 Route::post('/search_kpi', [KpiController::class, 'searchKpi']);
+Route::post('/search_kpi1', [KpiController::class, 'searchKpi1']);
+
 
 //Strategi
 Route::resource('/strategi', StrategiController::class);

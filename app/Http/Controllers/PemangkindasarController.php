@@ -71,6 +71,7 @@ class PemangkindasarController extends Controller
     public function edit($id)
     {
         $pemangkindasar = Pemangkindasar::find($id);
+
         return view('ppd.pemangkin.edit', compact('pemangkindasar'));
 
     }
@@ -88,6 +89,7 @@ class PemangkindasarController extends Controller
         $pemangkindasar = Pemangkindasar::find($id);
 
         $pemangkindasar->update($request->all());
+        // dd($pemangkindasar);
         return redirect()->route('pemangkin.index');
     }
 

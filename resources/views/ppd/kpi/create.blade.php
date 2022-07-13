@@ -111,6 +111,17 @@
                         <input class="form-control" type="text" name="namaKpi" />
 
                     </div>
+
+                    <label class="col-sm-2 col-form-label" for="indikator">Indikator Terpilih</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="indikator">
+                            <option selected disabled hidden>SILA PILIH</option>
+                            <option value="1">Ya</option>
+                            <option value="2">Tidak</option>
+
+
+                        </select>
+                    </div>
                 </div>
 
 

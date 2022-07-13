@@ -29,7 +29,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     {{-- <script src="vendors/dropzone/dropzone.min.js"></script> --}}
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    {{-- <script type="text/javascript" src="/assets/js/datatables.min.js"></script>
+{{--
+    <script type="text/javascript" src="/assets/js/datatables.min.js"></script>
     <script type="text/javascript" src="/assets/js/datatables.js"></script> --}}
     <script src="/assets/js/flatpickr.js"></script>
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
@@ -57,7 +58,8 @@
     <link href="/assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
     <link href="/assets/css/user.min.css" rel="stylesheet" id="user-style-default">
     {{-- <link rel="stylesheet" type="text/css" href="/assets/css/datatables.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/datatables.min.css" /> --}}
+    <link rel="stylesheet" type="text/css" href="/assets/css/datatables.min.css" />
+     --}}
     <script>
         var APP_URL = {!! json_encode(url('/')) !!}
 
@@ -347,6 +349,7 @@
                 width: 100%;
             }
         }
+
     </style>
     <?php
     use Illuminate\Support\Facades\Auth;
@@ -361,12 +364,13 @@
             <div class="mb-4 text-center">
             </div>
 
-            @role('admin')
+            @if (auth()->user() == 'bahagian' || auth()->user() == 'kementerian')
                 <div class="row pb-3">
                     <div class="col-md-6 col-lg-4 text-center">
                         <a class="mb-3" href="/fokusutama">
                             <div class="px-4 pt-4">
-                                <img src="img/PPD.png" class="img-fluid card-img-hover landing-img" alt="Pelan Pelaksanaan">
+                                <img src="img/PPD.png" class="img-fluid card-img-hover landing-img"
+                                    alt="Pelan Pelaksanaan">
                             </div>
                         </a>
                     </div>
@@ -378,7 +382,7 @@
                         </a>
                     </div>
                     <div class="col-md-6 col-lg-4 text-center">
-                        <a class="mb-3" href="/lokaliti">
+                        <a class="mb-3" href="/">
                             <div class="px-4 pt-4">
                                 <img src="img/KT.png" class="img-fluid card-img-hover landing-img" alt="">
                             </div>
@@ -408,49 +412,26 @@
                     <div class="col-md-6 col-lg-2 text-center">
                     </div>
                 </div>
-                @elserole('bahagian|kementerian')
+            @else
                 <div class="row pb-3">
-                    @if (auth()->user()->role == 'bahagian')
-                        <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3" href="/fokusutama">
-                                <div class="px-4 pt-4">
-                                    <img src="img/PPD.png" class="img-fluid card-img-hover landing-img"
-                                        alt="Pelan Pelaksanaan">
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3" id="myAnchor">
-                                <div class="px-4 pt-4">
-                                    <img src="img/MPB.png" class="img-fluid card-img-hover landing-img" alt=""
-                                        style="opacity: 50%">
-                                </div>
-                            </a>
-                        </div>
-
-                    @else
-                        <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3" href="/fokusutama">
-                                <div class="px-4 pt-4">
-                                    <img src="img/PPD.png" class="img-fluid card-img-hover landing-img"
-                                        alt="Pelan Pelaksanaan">
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3" href="/thrust">
-                                <div class="px-4 pt-4">
-                                    <img src="img/MPB.png" class="img-fluid card-img-hover landing-img" alt="">
-                                </div>
-                            </a>
-                        </div>
-                    @endif
-
-
                     <div class="col-md-6 col-lg-4 text-center">
-                        <a class="mb-3" id="myAnchor">
+                        <a class="mb-3" href="/fokusutama">
+                            <div class="px-4 pt-4">
+                                <img src="img/PPD.png" class="img-fluid card-img-hover landing-img"
+                                    alt="Pelan Pelaksanaan">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 text-center">
+                        <a class="mb-3" href="/thrust" id="myAnchor">
+                            <div class="px-4 pt-4">
+                                <img src="img/MPB.png" class="img-fluid card-img-hover landing-img" alt=""
+                                    style="opacity: 50%">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 text-center">
+                        <a class="mb-3" href="/" id="myAnchor">
                             <div class="px-4 pt-4">
                                 <img src="img/KT.png" class="img-fluid card-img-hover landing-img" alt=""
                                     style="opacity: 50%">
@@ -465,7 +446,7 @@
 
                     </div>
                     <div class="col-md-6 col-lg-4 text-center">
-                        <a class="mb-3" id="myAnchor">
+                        <a class="mb-3" href="/" id="myAnchor">
                             <div class="px-4 pt-4">
                                 <img src="img/MD.png" class="img-fluid card-img-hover landing-img" alt=""
                                     style="opacity: 50%">
@@ -473,7 +454,7 @@
                         </a>
                     </div>
                     <div class="col-md-6 col-lg-4 text-center">
-                        <a class="mb-3" id="myAnchor">
+                        <a class="mb-3" href="/" id="myAnchor">
                             <div class="px-4 pt-4">
                                 <img src="img/ED.png" class="img-fluid card-img-hover landing-img" alt=""
                                     style="opacity: 50%">
@@ -483,71 +464,18 @@
                     <div class="col-md-6 col-lg-2 text-center">
                     </div>
                 </div>
+            @endif
+        </div>
 
-
-                @elserole('menteri')
-                <div class="row pb-3">
-
-                    <div class="row pb-3">
-                        <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3" id="myAnchor">
-                                <div class="px-4 pt-4">
-                                    <img src="img/PPD.png" class="img-fluid card-img-hover landing-img"
-                                        alt="Pelan Pelaksanaan" style="opacity: 50%">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3" id="myAnchor">
-                                <div class="px-4 pt-4">
-                                    <img src="img/MPB.png" class="img-fluid card-img-hover landing-img" alt=""
-                                        style="opacity: 50%">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3" id="myAnchor">
-                                <div class="px-4 pt-4">
-                                    <img src="img/KT.png" class="img-fluid card-img-hover landing-img" alt=""
-                                        style="opacity: 50%">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-6 col-lg-2 text-center">
-
-                        </div>
-                        <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3" id="myAnchor">
-                                <div class="px-4 pt-4">
-                                    <img src="img/MD.png" class="img-fluid card-img-hover landing-img" alt=""
-                                        style="opacity: 50%">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3" href="/" id="myAnchor">
-                                <div class="px-4 pt-4">
-                                    <img src="img/ED.png" class="img-fluid card-img-hover landing-img" alt="">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-6 col-lg-2 text-center">
-                        </div>
-
-
-                    </div>
-                @endrole
-            </div>
-
-            <footer class="risda-bg-dg">
-                <div class="row p-">
-                    <div class="col">
-                        <div class="text-center">
-                            <b>Copyright</b> ©️ <b>UNIT PERANCANG EKONOMI</b>
-                        </div>
+        <footer class="risda-bg-dg">
+            <div class="row p-">
+                <div class="col">
+                    <div class="text-center">
+                        <b>Copyright</b> ©️ <b>UNIT PERANCANG EKONOMI</b>
                     </div>
                 </div>
-            </footer>
+            </div>
+        </footer>
 
     </main>
     <!-- ===============================================-->

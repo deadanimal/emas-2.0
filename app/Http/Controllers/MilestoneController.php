@@ -61,7 +61,9 @@ class MilestoneController extends Controller
      */
     public function store(StoreMilestoneRequest $request)
     {
-        //
+        $miles = Milestone::create($request->validated());
+
+        return redirect()->route('milestone.index');
     }
 
     /**
@@ -83,7 +85,19 @@ class MilestoneController extends Controller
      */
     public function edit(Milestone $milestone)
     {
-        //
+        $miles = Milestone::all();
+        $thrust= Thrust::all();
+        $nation= National::all();
+        $key= Key::all();
+        $sub= Sub::all();
+        $kpi= Kpi2::all();
+        // $list= Quarter::all();
+
+
+
+
+        return view('mpb.milestone.edit', compact('milestone', 'thrust', 'nation', 'key', 'sub', 'kpi'));
+
     }
 
     /**
@@ -95,7 +109,9 @@ class MilestoneController extends Controller
      */
     public function update(UpdateMilestoneRequest $request, Milestone $milestone)
     {
-        //
+        $milestone->update($request->all());
+
+        return redirect()->route('milestone.index');
     }
 
     /**

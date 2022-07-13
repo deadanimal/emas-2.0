@@ -11,17 +11,17 @@
         <br>
 
         <div class="form-floating;">
-            <form action="/key/{{ $key->id }}" method="POST">
+            <form action="/sub/{{ $sub->id }}" method="POST">
                 @csrf
                 @method('PUT')
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="thrust_id">Thrust</label>
+                    <label class="col-sm-2 col-form-label" for="key_id">Key Activities</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="thrust_id">
+                        <select class="form-control" name="key_id">
                             @foreach ($list as $list)
-                                <option @selected($key->thrust_id == $list->id) value="{{ $list->id }}">{{ $list->namaThrust }}
+                                <option @selected($sub->key_id == $list->id) value="{{ $list->id }}">{{ $list->namaKey }}
                                 </option>
                             @endforeach
 
@@ -31,9 +31,9 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaKey">Key Activities</label>
+                    <label class="col-sm-2 col-form-label" for="namaSub">Sub-Key Activities</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaKey" value="{{ $key->namaKey }}" />
+                        <input class="form-control" type="text" name="namaSub" value="{{ $sub->namaSub }}" />
 
                     </div>
                 </div>
@@ -41,14 +41,14 @@
                 <br><br>
 
                 <div class="mb-3">
-                    <label class="form-label" for="keteranganKey"><b>Key Activities Information</b></label>
-                    <textarea class="form-control" name="keteranganKey" rows="5">{{ $key->keteranganKey }}</textarea>
+                    <label class="form-label" for="keteranganSub"><b>Sub-Key Activities</b></label>
+                    <textarea class="form-control" name="keteranganSub" rows="5">{{ $sub->keteranganSub }}</textarea>
                 </div>
 
                 <div class="row">
                     <div class="col">
                         <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                            href="/key">
+                            href="/sub">
                             <span class="fas fa-times-circle"></span>&nbsp;Cancel
                         </a>
                     </div>

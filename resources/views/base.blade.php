@@ -81,7 +81,6 @@
 
 <body>
     <style>
-
         .form-control {
             border-color: #76bbe9;
         }
@@ -356,7 +355,6 @@
                 width: 100%;
             }
         }
-
     </style>
     <?php
     use Illuminate\Support\Facades\Auth;
@@ -373,6 +371,14 @@
             <div class="row">
 
                 <div class="content" style="background: white;">
+
+                    {{-- <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip"
+                        data-bs-placement="left" title="" data-bs-original-title="Tutup" aria-label="Tutup">
+                        <span class="fas fa-angle-right">
+                            <span class="fas fa-angle-left"></span>
+                        </span>
+                    </button> --}}
+
 
 
                     <div class="row px-2 emas-m">

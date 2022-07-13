@@ -36,12 +36,21 @@ class KpiController extends Controller
         return view('ppd.kpi.index', compact('kpis', 'list', 'fokusUtama', 'perkaraUtama', 'temaPemangkin', 'bab', 'bidang'));
     }
 
-    public function index1()
+    public function index1(Request $request)
     {
-        $kpis = Kpi::all();
         $tema = Pemangkindasar::all();
         $bab = Bab::all();
         $bidang = Bidang::all();
+
+        if ($request->user()->role == 'admin') {
+
+            $kpis = Kpi::all();
+
+        } else {
+            $user_id = $request->user()->id;
+
+            $kpis = Kpi::where('user_id', '=', $user_id)->get();
+        }
 
         return view('ppd.kpi.index1', compact('kpis', 'tema', 'bab', 'bidang'));
     }
@@ -107,6 +116,7 @@ class KpiController extends Controller
 
         return redirect()->to('kpi1/index1');
     }
+
     public function show(Kpi $kpi)
     {
         return view('ppd.kpi.show', compact('kpi'));

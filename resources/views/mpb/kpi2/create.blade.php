@@ -14,28 +14,14 @@
             <form action="{{ route('kpi2.store') }}" method="POST">
                 @csrf
 
-                {{-- <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="key_id">Key Activities</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="key_id">
-                            <option selected disabled hidden>PLEASE CHOOSE</option>
-
-                            @foreach ($list as $list)
-                                <option value="{{ $list->id }}">{{ $list->namaKey }}</option>
-                            @endforeach
-
-                        </select>
-                    </div>
-                </div>
-
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="thrust_id">Thrust</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="thrust_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
 
-                            @foreach ($list as $list)
-                                <option value="{{ $list->id }}">{{ $list->namaThrust }}</option>
+                            @foreach ($thrust as $thrust)
+                                <option value="{{ $thrust->id }}">{{ $thrust->namaThrust }}</option>
                             @endforeach
 
                         </select>
@@ -48,13 +34,13 @@
                         <select class="form-control" name="national_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
 
-                            @foreach ($list as $list)
-                                <option value="{{ $list->id }}">{{ $list->namaKey }}</option>
+                            @foreach ($national as $national)
+                                <option value="{{ $national->id }}">{{ $national->namaNational }}</option>
                             @endforeach
 
                         </select>
                     </div>
-                </div> --}}
+                </div>
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="key_id">Key Activities</label>
@@ -62,31 +48,31 @@
                         <select class="form-control" name="key_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
 
-                            {{-- @foreach ($list as $list) --}}
-                                <option value="{{ $kpi2->key->id }}">{{ $kpi2->key->namaKey }}</option>
-                            {{-- @endforeach --}}
+                            @foreach ($key as $key)
+                                <option value="{{ $key->id }}">{{ $key->namaKey }}</option>
+                            @endforeach
 
                         </select>
                     </div>
                 </div>
 
-                {{-- <div class="mb-3 row">
+                <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="sub_id">Sub-Key Activities</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="sub_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
 
-                            @foreach ($list as $list)
-                                <option value="{{ $list->id }}">{{ $list->namaKey }}</option>
+                            @foreach ($sub as $sub)
+                                <option value="{{ $sub->id }}">{{ $sub->namaSub }}</option>
                             @endforeach
 
                         </select>
                     </div>
-                </div> --}}
+                </div>
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaKpi">kpi2-Activity</label>
+                    <label class="col-sm-2 col-form-label" for="namaKpi">NameKpi</label>
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" type="text" name="namaKpi" />
 
@@ -97,7 +83,7 @@
                 <br>
 
                 <div class="mb-3">
-                    <label class="form-label" for="keteranganKpi"><b>kpi2-Activity Information:</b></label>
+                    <label class="form-label" for="keteranganKpi"><b>KPI Information:</b></label>
                     <textarea class="form-control" name="keteranganKpi" rows="5"></textarea>
                 </div>
 

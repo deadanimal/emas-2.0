@@ -11,19 +11,21 @@ class Sdg extends Model
 
     public $table = 'sdgs';
 
-    protected $fillable = [
+    protected $guarded = ['id'];
 
-        'keteranganSdg',
-        'namaSdg',
-        'pemangkin_id',
-        'user_id',
-    ];
+    // protected $fillable = [
 
-    protected $with = [
-        'user',
-        'pemangkin'
+    //     'keteranganSdg',
+    //     'namaSdg',
+    //     'pemangkin_id',
+    //     'user_id',
+    // ];
 
-    ];
+    // protected $with = [
+    //     'user',
+    //     'pemangkin'
+
+    // ];
 
     public function user()
     {

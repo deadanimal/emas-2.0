@@ -136,7 +136,7 @@
                                 <th class="align-middle">Sasaran 2025</th>
                                 <th class="align-middle">Sumber Data</th>
                                 <th class="align-middle">Sumber Pengesahan</th>
-                                @role('bahagian')
+                                @role('bahagian|kementerian')
                                     <th class="align-middle">Status</th>
                                 @endrole
                                 @role('admin')

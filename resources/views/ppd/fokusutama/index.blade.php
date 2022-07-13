@@ -130,13 +130,13 @@
         }
 
 
-        $('.testing'.dataTable({
-            "columns":[
-                {
-                    "word-wrap": "break-word"
-                },
-                null
-            ]
-        }));
+        // $('.testing'.dataTable({
+        //     "columns":[
+        //         {
+        //             "word-wrap": "break-word"
+        //         },
+        //         null
+        //     ]
+        // }));
     </script>
 @endsection

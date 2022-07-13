@@ -26,12 +26,12 @@ class UpdateTindakanRequest extends FormRequest
         return [
             'keteranganTindakan' => [
                 'string',
-                'required',
+                // 'required',
             ],
 
             'namaTindakan' => [
                 'string',
-                'required',
+                // 'required',
             ],
 
             'user_id' => [
@@ -87,27 +87,27 @@ class UpdateTindakanRequest extends FormRequest
             ],
 
             'fokus_id' => [
-                'required',
+                'string',
             ],
 
             'perkara_id' => [
-                'required',
+                'string',
             ],
 
             'pemangkin_id' => [
-                'required',
+                'string',
             ],
 
             'bab_id' => [
-                'required',
+                'string',
             ],
 
             'bidang_id' => [
-                'required',
+                'string',
             ],
 
             'strategi_id' => [
-                'required',
+                'string',
             ],
         ];
     }

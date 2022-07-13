@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreKpi2Request;
 use App\Http\Requests\UpdateKpi2Request;
+use App\Models\Key;
 use App\Models\Kpi2;
+use App\Models\National;
 use App\Models\Sub;
+use App\Models\Thrust;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -35,8 +38,12 @@ class Kpi2Controller extends Controller
 
         $kpi2 = Kpi2::all();
 
-        // $list= Pemangkindasar::all();
-        return view('mpb.kpi2.create', compact('user', 'kpi2'));
+        $thrust = Thrust::all();
+        $national = National::all();
+        $key = Key::all();
+        $sub = Sub::all();
+
+        return view('mpb.kpi2.create', compact('user', 'kpi2', 'thrust', 'key', 'sub', 'national'));
     }
 
     /**
@@ -47,7 +54,9 @@ class Kpi2Controller extends Controller
      */
     public function store(StoreKpi2Request $request)
     {
-        //
+        $kpi2 = Kpi2::create($request->validated());
+
+        return redirect()->route('kpi2.index');
     }
 
     /**
@@ -69,7 +78,16 @@ class Kpi2Controller extends Controller
      */
     public function edit(Kpi2 $kpi2)
     {
-        //
+        // dd($kpi2);
+
+        $thrust = Thrust::all();
+        $national = National::all();
+        $key = Key::all();
+        $sub = Sub::all();
+
+        return view('mpb.kpi2.edit', compact('kpi2', 'thrust', 'key', 'sub', 'national'));
+
+
     }
 
     /**
@@ -81,7 +99,8 @@ class Kpi2Controller extends Controller
      */
     public function update(UpdateKpi2Request $request, Kpi2 $kpi2)
     {
-        //
+        $kpi2->update($request->all());
+        return redirect()->route('kpi2.index');
     }
 
     /**
@@ -92,6 +111,10 @@ class Kpi2Controller extends Controller
      */
     public function destroy(Kpi2 $kpi2)
     {
-        //
+        $kpi2->delete();
+
+        return redirect()->route('kpi2.index')
+            ->with('Berjaya', 'Keterangan berjaya dibuang');
+
     }
 }

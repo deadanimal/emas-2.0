@@ -156,6 +156,18 @@
 
                     </div>
 
+                    <label class="col-sm-2 col-form-label" for="status">Status</label>
+
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="status">
+                            <option selected disabled hidden>SILA PILIH</option>
+                            <option value="1">Belum Dilaksana</option>
+                            <option value="2">Dalam Pelaksanaan</option>
+                            <option value="2">Tamat Pelaksanaan</option>
+                        </select>
+                    </div>
+
+
                 </div>
 
                 <div class="mb-3 row">

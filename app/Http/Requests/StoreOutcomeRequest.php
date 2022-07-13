@@ -41,6 +41,14 @@ class StoreOutcomeRequest extends FormRequest
             'user_id' => [
                 'string',
             ],
+
+            'fokus_id' => [
+                'required',
+            ],
+
+            'pemangkin_id' => [
+                'required',
+            ],
         ];
     }
 }

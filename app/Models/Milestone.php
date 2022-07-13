@@ -11,33 +11,36 @@ class Milestone extends Model
 
     public $table = 'milestones';
 
-    protected $fillable = [
-
-        'namaMilestone',
-        'remark',
-        'year',
-        'quarter',
-        'actual_mark',
-        'achievement',
-
-        'kpi_id',
-        'national_id',
-        'thrust_id',
-        'key_id',
-        'sub_id',
-        'user_id',
-    ];
-
-    protected $with = [
-        'user',
-        'thrust',
-        'key',
-        'sub',
-        'national',
-        'kpi2',
+    protected $guarded = ['id'];
 
 
-    ];
+    // protected $fillable = [
+
+    //     'namaMilestone',
+    //     'remark',
+    //     'year',
+    //     'quarter',
+    //     'actual_mark',
+    //     'achievement',
+
+    //     'kpi_id',
+    //     'national_id',
+    //     'thrust_id',
+    //     'key_id',
+    //     'sub_id',
+    //     'user_id',
+    // ];
+
+    // protected $with = [
+    //     'user',
+    //     'thrust',
+    //     'key',
+    //     'sub',
+    //     'national',
+    //     'kpi2',
+
+
+    // ];
 
 
     public function kpi()

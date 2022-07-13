@@ -38,7 +38,7 @@
                     <option selected disabled hidden value="null">PILIH PERKARA UTAMA</option>
 
                     @foreach ($perkara as $perkara)
-                    <option value="{{ $perkara->id }}">{{ $perkara->namaPerkara }}</option>
+                        <option value="{{ $perkara->id }}">{{ $perkara->namaPerkara }}</option>
                     @endforeach
 
                 </select>
@@ -144,7 +144,7 @@
     </div>
 
     <script>
- $(".search").change(function() {
+        $(".search").change(function() {
             var result = [];
             jQuery.each($(".search"), function(key, val) {
                 result.push(val.value);

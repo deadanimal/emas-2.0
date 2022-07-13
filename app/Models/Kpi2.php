@@ -11,26 +11,17 @@ class Kpi2 extends Model
 
     public $table = 'kpi2s';
 
-    protected $fillable = [
+    protected $guarded = ['id'];
 
-        'namaKpi',
-        'keteranganKpi',
-        'national_id',
-        'thrust_id',
-        'key_id',
-        'sub_id',
-        'user_id',
-    ];
-
-    protected $with = [
-        'user',
-        'thrust',
-        'key',
-        'sub',
-        'national',
+    // protected $with = [
+    //     'user',
+    //     'thrust',
+    //     'key',
+    //     'sub',
+    //     'national',
 
 
-    ];
+    // ];
 
 
     public function national()

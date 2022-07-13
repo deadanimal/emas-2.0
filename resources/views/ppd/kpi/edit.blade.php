@@ -104,6 +104,14 @@
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" name="namaKpi" value="{{ $kpi->namaKpi }}" />
                     </div>
+
+                    <label class="col-sm-2 col-form-label" for="indikator">Indikator Terpilih</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="indikator">
+                            <option @selected($kpi->indikator == '1') value="1">Ya</option>
+                            <option @selected($kpi->indikator == '2') value="2">Tidak</option>
+                        </select>
+                    </div>
                 </div>
 
 

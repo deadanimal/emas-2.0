@@ -81,7 +81,7 @@
                                 <option selected disabled hidden>PLEASE CHOOSE</option>
 
                                 @foreach ($kpi as $kpi)
-                                    <option value="{{ $kpi->id }}">{{ $kpi->namaKey }}</option>
+                                    <option value="{{ $kpi->id }}">{{ $kpi->namaKpi }}</option>
                                 @endforeach
 
                             </select>
@@ -134,8 +134,8 @@
                 <br>
 
                 <div class="mb-3">
-                    <label class="form-label" for="keteranganKpi"><b>Remark:</b></label>
-                    <textarea class="form-control" name="keteranganKpi" rows="3"></textarea>
+                    <label class="form-label" for="remark"><b>Remark:</b></label>
+                    <textarea class="form-control" name="remark" rows="3"></textarea>
                 </div>
 
 

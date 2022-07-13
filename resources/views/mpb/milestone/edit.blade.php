@@ -11,7 +11,7 @@
         <br>
 
         <div class="form-floating;">
-            <form action="/kpi2/{{ $kpi->id }}" method="POST">
+            <form action="/milestone/{{ $milestone->id }}" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -20,8 +20,8 @@
                     <label class="col-sm-2 col-form-label" for="thrust_id">Thrust</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="thrust_id">
-                            @foreach ($list as $list)
-                                <option @selected($kpi->thrust_id == $list->id) value="{{ $list->id }}">{{ $list->namaThrust }}
+                            @foreach ($thrust as $thrust)
+                                <option @selected($milestone->thrust_id == $thrust->id) value="{{ $thrust->id }}">{{ $thrust->namaThrust }}
                                 </option>
                             @endforeach
 
@@ -29,11 +29,95 @@
                     </div>
                 </div>
 
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="national_id">National Initiave</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="national_id">
+                            @foreach ($nation as $nation)
+                                <option @selected($milestone->national_id == $nation->id) value="{{ $nation->id }}">{{ $nation->namaNational }}
+                                </option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namakpi2">kpi2 Activities</label>
+                    <label class="col-sm-2 col-form-label" for="key_id">Key Activities</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namakpi2" value="{{ $kpi2->namakpi2 }}" />
+                        <select class="form-control" name="key_id">
+                            @foreach ($key as $key)
+                                <option @selected($milestone->key_id == $key->id) value="{{ $key->id }}">{{ $key->namaKey }}
+                                </option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="sub_id">Sub-Key Activities</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="sub_id">
+                            @foreach ($sub as $sub)
+                                <option @selected($milestone->sub_id == $sub->id) value="{{ $sub->id }}">{{ $sub->namaSub }}
+                                </option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="kpi_id">KPI</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="kpi_id">
+                            @foreach ($kpi as $kpi)
+                                <option @selected($milestone->kpi_id == $kpi->id) value="{{ $kpi->id }}">{{ $kpi->namaKpi }}
+                                </option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="year">Year</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="year" value="{{ $milestone->year }}" />
+
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="quarter">Quarter</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="quarter" value="{{ $milestone->quarter }}" />
+
+                    </div>
+                </div>
+
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="namaMilestone">Milestone Name</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="namaMilestone" value="{{ $milestone->namaMilestone }}" />
+
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="actual_mark">Actual Mark</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="actual_mark" value="{{ $milestone->actual_mark }}" />
+
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="achievement">Achievement</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="achievement" value="{{ $milestone->achievement }}" />
 
                     </div>
                 </div>
@@ -41,14 +125,14 @@
                 <br><br>
 
                 <div class="mb-3">
-                    <label class="form-label" for="keterangankpi2"><b>kpi2 Activities Information</b></label>
-                    <textarea class="form-control" name="keterangankpi2" rows="5">{{ $kpi2->keterangankpi2 }}</textarea>
+                    <label class="form-label" for="remark"><b>Remark</b></label>
+                    <textarea class="form-control" name="remark" rows="5">{{ $milestone->remark }}</textarea>
                 </div>
 
                 <div class="row">
                     <div class="col">
                         <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                            href="/kpi2">
+                            href="/milestone">
                             <span class="fas fa-times-circle"></span>&nbsp;Cancel
                         </a>
                     </div>

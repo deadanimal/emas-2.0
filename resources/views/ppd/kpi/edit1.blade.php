@@ -222,10 +222,12 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="peratusPencapaianAsas">Peratus Pencapaian Tahun Asas</label>
+                    <label class="col-sm-2 col-form-label" for="peratusPencapaianAsas">Peratus Pencapaian Tahun
+                        Asas</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="peratusPencapaianAsas" type="text" class="percent form-control" />
+                        <input type="text" name="peratusPencapaianAsas" type="text"
+                            class="percent form-control" />
 
                     </div>
 
@@ -257,6 +259,17 @@
 
                     <div class="col-sm-10" style="width:30%">
                         <input type="text" name="sasaran2022" type="text" class="percent form-control" />
+                    </div>
+
+                    <label class="col-sm-2 col-form-label" for="status">Status</label>
+
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="status">
+                            <option selected disabled hidden>SILA PILIH</option>
+                            <option value="1">Belum Dilaksana</option>
+                            <option value="2">Dalam Pelaksanaan</option>
+                            <option value="2">Tamat Pelaksanaan</option>
+                        </select>
                     </div>
 
                 </div>
@@ -334,7 +347,7 @@
 
 
                 var prestasiShown = document.getElementById("prestasi");
-                prestasiShown.innerHTML = "<img src='/img/red.png'></img> " + x ;
+                prestasiShown.innerHTML = "<img src='/img/red.png'></img> " + x;
 
 
                 // prestasiShown.innerHTML = "<img src='/img/red.png'></img> " + x + "%";

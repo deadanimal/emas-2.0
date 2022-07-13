@@ -431,7 +431,7 @@
 
                     <br>
 
-                    {{-- @if (in_array(url()->current(), [url('lokaliti'), url('senarai'), url('bantuan')])) --}}
+                    @if (in_array(url()->current(), [url('lokaliti'), url('senarai'), url('bantuan')]))
                     <a class="nav-link dropdown-indicator" href="#bmtkm" role="button" data-bs-toggle="collapse"
                         aria-expanded="true" aria-controls="bmtkm" style="background-color: #C4D4ED">
                         <div class="d-flex justify-content-center" style="color: #047FC3">
@@ -533,7 +533,7 @@
 
                         </ul>
                     </div>
-                    {{-- @endif --}}
+                    @endif
 
                 </li>
                 <br>

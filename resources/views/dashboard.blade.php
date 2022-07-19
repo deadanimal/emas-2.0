@@ -392,7 +392,7 @@
 
                     </div>
                     <div class="col-md-6 col-lg-4 text-center">
-                        <a class="mb-3" href="/">
+                        <a class="mb-3" href="/thrus">
                             <div class="px-4 pt-4">
                                 <img src="img/MD.png" class="img-fluid card-img-hover landing-img" alt="">
                             </div>
@@ -428,7 +428,6 @@
                                 </div>
                             </a>
                         </div>
-
                     @else
                         <div class="col-md-6 col-lg-4 text-center">
                             <a class="mb-3" href="/fokusutama">
@@ -539,7 +538,7 @@
                 @endrole
             </div>
 
-            <footer class="risda-bg-dg">
+            {{-- <footer class="risda-bg-dg">
                 <div class="row p-">
                     <div class="col">
                         <div class="text-center">
@@ -547,7 +546,10 @@
                         </div>
                     </div>
                 </div>
-            </footer>
+            </footer> --}}
+
+            <img src="/img/footer.png" alt="footer" width="100%">
+
 
     </main>
     <!-- ===============================================-->

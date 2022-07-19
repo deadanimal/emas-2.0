@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreBabRequest extends FormRequest
+class UpdateStrategyRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,33 +24,28 @@ class StoreBabRequest extends FormRequest
     public function rules()
     {
         return [
-            'keteranganBab' => [
+            'namaStrategy' => [
                 'string',
                 'required',
             ],
 
-            'namaBab' => [
+            'desc' => [
                 'string',
                 'required',
             ],
 
-            'noBab' => [
+            'category' => [
                 'string',
                 'required',
             ],
 
-            'pemangkin_id' => [ 
+            'thrust_id' => [
                 'required',
             ],
 
             'user_id' => [
                 'string',
             ],
-
-            'fokus_id' => [
-                'required',
-            ],
-
         ];
     }
 }

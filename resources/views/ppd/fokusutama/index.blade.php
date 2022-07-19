@@ -1,6 +1,5 @@
 @extends('base')
 @section('content')
-
     <div class="container">
         <br>
         <div class="mb-4 text-center">
@@ -10,12 +9,14 @@
         <br>
 
         <span><b>Fokus Utama</b></span>
-        @role('admin|bahagian|kementerian')
-            <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/fokusutama/create">
-                <span class="fas fa-plus-circle"></span>&nbsp;Tambah</a>
-        @endrole
+        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/fokusutama/create">
+            <span class="fas fa-plus-circle"></span>&nbsp;Tambah</a>
 
         {{-- <hr style="width:100%;text-align:center;"> --}}
+    </div>
+
+
+    <div id="tableExample2" data-list='{"valueNames":["fokus"],"page":5,"pagination":true}'>
 
         <div class="table-responsive scrollbar">
             <table class="table table-hover table-striped overflow-hidden testing" style="width: 100%">
@@ -26,16 +27,13 @@
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody class="list" id="myTable">
                     @foreach ($fokusutama as $fokus)
-                        <tr class="align-middle">
+                        <tr class="align-middle fokus">
                             <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-{{ $fokus->id }}">
-                                    {{-- @php
-                                        $text = $fokus->namaFokus;
-                                        $potong = wordwrap($text, 50, "<br/>\n");
-                                    @endphp --}}
+
                                     <div class="ms-2"><b>{{ $fokus->namaFokus }}</b></div>
                                 </div>
                             </td>
@@ -54,7 +52,8 @@
                                             <div class="p-4 pb-0">
                                                 <form>
                                                     <div class="mb-3">
-                                                        <label class="col-form-label" for="namaFokus">Fokus Utama:</label>
+                                                        <label class="col-form-label" for="namaFokus">Fokus
+                                                            Utama:</label>
                                                         <label class="form-control"
                                                             disabled="disabled">{{ $fokus->namaFokus }}</label>
 
@@ -100,43 +99,88 @@
                 </tbody>
 
             </table>
+
+
+        </div>
+
+        <div class="d-flex justify-content-center mt-3">
+            <button class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous"
+                data-list-pagination="prev"><span class="fas fa-chevron-left"></span>
+            </button>
+            <ul class="pagination mb-0"></ul>
+            <button class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next"
+                data-list-pagination="next"><span class="fas fa-chevron-right"> </span>
+            </button>
+            <input class="form-control" id="myInput" type="text" style="width:30%" placeholder="Search..">
+
         </div>
 
 
 
-    </div>
+        {{-- @foreach ($fokusutama as $fokus)
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="kanban-items-container border bg-white dark__bg-1000 rounded-2 py-3 mb-3"
+                        style="max-height: none;">
+                        <div class="card mb-3 kanban-item shadow-sm dark__bg-1100">
+                            <div class="card-body">
+                                {{ $fokus->namaFokus }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach --}}
 
-    <script>
-        function myFunction(id) {
 
 
-            let alert = "Adakah anda mahu membuang data?";
-            if (confirm(alert) == true) {
-                $.ajax({
-                    method: "DELETE",
-                    url: "/fokusutama/" + id,
-                    data: {
-                        "_token": "{{ csrf_token() }}",
-                    }
-                });
 
-                alert = "Berjaya di buang!";
-                location.href = "/fokusutama";
+        {{-- </div> --}}
 
-            } else {
-                alert("Dibatalkan!");
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="vendors/draggable/draggable.bundle.legacy.js"></script>
+
+
+        <script>
+            function myFunction(id) {
+
+
+                let alert = "Adakah anda mahu membuang data?";
+                if (confirm(alert) == true) {
+                    $.ajax({
+                        method: "DELETE",
+                        url: "/fokusutama/" + id,
+                        data: {
+                            "_token": "{{ csrf_token() }}",
+                        }
+                    });
+
+                    alert = "Berjaya di buang!";
+                    location.href = "/fokusutama";
+
+                } else {
+                    alert("Dibatalkan!");
+                }
+                document.getElementById("ppd").innerHTML = text;
             }
-            document.getElementById("ppd").innerHTML = text;
-        }
+
+            $(document).ready(function() {
+                $("#myInput").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#myTable tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
 
 
-        // $('.testing'.dataTable({
-        //     "columns":[
-        //         {
-        //             "word-wrap": "break-word"
-        //         },
-        //         null
-        //     ]
-        // }));
-    </script>
-@endsection
+            // $('.testing'.dataTable({
+            //     "columns":[
+            //         {
+            //             "word-wrap": "break-word"
+            //         },
+            //         null
+            //     ]
+            // }));
+        </script>
+    @endsection

@@ -349,7 +349,6 @@
                 width: 100%;
             }
         }
-
     </style>
     <?php
     use Illuminate\Support\Facades\Auth;
@@ -370,8 +369,7 @@
             </script>
             <div class="row min-vh-100 bg-100">
                 <div class="col-6 d-none d-lg-block position-relative">
-                    <div class="bg-holder"
-                        style="background-image:url(/img/login.jpeg);background-position: 50% 20%;">
+                    <div class="bg-holder" style="background-image:url(/img/login.jpeg);background-position: 50% 20%;">
                     </div>
                     <!--/.bg-holder-->
 
@@ -450,9 +448,11 @@
 
                                                         <!-- Email Address -->
                                                         <div class="mb-3">
-                                                            <label class="form-label" for="email">E-mel Pengguna</label>
-                                                            <input class="form-control" id="email" type="email" name="email"
-                                                            :value="old('email')" required autofocus />
+                                                            <label class="form-label" for="email">E-mel
+                                                                Pengguna</label>
+                                                            <input class="form-control" id="email" type="email"
+                                                                name="email" :value="old('email')" required
+                                                                autofocus />
                                                         </div>
 
 
@@ -478,7 +478,7 @@
         </div>
 
 
-        <footer class="emas-bg-dg">
+        {{-- <footer class="emas-bg-dg">
             <div class="row p-">
                 <div class="col">
                     <div class="text-center">
@@ -486,7 +486,9 @@
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer> --}}
+        <img src="/img/footer.png" alt="footer" width="100%">
+
 
     </main>
     <!-- ===============================================-->

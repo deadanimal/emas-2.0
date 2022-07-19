@@ -39,6 +39,8 @@
         </div>
 
         <div class="table-responsive scrollbar">
+            <div class="card scrollbar-overlay" style="max-height: 50rem">
+
             <table class="table table-hover table-striped overflow-hidden" value="null">
                 <thead>
                     <tr>
@@ -130,6 +132,8 @@
 
                 </tbody>
             </table>
+
+            </div>
         </div>
 
 

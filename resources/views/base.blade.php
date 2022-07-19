@@ -53,10 +53,10 @@
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap"
         rel="stylesheet">
     <link href="/vendors/overlayscrollbars/OverlayScrollbars.min.css" rel="stylesheet">
-    <link href="/assets/css/theme-rtl.min.css" rel="stylesheet" id="style-rtl">
+    {{-- <link href="/assets/css/theme-rtl.min.css" rel="stylesheet" id="style-rtl"> --}}
     <link href="/assets/css/theme.min.css" rel="stylesheet" id="style-default">
-    <link href="/assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
-    <link href="/assets/css/user.min.css" rel="stylesheet" id="user-style-default">
+    {{-- <link href="/assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl"> --}}
+    {{-- <link href="/assets/css/user.min.css" rel="stylesheet" id="user-style-default"> --}}
     {{-- <link rel="stylesheet" type="text/css" href="/assets/css/datatables.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/datatables.min.css" /> --}}
     <script>
@@ -77,6 +77,7 @@
         }
     </script>
 </head>
+
 <img src="/img/banner.png" alt="banner" width="100%">
 
 <body>
@@ -96,6 +97,11 @@
             position: relative;
             color: #07385E;
 
+        }
+
+        .footerContent {
+            background-color: #76bbe9;
+            color: #07385E;
 
 
         }
@@ -298,9 +304,12 @@
                 width: 350px;
             }
 
-            .emas-m {
-                margin-left: 250px;
+            .content1 {
+                background-color: white
+            }
 
+            .modal-content-bg {
+                background-color: white
             }
 
             .navbar-vertical .navbar-collapse .navbar-vertical-content {
@@ -316,6 +325,8 @@
         @media only screen and (max-width: 600px) {
             .emas-m {
                 margin-left: 0px;
+                position: absolute;
+
             }
 
             .navbar-vertical {
@@ -366,11 +377,25 @@
     <!-- ===============================================-->
     <main class="main" id="top">
         <div class="container-fluid px-0" data-layout="container">
+            <script>
+                var isFluid = JSON.parse(localStorage.getItem('isFluid'));
+                if (isFluid) {
+                    var container = document.querySelector('[data-layout]');
+                    container.classList.remove('container');
+                    container.classList.add('container-fluid');
+                }
+            </script>
+
             @include('layouts.emas-side-bar')
 
-            <div class="row">
 
-                <div class="content" style="background: white;">
+
+            <div class="content content1">
+
+
+                <div class="row" style="background: white;">
+
+
 
                     {{-- <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip"
                         data-bs-placement="left" title="" data-bs-original-title="Tutup" aria-label="Tutup">
@@ -381,8 +406,14 @@
 
 
 
-                    <div class="row px-2 emas-m">
-                        @yield('content')
+                    <div class="col-12">
+                        {{-- <div class="scrollbar-overlay" style="max-height: 40rem"> --}}
+                        <div class="card-header position-relative min-vh-25 mb-8">
+
+                            @yield('content')
+                        </div>
+                        {{-- </div> --}}
+
                     </div>
 
 
@@ -392,15 +423,18 @@
         </div>
 
 
-        <footer class="emas-bg-dg">
-            <div class="row p-">
+        {{-- <footer class="emas-bg-dg">
+            <div class="row">
                 <div class="col">
                     <div class="text-center">
                         Copyright ©️ <b>UNIT PERANCANG EKONOMI</b>
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer> --}}
+
+        <img src="/img/footer.png" alt="footer" width="100%">
+
 
     </main>
     <!-- ===============================================-->

@@ -347,7 +347,6 @@
                 width: 100%;
             }
         }
-
     </style>
     <?php
     use Illuminate\Support\Facades\Auth;
@@ -368,8 +367,7 @@
             </script>
             <div class="row min-vh-100 bg-100">
                 <div class="col-6 d-none d-lg-block position-relative">
-                    <div class="bg-holder"
-                        style="background-image:url(/img/login.jpeg);background-position: 50% 20%;">
+                    <div class="bg-holder" style="background-image:url(/img/login.jpeg);background-position: 50% 20%;">
                     </div>
                     <!--/.bg-holder-->
 
@@ -424,7 +422,7 @@
         </div>
 
 
-        <footer class="risda-bg-dg">
+        {{-- <footer class="risda-bg-dg">
             <div class="row p-4">
                 <div class="col">
                     <div class="text-600 text-white text-center">
@@ -432,7 +430,9 @@
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer> --}}
+        <img src="/img/footer.png" alt="footer" width="100%">
+
 
     </main>
     <!-- ===============================================-->

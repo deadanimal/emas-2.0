@@ -16,10 +16,11 @@ use App\Http\Controllers\PemangkindasarController;
 use App\Http\Controllers\PerkarautamaController;
 use App\Http\Controllers\SdgController;
 use App\Http\Controllers\StrategiController;
+use App\Http\Controllers\StrategyController;
 use App\Http\Controllers\SubController;
+use App\Http\Controllers\ThrusController;
 use App\Http\Controllers\ThrustController;
 use App\Http\Controllers\TindakanController;
-use App\Models\Lokaliti;
 use App\Models\Perkarautama;
 use Illuminate\Support\Facades\Route;
 
@@ -142,7 +143,8 @@ Route::resource('/milestone', MilestoneController::class);
 
 // Module 3 KT
 
-Route::resource('lokaliti', LokalitiController::class);
+//Lokaliti
+Route::resource('/lokaliti', LokalitiController::class);
 
 
 
@@ -150,6 +152,28 @@ Route::resource('lokaliti', LokalitiController::class);
 
 // Module 4 MD
 
+//Thrust
+Route::resource('/thrus', ThrusController::class);
+
+
+
+//Strategy
+Route::resource('/strategy', StrategyController::class);
+
+
+//Cluster
+
+
+//Initiave
+
+
+//Program
+
+
+//Plan
+
+
+//Activities
 
 
 

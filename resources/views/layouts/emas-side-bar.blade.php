@@ -45,17 +45,17 @@
 
 
 <nav class="navbar navbar-light navbar-vertical navbar-expand-xl">
-    <script>
+    {{-- <script>
         var navbarStyle = localStorage.getItem("navbarStyle");
         if (navbarStyle && navbarStyle !== 'transparent') {
             document.querySelector('.navbar-vertical').classList.add(`navbar-${navbarStyle}`);
         }
-    </script>
+    </script> --}}
     <div class="d-flex justify-content-end">
         <div class="toggle-icon-wrapper">
 
             <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip"
-                data-bs-placement="left" title="" data-bs-original-title="Tutup" aria-label="Tutup">
+                data-bs-placement="left" title="Toggle">
                 <span class="fas fa-angle-right">
                     <span class="fas fa-angle-left"></span>
                 </span>
@@ -69,6 +69,7 @@
             </button> --}}
 
         </div>
+
 
 
     </div>
@@ -103,7 +104,35 @@
 
                         </div>
                     </a>
-                    @if (Request::is('fokusutama', 'fokusutama/*', 'perkarautama', 'perkarautama/*', 'pemangkin', 'pemangkin/*', 'bab', 'bab/*', 'pemacu', 'pemacu/*', 'bidang', 'bidang/*', 'outcome', 'outcome/*', 'kpi', 'kpi/*', 'kpi1', 'kpi1/*', 'strategi', 'strategi/*', 'inisiatif', 'inisiatif/*', 'tindakan', 'tindakan/*', 'tindakan1', 'tindakan1/*', 'sdg', 'sdg/*'))
+                    @if (Request::is(
+                        'fokusutama',
+                        'fokusutama/*',
+                        'perkarautama',
+                        'perkarautama/*',
+                        'pemangkin',
+                        'pemangkin/*',
+                        'bab',
+                        'bab/*',
+                        'pemacu',
+                        'pemacu/*',
+                        'bidang',
+                        'bidang/*',
+                        'outcome',
+                        'outcome/*',
+                        'kpi',
+                        'kpi/*',
+                        'kpi1',
+                        'kpi1/*',
+                        'strategi',
+                        'strategi/*',
+                        'inisiatif',
+                        'inisiatif/*',
+                        'tindakan',
+                        'tindakan/*',
+                        'tindakan1',
+                        'tindakan1/*',
+                        'sdg',
+                        'sdg/*'))
                         <a class="nav-link btn1" href="" role="button">
                             <div class="d-flex align-items-center">
                                 <div class="col-2">
@@ -123,7 +152,19 @@
                         </a>
                     @endif
 
-                    @if (Request::is('thrust', 'thrust/*', 'national', 'national/*', 'key', 'key/*', 'sub', 'sub/*', 'kpi2', 'kpi2/*', 'milestone', 'milestone/*'))
+                    @if (Request::is(
+                        'thrust',
+                        'thrust/*',
+                        'national',
+                        'national/*',
+                        'key',
+                        'key/*',
+                        'sub',
+                        'sub/*',
+                        'kpi2',
+                        'kpi2/*',
+                        'milestone',
+                        'milestone/*'))
                         <a class="nav-link btn1" href="" role="button">
 
                             <div class="d-flex align-items-center">
@@ -143,8 +184,8 @@
                         </a>
                     @endif
 
-
-                    {{-- <a class="nav-link btn1" href="" role="button">
+                    @if (Request::is('lokaliti', 'lokaliti/*', 'senarai', 'senarai/*', 'bantuan', 'bantuan/*'))
+                        <a class="nav-link btn1" href="" role="button">
 
                             <div class="d-flex align-items-center">
                                 <div class="col-2">
@@ -164,12 +205,60 @@
                                 </div>
 
                             </div>
-                        </a> --}}
+                        </a>
+                    @endif
 
-                    <br>
+                    @if (Request::is('thrus', 'thrus/*', 'strategy', 'strategy/*', 'cluster', 'cluster/*'))
+                        <a class="nav-link btn1" href="" role="button">
+
+                            <div class="d-flex align-items-center">
+                                <div class="col-2">
+                                    <span class="nav-link-icon">
+                                        <span class="fas fa-tasks"></span>
+                                    </span>
+                                </div>
+                                <div class="col text-center" style="color: #047FC3">
+                                    <span class="nav-link-text ps-1">MyDigital</span>
+                                </div>
+
+                                <div class="col-2">
+
+                                </div>
+
+                            </div>
+                        </a>
+                    @endif
 
                     {{-- @if (in_array(url()->current(), [url('fokusutama'), url('perkarautama'), url('pemangkin'), url('bab'), url('pemacu'), url('bidang'), url('outcome'), url('kpi'), url('strategi'), url('inisiatif'), url('tindakan'), url('sdg')])) --}}
-                    @if (Request::is('fokusutama', 'fokusutama/*', 'perkarautama', 'perkarautama/*', 'pemangkin', 'pemangkin/*', 'bab', 'bab/*', 'pemacu', 'pemacu/*', 'bidang', 'bidang/*', 'outcome', 'outcome/*', 'kpi', 'kpi/*', 'kpi1', 'kpi1/*', 'strategi', 'strategi/*', 'inisiatif', 'inisiatif/*', 'tindakan', 'tindakan/*', 'tindakan1', 'tindakan1/*', 'sdg', 'sdg/*'))
+                    @if (Request::is(
+                        'fokusutama',
+                        'fokusutama/*',
+                        'perkarautama',
+                        'perkarautama/*',
+                        'pemangkin',
+                        'pemangkin/*',
+                        'bab',
+                        'bab/*',
+                        'pemacu',
+                        'pemacu/*',
+                        'bidang',
+                        'bidang/*',
+                        'outcome',
+                        'outcome/*',
+                        'kpi',
+                        'kpi/*',
+                        'kpi1',
+                        'kpi1/*',
+                        'strategi',
+                        'strategi/*',
+                        'inisiatif',
+                        'inisiatif/*',
+                        'tindakan',
+                        'tindakan/*',
+                        'tindakan1',
+                        'tindakan1/*',
+                        'sdg',
+                        'sdg/*'))
                         <!-- parent pages-->
                         <a class="nav-link dropdown-indicator" href="#ppd" role="button" data-bs-toggle="collapse"
                             aria-expanded="true" aria-controls="ppd" style="background-color: #C4D4ED">
@@ -220,7 +309,8 @@
                                 <li class="nav-item"><a
                                         class="nav-link btn1 {{ Request::is('pemacu', 'pemacu/*') ? 'active' : '' }}"
                                         href="/pemacu">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Pemacu
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text1 ps-1">Pemacu
                                                 Perubahan</span>
                                         </div>
                                     </a>
@@ -229,7 +319,8 @@
                                 <li class="nav-item"><a
                                         class="nav-link btn1 {{ Request::is('bidang', 'bidang/*') ? 'active' : '' }}"
                                         href="/bidang">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Bidang
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text1 ps-1">Bidang
                                                 Keutamaan</span>
                                         </div>
                                     </a>
@@ -353,7 +444,19 @@
 
 
                     {{-- @if (in_array(url()->current(), [url('thrust'), url('national'), url('key'), url('sub'), url('kpi2'), url('milestone')])) --}}
-                    @if (Request::is('thrust', 'thrust/*', 'national', 'national/*', 'key', 'key/*', 'sub', 'sub/*', 'kpi2', 'kpi2/*', 'milestone', 'milestone/*'))
+                    @if (Request::is(
+                        'thrust',
+                        'thrust/*',
+                        'national',
+                        'national/*',
+                        'key',
+                        'key/*',
+                        'sub',
+                        'sub/*',
+                        'kpi2',
+                        'kpi2/*',
+                        'milestone',
+                        'milestone/*'))
                         <a class="nav-link dropdown-indicator" href="#mpb" role="button"
                             data-bs-toggle="collapse" aria-expanded="true" aria-controls="mpb"
                             style="background-color: #C4D4ED">
@@ -431,108 +534,199 @@
 
                     <br>
 
-                    @if (in_array(url()->current(), [url('lokaliti'), url('senarai'), url('bantuan')]))
-                    <a class="nav-link dropdown-indicator" href="#bmtkm" role="button" data-bs-toggle="collapse"
-                        aria-expanded="true" aria-controls="bmtkm" style="background-color: #C4D4ED">
-                        <div class="d-flex justify-content-center" style="color: #047FC3">
-                            <span class="nav-link-text1 ps-1">Senarai Maklumat</span>
-                        </div>
-                    </a>
+                    @if (Request::is('lokaliti', 'lokaliti/*', 'senarai', 'senarai/*', 'bantuan', 'bantuan/*'))
+                        <a class="nav-link dropdown-indicator" href="#bmtkm" role="button"
+                            data-bs-toggle="collapse" aria-expanded="true" aria-controls="bmtkm"
+                            style="background-color: #C4D4ED">
+                            <div class="d-flex justify-content-center" style="color: #047FC3">
+                                <span class="nav-link-text1 ps-1">Senarai Maklumat</span>
+                            </div>
+                        </a>
 
-                    <div class="card">
-                        <ul class="nav collapse show" id="bmtkm" style="background-color: #E7EFFD">
-                            <li class="nav-item">
-                                <a class="nav-link btn1 dropdown-indicator  {{ Request::is('lokaliti', 'lokaliti/*', 'lokaliti1', 'lokaliti1/*') ? 'active' : '' }}"
-                                    href="#lokaliti" role="button" data-bs-toggle="collapse" aria-expanded="false"
-                                    aria-controls="lokaliti">
-                                    <div class="d-flex align-items-center">
-                                        <span class="nav-link-text1 ps-1">Lokaliti</span>
+                        <div class="card">
+                            <ul class="nav collapse show" id="bmtkm" style="background-color: #E7EFFD">
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 dropdown-indicator  {{ Request::is('lokaliti', 'lokaliti/*', 'lokaliti1', 'lokaliti1/*') ? 'active' : '' }}"
+                                        href="#lokaliti" role="button" data-bs-toggle="collapse"
+                                        aria-expanded="false" aria-controls="lokaliti">
+                                        <div class="d-flex align-items-center">
+                                            <span class="nav-link-text1 ps-1">Lokaliti</span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+
+                                    <ul class="nav collapse" id="lokaliti">
+                                        <li class="nav-item"><a class="nav-link btn1" href="/lokaliti">
+                                                <div class="d-flex align-items-center"><span
+                                                        class="nav-link-text1 btn1 ps-1">Lokaliti Mengikut
+                                                        Negeri</span>
+                                                </div>
+                                            </a>
+                                            <!-- more inner pages-->
+                                        </li>
+                                    </ul>
+                                    <ul class="nav collapse" id="lokaliti">
+                                        <li class="nav-item"><a class="nav-link" href="/lokaliti">
+                                                <div class="d-flex align-items-center"><span
+                                                        class="nav-link-text1 btn1 ps-1">Lokaliti Mengikut Daerah
+                                                    </span>
+                                                </div>
+                                            </a>
+                                            <!-- more inner pages-->
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <!-- parent pages-->
+                                <a class="nav-link btn1 dropdown-indicator {{ Request::is('senaraiKir', 'senaraiKir/*') ? 'active' : '' }}"
+                                    href="#email" role="button" data-bs-toggle="collapse" aria-expanded="false"
+                                    aria-controls="email">
+                                    <div class="d-flex align-items-center"><span class="nav-link-icon"></span><span
+                                            class="nav-link-text1 ps-1">Senarai
+                                            KIR & AIR</span>
                                     </div>
                                 </a>
-                                <!-- more inner pages-->
-
-                                <ul class="nav collapse" id="lokaliti">
-                                    <li class="nav-item"><a class="nav-link btn1" href="/lokaliti">
+                                <ul class="nav collapse false" id="email">
+                                    <li class="nav-item"><a class="nav-link" href="/">
                                             <div class="d-flex align-items-center"><span
-                                                    class="nav-link-text1 btn1 ps-1">Lokaliti Mengikut Negeri</span>
+                                                    class="nav-link-text1 ps-1">Senarai Mengikut Negeri</span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" href="/">
+                                            <div class="d-flex align-items-center"><span
+                                                    class="nav-link-text1 ps-1">Senarai Mengikut Negeri dan
+                                                    Daerah</span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" href="/">
+                                            <div class="d-flex align-items-center"><span
+                                                    class="nav-link-text1 ps-1">Senarai Mengikut Negeri,
+                                                    Daerah Dan Kampung</span>
                                             </div>
                                         </a>
                                         <!-- more inner pages-->
                                     </li>
                                 </ul>
-                                <ul class="nav collapse" id="lokaliti">
-                                    <li class="nav-item"><a class="nav-link" href="/lokaliti">
-                                            <div class="d-flex align-items-center"><span
-                                                    class="nav-link-text1 btn1 ps-1">Lokaliti Mengikut Daerah
-                                                </span>
-                                            </div>
-                                        </a>
-                                        <!-- more inner pages-->
-                                    </li>
-                                </ul>
-                            </li>
 
-                            <!-- parent pages-->
-                            <a class="nav-link btn1 dropdown-indicator {{ Request::is('senaraiKir', 'senaraiKir/*') ? 'active' : '' }}"
-                                href="#email" role="button" data-bs-toggle="collapse" aria-expanded="false"
-                                aria-controls="email">
-                                <div class="d-flex align-items-center"><span class="nav-link-icon"></span><span
-                                        class="nav-link-text1 ps-1">Senarai
-                                        KIR & AIR</span>
-                                </div>
-                            </a>
-                            <ul class="nav collapse false" id="email">
-                                <li class="nav-item"><a class="nav-link" href="/">
-                                        <div class="d-flex align-items-center"><span
-                                                class="nav-link-text1 ps-1">Senarai Mengikut Negeri</span>
+
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('bantuan', 'bantuan/*') ? 'active' : '' }}"
+                                        href="/bantuan">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Jenis
+                                                Bantuan
+
+                                            </span>
                                         </div>
                                     </a>
                                     <!-- more inner pages-->
                                 </li>
-                                <li class="nav-item"><a class="nav-link" href="/">
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('senaraiInformasi', 'senaraiInformasi/*') ? 'active' : '' }}"
+                                        href="/senaraiInformasi">
                                         <div class="d-flex align-items-center"><span
-                                                class="nav-link-text1 ps-1">Senarai Mengikut Negeri dan
-                                                Daerah</span>
+                                                class="nav-link-text1 ps-1">Senarai
+                                                Informasi Berdasarkan KIR & AIR
+                                            </span>
                                         </div>
                                     </a>
                                     <!-- more inner pages-->
+
                                 </li>
-                                <li class="nav-item"><a class="nav-link" href="/">
-                                        <div class="d-flex align-items-center"><span
-                                                class="nav-link-text1 ps-1">Senarai Mengikut Negeri,
-                                                Daerah Dan Kampung</span>
-                                        </div>
-                                    </a>
-                                    <!-- more inner pages-->
-                                </li>
+
                             </ul>
+                        </div>
+                    @endif
+
+                    <br>
+
+                    @if (Request::is('thrus', 'thrus/*', 'strategy', 'strategy/*', 'cluster', 'cluster/*'))
+                        <a class="nav-link dropdown-indicator" href="#md" role="button"
+                            data-bs-toggle="collapse" aria-expanded="true" aria-controls="md"
+                            style="background-color: #C4D4ED">
+                            <div class="d-flex justify-content-center" style="color: #047FC3">
+                                <span class="nav-link-text1 ps-1">Information</span>
+                            </div>
+                        </a>
+
+                        <div class="card">
+                            <ul class="nav collapse show" id="md" style="background-color: #E7EFFD">
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('thrus', 'thrus/*') ? 'active' : '' }}"
+                                        href="/thrus">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1"> List
+                                                of Thrust
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('strategy', 'strategy/*') ? 'active' : '' }}"
+                                        href="/strategy">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List
+                                                of Strategy
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('cluster', 'cluster/*') ? 'active' : '' }}"
+                                        href="/cluster">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List
+                                                of Cluster
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('initiave', 'initiave/*') ? 'active' : '' }}"
+                                        href="/initiave">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List
+                                                of Initiave</span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('program', 'program/*') ? 'active' : '' }}"
+                                        href="/program">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List
+                                                of Program
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('plan', 'plan/*') ? 'active' : '' }}"
+                                        href="/plan">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List
+                                                of Plan
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('activities', 'activities/*') ? 'active' : '' }}"
+                                        href="/activities">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List
+                                                of Activities
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
 
 
-                            <li class="nav-item">
-                                <a class="nav-link btn1 {{ Request::is('bantuan', 'bantuan/*') ? 'active' : '' }}"
-                                    href="/bantuan">
-                                    <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Jenis
-                                            Bantuan
-
-                                        </span>
-                                    </div>
-                                </a>
-                                <!-- more inner pages-->
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link btn1 {{ Request::is('senaraiInformasi', 'senaraiInformasi/*') ? 'active' : '' }}"
-                                    href="/senaraiInformasi">
-                                    <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Senarai
-                                            Informasi Berdasarkan KIR & AIR
-                                        </span>
-                                    </div>
-                                </a>
-                                <!-- more inner pages-->
-
-                            </li>
-
-                        </ul>
-                    </div>
+                            </ul>
+                        </div>
                     @endif
 
                 </li>

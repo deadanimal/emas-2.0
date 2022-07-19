@@ -11,8 +11,16 @@
         <br>
 
         <div class="form-floating;">
-            <form action="{{ route('national.store') }}" method="POST">
+            <form action="{{ route('strategy.store') }}" method="POST">
                 @csrf
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="namaStrategy">Strategy Name</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="namaStrategy" />
+
+                    </div>
+                </div>
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="thrust_id">Thrust</label>
@@ -20,8 +28,8 @@
                         <select class="form-control" name="thrust_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
 
-                            @foreach ($list as $list)
-                                <option value="{{ $list->id }}">{{ $list->namaThrust }}</option>
+                            @foreach ($thrust as $thrust)
+                                <option value="{{ $thrust->id }}">{{ $thrust->namaThrust }}</option>
                             @endforeach
 
                         </select>
@@ -29,51 +37,24 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="year">Year</label>
+                    <label class="col-sm-2 col-form-label" for="category">Category</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="year">
+                        <select class="form-control" name="category">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-
-                        </select>
-
-                    </div> 
-                </div>
-
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="quarter">Quarter</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="quarter">
-                            <option selected disabled hidden>PLEASE CHOOSE</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-
+                            <option value="DEB">DEB</option>
+                            <option value="4IR">4IR</option>
                         </select>
 
                     </div>
                 </div>
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaNational">National Initiave Name</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaNational" />
-
-                    </div>
-                </div>
 
                 <br>
                 <br>
 
                 <div class="mb-3">
-                    <label class="form-label" for="keteranganNational"><b>National Initiave Information:</b></label>
-                    <textarea class="form-control" name="keteranganNational" rows="5"></textarea>
+                    <label class="form-label" for="desc"><b>Description:</b></label>
+                    <textarea class="form-control" name="desc" rows="5"></textarea>
                 </div>
 
 
@@ -81,7 +62,7 @@
                 <div class="row">
                     <div class="col">
                         <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                            href="/national">
+                            href="/strategy">
                             <span class="fas fa-times-circle"></span>&nbsp;Cancel
                         </a>
                     </div>

@@ -13,7 +13,7 @@
         <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/tindakan/create">
             <span class="fas fa-plus-circle"></span>&nbsp;Tambah
         </a>
-                <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
             onClick="window.location.reload();">
             <span class="fas fa-history"></span></a>
 
@@ -107,168 +107,180 @@
 
 
 
+        <div id="tableExample2" data-list='{"valueNames":["tindakan"],"page":5,"pagination":true}'>
+            <div class="table-responsive scrollbar">
+                <table class="table table-hover table-striped overflow-hidden">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="list" id="searchUpdateTable">
+                        @foreach ($tindakans as $tindakan)
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $tindakan->id }}">
+                                        <div class="ms-2"><b>{{ $tindakan->namaTindakan }}</b></div>
+                                    </div>
+                                </td>
 
-        <div class="table-responsive scrollbar">
-            <table class="table table-hover table-striped overflow-hidden">
-                <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody id="searchUpdateTable">
-                    @foreach ($tindakans as $tindakan)
-                        <tr class="align-middle">
-                            <td>
-                                <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                    data-bs-target="#error-modal-{{ $tindakan->id }}">
-                                    <div class="ms-2"><b>{{ $tindakan->namaTindakan }}</b></div>
-                                </div>
-                            </td>
+                                <div class="modal fade" id="error-modal-{{ $tindakan->id }}" tabindex="-1"
+                                    role="dialog" aria-hidden value="null"="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document"
+                                        style="max-width: 500px">
+                                        <div class="modal-content position-relative">
+                                            <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                                                <button
+                                                    class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body p-0">
 
-                            <div class="modal fade" id="error-modal-{{ $tindakan->id }}" tabindex="-1" role="dialog"
-                                aria-hidden value="null"="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
-                                    <div class="modal-content position-relative">
-                                        <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
-                                            <button
-                                                class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
-                                                data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body p-0">
+                                                <div class="p-4 pb-0">
+                                                    <form>
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label">Tindakan:</label>
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $tindakan->namaTindakan }}</label>
 
-                                            <div class="p-4 pb-0">
-                                                <form>
-                                                    <div class="mb-3">
-                                                        <label class="col-form-label">Tindakan:</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">{{ $tindakan->namaTindakan }}</label>
+                                                        </div>
 
-                                                    </div>
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label">Keterangan:</label>
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $tindakan->keteranganTindakan }}</label>
+                                                        </div>
 
-                                                    <div class="mb-3">
-                                                        <label class="col-form-label">Keterangan:</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">{{ $tindakan->keteranganTindakan }}</label>
-                                                    </div>
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label">Kementerian/Agensi
+                                                                Penyelaras:</label>
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $tindakan->kementerian_penyelaras }}</label>
+                                                        </div>
 
-                                                    <div class="mb-3">
-                                                        <label class="col-form-label">Kementerian/Agensi Penyelaras:</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">{{ $tindakan->kementerian_penyelaras }}</label>
-                                                    </div>
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label">Kementerian/Agensi Pelaksana
+                                                                :</label>
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $tindakan->kementerian_pelaksana }}</label>
+                                                        </div>
 
-                                                    <div class="mb-3">
-                                                        <label class="col-form-label">Kementerian/Agensi Pelaksana
-                                                            :</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">{{ $tindakan->kementerian_pelaksana }}</label>
-                                                    </div>
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label">Tempoh Siap:</label>
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $tindakan->tempohSiap }}</label>
+                                                        </div>
 
-                                                    <div class="mb-3">
-                                                        <label class="col-form-label">Tempoh Siap:</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">{{ $tindakan->tempohSiap }}</label>
-                                                    </div>
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label">Kategori Sasaran
+                                                                :</label>
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $tindakan->kategoriSasaran }}</label>
+                                                        </div>
 
-                                                    <div class="mb-3">
-                                                        <label class="col-form-label">Kategori Sasaran
-                                                            :</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">{{ $tindakan->kategoriSasaran }}</label>
-                                                    </div>
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label">Status Pelaksanaan 2022
+                                                                :</label>
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $tindakan->statusPelaksanaan }}</label>
+                                                        </div>
 
-                                                    <div class="mb-3">
-                                                        <label class="col-form-label">Status Pelaksanaan 2022
-                                                            :</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">{{ $tindakan->statusPelaksanaan }}</label>
-                                                    </div>
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label">Catatan 2022
+                                                                :</label>
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $tindakan->catatan2022 }}</label>
+                                                        </div>
 
-                                                    <div class="mb-3">
-                                                        <label class="col-form-label">Catatan 2022
-                                                            :</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">{{ $tindakan->catatan2022 }}</label>
-                                                    </div>
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label">Sasaran 2022
+                                                                :</label>
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $tindakan->sasaran2022 }}</label>
+                                                        </div>
 
-                                                    <div class="mb-3">
-                                                        <label class="col-form-label">Sasaran 2022
-                                                            :</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">{{ $tindakan->sasaran2022 }}</label>
-                                                    </div>
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label">Pencapaian 2022
+                                                                :</label>
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $tindakan->pencapaian2022 }}</label>
+                                                        </div>
+                                                    </form>
+                                                    <br>
+                                                </div>
 
-                                                    <div class="mb-3">
-                                                        <label class="col-form-label">Pencapaian 2022
-                                                            :</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">{{ $tindakan->pencapaian2022 }}</label>
-                                                    </div>
-                                                </form>
-                                                <br>
                                             </div>
 
                                         </div>
-
                                     </div>
                                 </div>
-                            </div>
 
-                            <td align="right">
-                                <div>
-                                    {{-- <form action="{{ route('tindakan.destroy', $tindakan->id) }}" method="POST"> --}}
-                                    <a class="btn btn-warning" style="border-radius: 38px"
-                                        href="/tindakan1/{{ $tindakan->id }}/edit/"><i class="fas fa-pencil-alt"></i>
-                                    </a>
+                                <td align="right">
+                                    <div>
+                                        {{-- <form action="{{ route('tindakan.destroy', $tindakan->id) }}" method="POST"> --}}
+                                        <a class="btn btn-warning" style="border-radius: 38px"
+                                            href="/tindakan1/{{ $tindakan->id }}/edit/"><i
+                                                class="fas fa-pencil-alt"></i>
+                                        </a>
 
-                                    <a class="btn btn-primary" style="border-radius: 38px"
-                                        href="{{ route('tindakan.edit', $tindakan->id) }}"><i class="fas fa-edit"></i>
-                                    </a>
+                                        <a class="btn btn-primary" style="border-radius: 38px"
+                                            href="{{ route('tindakan.edit', $tindakan->id) }}"><i
+                                                class="fas fa-edit"></i>
+                                        </a>
 
-                                    {{-- @csrf
+                                        {{-- @csrf
                                         @method('DELETE') --}}
-                                    <button type="submit" onclick="myFunction({{ $tindakan->id }})"
-                                        class="btn btn-danger" style="border-radius: 38px">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                    <p id="ppd"></p>
+                                        <button type="submit" onclick="myFunction({{ $tindakan->id }})"
+                                            class="btn btn-danger" style="border-radius: 38px">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <p id="ppd"></p>
 
-                                    {{-- </form> --}}
-                                </div>
-                            </td>
-                        </tr>
-                    @endforeach
+                                        {{-- </form> --}}
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="d-flex justify-content-center mt-3">
+                <button class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous"
+                    data-list-pagination="prev"><span class="fas fa-chevron-left"></span>
+                </button>
+                <ul class="pagination mb-0"></ul>
+                <button class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next"
+                    data-list-pagination="next"><span class="fas fa-chevron-right"> </span>
+                </button>
+            </div>
+
         </div>
 
+        <script>
+            $(".search").change(function() {
+                var result = [];
+                jQuery.each($(".search"), function(key, val) {
+                    result.push(val.value);
+                });
 
+                $.ajax({
+                    method: "POST",
+                    url: "/search_tindakan",
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                        "result": result,
+                    },
+                }).done(function(response) {
+                    console.log(response);
+                    $("#searchUpdateTable").html('');
+                    // $("#searchUpdateTable2").html('');
 
-    </div>
-
-    <script>
-        $(".search").change(function() {
-            var result = [];
-            jQuery.each($(".search"), function(key, val) {
-                result.push(val.value);
-            });
-
-            $.ajax({
-                method: "POST",
-                url: "/search_tindakan",
-                data: {
-                    "_token": "{{ csrf_token() }}",
-                    "result": result,
-                },
-            }).done(function(response) {
-                console.log(response);
-                $("#searchUpdateTable").html('');
-                // $("#searchUpdateTable2").html('');
-
-                response.forEach(el => {
-                    $("#searchUpdateTable").append(`
+                    response.forEach(el => {
+                        $("#searchUpdateTable").append(`
                     <tr class="align-middle">
 
                         <td>
@@ -303,7 +315,7 @@
 
                     `);
 
-                    // $("#searchUpdateTable2").append(`
+                        // $("#searchUpdateTable2").append(`
                 //     <div>
 
                 //         <a class="btn btn-primary" style="border-radius: 38px"
@@ -316,34 +328,34 @@
                 //         </button>
                 //     </div>
                 // `);
+                    });
                 });
+
+
             });
 
 
-        });
+
+            function myFunction(id) {
 
 
+                let alert = "Adakah anda mahu membuang data?";
+                if (confirm(alert) == true) {
+                    $.ajax({
+                        method: "DELETE",
+                        url: "/tindakan/" + id,
+                        data: {
+                            "_token": "{{ csrf_token() }}",
+                        }
+                    });
 
-        function myFunction(id) {
+                    alert = "Berjaya di buang!";
+                    location.reload();
 
-
-            let alert = "Adakah anda mahu membuang data?";
-            if (confirm(alert) == true) {
-                $.ajax({
-                    method: "DELETE",
-                    url: "/tindakan/" + id,
-                    data: {
-                        "_token": "{{ csrf_token() }}",
-                    }
-                });
-
-                alert = "Berjaya di buang!";
-                location.reload();
-
-            } else {
-                alert("Dibatalkan!");
+                } else {
+                    alert("Dibatalkan!");
+                }
+                document.getElementById("ppd").innerHTML = text;
             }
-            document.getElementById("ppd").innerHTML = text;
-        }
-    </script>
-@endsection
+        </script>
+    @endsection

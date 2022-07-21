@@ -386,7 +386,10 @@
                 }
             </script>
 
-            @include('layouts.emas-side-bar')
+            @if (Request::is('mpb'))
+            @else
+                @include('layouts.emas-side-bar')
+            @endif
 
 
 
@@ -423,7 +426,7 @@
         </div>
 
 
-        {{-- <footer class="emas-bg-dg">
+        <footer class="emas-bg-dg">
             <div class="row">
                 <div class="col">
                     <div class="text-center">
@@ -431,9 +434,9 @@
                     </div>
                 </div>
             </div>
-        </footer> --}}
+        </footer>
 
-        <img src="/img/footer.png" alt="footer" width="100%">
+        {{-- <img src="/img/footer.png" alt="footer" width="100%"> --}}
 
 
     </main>

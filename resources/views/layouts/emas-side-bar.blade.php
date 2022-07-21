@@ -164,8 +164,9 @@
                         'kpi2',
                         'kpi2/*',
                         'milestone',
-                        'milestone/*'))
-                        <a class="nav-link btn1" href="" role="button">
+                        'milestone/*',
+                        'mpb'))
+                        <a class="nav-link btn1" href="/mpb" role="button">
 
                             <div class="d-flex align-items-center">
                                 <div class="col-2">
@@ -456,7 +457,8 @@
                         'kpi2',
                         'kpi2/*',
                         'milestone',
-                        'milestone/*'))
+                        'milestone/*',
+                        'mpb'))
                         <a class="nav-link dropdown-indicator" href="#mpb" role="button"
                             data-bs-toggle="collapse" aria-expanded="true" aria-controls="mpb"
                             style="background-color: #C4D4ED">
@@ -467,7 +469,7 @@
 
                         <div class="card">
                             <ul class="nav collapse show" id="mpb" style="background-color: #E7EFFD">
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a class="nav-link btn1 {{ Request::is('thrust', 'thrust/*') ? 'active' : '' }}"
                                         href="/thrust">
                                         <div class="d-flex align-items-center"><span
@@ -476,7 +478,7 @@
                                         </div>
                                     </a>
                                     <!-- more inner pages-->
-                                </li>
+                                </li> --}}
                                 <li class="nav-item">
                                     <a class="nav-link btn1 {{ Request::is('national', 'national/*') ? 'active' : '' }}"
                                         href="/national">

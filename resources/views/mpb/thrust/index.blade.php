@@ -1,6 +1,5 @@
 @extends('base')
 @section('content')
-
     <div class="container">
         <br>
         <div class="mb-4 text-center">
@@ -14,6 +13,9 @@
             <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/thrust/create">
                 <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
         @endrole
+        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+            onClick="window.location.reload();">
+            <span class="fas fa-history"></span></a>
 
         {{-- <hr style="width:100%;text-align:center;"> --}}
 
@@ -50,7 +52,8 @@
                                             <div class="p-4 pb-0">
                                                 <form>
                                                     <div class="mb-3">
-                                                        <label class="col-form-label" for="namaThrust">Thrust Information:</label>
+                                                        <label class="col-form-label" for="namaThrust">Thrust
+                                                            Information:</label>
                                                         <label class="form-control"
                                                             disabled="disabled">{{ $thru->namaThrust }}</label>
 

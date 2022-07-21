@@ -266,9 +266,9 @@
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="status">
                             <option selected disabled hidden>SILA PILIH</option>
-                            <option value="1">Belum Dilaksana</option>
-                            <option value="2">Dalam Pelaksanaan</option>
-                            <option value="2">Tamat Pelaksanaan</option>
+                            <option value="1">Belum Mencapai Sasaran</option>
+                            <option value="2">Tidak Mencapai Sasaran</option>
+                            <option value="2">Mencapai Sasaran</option>
                         </select>
                     </div>
 

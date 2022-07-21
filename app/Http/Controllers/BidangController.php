@@ -52,7 +52,7 @@ class BidangController extends Controller
      */
     public function store(StoreBidangRequest $request)
     {
-        $bidang = Bidang::create($request->except('noBidang'));
+        $bidang = Bidang::create($request->validated());
         return redirect()->route('bidang.index');
     }
 
@@ -65,7 +65,6 @@ class BidangController extends Controller
     public function show(Bidang $bidang)
     {
         return view('ppd.bidang.show', compact('bidang'));
-
     }
 
     /**
@@ -82,7 +81,6 @@ class BidangController extends Controller
         $perkara = Perkarautama::all();
 
         return view('ppd.bidang.edit', compact('bidang', 'list', 'fokus', 'pemangkin', 'perkara'));
-
     }
 
     /**

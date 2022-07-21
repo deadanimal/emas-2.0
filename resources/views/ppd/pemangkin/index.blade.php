@@ -14,6 +14,9 @@
                 <span class="fas fa-plus-circle"></span>&nbsp;Tambah
             </a>
         @endrole
+        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+            onClick="window.location.reload();">
+            <span class="fas fa-history"></span></a>
 
         <hr style="width:100%;text-align:center;">
 
@@ -81,8 +84,7 @@
                                         {{-- <form action="{{ route('pemangkin.destroy', $pemangkin->id) }}" method="POST"> --}}
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="{{ route('pemangkin.edit', $pemangkin->id) }}"><i
-                                                class="fas fa-edit"></i>
+                                            href="{{ route('pemangkin.edit', $pemangkin->id) }}"><i class="fas fa-edit"></i>
                                         </a>
 
                                         {{-- @csrf --}}

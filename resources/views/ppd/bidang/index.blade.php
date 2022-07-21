@@ -13,6 +13,9 @@
         <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/bidang/create">
             <span class="fas fa-plus-circle"></span>&nbsp;Tambah
         </a>
+        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+            onClick="window.location.reload();">
+            <span class="fas fa-history"></span></a>
 
         <hr style="width:100%;text-align:center;">
 
@@ -41,6 +44,13 @@
                                     data-bs-target="#error-modal-{{ $bidang->id }}">
                                     <div class="ms-2"><b>{{ $bidang->namaBidang }}</b></div>
                                 </div>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#error-modal-{{ $bidang->id }}">
+                                    <div class="ms-2"><b>BK {{ $bidang->noBidang }}</b></div>
+                                </div>
+
                             </td>
 
                             <div class="modal fade" id="error-modal-{{ $bidang->id }}" tabindex="-1" role="dialog"

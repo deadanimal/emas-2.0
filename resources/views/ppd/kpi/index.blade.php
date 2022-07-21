@@ -13,6 +13,9 @@
         <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/kpi/create">
             <span class="fas fa-plus-circle"></span>&nbsp;Tambah
         </a>
+        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+            onClick="window.location.reload();">
+            <span class="fas fa-history"></span></a>
 
         <hr style="width:100%;text-align:center;">
 
@@ -395,21 +398,21 @@
                     `);
 
                     // $("#searchUpdateTable2").append(`
-                    //     <div>
-                    //         <a class="btn btn-warning" style="border-radius: 38px"
-                    //             href="/kpi1/` + el.id + `/edit/"><i class="fas fa-pencil-alt"></i>
-                    //         </a>
+                //     <div>
+                //         <a class="btn btn-warning" style="border-radius: 38px"
+                //             href="/kpi1/` + el.id + `/edit/"><i class="fas fa-pencil-alt"></i>
+                //         </a>
 
-                    //         <a class="btn btn-primary" style="border-radius: 38px"
-                    //             href="/kpi/` + el.id + `/edit"><i class="fas fa-edit"></i>
-                    //         </a>
+                //         <a class="btn btn-primary" style="border-radius: 38px"
+                //             href="/kpi/` + el.id + `/edit"><i class="fas fa-edit"></i>
+                //         </a>
 
-                    //         <button type="submit" onclick="myFunction({{ `+el.id+` }})" class="btn btn-danger"
-                    //             style="border-radius: 38px">
-                    //             <i class="fas fa-trash"></i>
-                    //         </button>
-                    //     </div>
-                    // `);
+                //         <button type="submit" onclick="myFunction({{ `+el.id+` }})" class="btn btn-danger"
+                //             style="border-radius: 38px">
+                //             <i class="fas fa-trash"></i>
+                //         </button>
+                //     </div>
+                // `);
                 });
             });
 

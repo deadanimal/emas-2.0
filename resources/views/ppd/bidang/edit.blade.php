@@ -22,7 +22,8 @@
                         <select class="form-control" name="fokus_id">
 
                             @foreach ($fokus as $fokus)
-                                <option @selected($bidang->fokus_id == $fokus->id) value="{{ $fokus->id }}">{{ $fokus->namaFokus }}</option>
+                                <option @selected($bidang->fokus_id == $fokus->id) value="{{ $fokus->id }}">{{ $fokus->namaFokus }}
+                                </option>
                             @endforeach
 
                         </select>
@@ -33,7 +34,8 @@
                         <select class="form-control" name="perkara_id">
 
                             @foreach ($perkara as $perkara)
-                                <option @selected($bidang->perkara_id == $perkara->id) value="{{ $perkara->id }}">{{ $perkara->namaPerkara }}</option>
+                                <option @selected($bidang->perkara_id == $perkara->id) value="{{ $perkara->id }}">
+                                    {{ $perkara->namaPerkara }}</option>
                             @endforeach
 
                         </select>
@@ -46,7 +48,8 @@
                         <select class="form-control" name="pemangkin_id">
 
                             @foreach ($pemangkin as $pemangkin)
-                                <option @selected($bidang->pemangkin_id == $pemangkin->id) value="{{ $pemangkin->id }}">{{ $pemangkin->namaTema }}</option>
+                                <option @selected($bidang->pemangkin_id == $pemangkin->id) value="{{ $pemangkin->id }}">
+                                    {{ $pemangkin->namaTema }}</option>
                             @endforeach
 
                         </select>
@@ -57,7 +60,8 @@
                         <select class="form-control" name="bab_id">
 
                             @foreach ($list as $list)
-                                <option @selected($bidang->bab_id == $list->id) value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}</option>
+                                <option @selected($bidang->bab_id == $list->id) value="{{ $list->id }}">Bab {{ $list->noBab }}.
+                                    {{ $list->namaBab }}</option>
                             @endforeach
 
                         </select>
@@ -72,16 +76,16 @@
                     </div>
                 </div>
 
-                <div class="mb-3 row" >
+                <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="noBidang">Bidang Keutamaan:</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="noBidang" >
-                            <option @selected($bidang->noBidang == "1") value="1">BK A</option>
-                            <option @selected($bidang->noBidang == "2") value="2">BK B</option>
-                            <option @selected($bidang->noBidang == "3") value="3">BK C</option>
-                            <option @selected($bidang->noBidang == "4") value="4">BK D</option>
-                            <option @selected($bidang->noBidang == "5") value="5">BK E</option>
-                            <option @selected($bidang->noBidang == "6") value="6">BK F</option>
+                        <select class="form-control" name="noBidang">
+                            <option @selected($bidang->noBidang == 'A') value="A">BK A</option>
+                            <option @selected($bidang->noBidang == 'B') value="B">BK B</option>
+                            <option @selected($bidang->noBidang == 'C') value="C">BK C</option>
+                            <option @selected($bidang->noBidang == 'D') value="D">BK D</option>
+                            <option @selected($bidang->noBidang == 'E') value="E">BK E</option>
+                            <option @selected($bidang->noBidang == 'F') value="F">BK F</option>
 
                         </select>
 
@@ -107,7 +111,9 @@
 
                     <div class="col" style="text-align: right">
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save" onclick="return confirm('Adakah anda mahu mengubah data ini?')"><span class="fas fa-save"></span>&nbsp;Simpan
+                            type="submit" value="Save"
+                            onclick="return confirm('Adakah anda mahu mengubah data ini?')"><span
+                                class="fas fa-save"></span>&nbsp;Simpan
                         </button>
                     </div>
                 </div>

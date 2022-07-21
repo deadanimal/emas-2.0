@@ -13,6 +13,9 @@
             <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/strategy/create">
                 <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
         @endrole
+        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+            onClick="window.location.reload();">
+            <span class="fas fa-history"></span></a>
 
         <hr style="width:100%;text-align:center;">
 
@@ -79,7 +82,8 @@
                                             <div class="p-4 pb-0">
                                                 <form>
                                                     <div class="mb-3">
-                                                        <label class="col-form-label" for="namaStrategy">Strategy Name:</label>
+                                                        <label class="col-form-label" for="namaStrategy">Strategy
+                                                            Name:</label>
                                                         <label class="form-control"
                                                             disabled="disabled">{{ $strategy->namaStrategy }}</label>
 
@@ -112,8 +116,8 @@
                                         </a>
 
 
-                                        <button type="submit" onclick="myFunction({{ $strategy->id }})" class="btn btn-danger"
-                                            style="border-radius: 38px">
+                                        <button type="submit" onclick="myFunction({{ $strategy->id }})"
+                                            class="btn btn-danger" style="border-radius: 38px">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                         <p id="ppd"></p>
@@ -136,7 +140,7 @@
     </div>
 
     <script>
-          $('.search').change(function(e) {
+        $('.search').change(function(e) {
             let val = this.value;
             var iteration = 1;
 

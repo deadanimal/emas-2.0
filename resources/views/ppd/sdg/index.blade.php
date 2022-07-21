@@ -13,6 +13,9 @@
         <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/sdg/create">
             <span class="fas fa-plus-circle"></span>&nbsp;Tambah
         </a>
+        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+            onClick="window.location.reload();">
+            <span class="fas fa-history"></span></a>
 
         <hr style="width:100%;text-align:center;">
 

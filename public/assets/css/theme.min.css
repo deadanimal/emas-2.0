@@ -26798,7 +26798,7 @@ div[data-collapse] + .kanban-item,
 }
 .chart-tab .nav-link.active {
     border-bottom: 2px solid #2c7be5;
-    background-color: var(--falcon-card-bg);
+    background-color: black;
 }
 .timeline {
     position: relative;

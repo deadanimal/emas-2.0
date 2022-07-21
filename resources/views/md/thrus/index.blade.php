@@ -14,6 +14,9 @@
                 <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
         @endrole
 
+        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+            onClick="window.location.reload();">
+            <span class="fas fa-history"></span></a>
         <hr style="width:100%;text-align:center;">
 
         <div class="table-responsive scrollbar">
@@ -122,8 +125,6 @@
     </div>
 
     <script>
-
-
         function myFunction(id) {
 
 

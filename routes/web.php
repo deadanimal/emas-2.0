@@ -54,7 +54,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/fokusutama', FokusutamaController::class);
     Route::resource('/perkarautama', Perkarautama::class);
     Route::get('/perkarautama', [Perkarautama::class, 'perakarautama'])->name('perkarautama');
-
 });
 
 //MODULE 1 PPD
@@ -122,6 +121,7 @@ Route::post('/search_tindakan', [TindakanController::class, 'searchTindakan']);
 Route::resource('/sdg', SdgController::class);
 
 //MODULE 2 MPB
+Route::view('/mpb', 'mpb');
 
 //ThrustInformation
 Route::resource('/thrust', ThrustController::class);
@@ -178,5 +178,3 @@ Route::resource('/strategy', StrategyController::class);
 
 
 // Module 5 ED
-
-

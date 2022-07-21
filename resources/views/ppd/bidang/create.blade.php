@@ -90,12 +90,12 @@
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="noBidang" >
                             <option selected disabled hidden>SILA PILIH</option>
-                            <option value="1">BK A</option>
-                            <option value="2">BK B</option>
-                            <option value="3">BK C</option>
-                            <option value="4">BK D</option>
-                            <option value="5">BK E</option>
-                            <option value="6">BK F</option>
+                            <option value="A">BK A</option>
+                            <option value="B">BK B</option>
+                            <option value="C">BK C</option>
+                            <option value="D">BK D</option>
+                            <option value="E">BK E</option>
+                            <option value="F">BK F</option>
                         </select>
 
                     </div>

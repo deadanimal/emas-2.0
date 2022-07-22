@@ -19,11 +19,16 @@ class KeyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $keys = Key::all();
 
-        $list= National::all();
+        $list = National::all();
 
         return view('mpb.key.index', compact('keys', 'list'));
     }
@@ -38,7 +43,7 @@ class KeyController extends Controller
         $user = Auth::user();
 
 
-        $list= Thrust::all();
+        $list = Thrust::all();
 
         return view('mpb.key.create', compact('list', 'user'));
     }
@@ -64,7 +69,6 @@ class KeyController extends Controller
     public function show(Key $key)
     {
         return view('mpb.key.show', compact('key'));
-
     }
 
     /**
@@ -78,7 +82,7 @@ class KeyController extends Controller
 
         $user = Auth::user();
 
-        $list= Thrust::all();
+        $list = Thrust::all();
 
         return view('mpb.key.edit', compact('key', 'list'));
     }

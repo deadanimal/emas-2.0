@@ -4,9 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Outcome extends Model
+
+class Outcome extends Model implements Auditable
 {
+
+    use \OwenIt\Auditing\Auditable;
     use HasFactory;
 
     public $table = 'outcomes';
@@ -36,6 +40,5 @@ class Outcome extends Model
     public function bidang()
     {
         return $this->belongsTo(Bidang::class, 'bab_id');
-
     }
 }

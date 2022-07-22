@@ -21,10 +21,16 @@ class MilestoneController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $miles = Milestone::all();
-        $list= Kpi2::all();
+        $list = Kpi2::all();
 
 
         return view('mpb.milestone.index', compact('miles', 'list'));
@@ -40,11 +46,11 @@ class MilestoneController extends Controller
         $user = Auth::user();
 
         $miles = Milestone::all();
-        $thrust= Thrust::all();
-        $nation= National::all();
-        $key= Key::all();
-        $sub= Sub::all();
-        $kpi= Kpi2::all();
+        $thrust = Thrust::all();
+        $nation = National::all();
+        $key = Key::all();
+        $sub = Sub::all();
+        $kpi = Kpi2::all();
         // $list= Quarter::all();
 
 
@@ -86,18 +92,17 @@ class MilestoneController extends Controller
     public function edit(Milestone $milestone)
     {
         $miles = Milestone::all();
-        $thrust= Thrust::all();
-        $nation= National::all();
-        $key= Key::all();
-        $sub= Sub::all();
-        $kpi= Kpi2::all();
+        $thrust = Thrust::all();
+        $nation = National::all();
+        $key = Key::all();
+        $sub = Sub::all();
+        $kpi = Kpi2::all();
         // $list= Quarter::all();
 
 
 
 
         return view('mpb.milestone.edit', compact('milestone', 'thrust', 'nation', 'key', 'sub', 'kpi'));
-
     }
 
     /**

@@ -19,10 +19,15 @@ class Kpi2Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $kpis = Kpi2::all();
-        $list= Sub::all();
+        $list = Sub::all();
 
         return view('mpb.kpi2.index', compact('kpis', 'list'));
     }
@@ -86,8 +91,6 @@ class Kpi2Controller extends Controller
         $sub = Sub::all();
 
         return view('mpb.kpi2.edit', compact('kpi2', 'thrust', 'key', 'sub', 'national'));
-
-
     }
 
     /**
@@ -115,6 +118,5 @@ class Kpi2Controller extends Controller
 
         return redirect()->route('kpi2.index')
             ->with('Berjaya', 'Keterangan berjaya dibuang');
-
     }
 }

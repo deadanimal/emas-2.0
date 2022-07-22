@@ -15,6 +15,12 @@ class PemangkindasarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $pemangkindasar = Pemangkindasar::all();
@@ -59,7 +65,6 @@ class PemangkindasarController extends Controller
     public function show(Pemangkindasar $pemangkindasar)
     {
         return view('ppd.pemangkin.show', compact('pemangkindasar'));
-
     }
 
     /**
@@ -73,7 +78,6 @@ class PemangkindasarController extends Controller
         $pemangkindasar = Pemangkindasar::find($id);
 
         return view('ppd.pemangkin.edit', compact('pemangkindasar'));
-
     }
 
     /**

@@ -16,12 +16,18 @@ class PerkarautamaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
 
         $perkarautama = Perkarautama::all();
 
-        $list= Fokusutama::all();
+        $list = Fokusutama::all();
 
         return view('ppd.perkarautama.index', compact('perkarautama', 'list'));
     }
@@ -36,7 +42,7 @@ class PerkarautamaController extends Controller
         $user = Auth::user();
 
 
-        $list= Fokusutama::all();
+        $list = Fokusutama::all();
 
         return view('ppd.perkarautama.create', compact("user", "list"));
     }
@@ -63,7 +69,6 @@ class PerkarautamaController extends Controller
     public function show(Perkarautama $perkarautama)
     {
         return view('ppd.perkarautama.show', compact('perkarautama'));
-
     }
 
     /**
@@ -76,10 +81,9 @@ class PerkarautamaController extends Controller
     {
         $user = Auth::user();
 
-        $list= Fokusutama::all();
+        $list = Fokusutama::all();
 
         return view('ppd.perkarautama.edit', compact('perkarautama', 'list'));
-
     }
 
     /**

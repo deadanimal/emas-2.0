@@ -4,9 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Pemangkindasar extends Model
+
+class Pemangkindasar extends Model implements Auditable
 {
+
+    use \OwenIt\Auditing\Auditable;
     use HasFactory;
 
     public $table = 'pemangkindasars';

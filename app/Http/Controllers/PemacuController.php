@@ -20,12 +20,18 @@ class PemacuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $pemacus = Pemacu::all();
-        $list= Bab::all();
-        $fokus= Fokusutama::all();
-        $perkara= Perkarautama::all();
+        $list = Bab::all();
+        $fokus = Fokusutama::all();
+        $perkara = Perkarautama::all();
 
 
 
@@ -41,10 +47,10 @@ class PemacuController extends Controller
     {
         $user = Auth::user();
 
-        $list= Bab::all();
-        $fokus= Fokusutama::all();
-        $perkara= Perkarautama::all();
-        return view('ppd.pemacu.create', compact('user', 'list','fokus','perkara'));
+        $list = Bab::all();
+        $fokus = Fokusutama::all();
+        $perkara = Perkarautama::all();
+        return view('ppd.pemacu.create', compact('user', 'list', 'fokus', 'perkara'));
     }
 
     /**
@@ -68,7 +74,6 @@ class PemacuController extends Controller
     public function show(Pemacu $pemacu)
     {
         return view('ppd.pemacu.show', compact('pemacu'));
-
     }
 
     /**
@@ -81,11 +86,11 @@ class PemacuController extends Controller
     {
         $user = Auth::user();
 
-        $list= Bab::all();
-        $fokus= Fokusutama::all();
-        $perkara= Perkarautama::all();
+        $list = Bab::all();
+        $fokus = Fokusutama::all();
+        $perkara = Perkarautama::all();
 
-        return view('ppd.pemacu.edit', compact('pemacu', 'list','fokus','perkara'));
+        return view('ppd.pemacu.edit', compact('pemacu', 'list', 'fokus', 'perkara'));
     }
 
     /**

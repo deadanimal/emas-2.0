@@ -9,13 +9,19 @@ use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
-class FokusutamaController extends Controller
+class FokusutamaController extends Controller 
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         // $user = auth()->user();
@@ -40,7 +46,7 @@ class FokusutamaController extends Controller
         $fokusutama = Fokusutama::all();
         $role = Role::all();
 
-        return view('ppd.fokusutama.index', compact('fokusutama','role'));
+        return view('ppd.fokusutama.index', compact('fokusutama', 'role'));
     }
 
     /**

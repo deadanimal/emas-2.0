@@ -9,27 +9,24 @@
 
         <br>
 
-        <span><b>KPI Nasional</b></span>
-        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/kpi/create">
-            <span class="fas fa-plus-circle"></span>&nbsp;Tambah
-        </a>
-        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-            onClick="window.location.reload();">
-            <span class="fas fa-history"></span></a>
+        <div class="col">
+            <div class="row align-items-center">
+                <div class="col col-lg-8">
+                    <span><b>KPI Nasional</b></span>
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/kpi/create">
+                        <span class="fas fa-plus-circle"></span>&nbsp;Tambah
+                    </a>
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                        onClick="window.location.reload();">
+                        <span class="fas fa-history"></span></a>
+                </div>
+                <div class="col-12 col-sm-auto ms-auto">
+                    <input class="form-control myInput" type="text" placeholder="Carian">
+                </div>
+            </div>
+        </div>
 
         <hr style="width:100%;text-align:center;">
-
-        {{-- <div class="row">
-            <div class="col">
-                <select class="form-select searchKategori" style="width:30%" aria-label="Default select example">
-                    <option selected disabled hidden value="null">PILIH OUTCOME NASIONAL</option>
-                    @foreach ($list as $list)
-                        <option value="{{ $list->id }}">{{ $list->namaOutcome }}</option>
-                    @endforeach
-                </select>
-            </div>
-
-        </div> --}}
 
         <div class="row g-3">
             <div class="col-sm" style="width:50%">
@@ -114,7 +111,7 @@
                             <th scope="col"></th>
                         </tr>
                     </thead>
-                    <tbody class="list" id="searchUpdateTable">
+                    <tbody class="list myTable" id="searchUpdateTable">
                         @foreach ($kpis as $kpi)
                             <tr class="align-middle">
                                 <td id="searchUpdateTable">
@@ -148,7 +145,7 @@
                                 <div class="modal fade" id="error-modal-{{ $kpi->id }}" tabindex="-1" role="dialog"
                                     aria-hidden value="null"="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document"
-                                        style="max-width: 500px">
+                                        style="max-width: 1100px">
                                         <div class="modal-content position-relative">
                                             <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
                                                 <button
@@ -450,5 +447,14 @@
                 }
                 document.getElementById("ppd").innerHTML = text;
             }
+
+            $(document).ready(function() {
+                $(".myInput").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $(".myTable tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
         </script>
     @endsection

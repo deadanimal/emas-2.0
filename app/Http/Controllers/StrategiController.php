@@ -20,10 +20,17 @@ class StrategiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function index()
     {
         $strategis = Strategi::all();
-        $list= Bidang::all();
+        $list = Bidang::all();
 
 
         return view('ppd.strategi.index', compact('strategis', 'list'));
@@ -38,12 +45,12 @@ class StrategiController extends Controller
     {
         $user = Auth::user();
 
-        $list= Bidang::all();
-        $fokus= Fokusutama::all();
-        $perkara= Perkarautama::all();
-        $pemangkin= Pemangkindasar::all();
-        $bab= Bab::all();
-        return view('ppd.strategi.create', compact('user', 'list', 'bab','perkara', 'pemangkin', 'fokus'));
+        $list = Bidang::all();
+        $fokus = Fokusutama::all();
+        $perkara = Perkarautama::all();
+        $pemangkin = Pemangkindasar::all();
+        $bab = Bab::all();
+        return view('ppd.strategi.create', compact('user', 'list', 'bab', 'perkara', 'pemangkin', 'fokus'));
     }
 
     /**
@@ -67,7 +74,6 @@ class StrategiController extends Controller
     public function show(Strategi $strategi)
     {
         return view('ppd.strategi.show', compact('strategi'));
-
     }
 
     /**
@@ -78,14 +84,13 @@ class StrategiController extends Controller
      */
     public function edit(Strategi $strategi)
     {
-        $list= Bidang::all();
-        $fokus= Fokusutama::all();
-        $perkara= Perkarautama::all();
-        $pemangkin= Pemangkindasar::all();
-        $bab= Bab::all();
+        $list = Bidang::all();
+        $fokus = Fokusutama::all();
+        $perkara = Perkarautama::all();
+        $pemangkin = Pemangkindasar::all();
+        $bab = Bab::all();
 
-        return view('ppd.strategi.edit', compact('strategi', 'list', 'bab','perkara', 'pemangkin', 'fokus'));
-
+        return view('ppd.strategi.edit', compact('strategi', 'list', 'bab', 'perkara', 'pemangkin', 'fokus'));
     }
 
     /**

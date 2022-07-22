@@ -23,19 +23,25 @@ class InisiatifController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $inisiatifs = Inisiatif::all();
 
-        $list= Strategi::all();
-        $fokus= Fokusutama::all();
-        $perkara= Perkarautama::all();
-        $pemangkin= Pemangkindasar::all();
-        $bab= Bab::all();
-        $bidang= Bidang::all();
+        $list = Strategi::all();
+        $fokus = Fokusutama::all();
+        $perkara = Perkarautama::all();
+        $pemangkin = Pemangkindasar::all();
+        $bab = Bab::all();
+        $bidang = Bidang::all();
 
 
-        return view('ppd.inisiatif.index', compact('inisiatifs', 'list', 'fokus','perkara','pemangkin','bab','bidang'));
+        return view('ppd.inisiatif.index', compact('inisiatifs', 'list', 'fokus', 'perkara', 'pemangkin', 'bab', 'bidang'));
     }
 
     /**
@@ -47,13 +53,13 @@ class InisiatifController extends Controller
     {
         $user = Auth::user();
 
-        $list= Strategi::all();
-        $fokus= Fokusutama::all();
-        $perkara= Perkarautama::all();
-        $pemangkin= Pemangkindasar::all();
-        $bab= Bab::all();
-        $bidang= Bidang::all();
-        return view('ppd.inisiatif.create', compact('user', 'list', 'fokus','perkara','pemangkin','bab','bidang'));
+        $list = Strategi::all();
+        $fokus = Fokusutama::all();
+        $perkara = Perkarautama::all();
+        $pemangkin = Pemangkindasar::all();
+        $bab = Bab::all();
+        $bidang = Bidang::all();
+        return view('ppd.inisiatif.create', compact('user', 'list', 'fokus', 'perkara', 'pemangkin', 'bab', 'bidang'));
     }
 
     /**
@@ -77,7 +83,6 @@ class InisiatifController extends Controller
     public function show(Inisiatif $inisiatif)
     {
         return view('ppd.inisiatif.show', compact('inisiatif'));
-
     }
 
     /**
@@ -88,15 +93,14 @@ class InisiatifController extends Controller
      */
     public function edit(Inisiatif $inisiatif)
     {
-        $list= Strategi::all();
-        $fokus= Fokusutama::all();
-        $perkara= Perkarautama::all();
-        $pemangkin= Pemangkindasar::all();
-        $bab= Bab::all();
-        $bidang= Bidang::all();
+        $list = Strategi::all();
+        $fokus = Fokusutama::all();
+        $perkara = Perkarautama::all();
+        $pemangkin = Pemangkindasar::all();
+        $bab = Bab::all();
+        $bidang = Bidang::all();
 
-        return view('ppd.inisiatif.edit', compact('inisiatif', 'list', 'fokus','perkara','pemangkin','bab','bidang'));
-
+        return view('ppd.inisiatif.edit', compact('inisiatif', 'list', 'fokus', 'perkara', 'pemangkin', 'bab', 'bidang'));
     }
 
     /**

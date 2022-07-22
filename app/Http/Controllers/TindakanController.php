@@ -25,18 +25,24 @@ class TindakanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $tindakans = Tindakan::all();
-        $list= Inisiatif::all();
-        $fokus= Fokusutama::all();
-        $perkara= Perkarautama::all();
-        $pemangkin= Pemangkindasar::all();
-        $bab= Bab::all();
-        $bidang= Bidang::all();
-        $strategi= Strategi::all();
+        $list = Inisiatif::all();
+        $fokus = Fokusutama::all();
+        $perkara = Perkarautama::all();
+        $pemangkin = Pemangkindasar::all();
+        $bab = Bab::all();
+        $bidang = Bidang::all();
+        $strategi = Strategi::all();
 
-        return view('ppd.tindakan.index', compact('tindakans', 'list', 'fokus','perkara','pemangkin','bab','bidang','strategi'));
+        return view('ppd.tindakan.index', compact('tindakans', 'list', 'fokus', 'perkara', 'pemangkin', 'bab', 'bidang', 'strategi'));
     }
 
     public function index1()
@@ -58,14 +64,14 @@ class TindakanController extends Controller
     {
         $user = Auth::user();
 
-        $list= Inisiatif::all();
-        $fokus= Fokusutama::all();
-        $perkara= Perkarautama::all();
-        $pemangkin= Pemangkindasar::all();
-        $bab= Bab::all();
-        $bidang= Bidang::all();
-        $strategi= Strategi::all();
-        return view('ppd.tindakan.create', compact('user', 'list', 'fokus','perkara','pemangkin','bab','bidang','strategi'));
+        $list = Inisiatif::all();
+        $fokus = Fokusutama::all();
+        $perkara = Perkarautama::all();
+        $pemangkin = Pemangkindasar::all();
+        $bab = Bab::all();
+        $bidang = Bidang::all();
+        $strategi = Strategi::all();
+        return view('ppd.tindakan.create', compact('user', 'list', 'fokus', 'perkara', 'pemangkin', 'bab', 'bidang', 'strategi'));
     }
 
     /**
@@ -110,7 +116,6 @@ class TindakanController extends Controller
     public function show(Tindakan $tindakan)
     {
         return view('ppd.tindakan.show', compact('tindakan'));
-
     }
 
     /**
@@ -121,15 +126,14 @@ class TindakanController extends Controller
      */
     public function edit(Tindakan $tindakan)
     {
-        $list= Inisiatif::all();
-        $fokus= Fokusutama::all();
-        $perkara= Perkarautama::all();
-        $pemangkin= Pemangkindasar::all();
-        $bab= Bab::all();
-        $bidang= Bidang::all();
-        $strategi= Strategi::all();
-        return view('ppd.tindakan.edit', compact('tindakan', 'list', 'fokus','perkara','pemangkin','bab','bidang','strategi'));
-
+        $list = Inisiatif::all();
+        $fokus = Fokusutama::all();
+        $perkara = Perkarautama::all();
+        $pemangkin = Pemangkindasar::all();
+        $bab = Bab::all();
+        $bidang = Bidang::all();
+        $strategi = Strategi::all();
+        return view('ppd.tindakan.edit', compact('tindakan', 'list', 'fokus', 'perkara', 'pemangkin', 'bab', 'bidang', 'strategi'));
     }
 
     public function edit1($id_tindakan)
@@ -138,7 +142,6 @@ class TindakanController extends Controller
 
 
         return view('ppd.tindakan.edit1', compact('tindakans'));
-
     }
 
     /**

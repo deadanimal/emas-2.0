@@ -14,12 +14,17 @@ class ThrusController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $thrust = Thrus::all();
 
         return view('md.thrus.index', compact('thrust'));
-
     }
 
     /**

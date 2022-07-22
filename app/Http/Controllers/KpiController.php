@@ -21,6 +21,12 @@ class KpiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $kpis = Kpi::all();
@@ -45,7 +51,6 @@ class KpiController extends Controller
         if ($request->user()->role == 'admin') {
 
             $kpis = Kpi::all();
-
         } else {
             $user_id = $request->user()->id;
 

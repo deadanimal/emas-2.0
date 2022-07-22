@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuditController;
 use App\Http\Controllers\BabController;
 use App\Http\Controllers\BidangController;
 use App\Http\Controllers\FokusutamaController;
@@ -178,3 +179,7 @@ Route::resource('/strategy', StrategyController::class);
 
 
 // Module 5 ED
+
+//Audit Log
+// Route::get('/audit', AuditController::class);
+Route::get('/audit', [AuditController::class, 'index']);

@@ -18,10 +18,15 @@ class SdgController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $sdgs = Sdg::all();
-        $list= Pemangkindasar::all();
+        $list = Pemangkindasar::all();
 
         return view('ppd.sdg.index', compact('sdgs', 'list'));
     }
@@ -35,7 +40,7 @@ class SdgController extends Controller
     {
         $user = Auth::user();
 
-        $list= Pemangkindasar::all();
+        $list = Pemangkindasar::all();
         $fokus = Fokusutama::all();
         $perkara = Perkarautama::all();
         return view('ppd.sdg.create', compact('user', 'list', 'fokus', 'perkara'));
@@ -62,7 +67,6 @@ class SdgController extends Controller
     public function show(Sdg $sdg)
     {
         return view('ppd.sdg.show', compact('sdg'));
-
     }
 
     /**
@@ -75,11 +79,11 @@ class SdgController extends Controller
     {
         $user = Auth::user();
 
-        $list= Pemangkindasar::all();
+        $list = Pemangkindasar::all();
         $fokus = Fokusutama::all();
         $perkara = Perkarautama::all();
 
-        return view('ppd.sdg.edit', compact('sdg', 'list','fokus', 'perkara'));
+        return view('ppd.sdg.edit', compact('sdg', 'list', 'fokus', 'perkara'));
     }
 
     /**

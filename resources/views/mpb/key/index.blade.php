@@ -9,7 +9,7 @@
         <br>
 
         <span><b>Key Activities Information</b></span>
-        @role('admin|bahagian|kementerian')
+        @role('admin|kementerian')
             <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/key/create">
                 <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
         @endrole
@@ -80,8 +80,8 @@
                                 </div>
                             </div>
 
-                            @role('admin|bahagian|kementerian')
-                                <td align="right">
+                            <td align="right">
+                                @role('admin|kementerian')
                                     <div>
                                         {{-- <form action="{{ route('key.destroy', $k->id) }}" method="POST"> --}}
 

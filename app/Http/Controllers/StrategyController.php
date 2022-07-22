@@ -16,6 +16,12 @@ class StrategyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $strategys = Strategy::all();
@@ -73,9 +79,9 @@ class StrategyController extends Controller
     {
         // dd($strategy);
 
-       $thrust = Thrus::all();
+        $thrust = Thrus::all();
 
-       return view('md.strategy.edit', compact('strategy','thrust'));
+        return view('md.strategy.edit', compact('strategy', 'thrust'));
     }
 
     /**

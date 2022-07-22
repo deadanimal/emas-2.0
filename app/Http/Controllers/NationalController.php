@@ -16,14 +16,19 @@ class NationalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $national = National::all();
 
-        $list= Thrust::all();
+        $list = Thrust::all();
 
         return view('mpb.national.index', compact('national', 'list'));
-
     }
 
     /**
@@ -36,10 +41,9 @@ class NationalController extends Controller
         $user = Auth::user();
 
 
-        $list= Thrust::all();
+        $list = Thrust::all();
 
         return view('mpb.national.create', compact('list', 'user'));
-
     }
 
     /**
@@ -63,7 +67,6 @@ class NationalController extends Controller
     public function show(National $national)
     {
         return view('mpb.national.show', compact('national'));
-
     }
 
     /**
@@ -76,10 +79,9 @@ class NationalController extends Controller
     {
         $user = Auth::user();
 
-        $list= Thrust::all();
+        $list = Thrust::all();
 
         return view('mpb.national.edit', compact('national', 'list'));
-
     }
 
     /**

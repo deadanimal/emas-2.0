@@ -8,15 +8,26 @@
 
         <br>
 
-        <span><b>Tema/Pemangkin Dasar</b></span>
-        @role('admin|bahagian|kementerian')
-            <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/pemangkin/create">
-                <span class="fas fa-plus-circle"></span>&nbsp;Tambah
-            </a>
-        @endrole
-        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-            onClick="window.location.reload();">
-            <span class="fas fa-history"></span></a>
+        <div class="col">
+            <div class="row align-items-center">
+                <div class="col col-lg-8">
+                    <span><b>Tema/Pemangkin Dasar</b></span>
+                    @role('admin|bahagian|kementerian')
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                            href="/pemangkin/create">
+                            <span class="fas fa-plus-circle"></span>&nbsp;Tambah
+                        </a>
+                    @endrole
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                        onClick="window.location.reload();">
+                        <span class="fas fa-history"></span></a>
+                </div>
+                <div class="col-12 col-sm-auto ms-auto">
+                    <input class="form-control myInput" type="text" placeholder="Carian">
+                </div>
+            </div>
+        </div>
+
 
         <hr style="width:100%;text-align:center;">
 
@@ -37,9 +48,9 @@
                             <th scope="col"></th>
                         </tr>
                     </thead>
-                    <tbody class="list" id="tablebody">
+                    <tbody class="list myTable" id="tablebody">
                         @foreach ($pemangkindasar as $pemangkin)
-                            <tr class="align-middle">
+                            <tr class="align-middle pemangkin">
                                 <td>
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $pemangkin->id }}">
@@ -230,15 +241,15 @@
                 }
                 document.getElementById("ppd").innerHTML = text;
 
-                // e.preventDefault();
-                // console.log(e);
-                // let text = confirm("Adakah anda mahu membuang data?");
-                // if (text) {
-                //     alert("Berjaya di buang!");
-                // } else {
-                //     alert("Dibatalkan!");
-                // }
-                // document.getElementById("ppd").innerHTML = text;
             }
+
+            $(document).ready(function() {
+                $(".myInput").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $(".myTable tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
         </script>
     @endsection

@@ -9,7 +9,10 @@
         <br>
 
         @role('admin')
-            <div class="mb-3 row">
+        </div>
+
+        <div class="mb-3 row">
+            <div class="row align-items-center">
                 <label class="col-sm-2 col-form-label" for="tema_id">Tema/Pemangkin Dasar</label>
                 <div class="col-sm-10" style="width:40%">
                     <select class="form-control search" name="tema_id">
@@ -21,21 +24,15 @@
 
                     </select>
                 </div>
-
                 <label class="col-sm-2 col-form-label" for="bab_id">Sukuan Tahun</label>
                 <div class="col-sm-10" style="width:20%">
-                    <select class="form-control" name="bab_id">
-                        <option selected disabled hidden>Sila Pilih</option>
-
-                        {{-- @foreach ($listBab as $listBab)
-                        <option value="{{ $listBab->id }}">Bab {{ $listBab->noBab }}. {{ $listBab->namaBab }} </option>
-                    @endforeach --}}
-
-                    </select>
+                    <input class="form-control" type="text" placeholder="Tulis Tahun">
                 </div>
             </div>
+        </div>
 
-            <div class="mb-3 row">
+        <div class="mb-3 row">
+            <div class="row align-items-center">
                 <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
                 <div class="col-sm-10" style="width:40%">
                     <select class="form-control search" name="bab_id">
@@ -47,21 +44,16 @@
 
                     </select>
                 </div>
-
-                <label class="col-sm-2 col-form-label" for="outcome_id">Tahun</label>
+                <label class="col-sm-2 col-form-label" for="bab_id">Tahun</label>
                 <div class="col-sm-10" style="width:20%">
-                    <select class="form-control" name="outcome_id">
-                        <option selected disabled hidden>SILA PILIH</option>
-
-                        {{-- @foreach ($list as $list)
-                        <option value="{{ $list->id }}">{{ $list->namaOutcome }}</option>
-                    @endforeach --}}
-
-                    </select>
+                    <input class="form-control myInput" type="text" placeholder="Tulis Tahun">
                 </div>
             </div>
+        </div>
 
-            <div class="mb-3 row">
+
+        <div class="mb-3 row">
+            <div class="row align-items-center">
                 <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan</label>
                 <div class="col-sm-10" style="width:40%">
                     <select class="form-control search" name="bidang_id">
@@ -74,8 +66,10 @@
                     </select>
                 </div>
             </div>
+        </div>
 
-            <div class="mb-3 row">
+        <div class="mb-3 row">
+            <div class="row align-items-center">
                 <label class="col-sm-2 col-form-label" for="bidang_id">Status KPI</label>
                 <div class="col-sm-10" style="width:40%">
                     <select class="form-control" name="bidang_id">
@@ -88,8 +82,10 @@
                     </select>
                 </div>
             </div>
+        </div>
 
-            <div class="mb-3 row">
+        <div class="mb-3 row">
+            <div class="row align-items-center">
                 <label class="col-sm-2 col-form-label" for="bidang_id">Kementerian/Bahagian </label>
                 <div class="col-sm-10" style="width:40%">
                     <select class="form-control" name="bidang_id">
@@ -102,10 +98,11 @@
                     </select>
                 </div>
             </div>
-        @endrole
+        </div>
+    @endrole
 
 
-
+    <div id="tableExample2" data-list='{"valueNames":["kpi"],"page":6,"pagination":true}'>
         <div class="card mx-ncard my-ncard shadow-none">
             <div class="card-body">
                 <div class="table-responsive scrollbar">
@@ -144,9 +141,9 @@
                                 @endrole
                             </tr>
                         </thead>
-                        <tbody id="searchUpdateTable">
+                        <tbody class="list myTable" id="searchUpdateTable">
                             @foreach ($kpis as $kpi)
-                                <tr>
+                                <tr class="kpi">
                                     @role('admin')
                                         <td class="align-middle">{{ $loop->iteration }}. {{ $kpi->user->name }}</td>
                                     @endrole
@@ -211,6 +208,17 @@
                     </table>
                 </div>
             </div>
+        </div>
+
+
+        <div class="d-flex justify-content-center mt-3">
+            <button class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous"
+                data-list-pagination="prev"><span class="fas fa-chevron-left"></span>
+            </button>
+            <ul class="pagination mb-0"></ul>
+            <button class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next"
+                data-list-pagination="next"><span class="fas fa-chevron-right"> </span>
+            </button>
         </div>
 
     </div>
@@ -321,4 +329,13 @@
             .removeClass('btn-default')
             .addClass('btn-primary active')
     }
+
+    $(document).ready(function() {
+        $(".myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $(".myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
 </script>

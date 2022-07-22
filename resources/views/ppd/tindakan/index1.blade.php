@@ -105,135 +105,156 @@
         @endrole
 
 
-
-        <div class="card mx-ncard my-ncard shadow-none">
-            <div class="card-body">
-                <div class="table-responsive scrollbar">
-                    <table class="table mb-0" style="width: 400%">
-                        <thead class="text-black bg-200">
-                            <tr>
-                                @role('admin')
-                                    <th class="align-middle">User</th>
-                                @endrole
-                                <th class="align-middle">Tindakan</th>
-                                <th class="align-middle">Kementerian/ Agensi Penyelaras </th>
-                                <th class="align-middle">Kementerian/ Agensi Pelaksana</th>
-                                <th class="align-middle">Tempoh Siap</th>
-                                <th class="align-middle">Kategori Sasaran </th>
-                                <th class="align-middle">Status Pelaksanaan 2021</th>
-                                <th class="align-middle">Catatan 2021</th>
-                                <th class="align-middle">Pencapaian 2021</th>
-                                <th class="align-middle">Status Pelaksanaan 2022 </th>
-                                <th class="align-middle">Catatan 2022</th>
-                                <th class="align-middle">Pencapaian 2022</th>
-
-                                @role('bahagian')
-                                    <th class="align-middle">Status</th>
-                                @endrole
-                                @role('admin')
-                                    <th class="align-middle">Tindakan</th>
-                                @endrole
-                            </tr>
-                        </thead>
-                        <tbody id="bulk-select-body">
-                            @foreach ($tindakans as $tindakan)
+        <div id="tableExample2" data-list='{"valueNames":["tindakan"],"page":6,"pagination":true}'>
+            <div class="card mx-ncard my-ncard shadow-none">
+                <div class="card-body">
+                    <div class="table-responsive scrollbar">
+                        <table class="table mb-0" style="width: 400%">
+                            <thead class="text-black bg-200">
                                 <tr>
                                     @role('admin')
-                                        <td class="align-middle">{{ $loop->iteration }}. {{ $tindakan->user->name }}</td>
+                                        <th class="align-middle">User</th>
                                     @endrole
-                                    <td class="align-middle">{{ $tindakan->namaTindakan }}</td>
-                                    {{-- <td class="align-middle">{{ $tindakan->pemangkin->namaTema ?? '' }}</td> --}}
-                                    <td class="align-middle">{{ $tindakan->kementerian_penyelaras }}</td>
-                                    <td class="align-middle">{{ $tindakan->kementerian_pelaksana }}</td>
-                                    <td class="align-middle">{{ $tindakan->tempohSiap }}</td>
-                                    <td class="align-middle">{{ $tindakan->kategoriSasaran }}</td>
-                                    <td class="align-middle">{{ $tindakan->statusPelaksanaan2021 }}</td>
-                                    <td class="align-middle">{{ $tindakan->catatan2021 }}</td>
-                                    <td class="align-middle">{{ $tindakan->pencapaian2021 }}</td>
-                                    <td class="align-middle">{{ $tindakan->statusPelaksanaan }}</td>
-                                    <td class="align-middle">{{ $tindakan->catatan2022 }}</td>
-                                    <td class="align-middle">{{ $tindakan->pencapaian2022 }}</td>
+                                    <th class="align-middle">Tindakan</th>
+                                    <th class="align-middle">Kementerian/ Agensi Penyelaras </th>
+                                    <th class="align-middle">Kementerian/ Agensi Pelaksana</th>
+                                    <th class="align-middle">Tempoh Siap</th>
+                                    <th class="align-middle">Kategori Sasaran </th>
+                                    <th class="align-middle">Status Pelaksanaan 2021</th>
+                                    <th class="align-middle">Catatan 2021</th>
+                                    <th class="align-middle">Pencapaian 2021</th>
+                                    <th class="align-middle">Status Pelaksanaan 2022 </th>
+                                    <th class="align-middle">Catatan 2022</th>
+                                    <th class="align-middle">Pencapaian 2022</th>
 
+                                    @role('bahagian')
+                                        <th class="align-middle">Status</th>
+                                    @endrole
                                     @role('admin')
-                                        <td class="align-middle">
-
-                                            <div class="col-auto ms-auto">
-                                                @if ($tindakan->lulus == 1 && $tindakan->ditolak == 0)
-                                                    <span class="btn btn-primary" disabled>Lulus</span>
-                                                @elseif ($tindakan->lulus == 0 && $tindakan->ditolak == 1)
-                                                    <span class="btn btn-danger" disabled>Ditolak</span>
-                                                @else
-                                                    <form action="/tindakan/lulus/{{ $tindakan->id }}" method="post">
-                                                        @csrf
-                                                        @method('POST')
-                                                        <button type="submit" class="btn btn-success">Lulus</button>
-                                                    </form>
-                                                    <form action="{{ route('tindakan.ditolak', $tindakan->id) }}"
-                                                        method="post">
-                                                        @csrf
-                                                        @method('POST')
-                                                        <button type="submit" class="btn btn-danger">Tolak</button>
-                                                    </form>
-                                                @endif
-                                            </div>
-                                        </td>
-                                    @else
-                                        <td class="align-middle">
-                                            <div class="col-auto ms-auto">
-                                                @if ($tindakan->lulus == 1 && $tindakan->ditolak == 0)
-                                                    <span class="btn btn-primary" disabled>Lulus</span>
-                                                @elseif ($tindakan->lulus == 0 && $tindakan->ditolak == 1)
-                                                    <span class="btn btn-danger" disabled>Ditolak</span>
-                                                @else
-                                                    <span class="btn btn-info" disabled>Dalam Semakan</span>
-                                                @endif
-                                            </div>
-                                        </td>
+                                        <th class="align-middle">Tindakan</th>
                                     @endrole
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody class="list myTable" id="bulk-select-body">
+                                @foreach ($tindakans as $tindakan)
+                                    <tr class="perkara">
+                                        @role('admin')
+                                            <td class="align-middle">{{ $loop->iteration }}. {{ $tindakan->user->name }}
+                                            </td>
+                                        @endrole
+                                        <td class="align-middle">{{ $tindakan->namaTindakan }}</td>
+                                        {{-- <td class="align-middle">{{ $tindakan->pemangkin->namaTema ?? '' }}</td> --}}
+                                        <td class="align-middle">{{ $tindakan->kementerian_penyelaras }}</td>
+                                        <td class="align-middle">{{ $tindakan->kementerian_pelaksana }}</td>
+                                        <td class="align-middle">{{ $tindakan->tempohSiap }}</td>
+                                        <td class="align-middle">{{ $tindakan->kategoriSasaran }}</td>
+                                        <td class="align-middle">{{ $tindakan->statusPelaksanaan2021 }}</td>
+                                        <td class="align-middle">{{ $tindakan->catatan2021 }}</td>
+                                        <td class="align-middle">{{ $tindakan->pencapaian2021 }}</td>
+                                        <td class="align-middle">{{ $tindakan->statusPelaksanaan }}</td>
+                                        <td class="align-middle">{{ $tindakan->catatan2022 }}</td>
+                                        <td class="align-middle">{{ $tindakan->pencapaian2022 }}</td>
+
+                                        @role('admin')
+                                            <td class="align-middle">
+
+                                                <div class="col-auto ms-auto">
+                                                    @if ($tindakan->lulus == 1 && $tindakan->ditolak == 0)
+                                                        <span class="btn btn-primary" disabled>Lulus</span>
+                                                    @elseif ($tindakan->lulus == 0 && $tindakan->ditolak == 1)
+                                                        <span class="btn btn-danger" disabled>Ditolak</span>
+                                                    @else
+                                                        <form action="/tindakan/lulus/{{ $tindakan->id }}" method="post">
+                                                            @csrf
+                                                            @method('POST')
+                                                            <button type="submit" class="btn btn-success">Lulus</button>
+                                                        </form>
+                                                        <form action="{{ route('tindakan.ditolak', $tindakan->id) }}"
+                                                            method="post">
+                                                            @csrf
+                                                            @method('POST')
+                                                            <button type="submit" class="btn btn-danger">Tolak</button>
+                                                        </form>
+                                                    @endif
+                                                </div>
+                                            </td>
+                                        @else
+                                            <td class="align-middle">
+                                                <div class="col-auto ms-auto">
+                                                    @if ($tindakan->lulus == 1 && $tindakan->ditolak == 0)
+                                                        <span class="btn btn-primary" disabled>Lulus</span>
+                                                    @elseif ($tindakan->lulus == 0 && $tindakan->ditolak == 1)
+                                                        <span class="btn btn-danger" disabled>Ditolak</span>
+                                                    @else
+                                                        <span class="btn btn-info" disabled>Dalam Semakan</span>
+                                                    @endif
+                                                </div>
+                                            </td>
+                                        @endrole
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
+
+            <div class="d-flex justify-content-center mt-3">
+                <button class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous"
+                    data-list-pagination="prev"><span class="fas fa-chevron-left"></span>
+                </button>
+                <ul class="pagination mb-0"></ul>
+                <button class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next"
+                    data-list-pagination="next"><span class="fas fa-chevron-right"> </span>
+                </button>
+            </div>
+
+
         </div>
+    @endsection
 
-    </div>
-@endsection
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-{{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"></script> --}}
 
 
-<script>
-    // only if pressed a non-active button
-    $("button", "#toggle-lulus").click(function(event) {
-        var $btn = $(event.currentTarget)
+    <script>
+        // only if pressed a non-active button
+        $("button", "#toggle-lulus").click(function(event) {
+            var $btn = $(event.currentTarget)
 
-        // only if not already active
-        if (!$btn.hasClass('active')) {
-            // you can switch the button as soon as clicked or in AJAX callback
-            changeActiveButton($btn)
+            // only if not already active
+            if (!$btn.hasClass('active')) {
+                // you can switch the button as soon as clicked or in AJAX callback
+                changeActiveButton($btn)
 
-            $.post('https://jsonplaceholder.typicode.com/todos/1', {
-                lang: $btn.text()
-            }, function(data) {
-                // do whatever you want with your API callback data
-            })
+                $.post('https://jsonplaceholder.typicode.com/todos/1', {
+                    lang: $btn.text()
+                }, function(data) {
+                    // do whatever you want with your API callback data
+                })
+            }
+        })
+
+        function changeActiveButton($btn) {
+            // reset active & button type on previous button
+            $("button.active", "#toggle-lulus")
+                .removeClass('btn-primary active')
+                .addClass('btn-default')
+
+            // set active & button type on current button
+            $btn
+                .removeClass('btn-default')
+                .addClass('btn-primary active')
         }
-    })
 
-    function changeActiveButton($btn) {
-        // reset active & button type on previous button
-        $("button.active", "#toggle-lulus")
-            .removeClass('btn-primary active')
-            .addClass('btn-default')
-
-        // set active & button type on current button
-        $btn
-            .removeClass('btn-default')
-            .addClass('btn-primary active')
-    }
-</script>
+        $(document).ready(function() {
+            $(".myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>

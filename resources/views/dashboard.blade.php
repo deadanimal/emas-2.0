@@ -538,7 +538,7 @@
                 @endrole
             </div>
 
-            {{-- <footer class="risda-bg-dg">
+            <footer class="risda-bg-dg">
                 <div class="row p-">
                     <div class="col">
                         <div class="text-center">
@@ -546,9 +546,9 @@
                         </div>
                     </div>
                 </div>
-            </footer> --}}
+            </footer>
 
-            <img src="/img/footer.png" alt="footer" width="100%">
+            {{-- <img src="/img/footer.png" alt="footer" width="100%"> --}}
 
 
     </main>

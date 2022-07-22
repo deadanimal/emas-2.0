@@ -16,14 +16,19 @@ class SubController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $subs = Sub::all();
 
-        $list= Key::all();
+        $list = Key::all();
 
         return view('mpb.sub.index', compact('subs', 'list'));
-
     }
 
     /**
@@ -36,11 +41,9 @@ class SubController extends Controller
         $user = Auth::user();
 
 
-        $list= Key::all();
+        $list = Key::all();
 
         return view('mpb.sub.create', compact('list', 'user'));
-
-
     }
 
     /**
@@ -64,7 +67,6 @@ class SubController extends Controller
     public function show(Sub $sub)
     {
         return view('mpb.sub.show', compact('sub'));
-
     }
 
     /**
@@ -77,11 +79,9 @@ class SubController extends Controller
     {
         $user = Auth::user();
 
-        $list= Key::all();
+        $list = Key::all();
 
         return view('mpb.sub.edit', compact('sub', 'list'));
-
-
     }
 
     /**

@@ -58,7 +58,7 @@ return [
 
     'events' => [
         'created',
-        'updated',
+        'kemaskini',
         'deleted',
         'restored'
     ],

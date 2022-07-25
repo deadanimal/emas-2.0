@@ -45,34 +45,12 @@
 
 
 <nav class="navbar navbar-light navbar-vertical navbar-expand-xl">
-    {{-- <script>
-        var navbarStyle = localStorage.getItem("navbarStyle");
-        if (navbarStyle && navbarStyle !== 'transparent') {
-            document.querySelector('.navbar-vertical').classList.add(`navbar-${navbarStyle}`);
-        }
-    </script> --}}
-    <div class="d-flex justify-content-end">
-        <div class="toggle-icon-wrapper">
-
-            <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip"
-                data-bs-placement="left" title="Toggle">
-                <span class="fas fa-angle-right">
-                    <span class="fas fa-angle-left"></span>
-                </span>
-            </button>
-
-            {{-- <button class="btn navbar-toggler navbar-vertical-toggle" data-bs-toggle="tooltip"
-                data-bs-placement="left" title="" data-bs-original-title="Tutup" aria-label="Tutup">
-                <span class="navbar-toggle-icon">
-                    <span class="toggle-line"></span>
-                </span>
-            </button> --}}
-
-        </div>
-
-
-
-    </div>
+    {{-- <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip"
+        data-bs-placement="left" title="Toggle">
+        <span class="fas fa-angle-right">
+            <span class="fas fa-angle-left"></span>
+        </span>
+    </button> --}}
     <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
         <div class="navbar-vertical-content scrollbar ">
             <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
@@ -230,6 +208,27 @@
                         </a>
                     @endif
 
+                    @if (Request::is('audit', 'audit/*'))
+                        <a class="nav-link btn1" href="" role="button">
+
+                            <div class="d-flex align-items-center">
+                                <div class="col-2">
+                                    <span class="nav-link-icon">
+                                        <span class="fas fa-tasks"></span>
+                                    </span>
+                                </div>
+                                <div class="col text-center" style="color: #047FC3">
+                                    <span class="nav-link-text ps-1">Executive Dashboard</span>
+                                </div>
+
+                                <div class="col-2">
+
+                                </div>
+
+                            </div>
+                        </a>
+                    @endif
+
                     {{-- @if (in_array(url()->current(), [url('fokusutama'), url('perkarautama'), url('pemangkin'), url('bab'), url('pemacu'), url('bidang'), url('outcome'), url('kpi'), url('strategi'), url('inisiatif'), url('tindakan'), url('sdg')])) --}}
                     @if (Request::is(
                         'fokusutama',
@@ -282,7 +281,8 @@
                                 <li class="nav-item"><a
                                         class="nav-link btn1 {{ Request::is('perkarautama', 'perkarautama/*') ? 'active' : '' }}"
                                         href="/perkarautama">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Perkara
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text1 ps-1">Perkara
                                                 Utama</span>
                                         </div>
                                     </a>
@@ -726,6 +726,87 @@
                                     <!-- more inner pages-->
                                 </li>
 
+
+                            </ul>
+                        </div>
+                    @endif
+
+                    @if (Request::is('audit', 'audit/*'))
+                        <a class="nav-link dropdown-indicator" href="#ED" role="button"
+                            data-bs-toggle="collapse" aria-expanded="true" aria-controls="ED"
+                            style="background-color: #C4D4ED">
+                            <div class="d-flex justify-content-center" style="color: #047FC3">
+                                <span class="nav-link-text1 ps-1">Senarai Maklumat</span>
+                            </div>
+                        </a>
+
+                        <div class="card">
+                            <ul class="nav collapse show" id="ED" style="background-color: #E7EFFD">
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 dropdown-indicator  {{ Request::is('daftar', 'daftar/*') ? 'active' : '' }}"
+                                        href="#daftar" role="button" data-bs-toggle="collapse"
+                                        aria-expanded="false" aria-controls="daftar">
+                                        <div class="d-flex align-items-center">
+                                            <span class="nav-link-text1 ps-1">Pendaftaran Masuk</span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+
+                                    <ul class="nav collapse" id="daftar">
+                                        <li class="nav-item"><a class="nav-link btn1" href="/daftar">
+                                                <div class="d-flex align-items-center"><span
+                                                        class="nav-link-text1 btn1 ps-1">Daftar Individu</span>
+                                                </div>
+                                            </a>
+                                            <!-- more inner pages-->
+                                        </li>
+                                    </ul>
+                                    <ul class="nav collapse" id="daftar">
+                                        <li class="nav-item"><a class="nav-link" href="/daftar">
+                                                <div class="d-flex align-items-center"><span
+                                                        class="nav-link-text1 btn1 ps-1">Daftar Secara Pukal
+                                                    </span>
+                                                </div>
+                                            </a>
+                                            <!-- more inner pages-->
+                                        </li>
+                                    </ul>
+                                </li>
+
+
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('audit', 'audit/*') ? 'active' : '' }}"
+                                        href="/audit">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">
+                                                Log Audit
+
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('senaraiInformasi', 'senaraiInformasi/*') ? 'active' : '' }}"
+                                        href="/senaraiInformasi">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text1 ps-1">Senarai Pengguna
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('senaraiInformasi', 'senaraiInformasi/*') ? 'active' : '' }}"
+                                        href="/senaraiInformasi">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text1 ps-1">Senarai Status Pengguna
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+
+                                </li>
 
                             </ul>
                         </div>

@@ -8,6 +8,11 @@ use OwenIt\Auditing\Models\Audit;
 class AuditController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $audits = Audit::all();

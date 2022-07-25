@@ -144,10 +144,10 @@
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="unitUkuran">
                             <option value="%">%</option>
-                            <option value="RM">RM</option>
+                            {{-- <option value="RM">RM</option> --}}
                             <option value="Bilangan">Bilangan</option>
-                            <option value="Indeks">Indeks</option>
-                            <option value="Kedudukan">Kedudukan</option>
+                            {{-- <option value="Indeks">Indeks</option>
+                            <option value="Kedudukan">Kedudukan</option> --}}
                         </select>
                     </div>
 

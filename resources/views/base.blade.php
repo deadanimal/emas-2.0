@@ -78,7 +78,6 @@
     </script>
 </head>
 
-<img src="/img/banner.png" alt="banner" width="100%">
 
 <body>
     <style>
@@ -137,7 +136,7 @@
         .nav-link {
             display: block;
             padding: 0.5rem 1rem;
-            color: #009640;
+            /* color: #009640; */
             -webkit-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
             -o-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
             transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
@@ -180,15 +179,15 @@
         .tox .tox-menu__footer .tox-button:focus:last-child,
         .tox .tox-dialog__footer .tox-button:focus:last-child {
             color: #fff;
-            background-color: #009640;
-            border-color: #009640;
+            /* background-color: #009640;
+            border-color: #009640; */
             -webkit-box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%), 0 0 0 0 rgb(76 143 233 / 50%);
             box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%), 0 0 0 0 rgb(76 143 233 / 50%);
         }
 
         .btn-outline-primary {
             color: #009640;
-            border-color: #009640;
+            /* border-color: #009640; */
         }
 
         .btn-outline-primary:hover {
@@ -230,15 +229,15 @@
 
         li {
             display: list-item;
-            color: #009640;
+            /* color: #009640; */
             text-align: -webkit-match-parent;
         }
 
         .page-item.active .page-link {
             z-index: 3;
             color: var(--falcon-pagination-active-color);
-            background-color: #009640;
-            border-color: #009640;
+            /* background-color: #009640;
+            border-color: #009640; */
         }
 
         .dropdown-indicator:after {
@@ -331,7 +330,7 @@
 
             .navbar-vertical {
                 position: absolute;
-                background: #009640;
+                /* background: #009640; */
                 max-width: 100%;
             }
 
@@ -346,7 +345,7 @@
             .navbar-vertical.navbar-expand-xl .navbar-collapse {
                 width: 100%;
                 height: auto;
-                background: #009640;
+                /* background: #009640; */
             }
 
             .navbar-vertical.navbar-expand-xl .navbar-vertical-content {
@@ -357,12 +356,12 @@
 
             .navbar-vertical {
                 position: absolute;
-                background: #009640;
+                /* background: #009640; */
                 max-width: 100%;
             }
 
             .navbar-vertical-content {
-                background: #009640;
+                /* background: #009640; */
                 width: 100%;
             }
         }
@@ -375,6 +374,10 @@
     <!-- ===============================================-->
     <!--    Main Content-->
     <!-- ===============================================-->
+
+    <img src="/img/banner.png" alt="banner" width="100%">
+
+
     <main class="main" id="top">
         <div class="container-fluid px-0" data-layout="container">
             <script>
@@ -386,42 +389,19 @@
                 }
             </script>
 
-            @if (Request::is('mpb'))
-            @else
-                @include('layouts.emas-side-bar')
-            @endif
-
-
+            @include('layouts.emas-side-bar')
 
             <div class="content content1">
+                <button class="btn navbar-toggler-humburger-icon navbar-toggler me-1 me-sm-3 navbar-vertical-toggle"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse"
+                    aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle Navigation">
+                    <span class="fas fa-angle-right">
+                        <span class="fas fa-angle-left"></span>
+                    </span>
+                </button>
 
+                @yield('content')
 
-                <div class="row" style="background: white;">
-
-
-
-                    {{-- <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip"
-                        data-bs-placement="left" title="" data-bs-original-title="Tutup" aria-label="Tutup">
-                        <span class="fas fa-angle-right">
-                            <span class="fas fa-angle-left"></span>
-                        </span>
-                    </button> --}}
-
-
-
-                    <div class="col-12">
-                        {{-- <div class="scrollbar-overlay" style="max-height: 40rem"> --}}
-                        <div class="card-header position-relative min-vh-25 mb-8">
-
-                            @yield('content')
-                        </div>
-                        {{-- </div> --}}
-
-                    </div>
-
-
-
-                </div>
             </div>
         </div>
 

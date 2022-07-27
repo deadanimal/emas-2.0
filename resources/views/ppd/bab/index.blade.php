@@ -1,8 +1,6 @@
 @extends('base')
 @section('content')
     <div class="container">
-        <br>
-
         <div class="mb-4 text-center">
             <H2>PELAN PELAKSANAAN DASAR</H2>
         </div>
@@ -53,8 +51,6 @@
         </div>
 
         <div id="tableExample2" data-list='{"valueNames":["bab"],"page":5,"pagination":true}'>
-
-
             <div class="table-responsive scrollbar">
                 <div class="card scrollbar-overlay" style="max-height: 50rem">
 
@@ -71,8 +67,8 @@
                                 <tr class="align-middle">
 
                                     <td>
-                                        <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                            data-bs-target="#error-modal-{{ $bab->id }}">
+                                        <div class="d-flex align-items-center"
+                                            onclick="openmodal({{ $bab->id }},this)">
                                             <div class="ms-2"><b>{{ $loop->iteration }}. {{ $bab->namaBab }}</b></div>
                                         </div>
                                     </td>
@@ -84,7 +80,7 @@
 
                                     </td>
 
-                                    <div class="modal fade" id="error-modal-{{ $bab->id }}" tabindex="-1"
+                                    {{-- <div class="modal fade" id="error-modal-{{ $bab->id }}" tabindex="-1"
                                         role="dialog" aria-hidden value="null"="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document"
                                             style="max-width: 500px">
@@ -123,7 +119,7 @@
 
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <td align="right">
                                         <div>
@@ -146,6 +142,47 @@
                                         </div>
                                     </td>
                                 </tr>
+
+                                <div class="modal fade" id="error-modal-{{ $bab->id }}" tabindex="-1" role="dialog"
+                                    aria-hidden value="null"="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document"
+                                        style="max-width: 500px">
+                                        <div class="modal-content position-relative">
+                                            <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                                                <button
+                                                    class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body p-0">
+
+                                                <div class="p-4 pb-0">
+                                                    <form>
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label">Bab:</label>
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $bab->namaBab }}</label>
+
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label">No Bab:</label>
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $bab->noBab }}</label>
+
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label">Keterangan:</label>
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $bab->keteranganBab }}</label>
+                                                        </div>
+                                                    </form>
+                                                    <br>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
                             @endforeach
 
                         </tbody>
@@ -165,31 +202,31 @@
             </div>
 
 
-
         </div>
+    </div>
 
-        <script>
-            $(".search").change(function() {
-                var result = [];
-                var iteration = 1;
-                jQuery.each($(".search"), function(key, val) {
-                    result.push(val.value);
-                });
+    <script>
+        $(".search").change(function() {
+            var result = [];
+            var iteration = 1;
+            jQuery.each($(".search"), function(key, val) {
+                result.push(val.value);
+            });
 
-                $.ajax({
-                    method: "POST",
-                    url: "/search_bab",
-                    data: {
-                        "_token": "{{ csrf_token() }}",
-                        "result": result,
-                    },
-                }).done(function(response) {
-                    console.log(response);
-                    $("#searchUpdateTable").html('');
-                    // $("#searchUpdateTable2").html('');
+            $.ajax({
+                method: "POST",
+                url: "/search_bab",
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    "result": result,
+                },
+            }).done(function(response) {
+                console.log(response);
+                $("#searchUpdateTable").html('');
+                // $("#searchUpdateTable2").html('');
 
-                    response.forEach(el => {
-                        $("#searchUpdateTable").append(`
+                response.forEach(el => {
+                    $("#searchUpdateTable").append(`
                     <tr class="align-middle">
 
                         <td>
@@ -225,7 +262,7 @@
 
                     `);
 
-                        // $("#searchUpdateTable2").append(`
+                    // $("#searchUpdateTable2").append(`
                 //     <div>
 
                 //         <a class="btn btn-primary" style="border-radius: 38px"
@@ -238,41 +275,41 @@
                 //         </button>
                 //     </div>
                 // `);
-                    });
                 });
-
-
             });
 
-            function myFunction(id) {
+
+        });
+
+        function myFunction(id) {
 
 
-                let alert = "Adakah anda mahu membuang data?";
-                if (confirm(alert) == true) {
-                    $.ajax({
-                        method: "DELETE",
-                        url: "/bab/" + id,
-                        data: {
-                            "_token": "{{ csrf_token() }}",
-                        }
-                    });
+            let alert = "Adakah anda mahu membuang data?";
+            if (confirm(alert) == true) {
+                $.ajax({
+                    method: "DELETE",
+                    url: "/bab/" + id,
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                    }
+                });
 
-                    alert = "Berjaya di buang!";
-                    location.reload();
+                alert = "Berjaya di buang!";
+                location.reload();
 
-                } else {
-                    alert("Dibatalkan!");
-                }
-                document.getElementById("ppd").innerHTML = text;
+            } else {
+                alert("Dibatalkan!");
             }
+            document.getElementById("ppd").innerHTML = text;
+        }
 
-            // $('.searchBab').change(function(e) {
-            //     let val = this.value;
-            //     var bab = @json($babs->toArray());
-            //     $("#tablebody").html('');
-            //     bab.forEach(e => {
-            //         if (val == e.pemangkin_id) {
-            //             $("#tablebody").append(`
+        // $('.searchBab').change(function(e) {
+        //     let val = this.value;
+        //     var bab = @json($babs->toArray());
+        //     $("#tablebody").html('');
+        //     bab.forEach(e => {
+        //         if (val == e.pemangkin_id) {
+        //             $("#tablebody").append(`
     //             <tr class="align-middle">
     //                     <td>
     //                         <div class="d-flex align-items-center" data-bs-toggle="modal"
@@ -339,20 +376,29 @@
     //                 </tr>
     //             `);
 
-            //         }
-            //     });
+        //         }
+        //     });
 
 
 
-            // });
+        // });
 
-            $(document).ready(function() {
-                $(".myInput").on("keyup", function() {
-                    var value = $(this).val().toLowerCase();
-                    $(".myTable tr").filter(function() {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                    });
+        $(document).ready(function() {
+            $(".myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
-        </script>
-    @endsection
+
+
+
+        });
+
+        function openmodal(id) {
+            // console.log('masuk');
+            var modal = "#error-modal-" + id;
+            $(modal).appendTo("body").modal("show");
+        }
+    </script>
+@endsection

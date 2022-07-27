@@ -58,7 +58,7 @@
     <link href="/assets/css/user.min.css" rel="stylesheet" id="user-style-default">
     {{-- <link rel="stylesheet" type="text/css" href="/assets/css/datatables.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/datatables.min.css" /> --}}
-    <script>
+    {{-- <script>
         var APP_URL = {!! json_encode(url('/')) !!}
 
         var isRTL = JSON.parse(localStorage.getItem('isRTL'));
@@ -74,7 +74,7 @@
             linkRTL.setAttribute('disabled', true);
             userLinkRTL.setAttribute('disabled', true);
         }
-    </script>
+    </script> --}}
 </head>
 <img src="/img/banner.png" alt="banner" width="100%">
 

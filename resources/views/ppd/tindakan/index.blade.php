@@ -1,8 +1,6 @@
 @extends('base')
 @section('content')
     <div class="container">
-        <br>
-
         <div class="mb-4 text-center">
             <H2>PELAN PELAKSANAAN DASAR</H2>
         </div>
@@ -269,28 +267,29 @@
             </div>
 
         </div>
+    </div>
 
-        <script>
-            $(".search").change(function() {
-                var result = [];
-                jQuery.each($(".search"), function(key, val) {
-                    result.push(val.value);
-                });
+    <script>
+        $(".search").change(function() {
+            var result = [];
+            jQuery.each($(".search"), function(key, val) {
+                result.push(val.value);
+            });
 
-                $.ajax({
-                    method: "POST",
-                    url: "/search_tindakan",
-                    data: {
-                        "_token": "{{ csrf_token() }}",
-                        "result": result,
-                    },
-                }).done(function(response) {
-                    console.log(response);
-                    $("#searchUpdateTable").html('');
-                    // $("#searchUpdateTable2").html('');
+            $.ajax({
+                method: "POST",
+                url: "/search_tindakan",
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    "result": result,
+                },
+            }).done(function(response) {
+                console.log(response);
+                $("#searchUpdateTable").html('');
+                // $("#searchUpdateTable2").html('');
 
-                    response.forEach(el => {
-                        $("#searchUpdateTable").append(`
+                response.forEach(el => {
+                    $("#searchUpdateTable").append(`
                     <tr class="align-middle">
 
                         <td>
@@ -325,7 +324,7 @@
 
                     `);
 
-                        // $("#searchUpdateTable2").append(`
+                    // $("#searchUpdateTable2").append(`
                 //     <div>
 
                 //         <a class="btn btn-primary" style="border-radius: 38px"
@@ -338,44 +337,44 @@
                 //         </button>
                 //     </div>
                 // `);
-                    });
                 });
-
-
             });
 
 
+        });
 
-            function myFunction(id) {
 
 
-                let alert = "Adakah anda mahu membuang data?";
-                if (confirm(alert) == true) {
-                    $.ajax({
-                        method: "DELETE",
-                        url: "/tindakan/" + id,
-                        data: {
-                            "_token": "{{ csrf_token() }}",
-                        }
-                    });
+        function myFunction(id) {
 
-                    alert = "Berjaya di buang!";
-                    location.reload();
 
-                } else {
-                    alert("Dibatalkan!");
-                }
-                document.getElementById("ppd").innerHTML = text;
+            let alert = "Adakah anda mahu membuang data?";
+            if (confirm(alert) == true) {
+                $.ajax({
+                    method: "DELETE",
+                    url: "/tindakan/" + id,
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                    }
+                });
+
+                alert = "Berjaya di buang!";
+                location.reload();
+
+            } else {
+                alert("Dibatalkan!");
             }
+            document.getElementById("ppd").innerHTML = text;
+        }
 
 
-            $(document).ready(function() {
-                $(".myInput").on("keyup", function() {
-                    var value = $(this).val().toLowerCase();
-                    $(".myTable tr").filter(function() {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                    });
+        $(document).ready(function() {
+            $(".myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
-        </script>
-    @endsection
+        });
+    </script>
+@endsection

@@ -59,7 +59,7 @@
     {{-- <link href="/assets/css/user.min.css" rel="stylesheet" id="user-style-default"> --}}
     {{-- <link rel="stylesheet" type="text/css" href="/assets/css/datatables.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/datatables.min.css" /> --}}
-    <script>
+    {{-- <script>
         var APP_URL = {!! json_encode(url('/')) !!}
 
         var isRTL = JSON.parse(localStorage.getItem('isRTL'));
@@ -75,7 +75,7 @@
             linkRTL.setAttribute('disabled', true);
             userLinkRTL.setAttribute('disabled', true);
         }
-    </script>
+    </script> --}}
 </head>
 
 
@@ -266,6 +266,10 @@
             transition-property: transform, border-color, -webkit-transform;
         }
 
+
+
+
+
         @media (min-width: 601px) {
             .navbar-vertical.navbar-expand-xl {
                 max-width: 250px;
@@ -364,6 +368,9 @@
                 /* background: #009640; */
                 width: 100%;
             }
+
+
+
         }
     </style>
     <?php
@@ -379,7 +386,7 @@
 
 
     <main class="main" id="top">
-        <div class="container-fluid px-0" data-layout="container">
+        <div class="container-fluid px-0" data-layout="container" style="overflow: hidden">
             <script>
                 var isFluid = JSON.parse(localStorage.getItem('isFluid'));
                 if (isFluid) {
@@ -389,19 +396,37 @@
                 }
             </script>
 
-            @include('layouts.emas-side-bar')
+            @if (Request::is('mpb'))
+            @else
+                @include('layouts.emas-side-bar')
+            @endif
+
+
 
             <div class="content content1">
-                <button class="btn navbar-toggler-humburger-icon navbar-toggler me-1 me-sm-3 navbar-vertical-toggle"
-                    type="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse"
-                    aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle Navigation">
-                    <span class="fas fa-angle-right">
-                        <span class="fas fa-angle-left"></span>
-                    </span>
-                </button>
 
-                @yield('content')
 
+                @if (Request::is('mpb'))
+                @else
+                    <button class="btn navbar-toggler-humburger-icon navbar-toggler me-1 me-sm-3 navbar-vertical-toggle"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse"
+                        aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle Navigation">
+                        <span class="fas fa-angle-right">
+                            <span class="fas fa-angle-left"></span>
+                        </span>
+                    </button>
+                @endif
+
+
+                <div class="row" style="background: white;">
+
+                    <div class="col-12">
+                        @yield('content')
+                    </div>
+
+
+
+                </div>
             </div>
         </div>
 
@@ -448,42 +473,6 @@
     <script src="/vendors/list.js/list.min.js"></script>
     <script src="/assets/js/theme.js"></script>
 
-    {{-- <script src="/js/sweetalert2.all.min.js"></script> --}}
-
-    {{-- <script>
-        // $(document).ready(function() {
-        //     setInterval(() => {
-        //         const today = new Date();
-        //         let day = today.getDate();
-        //         const bulan = ['Januari', 'Februari', 'Mac', 'April', 'May', 'Jun', 'Julai', 'Ogos',
-        //             'September', 'Oktober', 'November', 'Disember'
-        //         ];
-        //         let month = bulan[today.getMonth()];
-        //         let year = today.getFullYear();
-        //         let h = today.getHours();
-        //         let m = today.getMinutes();
-        //         let s = today.getSeconds();
-        //         if (m < 10) m = "0" + m;
-        //         if (s < 10) s = "0" + s;
-        //         if (day < 10) day = "0" + day;
-        //         document.getElementById("time").innerHTML = h + ":" + m + ":" + s;
-        //         document.getElementById("date").innerHTML =
-        //             day + " " + month + " " + year;
-        //     }, 1000);
-
-
-
-            // $('.datatable').DataTable();
-
-            // $(".tahun").datepicker({
-            //     format: "yyyy",
-            //     viewMode: "years",
-            //     minViewMode: "years",
-            //     autoclose: true
-            // });
-
-        });
-    </script> --}}
 </body>
 
 </html>

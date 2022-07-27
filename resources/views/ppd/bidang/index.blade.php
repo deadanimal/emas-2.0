@@ -2,8 +2,6 @@
 @section('content')
     <div class="container">
         <div class="mb-4 text-center">
-            <br>
-
             <H2>PELAN PELAKSANAAN DASAR</H2>
         </div>
 
@@ -142,17 +140,18 @@
 
 
         </div>
+    </div>
 
-        <script>
-            $('.searchBab').change(function(e) {
-                let val = this.value;
-                var bidangs = @json($bidangs->toArray());
-                $("#tablebody").html('');
+    <script>
+        $('.searchBab').change(function(e) {
+            let val = this.value;
+            var bidangs = @json($bidangs->toArray());
+            $("#tablebody").html('');
 
-                bidangs.forEach(e => {
+            bidangs.forEach(e => {
 
-                    if (val == e.bab_id) {
-                        $("#tablebody").append(`
+                if (val == e.bab_id) {
+                    $("#tablebody").append(`
                     <tr class="align-middle">
                             <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
@@ -219,42 +218,42 @@
                         </tr>
                     `);
 
+                }
+            });
+
+
+
+        });
+
+        function myFunction(id) {
+
+
+            let alert = "Adakah anda mahu membuang data?";
+            if (confirm(alert) == true) {
+                $.ajax({
+                    method: "DELETE",
+                    url: "/bidang/" + id,
+                    data: {
+                        "_token": "{{ csrf_token() }}",
                     }
                 });
 
+                alert = "Berjaya di buang!";
+                location.reload();
 
-
-            });
-
-            function myFunction(id) {
-
-
-                let alert = "Adakah anda mahu membuang data?";
-                if (confirm(alert) == true) {
-                    $.ajax({
-                        method: "DELETE",
-                        url: "/bidang/" + id,
-                        data: {
-                            "_token": "{{ csrf_token() }}",
-                        }
-                    });
-
-                    alert = "Berjaya di buang!";
-                    location.reload();
-
-                } else {
-                    alert("Dibatalkan!");
-                }
-                document.getElementById("ppd").innerHTML = text;
+            } else {
+                alert("Dibatalkan!");
             }
+            document.getElementById("ppd").innerHTML = text;
+        }
 
-            $(document).ready(function() {
-                $(".myInput").on("keyup", function() {
-                    var value = $(this).val().toLowerCase();
-                    $(".myTable tr").filter(function() {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                    });
+        $(document).ready(function() {
+            $(".myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
-        </script>
-    @endsection
+        });
+    </script>
+@endsection

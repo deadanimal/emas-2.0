@@ -1,7 +1,6 @@
 @extends('base')
 @section('content')
     <div class="container">
-        <br>
         <div class="mb-4 text-center">
             <H2>PELAN PELAKSANAAN DASAR</H2>
         </div>
@@ -136,18 +135,19 @@
 
 
         </div>
+    </div>
 
-        <script>
-            $('.searchKategori').change(function(e) {
-                let val = this.value;
-                console.log(val);
-                var pemangkin = @json($pemangkindasar->toArray());
-                //tema
-                $("#tablebody").html('');
-                if (val == 1) {
-                    pemangkin.forEach(e => {
-                        if (e.kategori_id == 1) {
-                            $("#tablebody").append(`
+    <script>
+        $('.searchKategori').change(function(e) {
+            let val = this.value;
+            console.log(val);
+            var pemangkin = @json($pemangkindasar->toArray());
+            //tema
+            $("#tablebody").html('');
+            if (val == 1) {
+                pemangkin.forEach(e => {
+                    if (e.kategori_id == 1) {
+                        $("#tablebody").append(`
                 <tr class="align-middle">
                         <td class="text-nowrap">
                             <div class="d-flex align-items-center">
@@ -177,79 +177,79 @@
                         </td>
                     </tr>
                 `);
-                        }
-                    });
-                }
-
-                if (val == 2) {
-                    pemangkin.forEach(e => {
-                        if (e.kategori_id == 2) {
-                            $("#tablebody").append(`
-                <tr class="align-middle">
-                        <td class="text-nowrap">
-                            <div class="d-flex align-items-center">
-                                <div class="ms-2"><b>` + e.namaTema + `</b></div>
-                            </div>
-                        </td>
-
-                        <td align="right">
-                            <div>
-                                <form action="/pemangkin/` + e.id + `" method="POST">
-
-                                    <a class="btn btn-primary" style="border-radius: 38px"
-                                        href="/pemangkin/` + e.id + `"><i
-                                            class="fas fa-edit"></i>
-                                    </a>
-
-                                    @csrf
-                                    @method('DELETE')
-
-                                    <button type="submit" onclick="myFunction()" class="btn btn-danger"
-                                        style="border-radius: 38px">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                `);
-                        }
-                    });
-                }
-
-            });
-
-            function myFunction(id) {
-
-
-                let alert = "Adakah anda mahu membuang data?";
-                if (confirm(alert) == true) {
-                    $.ajax({
-                        method: "DELETE",
-                        url: "/pemangkin/" + id,
-                        data: {
-                            "_token": "{{ csrf_token() }}",
-                        }
-                    });
-
-                    alert = "Berjaya di buang!";
-                    location.reload();
-
-                } else {
-                    alert("Dibatalkan!");
-                }
-                document.getElementById("ppd").innerHTML = text;
-
+                    }
+                });
             }
 
-            $(document).ready(function() {
-                $(".myInput").on("keyup", function() {
-                    var value = $(this).val().toLowerCase();
-                    $(".myTable tr").filter(function() {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                    });
+            if (val == 2) {
+                pemangkin.forEach(e => {
+                    if (e.kategori_id == 2) {
+                        $("#tablebody").append(`
+                <tr class="align-middle">
+                        <td class="text-nowrap">
+                            <div class="d-flex align-items-center">
+                                <div class="ms-2"><b>` + e.namaTema + `</b></div>
+                            </div>
+                        </td>
+
+                        <td align="right">
+                            <div>
+                                <form action="/pemangkin/` + e.id + `" method="POST">
+
+                                    <a class="btn btn-primary" style="border-radius: 38px"
+                                        href="/pemangkin/` + e.id + `"><i
+                                            class="fas fa-edit"></i>
+                                    </a>
+
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit" onclick="myFunction()" class="btn btn-danger"
+                                        style="border-radius: 38px">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                `);
+                    }
+                });
+            }
+
+        });
+
+        function myFunction(id) {
+
+
+            let alert = "Adakah anda mahu membuang data?";
+            if (confirm(alert) == true) {
+                $.ajax({
+                    method: "DELETE",
+                    url: "/pemangkin/" + id,
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                    }
+                });
+
+                alert = "Berjaya di buang!";
+                location.reload();
+
+            } else {
+                alert("Dibatalkan!");
+            }
+            document.getElementById("ppd").innerHTML = text;
+
+        }
+
+        $(document).ready(function() {
+            $(".myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
-        </script>
-    @endsection
+        });
+    </script>
+@endsection

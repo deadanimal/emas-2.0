@@ -2,7 +2,6 @@
 @section('content')
 
     <div class="container">
-        <br>
         <div class="mb-4 text-center">
             <H2>PELAN PELAKSANAAN DASAR</H2>
         </div>
@@ -157,14 +156,14 @@
                     <label class="col-sm-2 col-form-label" for="pencapaian">Pencapaian</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="pencapaian" type="text" class="percent form-control" />
+                        <input type="text" name="pencapaian" type="text" class="percent form-control pencapaian" />
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="sasaran">Sasaran</label>
 
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="sasaran" type="text" class="percent form-control" />
+                        <input type="text" name="sasaran" type="text" class="percent form-control pencapaian" />
                     </div>
 
                 </div>
@@ -194,7 +193,7 @@
                     <label class="col-sm-2 col-form-label" for="wajaran">Wajaran</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="wajaran" type="text" class="percent form-control" />
+                        <input type="text" name="wajaran" type="text" class="percent form-control pencapaian" />
                     </div>
 
                 </div>
@@ -311,43 +310,73 @@
 
 
         <script>
-            $(".percent").keyup(function(e) {
-                let int = e.target.value.slice(0, e.target.value.length - 1);
+            $(".pencapaian").keyup(function() {
 
-                if (int.includes('%')) {
-                    e.target.value = '%';
-                } else if (int.length >= 3 && int.length <= 4 && !int.includes('.')) {
-                    e.target.value = int.slice(0, 2) + '.' + int.slice(2, 3) + '%';
-                    e.target.setSelectionRange(4, 4);
-                } else if (int.length >= 5 & int.length <= 6) {
-                    let whole = int.slice(0, 2);
-                    let fraction = int.slice(3, 5);
-                    e.target.value = whole + '.' + fraction + '%';
-                } else {
-                    e.target.value = int + '%';
-                    e.target.setSelectionRange(e.target.value.length - 1, e.target.value.length - 1);
+                var checkAllInputFilled = true;
+                jQuery.each($(".pencapaian"), function(key, val) {
+                    if (val.value == '') {
+                        checkAllInputFilled = false;
+                    }
+                });
+
+                if (checkAllInputFilled) {
+                    let pencapaian = $('input[name="pencapaian"]').val();
+                    let sasaran = $('input[name="sasaran"]').val();
+                    let wajaran = $('input[name="wajaran"]').val();
+
+                    let result = (pencapaian / sasaran) * wajaran;
+                    $('input[name="peratusPencapaian"]').val(result);
+                    $('input[name="peratusPencapaian"]').trigger('change');
+
                 }
-            })
+            });
+
+            // $(".percent").keyup(function(e) {
+            //     let int = e.target.value.slice(0, e.target.value.length - 1);
+
+            //     if (int.includes('%')) {
+            //         e.target.value = '%';
+            //     } else if (int.length >= 3 && int.length <= 4 && !int.includes('.')) {
+            //         e.target.value = int.slice(0, 2) + '.' + int.slice(2, 3) + '%';
+            //         e.target.setSelectionRange(4, 4);
+            //     } else if (int.length >= 5 & int.length <= 6) {
+            //         let whole = int.slice(0, 2);
+            //         let fraction = int.slice(3, 5);
+            //         e.target.value = whole + '.' + fraction + '%';
+            //     } else {
+            //         e.target.value = int + '%';
+            //         e.target.setSelectionRange(e.target.value.length - 1, e.target.value.length - 1);
+            //     }
+            // });
 
             function myFunction() {
+
                 var x = document.getElementById("mySelect").value;
                 x = x.substring(0, x.length - 1)
                 x = parseFloat(x)
                 var prestasiColor = "yellow"
-                if (x < 50) {
-                    prestasiColor = "green"
 
-                } else if (x < 80) {
+                if (x >= 80) {
+                    prestasiColor = "green"
+                    var prestasiShown = document.getElementById("prestasi");
+                    prestasiShown.innerHTML = "<img src='/img/green.png'></img> "
+
+                } else if (x <= 80 && x >= 50) {
+                    prestasiColor = "yellow"
+                    var prestasiShown = document.getElementById("prestasi");
+                    prestasiShown.innerHTML = "<img src='/img/yellow.png'></img> "
 
                 } else {
                     prestasiColor = "red"
+                    var prestasiShown = document.getElementById("prestasi");
+                    prestasiShown.innerHTML = "<img src='/img/red.png'></img> "
 
 
                 }
 
 
-                var prestasiShown = document.getElementById("prestasi");
-                prestasiShown.innerHTML = "<img src='/img/red.png'></img> " + x;
+                // var prestasiShown = document.getElementById("prestasi");
+                // prestasiShown.innerHTML = "<img src='/img/red.png'></img> " + x;
 
 
                 // prestasiShown.innerHTML = "<img src='/img/red.png'></img> " + x + "%";

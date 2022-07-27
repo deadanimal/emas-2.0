@@ -2,7 +2,6 @@
 @section('content')
 
     <div class="container">
-        <br>
         <div class="mb-4 text-center">
             <H2>PELAN PELAKSANAAN DASAR</H2>
         </div>
@@ -211,50 +210,51 @@
 
 
         </div>
-    @endsection
+    </div>
+@endsection
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+{{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"></script> --}}
 
 
-    <script>
-        // only if pressed a non-active button
-        $("button", "#toggle-lulus").click(function(event) {
-            var $btn = $(event.currentTarget)
+<script>
+    // only if pressed a non-active button
+    $("button", "#toggle-lulus").click(function(event) {
+        var $btn = $(event.currentTarget)
 
-            // only if not already active
-            if (!$btn.hasClass('active')) {
-                // you can switch the button as soon as clicked or in AJAX callback
-                changeActiveButton($btn)
+        // only if not already active
+        if (!$btn.hasClass('active')) {
+            // you can switch the button as soon as clicked or in AJAX callback
+            changeActiveButton($btn)
 
-                $.post('https://jsonplaceholder.typicode.com/todos/1', {
-                    lang: $btn.text()
-                }, function(data) {
-                    // do whatever you want with your API callback data
-                })
-            }
-        })
-
-        function changeActiveButton($btn) {
-            // reset active & button type on previous button
-            $("button.active", "#toggle-lulus")
-                .removeClass('btn-primary active')
-                .addClass('btn-default')
-
-            // set active & button type on current button
-            $btn
-                .removeClass('btn-default')
-                .addClass('btn-primary active')
+            $.post('https://jsonplaceholder.typicode.com/todos/1', {
+                lang: $btn.text()
+            }, function(data) {
+                // do whatever you want with your API callback data
+            })
         }
+    })
 
-        $(document).ready(function() {
-            $(".myInput").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                $(".myTable tr").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
+    function changeActiveButton($btn) {
+        // reset active & button type on previous button
+        $("button.active", "#toggle-lulus")
+            .removeClass('btn-primary active')
+            .addClass('btn-default')
+
+        // set active & button type on current button
+        $btn
+            .removeClass('btn-default')
+            .addClass('btn-primary active')
+    }
+
+    $(document).ready(function() {
+        $(".myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $(".myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
-    </script>
+    });
+</script>

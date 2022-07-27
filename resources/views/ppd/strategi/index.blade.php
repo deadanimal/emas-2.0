@@ -1,8 +1,6 @@
 @extends('base')
 @section('content')
     <div class="container">
-        <br>
-
         <div class="mb-4 text-center">
             <H2>PELAN PELAKSANAAN DASAR</H2>
         </div>
@@ -130,19 +128,20 @@
 
 
         </div>
+    </div>
 
-        <script>
-            $('.searchBidang').change(function(e) {
-                let val = this.value;
-                //console.log(this.value);
+    <script>
+        $('.searchBidang').change(function(e) {
+            let val = this.value;
+            //console.log(this.value);
 
-                var strategi = @json($strategis->toArray());
+            var strategi = @json($strategis->toArray());
 
-                $("#tablebody").html('');
-                strategi.forEach(e => {
-                    if (val == e.bidang_id) {
-                        // console.log("jadi")
-                        $("#tablebody").append(`
+            $("#tablebody").html('');
+            strategi.forEach(e => {
+                if (val == e.bidang_id) {
+                    // console.log("jadi")
+                    $("#tablebody").append(`
                     <tr class="align-middle">
                             <td class="text-nowrap">
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
@@ -209,42 +208,42 @@
                         </tr>
                     `);
 
+                }
+            });
+
+
+
+        });
+
+        function myFunction(id) {
+
+
+            let alert = "Adakah anda mahu membuang data?";
+            if (confirm(alert) == true) {
+                $.ajax({
+                    method: "DELETE",
+                    url: "/strategi/" + id,
+                    data: {
+                        "_token": "{{ csrf_token() }}",
                     }
                 });
 
+                alert = "Berjaya di buang!";
+                location.reload();
 
-
-            });
-
-            function myFunction(id) {
-
-
-                let alert = "Adakah anda mahu membuang data?";
-                if (confirm(alert) == true) {
-                    $.ajax({
-                        method: "DELETE",
-                        url: "/strategi/" + id,
-                        data: {
-                            "_token": "{{ csrf_token() }}",
-                        }
-                    });
-
-                    alert = "Berjaya di buang!";
-                    location.reload();
-
-                } else {
-                    alert("Dibatalkan!");
-                }
-                document.getElementById("ppd").innerHTML = text;
+            } else {
+                alert("Dibatalkan!");
             }
+            document.getElementById("ppd").innerHTML = text;
+        }
 
-            $(document).ready(function() {
-                $(".myInput").on("keyup", function() {
-                    var value = $(this).val().toLowerCase();
-                    $(".myTable tr").filter(function() {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                    });
+        $(document).ready(function() {
+            $(".myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
-        </script>
-    @endsection
+        });
+    </script>
+@endsection

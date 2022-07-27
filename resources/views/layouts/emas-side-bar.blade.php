@@ -51,7 +51,7 @@
             <span class="fas fa-angle-left"></span>
         </span>
     </button> --}}
-    <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+    <div class="collapse navbar-collapse mt-3" id="navbarVerticalCollapse">
         <div class="navbar-vertical-content scrollbar ">
             <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
                 <li class="nav-item1">

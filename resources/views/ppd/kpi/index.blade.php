@@ -1,8 +1,6 @@
 @extends('base')
 @section('content')
     <div class="container">
-        <br>
-
         <div class="mb-4 text-center">
             <H2>PELAN PELAKSANAAN DASAR</H2>
         </div>
@@ -124,13 +122,14 @@
 
 
 
-                                <td align="right" id="searchUpdateTable2">
+                                <td class="align-right" id="searchUpdateTable2">
                                     <div>
-                                        <a class="btn btn-warning" style="border-radius: 38px"
+                                        <a class="btn btn-warning" style="border-radius: 38px" onclick="Kpi(this)"
                                             href="/kpi1/{{ $kpi->id }}/edit/"><i class="fas fa-pencil-alt"></i>
                                         </a>
 
-                                        <a class="btn btn-primary" style="border-radius: 38px"
+
+                                        <a type="button" class="btn btn-primary" style="border-radius: 38px"
                                             href="{{ route('kpi.edit', $kpi->id) }}"><i class="fas fa-edit"></i>
                                         </a>
 
@@ -139,7 +138,13 @@
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </div>
+                                    <form method="GET" action="/kpi1/{{ $kpi->id }}/edit/"
+                                        onsubmit="return checkForm(this);">
+                                        <input type="submit" name="myButton" value="Submit">
+                                    </form>
+
                                 </td>
+
 
 
                                 <div class="modal fade" id="error-modal-{{ $kpi->id }}" tabindex="-1" role="dialog"
@@ -347,28 +352,46 @@
 
 
         </div>
+    </div>
 
-        <script>
-            $(".search").change(function() {
-                var result = [];
-                jQuery.each($(".search"), function(key, val) {
-                    result.push(val.value);
-                });
 
-                $.ajax({
-                    method: "POST",
-                    url: "/search_kpi",
-                    data: {
-                        "_token": "{{ csrf_token() }}",
-                        "result": result,
-                    },
-                }).done(function(response) {
-                    console.log(response);
-                    $("#searchUpdateTable").html('');
-                    // $("#searchUpdateTable2").html('');
+    <script>
+        function checkForm(form) {
+            //
+            // validate form fields
+            //
 
-                    response.forEach(el => {
-                        $("#searchUpdateTable").append(`
+            form.myButton.disabled = true;
+            return true;
+        }
+
+        function Kpi(btn) {
+
+            btn.style.visibility = 'hidden';
+
+
+        }
+
+        $(".search").change(function() {
+            var result = [];
+            jQuery.each($(".search"), function(key, val) {
+                result.push(val.value);
+            });
+
+            $.ajax({
+                method: "POST",
+                url: "/search_kpi",
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    "result": result,
+                },
+            }).done(function(response) {
+                console.log(response);
+                $("#searchUpdateTable").html('');
+                // $("#searchUpdateTable2").html('');
+
+                response.forEach(el => {
+                    $("#searchUpdateTable").append(`
                     <tr class="align-middle">
 
 
@@ -404,57 +427,41 @@
 
                     `);
 
-                        // $("#searchUpdateTable2").append(`
-                //     <div>
-                //         <a class="btn btn-warning" style="border-radius: 38px"
-                //             href="/kpi1/` + el.id + `/edit/"><i class="fas fa-pencil-alt"></i>
-                //         </a>
-
-                //         <a class="btn btn-primary" style="border-radius: 38px"
-                //             href="/kpi/` + el.id + `/edit"><i class="fas fa-edit"></i>
-                //         </a>
-
-                //         <button type="submit" onclick="myFunction({{ `+el.id+` }})" class="btn btn-danger"
-                //             style="border-radius: 38px">
-                //             <i class="fas fa-trash"></i>
-                //         </button>
-                //     </div>
-                // `);
-                    });
                 });
-
-
             });
 
-            function myFunction(id) {
+
+        });
+
+        function myFunction(id) {
 
 
-                let alert = "Adakah anda mahu membuang data?";
-                if (confirm(alert) == true) {
-                    $.ajax({
-                        method: "DELETE",
-                        url: "/kpi/" + id,
-                        data: {
-                            "_token": "{{ csrf_token() }}",
-                        }
-                    });
+            let alert = "Adakah anda mahu membuang data?";
+            if (confirm(alert) == true) {
+                $.ajax({
+                    method: "DELETE",
+                    url: "/kpi/" + id,
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                    }
+                });
 
-                    alert = "Berjaya di buang!";
-                    location.reload();
+                alert = "Berjaya di buang!";
+                location.reload();
 
-                } else {
-                    alert("Dibatalkan!");
-                }
-                document.getElementById("ppd").innerHTML = text;
+            } else {
+                alert("Dibatalkan!");
             }
+            document.getElementById("ppd").innerHTML = text;
+        }
 
-            $(document).ready(function() {
-                $(".myInput").on("keyup", function() {
-                    var value = $(this).val().toLowerCase();
-                    $(".myTable tr").filter(function() {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                    });
+        $(document).ready(function() {
+            $(".myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
-        </script>
-    @endsection
+        });
+    </script>
+@endsection

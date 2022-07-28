@@ -138,10 +138,10 @@
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </div>
-                                    <form method="GET" action="/kpi1/{{ $kpi->id }}/edit/"
+                                    {{-- <form method="GET" action="/kpi1/{{ $kpi->id }}/edit/"
                                         onsubmit="return checkForm(this);">
                                         <input type="submit" name="myButton" value="Submit">
-                                    </form>
+                                    </form> --}}
 
                                 </td>
 
@@ -356,14 +356,14 @@
 
 
     <script>
-        function checkForm(form) {
-            //
-            // validate form fields
-            //
+        // function checkForm(form) {
+        //     //
+        //     // validate form fields
+        //     //
 
-            form.myButton.disabled = true;
-            return true;
-        }
+        //     form.myButton.disabled = true;
+        //     return true;
+        // }
 
         function Kpi(btn) {
 

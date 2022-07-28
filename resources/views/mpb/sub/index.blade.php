@@ -1,7 +1,7 @@
 @extends('base')
 @section('content')
     <div class="container">
-        <br>
+
         <div class="mb-4 text-center">
             <H2>MALAYSIA PRODUCTIVITY BLUEPRINT</H2>
         </div>

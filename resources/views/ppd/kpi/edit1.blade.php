@@ -72,7 +72,7 @@
                             <input class="form-control" name="outcome_id" type="hidden"
                                 value="{{ $kpi->outcome->id }}" />
                         @else
-                            <label>Outcome telah dipadam</label>
+                            <input class="form-control" value="Outcome telah dipadam" readonly />
                         @endif
 
 
@@ -107,37 +107,7 @@
 
                         </p>
 
-                        {{-- @if ($peratusanPencapaian == '100')
-                            <span class="badge bg-success text white">
-                                {{ $peratusanPencapaian ?? '' }}
-                            </span>
-                        @else
-                            <span class="badge bg-primary text white">
-                                {{ $peratusanPencapaian ?? '' }}
-                            </span>
-                        @endif --}}
-
-                        {{-- <body>
-
-                            <p style="background-color:#04C367"> > 80%</p>
-                            <p style="background-color:yellow">
-                                < 50%-79.99%</p>
-                                    <p style="background-color:red">
-                                        < 50%</p>
-
-                        </body> --}}
-
                     </div>
-
-
-
-
-
-                    {{-- if peratus pencapaian <50%, display red color,
-                    else if peratus pencapaian == 50% and 79.99, display yellow,
-                    else display hijau --}}
-
-
 
                     <label class="col-sm-2 col-form-label" for="unitUkuran">Unit</label>
                     <div class="col-sm-10" style="width:30%">

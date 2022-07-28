@@ -21,7 +21,7 @@
                         <img class="img-fluid" src="../../assets/img/generic/1.png" />
                     </div>
                     <div class="card-body">
-                        <a href="/thrust" class="card-title">1. Building Workforce of the Future</a>
+                        <a href="/national" class="card-title">1. Building Workforce of the Future</a>
 
                     </div>
                 </div>

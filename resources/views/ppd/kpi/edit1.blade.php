@@ -39,8 +39,7 @@
                     <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema</label>
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" value="{{ $kpi->pemangkin->namaTema }}" readonly />
-                        <input class="form-control" name="pemangkin_id" type="hidden"
-                            value="{{ $kpi->pemangkin->id }}" />
+                        <input class="form-control" name="pemangkin_id" type="hidden" value="{{ $kpi->pemangkin->id }}" />
 
 
                     </div>
@@ -69,8 +68,7 @@
 
                         @if ($kpi->outcome != null)
                             <input class="form-control" value="{{ $kpi->outcome->namaOutcome }}" readonly />
-                            <input class="form-control" name="outcome_id" type="hidden"
-                                value="{{ $kpi->outcome->id }}" />
+                            <input class="form-control" name="outcome_id" type="hidden" value="{{ $kpi->outcome->id }}" />
                         @else
                             <input class="form-control" value="Outcome telah dipadam" readonly />
                         @endif
@@ -173,7 +171,7 @@
 
                     <div class="col-sm-10" style="width:30%">
                         <input type="text" name="peratusPencapaian" id="mySelect" onchange="myFunction()"
-                            class="percent form-control" />
+                            class="percent form-control" readonly />
 
                     </div>
 

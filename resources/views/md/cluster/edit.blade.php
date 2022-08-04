@@ -1,53 +1,53 @@
 @extends('base')
 @section('content')
     <div class="container">
-        <br>
-
         <div class="mb-4 text-center">
-            <H2>DATA ENTRY</H2>
+            <H2>UPDATE DATA</H2>
         </div>
+
 
         <br>
         <br>
 
         <div class="form-floating;">
-            <form action="{{ route('thrus.store') }}" method="POST">
+            <form action="/cluster/{{ $cluster->id }}" method="POST">
                 @csrf
+                @method('PUT')
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaThrust">Thrust</label>
+                    <label class="col-sm-2 col-form-label" for="namaCluster">Cluster Name</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaThrust" />
+                        <input class="form-control" type="text" name="namaCluster" value="{{ $cluster->namaCluster }}" />
 
                     </div>
                 </div>
 
+
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="category">Category</label>
+                    <label class="col-sm-2 col-form-label" for="strategies_id">Strategy</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="category">
-                            <option selected disabled hidden>PLEASE CHOOSE</option>
-                            <option value="DEB">DEB</option>
-                            <option value="4IR">4IR</option>
+                        <select class="form-control" name="strategies_id">
+                            @foreach ($strategies as $strategies)
+                                <option @selected($cluster->strategies_id == $strategies->id) value="{{ $strategies->id }}">
+                                    {{ $strategies->namaStrategy }}
+                                </option>
+                            @endforeach
+
                         </select>
-
                     </div>
                 </div>
 
-                <br>
-                <br>
+                <br><br>
 
                 <div class="mb-3">
-                    <label class="form-label" for="desc"><b>Description:</b></label>
-                    <textarea class="form-control" name="desc" rows="5"></textarea>
+                    <label class="form-label" for="desc"><b>Description</b></label>
+                    <textarea class="form-control" name="desc" rows="5">{{ $cluster->desc }}</textarea>
                 </div>
-
-
 
                 <div class="row">
                     <div class="col">
                         <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                            href="/thrus">
+                            href="/cluster">
                             <span class="fas fa-times-circle"></span>&nbsp;Cancel
                         </a>
                     </div>
@@ -55,14 +55,11 @@
                     <div class="col" style="text-align: right">
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
                             type="submit" value="Save"
-                            onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span
+                            onclick="return confirm('Are you sure you want to edit this Data?')"><span
                                 class="fas fa-save"></span>&nbsp;Save
                         </button>
                     </div>
                 </div>
-
-                <input class="form-control" name="user_id" type="hidden" value="{{ $user->id }}" />
-
 
             </form>
 
@@ -70,17 +67,9 @@
 
     </div>
 
-    {{-- <script>
-        function ConfirmSave() {
-            var isconfirm = window.confirm("Adakah anda mahu menyimpan data?");
-            if (isconfirm)
-                self.location = "Save.php";
-        }
-    </script> --}}
-
     @if ($errors->any())
         <div class="alert alert-danger">
-            <strong>Oops!</strong> Input tidak mencukupi<br><br>
+            <strong>Ooops!</strong> Input tidak mencukupi<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>

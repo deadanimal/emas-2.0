@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreClusterRequest;
 use App\Http\Requests\UpdateClusterRequest;
 use App\Models\Cluster;
+use App\Models\Strategy;
+use Illuminate\Support\Facades\Auth;
+
 
 class ClusterController extends Controller
 {
@@ -13,9 +16,18 @@ class ClusterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        //
+        $clusters = Cluster::all();
+
+        $strategies = Strategy::all();
+
+        return view('md.cluster.index', compact('clusters', 'strategies'));
     }
 
     /**
@@ -25,7 +37,9 @@ class ClusterController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+        $strategies = Strategy::all();
+        return view('md.cluster.create', compact('user', 'strategies'));
     }
 
     /**
@@ -36,7 +50,8 @@ class ClusterController extends Controller
      */
     public function store(StoreClusterRequest $request)
     {
-        //
+        $cluster = Cluster::create($request->all());
+        return redirect()->route('cluster.index');
     }
 
     /**
@@ -58,7 +73,9 @@ class ClusterController extends Controller
      */
     public function edit(Cluster $cluster)
     {
-        //
+        // $cluster = Cluster::all();
+        $strategies = Strategy::all();
+        return view('md.cluster.edit', compact('strategies', 'cluster'));
     }
 
     /**
@@ -70,7 +87,8 @@ class ClusterController extends Controller
      */
     public function update(UpdateClusterRequest $request, Cluster $cluster)
     {
-        //
+        $cluster->update($request->all());
+        return redirect()->route('cluster.index');
     }
 
     /**
@@ -81,6 +99,9 @@ class ClusterController extends Controller
      */
     public function destroy(Cluster $cluster)
     {
-        //
+        $cluster->delete();
+
+        return redirect()->route('cluster.index')
+            ->with('Berjaya', 'Keterangan berjaya dibuang');
     }
 }

@@ -1,16 +1,15 @@
 @extends('base')
 @section('content')
     <div class="container">
-        <br>
         <div class="mb-4 text-center">
             <H2>MyDigital</H2>
         </div>
 
         <br>
 
-        <span><b>List of Strategy</b></span>
+        <span><b>List of Cluster</b></span>
         @role('admin|bahagian|kementerian')
-            <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/strategy/create">
+            <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/cluster/create">
                 <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
         @endrole
         <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
@@ -20,10 +19,10 @@
         <hr style="width:100%;text-align:center;">
 
         <select class="form-select search" style="width:30%" aria-label="Default select example">
-            <option selected disabled hidden>THRUST</option>
+            <option selected disabled hidden>STRATEGY</option>
 
-            @foreach ($thrust as $thrust)
-                <option value="{{ $thrust->id }}">{{ $thrust->namaThrust }}</option>
+            @foreach ($strategies as $strategies)
+                <option value="{{ $strategies->id }}">{{ $strategies->namaStrategy }}</option>
             @endforeach
 
         </select>
@@ -36,39 +35,70 @@
                 <thead>
                     <tr>
                         <th scope="col">No.</th>
-                        <th scope="col">Strategy</th>
-                        <th scope="col">Type</th>
+                        <th scope="col">Cluster</th>
+                        <th scope="col">National/Sectoral Initiaves</th>
+                        <th scope="col">Lead Ministry/Agency</th>
+                        <th scope="col">Phase 1</th>
+                        <th scope="col">Phase 2</th>
+                        <th scope="col">Phase 3</th>
                         <th scope="col">Action</th>
+
                     </tr>
                 </thead>
 
                 <tbody id="tablebody">
-                    @foreach ($strategys as $strategy)
+                    @foreach ($clusters as $cluster)
                         <tr class="align-middle">
                             <td class="text-nowrap">
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                    data-bs-target="#error-modal-{{ $strategy->id }}">
+                                    data-bs-target="#error-modal-{{ $cluster->id }}">
                                     <div class="ms-2"><b>{{ $loop->iteration }}</b></div>
                                 </div>
                             </td>
 
                             <td class="text-nowrap">
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                    data-bs-target="#error-modal-{{ $strategy->id }}">
-                                    <div class="ms-2"><b>{{ $strategy->namaStrategy }}</b></div>
+                                    data-bs-target="#error-modal-{{ $cluster->id }}">
+                                    <div class="ms-2"><b>{{ $cluster->namaCluster }}</b></div>
                                 </div>
                             </td>
 
                             <td class="text-nowrap">
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                    data-bs-target="#error-modal-{{ $strategy->id }}">
-                                    <div class="ms-2"><b>{{ $strategy->category }}</b></div>
+                                    data-bs-target="#error-modal-{{ $cluster->id }}">
+                                    <div class="ms-2"><b>{{ $cluster->category }}</b></div>
                                 </div>
                             </td>
 
+                            <td class="text-nowrap">
+                                <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#error-modal-{{ $cluster->id }}">
+                                    <div class="ms-2"><b>{{ $cluster->category }}</b></div>
+                                </div>
+                            </td>
 
+                            <td class="text-nowrap">
+                                <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#error-modal-{{ $cluster->id }}">
+                                    <div class="ms-2"><b>{{ $cluster->category }}</b></div>
+                                </div>
+                            </td>
 
-                            <div class="modal fade" id="error-modal-{{ $strategy->id }}" tabindex="-1" role="dialog"
+                            <td class="text-nowrap">
+                                <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#error-modal-{{ $cluster->id }}">
+                                    <div class="ms-2"><b>{{ $cluster->category }}</b></div>
+                                </div>
+                            </td>
+
+                            <td class="text-nowrap">
+                                <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#error-modal-{{ $cluster->id }}">
+                                    <div class="ms-2"><b>{{ $cluster->category }}</b></div>
+                                </div>
+                            </td>
+
+                            <div class="modal fade" id="error-modal-{{ $cluster->id }}" tabindex="-1" role="dialog"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
                                     <div class="modal-content position-relative">
@@ -85,18 +115,14 @@
                                                         <label class="col-form-label" for="namaStrategy">Strategy
                                                             Name:</label>
                                                         <label class="form-control"
-                                                            disabled="disabled">{{ $strategy->namaStrategy }}</label>
+                                                            disabled="disabled">{{ $cluster->namaCluster }}</label>
 
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label class="col-form-label">Category:</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">{{ $strategy->category }}</label>
-                                                    </div>
+
                                                     <div class="mb-3">
                                                         <label class="col-form-label">Description:</label>
                                                         <label class="form-control"
-                                                            disabled="disabled">{{ $strategy->desc }}</label>
+                                                            disabled="disabled">{{ $cluster->desc }}</label>
                                                     </div>
 
                                                 </form>
@@ -112,11 +138,11 @@
                                     <div>
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="{{ route('strategy.edit', $strategy->id) }}"><i class="fas fa-edit"></i>
+                                            href="{{ route('cluster.edit', $cluster->id) }}"><i class="fas fa-edit"></i>
                                         </a>
 
 
-                                        <button type="submit" onclick="myFunction({{ $strategy->id }})" class="btn btn-danger"
+                                        <button type="submit" onclick="myFunction({{ $cluster->id }})" class="btn btn-danger"
                                             style="border-radius: 38px">
                                             <i class="fas fa-trash"></i>
                                         </button>
@@ -131,6 +157,8 @@
                 </tbody>
 
             </table>
+
+
         </div>
 
 
@@ -144,14 +172,14 @@
             let val = this.value;
             var iteration = 1;
 
-            var strategy = @json($strategys->toArray());
+            var cluster = @json($clusters->toArray());
             $("#tablebody").html('');
 
-            // console.log(strategy);
+            console.log(cluster);
 
-            strategy.forEach(e => {
+            cluster.forEach(e => {
 
-                if (val == e.thrust_id) {
+                if (val == e.strategy_id) {
                     $("#tablebody").append(`
                     <tr class="align-middle">
                             <td>
@@ -164,24 +192,17 @@
                             <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-` + e.id + `">
-                                    <div class="ms-2"><b>` + e.namaStrategy + `</b></div>
-                                </div>
-                            </td>
-
-                            <td>
-                                <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                    data-bs-target="#error-modal-` + e.id + `">
-                                    <div class="ms-2"><b>` + e.category + `</b></div>
+                                    <div class="ms-2"><b>` + e.namaCluster + `</b></div>
                                 </div>
                             </td>
 
 
                             <td>
                                 <div>
-                                    <form action="/strategy/` + e.id + `" method="POST">
+                                    <form action="/cluster/` + e.id + `" method="POST">
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="/strategy/` + e.id + `"><i
+                                            href="/cluster/` + e.id + `"><i
                                                 class="fas fa-edit"></i>
                                         </a>
 
@@ -213,16 +234,12 @@
                                             <div class="p-4 pb-0">
                                                 <form>
                                                     <div class="mb-3">
-                                                        <label class="col-form-label">Strategy Name:</label>
+                                                        <label class="col-form-label">Cluster Name:</label>
                                                         <label class="form-control"
-                                                            disabled="disabled">` + e.namaStrategy + `</label>
+                                                            disabled="disabled">` + e.namaCluster + `</label>
 
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label class="col-form-label">Type:</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">` + e.category + `</label>
-                                                    </div>
+
                                                     <div class="mb-3">
                                                         <label class="col-form-label">Description:</label>
                                                         <label class="form-control"
@@ -255,14 +272,14 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/strategy/" + id,
+                    url: "/cluster/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }
                 });
 
                 alert = "Berjaya di buang!";
-                location.href = "/strategy";
+                location.href = "/cluster";
 
             } else {
                 alert("Dibatalkan!");

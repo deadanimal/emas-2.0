@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\AuditController;
 use App\Http\Controllers\BabController;
 use App\Http\Controllers\BidangController;
+use App\Http\Controllers\ClusterController;
 use App\Http\Controllers\FokusutamaController;
 use App\Http\Controllers\InisiatifController;
+use App\Http\Controllers\InitiativeController;
 use App\Http\Controllers\KeyController;
 use App\Http\Controllers\Kpi2Controller;
 use App\Http\Controllers\KpiController;
@@ -15,6 +18,8 @@ use App\Http\Controllers\OutcomeController;
 use App\Http\Controllers\PemacuController;
 use App\Http\Controllers\PemangkindasarController;
 use App\Http\Controllers\PerkarautamaController;
+use App\Http\Controllers\PlanController;
+use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\SdgController;
 use App\Http\Controllers\StrategiController;
 use App\Http\Controllers\StrategyController;
@@ -24,6 +29,8 @@ use App\Http\Controllers\ThrustController;
 use App\Http\Controllers\TindakanController;
 use App\Models\Perkarautama;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PDFController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -163,18 +170,30 @@ Route::resource('/strategy', StrategyController::class);
 
 
 //Cluster
+Route::resource('/cluster', ClusterController::class);
 
 
-//Initiave
+//Initiative
+Route::resource('/initiative', InitiativeController::class);
 
 
 //Program
+Route::resource('/program', ProgramController::class);
 
 
 //Plan
+Route::resource('/plan', PlanController::class);
 
 
-//Activities
+//Activity
+Route::resource('/activity', ActivityController::class);
+Route::post('/search_activity', [ActivityController::class, 'searchActivity']);
+Route::post('/search_activity1', [ActivityController::class, 'searchActivity1']);
+Route::get('/activity1/index1/', [ActivityController::class, 'index1']);
+Route::post('/activity/lulus/{id}', [ActivityController::class, 'lulus'])->name('activity.lulus');
+Route::post('/activity/ditolak/{id}', [ActivityController::class, 'ditolak'])->name('activity.ditolak');
+
+
 
 
 

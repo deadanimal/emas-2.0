@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('clusters', function (Blueprint $table) {
             $table->id();
+            $table->string('namaCluster')->nullable();
+            $table->string('desc')->nullable();
+            $table->string('user_id')->nullable();
+            $table->string('strategies_id')->nullable();
             $table->timestamps();
         });
     }

@@ -187,7 +187,23 @@
                         </a>
                     @endif
 
-                    @if (Request::is('thrus', 'thrus/*', 'strategy', 'strategy/*', 'cluster', 'cluster/*'))
+                    @if (Request::is(
+                        'thrus',
+                        'thrus/*',
+                        'strategy',
+                        'strategy/*',
+                        'cluster',
+                        'cluster/*',
+                        'initiative',
+                        'initiative/*',
+                        'program',
+                        'program/*',
+                        'plan',
+                        'plan/*',
+                        'activity',
+                        'activity/*',
+                        'activity1',
+                        'activity1/*'))
                         <a class="nav-link btn1" href="" role="button">
 
                             <div class="d-flex align-items-center">
@@ -484,7 +500,7 @@
                                         href="/national">
                                         <div class="d-flex align-items-center"><span
                                                 class="nav-link-text1 ps-1">National
-                                                Initiave
+                                                Initiative
                                             </span>
                                         </div>
                                     </a>
@@ -512,7 +528,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link btn1 {{ Request::is('kpi2', 'kpi2/*') ? 'active' : '' }}"
                                         href="/kpi2">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Kpi
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">KPI
                                             </span>
                                         </div>
                                     </a>
@@ -534,7 +550,7 @@
                         </div>
                     @endif
 
-                    <br>
+                    {{-- <br> --}}
 
                     @if (Request::is('lokaliti', 'lokaliti/*', 'senarai', 'senarai/*', 'bantuan', 'bantuan/*'))
                         <a class="nav-link dropdown-indicator" href="#bmtkm" role="button"
@@ -643,9 +659,25 @@
                         </div>
                     @endif
 
-                    <br>
+                    {{-- <br> --}}
 
-                    @if (Request::is('thrus', 'thrus/*', 'strategy', 'strategy/*', 'cluster', 'cluster/*'))
+                    @if (Request::is(
+                        'thrus',
+                        'thrus/*',
+                        'strategy',
+                        'strategy/*',
+                        'cluster',
+                        'cluster/*',
+                        'initiative',
+                        'initiative/*',
+                        'program',
+                        'program/*',
+                        'plan',
+                        'plan/*',
+                        'activity',
+                        'activity/*',
+                        'activity1',
+                        'activity1/*'))
                         <a class="nav-link dropdown-indicator" href="#md" role="button"
                             data-bs-toggle="collapse" aria-expanded="true" aria-controls="md"
                             style="background-color: #C4D4ED">
@@ -687,10 +719,10 @@
                                     <!-- more inner pages-->
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link btn1 {{ Request::is('initiave', 'initiave/*') ? 'active' : '' }}"
-                                        href="/initiave">
+                                    <a class="nav-link btn1 {{ Request::is('initiative', 'initiative/*') ? 'active' : '' }}"
+                                        href="/initiative">
                                         <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List
-                                                of Initiave</span>
+                                                of Initiative</span>
                                         </div>
                                     </a>
                                     <!-- more inner pages-->
@@ -716,16 +748,57 @@
                                     <!-- more inner pages-->
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link btn1 {{ Request::is('activities', 'activities/*') ? 'active' : '' }}"
-                                        href="/activities">
+                                    <a class="nav-link btn1 {{ Request::is('activity', 'activity/*') ? 'active' : '' }}"
+                                        href="/activity">
                                         <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List
-                                                of Activities
+                                                of Activity
                                             </span>
                                         </div>
                                     </a>
                                     <!-- more inner pages-->
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 dropdown-indicator  {{ Request::is('activity1', 'activity1/*') ? 'active' : '' }}"
+                                        href="#cluster" role="button" data-bs-toggle="collapse"
+                                        aria-expanded="false" aria-controls="cluster">
+                                        <div class="d-flex align-items-center">
+                                            <span class="nav-link-text1 ps-1">Status of Cluster</span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
 
+                                    <ul class="nav collapse" id="cluster">
+                                        <li class="nav-item"><a class="nav-link btn1" href="/activity1/index1">
+                                                <div class="d-flex align-items-center"><span
+                                                        class="nav-link-text1 btn1 ps-1">List of Program Based
+                                                        Status</span>
+                                                </div>
+                                            </a>
+                                            <!-- more inner pages-->
+                                        </li>
+                                    </ul>
+                                    <ul class="nav collapse" id="cluster">
+                                        <li class="nav-item"><a class="nav-link" href="/activity1/index1">
+                                                <div class="d-flex align-items-center"><span
+                                                        class="nav-link-text1 btn1 ps-1">List of Cluster Based on
+                                                        Program
+                                                    </span>
+                                                </div>
+                                            </a>
+                                            <!-- more inner pages-->
+                                        </li>
+                                    </ul>
+                                    <ul class="nav collapse" id="cluster">
+                                        <li class="nav-item"><a class="nav-link" href="/activity1">
+                                                <div class="d-flex align-items-center"><span
+                                                        class="nav-link-text1 btn1 ps-1">List for Approval
+                                                    </span>
+                                                </div>
+                                            </a>
+                                            <!-- more inner pages-->
+                                        </li>
+                                    </ul>
+                                </li>
 
                             </ul>
                         </div>

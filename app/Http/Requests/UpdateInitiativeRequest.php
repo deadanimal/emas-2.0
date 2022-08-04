@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreClusterRequest extends FormRequest
+class UpdateInitiativeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,17 +24,28 @@ class StoreClusterRequest extends FormRequest
     public function rules()
     {
         return [
-            'namaCluster' => [
+            'namaInitiative' => [
                 'string',
                 'required',
             ],
 
-            'desc' => [
+            'target' => [
                 'string',
                 'required',
             ],
 
-            'strategies_id' => [
+            'phase' => [
+                'string',
+                'required',
+            ],
+
+
+            'leadAgency' => [
+                'string',
+                'required',
+            ],
+
+            'cluster_id' => [
                 'string',
             ],
 

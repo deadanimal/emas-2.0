@@ -1,8 +1,6 @@
 @extends('base')
 @section('content')
     <div class="container">
-        <br>
-
         <div class="mb-4 text-center">
             <H2>DATA ENTRY</H2>
         </div>
@@ -11,43 +9,74 @@
         <br>
 
         <div class="form-floating;">
-            <form action="{{ route('thrus.store') }}" method="POST">
+            <form action="{{ route('initiative.store') }}" method="POST">
                 @csrf
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaThrust">Thrust</label>
+                    <label class="col-sm-2 col-form-label" for="cluster_id">Cluster</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaThrust" />
+                        <select class="form-control" name="cluster_id">
+                            <option selected disabled hidden>PLEASE CHOOSE</option>
+
+                            @foreach ($cluster as $cluster)
+                                <option value="{{ $cluster->id }}">{{ $cluster->namaCluster }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="namaInitiative">Initiatives Name</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="namaInitiative" />
 
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="category">Category</label>
+                    <label class="col-sm-2 col-form-label" for="target">Target Initiatives</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="category">
-                            <option selected disabled hidden>PLEASE CHOOSE</option>
-                            <option value="DEB">DEB</option>
-                            <option value="4IR">4IR</option>
-                        </select>
+                        <input class="form-control" type="text" name="target" />
 
                     </div>
                 </div>
 
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="phase">Phase</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="phase">
+                            <option selected disabled hidden>PLEASE CHOOSE</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="leadAgency">Lead Agency</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="leadAgency" />
+
+                    </div>
+                </div>
+
+
                 <br>
                 <br>
 
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <label class="form-label" for="desc"><b>Description:</b></label>
                     <textarea class="form-control" name="desc" rows="5"></textarea>
-                </div>
+                </div> --}}
 
 
 
                 <div class="row">
                     <div class="col">
                         <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                            href="/thrus">
+                            href="/initiative">
                             <span class="fas fa-times-circle"></span>&nbsp;Cancel
                         </a>
                     </div>

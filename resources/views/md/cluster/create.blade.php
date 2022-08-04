@@ -1,8 +1,6 @@
 @extends('base')
 @section('content')
     <div class="container">
-        <br>
-
         <div class="mb-4 text-center">
             <H2>DATA ENTRY</H2>
         </div>
@@ -11,26 +9,28 @@
         <br>
 
         <div class="form-floating;">
-            <form action="{{ route('thrus.store') }}" method="POST">
+            <form action="{{ route('cluster.store') }}" method="POST">
                 @csrf
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaThrust">Thrust</label>
+                    <label class="col-sm-2 col-form-label" for="namaCluster">Cluster Name</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaThrust" />
+                        <input class="form-control" type="text" name="namaCluster" />
 
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="category">Category</label>
+                    <label class="col-sm-2 col-form-label" for="stragies_id">Strategy</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="category">
+                        <select class="form-control" name="stragies_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
-                            <option value="DEB">DEB</option>
-                            <option value="4IR">4IR</option>
-                        </select>
 
+                            @foreach ($strategies as $strategies)
+                                <option value="{{ $strategies->id }}">{{ $strategies->namaStrategy }}</option>
+                            @endforeach
+
+                        </select>
                     </div>
                 </div>
 
@@ -47,7 +47,7 @@
                 <div class="row">
                     <div class="col">
                         <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                            href="/thrus">
+                            href="/cluster">
                             <span class="fas fa-times-circle"></span>&nbsp;Cancel
                         </a>
                     </div>

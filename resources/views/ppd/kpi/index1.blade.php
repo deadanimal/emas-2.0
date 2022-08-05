@@ -7,7 +7,7 @@
         </div>
         <br>
 
-        @role('admin')
+        @can('BPKP')
             <div class="mb-3 row">
                 <div class="row align-items-center">
                     <label class="col-sm-2 col-form-label" for="tema_id">Tema/Pemangkin Dasar</label>
@@ -96,7 +96,7 @@
                     </div>
                 </div>
             </div>
-        @endrole
+        @endcan
 
 
         <div id="tableExample2" data-list='{"valueNames":["kpi"],"page":6,"pagination":true}'>
@@ -106,9 +106,9 @@
                         <table class="table mb-0" style="width: 400%" value="null">
                             <thead class="text-black bg-200">
                                 <tr>
-                                    @role('admin')
+                                    @can('BPKP')
                                         <th class="align-middle">User</th>
-                                    @endrole
+                                    @endcan
                                     <th class="align-middle">KPI Nasional</th>
                                     <th class="align-middle">Tema </th>
                                     <th class="align-middle">Jenis KPI</th>
@@ -130,20 +130,20 @@
                                     <th class="align-middle">Sasaran 2025</th>
                                     <th class="align-middle">Sumber Data</th>
                                     <th class="align-middle">Sumber Pengesahan</th>
-                                    @role('bahagian|kementerian')
+                                    @can('KementerianPPD', 'BahagianPPD', 'AgensiPPD')
                                         <th class="align-middle">Status</th>
-                                    @endrole
-                                    @role('admin')
+                                    @endcan
+                                    @can('BPKP')
                                         <th class="align-middle">Tindakan</th>
-                                    @endrole
+                                    @endcan
                                 </tr>
                             </thead>
                             <tbody class="list myTable" id="searchUpdateTable">
                                 @foreach ($kpis as $kpi)
                                     <tr class="kpi">
-                                        @role('admin')
+                                        @can('BPKP')
                                             <td class="align-middle">{{ $loop->iteration }}. {{ $kpi->user->name }}</td>
-                                        @endrole
+                                        @endcan
                                         <td class="align-middle">{{ $kpi->namaKpi }}</td>
                                         <td class="align-middle">{{ $kpi->pemangkin->namaTema ?? '' }}</td>
                                         <td class="align-middle">{{ $kpi->jenisKpi }}</td>
@@ -165,7 +165,7 @@
                                         <td class="align-middle">{{ $kpi->sasaran2025 }}</td>
                                         <td class="align-middle">{{ $kpi->sumberData }}</td>
                                         <td class="align-middle">{{ $kpi->sumberPengesahan }}</td>
-                                        @role('admin')
+                                        @can('BPKP')
                                             <td class="align-middle">
                                                 <div class="col-auto ms-auto">
                                                     @if ($kpi->lulus == 1 && $kpi->ditolak == 0)
@@ -198,7 +198,7 @@
                                                     @endif
                                                 </div>
                                             </td>
-                                        @endrole
+                                        @endcan
                                     </tr>
                                 @endforeach
                             </tbody>

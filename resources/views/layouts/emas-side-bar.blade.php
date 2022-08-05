@@ -75,7 +75,10 @@
                                 <span class="nav-link-text ps-1">Laman
                                     Utama
                                 </span>
+
                             </div>
+                            {{ auth()->user()->role }}
+
                             <div class="col-2">
 
                             </div>

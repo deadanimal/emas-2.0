@@ -30,7 +30,7 @@ use App\Http\Controllers\TindakanController;
 use App\Models\Perkarautama;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PDFController;
-
+use App\Http\Controllers\RolesandpermissionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,140 +65,162 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 //MODULE 1 PPD
+Route::group(
+    ['middleware' => ['role:PPD']],
+    function () {
 
-//Fokus Utama
-Route::resource('/fokusutama', FokusutamaController::class);
+        //Fokus Utama
+        Route::resource('/fokusutama', FokusutamaController::class);
 
-//Perkara Utama
-Route::resource('/perkarautama', PerkarautamaController::class);
+        //Perkara Utama
+        Route::resource('/perkarautama', PerkarautamaController::class);
 
-//Tema
+        //Tema
 
-//PemangkinDasar
-Route::resource('/pemangkin', PemangkindasarController::class);
-// Route::get('/kategori','PemangkindasarController@index')->name('kategori');
+        //PemangkinDasar
+        Route::resource('/pemangkin', PemangkindasarController::class);
+        // Route::get('/kategori','PemangkindasarController@index')->name('kategori');
 
-//Bab
-Route::resource('/bab', BabController::class);
-//Search
-Route::post('/search_bab', [BabController::class, 'searchBab']);
+        //Bab
+        Route::resource('/bab', BabController::class);
+        //Search
+        Route::post('/search_bab', [BabController::class, 'searchBab']);
 
-//Pemacu
-Route::resource('/pemacu', PemacuController::class);
-//Search
-Route::post('/search_pemacu', [PemacuController::class, 'searchPemacu']);
-
-
-//Bidang
-Route::resource('/bidang', BidangController::class);
-
-//Outcome Nasional
-Route::resource('/outcome', OutcomeController::class);
-
-//KPI
-Route::resource('/kpi', KpiController::class);
-Route::get('/kpi1/{id}/edit/', [KpiController::class, 'edit1']);
-Route::post('/kpi1/{id}', [KpiController::class, 'update1']);
-Route::get('/kpi1/index1/', [KpiController::class, 'index1']);
-Route::post('/kpi/lulus/{id}', [KpiController::class, 'lulus'])->name('kpi.lulus');
-Route::post('/kpi/ditolak/{id}', [KpiController::class, 'ditolak'])->name('kpi.ditolak');
-//Search
-Route::post('/search_kpi', [KpiController::class, 'searchKpi']);
-Route::post('/search_kpi1', [KpiController::class, 'searchKpi1']);
+        //Pemacu
+        Route::resource('/pemacu', PemacuController::class);
+        //Search
+        Route::post('/search_pemacu', [PemacuController::class, 'searchPemacu']);
 
 
-//Strategi
-Route::resource('/strategi', StrategiController::class);
+        //Bidang
+        Route::resource('/bidang', BidangController::class);
 
-//Inisiatif
-Route::resource('/inisiatif', InisiatifController::class);
-Route::post('/search_inisiatif', [InisiatifController::class, 'searchInisiatif']);
+        //Outcome Nasional
+        Route::resource('/outcome', OutcomeController::class);
 
-
-//Tindakan
-Route::resource('/tindakan', TindakanController::class);
-Route::get('/tindakan1/{id}/edit/', [TindakanController::class, 'edit1']);
-Route::post('/tindakan1/{id}', [TindakanController::class, 'update1']);
-Route::get('/tindakan1/index1/', [TindakanController::class, 'index1']);
-Route::post('/tindakan/lulus/{id}', [TindakanController::class, 'lulus'])->name('tindakan.lulus');
-Route::post('/tindakan/ditolak/{id}', [TindakanController::class, 'ditolak'])->name('tindakan.ditolak');
-Route::post('/search_tindakan', [TindakanController::class, 'searchTindakan']);
-
-
-//SDG
-Route::resource('/sdg', SdgController::class);
-
-//MODULE 2 MPB
-Route::view('/mpb', 'mpb');
-
-//ThrustInformation
-Route::resource('/thrust', ThrustController::class);
-
-//National
-Route::resource('/national', NationalController::class);
-
-//Key Activity
-Route::resource('/key', KeyController::class);
-
-//Sub Activity
-Route::resource('/sub', SubController::class);
-
-//Kpi MPB
-Route::resource('/kpi2', Kpi2Controller::class);
-
-//Milestone
-Route::resource('/milestone', MilestoneController::class);
-
-// Module 3 KT
-
-//Lokaliti
-Route::resource('/lokaliti', LokalitiController::class);
+        //KPI
+        Route::resource('/kpi', KpiController::class);
+        Route::get('/kpi1/{id}/edit/', [KpiController::class, 'edit1']);
+        Route::post('/kpi1/{id}', [KpiController::class, 'update1']);
+        Route::get('/kpi1/index1/', [KpiController::class, 'index1']);
+        Route::post('/kpi/lulus/{id}', [KpiController::class, 'lulus'])->name('kpi.lulus');
+        Route::post('/kpi/ditolak/{id}', [KpiController::class, 'ditolak'])->name('kpi.ditolak');
+        //Search
+        Route::post('/search_kpi', [KpiController::class, 'searchKpi']);
+        Route::post('/search_kpi1', [KpiController::class, 'searchKpi1']);
 
 
+        //Strategi
+        Route::resource('/strategi', StrategiController::class);
+
+        //Inisiatif
+        Route::resource('/inisiatif', InisiatifController::class);
+        Route::post('/search_inisiatif', [InisiatifController::class, 'searchInisiatif']);
 
 
-
-// Module 4 MD
-
-//Thrust
-Route::resource('/thrus', ThrusController::class);
-
-
-
-//Strategy
-Route::resource('/strategy', StrategyController::class);
+        //Tindakan
+        Route::resource('/tindakan', TindakanController::class);
+        Route::get('/tindakan1/{id}/edit/', [TindakanController::class, 'edit1']);
+        Route::post('/tindakan1/{id}', [TindakanController::class, 'update1']);
+        Route::get('/tindakan1/index1/', [TindakanController::class, 'index1']);
+        Route::post('/tindakan/lulus/{id}', [TindakanController::class, 'lulus'])->name('tindakan.lulus');
+        Route::post('/tindakan/ditolak/{id}', [TindakanController::class, 'ditolak'])->name('tindakan.ditolak');
+        Route::post('/search_tindakan', [TindakanController::class, 'searchTindakan']);
 
 
-//Cluster
-Route::resource('/cluster', ClusterController::class);
+        //SDG
+        Route::resource('/sdg', SdgController::class);
+    }
+);
+
+Route::group(
+    ['middleware' => ['role:MPB']],
+    function () {
+
+        //MODULE 2 MPB
+        Route::view('/mpb', 'mpb');
+
+        //ThrustInformation
+        Route::resource('/thrust', ThrustController::class);
+
+        //National
+        Route::resource('/national', NationalController::class);
+
+        //Key Activity
+        Route::resource('/key', KeyController::class);
+
+        //Sub Activity
+        Route::resource('/sub', SubController::class);
+
+        //Kpi MPB
+        Route::resource('/kpi2', Kpi2Controller::class);
+
+        //Milestone
+        Route::resource('/milestone', MilestoneController::class);
+    }
+);
 
 
-//Initiative
-Route::resource('/initiative', InitiativeController::class);
+Route::group(
+    ['middleware' => ['role:KT']],
+    function () {
+        // Module 3 KT
+
+        //Lokaliti
+        Route::resource('/lokaliti', LokalitiController::class);
+    }
+);
 
 
-//Program
-Route::resource('/program', ProgramController::class);
+Route::group(
+    ['middleware' => ['role:MD']],
+    function () {
+        // Module 4 MD
 
-
-//Plan
-Route::resource('/plan', PlanController::class);
-
-
-//Activity
-Route::resource('/activity', ActivityController::class);
-Route::post('/search_activity', [ActivityController::class, 'searchActivity']);
-Route::post('/search_activity1', [ActivityController::class, 'searchActivity1']);
-Route::get('/activity1/index1/', [ActivityController::class, 'index1']);
-Route::post('/activity/lulus/{id}', [ActivityController::class, 'lulus'])->name('activity.lulus');
-Route::post('/activity/ditolak/{id}', [ActivityController::class, 'ditolak'])->name('activity.ditolak');
+        //Thrust
+        Route::resource('/thrus', ThrusController::class);
 
 
 
+        //Strategy
+        Route::resource('/strategy', StrategyController::class);
 
 
-// Module 5 ED
+        //Cluster
+        Route::resource('/cluster', ClusterController::class);
 
-//Audit Log
-// Route::get('/audit', AuditController::class);
-Route::get('/audit', [AuditController::class, 'index']);
+
+        //Initiative
+        Route::resource('/initiative', InitiativeController::class);
+
+
+        //Program
+        Route::resource('/program', ProgramController::class);
+
+
+        //Plan
+        Route::resource('/plan', PlanController::class);
+
+
+        //Activity
+        Route::resource('/activity', ActivityController::class);
+        Route::post('/search_activity', [ActivityController::class, 'searchActivity']);
+        Route::post('/search_activity1', [ActivityController::class, 'searchActivity1']);
+        Route::get('/activity1/index1/', [ActivityController::class, 'index1']);
+        Route::post('/activity/lulus/{id}', [ActivityController::class, 'lulus'])->name('activity.lulus');
+        Route::post('/activity/ditolak/{id}', [ActivityController::class, 'ditolak'])->name('activity.ditolak');
+    }
+);
+
+Route::group(
+    ['middleware' => ['role:ED']],
+    function () {
+        // Module 5 ED
+
+        //Audit Log
+        // Route::get('/audit', AuditController::class);
+        Route::get('/audit', [AuditController::class, 'index']);
+    }
+);
+
+Route::resource('/user', RolesandpermissionController::class);

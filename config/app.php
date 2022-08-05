@@ -164,6 +164,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         OwenIt\Auditing\AuditingServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+
 
 
         /*
@@ -198,5 +200,8 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
+
+    'PDF' => Barryvdh\DomPDF\Facade::class,
+
 
 ];

@@ -1,22 +1,35 @@
 @extends('base')
 @section('content')
     <div class="container">
-        <br>
         <div class="mb-4 text-center">
             <H2>MyDigital</H2>
         </div>
 
         <br>
+        <div class="col">
+            <div class="row align-items-center">
+                <div class="col col-lg-8">
 
-        <span><b>List of Thrust</b></span>
-        @role('admin|bahagian|kementerian')
-            <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/thrus/create">
-                <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
-        @endrole
+                    <span><b>List of Thrust</b></span>
+                    @can('BahagianKT')
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                            href="/thrus/create">
+                            <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
+                    @endcan
 
-        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-            onClick="window.location.reload();">
-            <span class="fas fa-history"></span></a>
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                        onClick="window.location.reload();">
+                        <span class="fas fa-history"></span>
+                    </a>
+                </div>
+                <div class="col-12 col-sm-auto ms-auto">
+                    <input class="form-control myInput" type="text" placeholder="Search">
+                </div>
+            </div>
+        </div>
+
+
+
         <hr style="width:100%;text-align:center;">
 
         <div class="table-responsive scrollbar">
@@ -30,10 +43,10 @@
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody class="list myTable" id="searchUpdateTable">
                     @foreach ($thrust as $thru)
                         <tr class="align-middle">
-                            <td class="text-nowrap">
+                            <td id="searchUpdateTable">
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-{{ $thru->id }}">
                                     <div class="ms-2"><b>{{ $loop->iteration }}</b></div>
@@ -146,5 +159,14 @@
             }
             document.getElementById("ppd").innerHTML = text;
         }
+
+        $(document).ready(function() {
+            $(".myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
     </script>
 @endsection

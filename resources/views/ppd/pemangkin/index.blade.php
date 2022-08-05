@@ -11,12 +11,12 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>Tema/Pemangkin Dasar</b></span>
-                    @role('admin|bahagian|kementerian')
+                    @can('KementerianPPD')
                         <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                             href="/pemangkin/create">
                             <span class="fas fa-plus-circle"></span>&nbsp;Tambah
                         </a>
-                    @endrole
+                    @endcan
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">
                         <span class="fas fa-history"></span></a>
@@ -57,8 +57,8 @@
                                     </div>
                                 </td>
 
-                                <div class="modal fade" id="error-modal-{{ $pemangkin->id }}" tabindex="-1"
-                                    role="dialog" aria-hidden="true">
+                                <div class="modal fade" id="error-modal-{{ $pemangkin->id }}" tabindex="-1" role="dialog"
+                                    aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document"
                                         style="max-width: 500px">
                                         <div class="modal-content position-relative">
@@ -92,14 +92,13 @@
                                     </div>
                                 </div>
 
-                                @role('admin|bahagian|kementerian')
+                                @can('KementerianPPD')
                                     <td align="right">
                                         <div>
                                             {{-- <form action="{{ route('pemangkin.destroy', $pemangkin->id) }}" method="POST"> --}}
 
                                             <a class="btn btn-primary" style="border-radius: 38px"
-                                                href="{{ route('pemangkin.edit', $pemangkin->id) }}"><i
-                                                    class="fas fa-edit"></i>
+                                                href="{{ route('pemangkin.edit', $pemangkin->id) }}"><i class="fas fa-edit"></i>
                                             </a>
 
                                             {{-- @csrf --}}
@@ -114,7 +113,7 @@
                                             {{-- </form> --}}
                                         </div>
                                     </td>
-                                @endrole
+                                @endcan
                             </tr>
                         @endforeach
 

@@ -16,7 +16,8 @@
                     </a>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">
-                        <span class="fas fa-history"></span></a>
+                        <span class="fas fa-history"></span>
+                    </a>
                 </div>
                 <div class="col-12 col-sm-auto ms-auto">
                     <input class="form-control myInput" type="text" placeholder="Carian">

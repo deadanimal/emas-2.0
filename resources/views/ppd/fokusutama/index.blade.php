@@ -11,9 +11,11 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>Fokus Utama</b></span>
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/fokusutama/create">
-                        <span class="fas fa-plus-circle"></span>&nbsp;Tambah</a>
+                    @can('KementerianPPD')
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                            href="/fokusutama/create">
+                            <span class="fas fa-plus-circle"></span>&nbsp;Tambah</a>
+                    @endcan
 
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">
@@ -85,9 +87,8 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <td align="right">
-                                    @role('admin|bahagian|kementerian')
+                                @can('KementerianPPD')
+                                    <td align="right">
                                         <div>
                                             {{-- <form action="{{ route('fokusutama.destroy', $fokus->id) }}" method="POST"> --}}
 
@@ -105,8 +106,9 @@
 
                                             {{-- </form> --}}
                                         </div>
-                                    @endrole
-                                </td>
+                                    </td>
+                                @endcan
+
                             </tr>
                         @endforeach
 

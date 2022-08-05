@@ -46,7 +46,7 @@ class RegisteredUserController extends Controller
         ]);
 
         // auth()->user()->assignRole('admin');
-        $user->assignRole('admin');
+        $user->assignRole('PPD');
 
         event(new Registered($user));
 

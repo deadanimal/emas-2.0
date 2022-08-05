@@ -21,16 +21,12 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon.ico">
     <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico">
     <link rel="manifest" href="/assets/img/favicons/manifest.json">
-    {{-- <link href="vendors/dropzone/dropzone.min.css" rel="stylesheet" /> --}}
     <meta name="msapplication-TileImage" content="/assets/img/favicons/mstile-150x150.png">
     <meta name="theme-color" content="#ffffff">
     <script src="/assets/js/config.js"></script>
     <script src="/vendors/overlayscrollbars/OverlayScrollbars.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    {{-- <script src="vendors/dropzone/dropzone.min.js"></script> --}}
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    {{-- <script type="text/javascript" src="/assets/js/datatables.min.js"></script>
-    <script type="text/javascript" src="/assets/js/datatables.js"></script> --}}
     <script src="/assets/js/flatpickr.js"></script>
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
@@ -56,25 +52,7 @@
     <link href="/assets/css/theme.min.css" rel="stylesheet" id="style-default">
     <link href="/assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
     <link href="/assets/css/user.min.css" rel="stylesheet" id="user-style-default">
-    {{-- <link rel="stylesheet" type="text/css" href="/assets/css/datatables.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/datatables.min.css" /> --}}
-    {{-- <script>
-        var APP_URL = {!! json_encode(url('/')) !!}
 
-        var isRTL = JSON.parse(localStorage.getItem('isRTL'));
-        if (isRTL) {
-            var linkDefault = document.getElementById('style-default');
-            var userLinkDefault = document.getElementById('user-style-default');
-            linkDefault.setAttribute('disabled', true);
-            userLinkDefault.setAttribute('disabled', true);
-            document.querySelector('html').setAttribute('dir', 'rtl');
-        } else {
-            var linkRTL = document.getElementById('style-rtl');
-            var userLinkRTL = document.getElementById('user-style-rtl');
-            linkRTL.setAttribute('disabled', true);
-            userLinkRTL.setAttribute('disabled', true);
-        }
-    </script> --}}
 </head>
 <img src="/img/banner.png" alt="banner" width="100%">
 
@@ -360,8 +338,11 @@
         <div class="container">
             <div class="mb-4 text-center">
             </div>
+            {{ auth()->user()->getPermissionNames() }}
 
-            @role('admin')
+            {{ auth()->user()->role }}
+
+            @can('ICT', 'EpuED', 'Eksekutif')
                 <div class="row pb-3">
                     <div class="col-md-6 col-lg-4 text-center">
                         <a class="mb-3" href="/fokusutama">
@@ -408,9 +389,11 @@
                     <div class="col-md-6 col-lg-2 text-center">
                     </div>
                 </div>
-                @elserole('bahagian|kementerian')
+            @endcan
+
+            @can('KementerianPPD', 'BahagianPPD', 'AgensiPPD', 'BPKP')
                 <div class="row pb-3">
-                    @if (auth()->user()->role == 'bahagian')
+                    @if (auth()->user()->role == 'PPD')
                         <div class="col-md-6 col-lg-4 text-center">
                             <a class="mb-3" href="/fokusutama">
                                 <div class="px-4 pt-4">
@@ -482,9 +465,7 @@
                     <div class="col-md-6 col-lg-2 text-center">
                     </div>
                 </div>
-
-
-                @elserole('menteri')
+            @elsecan('User', 'Approver', )
                 <div class="row pb-3">
 
                     <div class="row pb-3">
@@ -497,10 +478,9 @@
                             </a>
                         </div>
                         <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3" id="myAnchor">
+                            <a class="mb-3" href="/mpb">
                                 <div class="px-4 pt-4">
-                                    <img src="img/MPB.png" class="img-fluid card-img-hover landing-img" alt=""
-                                        style="opacity: 50%">
+                                    <img src="img/MPB.png" class="img-fluid card-img-hover landing-img" alt="">
                                 </div>
                             </a>
                         </div>
@@ -524,9 +504,10 @@
                             </a>
                         </div>
                         <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3" href="/" id="myAnchor">
+                            <a class="mb-3" id="myAnchor">
                                 <div class="px-4 pt-4">
-                                    <img src="img/ED.png" class="img-fluid card-img-hover landing-img" alt="">
+                                    <img src="img/ED.png" class="img-fluid card-img-hover landing-img" alt=""
+                                        style="opacity: 50%">
                                 </div>
                             </a>
                         </div>
@@ -535,20 +516,181 @@
 
 
                     </div>
-                @endrole
-            </div>
+                @elsecan('AgensiKT', 'BahagianKT')
+                    <div class="row pb-3">
 
-            <footer class="risda-bg-dg">
-                <div class="row p-">
-                    <div class="col">
-                        <div class="text-center">
-                            <b>Copyright</b> ©️ <b>UNIT PERANCANG EKONOMI</b>
+                        <div class="row pb-3">
+                            <div class="col-md-6 col-lg-4 text-center">
+                                <a class="mb-3" id="myAnchor">
+                                    <div class="px-4 pt-4">
+                                        <img src="img/PPD.png" class="img-fluid card-img-hover landing-img"
+                                            alt="Pelan Pelaksanaan" style="opacity: 50%">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-lg-4 text-center">
+                                <a class="mb-3">
+                                    <div class="px-4 pt-4">
+                                        <img src="img/MPB.png" class="img-fluid card-img-hover landing-img"
+                                            alt="" style="opacity: 50%">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-lg-4 text-center">
+                                <a class="mb-3" href="/lokaliti">
+                                    <div class="px-4 pt-4">
+                                        <img src="img/KT.png" class="img-fluid card-img-hover landing-img"
+                                            alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-lg-2 text-center">
+
+                            </div>
+                            <div class="col-md-6 col-lg-4 text-center">
+                                <a class="mb-3" id="myAnchor">
+                                    <div class="px-4 pt-4">
+                                        <img src="img/MD.png" class="img-fluid card-img-hover landing-img" alt=""
+                                            style="opacity: 50%">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-lg-4 text-center">
+                                <a class="mb-3" id="myAnchor">
+                                    <div class="px-4 pt-4">
+                                        <img src="img/ED.png" class="img-fluid card-img-hover landing-img" alt=""
+                                            style="opacity: 50%">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-lg-2 text-center">
+                            </div>
+
+
+                        </div>
+                    @elsecan('MPB')
+                        <div class="row pb-3">
+
+                            <div class="row pb-3">
+                                <div class="col-md-6 col-lg-4 text-center">
+                                    <a class="mb-3" id="myAnchor">
+                                        <div class="px-4 pt-4">
+                                            <img src="img/PPD.png" class="img-fluid card-img-hover landing-img"
+                                                alt="Pelan Pelaksanaan" style="opacity: 50%">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 col-lg-4 text-center">
+                                    <a class="mb-3" href="/mpb">
+                                        <div class="px-4 pt-4">
+                                            <img src="img/MPB.png" class="img-fluid card-img-hover landing-img"
+                                                alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 col-lg-4 text-center">
+                                    <a class="mb-3" id="myAnchor">
+                                        <div class="px-4 pt-4">
+                                            <img src="img/KT.png" class="img-fluid card-img-hover landing-img"
+                                                alt="" style="opacity: 50%">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 col-lg-2 text-center">
+
+                                </div>
+                                <div class="col-md-6 col-lg-4 text-center">
+                                    <a class="mb-3" id="myAnchor">
+                                        <div class="px-4 pt-4">
+                                            <img src="img/MD.png" class="img-fluid card-img-hover landing-img"
+                                                alt="" style="opacity: 50%">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 col-lg-4 text-center">
+                                    <a class="mb-3" id="myAnchor">
+                                        <div class="px-4 pt-4">
+                                            <img src="img/ED.png" class="img-fluid card-img-hover landing-img"
+                                                alt="" style="opacity: 50%">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 col-lg-2 text-center">
+                                </div>
+
+
+                            </div>
+                        @elsecan('KementerianMD', 'BahagianMD', 'AgensiMD', 'Urusetia', 'EpuMD',)
+                            <div class="row pb-3">
+
+                                <div class="row pb-3">
+                                    <div class="col-md-6 col-lg-4 text-center">
+                                        <a class="mb-3" id="myAnchor">
+                                            <div class="px-4 pt-4">
+                                                <img src="img/PPD.png" class="img-fluid card-img-hover landing-img"
+                                                    alt="Pelan Pelaksanaan" style="opacity: 50%">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 text-center">
+                                        <a class="mb-3">
+                                            <div class="px-4 pt-4">
+                                                <img src="img/MPB.png" class="img-fluid card-img-hover landing-img"
+                                                    alt="" style="opacity: 50%">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 text-center">
+                                        <a class="mb-3">
+                                            <div class="px-4 pt-4">
+                                                <img src="img/KT.png" class="img-fluid card-img-hover landing-img"
+                                                    alt="" style="opacity: 50%">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-6 col-lg-2 text-center">
+
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 text-center">
+                                        <a class="mb-3" href="/thrus">
+                                            <div class="px-4 pt-4">
+                                                <img src="img/MD.png" class="img-fluid card-img-hover landing-img"
+                                                    alt="">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 text-center">
+                                        <a class="mb-3" id="myAnchor">
+                                            <div class="px-4 pt-4">
+                                                <img src="img/ED.png" class="img-fluid card-img-hover landing-img"
+                                                    alt="" style="opacity: 50%">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-6 col-lg-2 text-center">
+                                    </div>
+
+
+                                </div>
+                            @endcan
+
                         </div>
                     </div>
                 </div>
-            </footer>
+            </div>
+        </div>
 
-            {{-- <img src="/img/footer.png" alt="footer" width="100%"> --}}
+        <footer class="risda-bg-dg">
+            <div class="row p-">
+                <div class="col">
+                    <div class="text-center">
+                        <b>Copyright</b> ©️ <b>UNIT PERANCANG EKONOMI</b>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        {{-- <img src="/img/footer.png" alt="footer" width="100%"> --}}
 
 
     </main>
@@ -570,11 +712,6 @@
     <script src="../../../vendors/list.js/list.min.js"></script>
     <script src="../../../assets/js/theme.js"></script>
 
-    <script>
-        document.getElementById("myAnchor").addEventListener("click", function(event) {
-            event.preventDefault()
-        });
-    </script>
 </body>
 
 </html>

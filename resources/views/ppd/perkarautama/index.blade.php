@@ -11,12 +11,13 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>Perkara Utama</b></span>
-                    @role('admin|bahagian|kementerian')
+                    @can('KementerianPPD')
                         <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                             href="/perkarautama/create">
                             <span class="fas fa-plus-circle"></span>&nbsp;Tambah
                         </a>
-                    @endrole
+                    @endcan
+
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">
                         <span class="fas fa-history"></span></a>

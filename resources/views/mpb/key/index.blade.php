@@ -9,10 +9,8 @@
         <br>
 
         <span><b>Key Activities Information</b></span>
-        @role('admin|kementerian')
-            <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/key/create">
-                <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
-        @endrole
+        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/key/create">
+            <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
         <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
             onClick="window.location.reload();">
             <span class="fas fa-history"></span></a>
@@ -81,26 +79,24 @@
                             </div>
 
                             <td align="right">
-                                @role('admin|kementerian')
-                                    <div>
-                                        {{-- <form action="{{ route('key.destroy', $k->id) }}" method="POST"> --}}
+                                <div>
+                                    {{-- <form action="{{ route('key.destroy', $k->id) }}" method="POST"> --}}
 
-                                        <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="{{ route('key.edit', $k->id) }}"><i class="fas fa-edit"></i>
-                                        </a>
-                                        {{-- @csrf
+                                    <a class="btn btn-primary" style="border-radius: 38px"
+                                        href="{{ route('key.edit', $k->id) }}"><i class="fas fa-edit"></i>
+                                    </a>
+                                    {{-- @csrf
                                         @method('DELETE') --}}
 
-                                        <button type="keymit" onclick="myFunction({{ $k->id }})" class="btn btn-danger"
-                                            style="border-radius: 38px">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                        <p id="ppd"></p>
+                                    <button type="keymit" onclick="myFunction({{ $k->id }})" class="btn btn-danger"
+                                        style="border-radius: 38px">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                    <p id="ppd"></p>
 
-                                        {{-- </form> --}}
-                                    </div>
-                                </td>
-                            @endrole
+                                    {{-- </form> --}}
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
 

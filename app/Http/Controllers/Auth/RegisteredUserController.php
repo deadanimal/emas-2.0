@@ -47,6 +47,8 @@ class RegisteredUserController extends Controller
 
         // auth()->user()->assignRole('admin');
         $user->assignRole('PPD');
+        $user->save();
+
 
         event(new Registered($user));
 

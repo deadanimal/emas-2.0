@@ -30,6 +30,7 @@ use App\Http\Controllers\TindakanController;
 use App\Models\Perkarautama;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\RolesandpermissionController;
 
 /*
@@ -223,4 +224,7 @@ Route::group(
     }
 );
 
-Route::resource('/user', RolesandpermissionController::class);
+Route::resource('/userRole', RolesandpermissionController::class);
+Route::resource('/user', PenggunaController::class);
+
+// Route::get('/user1/index1/', [PenggunaController::class, 'index']);

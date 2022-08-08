@@ -1,133 +1,84 @@
 @extends('base')
 @section('content')
-    <?php
-    use App\Models\Rolesandpermission;
-    ?>
-
-    <div class="container-fluid py-4">
-        <div class="row">
-            <div class="col-12">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                        <li class="breadcrumb-item text-sm">
-                            <a class="opacity-3 text-dark" href="/dashboard">
-                                <i class="fas fa-home"></i>
-                            </a>
-                        </li>
-                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Kawalan
-                                Sistem</a></li>
-                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Kebenaran
-                                Pengguna</a></li>
-                    </ol>
-                </nav>
-            </div>
+    <div class="container">
+        <div class="mb-4 text-center">
+            <H2>KEMAS KINI DATA</H2>
         </div>
 
-        <div class="row mb-3">
-            <div class="col-lg-6">
-                <h5 class="font-weight-bolder">Kebenaran Pengguna</h5>
-            </div>
-            {{-- <div class="col-lg-6">
-                <div class="column-12">
-                    <a href="/notifikasi_email/{{$noti->id}}/edit" class="btn bg-gradient-primary mx-4" type="submit"
-                        style="float: right;">Kemaskini</a>
-                </div>
-            </div> --}}
-        </div>
 
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header" style="background-color:#FFA500;">
-                        <b class="text-white">Kebenaran</b>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-12">
-                                <h5>{{ ucfirst(trans($peranan->name)) }}</h5>
-                            </div>
-                        </div>
-                        <form action="/kebenaran_pengguna/{{ $peranan->id }}" method="POST">
-                            @method('PUT')
-                            @csrf
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="table-responsive">
-                                        <table class="table align-items-center mb-0 table-flush" id="datatable-basic">
-                                            <thead>
-                                                <tr>
-                                                    <th class="text-center">No.</th>
-                                                    <th class="px-2">Menu Utama</th>
-                                                    <th class="px-2">Kebenaran</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($kebenaran as $key => $kebenaran)
-                                                    <tr>
-                                                        <td class="text-center">{{ $key + 1 }}.</td>
-                                                        <td>{{ ucfirst(trans($kebenaran->name)) }}</td>
-                                                        <td>
-                                                            <div class="form-check form-switch">
-                                                                <input id='switch{{ $kebenaran->id }}'
-                                                                    class="form-check-input" type='checkbox' value='1'
-                                                                    name='{{ $kebenaran->name }}'
-                                                                    onclick="active({{ $kebenaran->id }})"
-                                                                    <?php
-                                                                    $try = Rolesandpermission::where('role_id', $peranan->id)
-                                                                        ->where('permission_id', $kebenaran->id)
-                                                                        ->first();
-                                                                    echo $try == true ? ' checked' : '';
-                                                                    ?>>
-                                                                <label class="form-check-label"
-                                                                    for="switch{{ $kebenaran->id }}"
-                                                                    id="label{{ $kebenaran->id }}">
-                                                                    @if ($try == true)
-                                                                        Dibenarkan
-                                                                    @else
-                                                                        Tiada Kebenaran
-                                                                    @endif
-                                                                </label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col text-end">
-                                    <button type="submit" class="btn btn-success">Simpan</button>
-                                    <a href="/kebenaran_pengguna" class="btn btn-danger">Kembali</a>
-                                </div>
-                            </div>
-                        </form>
+        <br>
+        <br>
+
+
+
+
+        <div class="form-floating;">
+            <form action="/user/{{ $users->id }}" method="POST">
+                @csrf
+                @method('PUT')
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="name">Nama User</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="name" value="{{ $users->name }}" />
+
                     </div>
                 </div>
-            </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="email">Email</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="email" value="{{ $users->email }}" />
+
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="role">Nama User</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="role" value="{{ $users->role }}" />
+
+                    </div>
+                </div>
+
+                <br>
+                <br>
+
+
+                <div class="row">
+                    <div class="col">
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
+                            href="/user">
+                            <span class="fas fa-times-circle"></span>&nbsp;Batal
+                        </a>
+                    </div>
+
+                    <div class="col" style="text-align: right">
+                        <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
+                            type="submit" value="Save"
+                            onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span
+                                class="fas fa-save"></span>&nbsp;Simpan
+                        </button>
+                    </div>
+                </div>
+
+                {{-- <input class="form-control" name="user_id" type="hidden" value="{{ $user->id }}" /> --}}
+
+
+            </form>
+
         </div>
 
     </div>
 
-    <script src="../../assets/js/plugins/datatables.js"></script>
-    <script>
-        function active(key) {
-            var a = document.getElementById('switch' + key);
-            var b = document.getElementById('label' + key);
-
-            if (a.checked) {
-                b.innerHTML = "Dibenarkan";
-            } else {
-                b.innerHTML = "Tidak dibenarkan";
-            }
-        }
-    </script>
-    {{-- <script type="text/javascript">
-        const dataTableBasic = new simpleDatatables.DataTable("#datatable-basic", {
-            searchable: true,
-            fixedHeight: true
-        });
-    </script> --}}
-
-@stop
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <strong>Oops!</strong> Input tidak mencukupi<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+@endsection

@@ -48,7 +48,7 @@ class KpiController extends Controller
         $bab = Bab::all();
         $bidang = Bidang::all();
 
-        if ($request->user()->role == 'admin') {
+        if ($request->user()->role == 'SuperAdmin') {
 
             $kpis = Kpi::all();
         } else {

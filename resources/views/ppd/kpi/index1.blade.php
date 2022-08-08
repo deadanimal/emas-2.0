@@ -130,10 +130,9 @@
                                     <th class="align-middle">Sasaran 2025</th>
                                     <th class="align-middle">Sumber Data</th>
                                     <th class="align-middle">Sumber Pengesahan</th>
-                                    @can('KementerianPPD', 'BahagianPPD', 'AgensiPPD')
+                                    @can('KementerianPPD')
                                         <th class="align-middle">Status</th>
-                                    @endcan
-                                    @can('BPKP')
+
                                         <th class="align-middle">Tindakan</th>
                                     @endcan
                                 </tr>
@@ -186,7 +185,7 @@
                                                     @endif
                                                 </div>
                                             </td>
-                                        @else
+                                            @elsecan
                                             <td class="align-middle">
                                                 <div class="col-auto ms-auto">
                                                     @if ($kpi->lulus == 1 && $kpi->ditolak == 0)

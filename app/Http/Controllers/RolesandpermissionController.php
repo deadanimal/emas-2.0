@@ -27,7 +27,7 @@ class RolesandpermissionController extends Controller
         $roles = Role::all();
 
 
-        return view('user.index', [
+        return view('userRole.index', [
             'roles' => $roles
         ]);
     }
@@ -39,7 +39,7 @@ class RolesandpermissionController extends Controller
      */
     public function create()
     {
-        return view('user.create');
+        return view('userRole.create');
     }
 
     /**
@@ -50,7 +50,9 @@ class RolesandpermissionController extends Controller
      */
     public function store(StoreRolesandpermissionRequest $request)
     {
-        //
+        Role::create(['name' => $request->DESCRIPTION]);
+
+        return redirect('/userRole');
     }
 
     /**
@@ -72,12 +74,12 @@ class RolesandpermissionController extends Controller
      */
     public function edit($id)
     {
-        $peranan = Role::find($id);
-        $kebenaran = Permission::all();
-        // dd($kebenaran);
-        return view('user.edit', [
-            'peranan' => $peranan,
-            'kebenaran' => $kebenaran,
+        $roles = Role::find($id);
+        $permissions = Permission::all();
+        // dd($permissions);
+        return view('userRole.edit', [
+            'roles' => $roles,
+            'permissions' => $permissions,
             'id_kumpulan' => $id
         ]);
     }
@@ -89,9 +91,23 @@ class RolesandpermissionController extends Controller
      * @param  \App\Models\Rolesandpermission  $rolesandpermission
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRolesandpermissionRequest $request, Rolesandpermission $rolesandpermission)
+    public function update(UpdateRolesandpermissionRequest $request, Rolesandpermission $rolesandpermission, $id)
     {
-        //
+        // dd('sini');
+        $nama_role = Role::where('id', $id)->first();
+        $nama_role = $nama_role->name;
+        $role = Role::findByName($nama_role);
+        $permissions = Permission::get();
+
+        foreach ($permissions as $permission) {
+            $role->revokePermissionTo($permission->name);
+            $nama = str_replace(" ", "_", $permission->name);
+            if ($request->$nama == "1") {
+                $role->givePermissionTo($permission->name);
+            }
+        }
+
+        return redirect('/userRole');
     }
 
     /**
@@ -100,15 +116,19 @@ class RolesandpermissionController extends Controller
      * @param  \App\Models\Rolesandpermission  $rolesandpermission
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rolesandpermission $rolesandpermission)
+
+    public function destroy($role)
     {
-        //
+        $role = Role::find($role);
+        $role->delete();
+
+        return redirect('/userRole');
     }
 
     public function edit_menu($role_id, $permission_id)
     {
         $kebenaran = Permission::where('id', $permission_id)->first();
-        return view('user.edit_menu', [
+        return view('userRole.edit_menu', [
             'kebenaran' => $kebenaran,
             'peranan' => $role_id
         ]);
@@ -119,6 +139,6 @@ class RolesandpermissionController extends Controller
         $kebenaran = Permission::where('id', $permission_id)->first();
         $kebenaran->name = $request->name;
         $kebenaran->save();
-        return redirect('/user/' . $role_id . '/edit');
+        return redirect('/userRole/' . $role_id . '/edit');
     }
 }

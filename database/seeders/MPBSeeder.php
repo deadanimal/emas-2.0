@@ -15,8 +15,8 @@ class MPBSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::find(8);
-        $user->assignRole([['name' => 'SuperAdmin']]);
+        // $user = User::find(8);
+        // $user->assignRole([['name' => 'SuperAdmin']]);
 
         // $user->assignRole([['name' => 'PPD']]);
         // $user->assignRole([['name' => 'MPB']]);

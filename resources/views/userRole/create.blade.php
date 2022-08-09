@@ -17,7 +17,7 @@
                         <b class="text-white">Butiran</b>
                     </div>
                     <div class="card-body">
-                        <form action="/user" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('userRole.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             {{-- <div class="form-group">
                                 <label for="GROUP_CODE" class="form-control-label">Kod Kumpulan</label>

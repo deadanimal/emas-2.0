@@ -48,8 +48,9 @@ class RolesandpermissionController extends Controller
      * @param  \App\Http\Requests\StoreRolesandpermissionRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRolesandpermissionRequest $request)
+    public function store(Request $request)
     {
+        // dd($request);
         Role::create(['name' => $request->DESCRIPTION]);
 
         return redirect('/userRole');

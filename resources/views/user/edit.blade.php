@@ -34,10 +34,30 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="role">Nama User</label>
+                    <label class="col-sm-2 col-form-label" for="role">User Role</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="role" value="{{ $users->role }}" />
+                        <select class="form-control" name="role">
 
+                            @foreach ($roles as $role)
+                                <option value="{{ $role->name }}">{{ ucfirst(trans($role->name)) }}
+                                </option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="permissions_id">User Permission</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="permissions_id">
+
+                            @foreach ($permissions as $permission)
+                                <option value="{{ $permission->name }}">{{ ucfirst(trans($permission->name)) }}
+                                </option>
+                            @endforeach
+
+                        </select>
                     </div>
                 </div>
 

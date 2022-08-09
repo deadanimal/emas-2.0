@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Permission;
 
 class PenggunaController extends Controller
 {
@@ -38,6 +39,50 @@ class PenggunaController extends Controller
         ]);
     }
 
+    public function result_search(Request $request)
+    {
+        $current_user = Auth::user()->user_group_id;
+        if ($current_user == 3) {
+            if (!empty($request->nama)) {
+                $user_pengawas = User::where('user_group_id', '=', '4')->where('ministry_code', Auth::user()->ministry_code)->where('name', 'like', '%' . $request->nama . '%')->orderBy('name', 'asc')->paginate(20)->appends(request()->query());
+            } elseif (!empty($request->ic)) {
+                $user_pengawas = User::where('user_group_id', '=', '4')->where('ministry_code', Auth::user()->ministry_code)->where('nric', 'like', '%' . $request->ic . '%')->orderBy('nric', 'asc')->paginate(20)->appends(request()->query());
+            } elseif (!empty($request->nama) && !empty($request->ic)) {
+                $user_pengawas = User::where('user_group_id', '=', '4')->where('ministry_code', Auth::user()->ministry_code)->where('name', 'like', '%' . $request->nama . '%')->where('nric', 'like', '%' . $request->ic . '%')->orderBy('name', 'asc')->paginate(20)->appends(request()->query());
+            } else {
+                $user_pengawas = User::where('user_group_id', '=', '4')->where('ministry_code', Auth::user()->ministry_code)->orderBy('name', 'asc')->paginate(20)->appends(request()->query());
+            }
+
+            return view('pengurusanpengguna.index', [
+                'user_pengawas' => $user_pengawas,
+                'current_user' => $current_user
+            ]);
+        } else {
+            if (!empty($request->nama)) {
+                $users = User::where('name', 'like', '%' . $request->nama . '%')->orderBy('name', 'asc')->paginate(20)->appends(request()->query());
+            } elseif (!empty($request->ic)) {
+                $users = User::where('nric', 'like', '%' . $request->ic . '%')->orderBy('nric', 'asc')->paginate(20)->appends(request()->query());
+            } elseif (!empty($request->user_group_id)) {
+                $users = User::where('user_group_id', 'like', '%' . $request->user_group_id . '%')->orderBy('nric', 'asc')->paginate(20)->appends(request()->query());
+            } elseif (!empty($request->nama) && !empty($request->ic)) {
+                $users = User::where('name', 'like', '%' . $request->nama . '%')->where('nric', 'like', '%' . $request->ic . '%')->orderBy('name', 'asc')->paginate(20)->appends(request()->query());
+            } elseif (!empty($request->nama) && !empty($request->user_group_id)) {
+                $users = User::where('name', 'like', '%' . $request->nama . '%')->where('user_group_id', 'like', '%' . $request->user_group_id . '%')->orderBy('name', 'asc')->paginate(20)->appends(request()->query());
+            } elseif (!empty($request->ic) && !empty($request->user_group_id)) {
+                $users = User::where('nric', 'like', '%' . $request->ic . '%')->where('user_group_id', 'like', '%' . $request->user_group_id . '%')->orderBy('name', 'asc')->paginate(20)->appends(request()->query());
+            } elseif (!empty($request->nama) && !empty($request->ic) && !empty($request->user_group_id)) {
+                $users = User::where('name', 'like', '%' . $request->nama . '%')->where('nric', 'like', '%' . $request->ic . '%')->where('user_group_id', 'like', '%' . $request->user_group_id . '%')->orderBy('name', 'asc')->paginate(20)->appends(request()->query());
+            } else {
+                $users = User::orderBy('name', 'asc')->paginate(20)->appends(request()->query());
+            }
+
+            return view('user.index', [
+                'users' => $users,
+                'current_user' => $current_user
+            ]);
+        }
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -52,6 +97,8 @@ class PenggunaController extends Controller
             'users' => $user,
             'role' => $role
         ]);
+
+        $user->syncPermission('KementerianPPD');
     }
 
     /**
@@ -76,6 +123,43 @@ class PenggunaController extends Controller
             'password' => Hash::make($request->password),
             'role' => $request->role,
         ]);
+
+        $user->assignRole($request->role);
+
+        switch ($request->role) {
+            case 'PPD':
+                $user->givePermissionTo('KementerianPPD');
+                $user->givePermissionTo('BahagianPPD');
+                $user->givePermissionTo('AgensiPPD');
+                break;
+            case 'MPB':
+                $user->givePermissionTo('User');
+                $user->givePermissionTo('Approver');
+                break;
+            case 'KT':
+                $user->givePermissionTo('AgensiKT');
+                $user->givePermissionTo('BahagianKT');
+                break;
+
+            case 'MD':
+                $user->givePermissionTo('KementerianMD');
+                $user->givePermissionTo('BahagianMD');
+                $user->givePermissionTo('AgensiMD');
+                $user->givePermissionTo('Urusetia');
+                $user->givePermissionTo('EpuMD');
+                break;
+
+            case 'ED':
+                $user->givePermissionTo('ICT');
+                $user->givePermissionTo('EpuED');
+                $user->givePermissionTo('Eksekutif');
+                break;
+
+
+            default:
+                # code...
+                break;
+        }
         return redirect()->route('user.index');
     }
 
@@ -98,8 +182,11 @@ class PenggunaController extends Controller
     public function edit($id)
     {
         $users = User::find($id);
-
-        return view('user.edit', compact('users'));
+        $roles = Role::all();
+        $permissions = Permission::all();
+        // dd(gettype($users->role));
+        // dd($users);
+        return view('user.edit', compact('users', 'roles', 'permissions'));
     }
 
     /**
@@ -111,7 +198,15 @@ class PenggunaController extends Controller
      */
     public function update(UpdatePenggunaRequest $request, Pengguna $pengguna, User $user)
     {
-        $user->update($request->all());
+        // dd($user);
+        // $user->update($request->all());
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->role = $request->role;
+        $user->permissions = $request->permissions;
+        $user->assignRole($request->role);
+        $user->save();
+
         return redirect()->route('user.index');
     }
 
@@ -121,8 +216,24 @@ class PenggunaController extends Controller
      * @param  \App\Models\Pengguna  $pengguna
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pengguna $pengguna)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return redirect()->route('user.index')
+            ->with('Berjaya', 'Keterangan berjaya dibuang');
+    }
+
+    public function set_semula_kata_laluan(Request $request, $user)
+    {
+        $reset_pass = User::find($user);
+
+        $reset_pass->password = Hash::make($request->password);
+        $reset_pass->save();
+
+        echo '<script language="javascript">';
+        echo 'alert("Kata laluan berjaya disetkan semula.");';
+        echo "window.location.href='/carian-pengguna';";
+        echo '</script>';
     }
 }

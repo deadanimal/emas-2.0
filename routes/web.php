@@ -65,6 +65,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/perkarautama', [Perkarautama::class, 'perakarautama'])->name('perkarautama');
 });
 
+
 //MODULE 1 PPD
 Route::group(
     ['middleware' => ['role:PPD']],
@@ -226,5 +227,9 @@ Route::group(
 
 Route::resource('/userRole', RolesandpermissionController::class);
 Route::resource('/user', PenggunaController::class);
+Route::post('/set-semula-kata-laluan/{id}', [PenggunaController::class, 'set_semula_kata_laluan']);
+Route::get('/carian-pengguna', [PenggunaController::class, 'result_search']);
+
+
 
 // Route::get('/user1/index1/', [PenggunaController::class, 'index']);

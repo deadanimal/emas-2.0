@@ -102,15 +102,14 @@
                                             </tr>
                                         @endforeach
                                     </tbody>
-                                @else
+                                    {{-- @else
                                     <tbody>
 
                                         @foreach ($users as $index => $user)
                                             <tr>
                                                 <td class="text-sm text-center font-weight-normal">
                                                     {{ $index + $users->firstItem() }}</td>
-                                                {{-- <td class="text-sm text-center font-weight-normal">
-                                                {{ $loop->index + 1 }}</td> --}}
+
                                                 <td class="text-sm font-weight-normal" style="text-transform: uppercase">
                                                     {{ $user['name'] }}</td>
                                                 <td class="text-sm text-center font-weight-normal">{{ $user['email'] }}</td>
@@ -219,7 +218,7 @@
                                                 </div>
                                             </tr>
                                         @endforeach
-                                    </tbody>
+                                    </tbody> --}}
                                 @endrole
                             </table>
                             {{-- @unlessrole('penyelaras')

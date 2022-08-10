@@ -1,16 +1,18 @@
 @extends('base')
 @section('content')
-    <div class="container-fluid py-4">
+    <div class="container">
 
-
+        <div class="mb-4 text-center">
+            <H2>Daftar Pengguna</H2>
+        </div>
 
         <div class="col-12 ">
             <div class="col-12">
                 <form method="POST" action="/user">
                     @csrf
                     <div class="card mt-4" id="basic-info">
-                        <div class="card-header" style="background-color:#FFA500;">
-                            <h5 class="text-white">Daftar Pengguna</h5>
+                        <div class="card-header" style="background-color:#047FC3;">
+                            <h5 class="text-white">Membuat Akaun Pengguna</h5>
                         </div>
                         <br>
                         <div class="card-body pt-0">
@@ -52,31 +54,10 @@
                                         {{-- @endrole --}}
                                     </div>
                                 </div>
-                                {{-- <div id="pilih2" style="display:none" class="col-6">
-                                    <label for="">Kementerian/Jabatan :</label>
-                                    <div class="input-group">
-                                        <select class="form-control ml-3" name="ministry_code" id="input_kementerian"
-                                            required>
-                                            <option hidden selected>
-                                                Sila pilih
-                                            </option>
-                                            @foreach ($users as $user)
-                                                <option value="{{ $user->DESCRIPTION1 }}">
-                                                    {{ $user->DESCRIPTION1 }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div> --}}
+
                             </div>
                             <div class="row">
-                                {{-- <div class="col-6">
-                                    <label for="">No Kad Pengenalan :</label>
-                                    <div class="input-group">
-                                        <input class="form-control mb-3" type="text" name="nric" required
-                                            maxlength="12" size="12" :value="old('nric')"
-                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
-                                    </div>
-                                </div> --}}
+
                                 <div class="col-6">
                                     <label for="">Kata Laluan :</label>
                                     <div class="input-group">
@@ -87,7 +68,13 @@
 
 
                             </div>
-                            <button class="btn bg-gradient-warning " type="submit">Simpan</button>
+                            <div class="col" style="text-align: right">
+                                <button class="btn btn-falcon-default btn-sm"
+                                    style="background-color: #047FC3; color:white;" type="submit" value="Save"
+                                    onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span
+                                        class="fas fa-save"></span>&nbsp;Simpan
+                                </button>
+                            </div>
                         </div>
 
                     </div>

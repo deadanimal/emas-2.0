@@ -1,34 +1,43 @@
 @extends('base')
 @section('content')
-    <div class="container-fluid py-4">
+    <div class="container">
+        <div class="mb-4 text-center">
+            <H2>Peranan Pengguna</H2>
+        </div>
 
-        <div class="row">
-            <div class="col-lg-6">
-                <h5 class="font-weight-bolder">User Permissions</h5>
-            </div>
-            <div class="col-lg-6">
-                <div class="column-12">
-                    <a href="/userRole/create" class="btn bg-gradient-warning" type="submit" style="float: right;">Add
-                        Roles</a>
+
+        <div class="col">
+            <div class="row align-items-center">
+                <div class="col col-lg-8">
+                    <span><b>Senarai Peranan</b></span>
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                        href="/userRole/create">
+                        <span class="fas fa-plus-circle"></span>&nbsp;Tambah Peranan</a>
+
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                        onClick="window.location.reload();">
+                        <span class="fas fa-history"></span></a>
+                </div>
+                <div class="col-12 col-sm-auto ms-auto">
+                    <input class="form-control" id="myInput" type="text" placeholder="Carian">
                 </div>
             </div>
         </div>
+        <br>
 
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header" style="background-color:#FFA500;">
-                        <b class="text-white">User</b>
-                    </div>
+
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table align-items-center mb-0 table-flush" id="datatable-basic">
                                 <thead>
                                     <tr>
                                         <th class="text-uppercase text-center font-weight-bolder opacity-7">No.</th>
-                                        <th class="text-uppercase text-center font-weight-bolder opacity-7">Roles</th>
-                                        <th class="text-uppercase text-center font-weight-bolder opacity-7">Edit</th>
-                                        <th class="text-uppercase text-center font-weight-bolder opacity-7">Delete</th>
+                                        <th class="text-uppercase text-center font-weight-bolder opacity-7">Peranan</th>
+                                        <th class="text-uppercase text-center font-weight-bolder opacity-7">Kemaskini</th>
+                                        <th class="text-uppercase text-center font-weight-bolder opacity-7">Hapus</th>
                                     </tr>
                                 </thead>
                                 <tbody>

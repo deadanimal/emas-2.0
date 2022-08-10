@@ -127,7 +127,6 @@
                 <button class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next"
                     data-list-pagination="next"><span class="fas fa-chevron-right"> </span>
                 </button>
-
             </div>
         </div>
 

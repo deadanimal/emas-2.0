@@ -5,12 +5,8 @@
             <H2>KEMAS KINI DATA</H2>
         </div>
 
-
         <br>
         <br>
-
-
-
 
         <div class="form-floating;">
             <form action="/user/{{ $users->id }}" method="POST">
@@ -47,7 +43,7 @@
                     </div>
                 </div>
 
-                <div class="mb-3 row">
+                {{-- <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="permissions_id">User Permission</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="permissions_id">
@@ -59,7 +55,7 @@
 
                         </select>
                     </div>
-                </div>
+                </div> --}}
 
                 <br>
                 <br>

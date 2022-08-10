@@ -227,7 +227,7 @@
                         </a>
                     @endif
 
-                    @if (Request::is('audit', 'audit/*'))
+                    @if (Request::is('audit', 'audit/*', 'user', 'user/*', 'userRole', 'userRole/*'))
                         <a class="nav-link btn1" href="" role="button">
 
                             <div class="d-flex align-items-center">
@@ -807,7 +807,7 @@
                         </div>
                     @endif
 
-                    @if (Request::is('audit', 'audit/*'))
+                    @if (Request::is('audit', 'audit/*', 'user', 'user/*', 'userRole', 'userRole/*'))
                         <a class="nav-link dropdown-indicator" href="#ED" role="button"
                             data-bs-toggle="collapse" aria-expanded="true" aria-controls="ED"
                             style="background-color: #C4D4ED">

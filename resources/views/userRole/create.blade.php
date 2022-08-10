@@ -1,20 +1,16 @@
 @extends('base')
 @section('content')
 
-    <div class="container-fluid py-4">
-
-
-        <div class="row">
-            <div class="col-lg-6">
-                <h5 class="font-weight-bolder">Cipta Peranan</h5>
-            </div>
+    <div class="container">
+        <div class="mb-4 text-center">
+            <H2>Tambah Peranan</H2>
         </div>
 
         <div class="row">
             <div class="col-12">
                 <div class="card m-3">
-                    <div class="card-header" style="background-color:#FFA500;">
-                        <b class="text-white">Butiran</b>
+                    <div class="card-header" style="background-color:#047FC3;">
+                        <b class="text-white">Peranan</b>
                     </div>
                     <div class="card-body">
                         <form action="{{ route('userRole.store') }}" method="POST" enctype="multipart/form-data">

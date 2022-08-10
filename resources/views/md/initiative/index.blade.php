@@ -7,14 +7,24 @@
 
         <br>
 
-        <span><b>List of Initiative</b></span>
-        @role('admin|bahagian|kementerian')
-            <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/initiative/create">
-                <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
-        @endrole
-        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-            onClick="window.location.reload();">
-            <span class="fas fa-history"></span></a>
+        <div class="col">
+            <div class="row align-items-center">
+                <div class="col col-lg-8">
+                    <span><b>List of Initiative</b></span>
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                        href="/initiative/create">
+                        <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                        onClick="window.location.reload();">
+                        <span class="fas fa-history"></span></a>
+                </div>
+                <div class="col-12 col-sm-auto ms-auto">
+                    <input class="form-control myInput" type="text" placeholder="Search">
+                </div>
+            </div>
+        </div>
+
+
 
         <hr style="width:100%;text-align:center;">
 
@@ -29,82 +39,82 @@
 
         <hr style="width:100%;text-align:center;">
 
+        <div id="tableExample2" data-list='{"valueNames":["initiative"],"page":5,"pagination":true}'>
+            <div class="table-responsive scrollbar">
+                <table class="table table-hover table-striped overflow-hidden center">
+                    <thead>
+                        <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">Initiative</th>
+                            <th scope="col">Target Initiative</th>
+                            <th scope="col">Phase 1</th>
+                            <th scope="col">Phase 2</th>
+                            <th scope="col">Phase 3</th>
+                            <th scope="col">Lead Agency</th>
+                            <th scope="col">Action</th>
 
-        <div class="table-responsive scrollbar">
-            <table class="table table-hover table-striped overflow-hidden center">
-                <thead>
-                    <tr>
-                        <th scope="col">No.</th>
-                        <th scope="col">Initiative</th>
-                        <th scope="col">Target Initiative</th>
-                        <th scope="col">Phase 1</th>
-                        <th scope="col">Phase 2</th>
-                        <th scope="col">Phase 3</th>
-                        <th scope="col">Lead Agency</th>
-                        <th scope="col">Action</th>
 
+                        </tr>
+                    </thead>
 
-                    </tr>
-                </thead>
+                    <tbody class="list myTable" id="searchUpdateTable">
+                        @foreach ($initiatives as $initiative)
+                            <tr class="align-middle initiative">
+                                <td class="text-nowrap">
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $initiative->id }}">
+                                        <div class="ms-2"><b>{{ $loop->iteration }}</b></div>
+                                    </div>
+                                </td>
 
-                <tbody id="tablebody">
-                    @foreach ($initiatives as $initiative)
-                        <tr class="align-middle">
-                            <td class="text-nowrap">
-                                <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                    data-bs-target="#error-modal-{{ $initiative->id }}">
-                                    <div class="ms-2"><b>{{ $loop->iteration }}</b></div>
-                                </div>
-                            </td>
+                                <td class="text-nowrap">
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $initiative->id }}">
+                                        <div class="ms-2"><b>{{ $initiative->namaInitiative }}</b></div>
+                                    </div>
+                                </td>
 
-                            <td class="text-nowrap">
-                                <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                    data-bs-target="#error-modal-{{ $initiative->id }}">
-                                    <div class="ms-2"><b>{{ $initiative->namaInitiative }}</b></div>
-                                </div>
-                            </td>
+                                <td class="text-nowrap">
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $initiative->id }}">
+                                        <div class="ms-2"><b>{{ $initiative->target }}</b></div>
+                                    </div>
+                                </td>
 
-                            <td class="text-nowrap">
-                                <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                    data-bs-target="#error-modal-{{ $initiative->id }}">
-                                    <div class="ms-2"><b>{{ $initiative->target }}</b></div>
-                                </div>
-                            </td>
+                                <td class="text-nowrap">
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $initiative->id }}">
+                                        <div class="ms-2"><b>{{ $initiative->phase }}</b></div>
+                                    </div>
+                                </td>
 
-                            <td class="text-nowrap">
-                                <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                    data-bs-target="#error-modal-{{ $initiative->id }}">
-                                    <div class="ms-2"><b>{{ $initiative->phase }}</b></div>
-                                </div>
-                            </td>
+                                <td class="text-nowrap">
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $initiative->id }}">
+                                        <div class="ms-2"><b>{{ $initiative->phase }}</b></div>
+                                    </div>
+                                </td>
 
-                            <td class="text-nowrap">
-                                <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                    data-bs-target="#error-modal-{{ $initiative->id }}">
-                                    <div class="ms-2"><b>{{ $initiative->phase }}</b></div>
-                                </div>
-                            </td>
+                                <td class="text-nowrap">
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $initiative->id }}">
+                                        <div class="ms-2"><b>{{ $initiative->phase }}</b></div>
+                                    </div>
+                                </td>
 
-                            <td class="text-nowrap">
-                                <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                    data-bs-target="#error-modal-{{ $initiative->id }}">
-                                    <div class="ms-2"><b>{{ $initiative->phase }}</b></div>
-                                </div>
-                            </td>
+                                <td class="text-nowrap">
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $initiative->id }}">
+                                        <div class="ms-2"><b>{{ $initiative->leadAgency }}</b></div>
+                                    </div>
+                                </td>
 
-                            <td class="text-nowrap">
-                                <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                    data-bs-target="#error-modal-{{ $initiative->id }}">
-                                    <div class="ms-2"><b>{{ $initiative->leadAgency }}</b></div>
-                                </div>
-                            </td>
-
-                            @role('admin|bahagian|kementerian')
                                 <td class="text-nowrap">
                                     <div>
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="{{ route('initiative.edit', $initiative->id) }}"><i class="fas fa-edit"></i>
+                                            href="{{ route('initiative.edit', $initiative->id) }}"><i
+                                                class="fas fa-edit"></i>
                                         </a>
 
 
@@ -116,15 +126,15 @@
 
                                     </div>
                                 </td>
-                            @endrole
-                        </tr>
-                    @endforeach
 
-                </tbody>
+                            </tr>
+                        @endforeach
 
-            </table>
+                    </tbody>
 
-            {{-- <div class="modal fade" id="error-modal-{{ $initiative->id }}" tabindex="-1" role="dialog"
+                </table>
+
+                {{-- <div class="modal fade" id="error-modal-{{ $initiative->id }}" tabindex="-1" role="dialog"
                 aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
                     <div class="modal-content position-relative">
@@ -159,8 +169,19 @@
                     </div>
                 </div>
             </div> --}}
-        </div>
+            </div>
 
+            <div class="d-flex justify-content-center mt-3">
+                <button class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous"
+                    data-list-pagination="prev"><span class="fas fa-chevron-left"></span>
+                </button>
+                <ul class="pagination mb-0"></ul>
+                <button class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next"
+                    data-list-pagination="next"><span class="fas fa-chevron-right"> </span>
+                </button>
+
+            </div>
+        </div>
 
 
 
@@ -297,5 +318,14 @@
             }
             document.getElementById("ppd").innerHTML = text;
         }
+
+        $(document).ready(function() {
+            $(".myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
     </script>
 @endsection

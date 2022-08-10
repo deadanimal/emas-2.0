@@ -53,7 +53,7 @@ class PenggunaController extends Controller
                 $user_pengawas = User::where('user_group_id', '=', '4')->where('ministry_code', Auth::user()->ministry_code)->orderBy('name', 'asc')->paginate(20)->appends(request()->query());
             }
 
-            return view('pengurusanpengguna.index', [
+            return view('user.index', [
                 'user_pengawas' => $user_pengawas,
                 'current_user' => $current_user
             ]);
@@ -93,12 +93,13 @@ class PenggunaController extends Controller
     {
         $user = User::all();
         $role = Role::all();
+
         return view('user.create', [
             'users' => $user,
             'role' => $role
         ]);
 
-        $user->syncPermission('KementerianPPD');
+        // $user->syncPermission('KementerianPPD');
     }
 
     /**
@@ -107,7 +108,7 @@ class PenggunaController extends Controller
      * @param  \App\Http\Requests\StorePenggunaRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePenggunaRequest $request)
+    public function store(Request $request)
     {
         // $user = User::create($request->all());
         // dd($request->all());
@@ -121,8 +122,11 @@ class PenggunaController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => $request->role,
+            // 'role' => $request->role,
+
         ]);
+
+        // dd($user);
 
         $user->assignRole($request->role);
 
@@ -155,11 +159,32 @@ class PenggunaController extends Controller
                 $user->givePermissionTo('Eksekutif');
                 break;
 
+            case 'SuperAdmin':
+                $user->givePermissionTo('KementerianPPD');
+                $user->givePermissionTo('BahagianPPD');
+                $user->givePermissionTo('AgensiPPD');
+                $user->givePermissionTo('User');
+                $user->givePermissionTo('Approver');
+                $user->givePermissionTo('AgensiKT');
+                $user->givePermissionTo('BahagianKT');
+                $user->givePermissionTo('KementerianMD');
+                $user->givePermissionTo('BahagianMD');
+                $user->givePermissionTo('AgensiMD');
+                $user->givePermissionTo('Urusetia');
+                $user->givePermissionTo('EpuMD');
+                $user->givePermissionTo('ICT');
+                $user->givePermissionTo('EpuED');
+                $user->givePermissionTo('Eksekutif');
+                break;
+
 
             default:
                 # code...
                 break;
         }
+
+        $user->syncPermissions($request->permission);
+
         return redirect()->route('user.index');
     }
 
@@ -196,15 +221,72 @@ class PenggunaController extends Controller
      * @param  \App\Models\Pengguna  $pengguna
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePenggunaRequest $request, Pengguna $pengguna, User $user)
+    public function update(Request $request, Pengguna $pengguna, User $user)
     {
         // dd($user);
         // $user->update($request->all());
         $user->name = $request->name;
         $user->email = $request->email;
         $user->role = $request->role;
-        $user->permissions = $request->permissions;
+        // $user->permissions = $request->permissions;
         $user->assignRole($request->role);
+
+        $user->syncPermissions($request->permission);
+
+
+        switch ($request->role) {
+            case 'PPD':
+                $user->givePermissionTo('KementerianPPD');
+                $user->givePermissionTo('BahagianPPD');
+                $user->givePermissionTo('AgensiPPD');
+                break;
+            case 'MPB':
+                $user->givePermissionTo('User');
+                $user->givePermissionTo('Approver');
+                break;
+            case 'KT':
+                $user->givePermissionTo('AgensiKT');
+                $user->givePermissionTo('BahagianKT');
+                break;
+
+            case 'MD':
+                $user->givePermissionTo('KementerianMD');
+                $user->givePermissionTo('BahagianMD');
+                $user->givePermissionTo('AgensiMD');
+                $user->givePermissionTo('Urusetia');
+                $user->givePermissionTo('EpuMD');
+                break;
+
+            case 'ED':
+                $user->givePermissionTo('ICT');
+                $user->givePermissionTo('EpuED');
+                $user->givePermissionTo('Eksekutif');
+                break;
+
+            case 'SuperAdmin':
+                $user->givePermissionTo('KementerianPPD');
+                $user->givePermissionTo('BahagianPPD');
+                $user->givePermissionTo('AgensiPPD');
+                $user->givePermissionTo('User');
+                $user->givePermissionTo('Approver');
+                $user->givePermissionTo('AgensiKT');
+                $user->givePermissionTo('BahagianKT');
+                $user->givePermissionTo('KementerianMD');
+                $user->givePermissionTo('BahagianMD');
+                $user->givePermissionTo('AgensiMD');
+                $user->givePermissionTo('Urusetia');
+                $user->givePermissionTo('EpuMD');
+                $user->givePermissionTo('ICT');
+                $user->givePermissionTo('EpuED');
+                $user->givePermissionTo('Eksekutif');
+                break;
+
+
+            default:
+                # code...
+                break;
+        }
+
         $user->save();
 
         return redirect()->route('user.index');

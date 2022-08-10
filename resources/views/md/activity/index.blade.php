@@ -10,12 +10,10 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>List of Activities</b></span>
-                    @role('admin|bahagian|kementerian')
-                        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                            href="/activity/create">
-                            <span class="fas fa-plus-circle"></span>&nbsp;Add
-                        </a>
-                    @endrole
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                        href="/activity/create">
+                        <span class="fas fa-plus-circle"></span>&nbsp;Add
+                    </a>
 
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">
@@ -136,24 +134,22 @@
                                 </div>
                             </div>
 
-                            @role('admin|bahagian|kementerian')
-                                <td class="align-right" id="searchUpdateTable2">
-                                    <div>
+                            <td class="align-right" id="searchUpdateTable2">
+                                <div>
 
-                                        <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="{{ route('activity.edit', $activity->id) }}"><i class="fas fa-edit"></i>
-                                        </a>
+                                    <a class="btn btn-primary" style="border-radius: 38px"
+                                        href="{{ route('activity.edit', $activity->id) }}"><i class="fas fa-edit"></i>
+                                    </a>
 
 
-                                        <button type="submit" onclick="myFunction({{ $activity->id }})" class="btn btn-danger"
-                                            style="border-radius: 38px">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                        <p id="ppd"></p>
+                                    <button type="submit" onclick="myFunction({{ $activity->id }})" class="btn btn-danger"
+                                        style="border-radius: 38px">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                    <p id="ppd"></p>
 
-                                    </div>
-                                </td>
-                            @endrole
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
 

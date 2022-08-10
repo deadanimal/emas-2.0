@@ -61,8 +61,8 @@ class PermissionsSeeder extends Seeder
 
         $user = User::create([
             'name' => 'Pelan Pelaksanaan Dasar',
-            'email' => 'adwa@adwa.com',
-            'password' => Hash::make('ppd1234'),
+            'email' => 'ppd@ppd.com',
+            'password' => Hash::make('12345678'),
 
         ]);
         $user->assignRole($role1);
@@ -73,8 +73,8 @@ class PermissionsSeeder extends Seeder
 
         $user = User::create([
             'name' => 'MPB',
-            'email' => 'amin@amin.com',
-            'password' => Hash::make('mpb1234'),
+            'email' => 'mpb@mpb.com',
+            'password' => Hash::make('12345678'),
 
 
         ]);
@@ -84,8 +84,8 @@ class PermissionsSeeder extends Seeder
 
         $user = User::create([
             'name' => 'Kemiskinan Tegar',
-            'email' => 'menteri@menteri.com',
-            'password' => Hash::make('ktkt1234'),
+            'email' => 'kt@kt.com',
+            'password' => Hash::make('12345678'),
 
         ]);
         $user->assignRole($role3);
@@ -94,8 +94,8 @@ class PermissionsSeeder extends Seeder
 
         $user = User::create([
             'name' => 'MyDigital',
-            'email' => 'ketua@ketua.com',
-            'password' => Hash::make('mdmd1234'),
+            'email' => 'md@md.com',
+            'password' => Hash::make('12345678'),
 
         ]);
         $user->assignRole($role4);
@@ -108,7 +108,7 @@ class PermissionsSeeder extends Seeder
         $user = User::create([
             'name' => 'Executive Dashboard',
             'email' => 'ed@ed.com',
-            'password' => Hash::make('eded1234'),
+            'password' => Hash::make('12345678'),
 
         ]);
         $user->assignRole($role5);
@@ -136,6 +136,8 @@ class PermissionsSeeder extends Seeder
         $user->givePermissionTo('AgensiMD');
         $user->givePermissionTo('Urusetia');
         $user->givePermissionTo('EpuMD');
+
+
 
         // $user->assignRole($role6);
         // $user->assignRole([['name' => 'SuperAdmin']]);

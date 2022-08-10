@@ -4,25 +4,18 @@
     use App\Models\Rolesandpermission;
     ?>
 
-    <div class="container-fluid py-4">
-        <div class="row mb-3">
-            <div class="col-lg-6">
-                <h5 class="font-weight-bolder">Kebenaran Pengguna</h5>
-            </div>
+    <div class="container">
+        <div class="mb-4 text-center">
+            <H2>Peranan Pengguna</H2>
         </div>
 
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header" style="background-color:#FFA500;">
-                        <b class="text-white">Kebenaran</b>
+                    <div class="card-header" style="background-color:#047FC3;">
+                        <b class="text-white">{{ ucfirst(trans($roles->name)) }}</b>
                     </div>
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-12">
-                                <h5>{{ ucfirst(trans($roles->name)) }}</h5>
-                            </div>
-                        </div>
                         <form action="/userRole/{{ $roles->id }}" method="POST">
                             @method('PUT')
                             @csrf

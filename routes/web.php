@@ -208,7 +208,9 @@ Route::group(
         Route::resource('/activity', ActivityController::class);
         Route::post('/search_activity', [ActivityController::class, 'searchActivity']);
         Route::post('/search_activity1', [ActivityController::class, 'searchActivity1']);
-        Route::get('/activity1/index1/', [ActivityController::class, 'index1']);
+        Route::get('/approval/cluster/', [ActivityController::class, 'cluster']);
+        Route::get('/display/cluster1/', [ActivityController::class, 'cluster1']);
+        Route::get('/display1/cluster2/', [ActivityController::class, 'cluster2']);
         Route::post('/activity/lulus/{id}', [ActivityController::class, 'lulus'])->name('activity.lulus');
         Route::post('/activity/ditolak/{id}', [ActivityController::class, 'ditolak'])->name('activity.ditolak');
     }
@@ -227,6 +229,8 @@ Route::group(
 
 Route::resource('/userRole', RolesandpermissionController::class);
 Route::resource('/user', PenggunaController::class);
+Route::get('/user1/index1/', [PenggunaController::class, 'index1']);
+Route::get('/user1/create1/', [PenggunaController::class, 'create1']);
 Route::post('/set-semula-kata-laluan/{id}', [PenggunaController::class, 'set_semula_kata_laluan']);
 Route::get('/carian-pengguna', [PenggunaController::class, 'result_search']);
 

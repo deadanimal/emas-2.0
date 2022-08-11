@@ -3,7 +3,7 @@
 
     <div class="container">
         <div class="mb-4 text-center">
-            <H2>Tambah Peranan</H2>
+            <H2>EXECUTIVE DASHBOARD</H2>
         </div>
 
         <div class="row">

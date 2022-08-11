@@ -5,7 +5,24 @@
         <div class="mb-4 text-center">
             <H2>PELAN PELAKSANAAN DASAR</H2>
         </div>
+
         <br>
+
+
+        <div class="row">
+            <div class="column">
+                <div id="chartdiv" style="width:100%"></div>
+            </div>
+            <div class="column">
+                <div id="chartdiv1" style="width:100%"></div>
+            </div>
+            <div class="column">
+                <div id="chartdiv2" style="width:100%"></div>
+            </div>
+        </div>
+
+
+
 
         @can('BPKP')
             <div class="mb-3 row">
@@ -141,7 +158,8 @@
                                 @foreach ($kpis as $kpi)
                                     <tr class="kpi">
                                         @can('BPKP')
-                                            <td class="align-middle">{{ $loop->iteration }}. {{ $kpi->user->name }}</td>
+                                            <td class="align-middle">{{ $loop->iteration }}. {{ $kpi->user->name }}
+                                            </td>
                                         @endcan
                                         <td class="align-middle">{{ $kpi->namaKpi }}</td>
                                         <td class="align-middle">{{ $kpi->pemangkin->namaTema ?? '' }}</td>
@@ -219,6 +237,8 @@
 
         </div>
     </div>
+
+
 
 @endsection
 
@@ -336,4 +356,218 @@
             });
         });
     });
+</script>
+
+<!-- Styles -->
+<style>
+    #chartdiv {
+        width: 50%;
+        height: 200;
+    }
+</style>
+
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+<!-- Chart code -->
+<script>
+    am5.ready(function() {
+
+        // Create root element
+        // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+        var root = am5.Root.new("chartdiv");
+
+
+        // Set themes
+        // https://www.amcharts.com/docs/v5/concepts/themes/
+        root.setThemes([
+            am5themes_Animated.new(root)
+        ]);
+
+
+        // Create chart
+        // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
+        var chart = root.container.children.push(am5percent.PieChart.new(root, {
+            layout: root.verticalLayout
+        }));
+
+
+        // Create series
+        // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
+        var series = chart.series.push(am5percent.PieSeries.new(root, {
+            valueField: "value",
+            categoryField: "category"
+        }));
+
+
+        // Set data
+        // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
+        series.data.setAll([{
+                value: 10,
+                category: "Lulus"
+            },
+            {
+                value: 9,
+                category: "Dalam Proses"
+            },
+            {
+                value: 6,
+                category: "Tiada Tindakan"
+            },
+            {
+                value: 5,
+                category: "Sedang Dalam Kelulusan"
+            },
+        ]);
+
+
+        // Play initial series animation
+        // https://www.amcharts.com/docs/v5/concepts/animations/#Animation_of_series
+        series.appear(1000, 100);
+
+    }); // end am5.ready()
+</script>
+
+<style>
+    #chartdiv1 {
+        width: 50%;
+        height: 200;
+    }
+</style>
+
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+<!-- Chart code -->
+<script>
+    am5.ready(function() {
+
+        // Create root element
+        // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+        var root = am5.Root.new("chartdiv1");
+
+
+        // Set themes
+        // https://www.amcharts.com/docs/v5/concepts/themes/
+        root.setThemes([
+            am5themes_Animated.new(root)
+        ]);
+
+
+        // Create chart
+        // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
+        var chart = root.container.children.push(am5percent.PieChart.new(root, {
+            layout: root.verticalLayout
+        }));
+
+
+        // Create series
+        // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
+        var series = chart.series.push(am5percent.PieSeries.new(root, {
+            valueField: "value",
+            categoryField: "category"
+        }));
+
+
+        // Set data
+        // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
+        series.data.setAll([{
+                value: 10,
+                category: "Lulus"
+            },
+            {
+                value: 9,
+                category: "Dalam Proses"
+            },
+            {
+                value: 6,
+                category: "Tiada Tindakan"
+            },
+            {
+                value: 5,
+                category: "Sedang Dalam Kelulusan"
+            },
+        ]);
+
+
+        // Play initial series animation
+        // https://www.amcharts.com/docs/v5/concepts/animations/#Animation_of_series
+        series.appear(1000, 100);
+
+    }); // end am5.ready()
+</script>
+
+<style>
+    #chartdiv2 {
+        width: 50%;
+        height: 200;
+    }
+</style>
+
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+<!-- Chart code -->
+<script>
+    am5.ready(function() {
+
+        // Create root element
+        // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+        var root = am5.Root.new("chartdiv2");
+
+
+        // Set themes
+        // https://www.amcharts.com/docs/v5/concepts/themes/
+        root.setThemes([
+            am5themes_Animated.new(root)
+        ]);
+
+
+        // Create chart
+        // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
+        var chart = root.container.children.push(am5percent.PieChart.new(root, {
+            layout: root.verticalLayout
+        }));
+
+
+        // Create series
+        // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
+        var series = chart.series.push(am5percent.PieSeries.new(root, {
+            valueField: "value",
+            categoryField: "category"
+        }));
+
+
+        // Set data
+        // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
+        series.data.setAll([{
+                value: 10,
+                category: "Lulus"
+            },
+            {
+                value: 9,
+                category: "Dalam Proses"
+            },
+            {
+                value: 6,
+                category: "Tiada Tindakan"
+            },
+            {
+                value: 5,
+                category: "Sedang Dalam Kelulusan"
+            },
+        ]);
+
+
+        // Play initial series animation
+        // https://www.amcharts.com/docs/v5/concepts/animations/#Animation_of_series
+        series.appear(1000, 100);
+
+    }); // end am5.ready()
 </script>

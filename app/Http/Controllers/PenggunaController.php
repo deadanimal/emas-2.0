@@ -93,13 +93,28 @@ class PenggunaController extends Controller
     {
         $user = User::all();
         $role = Role::all();
+        $permissions = Permission::all();
 
         return view('user.create', [
             'users' => $user,
-            'role' => $role
+            'role' => $role,
+            'permissions' => $permissions
         ]);
 
         // $user->syncPermission('KementerianPPD');
+    }
+
+    public function create1()
+    {
+        $user = User::all();
+        $role = Role::all();
+        $permissions = Permission::all();
+
+        return view('user.create1', [
+            'users' => $user,
+            'role' => $role,
+            'permissions' => $permissions
+        ]);
     }
 
     /**

@@ -39,11 +39,51 @@ class ActivityController extends Controller
         return view('md.activity.index', compact('activities', 'plans', 'initiatives', 'programs'));
     }
 
-    public function index1(Request $request)
+    public function cluster(Request $request)
     {
 
 
-        if ($request->user()->role == 'admin') {
+        // if ($request->user()->role == 'SuperAdmin') {
+
+        //     $activities = activity::all();
+        // } else {
+        //     $user_id = $request->user()->id;
+
+        //     $activities = activity::where('user_id', '=', $user_id)->get();
+        // }
+
+        $activities = activity::all();
+
+
+        return view('md.activity.approval', compact('activities'));
+    }
+
+    public function lulus($id)
+    {
+
+        $activities = activity::find($id);
+        $activities->lulus = true;
+        $activities->ditolak = false;
+        $activities->save();
+
+        return redirect()->to('approval/cluster');
+    }
+
+    public function ditolak(Request $request)
+    {
+        $activities = activity::find($request->id);
+        $activities->lulus = false;
+        $activities->ditolak = true;
+        $activities->save();
+
+        return redirect()->to('approval/cluster');
+    }
+
+    public function cluster1(Request $request)
+    {
+
+
+        if ($request->user()->role == 'SuperAdmin') {
 
             $activities = activity::all();
         } else {
@@ -53,7 +93,24 @@ class ActivityController extends Controller
         }
 
 
-        return view('md.activity.index1', compact('activities'));
+        return view('md.activity.display', compact('activities'));
+    }
+
+    public function cluster2(Request $request)
+    {
+
+
+        if ($request->user()->role == 'SuperAdmin') {
+
+            $activities = activity::all();
+        } else {
+            $user_id = $request->user()->id;
+
+            $activities = activity::where('user_id', '=', $user_id)->get();
+        }
+
+
+        return view('md.activity.display1', compact('activities'));
     }
 
     /**

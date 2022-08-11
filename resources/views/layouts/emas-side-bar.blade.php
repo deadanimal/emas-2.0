@@ -205,8 +205,10 @@
                         'plan/*',
                         'activity',
                         'activity/*',
-                        'activity1',
-                        'activity1/*'))
+                        'approval',
+                        'approval/*',
+                        'display',
+                        'display/*'))
                         <a class="nav-link btn1" href="" role="button">
 
                             <div class="d-flex align-items-center">
@@ -227,7 +229,7 @@
                         </a>
                     @endif
 
-                    @if (Request::is('audit', 'audit/*', 'user', 'user/*', 'userRole', 'userRole/*'))
+                    @if (Request::is('audit', 'audit/*', 'user', 'user/*', 'userRole', 'userRole/*', 'user1', 'user1/*'))
                         <a class="nav-link btn1" href="" role="button">
 
                             <div class="d-flex align-items-center">
@@ -679,8 +681,10 @@
                         'plan/*',
                         'activity',
                         'activity/*',
-                        'activity1',
-                        'activity1/*'))
+                        'approval',
+                        'approval/*',
+                        'display',
+                        'display/*'))
                         <a class="nav-link dropdown-indicator" href="#md" role="button"
                             data-bs-toggle="collapse" aria-expanded="true" aria-controls="md"
                             style="background-color: #C4D4ED">
@@ -761,7 +765,7 @@
                                     <!-- more inner pages-->
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link btn1 dropdown-indicator  {{ Request::is('activity1', 'activity1/*') ? 'active' : '' }}"
+                                    <a class="nav-link btn1 dropdown-indicator  {{ Request::is('approval', 'approval/*', 'display', 'display/*') ? 'active' : '' }}"
                                         href="#cluster" role="button" data-bs-toggle="collapse"
                                         aria-expanded="false" aria-controls="cluster">
                                         <div class="d-flex align-items-center">
@@ -771,7 +775,7 @@
                                     <!-- more inner pages-->
 
                                     <ul class="nav collapse" id="cluster">
-                                        <li class="nav-item"><a class="nav-link btn1" href="/activity1/index1">
+                                        <li class="nav-item"><a class="nav-link btn1" href="/display/cluster1">
                                                 <div class="d-flex align-items-center"><span
                                                         class="nav-link-text1 btn1 ps-1">List of Program Based
                                                         Status</span>
@@ -781,7 +785,7 @@
                                         </li>
                                     </ul>
                                     <ul class="nav collapse" id="cluster">
-                                        <li class="nav-item"><a class="nav-link" href="/activity1/index1">
+                                        <li class="nav-item"><a class="nav-link" href="/">
                                                 <div class="d-flex align-items-center"><span
                                                         class="nav-link-text1 btn1 ps-1">List of Cluster Based on
                                                         Program
@@ -792,7 +796,7 @@
                                         </li>
                                     </ul>
                                     <ul class="nav collapse" id="cluster">
-                                        <li class="nav-item"><a class="nav-link" href="/activity1">
+                                        <li class="nav-item"><a class="nav-link" href="/approval/cluster">
                                                 <div class="d-flex align-items-center"><span
                                                         class="nav-link-text1 btn1 ps-1">List for Approval
                                                     </span>
@@ -807,7 +811,7 @@
                         </div>
                     @endif
 
-                    @if (Request::is('audit', 'audit/*', 'user', 'user/*', 'userRole', 'userRole/*'))
+                    @if (Request::is('audit', 'audit/*', 'user', 'user/*', 'userRole', 'userRole/*', 'user1', 'user1/*'))
                         <a class="nav-link dropdown-indicator" href="#ED" role="button"
                             data-bs-toggle="collapse" aria-expanded="true" aria-controls="ED"
                             style="background-color: #C4D4ED">
@@ -829,7 +833,7 @@
                                     <!-- more inner pages-->
 
                                     <ul class="nav collapse" id="daftar">
-                                        <li class="nav-item"><a class="nav-link btn1" href="/daftar">
+                                        <li class="nav-item"><a class="nav-link btn1" href="/user/create">
                                                 <div class="d-flex align-items-center"><span
                                                         class="nav-link-text1 btn1 ps-1">Daftar Individu</span>
                                                 </div>
@@ -838,7 +842,7 @@
                                         </li>
                                     </ul>
                                     <ul class="nav collapse" id="daftar">
-                                        <li class="nav-item"><a class="nav-link" href="/daftar">
+                                        <li class="nav-item"><a class="nav-link" href="/user1/create1">
                                                 <div class="d-flex align-items-center"><span
                                                         class="nav-link-text1 btn1 ps-1">Daftar Secara Pukal
                                                     </span>
@@ -862,8 +866,8 @@
                                     <!-- more inner pages-->
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link btn1 {{ Request::is('senaraiInformasi', 'senaraiInformasi/*') ? 'active' : '' }}"
-                                        href="/senaraiInformasi">
+                                    <a class="nav-link btn1 {{ Request::is('userRole', 'userRole/*') ? 'active' : '' }}"
+                                        href="/userRole">
                                         <div class="d-flex align-items-center"><span
                                                 class="nav-link-text1 ps-1">Senarai Pengguna
                                             </span>

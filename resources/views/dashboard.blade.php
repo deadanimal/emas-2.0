@@ -432,7 +432,7 @@
 
                     @role('ED')
                         <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3" href="/audit">
+                            <a class="mb-3" href="/user">
                                 <div class="px-4 pt-4">
                                     <img src="img/ED.png" class="img-fluid card-img-hover landing-img" alt="">
                                 </div>

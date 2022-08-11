@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="mb-4 text-center">
-            <H2>APPROVAL FOR UPDATED</H2>
+            <H2>DISPLAY INFORMATION BASED ON STATUS</H2>
         </div>
 
         <div id="tableExample2" data-list='{"valueNames":["activity"],"page":6,"pagination":true}'>

@@ -6,7 +6,7 @@
 
     <div class="container">
         <div class="mb-4 text-center">
-            <H2>Pengguna Berdaftar</H2>
+            <h2>EXECUTIVE DASHBOARD</h2>
         </div>
 
         <div class="col">
@@ -37,16 +37,18 @@
 
                                 <thead>
                                     <tr>
-                                        <th class="text-uppercase text-center font-weight-bolder opacity-7">No.</th>
-                                        <th class="text-uppercase font-weight-bolder opacity-7">Nama</th>
-                                        <th class="text-uppercase text-center font-weight-bolder opacity-7">E-mel</th>
-                                        <th class="text-uppercase text-center font-weight-bolder opacity-7">Peranan</th>
-                                        <th class="text-uppercase text-center font-weight-bolder opacity-7">Kemaskini</th>
+                                        <th class="text-center font-weight-bolder opacity-7">Bil.</th>
+                                        <th class="font-weight-bolder opacity-7">ID Agensi/Bahagian/Kementerian</th>
+                                        <th class="text-center font-weight-bolder opacity-7">Nama
+                                            Agensi/Bahagian/Kementerian</th>
+                                        <th class="text-center font-weight-bolder opacity-7">Dimuat Naik Oleh</th>
+
+                                        <th class="text-center font-weight-bolder opacity-7">Profil</th>
                                         {{-- @if ($current_user != 3)
-                                        <th class="text-uppercase text-center font-weight-bolder opacity-7">Set Semula Kata
+                                        <th class="text-center font-weight-bolder opacity-7">Set Semula Kata
                                             Laluan</th>
                                     @endif --}}
-                                        <th class="text-uppercase text-center font-weight-bolder opacity-7">Hapus</th>
+                                        <th class="text-center font-weight-bolder opacity-7">Hapus</th>
                                     </tr>
                                 </thead>
                                 @role('PPD')
@@ -61,8 +63,10 @@
                                                 <td class="text-sm text-center font-weight-normal">
                                                     {{ $u['email'] }}</td>
                                                 <td class="text-sm text-center font-weight-normal">
+                                                    {{ $u['name'] }}
+                                                    {{-- <td class="text-sm text-center font-weight-normal">
                                                     {{ $u['role'] }}
-                                                </td>
+                                                </td> --}}
                                                 <td class="text-sm text-center font-weight-normal"><a
                                                         class="btn btn-info text-white" href="/user/{{ $u->id }}/edit"
                                                         style="color:black;">

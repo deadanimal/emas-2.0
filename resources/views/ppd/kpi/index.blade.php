@@ -327,6 +327,9 @@
 
                                                     </form>
                                                     <br>
+
+                                                    <a href="javascript:window.print();">Print Page</a>
+
                                                 </div>
 
                                             </div>

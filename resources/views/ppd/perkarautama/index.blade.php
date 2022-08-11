@@ -93,29 +93,27 @@
                                         </div>
                                     </div>
                                 </div>
-                                @role('admin|bahagian|kementerian')
-                                    <td align="right">
-                                        <div>
-                                            {{-- <form action="{{ route('perkarautama.destroy', $perkara->id) }}" method="POST"> --}}
+                                <td align="right">
+                                    <div>
+                                        {{-- <form action="{{ route('perkarautama.destroy', $perkara->id) }}" method="POST"> --}}
 
-                                            <a class="btn btn-primary" style="border-radius: 38px"
-                                                href="{{ route('perkarautama.edit', $perkara->id) }}"><i
-                                                    class="fas fa-edit"></i>
-                                            </a>
+                                        <a class="btn btn-primary" style="border-radius: 38px"
+                                            href="{{ route('perkarautama.edit', $perkara->id) }}"><i
+                                                class="fas fa-edit"></i>
+                                        </a>
 
-                                            {{-- @csrf
+                                        {{-- @csrf
                                         @method('DELETE') --}}
 
-                                            <button type="submit" onclick="myFunction({{ $perkara->id }})"
-                                                class="btn btn-danger" style="border-radius: 38px">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                            <p id="ppd"></p>
+                                        <button type="submit" onclick="myFunction({{ $perkara->id }})"
+                                            class="btn btn-danger" style="border-radius: 38px">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <p id="ppd"></p>
 
-                                            {{-- </form> --}}
-                                        </div>
-                                    </td>
-                                @endrole
+                                        {{-- </form> --}}
+                                    </div>
+                                </td>
                             </tr>
                         @endforeach
 

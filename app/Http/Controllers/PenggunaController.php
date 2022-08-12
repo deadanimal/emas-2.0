@@ -39,50 +39,15 @@ class PenggunaController extends Controller
         ]);
     }
 
-    public function result_search(Request $request)
+    public function index1()
     {
-        $current_user = Auth::user()->user_group_id;
-        if ($current_user == 3) {
-            if (!empty($request->nama)) {
-                $user_pengawas = User::where('user_group_id', '=', '4')->where('ministry_code', Auth::user()->ministry_code)->where('name', 'like', '%' . $request->nama . '%')->orderBy('name', 'asc')->paginate(20)->appends(request()->query());
-            } elseif (!empty($request->ic)) {
-                $user_pengawas = User::where('user_group_id', '=', '4')->where('ministry_code', Auth::user()->ministry_code)->where('nric', 'like', '%' . $request->ic . '%')->orderBy('nric', 'asc')->paginate(20)->appends(request()->query());
-            } elseif (!empty($request->nama) && !empty($request->ic)) {
-                $user_pengawas = User::where('user_group_id', '=', '4')->where('ministry_code', Auth::user()->ministry_code)->where('name', 'like', '%' . $request->nama . '%')->where('nric', 'like', '%' . $request->ic . '%')->orderBy('name', 'asc')->paginate(20)->appends(request()->query());
-            } else {
-                $user_pengawas = User::where('user_group_id', '=', '4')->where('ministry_code', Auth::user()->ministry_code)->orderBy('name', 'asc')->paginate(20)->appends(request()->query());
-            }
-
-            return view('user.index', [
-                'user_pengawas' => $user_pengawas,
-                'current_user' => $current_user
-            ]);
-        } else {
-            if (!empty($request->nama)) {
-                $users = User::where('name', 'like', '%' . $request->nama . '%')->orderBy('name', 'asc')->paginate(20)->appends(request()->query());
-            } elseif (!empty($request->ic)) {
-                $users = User::where('nric', 'like', '%' . $request->ic . '%')->orderBy('nric', 'asc')->paginate(20)->appends(request()->query());
-            } elseif (!empty($request->user_group_id)) {
-                $users = User::where('user_group_id', 'like', '%' . $request->user_group_id . '%')->orderBy('nric', 'asc')->paginate(20)->appends(request()->query());
-            } elseif (!empty($request->nama) && !empty($request->ic)) {
-                $users = User::where('name', 'like', '%' . $request->nama . '%')->where('nric', 'like', '%' . $request->ic . '%')->orderBy('name', 'asc')->paginate(20)->appends(request()->query());
-            } elseif (!empty($request->nama) && !empty($request->user_group_id)) {
-                $users = User::where('name', 'like', '%' . $request->nama . '%')->where('user_group_id', 'like', '%' . $request->user_group_id . '%')->orderBy('name', 'asc')->paginate(20)->appends(request()->query());
-            } elseif (!empty($request->ic) && !empty($request->user_group_id)) {
-                $users = User::where('nric', 'like', '%' . $request->ic . '%')->where('user_group_id', 'like', '%' . $request->user_group_id . '%')->orderBy('name', 'asc')->paginate(20)->appends(request()->query());
-            } elseif (!empty($request->nama) && !empty($request->ic) && !empty($request->user_group_id)) {
-                $users = User::where('name', 'like', '%' . $request->nama . '%')->where('nric', 'like', '%' . $request->ic . '%')->where('user_group_id', 'like', '%' . $request->user_group_id . '%')->orderBy('name', 'asc')->paginate(20)->appends(request()->query());
-            } else {
-                $users = User::orderBy('name', 'asc')->paginate(20)->appends(request()->query());
-            }
-
-            return view('user.index', [
-                'users' => $users,
-                'current_user' => $current_user
-            ]);
-        }
+        $role = Role::all();
+        $user = User::all();
+        return view('user.index1', [
+            'role' => $role,
+            'user' => $user
+        ]);
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -92,12 +57,11 @@ class PenggunaController extends Controller
     public function create()
     {
         $user = User::all();
-        $role = Role::all();
+        $roles = Role::with('permissions')->get();
         $permissions = Permission::all();
-
         return view('user.create', [
             'users' => $user,
-            'role' => $role,
+            'role' => $roles,
             'permissions' => $permissions
         ]);
 
@@ -112,8 +76,8 @@ class PenggunaController extends Controller
 
         return view('user.create1', [
             'users' => $user,
-            'role' => $role,
-            'permissions' => $permissions
+            // 'role' => $role,
+            // 'permissions' => $permissions
         ]);
     }
 
@@ -130,75 +94,78 @@ class PenggunaController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required']
+            'password' => ['required'],
+            'password_confirmation' => ['required']
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'password_confirmation' => Hash::make(($request->password_confirmation))
             // 'role' => $request->role,
 
         ]);
 
-        // dd($user);
+        // dd($request->all());
 
         $user->assignRole($request->role);
+        $user->givePermissionTo($request->permission);
 
-        switch ($request->role) {
-            case 'PPD':
-                $user->givePermissionTo('KementerianPPD');
-                $user->givePermissionTo('BahagianPPD');
-                $user->givePermissionTo('AgensiPPD');
-                break;
-            case 'MPB':
-                $user->givePermissionTo('User');
-                $user->givePermissionTo('Approver');
-                break;
-            case 'KT':
-                $user->givePermissionTo('AgensiKT');
-                $user->givePermissionTo('BahagianKT');
-                break;
+        // switch ($request->role) {
+        //     case 'PPD':
+        //         $user->givePermissionTo('KementerianPPD');
+        //         $user->givePermissionTo('BahagianPPD');
+        //         $user->givePermissionTo('AgensiPPD');
+        //         break;
+        //     case 'MPB':
+        //         $user->givePermissionTo('User');
+        //         $user->givePermissionTo('Approver');
+        //         break;
+        //     case 'KT':
+        //         $user->givePermissionTo('AgensiKT');
+        //         $user->givePermissionTo('BahagianKT');
+        //         break;
 
-            case 'MD':
-                $user->givePermissionTo('KementerianMD');
-                $user->givePermissionTo('BahagianMD');
-                $user->givePermissionTo('AgensiMD');
-                $user->givePermissionTo('Urusetia');
-                $user->givePermissionTo('EpuMD');
-                break;
+        //     case 'MD':
+        //         $user->givePermissionTo('KementerianMD');
+        //         $user->givePermissionTo('BahagianMD');
+        //         $user->givePermissionTo('AgensiMD');
+        //         $user->givePermissionTo('Urusetia');
+        //         $user->givePermissionTo('EpuMD');
+        //         break;
 
-            case 'ED':
-                $user->givePermissionTo('ICT');
-                $user->givePermissionTo('EpuED');
-                $user->givePermissionTo('Eksekutif');
-                break;
+        //     case 'ED':
+        //         $user->givePermissionTo('ICT');
+        //         $user->givePermissionTo('EpuED');
+        //         $user->givePermissionTo('Eksekutif');
+        //         break;
 
-            case 'SuperAdmin':
-                $user->givePermissionTo('KementerianPPD');
-                $user->givePermissionTo('BahagianPPD');
-                $user->givePermissionTo('AgensiPPD');
-                $user->givePermissionTo('User');
-                $user->givePermissionTo('Approver');
-                $user->givePermissionTo('AgensiKT');
-                $user->givePermissionTo('BahagianKT');
-                $user->givePermissionTo('KementerianMD');
-                $user->givePermissionTo('BahagianMD');
-                $user->givePermissionTo('AgensiMD');
-                $user->givePermissionTo('Urusetia');
-                $user->givePermissionTo('EpuMD');
-                $user->givePermissionTo('ICT');
-                $user->givePermissionTo('EpuED');
-                $user->givePermissionTo('Eksekutif');
-                break;
+        //     case 'SuperAdmin':
+        //         $user->givePermissionTo('KementerianPPD');
+        //         $user->givePermissionTo('BahagianPPD');
+        //         $user->givePermissionTo('AgensiPPD');
+        //         $user->givePermissionTo('User');
+        //         $user->givePermissionTo('Approver');
+        //         $user->givePermissionTo('AgensiKT');
+        //         $user->givePermissionTo('BahagianKT');
+        //         $user->givePermissionTo('KementerianMD');
+        //         $user->givePermissionTo('BahagianMD');
+        //         $user->givePermissionTo('AgensiMD');
+        //         $user->givePermissionTo('Urusetia');
+        //         $user->givePermissionTo('EpuMD');
+        //         $user->givePermissionTo('ICT');
+        //         $user->givePermissionTo('EpuED');
+        //         $user->givePermissionTo('Eksekutif');
+        //         break;
 
 
-            default:
-                # code...
-                break;
-        }
+        //     default:
+        //         # code...
+        //         break;
+        // }
 
-        $user->syncPermissions($request->permission);
+        // $user->syncPermissions($request->permission);
 
         return redirect()->route('user.index');
     }
@@ -244,63 +211,17 @@ class PenggunaController extends Controller
         $user->email = $request->email;
         $user->role = $request->role;
         // $user->permissions = $request->permissions;
-        $user->assignRole($request->role);
+
+
+        $user->syncRoles($request->role);
+        // $user->givePermissionTo($request->permission);
 
         $user->syncPermissions($request->permission);
 
-
-        switch ($request->role) {
-            case 'PPD':
-                $user->givePermissionTo('KementerianPPD');
-                $user->givePermissionTo('BahagianPPD');
-                $user->givePermissionTo('AgensiPPD');
-                break;
-            case 'MPB':
-                $user->givePermissionTo('User');
-                $user->givePermissionTo('Approver');
-                break;
-            case 'KT':
-                $user->givePermissionTo('AgensiKT');
-                $user->givePermissionTo('BahagianKT');
-                break;
-
-            case 'MD':
-                $user->givePermissionTo('KementerianMD');
-                $user->givePermissionTo('BahagianMD');
-                $user->givePermissionTo('AgensiMD');
-                $user->givePermissionTo('Urusetia');
-                $user->givePermissionTo('EpuMD');
-                break;
-
-            case 'ED':
-                $user->givePermissionTo('ICT');
-                $user->givePermissionTo('EpuED');
-                $user->givePermissionTo('Eksekutif');
-                break;
-
-            case 'SuperAdmin':
-                $user->givePermissionTo('KementerianPPD');
-                $user->givePermissionTo('BahagianPPD');
-                $user->givePermissionTo('AgensiPPD');
-                $user->givePermissionTo('User');
-                $user->givePermissionTo('Approver');
-                $user->givePermissionTo('AgensiKT');
-                $user->givePermissionTo('BahagianKT');
-                $user->givePermissionTo('KementerianMD');
-                $user->givePermissionTo('BahagianMD');
-                $user->givePermissionTo('AgensiMD');
-                $user->givePermissionTo('Urusetia');
-                $user->givePermissionTo('EpuMD');
-                $user->givePermissionTo('ICT');
-                $user->givePermissionTo('EpuED');
-                $user->givePermissionTo('Eksekutif');
-                break;
+        // $user->revokePermissionTo($request->permission);
 
 
-            default:
-                # code...
-                break;
-        }
+        // $user->givePermissionTo($request->permission);
 
         $user->save();
 

@@ -37,7 +37,7 @@
                         <div class="card-body pt-0">
                             <div class="row">
                                 <div class="col-6">
-                                    <label for="">ID Pengguna Baru :</label>
+                                    <label for="">Nama Pengguna:</label>
                                     <div class="input-group">
                                         <input class="form-control mb-3" type="text" name="name"
                                             :value="old('name')" style="text-transform: uppercase" required>
@@ -62,8 +62,8 @@
                                 <div class="col-6">
                                     <label for="">Sahkan Kata Laluan :</label>
                                     <div class="input-group">
-                                        <input class="form-control mb-3" type="password" name="password" required
-                                            minlength="8">
+                                        <input class="form-control mb-3" type="password" name="password_confirmation"
+                                            required minlength="8">
                                     </div>
                                 </div>
                             </div>
@@ -74,8 +74,8 @@
 
                                         <select class="form-control mb-3" name="role" id="pilih1" required>
                                             <option value="" selected hidden>Sila pilih</option>
-                                            @foreach ($role as $role)
-                                                <option value="{{ $role->name }}">{{ ucfirst(trans($role->name)) }}
+                                            @foreach ($role as $r)
+                                                <option value="{{ $r->name }}">{{ ucfirst(trans($r->name)) }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -86,13 +86,13 @@
                                         Bahagian :</label>
                                     <div class="input-group">
 
-                                        <select class="form-control mb-3" name="role" id="pilih1" required>
-                                            <option value="" selected hidden>Sila pilih</option>
-                                            @foreach ($permissions as $permission)
+                                        <select class="form-control mb-3" name="permission" id="pilih2" required>
+                                            <option selected disabled hidden>Sila pilih</option>
+                                            {{-- @foreach ($role->permissions as $permission)
                                                 <option value="{{ $permission->name }}">
                                                     {{ ucfirst(trans($permission->name)) }}
                                                 </option>
-                                            @endforeach
+                                            @endforeach --}}
                                         </select>
                                     </div>
                                 </div>
@@ -121,16 +121,29 @@
 
 
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script type="text/javascript">
-            $(function() {
-                $("#pilih1").change(function() {
-                    if ($(this).val() == "3") {
-                        $("#pilih2").show();
-                    } else {
-                        $("#pilih2").hide();
+        <script>
+            $("#pilih1").change(function() {
+                $("#pilih2").html('');
+
+                var role = @json($role->toArray());
+
+                role.forEach(role => {
+                    if (role.name == this.value) {
+                        role.permissions.forEach(permission => {
+                            $("#pilih2").append(`
+                                <option value=" ` + permission.name + ` ">
+                                                     ` + permission.name + `
+                                </option>
+                            `)
+                        });
+
                     }
                 });
-            });
+
+
+
+
+            })
         </script>
     @stop
 </div>

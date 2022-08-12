@@ -13,7 +13,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header" style="background-color:#047FC3;">
-                        <b class="text-white">{{ ucfirst(trans($roles->name)) }}</b>
+                        <b class="text-white">{{ $roles->name }}</b>
                     </div>
                     <div class="card-body">
                         <form action="/userRole/{{ $roles->id }}" method="POST">
@@ -34,7 +34,7 @@
                                                 @foreach ($permissions as $key => $permission)
                                                     <tr>
                                                         <td class="text-center">{{ $key + 1 }}.</td>
-                                                        <td>{{ ucfirst(trans($permission->name)) }}</td>
+                                                        <td>{{ $permission->name }}</td>
                                                         <td>
                                                             <div class="form-check form-switch">
                                                                 <input id='switch{{ $permission->id }}'

@@ -9,10 +9,7 @@
         <div class="col">
             <div class="row align-items-center">
                 <div class="col col-lg-8">
-                    <span><b>Senarai Pengguna</b></span>
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/user/create">
-                        <span class="fas fa-plus-circle"></span>&nbsp;Daftar Pengguna</a>
+                    <span><b>Senarai Status Pengguna</b></span>
 
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">
@@ -25,7 +22,7 @@
         </div>
         <br>
 
-        <div id="tableExample2" data-list='{"valueNames":["user"],"page":5,"pagination":true}'>
+        <div id="tableExample2" data-list='{"valueNames":["user"],"page":10,"pagination":true}'>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -40,12 +37,12 @@
                                             Agensi/Bahagian/Kementerian</th>
                                         <th class="text-center font-weight-bolder opacity-7">Dimuat Naik Oleh</th>
 
-                                        <th class="text-center font-weight-bolder opacity-7">Profil</th>
+                                        <th class="text-center font-weight-bolder opacity-7">Status</th>
                                         {{-- @if ($current_user != 3)
                                         <th class="text-center font-weight-bolder opacity-7">Set Semula Kata
                                             Laluan</th>
                                     @endif --}}
-                                        <th class="text-center font-weight-bolder opacity-7">Hapus</th>
+                                        {{-- <th class="text-center font-weight-bolder opacity-7">Hapus</th> --}}
                                     </tr>
                                 </thead>
                                 @role('PPD')
@@ -55,58 +52,20 @@
                                             <tr class="align-middle user">
                                                 <td class="text-sm text-center font-weight-normal">
                                                     {{ $key + 1 }}</td>
-                                                <td class="text-sm font-weight-normal" style="text-transform: uppercase">
+                                                <td class="text-sm font-weight-normal">
                                                     {{ $u['name'] }}</td>
                                                 <td class="text-sm text-center font-weight-normal">
                                                     {{ $u['email'] }}</td>
                                                 <td class="text-sm text-center font-weight-normal">
                                                     {{ $u['name'] }}
-                                                    {{-- <td class="text-sm text-center font-weight-normal">
-                                                    {{ $u['role'] }}
-                                                </td> --}}
-                                                <td class="text-sm text-center font-weight-normal"><a
-                                                        class="btn btn-info text-white" href="/user/{{ $u->id }}/edit"
-                                                        style="color:black;">
-                                                        Kemaskini
-                                                    </a>
                                                 </td>
-                                                <td class="text-sm text-center font-weight-normal">
-                                                    <a data-bs-toggle="modal" style="cursor: pointer"
-                                                        data-bs-target="#modaldelete-{{ $u->id }}">
-                                                        <i class="far fa-trash-alt"></i>
-                                                    </a>
-                                                </td>
-
-                                                <div class="modal fade" id="modaldelete-{{ $u->id }}" tabindex="-1"
-                                                    role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-body text-center">
-                                                                <i class="far fa-times-circle fa-7x" style="color: #ea0606"></i>
-                                                                <br>
-                                                                Anda pasti untuk menghapus pengguna?
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn bg-gradient-secondary"
-                                                                    data-bs-dismiss="modal">Batal</button>
-                                                                <form method="POST" action="/user/{{ $u->id }}">
-                                                                    @method('DELETE')
-                                                                    @csrf
-
-                                                                    <button class="btn bg-gradient-danger"
-                                                                        style="cursor: pointer" type="submit"> Hapus</button>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </tr>
                                         @endforeach
                                     </tbody>
 
                                 @endrole
                             </table>
-                         
+
                         </div>
                     </div>
                 </div>

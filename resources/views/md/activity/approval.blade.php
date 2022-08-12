@@ -1,9 +1,15 @@
 @extends('base')
 @section('content')
     <div class="container">
-        <div class="mb-4 text-center">
-            <H2>APPROVAL FOR UPDATED</H2>
-        </div>
+        @role('Approver')
+            <div class="mb-4 text-center">
+                <H2>APPROVAL FOR UPDATED</H2>
+            </div>
+        @else
+            <div class="mb-4 text-center">
+                <H2>DISPLAY INFORMATION BASED ON STATUS</H2>
+            </div>
+        @endrole
 
         <div id="tableExample2" data-list='{"valueNames":["activity"],"page":6,"pagination":true}'>
             <div class="card mx-ncard my-ncard shadow-none">
@@ -12,9 +18,9 @@
                         <table class="table mb-0" style="width: 400%" value="null">
                             <thead class="text-black bg-200">
                                 <tr>
-                                    @role('MD|SuperAdmin')
+                                    @can('Approver')
                                         <th class="align-middle">No.</th>
-                                    @endrole
+                                    @endcan
                                     <th class="align-middle">Cluster</th>
                                     <th class="align-middle">Initiative </th>
                                     <th class="align-middle">Program</th>
@@ -28,20 +34,20 @@
                                     <th class="align-middle">Output Progress</th>
                                     <th class="align-middle">Additional Output Info</th>
                                     <th class="align-middle">Remarks</th>
-                                    @role('MD')
+                                    @can('User')
                                         <th class="align-middle">Status</th>
-                                    @endrole
-                                    @role('MD|SuperAdmin')
+                                    @endcan
+                                    @can('Approver')
                                         <th class="align-middle">Tindakan</th>
-                                    @endrole
+                                    @endcan
                                 </tr>
                             </thead>
                             <tbody class="list myTable" id="searchUpdateTable">
                                 @foreach ($activities as $activity)
                                     <tr class="activity">
-                                        @role('MD|SuperAdmin')
+                                        @can('Approver')
                                             <td class="align-middle">{{ $loop->iteration }}.</td>
-                                        @endrole
+                                        @endcan
                                         <td class="align-middle">{{ $activity->cluster->namaCluster ?? '' }}</td>
                                         <td class="align-middle">{{ $activity->initiative->namaInitiative ?? '' }}</td>
                                         <td class="align-middle">{{ $activity->program->namaProgram ?? '' }}</td>

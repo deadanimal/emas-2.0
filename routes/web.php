@@ -77,8 +77,6 @@ Route::group(
         //Perkara Utama
         Route::resource('/perkarautama', PerkarautamaController::class);
 
-        //Tema
-
         //PemangkinDasar
         Route::resource('/pemangkin', PemangkindasarController::class);
         // Route::get('/kategori','PemangkindasarController@index')->name('kategori');
@@ -92,7 +90,6 @@ Route::group(
         Route::resource('/pemacu', PemacuController::class);
         //Search
         Route::post('/search_pemacu', [PemacuController::class, 'searchPemacu']);
-
 
         //Bidang
         Route::resource('/bidang', BidangController::class);
@@ -111,14 +108,12 @@ Route::group(
         Route::post('/search_kpi', [KpiController::class, 'searchKpi']);
         Route::post('/search_kpi1', [KpiController::class, 'searchKpi1']);
 
-
         //Strategi
         Route::resource('/strategi', StrategiController::class);
 
         //Inisiatif
         Route::resource('/inisiatif', InisiatifController::class);
         Route::post('/search_inisiatif', [InisiatifController::class, 'searchInisiatif']);
-
 
         //Tindakan
         Route::resource('/tindakan', TindakanController::class);
@@ -128,7 +123,6 @@ Route::group(
         Route::post('/tindakan/lulus/{id}', [TindakanController::class, 'lulus'])->name('tindakan.lulus');
         Route::post('/tindakan/ditolak/{id}', [TindakanController::class, 'ditolak'])->name('tindakan.ditolak');
         Route::post('/search_tindakan', [TindakanController::class, 'searchTindakan']);
-
 
         //SDG
         Route::resource('/sdg', SdgController::class);
@@ -182,27 +176,20 @@ Route::group(
         //Thrust
         Route::resource('/thrus', ThrusController::class);
 
-
-
         //Strategy
         Route::resource('/strategy', StrategyController::class);
-
 
         //Cluster
         Route::resource('/cluster', ClusterController::class);
 
-
         //Initiative
         Route::resource('/initiative', InitiativeController::class);
-
 
         //Program
         Route::resource('/program', ProgramController::class);
 
-
         //Plan
         Route::resource('/plan', PlanController::class);
-
 
         //Activity
         Route::resource('/activity', ActivityController::class);
@@ -219,7 +206,17 @@ Route::group(
 Route::group(
     ['middleware' => ['role:ED']],
     function () {
+
         // Module 5 ED
+
+        //User Management
+        Route::resource('/userRole', RolesandpermissionController::class);
+        Route::resource('/user', PenggunaController::class);
+        Route::get('/user1/index1/', [PenggunaController::class, 'index1']);
+        Route::get('/user1/create1/', [PenggunaController::class, 'create1']);
+        Route::post('/set-semula-kata-laluan/{id}', [PenggunaController::class, 'set_semula_kata_laluan']);
+        Route::get('/carian-pengguna', [PenggunaController::class, 'result_search']);
+
 
         //Audit Log
         // Route::get('/audit', AuditController::class);
@@ -227,13 +224,3 @@ Route::group(
     }
 );
 
-Route::resource('/userRole', RolesandpermissionController::class);
-Route::resource('/user', PenggunaController::class);
-Route::get('/user1/index1/', [PenggunaController::class, 'index1']);
-Route::get('/user1/create1/', [PenggunaController::class, 'create1']);
-Route::post('/set-semula-kata-laluan/{id}', [PenggunaController::class, 'set_semula_kata_laluan']);
-Route::get('/carian-pengguna', [PenggunaController::class, 'result_search']);
-
-
-
-// Route::get('/user1/index1/', [PenggunaController::class, 'index']);

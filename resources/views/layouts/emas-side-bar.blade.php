@@ -823,7 +823,7 @@
                         <div class="card">
                             <ul class="nav collapse show" id="ED" style="background-color: #E7EFFD">
                                 <li class="nav-item">
-                                    <a class="nav-link btn1 dropdown-indicator  {{ Request::is('daftar', 'daftar/*') ? 'active' : '' }}"
+                                    <a class="nav-link btn1 dropdown-indicator  {{ Request::is('user/*') ? 'active' : '' }}"
                                         href="#daftar" role="button" data-bs-toggle="collapse"
                                         aria-expanded="false" aria-controls="daftar">
                                         <div class="d-flex align-items-center">
@@ -866,8 +866,8 @@
                                     <!-- more inner pages-->
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link btn1 {{ Request::is('userRole', 'userRole/*') ? 'active' : '' }}"
-                                        href="/userRole">
+                                    <a class="nav-link btn1 {{ Request::is('user') ? 'active' : '' }}"
+                                        href="/user">
                                         <div class="d-flex align-items-center"><span
                                                 class="nav-link-text1 ps-1">Senarai Pengguna
                                             </span>
@@ -877,8 +877,8 @@
 
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link btn1 {{ Request::is('senaraiInformasi', 'senaraiInformasi/*') ? 'active' : '' }}"
-                                        href="/senaraiInformasi">
+                                    <a class="nav-link btn1 {{ Request::is('user1/index1', 'user1/index1/*') ? 'active' : '' }}"
+                                        href="/user1/index1">
                                         <div class="d-flex align-items-center"><span
                                                 class="nav-link-text1 ps-1">Senarai Status Pengguna
                                             </span>

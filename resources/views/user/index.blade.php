@@ -28,7 +28,7 @@
         </div>
         <br>
 
-        <div id="tableExample2" data-list='{"valueNames":["user"],"page":5,"pagination":true}'>
+        <div id="tableExample2" data-list='{"valueNames":["user"],"page":10,"pagination":true}'>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -48,7 +48,7 @@
                                         <th class="text-center font-weight-bolder opacity-7">Set Semula Kata
                                             Laluan</th>
                                     @endif --}}
-                                        <th class="text-center font-weight-bolder opacity-7">Hapus</th>
+                                        {{-- <th class="text-center font-weight-bolder opacity-7">Hapus</th> --}}
                                     </tr>
                                 </thead>
                                 @role('PPD')
@@ -58,7 +58,7 @@
                                             <tr class="align-middle user">
                                                 <td class="text-sm text-center font-weight-normal">
                                                     {{ $key + 1 }}</td>
-                                                <td class="text-sm font-weight-normal" style="text-transform: uppercase">
+                                                <td class="text-sm font-weight-normal">
                                                     {{ $u['name'] }}</td>
                                                 <td class="text-sm text-center font-weight-normal">
                                                     {{ $u['email'] }}</td>
@@ -73,7 +73,7 @@
                                                         Kemaskini
                                                     </a>
                                                 </td>
-                                                <td class="text-sm text-center font-weight-normal">
+                                                {{-- <td class="text-sm text-center font-weight-normal">
                                                     <a data-bs-toggle="modal" style="cursor: pointer"
                                                         data-bs-target="#modaldelete-{{ $u->id }}">
                                                         <i class="far fa-trash-alt"></i>
@@ -102,7 +102,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -114,7 +114,7 @@
                                                 <td class="text-sm text-center font-weight-normal">
                                                     {{ $index + $users->firstItem() }}</td>
 
-                                                <td class="text-sm font-weight-normal" style="text-transform: uppercase">
+                                                <td class="text-sm font-weight-normal">
                                                     {{ $user['name'] }}</td>
                                                 <td class="text-sm text-center font-weight-normal">{{ $user['email'] }}</td>
                                                 <td class="text-sm text-center font-weight-normal">

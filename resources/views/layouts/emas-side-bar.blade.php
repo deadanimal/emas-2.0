@@ -77,14 +77,17 @@
                                 </span>
 
                             </div>
-                            {{ auth()->user()->role }}
 
                             <div class="col-2">
 
                             </div>
 
                         </div>
+
+
                     </a>
+
+
                     @if (Request::is(
                         'fokusutama',
                         'fokusutama/*',
@@ -159,6 +162,25 @@
                                     <span class="nav-link-text ps-1">Malaysia Productivity Blueprint</span>
                                 </div>
 
+                                <div class="col-2">
+
+                                </div>
+                            </div>
+                        </a>
+
+                        <a class="nav-link" href="/" role="button">
+
+                            <div class="d-flex align-items-center">
+                                <div class="col-2">
+                                    <span class="nav-link-icon">
+                                        <span class="far fa-folder"></span>
+                                    </span>
+                                </div>
+                                <div class="col text-center">
+                                    <span class="nav-link-text ps-1">
+                                        Data Entry
+                                    </span>
+                                </div>
                                 <div class="col-2">
 
                                 </div>
@@ -534,6 +556,7 @@
                                     <a class="nav-link btn1 {{ Request::is('kpi2', 'kpi2/*') ? 'active' : '' }}"
                                         href="/kpi2">
                                         <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">KPI
+                                                Information
                                             </span>
                                         </div>
                                     </a>
@@ -636,29 +659,80 @@
                                 </ul>
 
 
-                                <li class="nav-item">
-                                    <a class="nav-link btn1 {{ Request::is('bantuan', 'bantuan/*') ? 'active' : '' }}"
-                                        href="/bantuan">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Jenis
-                                                Bantuan
+                                <!-- parent pages-->
+                                <a class="nav-link btn1 dropdown-indicator {{ Request::is('bantuan', 'bantuan/*') ? 'active' : '' }}"
+                                    href="#bantuan" role="button" data-bs-toggle="collapse" aria-expanded="false"
+                                    aria-controls="bantuan">
+                                    <div class="d-flex align-items-center"><span class="nav-link-icon"></span><span
+                                            class="nav-link-text1 ps-1">Jenis Bantuan</span>
+                                    </div>
+                                </a>
+                                <ul class="nav collapse false" id="bantuan">
+                                    <li class="nav-item"><a class="nav-link" href="/">
+                                            <div class="d-flex align-items-center"><span
+                                                    class="nav-link-text1 ps-1">Senarai Jenis Bantuan</span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" href="/">
+                                            <div class="d-flex align-items-center"><span
+                                                    class="nav-link-text1 ps-1">Senarai Jenis Bantuan Berdasarkan
+                                                    Negeri</span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" href="/">
+                                            <div class="d-flex align-items-center"><span
+                                                    class="nav-link-text1 ps-1">Senarai Nama Ketua Kampung</span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" href="/">
+                                            <div class="d-flex align-items-center"><span
+                                                    class="nav-link-text1 ps-1">Senarai Kampung Yang Menerima
+                                                    Bantuan</span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+                                </ul>
 
-                                            </span>
-                                        </div>
-                                    </a>
-                                    <!-- more inner pages-->
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link btn1 {{ Request::is('senaraiInformasi', 'senaraiInformasi/*') ? 'active' : '' }}"
-                                        href="/senaraiInformasi">
-                                        <div class="d-flex align-items-center"><span
-                                                class="nav-link-text1 ps-1">Senarai
-                                                Informasi Berdasarkan KIR & AIR
-                                            </span>
-                                        </div>
-                                    </a>
-                                    <!-- more inner pages-->
+                                <!-- parent pages-->
+                                <a class="nav-link btn1 dropdown-indicator {{ Request::is('senarai', 'senarai/*') ? 'active' : '' }}"
+                                    href="#senarai" role="button" data-bs-toggle="collapse" aria-expanded="false"
+                                    aria-controls="senarai">
+                                    <div class="d-flex align-items-center"><span class="nav-link-icon"></span><span
+                                            class="nav-link-text1 ps-1">Senarai
+                                            Informasi Berdasarkan KIR & AIR</span>
+                                    </div>
+                                </a>
+                                <ul class="nav collapse false" id="senarai">
+                                    <li class="nav-item"><a class="nav-link" href="/">
+                                            <div class="d-flex align-items-center"><span
+                                                    class="nav-link-text1 ps-1">Senarai KIR & AIR
+                                                    Berdasarkan Negeri,
+                                                    Daerah Dan Kampung</span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" href="/">
+                                            <div class="d-flex align-items-center"><span
+                                                    class="nav-link-text1 ps-1">Senarai KIR & AIR
+                                                    Berdasarkan Program
+                                                    Mengikut Negeri,
+                                                    Daerah Dan Kampung</span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
 
-                                </li>
+                                </ul>
+
+
 
                             </ul>
                         </div>
@@ -764,48 +838,51 @@
                                     </a>
                                     <!-- more inner pages-->
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link btn1 dropdown-indicator  {{ Request::is('approval', 'approval/*', 'display', 'display/*') ? 'active' : '' }}"
-                                        href="#cluster" role="button" data-bs-toggle="collapse"
-                                        aria-expanded="false" aria-controls="cluster">
-                                        <div class="d-flex align-items-center">
-                                            <span class="nav-link-text1 ps-1">Status of Cluster</span>
-                                        </div>
-                                    </a>
-                                    <!-- more inner pages-->
+                                @can('Kementerian MD')
+                                    <li class="nav-item">
+                                        <a class="nav-link btn1 dropdown-indicator  {{ Request::is('approval', 'approval/*', 'display', 'display/*') ? 'active' : '' }}"
+                                            href="#cluster" role="button" data-bs-toggle="collapse"
+                                            aria-expanded="false" aria-controls="cluster">
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-text1 ps-1">Status of Cluster</span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
 
-                                    <ul class="nav collapse" id="cluster">
-                                        <li class="nav-item"><a class="nav-link btn1" href="/display/cluster1">
-                                                <div class="d-flex align-items-center"><span
-                                                        class="nav-link-text1 btn1 ps-1">List of Program Based
-                                                        Status</span>
-                                                </div>
-                                            </a>
-                                            <!-- more inner pages-->
-                                        </li>
-                                    </ul>
-                                    <ul class="nav collapse" id="cluster">
-                                        <li class="nav-item"><a class="nav-link" href="/">
-                                                <div class="d-flex align-items-center"><span
-                                                        class="nav-link-text1 btn1 ps-1">List of Cluster Based on
-                                                        Program
-                                                    </span>
-                                                </div>
-                                            </a>
-                                            <!-- more inner pages-->
-                                        </li>
-                                    </ul>
-                                    <ul class="nav collapse" id="cluster">
-                                        <li class="nav-item"><a class="nav-link" href="/approval/cluster">
-                                                <div class="d-flex align-items-center"><span
-                                                        class="nav-link-text1 btn1 ps-1">List for Approval
-                                                    </span>
-                                                </div>
-                                            </a>
-                                            <!-- more inner pages-->
-                                        </li>
-                                    </ul>
-                                </li>
+                                        <ul class="nav collapse" id="cluster">
+                                            <li class="nav-item"><a class="nav-link btn1" href="/display/cluster1">
+                                                    <div class="d-flex align-items-center"><span
+                                                            class="nav-link-text1 btn1 ps-1">List of Program Based
+                                                            Status</span>
+                                                    </div>
+                                                </a>
+                                                <!-- more inner pages-->
+                                            </li>
+                                        </ul>
+                                        <ul class="nav collapse" id="cluster">
+                                            <li class="nav-item"><a class="nav-link" href="/">
+                                                    <div class="d-flex align-items-center"><span
+                                                            class="nav-link-text1 btn1 ps-1">List of Cluster Based on
+                                                            Program
+                                                        </span>
+                                                    </div>
+                                                </a>
+                                                <!-- more inner pages-->
+                                            </li>
+                                        </ul>
+                                        <ul class="nav collapse" id="cluster">
+                                            <li class="nav-item"><a class="nav-link" href="/approval/cluster">
+                                                    <div class="d-flex align-items-center"><span
+                                                            class="nav-link-text1 btn1 ps-1">List for Approval
+                                                        </span>
+                                                    </div>
+                                                </a>
+                                                <!-- more inner pages-->
+                                            </li>
+                                        </ul>
+                                    </li>
+                                @endcan
+
 
                             </ul>
                         </div>
@@ -897,27 +974,27 @@
 
                 <li class="nav-item1 mx-3 mx-md-0">
                     <!-- label-->
-                    {{-- <a class="nav-link" href="/markah/create" role="button">
+                    @if (Request::is('lokaliti', 'lokaliti/*', 'senarai', 'senarai/*', 'bantuan', 'bantuan/*'))
+                        <a class="nav-link" href="/bahagian1" role="button">
 
-                        <div class="d-flex align-items-center">
-                            <div class="col-2">
-                                <span class="nav-link-icon">
-                                    <span class="far fa-folder"></span>
-                                </span>
+                            <div class="d-flex align-items-center">
+                                <div class="col-2">
+                                    <span class="nav-link-icon">
+                                        <span class="far fa-folder"></span>
+                                    </span>
+                                </div>
+                                <div class="col text-center">
+                                    <span class="nav-link-text ps-1">Kemasukan
+                                        Data
+                                    </span>
+                                </div>
+                                <div class="col-2">
+
+                                </div>
                             </div>
-                            <div class="col text-center">
-                                <span class="nav-link-text ps-1">Kemasukan
-                                    Data
-                                </span>
-                            </div>
-                            <div class="col-2">
-
-                            </div>
-                        </div>
-                    </a>
-
-
-                    <a class="nav-link" href="/markah/" role="button">
+                        </a>
+                    @endif
+                    {{-- <a class="nav-link" href="/markah/" role="button">
 
                         <div class="d-flex align-items-center">
                             <div class="col-2">
@@ -935,6 +1012,41 @@
                             </div>
                         </div>
                     </a> --}}
+
+                    @if (Request::is(
+                        'thrust',
+                        'thrust/*',
+                        'national',
+                        'national/*',
+                        'key',
+                        'key/*',
+                        'sub',
+                        'sub/*',
+                        'kpi2',
+                        'kpi2/*',
+                        'milestone',
+                        'milestone/*',
+                        'mpb'))
+                        <a class="nav-link" href="/" role="button">
+
+                            <div class="d-flex align-items-center">
+                                <div class="col-2">
+                                    <span class="nav-link-icon">
+                                        <span class="far fa-folder"></span>
+                                    </span>
+                                </div>
+                                <div class="col text-center">
+                                    <span class="nav-link-text ps-1">
+                                        Data Update
+                                    </span>
+                                </div>
+                                <div class="col-2">
+
+                                </div>
+                            </div>
+                        </a>
+                    @endif
+
                     <a class="nav-link btn1" href="/" role="button">
 
                         <div class="d-flex align-items-center">
@@ -980,6 +1092,30 @@
                         </div>
                     </a>
                 </li>
+                <a class="nav-link btn1" href="/dashboard" role="button">
+                    <div class="row d-flex align-items-center ">
+                        <div class="col-2">
+                            <span class="nav-link-icon">
+                                <span class="fas fa-home">
+                                </span>
+                            </span>
+                        </div>
+                        <div class="col text-center">
+                            {{ auth()->user()->role }}
+                            <br>
+                            {{ auth()->user()->getPermissionNames() }}
+
+
+                        </div>
+
+                        <div class="col-2">
+
+                        </div>
+
+                    </div>
+
+
+                </a>
                 <br>
 
 

@@ -338,11 +338,7 @@
         <div class="container">
             <div class="mb-4 text-center">
             </div>
-            Permission =
-            {{ auth()->user()->getPermissionNames() }}
-            <br>
-            Role =
-            {{ auth()->user()->role }}
+
 
             @role('PPD|MPB|KT|ED|MD')
                 <div class="row pb-3">
@@ -432,7 +428,7 @@
 
                     @role('ED')
                         <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3" href="/user">
+                            <a class="mb-3" href="/user/create">
                                 <div class="px-4 pt-4">
                                     <img src="img/ED.png" class="img-fluid card-img-hover landing-img" alt="">
                                 </div>

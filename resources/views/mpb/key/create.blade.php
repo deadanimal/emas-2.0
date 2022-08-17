@@ -1,8 +1,6 @@
 @extends('base')
 @section('content')
     <div class="container">
-        <br>
-
         <div class="mb-4 text-center">
             <H2>DATA ENTRY</H2>
         </div>
@@ -15,9 +13,18 @@
                 @csrf
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="thrust_id">Thrust</label>
+                    <label class="col-sm-2 col-form-label" for="namaKey">Key Activities Name</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="thrust_id">
+                        <input class="form-control" type="text" name="namaKey" />
+
+                    </div>
+                </div>
+
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="national_id">Thrust</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="national_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
 
                             @foreach ($list as $list)
@@ -28,14 +35,6 @@
                     </div>
                 </div>
 
-
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaKey">Key Activities</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaKey" />
-
-                    </div>
-                </div>
 
                 <br>
                 <br>

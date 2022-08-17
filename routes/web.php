@@ -32,6 +32,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\RolesandpermissionController;
+use App\Models\Negeri_mukim;
 
 /*
 |--------------------------------------------------------------------------
@@ -164,6 +165,7 @@ Route::group(
 
         //Lokaliti
         Route::resource('/lokaliti', LokalitiController::class);
+        // Route::resource('/senarai_kir_air',)
     }
 );
 
@@ -224,3 +226,15 @@ Route::group(
     }
 );
 
+Route::view('/bahagian1', 'bahagian1');
+Route::view('/bahagian2', 'bahagian2');
+Route::view('/bahagian3', 'bahagian3');
+Route::view('/bahagian4', 'bahagian4');
+Route::view('/bahagian5', 'bahagian5');
+Route::view('/bahagian6', 'bahagian6');
+
+Route::view('/bantuan', 'bantuan');
+
+Route::view('/ketuakampung', 'ketuakampung');
+Route::view('/ketuakampung', 'ketuakampung');
+Route::view('/tambahketuakampung', 'tambahketuakampung');

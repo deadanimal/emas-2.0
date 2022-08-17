@@ -15,6 +15,14 @@
                 @csrf
 
                 <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="namaNational">National Initiative Name</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="namaNational" />
+
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="thrust_id">Thrust</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="thrust_id">
@@ -41,7 +49,7 @@
 
                         </select>
 
-                    </div> 
+                    </div>
                 </div>
 
                 <div class="mb-3 row">
@@ -60,19 +68,13 @@
                     </div>
                 </div>
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaNational">National Initiave Name</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaNational" />
 
-                    </div>
-                </div>
 
                 <br>
                 <br>
 
                 <div class="mb-3">
-                    <label class="form-label" for="keteranganNational"><b>National Initiave Information:</b></label>
+                    <label class="form-label" for="keteranganNational"><b>Description:</b></label>
                     <textarea class="form-control" name="keteranganNational" rows="5"></textarea>
                 </div>
 

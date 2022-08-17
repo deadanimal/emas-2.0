@@ -8,7 +8,7 @@
 
         <br>
 
-        <span><b>National Iniative</b></span>
+        <span><b>National Iniative Information</b></span>
         <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/national/create">
             <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
         <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"

@@ -1,7 +1,6 @@
 @extends('base')
 @section('content')
     <div class="container">
-        <br>
         <div class="mb-4 text-center">
             <H2>UPDATE DATA</H2>
         </div>
@@ -26,9 +25,9 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="category">Category</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="category" >
-                            <option @selected($thru->category == "DEB") value="DEB">DEB</option>
-                            <option @selected($thru->category == "4IR") value="4IR">4IR</option>
+                        <select class="form-control" name="category">
+                            <option @selected($thru->category == 'DEB') value="DEB">DEB</option>
+                            <option @selected($thru->category == '4IR') value="4IR">4IR</option>
 
                         </select>
                     </div>
@@ -51,7 +50,9 @@
 
                     <div class="col" style="text-align: right">
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save" onclick="return confirm('Are you sure you want to edit this Data?')"><span class="fas fa-save"></span>&nbsp;Save
+                            type="submit" value="Save"
+                            onclick="return confirm('Are you sure you want to edit this Data?')"><span
+                                class="fas fa-save"></span>&nbsp;Save
                         </button>
                     </div>
                 </div>

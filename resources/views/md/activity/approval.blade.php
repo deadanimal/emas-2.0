@@ -1,7 +1,7 @@
 @extends('base')
 @section('content')
     <div class="container">
-        @role('Approver')
+        @can('Epu MD')
             <div class="mb-4 text-center">
                 <H2>APPROVAL FOR UPDATED</H2>
             </div>
@@ -9,7 +9,7 @@
             <div class="mb-4 text-center">
                 <H2>DISPLAY INFORMATION BASED ON STATUS</H2>
             </div>
-        @endrole
+        @endcan
 
         <div id="tableExample2" data-list='{"valueNames":["activity"],"page":6,"pagination":true}'>
             <div class="card mx-ncard my-ncard shadow-none">
@@ -18,7 +18,7 @@
                         <table class="table mb-0" style="width: 400%" value="null">
                             <thead class="text-black bg-200">
                                 <tr>
-                                    @can('Approver')
+                                    @can('Epu MD')
                                         <th class="align-middle">No.</th>
                                     @endcan
                                     <th class="align-middle">Cluster</th>
@@ -34,10 +34,9 @@
                                     <th class="align-middle">Output Progress</th>
                                     <th class="align-middle">Additional Output Info</th>
                                     <th class="align-middle">Remarks</th>
-                                    @can('User')
-                                        <th class="align-middle">Status</th>
-                                    @endcan
-                                    @can('Approver')
+
+                                    <th class="align-middle">Status</th>
+                                    @can('Epu MD')
                                         <th class="align-middle">Tindakan</th>
                                     @endcan
                                 </tr>
@@ -45,7 +44,7 @@
                             <tbody class="list myTable" id="searchUpdateTable">
                                 @foreach ($activities as $activity)
                                     <tr class="activity">
-                                        @can('Approver')
+                                        @can('Epu MD')
                                             <td class="align-middle">{{ $loop->iteration }}.</td>
                                         @endcan
                                         <td class="align-middle">{{ $activity->cluster->namaCluster ?? '' }}</td>
@@ -62,7 +61,7 @@
                                         <td class="align-middle">{{ $activity->additionalOutput }}</td>
                                         <td class="align-middle">{{ $activity->remarks }}</td>
 
-                                        @role('MD|SuperAdmin')
+                                        @can('Epu MD')
                                             <td class="align-middle">
                                                 <div class="col-auto ms-auto">
                                                     @if ($activity->lulus == 1 && $activity->ditolak == 0)
@@ -96,7 +95,7 @@
                                                     @endif
                                                 </div>
                                             </td>
-                                        @endrole
+                                        @endcan
                                     </tr>
                                 @endforeach
                             </tbody>

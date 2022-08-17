@@ -75,7 +75,7 @@
                                         <select class="form-control mb-3" name="role" id="pilih1" required>
                                             <option value="" selected hidden>Sila pilih</option>
                                             @foreach ($role as $r)
-                                                <option value="{{ $r->name }}">{{ ucfirst(trans($r->name)) }}
+                                                <option value="{{ $r->name }}">{{ $r->name }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -119,31 +119,31 @@
         </div>
 
 
+    </div>
 
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script>
-            $("#pilih1").change(function() {
-                $("#pilih2").html('');
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        $("#pilih1").change(function() {
+            $("#pilih2").html('');
 
-                var role = @json($role->toArray());
+            var role = @json($role->toArray());
 
-                role.forEach(role => {
-                    if (role.name == this.value) {
-                        role.permissions.forEach(permission => {
-                            $("#pilih2").append(`
+            role.forEach(role => {
+                if (role.name == this.value) {
+                    role.permissions.forEach(permission => {
+                        $("#pilih2").append(`
                                 <option value=" ` + permission.name + ` ">
                                                      ` + permission.name + `
                                 </option>
                             `)
-                        });
+                    });
 
-                    }
-                });
-
-
+                }
+            });
 
 
-            })
-        </script>
-    @stop
-</div>
+
+
+        })
+    </script>
+@endsection

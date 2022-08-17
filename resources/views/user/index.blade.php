@@ -63,7 +63,7 @@
                                                 <td class="text-sm text-center font-weight-normal">
                                                     {{ $u['email'] }}</td>
                                                 <td class="text-sm text-center font-weight-normal">
-                                                    {{ $u['name'] }}
+                                                    {{ $u['SuperAdmin'] }}
                                                     {{-- <td class="text-sm text-center font-weight-normal">
                                                     {{ $u['role'] }}
                                                 </td> --}}

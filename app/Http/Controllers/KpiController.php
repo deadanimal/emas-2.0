@@ -11,8 +11,11 @@ use App\Models\Kpi;
 use App\Models\Outcome;
 use App\Models\Pemangkindasar;
 use App\Models\Perkarautama;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class KpiController extends Controller
 {
@@ -39,6 +42,7 @@ class KpiController extends Controller
         $bab = Bab::all();
         $bidang = Bidang::all();
 
+
         return view('ppd.kpi.index', compact('kpis', 'list', 'fokusUtama', 'perkaraUtama', 'temaPemangkin', 'bab', 'bidang'));
     }
 
@@ -47,6 +51,7 @@ class KpiController extends Controller
         $tema = Pemangkindasar::all();
         $bab = Bab::all();
         $bidang = Bidang::all();
+
 
         if ($request->user()->role == 'SuperAdmin') {
 

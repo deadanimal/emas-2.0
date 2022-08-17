@@ -8,23 +8,21 @@
 
         <br>
 
-
-        <div class="row">
-            <div class="column">
-                <div id="chartdiv" style="width:100%"></div>
-            </div>
-            <div class="column">
-                <div id="chartdiv1" style="width:100%"></div>
-            </div>
-            <div class="column">
-                <div id="chartdiv2" style="width:100%"></div>
-            </div>
-        </div>
-
-
-
-
         @can('BPKP')
+            <div class="row">
+                <div class="column">
+                    <div id="chartdiv" style="width:100%"></div>
+                </div>
+                <div class="column">
+                    <div id="chartdiv1" style="width:100%"></div>
+                </div>
+                <div class="column">
+                    <div id="chartdiv2" style="width:100%"></div>
+                </div>
+            </div>
+
+            <br><br>
+
             <div class="mb-3 row">
                 <div class="row align-items-center">
                     <label class="col-sm-2 col-form-label" for="tema_id">Tema/Pemangkin Dasar</label>
@@ -203,7 +201,7 @@
                                                     @endif
                                                 </div>
                                             </td>
-                                            @elsecan
+                                        @else
                                             <td class="align-middle">
                                                 <div class="col-auto ms-auto">
                                                     @if ($kpi->lulus == 1 && $kpi->ditolak == 0)
@@ -364,6 +362,16 @@
         width: 50%;
         height: 200;
     }
+
+    #chartdiv1 {
+        width: 50%;
+        height: 200;
+    }
+
+    #chartdiv2 {
+        width: 50%;
+        height: 200;
+    }
 </style>
 
 <!-- Resources -->
@@ -378,6 +386,7 @@
         // Create root element
         // https://www.amcharts.com/docs/v5/getting-started/#Root_element
         var root = am5.Root.new("chartdiv");
+
 
 
         // Set themes
@@ -430,19 +439,9 @@
     }); // end am5.ready()
 </script>
 
-<style>
-    #chartdiv1 {
-        width: 50%;
-        height: 200;
-    }
-</style>
 
-<!-- Resources -->
-<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
-<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 
-<!-- Chart code -->
+<!-- Chart code 1-->
 <script>
     am5.ready(function() {
 
@@ -501,19 +500,8 @@
     }); // end am5.ready()
 </script>
 
-<style>
-    #chartdiv2 {
-        width: 50%;
-        height: 200;
-    }
-</style>
 
-<!-- Resources -->
-<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
-<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-
-<!-- Chart code -->
+<!-- Chart code 2 -->
 <script>
     am5.ready(function() {
 

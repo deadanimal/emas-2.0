@@ -15,6 +15,14 @@
                 @csrf
                 @method('PUT')
 
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="namaNational">National Initiative Name</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="namaNational"
+                            value="{{ $national->namaNational }}" />
+
+                    </div>
+                </div>
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="thrust_id">Thrust</label>
@@ -32,12 +40,12 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="year">Year</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="year" >
-                            <option @selected($national->year == "1") value="1">1</option>
-                            <option @selected($national->year == "2") value="2">2</option>
-                            <option @selected($national->year == "3") value="3">3</option>
-                            <option @selected($national->year == "4") value="4">4</option>
-                            <option @selected($national->year == "5") value="5">5</option>
+                        <select class="form-control" name="year">
+                            <option @selected($national->year == '1') value="1">1</option>
+                            <option @selected($national->year == '2') value="2">2</option>
+                            <option @selected($national->year == '3') value="3">3</option>
+                            <option @selected($national->year == '4') value="4">4</option>
+                            <option @selected($national->year == '5') value="5">5</option>
 
                         </select>
                     </div>
@@ -46,29 +54,23 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="quarter">Quarter</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="quarter" >
-                            <option @selected($national->quarter == "1") value="1">1</option>
-                            <option @selected($national->quarter == "2") value="2">2</option>
-                            <option @selected($national->quarter == "3") value="3">3</option>
-                            <option @selected($national->quarter == "4") value="4">4</option>
-                            <option @selected($national->quarter == "5") value="5">5</option>
+                        <select class="form-control" name="quarter">
+                            <option @selected($national->quarter == '1') value="1">1</option>
+                            <option @selected($national->quarter == '2') value="2">2</option>
+                            <option @selected($national->quarter == '3') value="3">3</option>
+                            <option @selected($national->quarter == '4') value="4">4</option>
+                            <option @selected($national->quarter == '5') value="5">5</option>
 
                         </select>
                     </div>
                 </div>
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaNational">National Initiave</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaNational" value="{{ $national->namaNational }}" />
 
-                    </div>
-                </div>
 
                 <br><br>
 
                 <div class="mb-3">
-                    <label class="form-label" for="keteranganNational"><b>National Initiave Information</b></label>
+                    <label class="form-label" for="keteranganNational"><b>Description</b></label>
                     <textarea class="form-control" name="keteranganNational" rows="5">{{ $national->keteranganNational }}</textarea>
                 </div>
 
@@ -82,7 +84,9 @@
 
                     <div class="col" style="text-align: right">
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save" onclick="return confirm('Are you sure you want to edit this Data?')"><span class="fas fa-save"></span>&nbsp;Save
+                            type="submit" value="Save"
+                            onclick="return confirm('Are you sure you want to edit this Data?')"><span
+                                class="fas fa-save"></span>&nbsp;Save
                         </button>
                     </div>
                 </div>

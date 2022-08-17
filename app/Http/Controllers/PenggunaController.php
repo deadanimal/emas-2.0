@@ -189,11 +189,19 @@ class PenggunaController extends Controller
     public function edit($id)
     {
         $users = User::find($id);
-        $roles = Role::all();
+        // $roles = Role::all();
+        // $permissions = Permission::all();
+
+        $roles = Role::with('permissions')->get();
         $permissions = Permission::all();
+        return view('user.edit', [
+            'users' => $users,
+            'roles' => $roles,
+            'permissions' => $permissions
+        ]);
         // dd(gettype($users->role));
         // dd($users);
-        return view('user.edit', compact('users', 'roles', 'permissions'));
+        // return view('user.edit', compact('users', 'roles', 'permissions'));
     }
 
     /**
@@ -206,7 +214,7 @@ class PenggunaController extends Controller
     public function update(Request $request, Pengguna $pengguna, User $user)
     {
         // dd($user);
-        // $user->update($request->all());
+        $user->update($request->all());
         $user->name = $request->name;
         $user->email = $request->email;
         $user->role = $request->role;

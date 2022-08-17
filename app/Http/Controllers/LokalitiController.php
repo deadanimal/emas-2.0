@@ -17,7 +17,7 @@ class LokalitiController extends Controller
     {
         $lokaliti = Lokaliti::all();
 
-        return view('bmt.lokaliti.index', compact('lokaliti'));
+        return view('kt.lokaliti.index', compact('lokaliti'));
     }
 
     /**

@@ -12,19 +12,52 @@
         <div class="col">
             <div class="row align-items-center">
                 <div class="col col-lg-8">
-                    <span><b>Senarai Jenis Bantuan Yang Disediakan</b></span>
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/bantuan/create">
-                        <span class="fas fa-plus-circle"></span>&nbsp;Tambah
-                    </a>
+                    <span><b>Senarai KIR & AIR Berdasarkan Negeri, Daerah & Kampung</b></span>
 
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        onClick="window.location.reload();">
-                        <span class="fas fa-history"></span></a>
                 </div>
-                <div class="col-12 col-sm-auto ms-auto">
-                    <input class="form-control myInput" type="text" placeholder="Carian">
-                </div>
+
+            </div>
+        </div>
+
+
+        <hr style="width:100%;text-align:center;">
+
+        <div class="row g-3" style="width: 70%">
+            <div class="col-sm">
+
+                <select class="form-select search">
+                    <option selected disabled hidden value="null">NEGERI</option>
+
+                    {{-- @foreach ($fokus as $fokus)
+                        <option value="{{ $fokus->id }}">{{ $fokus->namaFokus }}</option>
+                    @endforeach --}}
+
+                </select>
+            </div>
+
+
+
+            <div class="col-sm">
+
+                <select class="form-select search">
+                    <option selected disabled hidden value="null">DAERAH</option>
+                    {{-- @foreach ($perkara as $perkara)
+                        <option value="{{ $perkara->id }}">{{ $perkara->namaPerkara }}</option>
+                    @endforeach --}}
+
+                </select>
+            </div>
+
+            <div class="col-sm">
+
+                <select class="form-select search">
+                    <option selected disabled hidden value="null">KAMPUNG</option>
+
+                    {{-- @foreach ($list as $list)
+                        <option value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}</option>
+                    @endforeach --}}
+
+                </select>
             </div>
         </div>
 
@@ -37,16 +70,15 @@
                     <thead>
                         <tr>
                             <th scope="col">No.</th>
-                            <th scope="col">Nama Bantuan</th>
-                            <th scope="col">Kementerian</th>
-                            <th scope="col">Agensi</th>
-                            <th scope="col">Sektor</th>
-                            <th scope="col">Tindakan</th>
+                            <th scope="col">Nama Penerima</th>
+                            <th scope="col">Hubungan</th>
+                            <th scope="col">No. Kad Pengenalan</th>
+                            <th scope="col">Pendapatan</th>
 
                         </tr>
                     </thead>
 
-                    <tbody class="list" id="myTable">
+                    {{-- <tbody class="list" id="myTable">
                         @foreach ($bantuans as $bantuan)
                             <tr class="align-middle bantuan">
                                 <td>
@@ -93,13 +125,11 @@
                                 </div>
                                 <td align="right">
                                     <div>
-                                        {{-- <form action="{{ route('bantuan.destroy', $bantuan->id) }}" method="POST"> --}}
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
                                             href="{{ route('bantuan.edit', $bantuan->id) }}"><i class="fas fa-edit"></i>
                                         </a>
-                                        {{-- @csrf
-                                        @method('DELETE') --}}
+
 
                                         <button type="submit" onclick="myFunction({{ $bantuan->id }})"
                                             class="btn btn-danger" style="border-radius: 38px">
@@ -107,14 +137,13 @@
                                         </button>
                                         <p id="ppd"></p>
 
-                                        {{-- </form> --}}
                                     </div>
                                 </td>
 
                             </tr>
                         @endforeach
 
-                    </tbody>
+                    </tbody> --}}
 
                 </table>
 

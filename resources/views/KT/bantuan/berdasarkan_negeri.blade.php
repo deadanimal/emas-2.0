@@ -12,19 +12,10 @@
         <div class="col">
             <div class="row align-items-center">
                 <div class="col col-lg-8">
-                    <span><b>Senarai Jenis Bantuan Yang Disediakan</b></span>
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/bantuan/create">
-                        <span class="fas fa-plus-circle"></span>&nbsp;Tambah
-                    </a>
+                    <span><b>Senarai Jenis Bantuan Berdasarkan Negeri</b></span>
 
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        onClick="window.location.reload();">
-                        <span class="fas fa-history"></span></a>
                 </div>
-                <div class="col-12 col-sm-auto ms-auto">
-                    <input class="form-control myInput" type="text" placeholder="Carian">
-                </div>
+
             </div>
         </div>
 
@@ -37,11 +28,10 @@
                     <thead>
                         <tr>
                             <th scope="col">No.</th>
+                            <th scope="col">Negeri</th>
                             <th scope="col">Nama Bantuan</th>
-                            <th scope="col">Kementerian</th>
-                            <th scope="col">Agensi</th>
-                            <th scope="col">Sektor</th>
-                            <th scope="col">Tindakan</th>
+                            <th scope="col">Jumlah KIR</th>
+                            <th scope="col">Jumlah AIR</th>
 
                         </tr>
                     </thead>

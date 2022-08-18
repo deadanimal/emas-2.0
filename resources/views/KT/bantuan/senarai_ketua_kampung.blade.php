@@ -12,23 +12,58 @@
         <div class="col">
             <div class="row align-items-center">
                 <div class="col col-lg-8">
-                    <span><b>Senarai Jenis Bantuan Yang Disediakan</b></span>
+                    <span><b>Senarai Nama Ketua Kampung</b></span>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/bantuan/create">
-                        <span class="fas fa-plus-circle"></span>&nbsp;Tambah
-                    </a>
+                        href="/bantuan1/create1">
+                        <span class="fas fa-plus-circle"></span>&nbsp;Tambah</a>
+                </div>
 
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        onClick="window.location.reload();">
-                        <span class="fas fa-history"></span></a>
-                </div>
-                <div class="col-12 col-sm-auto ms-auto">
-                    <input class="form-control myInput" type="text" placeholder="Carian">
-                </div>
             </div>
         </div>
 
         <hr style="width:100%;text-align:center;">
+
+        <div class="row g-3" style="width: 70%">
+            <div class="col-sm">
+
+                <select class="form-select search">
+                    <option selected disabled hidden value="null">NEGERI</option>
+
+                    {{-- @foreach ($fokus as $fokus)
+                        <option value="{{ $fokus->id }}">{{ $fokus->namaFokus }}</option>
+                    @endforeach --}}
+
+                </select>
+            </div>
+
+
+
+            <div class="col-sm">
+
+                <select class="form-select search">
+                    <option selected disabled hidden value="null">DAERAH</option>
+                    {{-- @foreach ($perkara as $perkara)
+                        <option value="{{ $perkara->id }}">{{ $perkara->namaPerkara }}</option>
+                    @endforeach --}}
+
+                </select>
+            </div>
+
+            <div class="col-sm">
+
+                <select class="form-select search">
+                    <option selected disabled hidden value="null">KAMPUNG</option>
+
+                    {{-- @foreach ($list as $list)
+                        <option value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}</option>
+                    @endforeach --}}
+
+                </select>
+            </div>
+        </div>
+
+        <hr style="width:100%;text-align:center;">
+
 
         <div id="tableExample2" data-list='{"valueNames":["bantuan"],"page":5,"pagination":true}'>
 
@@ -37,11 +72,9 @@
                     <thead>
                         <tr>
                             <th scope="col">No.</th>
-                            <th scope="col">Nama Bantuan</th>
-                            <th scope="col">Kementerian</th>
-                            <th scope="col">Agensi</th>
-                            <th scope="col">Sektor</th>
-                            <th scope="col">Tindakan</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Tarikh Mula Khidmat</th>
+                            <th scope="col">Tarikh Akhir Khidmat</th>
 
                         </tr>
                     </thead>

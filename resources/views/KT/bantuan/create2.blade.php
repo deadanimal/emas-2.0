@@ -11,7 +11,7 @@
         <div class="col">
             <div class="row align-items-center">
                 <div class="col col-lg-8">
-                    <span><b>Tambah Ketua Kampung
+                    <span><b>Tambah Kampung
                         </b></span>
                 </div>
             </div>

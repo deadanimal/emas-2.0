@@ -12,23 +12,17 @@
         <div class="col">
             <div class="row align-items-center">
                 <div class="col col-lg-8">
-                    <span><b>Senarai Jenis Bantuan Yang Disediakan</b></span>
+                    <span><b>Senarai Kampung Yang Menerima Bantuan</b></span>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/bantuan/create">
-                        <span class="fas fa-plus-circle"></span>&nbsp;Tambah
-                    </a>
+                        href="/bantuan1/create2">
+                        <span class="fas fa-plus-circle"></span>&nbsp;Tambah Kampung</a>
+                </div>
 
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        onClick="window.location.reload();">
-                        <span class="fas fa-history"></span></a>
-                </div>
-                <div class="col-12 col-sm-auto ms-auto">
-                    <input class="form-control myInput" type="text" placeholder="Carian">
-                </div>
             </div>
         </div>
 
         <hr style="width:100%;text-align:center;">
+
 
         <div id="tableExample2" data-list='{"valueNames":["bantuan"],"page":5,"pagination":true}'>
 
@@ -37,11 +31,8 @@
                     <thead>
                         <tr>
                             <th scope="col">No.</th>
-                            <th scope="col">Nama Bantuan</th>
-                            <th scope="col">Kementerian</th>
-                            <th scope="col">Agensi</th>
-                            <th scope="col">Sektor</th>
-                            <th scope="col">Tindakan</th>
+                            <th scope="col">Nama Kampung</th>
+                            <th scope="col">Alamat Kampung</th>
 
                         </tr>
                     </thead>

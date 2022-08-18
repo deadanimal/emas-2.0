@@ -2,30 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreLokalitiRequest;
-use App\Http\Requests\UpdateLokalitiRequest;
-use App\Models\Lokaliti;
+use Illuminate\Http\Request;
 
-class LokalitiController extends Controller
+class SenaraiInformasiController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $lokaliti = Lokaliti::all();
 
-        return view('kt.lokaliti.index', compact('lokaliti'));
+        return view('kt.senarai_informasi.index');
     }
 
     public function index1()
     {
-        $lokaliti = Lokaliti::all();
 
-        return view('kt.lokaliti.index1', compact('lokaliti'));
+        return view('kt.senarai_informasi.index1');
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -40,10 +42,10 @@ class LokalitiController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreLokalitiRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreLokalitiRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -51,10 +53,10 @@ class LokalitiController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Lokaliti  $lokaliti
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Lokaliti $lokaliti)
+    public function show($id)
     {
         //
     }
@@ -62,10 +64,10 @@ class LokalitiController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Lokaliti  $lokaliti
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Lokaliti $lokaliti)
+    public function edit($id)
     {
         //
     }
@@ -73,11 +75,11 @@ class LokalitiController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateLokalitiRequest  $request
-     * @param  \App\Models\Lokaliti  $lokaliti
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateLokalitiRequest $request, Lokaliti $lokaliti)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -85,10 +87,10 @@ class LokalitiController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Lokaliti  $lokaliti
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Lokaliti $lokaliti)
+    public function destroy($id)
     {
         //
     }

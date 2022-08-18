@@ -3,6 +3,7 @@
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\AuditController;
 use App\Http\Controllers\BabController;
+use App\Http\Controllers\BantuanController;
 use App\Http\Controllers\BidangController;
 use App\Http\Controllers\ClusterController;
 use App\Http\Controllers\FokusutamaController;
@@ -29,10 +30,10 @@ use App\Http\Controllers\ThrustController;
 use App\Http\Controllers\TindakanController;
 use App\Models\Perkarautama;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PDFController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\RolesandpermissionController;
-use App\Models\Negeri_mukim;
+use App\Http\Controllers\Senarai_kir_dan_airController;
+use App\Http\Controllers\SenaraiInformasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -165,6 +166,27 @@ Route::group(
 
         //Lokaliti
         Route::resource('/lokaliti', LokalitiController::class);
+        Route::get('/lokaliti1/index1/', [LokalitiController::class, 'index1']);
+
+        // Senarai Kir & Air
+        Route::resource('/senarai_kir_air', Senarai_kir_dan_airController::class);
+        Route::get('/senarai_kir_air1/index1/', [Senarai_kir_dan_airController::class, 'index1']);
+        Route::get('/senarai_kir_air1/index2/', [Senarai_kir_dan_airController::class, 'index2']);
+
+
+        // Jenis Bantuan
+        Route::resource('/bantuan', BantuanController::class);
+        Route::get('/bantuan1/berdasarkan_negeri/', [BantuanController::class, 'berdasarkan_negeri']);
+        Route::get('/bantuan1/senarai_ketua_kampung/', [BantuanController::class, 'senarai_ketua_kampung']);
+        Route::get('/bantuan1/senarai_kampung_menerima/', [BantuanController::class, 'senarai_kampung_menerima']);
+
+        Route::get('/bantuan1/create1/', [BantuanController::class, 'create1']);
+        Route::get('/bantuan1/create2/', [BantuanController::class, 'create2']);
+
+        // Senarai Informasi
+        Route::resource('/senarai_informasi', SenaraiInformasiController::class);
+        Route::get('/senarai_informasi1/index1/', [SenaraiInformasiController::class, 'index1']);
+
         // Route::resource('/senarai_kir_air',)
     }
 );
@@ -233,8 +255,3 @@ Route::view('/bahagian4', 'bahagian4');
 Route::view('/bahagian5', 'bahagian5');
 Route::view('/bahagian6', 'bahagian6');
 
-Route::view('/bantuan', 'bantuan');
-
-Route::view('/ketuakampung', 'ketuakampung');
-Route::view('/ketuakampung', 'ketuakampung');
-Route::view('/tambahketuakampung', 'tambahketuakampung');

@@ -11,7 +11,7 @@
         <div class="col">
             <div class="row align-items-center">
                 <div class="col col-lg-8">
-                    <span><b>Senarai KIR & AIR Mengikut Negeri dan Daerah</b></span>
+                    <span><b>Senarai KIR & AIR Mengikut Negeri, Daerah Dan Kampung</b></span>
 
                 </div>
             </div>

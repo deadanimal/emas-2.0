@@ -213,7 +213,8 @@ class PenggunaController extends Controller
      */
     public function update(Request $request, Pengguna $pengguna, User $user)
     {
-        // dd($user);
+        // $user->revokePermissionTo('BPKP');
+        // dd($user->hasPermissionTo('BPKP'));
         $user->update($request->all());
         $user->name = $request->name;
         $user->email = $request->email;
@@ -226,7 +227,6 @@ class PenggunaController extends Controller
 
         $user->syncPermissions($request->permission);
 
-        // $user->revokePermissionTo($request->permission);
 
 
         // $user->givePermissionTo($request->permission);

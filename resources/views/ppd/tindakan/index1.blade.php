@@ -1,5 +1,14 @@
 @extends('base')
 @section('content')
+    <!-- Styles -->
+    <style>
+        .column {
+            float: left;
+            width: 30%;
+            /* padding: 10px; */
+            height: 300;
+        }
+    </style>
 
     <div class="container">
         <div class="mb-4 text-center">
@@ -10,15 +19,23 @@
         @can('BPKP')
             <div class="row">
                 <div class="column">
-                    <div id="chartdiv" style="width:100%"></div>
+                    <b>Peratusan Dan Bilangan
+                        Status Kelulusan</b>
+                    <div id="chartdiv"></div>
                 </div>
                 <div class="column">
-                    <div id="chartdiv1" style="width:100%"></div>
+                    <b>Peratusan Dan Bilangan
+                        Mengikut Kementerian</b>
+                    <div id="chartdiv1"></div>
                 </div>
                 <div class="column">
-                    <div id="chartdiv2" style="width:100%"></div>
+                    <b>Peratusan Dan Bilangan Status
+                        Tema Dan Pemangkin Dasar</b>
+                    <div id="chartdiv2"></div>
                 </div>
             </div>
+
+            <br><br>
 
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label" for="tema_id">Tema/Pemangkin Dasar</label>
@@ -272,23 +289,7 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
 </script>
 
 
-<!-- Styles -->
-<style>
-    #chartdiv {
-        width: 50%;
-        height: 200;
-    }
 
-    #chartdiv1 {
-        width: 50%;
-        height: 200;
-    }
-
-    #chartdiv2 {
-        width: 50%;
-        height: 200;
-    }
-</style>
 
 <!-- Resources -->
 <script src="https://cdn.amcharts.com/lib/5/index.js"></script>

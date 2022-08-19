@@ -38,7 +38,7 @@
                         <input class="form-control" name="contact" />
                     </div>
                     <div class="col-lg-6">
-                        <label class="form-label" for="pendapatanKapita">Kumpulan Perbelanjaan</label>
+                        <label class="form-label" for="kumpulan_perbenlanjaan">Kumpulan Perbelanjaan</label>
                         <input class="form-control" name="contact" />
                     </div>
 

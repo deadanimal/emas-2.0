@@ -93,15 +93,15 @@
                         <textarea class="form-control" id="jenis_pekerjaan" name="jenis_pekerjaan" cols="30" rows="2"></textarea>
                     </div>
                     <div class="col-lg-12">
-                        <label class="form-label" for="alamat3">Pemilikan Harta Isi Rumah/Kelengkapan Isi Rumah (Jawapan
+                        <label class="form-label" for="harta">Pemilikan Harta Isi Rumah/Kelengkapan Isi Rumah (Jawapan
                             Pelbagai)</label>
-                        <textarea class="form-control" id="alamat2" name="alamat2" cols="30" rows="2"></textarea>
+                        <textarea class="form-control" id="harta" name="harta" cols="30" rows="2"></textarea>
                     </div>
                     <div class="col-lg-12">
-                        <label class="form-label" for="alamat3">Adakah Anda Menghidap Apa-apa Penyakit Dan Mendapat
+                        <label class="form-label" for="penyakit">Adakah Anda Menghidap Apa-apa Penyakit Dan Mendapat
                             Rawatan Seperti Berikut
                             (Jawapan Pelbagai)</label>
-                        <textarea class="form-control" id="alamat2" name="alamat2" cols="30" rows="2"></textarea>
+                        <textarea class="form-control" id="penyakit" name="penyakit" cols="30" rows="2"></textarea>
                     </div>
                     <div class="col-lg-12">
                         <label class="form-label" for="jika_ada_kecacatan">Jenis Kecacatan/Ketidakupayaan (Secara
@@ -110,10 +110,10 @@
                         <textarea class="form-control" id="jika_ada_kecacatan" name="jika_ada_kecacatan" cols="30" rows="2"></textarea>
                     </div>
                     <div class="col-lg-12">
-                        <label class="form-label" for="alamat3">Jika Ada Kecacatan, Adakah Sudah Didaftarkan Di Jabatan
+                        <label class="form-label" for="kecacatan">Jika Ada Kecacatan, Adakah Sudah Didaftarkan Di Jabatan
                             Kebajikan
                             Masyarakat Sebagai OKU?</label>
-                        <textarea class="form-control" id="alamat2" name="alamat2" cols="30" rows="2"></textarea>
+                        <textarea class="form-control" id="kecacatan" name="kecacatan" cols="30" rows="2"></textarea>
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label" for="status_produktiviti">Status Produktiviti</label>

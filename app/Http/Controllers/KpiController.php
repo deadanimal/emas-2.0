@@ -52,6 +52,8 @@ class KpiController extends Controller
         $bab = Bab::all();
         $bidang = Bidang::all();
 
+        // $graf = Kpis::select()
+
 
         if ($request->user()->role == 'SuperAdmin') {
 

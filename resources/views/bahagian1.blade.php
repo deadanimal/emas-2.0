@@ -28,6 +28,9 @@
             </div>
         @endif
 
+
+
+
         <div class="card mb-3">
             <div class="card-body bg-light">
                 <form class="row g-3">
@@ -37,7 +40,7 @@
                     </div>
                     <div class="col-lg-8">
                         <label class="form-label" for="no_kad_pengenalan">No Kad Pengenalan</label>
-                        <input class="form-control" id="no_kad_pengenalan" type="text">
+                        <input class="form-control" id="no_kad_pengenalan" type="number">
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label" for="pendapatanKasar">Jumlah Pendapatan Kasar Isi Rumah Dalam
@@ -51,7 +54,13 @@
 
                     <div class="col-lg-6">
                         <label class="form-label" for="kategori">Kategori (KIR/AIR)</label>
-                        <input class="form-control" id="kategori" type="text">
+                        <select class="form-control" name="kategori">
+                            <option selected disabled hidden>SILA PILIH</option>
+                            <option value="1">KIR</option>
+                            <option value="2">AIR</option>
+
+
+                        </select>
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label" for="jumlah_isi_rumah">Jumlah Isi Rumah (KIR/AIR)</label>
@@ -135,7 +144,11 @@
                         </button>
                     </div>
 
+
+
                 </form>
+
+
             </div>
         </div>
     </div>

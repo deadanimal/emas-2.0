@@ -104,7 +104,7 @@ class BantuanController extends Controller
      */
     public function edit(Bantuan $bantuan)
     {
-        //
+        return view('kt.bantuan.edit', compact('bantuan'));
     }
 
     /**

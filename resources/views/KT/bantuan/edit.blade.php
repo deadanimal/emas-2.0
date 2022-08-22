@@ -11,7 +11,7 @@
         <div class="col">
             <div class="row align-items-center">
                 <div class="col col-lg-8">
-                    <span><b>Tambah Bantuan
+                    <span><b>Kemaskini Bantuan
                         </b></span>
                 </div>
             </div>
@@ -23,37 +23,40 @@
         <div class="card mb-3">
 
             <div class="card-body bg-light">
-                <form class="row g-3">
+                <form action="/bantuan/{{ $bantuan->id }}" method="POST">
+                    @csrf
+                    @method('PUT')
+
                     <div class="col-lg-12">
                         <label class="form-label" for="namaBantuan">Nama Bantuan</label>
-                        <input class="form-control" name="namaBantuan" type="text">
+                        <input class="form-control" name="namaBantuan" type="text" value="{{ $bantuan->namaBantuan }}">
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label" for="negeri">Negeri</label>
-                        <input class="form-control" name="negeri" />
+                        <input class="form-control" name="negeri" type="text" value="{{ $bantuan->negeri }}" />
                     </div>
 
                     <div class="col-lg-6">
                         <label class="form-label" for="daerah">Daerah</label>
-                        <input class="form-control" name="daerah" type="text">
+                        <input class="form-control" nama="daerah" type="text" value="{{ $bantuan->daerah }}">
                     </div>
                     <div class="col-lg-12">
                         <label class="form-label" for="namaKampung">Nama Kampung</label>
-                        <input class="form-control" name="namaKampung">
+                        <input class="form-control" name="namaKampung" value="{{ $bantuan->namaKampung }}">
                     </div>
                     <div class="col-lg-12">
                         <label class="form-label" for="kementerian">Kementerian Yang
                             Bertanggungjawab</label>
-                        <input class="form-control" name="kementerian">
+                        <input class="form-control" name="kementerian" value="{{ $bantuan->kementerian }}">
                     </div>
                     <div class="col-lg-12">
                         <label class="form-label" for="agensi">Agensi Yang
                             Ditugaskan</label>
-                        <input class="form-control" name="agensi">
+                        <input class="form-control" name="agensi" value="{{ $bantuan->agensi }}">
                     </div>
                     <div class="col-lg-12">
                         <label class="form-label" for="sektor">Sektor</label>
-                        <input class="form-control" name="sektor">
+                        <input class="form-control" name="sektor" value="{{ $bantuan->sektor }}">
                     </div>
 
 

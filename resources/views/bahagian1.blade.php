@@ -9,7 +9,7 @@
         <div class="col">
             <div class="row align-items-center">
                 <div class="col col-lg-8">
-                    <span><b>Bahagian 1</b></span>
+                    <span><b>Bahagian 1 - Butiran</b></span>
                 </div>
             </div>
         </div>
@@ -45,11 +45,11 @@
                     <div class="col-lg-6">
                         <label class="form-label" for="pendapatanKasar">Jumlah Pendapatan Kasar Isi Rumah Dalam
                             Sebulan</label>
-                        <input type="integer" class="number form-control" name="contact" value="RM" maxlength="13" />
+                        <input class="form-control" type="number">
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label" for="jumlah_pendapatan_per_kapita">Pendapatan Per Kapita</label>
-                        <input type="integer" class="number form-control" name="contact" value="RM" maxlength="13" />
+                        <input class="form-control" type="number">
                     </div>
 
                     <div class="col-lg-6">
@@ -64,7 +64,7 @@
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label" for="jumlah_isi_rumah">Jumlah Isi Rumah (KIR/AIR)</label>
-                        <input class="form-control" id="jumlah_isi_rumah" type="text">
+                        <input class="form-control" id="jumlah_isi_rumah" type="number">
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label" for="status_miskin">Status Miskin</label>
@@ -72,11 +72,37 @@
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label" for="status_terkeluar">Status Terkeluar</label>
-                        <input class="form-control" id="status_terkeluar" type="text">
+                        <select class="form-control" name="status_terkeluar">
+                            <option selected disabled hidden>SILA PILIH</option>
+                            <option value="1">Peningkatan Pendapatan</option>
+                            <option value="2">Tidak dapat dikesan</option>
+                            <option value="3">Meninggal dunia</option>
+                            <option value="4">Berkahwin semula</option>
+                            <option value="5">Pengesahan oleh Focus Group</option>
+                        </select>
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label" for="negeri">Negeri</label>
-                        <input class="form-control" id="negeri" type="text">
+                        <select class="form-control" name="negeri">
+                            <option selected disabled hidden>SILA PILIH</option>
+                            <option value="1">Johor</option>
+                            <option value="2">Kedah</option>
+                            <option value="3">Kelantan</option>
+                            <option value="4">Melaka</option>
+                            <option value="5">N.Sembilan</option>
+                            <option value="6">Pahang</option>
+                            <option value="7">P.Pinang</option>
+                            <option value="8">Perak</option>
+                            <option value="9">Perlis</option>
+                            <option value="10">Selangor</option>
+                            <option value="11">Terrenganu</option>
+                            <option value="12">Sabah</option>
+                            <option value="13">Sarawak</option>
+                            <option value="14">W.P. Kuala Lumpur</option>
+                            <option value="15">W.P. Labuan</option>
+                            <option value="16">W.P. Putrajaya</option>
+                            <option value="17">Tiada Maklumat</option>
+                        </select>
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label" for="daerah">Daerah</label>
@@ -96,7 +122,12 @@
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label" for="strata">Strata</label>
-                        <input class="form-control" id="strata" type="text">
+                        <select class="form-control" name="strata">
+                            <option selected disabled hidden>SILA PILIH</option>
+                            <option value="1">Bandar</option>
+                            <option value="2">Luar Bandar</option>
+
+                        </select>
                     </div>
 
                     <div class="col-lg-12">
@@ -113,7 +144,7 @@
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label" for="poskod">Poskod</label>
-                        <input class="form-control" id="poskod" type="text">
+                        <input class="form-control" id="poskod" type="number">
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label" for="koordinat">Koordinat GPS</label>
@@ -121,19 +152,20 @@
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label" for="longtitude_gps">Longitude (X)</label>
-                        <input class="form-control" id="longtitude_gps" type="text">
+                        <input class="form-control" id="longtitude_gps" type="number"
+                            placeholder="(Contoh : 101.692905)">
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label" for="latitude_gps">Longitude (Y)</label>
-                        <input class="form-control" id="latitude_gps" type="text">
+                        <input class="form-control" id="latitude_gps" type="number" placeholder="(Contoh : 2.938024)">
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label" for="no_telefon_tetap">No. Telefon Tetap</label>
-                        <input class="form-control" id="no_telefon_tetap" type="text">
+                        <input class="form-control" id="no_telefon_tetap" type="number">
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label" for="no_telefon_bimbit">No. Telefon Bimbit</label>
-                        <input class="form-control" id="no_telefon_bimbit" type="text">
+                        <input class="form-control" id="no_telefon_bimbit" type="number">
                     </div>
 
                     <div class="col" style="text-align: center">

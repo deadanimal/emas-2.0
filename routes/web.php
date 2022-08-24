@@ -9,6 +9,7 @@ use App\Http\Controllers\ClusterController;
 use App\Http\Controllers\FokusutamaController;
 use App\Http\Controllers\InisiatifController;
 use App\Http\Controllers\InitiativeController;
+use App\Http\Controllers\KemasukanDataController;
 use App\Http\Controllers\KeyController;
 use App\Http\Controllers\Kpi2Controller;
 use App\Http\Controllers\KpiController;
@@ -187,7 +188,14 @@ Route::group(
         Route::resource('/senarai_informasi', SenaraiInformasiController::class);
         Route::get('/senarai_informasi1/index1/', [SenaraiInformasiController::class, 'index1']);
 
-        // Route::resource('/senarai_kir_air',)
+        // Kemasukan Data
+        // Route::resource('/kemasukanData', KemasukanDataController::class);
+        Route::get('/kemasukanData/bahagian1', [KemasukanDataController::class, 'bahagian1']);
+        Route::get('/kemasukanData/bahagian2', [KemasukanDataController::class, 'bahagian2']);
+        Route::get('/kemasukanData/bahagian3', [KemasukanDataController::class, 'bahagian3']);
+        Route::get('/kemasukanData/bahagian4', [KemasukanDataController::class, 'bahagian4']);
+        Route::get('/kemasukanData/bahagian5', [KemasukanDataController::class, 'bahagian5']);
+        Route::get('/kemasukanData/bahagian6', [KemasukanDataController::class, 'bahagian6']);
     }
 );
 
@@ -247,11 +255,3 @@ Route::group(
         Route::get('/audit', [AuditController::class, 'index']);
     }
 );
-
-Route::view('/bahagian1', 'bahagian1');
-Route::view('/bahagian2', 'bahagian2');
-Route::view('/bahagian3', 'bahagian3');
-Route::view('/bahagian4', 'bahagian4');
-Route::view('/bahagian5', 'bahagian5');
-Route::view('/bahagian6', 'bahagian6');
-

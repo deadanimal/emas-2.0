@@ -204,7 +204,9 @@
                         'senarai_informasi',
                         'senarai_informasi/*',
                         'senarai_informasi1',
-                        'senarai_informasi1/*'))
+                        'senarai_informasi1/*',
+                        'kemasukanData',
+                        'kemasukanData/*'))
                         <a class="nav-link btn1" href="" role="button">
 
                             <div class="d-flex align-items-center">
@@ -595,7 +597,6 @@
                     @endif
 
                     {{-- <br> --}}
-
                     @if (Request::is(
                         'lokaliti',
                         'lokaliti/*',
@@ -612,7 +613,9 @@
                         'senarai_informasi',
                         'senarai_informasi/*',
                         'senarai_informasi1',
-                        'senarai_informasi1/*'))
+                        'senarai_informasi1/*',
+                        'kemasukanData',
+                        'kemasukanData/*'))
                         <a class="nav-link dropdown-indicator" href="#bmtkm" role="button"
                             data-bs-toggle="collapse" aria-expanded="true" aria-controls="bmtkm"
                             style="background-color: #C4D4ED">
@@ -1025,8 +1028,12 @@
                         'senarai_informasi',
                         'senarai_informasi/*',
                         'senarai_informasi1',
-                        'senarai_informasi1/*'))
-                        <a class="nav-link" href="/bahagian1" role="button">
+                        'senarai_informasi1/*',
+                        'kemasukanData',
+                        'kemasukanData/*'))
+                        <a class="nav-link {{ Request::is('kemasukanData/bahagian1', 'kemasukanData/bahagian1/*', 'kemasukanData/bahagian2', 'kemasukanData/bahagian2/*', 'kemasukanData/bahagian3', 'kemasukanData/bahagian3/*', 'kemasukanData/bahagian4', 'kemasukanData/bahagian4/*', 'kemasukanData/bahagian5', 'kemasukanData/bahagian5/*', 'kemasukanData/bahagian6', 'kemasukanData/bahagian6/*') ? 'active' : '' }}
+"
+                            href="/kemasukanData/bahagian1" role="button">
 
                             <div class="d-flex align-items-center">
                                 <div class="col-2">

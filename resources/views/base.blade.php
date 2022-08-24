@@ -55,6 +55,8 @@
     <link href="/vendors/overlayscrollbars/OverlayScrollbars.min.css" rel="stylesheet">
     {{-- <link href="/assets/css/theme-rtl.min.css" rel="stylesheet" id="style-rtl"> --}}
     <link href="/assets/css/theme.min.css" rel="stylesheet" id="style-default">
+    <link href="/vendors/choices/choices.min.css" rel="stylesheet" />
+
     {{-- <link href="/assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl"> --}}
     {{-- <link href="/assets/css/user.min.css" rel="stylesheet" id="user-style-default"> --}}
     {{-- <link rel="stylesheet" type="text/css" href="/assets/css/datatables.css" />
@@ -472,6 +474,8 @@
     <script src="/vendors/lodash/lodash.min.js"></script>
     <script src="/vendors/list.js/list.min.js"></script>
     <script src="/assets/js/theme.js"></script>
+    <script src="/vendors/choices/choices.min.js"></script>
+
 
 </body>
 

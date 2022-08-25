@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Profil;
 use App\Models\Profil_air;
 use App\Models\Profil_kir;
 use Illuminate\Database\Migrations\Migration;
@@ -19,8 +20,7 @@ return new class extends Migration
             $table->id();
             $table->string('kod_cacat')->nullable();
 
-            $table->foreignIdFor(Profil_kir::class);
-            $table->foreignIdFor(Profil_air::class);
+            $table->foreignIdFor(Profil::class)->nullable();
             $table->string('user_id')->nullable();
             $table->timestamps();
         });

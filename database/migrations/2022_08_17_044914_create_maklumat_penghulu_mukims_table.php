@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('tahun_mula_berkhidmat')->nullable();
             $table->string('tahun_tamat_berkhidmat')->nullable();
 
-            $table->foreignIdFor(Info_kampung::class);
+            $table->foreignIdFor(Info_kampung::class)->nullable();
 
             $table->string('user_id')->nullable();
             $table->timestamps();

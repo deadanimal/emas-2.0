@@ -178,7 +178,12 @@ Route::group(
         Route::get('/bantuan1/senarai_kampung_menerima/', [BantuanController::class, 'senarai_kampung_menerima']);
 
         Route::get('/bantuan1/create1/', [BantuanController::class, 'create1']);
+        Route::post('/bantuan1/create1/', [BantuanController::class, 'store1']);
+        Route::get('/bantuan1/{id}/edit1/', [BantuanController::class, 'edit1']);
+
         Route::get('/bantuan1/create2/', [BantuanController::class, 'create2']);
+        Route::post('/bantuan1/create2/', [BantuanController::class, 'store2']);
+        Route::get('/bantuan1/{id}/edit2/', [BantuanController::class, 'edit2']);
 
         // Senarai Informasi
         Route::resource('/senarai_informasi', SenaraiInformasiController::class);

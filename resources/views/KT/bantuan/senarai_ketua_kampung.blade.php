@@ -80,13 +80,33 @@
                     </thead>
 
                     <tbody class="list" id="myTable">
-                        @foreach ($bantuans as $bantuan)
+                        @foreach ($ketua as $bantuan)
                             <tr class="align-middle bantuan">
+                                <td>
+                                    <div class="d-flex align-items-center" onclick="openmodal({{ $bantuan->id }},this)">
+                                        <div class="ms-2"><b>{{ $loop->iteration }}.</b>
+                                        </div>
+                                    </div>
+                                </td>
                                 <td>
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $bantuan->id }}">
 
-                                        <div class="ms-2"><b>{{ $bantuan->namaBantuan }}</b></div>
+                                        <div class="ms-2"><b>{{ $bantuan->nama_penghulu }}</b></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $bantuan->id }}">
+
+                                        <div class="ms-2"><b>{{ $bantuan->tahun_mula_berkhidmat }}</b></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $bantuan->id }}">
+
+                                        <div class="ms-2"><b>{{ $bantuan->tahun_tamat_berkhidmat }}</b></div>
                                     </div>
                                 </td>
 
@@ -124,15 +144,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <td align="right">
+                                {{-- <td align="right">
                                     <div>
-                                        {{-- <form action="{{ route('bantuan.destroy', $bantuan->id) }}" method="POST"> --}}
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="{{ route('bantuan.edit', $bantuan->id) }}"><i class="fas fa-edit"></i>
+                                            href="/bantuan1/{{ $bantuan->id }}/edit1/"><i class="fas fa-edit"></i>
                                         </a>
-                                        {{-- @csrf
-                                        @method('DELETE') --}}
+
 
                                         <button type="submit" onclick="myFunction({{ $bantuan->id }})"
                                             class="btn btn-danger" style="border-radius: 38px">
@@ -140,9 +158,8 @@
                                         </button>
                                         <p id="ppd"></p>
 
-                                        {{-- </form> --}}
                                     </div>
-                                </td>
+                                </td> --}}
 
                             </tr>
                         @endforeach

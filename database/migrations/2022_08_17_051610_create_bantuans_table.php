@@ -30,9 +30,10 @@ return new class extends Migration
             $table->string('negeri')->nullable();
             $table->string('daerah')->nullable();
             $table->string('user_id')->nullable();
-            $table->foreignIdFor(Profil::class);
-            $table->foreignIdFor(Info_kampung::class);
-            $table->foreignIdFor(Rakan_strategik::class);
+
+            $table->foreignIdFor(Profil::class)->nullable();
+            $table->foreignIdFor(Info_kampung::class)->nullable();;
+            $table->foreignIdFor(Rakan_strategik::class)->nullable();;
 
             $table->timestamps();
         });

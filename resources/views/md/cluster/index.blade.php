@@ -28,14 +28,14 @@
 
         <hr style="width:100%;text-align:center;">
 
-        <select class="form-select search" style="width:30%" aria-label="Default select example">
+        {{-- <select class="form-select search" style="width:30%" aria-label="Default select example">
             <option selected disabled hidden>STRATEGY</option>
 
             @foreach ($strategies as $strategies)
                 <option value="{{ $strategies->id }}">{{ $strategies->namaStrategy }}</option>
             @endforeach
 
-        </select>
+        </select> --}}
 
         <hr style="width:100%;text-align:center;">
 

@@ -20,7 +20,7 @@
 
         <div class="col-12 ">
             <div class="col-12">
-                <form method="POST" action="/user">
+                <form method="POST" action="/kemasukanData">
                     @csrf
 
                     *Fail Yang Dimuat Naik Mestilah Mengikut Format Asal Yang Disediakan

@@ -31,7 +31,7 @@
                         <h5 class="mb-0">Upload Files</h5>
                     </div>
                     <div class="card-body bg-light">
-                        <form action="/testExcel" method="POST" enctype="multipart/form-data"
+                        <form action="/importUserExcel" method="POST" enctype="multipart/form-data"
                             class="dropzone dropzone-multiple p-0" id="my-awesome-dropzone" data-dropzone="data-dropzone"
                             action="#!">
                             @csrf
@@ -69,7 +69,8 @@
 
                             <div class="col mt-5" style="text-align: center">
                                 <button class="btn btn-falcon-default btn-sm"
-                                    style="background-color: #047FC3; color:white;" type="submit" value="Save"><span
+                                    style="background-color: #047FC3; color:white;" type="submit" value="Save"
+                                    onclick="return confirm('Adakah anda mahu mengemaskini data ini?')"><span
                                         class="fas fa-save"></span>&nbsp;Upload
                                 </button>
                             </div>
@@ -77,15 +78,6 @@
                         </form>
                     </div>
                 </div>
-
-                {{-- <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="document">Upload File</label>
-                        <div class="col-sm-10" style="width:30%">
-                            <input class="form-control" name="userfile" type="file"
-                                accept="application/pdf, application/vnd.ms-excel">
-                        </div>
-                    </div> --}}
-
 
             </div>
         </div>

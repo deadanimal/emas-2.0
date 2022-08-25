@@ -2,7 +2,9 @@
 
 use App\Models\Bantuan;
 use App\Models\Harta;
+use App\Models\Info_kampung;
 use App\Models\Kecacatan;
+use App\Models\Lokaliti;
 use App\Models\Negeri_mukim;
 use App\Models\Negeri_parlimen;
 use App\Models\Pendapatan;
@@ -39,7 +41,6 @@ return new class extends Migration
             $table->foreignIdFor(Bantuan::class);
             $table->foreignIdFor(Negeri_mukim::class);
             $table->foreignIdFor(Negeri_parlimen::class);
-
 
             $table->string('no_kad_pengenalan')->nullable();
             $table->string('jumlah_pendapatan_per_kapita')->nullable();

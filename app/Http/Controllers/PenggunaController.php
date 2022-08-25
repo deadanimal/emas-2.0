@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePenggunaRequest;
 use App\Http\Requests\UpdatePenggunaRequest;
+use App\Imports\UsersImport;
 use App\Models\Pengguna;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
-use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class PenggunaController extends Controller
 {
@@ -35,7 +36,7 @@ class PenggunaController extends Controller
         $user = User::all();
         return view('user.index', [
             'role' => $role,
-            'user' => $user
+            'user' => $user,
         ]);
     }
 
@@ -45,7 +46,7 @@ class PenggunaController extends Controller
         $user = User::all();
         return view('user.index1', [
             'role' => $role,
-            'user' => $user
+            'user' => $user,
         ]);
     }
 
@@ -62,7 +63,7 @@ class PenggunaController extends Controller
         return view('user.create', [
             'users' => $user,
             'role' => $roles,
-            'permissions' => $permissions
+            'permissions' => $permissions,
         ]);
 
         // $user->syncPermission('KementerianPPD');
@@ -95,14 +96,14 @@ class PenggunaController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required'],
-            'password_confirmation' => ['required']
+            'password_confirmation' => ['required'],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'password_confirmation' => Hash::make(($request->password_confirmation))
+            'password_confirmation' => Hash::make(($request->password_confirmation)),
             // 'role' => $request->role,
 
         ]);
@@ -159,7 +160,6 @@ class PenggunaController extends Controller
         //         $user->givePermissionTo('Eksekutif');
         //         break;
 
-
         //     default:
         //         # code...
         //         break;
@@ -197,7 +197,7 @@ class PenggunaController extends Controller
         return view('user.edit', [
             'users' => $users,
             'roles' => $roles,
-            'permissions' => $permissions
+            'permissions' => $permissions,
         ]);
         // dd(gettype($users->role));
         // dd($users);
@@ -221,13 +221,10 @@ class PenggunaController extends Controller
         $user->role = $request->role;
         // $user->permissions = $request->permissions;
 
-
         $user->syncRoles($request->role);
         // $user->givePermissionTo($request->permission);
 
         $user->syncPermissions($request->permission);
-
-
 
         // $user->givePermissionTo($request->permission);
 
@@ -261,5 +258,12 @@ class PenggunaController extends Controller
         echo 'alert("Kata laluan berjaya disetkan semula.");';
         echo "window.location.href='/carian-pengguna';";
         echo '</script>';
+    }
+
+    public function import()
+    {
+        Excel::import(new UsersImport, request()->file('userfile'));
+
+        return back();
     }
 }

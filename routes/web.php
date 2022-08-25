@@ -19,10 +19,14 @@ use App\Http\Controllers\NationalController;
 use App\Http\Controllers\OutcomeController;
 use App\Http\Controllers\PemacuController;
 use App\Http\Controllers\PemangkindasarController;
+use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\PerkarautamaController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\RolesandpermissionController;
 use App\Http\Controllers\SdgController;
+use App\Http\Controllers\SenaraiInformasiController;
+use App\Http\Controllers\Senarai_kir_dan_airController;
 use App\Http\Controllers\StrategiController;
 use App\Http\Controllers\StrategyController;
 use App\Http\Controllers\SubController;
@@ -31,10 +35,6 @@ use App\Http\Controllers\ThrustController;
 use App\Http\Controllers\TindakanController;
 use App\Models\Perkarautama;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PenggunaController;
-use App\Http\Controllers\RolesandpermissionController;
-use App\Http\Controllers\Senarai_kir_dan_airController;
-use App\Http\Controllers\SenaraiInformasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,7 +57,6 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-
 require __DIR__ . '/auth.php';
 
 Route::group(['middleware' => ['auth']], function () {
@@ -67,7 +66,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/perkarautama', Perkarautama::class);
     Route::get('/perkarautama', [Perkarautama::class, 'perakarautama'])->name('perkarautama');
 });
-
 
 //MODULE 1 PPD
 Route::group(
@@ -159,7 +157,6 @@ Route::group(
     }
 );
 
-
 Route::group(
     ['middleware' => ['role:KT']],
     function () {
@@ -173,7 +170,6 @@ Route::group(
         Route::resource('/senarai_kir_air', Senarai_kir_dan_airController::class);
         Route::get('/senarai_kir_air1/index1/', [Senarai_kir_dan_airController::class, 'index1']);
         Route::get('/senarai_kir_air1/index2/', [Senarai_kir_dan_airController::class, 'index2']);
-
 
         // Jenis Bantuan
         Route::resource('/bantuan', BantuanController::class);
@@ -198,7 +194,6 @@ Route::group(
         Route::get('/kemasukanData/bahagian6', [KemasukanDataController::class, 'bahagian6']);
     }
 );
-
 
 Route::group(
     ['middleware' => ['role:MD']],
@@ -249,9 +244,10 @@ Route::group(
         Route::post('/set-semula-kata-laluan/{id}', [PenggunaController::class, 'set_semula_kata_laluan']);
         Route::get('/carian-pengguna', [PenggunaController::class, 'result_search']);
 
-
         //Audit Log
         // Route::get('/audit', AuditController::class);
         Route::get('/audit', [AuditController::class, 'index']);
     }
 );
+
+Route::post('testExcel', [PenggunaController::class, 'import']);

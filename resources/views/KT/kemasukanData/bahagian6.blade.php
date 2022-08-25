@@ -20,7 +20,7 @@
 
         <div class="col-12 ">
             <div class="col-12">
-                <form method="POST" action="/kemasukanData">
+                <form action="/senarai-kir-dan-air-excel" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     *Fail Yang Dimuat Naik Mestilah Mengikut Format Asal Yang Disediakan
@@ -29,10 +29,10 @@
                     <div class="card mb-3">
 
                         <div class="card-body bg-light">
-                            <form class="dropzone dropzone-multiple p-0" id="my-awesome-dropzone"
+                            <div class="dropzone dropzone-multiple p-0" id="my-awesome-dropzone"
                                 data-dropzone="data-dropzone" action="#!">
                                 <div class="fallback">
-                                    <input name="file" type="file"
+                                    <input name="profilfile" type="file"
                                         accept="application/pdf, application/vnd.ms-excel" />
                                 </div>
                                 <div class="dz-message" data-dz-message="data-dz-message"> <img class="me-2"
@@ -62,7 +62,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
 

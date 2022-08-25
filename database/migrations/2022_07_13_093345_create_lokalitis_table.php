@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('lokalitis', function (Blueprint $table) {
             $table->id();
+            $table->longText('keterangan_lokaliti')->nullable();
+            $table->string('user_id')->nullable();
             $table->timestamps();
         });
     }

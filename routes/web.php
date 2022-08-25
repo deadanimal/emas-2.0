@@ -192,6 +192,13 @@ Route::group(
         Route::get('/kemasukanData/bahagian4', [KemasukanDataController::class, 'bahagian4']);
         Route::get('/kemasukanData/bahagian5', [KemasukanDataController::class, 'bahagian5']);
         Route::get('/kemasukanData/bahagian6', [KemasukanDataController::class, 'bahagian6']);
+
+        Route::post('/kemasukanData-bahagian1', [KemasukanDataController::class, 'simpanBahagian1']);
+        Route::post('/kemasukanData-bahagian2', [KemasukanDataController::class, 'simpanBahagian2']);
+        Route::post('/kemasukanData-bahagian3', [KemasukanDataController::class, 'simpanBahagian3']);
+        Route::post('/kemasukanData-bahagian4', [KemasukanDataController::class, 'simpanBahagian4']);
+        Route::post('/kemasukanData-bahagian5', [KemasukanDataController::class, 'simpanBahagian5']);
+        Route::post('/kemasukanData-bahagian6', [KemasukanDataController::class, 'simpanBahagian6']);
     }
 );
 
@@ -250,4 +257,5 @@ Route::group(
     }
 );
 
-Route::post('testExcel', [PenggunaController::class, 'import']);
+Route::post('importUserExcel', [PenggunaController::class, 'import']);
+Route::post('senarai-kir-dan-air-excel', [KemasukanDataController::class, 'import']);

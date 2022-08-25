@@ -10,7 +10,6 @@ use App\Models\Negeri_parlimen;
 use App\Models\Pendapatan;
 use App\Models\Penyakit;
 use App\Models\Perbelanjaan;
-use App\Models\Profil_kategori;
 use App\Models\Simpanan;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -29,18 +28,17 @@ return new class extends Migration
             $table->id();
             $table->longText('nama')->nullable();
 
-            $table->foreignIdFor(Profil_kategori::class);
-            $table->foreignIdFor(Info_kampung::class);
-            $table->foreignIdFor(Lokaliti::class);
-            $table->foreignIdFor(Pendapatan::class);
-            $table->foreignIdFor(Kecacatan::class);
-            $table->foreignIdFor(Harta::class);
-            $table->foreignIdFor(Simpanan::class);
-            $table->foreignIdFor(Penyakit::class);
-            $table->foreignIdFor(Perbelanjaan::class);
-            $table->foreignIdFor(Bantuan::class);
-            $table->foreignIdFor(Negeri_mukim::class);
-            $table->foreignIdFor(Negeri_parlimen::class);
+            $table->foreignIdFor(Lokaliti::class)->nullable();
+            $table->foreignIdFor(Negeri_mukim::class)->nullable();
+            $table->foreignIdFor(Negeri_parlimen::class)->nullable();
+            $table->foreignIdFor(Info_kampung::class)->nullable();
+            $table->foreignIdFor(Pendapatan::class)->nullable();
+            $table->foreignIdFor(Kecacatan::class)->nullable();
+            $table->foreignIdFor(Harta::class)->nullable();
+            $table->foreignIdFor(Simpanan::class)->nullable();
+            $table->foreignIdFor(Penyakit::class)->nullable();
+            $table->foreignIdFor(Perbelanjaan::class)->nullable();
+            $table->foreignIdFor(Bantuan::class)->nullable();
 
             $table->string('no_kad_pengenalan')->nullable();
             $table->string('jumlah_pendapatan_per_kapita')->nullable();
@@ -75,6 +73,9 @@ return new class extends Migration
             $table->string('kumpulan_perbelanjaan')->nullable();
             $table->string('jenis_bantuan_kebajikan_yang_diterima')->nullable();
             $table->string('jenis_bantuan_kebajikan_yang_diperlukan')->nullable();
+            $table->string('jumlah_kasar_isi_rumah_sebulan')->nullable();
+            $table->string('strata')->nullable();
+            $table->string('kategori')->nullable();
 
             $table->string('user_id')->nullable();
 

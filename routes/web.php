@@ -33,6 +33,9 @@ use App\Http\Controllers\SubController;
 use App\Http\Controllers\ThrusController;
 use App\Http\Controllers\ThrustController;
 use App\Http\Controllers\TindakanController;
+use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\ResetPasswordController;
+
 use App\Models\Perkarautama;
 use Illuminate\Support\Facades\Route;
 
@@ -178,11 +181,19 @@ Route::group(
         Route::get('/bantuan1/senarai_kampung_menerima/', [BantuanController::class, 'senarai_kampung_menerima']);
 
         Route::get('/bantuan1/create1/', [BantuanController::class, 'create1']);
+        Route::post('/bantuan1/create1/', [BantuanController::class, 'store1']);
+        Route::get('/bantuan1/{id}/edit1/', [BantuanController::class, 'edit1']);
+
         Route::get('/bantuan1/create2/', [BantuanController::class, 'create2']);
+        Route::post('/bantuan1/create2/', [BantuanController::class, 'store2']);
+        Route::get('/bantuan1/{id}/edit2/', [BantuanController::class, 'edit2']);
 
         // Senarai Informasi
         Route::resource('/senarai_informasi', SenaraiInformasiController::class);
         Route::get('/senarai_informasi1/index1/', [SenaraiInformasiController::class, 'index1']);
+
+        Route::post('senarai-kir-dan-air-excel', [KemasukanDataController::class, 'import']);
+
 
         // Kemasukan Data
         // Route::resource('/kemasukanData', KemasukanDataController::class);
@@ -247,11 +258,18 @@ Route::group(
         Route::post('/set-semula-kata-laluan/{id}', [PenggunaController::class, 'set_semula_kata_laluan']);
         Route::get('/carian-pengguna', [PenggunaController::class, 'result_search']);
 
+        Route::post('importUserExcel', [PenggunaController::class, 'import']);
+
+
         //Audit Log
         // Route::get('/audit', AuditController::class);
         Route::get('/audit', [AuditController::class, 'index']);
     }
 );
 
-Route::post('importUserExcel', [PenggunaController::class, 'import']);
-Route::post('senarai-kir-dan-air-excel', [KemasukanDataController::class, 'import']);
+
+// Route::get('/forget-password', 'ForgotPasswordController@getEmail');
+// Route::post('/forget-password', 'ForgotPasswordController@postEmail');
+
+// Route::get('/reset-password/{token}', 'ResetPasswordController@getPassword');
+// Route::post('/reset-password', 'ResetPasswordController@updatePassword');

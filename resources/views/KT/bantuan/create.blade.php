@@ -23,7 +23,7 @@
             @csrf
             <div class="card mb-3">
                 <div class="card-body bg-light">
-                    <form class="row g-3">
+                    <div class="row g-3">
                         <div class="col-lg-12">
                             <label class="form-label" for="nama_bantuan">Nama Bantuan</label>
                             <input class="form-control" name="nama_bantuan" type="text">
@@ -55,7 +55,6 @@
                             <label class="form-label" for="sektor">Sektor</label>
                             <input class="form-control" name="sektor">
                         </div>
-
                         <div class="col" style="text-align: center">
                             <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
                                 type="submit" value="Save"
@@ -64,7 +63,7 @@
                             </button>
                         </div>
 
-                    </form>
+                    </div>
                 </div>
             </div>
         </form>

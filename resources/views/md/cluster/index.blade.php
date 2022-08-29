@@ -77,14 +77,14 @@
                                 <td class="text-nowrap">
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $cluster->id }}">
-                                        <div class="ms-2"><b>{{ $cluster->category }}</b></div>
+                                        <div class="ms-2"><b>{{ $cluster->initiatives }}</b></div>
                                     </div>
                                 </td>
 
                                 <td class="text-nowrap">
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $cluster->id }}">
-                                        <div class="ms-2"><b>{{ $cluster->category }}</b></div>
+                                        <div class="ms-2"><b>{{ $cluster->agency }}</b></div>
                                     </div>
                                 </td>
 

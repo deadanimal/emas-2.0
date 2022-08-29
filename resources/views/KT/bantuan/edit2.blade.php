@@ -11,7 +11,7 @@
         <div class="col">
             <div class="row align-items-center">
                 <div class="col col-lg-8">
-                    <span><b>Kemaskini Bantuan
+                    <span><b>Kemaskini Ketua Kampung
                         </b></span>
                 </div>
             </div>
@@ -23,43 +23,29 @@
         <div class="card mb-3">
 
             <div class="card-body bg-light">
-                <form action="/bantuan/{{ $bantuan->id }}" method="POST">
+                <form action="/bantuan1/{{ $kampung->id }}" method="POST">
                     @csrf
                     @method('PUT')
 
                     <div class="col-lg-12">
-                        <label class="form-label" for="nama_bantuan">Nama Bantuan</label>
-                        <input class="form-control" name="nama_bantuan" type="text" value="{{ $bantuan->nama_bantuan }}">
-                    </div>
-                    <div class="col-lg-6">
-                        <label class="form-label" for="negeri">Negeri</label>
-                        <input class="form-control" name="negeri" type="text" value="{{ $bantuan->negeri }}" />
-                    </div>
-
-                    <div class="col-lg-6">
-                        <label class="form-label" for="daerah">Daerah</label>
-                        <input class="form-control" nama="daerah" type="text" value="{{ $bantuan->daerah }}">
-                    </div>
-                    <div class="col-lg-12">
                         <label class="form-label" for="nama_kampung">Nama Kampung</label>
-                        <input class="form-control" name="nama_kampung" value="{{ $bantuan->nama_kampung }}">
+                        <input class="form-control" name="nama_kampung" type="text" value="{{ $kampung->nama_kampung }}">
                     </div>
-                    <div class="col-lg-12">
-                        <label class="form-label" for="kementerian">Kementerian Yang
-                            Bertanggungjawab</label>
-                        <input class="form-control" name="kementerian" value="{{ $bantuan->kementerian }}">
-                    </div>
-                    <div class="col-lg-12">
-                        <label class="form-label" for="agensi">Agensi Yang
-                            Ditugaskan</label>
-                        <input class="form-control" name="agensi" value="{{ $bantuan->agensi }}">
-                    </div>
-                    <div class="col-lg-12">
-                        <label class="form-label" for="sektor">Sektor</label>
-                        <input class="form-control" name="sektor" value="{{ $bantuan->sektor }}">
+                    <div class="col-lg-6">
+                        <label class="form-label" for="maklumat_kampung">Maklumat Kampung</label>
+                        <input class="form-control" id="maklumat_kampung" name="maklumat_kampung" type="text"
+                            value="{{ $kampung->maklumat_kampung }}" />
                     </div>
 
-
+                    <div class="col-lg-6">
+                        <label class="form-label" for="alamat_kampung">Alamat Kampung</label>
+                        <input class="form-control" id="alamat_kampung" name="alamat_kampung" type="text"
+                            value="{{ $kampung->alamat_kampung }}">
+                    </div>
+                    <div class="col-lg-6">
+                        <label class="form-label" for="nama">Gambar Kampung</label>
+                        <input class="form-control" id="nama" type="text">
+                    </div>
 
 
                     <div class="col" style="text-align: center">

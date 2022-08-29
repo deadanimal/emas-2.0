@@ -11,7 +11,7 @@
         <div class="col">
             <div class="row align-items-center">
                 <div class="col col-lg-8">
-                    <span><b>Kemaskini Bantuan
+                    <span><b>Kemaskini Ketua Kampung
                         </b></span>
                 </div>
             </div>
@@ -23,41 +23,40 @@
         <div class="card mb-3">
 
             <div class="card-body bg-light">
-                <form action="/bantuan/{{ $bantuan->id }}" method="POST">
+                <form action="/bantuan1/{{ $ketua->id }}" method="POST">
                     @csrf
                     @method('PUT')
 
                     <div class="col-lg-12">
-                        <label class="form-label" for="nama_bantuan">Nama Bantuan</label>
-                        <input class="form-control" name="nama_bantuan" type="text" value="{{ $bantuan->nama_bantuan }}">
+                        <label class="form-label" for="nama_penghulu">Nama Ketua Kampung</label>
+                        <input class="form-control" name="nama_penghulu" type="text" value="{{ $ketua->nama_penghulu }}">
                     </div>
                     <div class="col-lg-6">
-                        <label class="form-label" for="negeri">Negeri</label>
-                        <input class="form-control" name="negeri" type="text" value="{{ $bantuan->negeri }}" />
+                        <label class="form-label" for="no_tel_pejabat">No. Tel Pejabat</label>
+                        <input class="form-control" name="no_tel_pejabat" type="number"
+                            value="{{ $ketua->no_tel_pejabat }}" />
                     </div>
 
                     <div class="col-lg-6">
-                        <label class="form-label" for="daerah">Daerah</label>
-                        <input class="form-control" nama="daerah" type="text" value="{{ $bantuan->daerah }}">
+                        <label class="form-label" for="tahun_mula_berkhidmat">Tahun Mula Berkhidmat</label>
+                        <input class="form-control" nama="tahun_mula_berkhidmat" type="date"
+                            value="{{ $ketua->tahun_mula_berkhidmat }}">
+                    </div>
+                    <div class="col-lg-6">
+                        <label class="form-label" for="tahun_tamat_berkhidmat">Tahun Taman Berkhidmat</label>
+                        <input class="form-control" name="tahun_tamat_berkhidmat" type="date"
+                            value="{{ $ketua->tahun_tamat_berkhidmat }}">
                     </div>
                     <div class="col-lg-12">
-                        <label class="form-label" for="nama_kampung">Nama Kampung</label>
-                        <input class="form-control" name="nama_kampung" value="{{ $bantuan->nama_kampung }}">
+                        <label class="form-label" for="no_kad_pengenalan">No Kad Pengenalan</label>
+                        <input class="form-control" name="no_kad_pengenalan" type="number"
+                            value="{{ $ketua->no_kad_pengenalan }}">
                     </div>
                     <div class="col-lg-12">
-                        <label class="form-label" for="kementerian">Kementerian Yang
-                            Bertanggungjawab</label>
-                        <input class="form-control" name="kementerian" value="{{ $bantuan->kementerian }}">
+                        <label class="form-label" for="no_tel_bimbit">No.Tel Bimbit</label>
+                        <input class="form-control" name="no_tel_bimbit" type="number" value="{{ $ketua->no_tel_bimbit }}">
                     </div>
-                    <div class="col-lg-12">
-                        <label class="form-label" for="agensi">Agensi Yang
-                            Ditugaskan</label>
-                        <input class="form-control" name="agensi" value="{{ $bantuan->agensi }}">
-                    </div>
-                    <div class="col-lg-12">
-                        <label class="form-label" for="sektor">Sektor</label>
-                        <input class="form-control" name="sektor" value="{{ $bantuan->sektor }}">
-                    </div>
+
 
 
 

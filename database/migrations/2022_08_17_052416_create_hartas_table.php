@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_harta')->nullable();
             $table->foreignIdFor(Profil::class)->constrained()->cascadeOnDelete();
+
             $table->string('user_id')->nullable();
             $table->timestamps();
         });

@@ -53,36 +53,40 @@
         <div class="card mb-3">
 
             <div class="card-body bg-light">
-                <form class="row g-3">
-                    <div class="col-lg-12">
-                        <label class="form-label" for="nama">Nama Ketua Kampung</label>
-                        <input class="form-control" id="nama" type="text">
+                <form action="/bantuan1/create2/" method="POST">
+                    @csrf
+
+                    <div class="row g-3">
+                        <div class="col-lg-12">
+                            <label class="form-label" for="nama_kampung">Nama Kampung</label>
+                            <input class="form-control" id="nama_kampung" name="nama_kampung" type="text">
+
+                        </div>
+                        <div class="col-lg-12">
+                            <label class="form-label" for="maklumat_kampung">Maklumat Kampung</label>
+                            <input class="form-control" id="maklumat_kampung" name="maklumat_kampung" type="text">
+                        </div>
+                        <div class="col-lg-12">
+                            <label class="form-label" for="alamat_kampung">Alamat Kampung</label>
+                            <input class="form-control" id="alamat_kampung" name="alamat_kampung" type="text">
+                        </div>
+                        <div class="col-lg-12">
+                            <label class="form-label" for="nama">Gambar Kampung</label>
+                            <input class="form-control" id="nama" type="text">
+                        </div>
+
+
+
+
+
+                        <div class="col" style="text-align: center">
+                            <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
+                                type="submit" value="Save"
+                                onclick="return confirm('Adakah anda mahu mengubah data ini?')"><span
+                                    class="fas fa-save"></span>&nbsp;Tambah Kampung
+                            </button>
+                        </div>
                     </div>
-                    <div class="col-lg-12">
-                        <label class="form-label" for="nama">Maklumat Kampung</label>
-                        <input class="form-control" id="nama" type="text">
-                    </div>
-                    <div class="col-lg-12">
-                        <label class="form-label" for="nama">Alamat Kampung</label>
-                        <input class="form-control" id="nama" type="text">
-                    </div>
-                    <div class="col-lg-12">
-                        <label class="form-label" for="nama">Gambar Kampung</label>
-                        <input class="form-control" id="nama" type="text">
-                    </div>
-
-
-
-
-
-                    <div class="col" style="text-align: center">
-                        <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save"
-                            onclick="return confirm('Adakah anda mahu mengubah data ini?')"><span
-                                class="fas fa-save"></span>&nbsp;Tambah Kampung
-                        </button>
-                    </div>
-
                 </form>
             </div>
         </div>

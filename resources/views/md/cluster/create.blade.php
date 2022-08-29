@@ -21,9 +21,9 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="stragies_id">Strategy</label>
+                    <label class="col-sm-2 col-form-label" for="strategies_id">Strategy</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="stragies_id">
+                        <select class="form-control" name="strategies_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
 
                             @foreach ($strategies as $strategies)
@@ -31,6 +31,22 @@
                             @endforeach
 
                         </select>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="initiatives">National/Sectoral Initiative</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="initiatives" />
+
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="agency">Lead Ministry/Agency </label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="agency" />
+
                     </div>
                 </div>
 

@@ -37,6 +37,22 @@
                     </div>
                 </div>
 
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="initiatives">National/Sectoral Initiaves </label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="initiatives" value="{{ $cluster->initiatives }}" />
+
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="agency">Lead Ministry/Agency </label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="agency" value="{{ $cluster->agency }}" />
+
+                    </div>
+                </div>
+
                 <br><br>
 
                 <div class="mb-3">

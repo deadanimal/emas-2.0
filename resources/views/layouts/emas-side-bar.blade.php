@@ -870,7 +870,7 @@
                                     <a class="nav-link btn1 {{ Request::is('activity', 'activity/*') ? 'active' : '' }}"
                                         href="/activity">
                                         <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List
-                                                of Activity
+                                                of Activities
                                             </span>
                                         </div>
                                     </a>
@@ -908,16 +908,19 @@
                                                 <!-- more inner pages-->
                                             </li>
                                         </ul>
-                                        <ul class="nav collapse" id="cluster">
-                                            <li class="nav-item"><a class="nav-link btn1" href="/approval/cluster">
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="nav-link-text1 btn1 ps-1">List for Approval
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                                <!-- more inner pages-->
-                                            </li>
-                                        </ul>
+                                        @can('Epu MD')
+                                            <ul class="nav collapse" id="cluster">
+                                                <li class="nav-item"><a class="nav-link btn1" href="/approval/cluster">
+                                                        <div class="d-flex align-items-center"><span
+                                                                class="nav-link-text1 btn1 ps-1">List for Approval
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                    <!-- more inner pages-->
+                                                </li>
+                                            </ul>
+                                        @endcan
+
                                     </li>
                                 @endcan
 
@@ -1170,7 +1173,7 @@
                         </div>
                     </a>
                 </li>
-                <a class="nav-link btn1" href="/dashboard" role="button">
+                {{-- <a class="nav-link btn1" href="/dashboard" role="button">
                     <div class="row d-flex align-items-center ">
                         <div class="col-2">
                             <span class="nav-link-icon">
@@ -1193,7 +1196,7 @@
                     </div>
 
 
-                </a>
+                </a> --}}
                 <br>
 
 

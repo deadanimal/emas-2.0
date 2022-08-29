@@ -83,7 +83,7 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="startDate">Start Date</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="startDate" />
+                        <input class="form-control" type="date" name="startDate" />
 
                     </div>
                 </div>
@@ -91,7 +91,7 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="endDate">End Date</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="endDate" />
+                        <input class="form-control" type="date" name="endDate" />
 
                     </div>
                 </div>

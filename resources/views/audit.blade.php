@@ -130,6 +130,12 @@
                                 @elseif($audit->auditable_type == 'App\Models\activity')
                                     <td>{{ $audit->user->name }} {{ $audit->event }} My Digital - Activity.
                                     </td>
+                                @elseif($audit->auditable_type == 'App\Models\Lokaliti')
+                                    <td>{{ $audit->user->name }} {{ $audit->event }} Kemiskinan Tegar - Lokaliti.
+                                    </td>
+                                @elseif($audit->auditable_type == 'App\Models\User')
+                                    <td>{{ $audit->user->name }} {{ $audit->event }} Executive Dashboard - Pengguna.
+                                    </td>
                                 @else
                                     <td>{{ $audit->user->name }} {{ $audit->event }} yang
                                         lain.

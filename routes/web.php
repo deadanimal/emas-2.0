@@ -33,6 +33,9 @@ use App\Http\Controllers\SubController;
 use App\Http\Controllers\ThrusController;
 use App\Http\Controllers\ThrustController;
 use App\Http\Controllers\TindakanController;
+use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\ResetPasswordController;
+
 use App\Models\Perkarautama;
 use Illuminate\Support\Facades\Route;
 
@@ -189,6 +192,9 @@ Route::group(
         Route::resource('/senarai_informasi', SenaraiInformasiController::class);
         Route::get('/senarai_informasi1/index1/', [SenaraiInformasiController::class, 'index1']);
 
+        Route::post('senarai-kir-dan-air-excel', [KemasukanDataController::class, 'import']);
+
+
         // Kemasukan Data
         // Route::resource('/kemasukanData', KemasukanDataController::class);
         Route::get('/kemasukanData/bahagian1', [KemasukanDataController::class, 'bahagian1']);
@@ -256,11 +262,18 @@ Route::group(
         Route::post('/set-semula-kata-laluan/{id}', [PenggunaController::class, 'set_semula_kata_laluan']);
         Route::get('/carian-pengguna', [PenggunaController::class, 'result_search']);
 
+        Route::post('importUserExcel', [PenggunaController::class, 'import']);
+
+
         //Audit Log
         // Route::get('/audit', AuditController::class);
         Route::get('/audit', [AuditController::class, 'index']);
     }
 );
 
-Route::post('importUserExcel', [PenggunaController::class, 'import']);
-Route::post('senarai-kir-dan-air-excel', [KemasukanDataController::class, 'import']);
+
+// Route::get('/forget-password', 'ForgotPasswordController@getEmail');
+// Route::post('/forget-password', 'ForgotPasswordController@postEmail');
+
+// Route::get('/reset-password/{token}', 'ResetPasswordController@getPassword');
+// Route::post('/reset-password', 'ResetPasswordController@updatePassword');

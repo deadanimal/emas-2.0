@@ -15,6 +15,7 @@ class AuditController extends Controller
 
     public function index()
     {
+        
         $audits = Audit::all();
 
         // var_dump($audits);

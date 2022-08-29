@@ -44,11 +44,11 @@
                     name="password_confirmation" required />
             </div>
 
-            <div class="mt-4">
+            {{-- <div class="mt-4">
                 <x-label for="role" :value="__('Role')" />
 
-                {{-- <x-input id="password_confirmation" class="block mt-1 w-full" type="password"
-                    name="password_confirmation" required /> --}}
+                <x-input id="password_confirmation" class="block mt-1 w-full" type="password"
+                    name="password_confirmation" required />
                 <select id="role" class="block mt-1 w-full" name="role">
                     <option hidden selected value="">Please Pick</option>
                     <option value="MPB">MPB</option>
@@ -57,7 +57,7 @@
                     <option value="MD">MD</option>
                     <option value="ED">ED</option>
                 </select>
-            </div>
+            </div> --}}
 
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">

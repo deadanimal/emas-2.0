@@ -1,7 +1,6 @@
 @extends('base')
 @section('content')
     <div class="container">
-        <br>
         <div class="mb-4 text-center">
             <H2>KEMAS KINI DATA</H2>
         </div>
@@ -24,7 +23,8 @@
                         <select class="form-control" name="fokus_id">
 
                             @foreach ($fokus as $fokus)
-                                <option @selected($sdg->fokus_id == $fokus->id) value="{{ $fokus->id }}">{{ $fokus->namaFokus }}</option>
+                                <option @selected($sdg->fokus_id == $fokus->id) value="{{ $fokus->id }}">{{ $fokus->namaFokus }}
+                                </option>
                             @endforeach
 
                         </select>
@@ -35,7 +35,8 @@
                         <select class="form-control" name="perkara_id">
 
                             @foreach ($perkara as $perkara)
-                                <option @selected($sdg->perkara_id == $perkara->id) value="{{ $perkara->id }}">{{ $perkara->namaPerkara }}</option>
+                                <option @selected($sdg->perkara_id == $perkara->id) value="{{ $perkara->id }}">{{ $perkara->namaPerkara }}
+                                </option>
                             @endforeach
 
                         </select>
@@ -49,7 +50,8 @@
                         <select class="form-control" name="pemangkin_id">
 
                             @foreach ($list as $list)
-                                <option @selected($sdg->pemangkin_id == $list->id) value="{{ $list->id }}">{{ $list->namaTema }}</option>
+                                <option @selected($sdg->pemangkin_id == $list->id) value="{{ $list->id }}">{{ $list->namaTema }}
+                                </option>
                             @endforeach
 
                         </select>
@@ -59,7 +61,7 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="namaSdg">Nama SDG</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaSdg" value="{{ $sdg->namaSdg }}"/>
+                        <input class="form-control" type="text" name="namaSdg" value="{{ $sdg->namaSdg }}" />
 
                     </div>
                 </div>
@@ -74,7 +76,8 @@
 
                 <div class="row">
                     <div class="col">
-                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3" href="/sdg">
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
+                            href="/sdg">
                             <span class="fas fa-times-circle"></span>&nbsp;Batal
                         </a>
                     </div>

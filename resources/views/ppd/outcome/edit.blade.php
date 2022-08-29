@@ -1,7 +1,6 @@
 @extends('base')
 @section('content')
     <div class="container">
-        <br>
         <div class="mb-4 text-center">
             <H2>KEMAS KINI DATA</H2>
         </div>
@@ -24,7 +23,8 @@
                         <select class="form-control" name="fokus_id">
 
                             @foreach ($fokus as $fokus)
-                                <option @selected($outcome->fokus_id == $fokus->id) value="{{ $fokus->id }}">{{ $fokus->namaFokus }}</option>
+                                <option @selected($outcome->fokus_id == $fokus->id) value="{{ $fokus->id }}">{{ $fokus->namaFokus }}
+                                </option>
                             @endforeach
 
                         </select>
@@ -35,7 +35,8 @@
                         <select class="form-control" name="pemangkin_id">
 
                             @foreach ($pemangkin as $pemangkin)
-                                <option @selected($outcome->pemangkin_id == $pemangkin->id) value="{{ $pemangkin->id }}">{{ $pemangkin->namaTema }}</option>
+                                <option @selected($outcome->pemangkin_id == $pemangkin->id) value="{{ $pemangkin->id }}">{{ $pemangkin->namaTema }}
+                                </option>
                             @endforeach
 
                         </select>
@@ -48,7 +49,8 @@
                         <select class="form-control" name="bidang_id">
 
                             @foreach ($list as $list)
-                                <option @selected($outcome->bidang_id == $list->id) value="{{ $list->id }}">{{ $list->namaBidang }}</option>
+                                <option @selected($outcome->bidang_id == $list->id) value="{{ $list->id }}">{{ $list->namaBidang }}
+                                </option>
                             @endforeach
 
                         </select>
@@ -79,7 +81,9 @@
 
                     <div class="col" style="text-align: right">
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save" onclick="return confirm('Adakah anda mahu mengubah data ini?')"><span class="fas fa-save"></span>&nbsp;Simpan
+                            type="submit" value="Save"
+                            onclick="return confirm('Adakah anda mahu mengubah data ini?')"><span
+                                class="fas fa-save"></span>&nbsp;Simpan
                         </button>
                     </div>
                 </div>

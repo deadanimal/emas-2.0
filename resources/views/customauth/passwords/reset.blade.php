@@ -30,8 +30,8 @@
     {{-- <script src="vendors/dropzone/dropzone.min.js"></script> --}}
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    {{-- <script type="text/javascript" src="/assets/js/datatables.min.js"></script>
-    <script type="text/javascript" src="/assets/js/datatables.js"></script> --}}
+    <script type="text/javascript" src="/assets/js/datatables.min.js"></script>
+    <script type="text/javascript" src="/assets/js/datatables.js"></script>
     <script src="/assets/js/flatpickr.js"></script>
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
@@ -57,8 +57,8 @@
     <link href="/assets/css/theme.min.css" rel="stylesheet" id="style-default">
     <link href="/assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
     <link href="/assets/css/user.min.css" rel="stylesheet" id="user-style-default">
-    {{-- <link rel="stylesheet" type="text/css" href="/assets/css/datatables.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/datatables.min.css" /> --}}
+    <link rel="stylesheet" type="text/css" href="/assets/css/datatables.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/datatables.min.css" />
     {{-- <script>
         var APP_URL = {!! json_encode(url('/')) !!}
 
@@ -86,29 +86,27 @@
             border-color: #009640;
         }
 
-        .emas-dg {
+        .risda-dg {
             color: #0F5E31;
         }
 
-        .emas-bg-dg {
+        .risda-bg-dg {
             background-color: #76bbe9;
-            color: #07385E;
-
         }
 
-        .emas-g {
+        .risda-g {
             color: #009640;
         }
 
-        .emas-bg-g {
+        .risda-bg-g {
             background-color: #e8efeb;
         }
 
-        .nav-link-emas {
+        .nav-link-risda {
             color: #0F5E31;
         }
 
-        .nav-link-emas.active {
+        .nav-link-risda.active {
             background-color: #0F5E31;
             color: white;
         }
@@ -293,7 +291,7 @@
                 width: 350px;
             }
 
-            .emas-m {
+            .risda-m {
                 margin-left: 350px;
             }
 
@@ -308,7 +306,7 @@
         }
 
         @media only screen and (max-width: 600px) {
-            .emas-m {
+            .risda-m {
                 margin-left: 0px;
             }
 
@@ -377,100 +375,80 @@
                 <div class="col-sm-10 col-md-6 px-sm-0 align-self-center mx-auto py-5">
                     <div class="row justify-content-center g-0">
                         <div class="col-lg-9 col-xl-8 col-xxl-6">
-                            <div class="card-body pb-3">
+                            <x-guest-layout>
+                                <x-slot name="logo">
+                                    <a href="/">
+                                        <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                                    </a>
+                                </x-slot>
 
-
-
-                                <form method="POST" action="{{ route('login') }}">
-                                    @csrf
-
-                                    <!-- Session Status -->
-                                    <x-auth-session-status class="mb-3" :status="session('status')" />
-
-                                    <!-- Validation Errors -->
-                                    <x-auth-validation-errors class="mb-3" :errors="$errors" />
-
-                                    <div class="mb-3">
-                                        <label class="form-label" for="email">ID Pengguna</label>
-                                        <input class="form-control" id="email" type="email" name="email"
-                                            :value="old('email')" required autofocus />
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <label class="form-label" for="password">Kata
-                                                Laluan</label>
-                                        </div>
-                                        <input class="form-control" id="password" type="password" name="password" />
-                                    </div>
-                                    <div class="form-check mb-0">
-                                        <input class="form-check-input" type="checkbox" id="card-checkbox"
-                                            checked="checked" />
-
-                                        <div class="row">
-                                            <div class="col">
-                                                <label class="form-check-label" for="card-checkbox">Ingati
-                                                    Saya
-                                                </label>
-                                            </div>
-                                            <div class="col" style="text-align: right">
-                                                <a class="fs--1" data-bs-toggle="modal"
-                                                    data-bs-target="#error-modal">Lupa Kata Laluan?
-                                                </a>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                    <div class="mb-3">
-                                        <button class="btn btn-primary d-block w-100 mt-3"
-                                            style="background-color: #047FC3; color:white" type="submit"
-                                            name="submit">Log Masuk</button>
-                                    </div>
-
-                                </form>
-
-                                <div class="modal fade" id="error-modal" tabindex="-1" role="dialog"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document"
-                                        style="max-width: 500px">
-                                        <div class="modal-content position-relative">
-                                            <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
-                                                <button
-                                                    class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
-                                                    data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body p-0">
-
-                                                <div class="p-4 pb-0">
-
-                                                    <form method="POST" action="{{ route('password.email') }}">
-                                                        @csrf
-
-                                                        <!-- Email Address -->
-                                                        <div class="mb-3"><br>
-                                                            <label class="form-label" for="email">E-mel
-                                                                Pengguna</label>
-                                                            <input class="form-control" id="email" type="email"
-                                                                name="email" :value="old('email')" required
-                                                                autofocus />
-                                                        </div>
-
-                                                        <div class="modal-footer">
-                                                            <button class="btn btn-primary d-block w-100 mt-3"
-                                                                style="background-color: #047FC3; color:white"
-                                                                type="submit" name="submit">Hantar</button>
-                                                        </div>
-
-                                                    </form>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
+                                <div class="mb-4 text-sm text-gray-600">
+                                    {{ __('Lupa kata laluan anda? Sila masukkan ID Pengguna atau Emel anda') }}
                                 </div>
 
+                                <!-- Session Status -->
+                                <x-auth-session-status class="mb-4" :status="session('status')" />
 
-                            </div>
+                                <!-- Validation Errors -->
+                                <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
+
+                                <form method="POST" action="/reset-password">
+                                    @csrf
+                                    <input type="hidden" name="token" value="{{ $token }}">
+                                    <div class="form-group row">
+                                        <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail
+                                            Address</label>
+                                        <div class="col-md-6">
+                                            <input id="email" type="email"
+                                                class="form-control @error('email') is-invalid @enderror" name="email"
+                                                value="{{ $email ?? old('email') }}" autocomplete="email" autofocus>
+
+                                            @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="password"
+                                            class="col-md-4 col-form-label text-md-right">Password</label>
+                                        <div class="col-md-6">
+                                            <input id="password" type="password"
+                                                class="form-control @error('password') is-invalid @enderror"
+                                                name="password" autocomplete="new-password">
+
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="password-confirm"
+                                            class="col-md-4 col-form-label text-md-right">Confirm
+                                            Password</label>
+                                        <div class="col-md-6">
+                                            <input id="password-confirm" type="password" class="form-control"
+                                                name="password_confirmation" autocomplete="new-password">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row mb-0">
+                                        <div class="col-md-6 offset-md-4">
+                                            <button type="submit" class="btn btn-primary">
+                                                Reset Password
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </x-guest-layout>
+
                         </div>
                     </div>
                 </div>
@@ -478,11 +456,11 @@
         </div>
 
 
-        {{-- <footer class="emas-bg-dg">
-            <div class="row p-">
+        {{-- <footer class="risda-bg-dg">
+            <div class="row p-4">
                 <div class="col">
-                    <div class="text-center">
-                        <b>Copyright</b> ©️ <b>UNIT PERANCANG EKONOMI</b>
+                    <div class="text-600 text-white text-center">
+                        Copyright ©️ UNIT PERANCANG EKONOMI
                     </div>
                 </div>
             </div>
@@ -508,9 +486,6 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
     <script src="../../../vendors/list.js/list.min.js"></script>
     <script src="../../../assets/js/theme.js"></script>
-
-
-
 
 </body>
 

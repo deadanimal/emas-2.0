@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('desc')->nullable();
             $table->string('user_id')->nullable();
             $table->string('strategies_id')->nullable();
+            $table->string('initiatives')->nullable();
+            $table->string('agency')->nullable();
+
             $table->timestamps();
         });
     }

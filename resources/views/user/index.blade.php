@@ -48,7 +48,7 @@
                                         <th class="text-center font-weight-bolder opacity-7">Set Semula Kata
                                             Laluan</th>
                                     @endif --}}
-                                        {{-- <th class="text-center font-weight-bolder opacity-7">Hapus</th> --}}
+                                        <th class="text-center font-weight-bolder opacity-7">Hapus</th>
                                     </tr>
                                 </thead>
                                 @role('PPD')
@@ -73,7 +73,7 @@
                                                         Kemaskini
                                                     </a>
                                                 </td>
-                                                {{-- <td class="text-sm text-center font-weight-normal">
+                                                <td class="text-sm text-center font-weight-normal">
                                                     <a data-bs-toggle="modal" style="cursor: pointer"
                                                         data-bs-target="#modaldelete-{{ $u->id }}">
                                                         <i class="far fa-trash-alt"></i>
@@ -102,7 +102,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div> --}}
+                                                </div>
                                             </tr>
                                         @endforeach
                                     </tbody>

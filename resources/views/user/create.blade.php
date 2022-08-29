@@ -40,7 +40,7 @@
                                     <label for="">Nama Pengguna:</label>
                                     <div class="input-group">
                                         <input class="form-control mb-3" type="text" name="name"
-                                            :value="old('name')" style="text-transform: uppercase" required>
+                                            :value="old('name')" required>
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -99,8 +99,6 @@
 
                             </div>
                             <div class="col-6">
-
-
 
                                 <div class="col" style="text-align: right">
                                     <button class="btn btn-falcon-default btn-sm"

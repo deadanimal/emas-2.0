@@ -95,14 +95,6 @@
                                 </div>
                             </td>
 
-                            <td class="text-nowrap">
-                                <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                    data-bs-target="#error-modal-{{ $activity->id }}">
-                                    <div class="ms-2"><b>{{ $activity->category }}</b></div>
-                                </div>
-                            </td>
-
-
 
                             <div class="modal fade" id="error-modal-{{ $activity->id }}" tabindex="-1" role="dialog"
                                 aria-hidden="true">

@@ -3,11 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Imports\ProfilImport;
+use App\Models\Bantuan;
+use App\Models\Harta;
+use App\Models\KategoriBantuan;
+use App\Models\Kecacatan;
 use App\Models\KemasukanData;
 use App\Models\Lokaliti;
 use App\Models\Negeri_mukim;
 use App\Models\Negeri_parlimen;
+use App\Models\Pendapatan;
+use App\Models\Penyakit;
+use App\Models\Perbelanjaan;
 use App\Models\Profil;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
@@ -35,34 +43,46 @@ class KemasukanDataController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function bahagian1()
+    public function bahagian()
     {
-        $user = Auth::user();
+        $user = auth()->user();
+        $profil = Profil::where('user_id', $user->id)->get();
+        if ($profil !== null) {
+            $uncompletedProfil = null;
+            foreach ($profil as $p) {
+                if ($p->current_bahagian != 6) {
+                    $uncompletedProfil = $p;
+                }
+            }
+            if ($uncompletedProfil != null) {
+                $data = ['user' => $user, 'profil' => $uncompletedProfil];
+                switch ($uncompletedProfil->current_bahagian) {
+                    case '2':
+                        return view('kt.kemasukanData.bahagian2', $data);
+                        break;
+                    case '3':
+                        return view('kt.kemasukanData.bahagian3', $data);
+                        break;
+                    case '4':
+                        return view('kt.kemasukanData.bahagian4', $data);
+                        break;
+                    case '5':
+                        $data5 = ['bantuans' => Bantuan::all(), 'user' => $user, 'profil' => $uncompletedProfil];
+                        return view('kt.kemasukanData.bahagian5', $data5);
+                        break;
+                    case 'Done':
+                        return view('kt.kemasukanData.bahagian1', ['user' => $user]);
+                        break;
+                    default:
+                        return 'invalid';
+                        break;
+                }
+            } else {
+                return view('kt.kemasukanData.bahagian1', ['user' => $user]);
+            }
+        }
         return view('kt.kemasukanData.bahagian1', ['user' => $user]);
-    }
 
-    public function bahagian2()
-    {
-        $user = Auth::user();
-        return view('kt.kemasukanData.bahagian2', ['user' => $user]);
-    }
-
-    public function bahagian3()
-    {
-        $user = Auth::user();
-        return view('kt.kemasukanData.bahagian3', ['user' => $user]);
-    }
-
-    public function bahagian4()
-    {
-        $user = Auth::user();
-        return view('kt.kemasukanData.bahagian4', ['user' => $user]);
-    }
-
-    public function bahagian5()
-    {
-        $user = Auth::user();
-        return view('kt.kemasukanData.bahagian5', ['user' => $user]);
     }
 
     public function bahagian6()
@@ -123,6 +143,129 @@ class KemasukanDataController extends Controller
             'negeri_mukim_id' => $mukim->id,
             'lokaliti_id' => $lokaliti->id,
             'negeri_parlimen_id' => $parlimen->id,
+            'current_bahagian' => 2,
+        ]);
+
+        return back();
+    }
+
+    public function simpanBahagian2(Request $request)
+    {
+        $request->validate([
+            'tahun_kelahiran' => 'required',
+            'tarikh_lahir' => 'required',
+            'umur' => 'required',
+            'jantina' => 'required',
+            'kumpulan_etnik' => 'required',
+            'kewarganegaraan' => 'required',
+            'agama' => 'required',
+            'status_perkahwinan' => 'required',
+            'taraf_pendidikan' => 'required',
+            'kemahiran_yang_dimiliki' => 'required',
+            'status_pekerjaan_utama' => 'required',
+        ]);
+
+        $user_id = auth()->id();
+
+        foreach ($request->harta as $harta) {
+            Harta::create([
+                'nama_harta' => $harta,
+                'profil_id' => $request->profil_id,
+                'user_id' => $user_id,
+            ]);
+        }
+        foreach ($request->penyakit as $penyakit) {
+            Penyakit::create([
+                'kod_penyakit' => $penyakit,
+                'profil_id' => $request->profil_id,
+                'user_id' => $user_id,
+            ]);
+        }
+        foreach ($request->kumpulan_perbenlanjaan as $kp) {
+            Perbelanjaan::create([
+                'kod_perbelanjaan' => $kp,
+                'profil_id' => $request->profil_id,
+                'user_id' => $user_id,
+            ]);
+        }
+        foreach ($request->kecacatan as $kecacatan) {
+            Kecacatan::create([
+                'kod_cacat' => $kecacatan,
+                'profil_id' => $request->profil_id,
+                'user_id' => $user_id,
+            ]);
+        }
+
+        Profil::find($request->profil_id)->update($request->all());
+
+        return back();
+    }
+
+    public function simpanBahagian3(Request $request)
+    {
+        $request->validate([
+            'pendapatan_harta' => 'required',
+            'kiriman_isi_rumah' => 'required',
+            'nafkah' => 'required',
+            'biasiswa' => 'required',
+            'pencen' => 'required',
+            'hadiah' => 'required',
+            'pembayaran' => 'required',
+            'jumlah_bantuan' => 'required',
+            'jumlah_impak_bantuan' => 'required',
+            'jumlah_pendapatan_kasar' => 'required',
+        ]);
+
+        $user_id = auth()->id();
+        $jumlah_pendapatan = 0;
+        foreach ($request->jumlah_pendapatan as $p) {
+            $jumlah_pendapatan += $p;
+        }
+        $jumlah_pendapatan -= $request->jumlah_keluaran;
+
+        Pendapatan::create([
+            'jumlah_pendapatan' => $jumlah_pendapatan,
+            'pendapatan_harta' => $request->pendapatan_harta,
+            'kiriman_isi_rumah' => $request->kiriman_isi_rumah,
+            'nafkah' => $request->nafkah,
+            'biasiswa' => $request->biasiswa,
+            'pencen' => $request->pencen,
+            'hadiah' => $request->hadiah,
+            'pembayaran' => $request->pembayaran,
+            'profil_id' => $request->profil_id,
+            'user_id' => $user_id,
+        ]);
+
+        Profil::find($request->profil_id)->update([
+            'current_bahagian' => $request->current_bahagian,
+            'jumlah_bantuan' => $request->jumlah_bantuan,
+            'jumlah_impak_bantuan' => $request->jumlah_impak_bantuan,
+            'jumlah_pendapatan_kasar' => $request->jumlah_pendapatan_kasar,
+        ]);
+
+        return back();
+    }
+
+    public function simpanBahagian4(Request $request)
+    {
+        $request->validate([
+            'result' => 'required',
+        ]);
+
+        Profil::find($request->profil_id)->update([
+            'anggaran_perbelanjaan_isi_rumah' => $request->result,
+            'current_bahagian' => '5',
+        ]);
+
+        return back();
+    }
+
+    public function simpanBahagian5(Request $request)
+    {
+        KategoriBantuan::create($request->all());
+
+        Profil::find($request->profil_id)->update([
+            'current_bahagian' => 'Done',
         ]);
 
         return back();

@@ -14,12 +14,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('hartas', function (Blueprint $table) {
+        Schema::create('kategori_bantuans', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_harta')->nullable();
             $table->foreignIdFor(Profil::class)->constrained()->cascadeOnDelete();
-
-            $table->string('user_id')->nullable();
+            $table->string('program_yang_diterima')->nullable();
+            $table->string('bulan_semasa')->nullable();
+            $table->string('selain')->nullable();
+            $table->string('diperlukan')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hartas');
+        Schema::dropIfExists('kategori_bantuans');
     }
 };

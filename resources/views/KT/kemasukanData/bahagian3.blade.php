@@ -32,84 +32,85 @@
         <div class="card mb-3">
 
             <div class="card-body bg-light">
-                <form method="POST" action="/kemasukanData">
+                <form method="POST" action="/kemasukanData-bahagian3">
                     @csrf
+                    <input type="hidden" name="current_bahagian" value="4">
+                    <input type="hidden" name="profil_id" value="{{ $profil->id }}">
                     <div class="row g-3">
-
                         <div class="col-lg-6">
-                            <label class="form-label" for="jumlah_pendapatan">Jumlah Pendapatan
+                            <label class="form-label">Jumlah Pendapatan
                                 Pekerjaan Bergaji</label>
-                            <input class="form-control" name="contact" type="number" />
+                            <input class="form-control" name="jumlah_pendapatan[]" type="number" />
                         </div>
                         <div class="col-lg-6">
-                            <label class="form-label" for="jumlah_pendapatan">Jumlah Pendapatan Pekerjaan Sendiri
+                            <label class="form-label">Jumlah Pendapatan Pekerjaan Sendiri
                                 (Bukan Pertanian)</label>
-                            <input class="form-control" name="contact" type="number" />
+                            <input class="form-control" name="jumlah_pendapatan[]" type="number" />
                         </div>
 
                         <div class="col-lg-6">
-                            <label class="form-label" for="jumlah_pendapatan">Jumlah Pendapatan Pekerjaan Sendiri
+                            <label class="form-label">Jumlah Pendapatan Pekerjaan Sendiri
                                 (Pertanian/Ternakan)</label>
-                            <input class="form-control" id="kategori" type="number">
+                            <input class="form-control" name="jumlah_pendapatan[]" type="number">
                         </div>
                         <div class="col-lg-6">
-                            <label class="form-label" for="jumlah_pendapatan">Jumlah Pendapatan Pekerjaan Sendiri
+                            <label class="form-label">Jumlah Pendapatan Pekerjaan Sendiri
                                 (Perikanan)</label>
-                            <input class="form-control" id="jumlah" type="number">
+                            <input class="form-control" name="jumlah_pendapatan[]" type="number">
                         </div>
                         <div class="col-lg-6">
-                            <label class="form-label" for="jumlah_pendapatan">Jumlah Keluaran Sendiri Yang
+                            <label class="form-label">Jumlah Keluaran Sendiri Yang
                                 Dikeluarkan</label>
-                            <input class="form-control" id="statusMiskin" type="number">
+                            <input class="form-control" name="jumlah_keluaran" type="number">
                         </div>
                         <div class="col-lg-6">
-                            <label class="form-label" for="jumlah_pendapatan">Jumlah Pendapatan Lain
+                            <label class="form-label">Jumlah Pendapatan Lain
                                 Diperolehi</label>
-                            <input class="form-control" id="statusMiskin" type="number">
+                            <input class="form-control" name="jumlah_pendapatan[]" type="number">
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="pendapatan_harta">Pendapatan Daripada Harta
                                 (Faedah, Dividen & Sewa Daripada Tanah Pertanian)</label>
-                            <input class="form-control" id="pendapatan_harta" type="number">
+                            <input class="form-control" name="pendapatan_harta" type="number">
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="kiriman_isi_rumah">Kiriman Isi Rumah Lain
                                 (Dalam Dan Luar Negeri)</label>
-                            <input class="form-control" id="kiriman_isi_rumah" type="number">
+                            <input class="form-control" name="kiriman_isi_rumah" type="number">
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="nafkah">Nafkah</label>
-                            <input class="form-control" id="nafkah" type="number">
+                            <input class="form-control" name="nafkah" type="number">
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="biasiswa">Biasiswa Dan Dermasiswa</label>
-                            <input class="form-control" id="biasiswa" type="number">
+                            <input class="form-control" name="biasiswa" type="number">
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="pencen">Pencen</label>
-                            <input class="form-control" id="pencen" type="number">
+                            <input class="form-control" name="pencen" type="number">
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="hadiah">Hadiah Berupa Wang Tunai Atau
                                 Mata Benda</label>
-                            <input class="form-control" id="hadiah" type="number">
+                            <input class="form-control" name="hadiah" type="number">
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="pembayaran">Pembayaran Lain Berkala
                                 Yang Diterima</label>
-                            <input class="form-control" id="pembayaran" type="number">
+                            <input class="form-control" name="pembayaran" type="number">
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="jumlah_bantuan">Jumlah Bantuan (Bulan Semasa)</label>
-                            <input class="form-control" id="jumlah_bantuan" type="number">
+                            <input class="form-control" name="jumlah_bantuan" type="number">
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="jumlah_impak_bantuan">Jumlah Impak Bantuan</label>
-                            <input class="form-control" id="jumlah_impak_bantuan" type="number">
+                            <input class="form-control" name="jumlah_impak_bantuan" type="number">
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="jumlah_pendapatan_kasar">Jumlah Pendapatan Kasar</label>
-                            <input class="form-control" id="jumlah_pendapatan_kasar" type="number">
+                            <input class="form-control" name="jumlah_pendapatan_kasar" type="number">
                         </div>
 
 
@@ -121,10 +122,6 @@
                                 onclick="return confirm('Adakah anda mahu mengubah data ini?')"><span
                                     class="fas fa-save"></span>&nbsp;Simpan
                             </button>
-                            <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                                href="/kemasukanData/bahagian4">&nbsp;Seterusnya
-                                <span class="far fa-arrow-alt-circle-right"></span>
-                            </a>
                         </div>
 
                     </div>

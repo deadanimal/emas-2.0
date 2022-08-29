@@ -19,12 +19,10 @@
 
         <hr style="width:100%;text-align:center;">
 
-
-        <div class="card mb-3">
-
-            <div class="card-body bg-light">
-                <form action="{{ route('bantuan.store') }}" method="POST">
-                    @csrf
+        <form action="{{ route('bantuan.store') }}" method="post">
+            @csrf
+            <div class="card mb-3">
+                <div class="card-body bg-light">
                     <div class="row g-3">
                         <div class="col-lg-12">
                             <label class="form-label" for="nama_bantuan">Nama Bantuan</label>
@@ -57,10 +55,6 @@
                             <label class="form-label" for="sektor">Sektor</label>
                             <input class="form-control" name="sektor">
                         </div>
-
-
-
-
                         <div class="col" style="text-align: center">
                             <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
                                 type="submit" value="Save"
@@ -70,11 +64,8 @@
                         </div>
 
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
-
-
-
+        </form>
     </div>
 @endsection

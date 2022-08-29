@@ -32,20 +32,19 @@
         <div class="card mb-3">
 
             <div class="card-body bg-light">
-                <form method="POST" action="/kemasukanData">
+                <form method="POST" action="/kemasukanData-bahagian5">
                     @csrf
                     <div class="row g-3">
 
-
+                        <input type="hidden" name="profil_id" value="{{ $profil->id }}">
                         <div class="col-lg-12">
                             <label class="form-label" for="nama">Jenis Bantuan/Kebajikan/Pinjaman/Projek/Program Yang
                                 Diterima</label>
-                            <select class="form-select">
+                            <select class="form-select" name="program_yang_diterima">
                                 <option selected disabled hidden>SILA PILIH</option>
-
-                                {{-- @foreach ($strategies as $strategies)
-                                    <option value="{{ $strategies->id }}">{{ $strategies->namaStrategy }}</option>
-                                @endforeach --}}
+                                @foreach ($bantuans as $bantuan)
+                                    <option value="{{ $bantuan->nama_bantuan }}">{{ $bantuan->nama_bantuan }}</option>
+                                @endforeach
 
                             </select>
                         </div>
@@ -53,12 +52,12 @@
                         <div class="col-lg-12">
                             <label class="form-label" for="nama">Bantuan/Kebajikan/Pinjaman/Projek/Program Yang Diterima
                                 Dalam Bulan Semasa</label>
-                            <select class="form-select">
+                            <select class="form-select" name="bulan_semasa">
                                 <option selected disabled hidden>SILA PILIH</option>
 
-                                {{-- @foreach ($strategies as $strategies)
-                                    <option value="{{ $strategies->id }}">{{ $strategies->namaStrategy }}</option>
-                                @endforeach --}}
+                                @foreach ($bantuans as $bantuan)
+                                    <option value="{{ $bantuan->nama_bantuan }}">{{ $bantuan->nama_bantuan }}</option>
+                                @endforeach
 
                             </select>
                         </div>
@@ -66,12 +65,12 @@
                         <div class="col-lg-12">
                             <label class="form-label" for="nama">Bantuan/Kebajikan/Pinjaman/Projek/Program Yang Diterima
                                 Selain Dari Tempoh Di Atas</label>
-                            <select class="form-select">
+                            <select class="form-select" name="selain">
                                 <option selected disabled hidden>SILA PILIH</option>
 
-                                {{-- @foreach ($strategies as $strategies)
-                                    <option value="{{ $strategies->id }}">{{ $strategies->namaStrategy }}</option>
-                                @endforeach --}}
+                                @foreach ($bantuans as $bantuan)
+                                    <option value="{{ $bantuan->nama_bantuan }}">{{ $bantuan->nama_bantuan }}</option>
+                                @endforeach
 
                             </select>
                         </div>
@@ -79,7 +78,7 @@
                         <div class="col-lg-12">
                             <label class="form-label" for="nama">Bantuan/Kebajikan/Pinjaman/Projek/Program Yang
                                 Diperlukan</label>
-                            <select class="form-control" name="kumpulan_etnik">
+                            <select class="form-control" name="diperlukan">
                                 <option selected disabled hidden>SILA PILIH</option>
                                 <option value="1">Keperluan Asas</option>
                                 <option value="2">Ekonomi</option>
@@ -93,11 +92,6 @@
                             </select>
                         </div>
 
-                        <div class="col-lg-6">
-                        </div>
-
-                        <div class="col-lg-6">
-                        </div>
 
                         <div class="col" style="text-align: center">
                             <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"

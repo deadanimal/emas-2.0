@@ -35,7 +35,7 @@
                 <div class="card-header" style="text-align: center">
                     <b>Anggaran Perbelanjaan Isi Rumah</b>
                 </div><br>
-                <form method="POST" action="/kemasukanData">
+                <form method="POST" action="/kemasukanData-bahagian4">
                     @csrf
                     <div class="row g-3">
 
@@ -48,72 +48,113 @@
 
                         </div>
                         <div class="col-lg-6">
-                            <label class="form-label" for="kategori">Minum Alkohol Dan Tembakau</label>
-                            <input class="form-control" id="kategori" type="text">
+                            <label class="form-label">Minum Alkohol Dan Tembakau</label>
+
+                            <div class="input-group">
+                                <span class="input-group-text" id="rm1">RM</span>
+                                <input class="form-control kiraJumlah" type="number" value="0" aria-describedby="rm1">
+                            </div>
                         </div>
                         <div class="col-lg-6">
-                            <label class="form-label" for="jumlah">Pakaian Dan Kasut</label>
-                            <input class="form-control" id="jumlah" type="text">
+                            <label class="form-label">Pakaian Dan Kasut</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="rm2">RM</span>
+                                <input class="form-control kiraJumlah" type="number" value="0" aria-describedby="rm2">
+                            </div>
                         </div>
                         <div class="col-lg-6">
-                            <label class="form-label" for="statusMiskin">Perumahan, Air, Elektrik, Gas Dan
+                            <label class="form-label">Perumahan, Air, Elektrik, Gas Dan
                                 Bahan Api Lain</label>
-                            <input class="form-control" id="statusMiskin" type="text">
+                            <div class="input-group">
+                                <span class="input-group-text" id="rm3">RM</span>
+                                <input class="form-control kiraJumlah" type="number" value="0" aria-describedby="rm3">
+                            </div>
                         </div>
                         <div class="col-lg-6">
-                            <label class="form-label" for="statusMiskin">Hiasan, Perkakas Dan Penyelenggaraan
+                            <label class="form-label">Hiasan, Perkakas Dan Penyelenggaraan
                                 Isi Rumah</label>
-                            <input class="form-control" id="statusMiskin" type="text">
+                            <div class="input-group">
+                                <span class="input-group-text" id="rm4">RM</span>
+                                <input class="form-control kiraJumlah" type="number" value="0" aria-describedby="rm4">
+                            </div>
                         </div>
                         <div class="col-lg-6">
-                            <label class="form-label" for="negeri">Minum Alkohol Dan Tembakau</label>
-                            <input class="form-control" id="negeri" type="text">
+                            <label class="form-label">Minum Alkohol Dan Tembakau</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="rm5">RM</span>
+                                <input class="form-control kiraJumlah" type="number" value="0" aria-describedby="rm5">
+                            </div>
                         </div>
                         <div class="col-lg-6">
-                            <label class="form-label" for="daerah">Kesihatan</label>
-                            <input class="form-control" id="daerah" type="text">
+                            <label class="form-label">Kesihatan</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="rm6">RM</span>
+                                <input class="form-control kiraJumlah" type="number" value="0" aria-describedby="rm6">
+                            </div>
                         </div>
                         <div class="col-lg-6">
-                            <label class="form-label" for="mukim">Pengangkutan</label>
-                            <input class="form-control" id="mukim" type="text">
+                            <label class="form-label">Pengangkutan</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="rm7">RM</span>
+                                <input class="form-control kiraJumlah" type="number" value="0" aria-describedby="rm7">
+                            </div>
                         </div>
                         <div class="col-lg-6">
-                            <label class="form-label" for="parlimen">Komunikasi</label>
-                            <input class="form-control" id="parlimen" type="text">
+                            <label class="form-label">Komunikasi</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="rm8">RM</span>
+                                <input class="form-control kiraJumlah" type="number" value="0" aria-describedby="rm8">
+                            </div>
                         </div>
                         <div class="col-lg-6">
-                            <label class="form-label" for="statusMiskin">Pencen</label>
-                            <input class="form-control" id="statusMiskin" type="text">
+                            <label class="form-label">Pencen</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="rm9">RM</span>
+                                <input class="form-control kiraJumlah" type="number" value="0" aria-describedby="rm9">
+                            </div>
                         </div>
                         <div class="col-lg-6">
-                            <label class="form-label" for="statusMiskin">Perkhidmatan Rekreasi Dan Kebudayaan</label>
-                            <input class="form-control" id="statusMiskin" type="text">
+                            <label class="form-label">Perkhnamematan Rekreasi Dan Kebudayaan</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="rm10">RM</span>
+                                <input class="form-control kiraJumlah" type="number" value="0"
+                                    aria-describedby="rm10">
+                            </div>
                         </div>
                         <div class="col-lg-6">
-                            <label class="form-label" for="negeri">Pendidikan</label>
-                            <input class="form-control" id="negeri" type="text">
+                            <label class="form-label">Pendnameikan</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="rm11">RM</span>
+                                <input class="form-control kiraJumlah" type="number" value="0"
+                                    aria-describedby="rm11">
+                            </div>
                         </div>
                         <div class="col-lg-6">
-                            <label class="form-label" for="daerah">Restoran Dan Hotel</label>
-                            <input class="form-control" id="daerah" type="text">
+                            <label class="form-label">Restoran Dan Hotel</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="rm12">RM</span>
+                                <input class="form-control kiraJumlah" type="number" value="0"
+                                    aria-describedby="rm12">
+                            </div>
                         </div>
                         <div class="col-lg-6">
-                            <label class="form-label" for="mukim">Pelbagai Barang Dan Perbelanjaan Kewangan</label>
-                            <input class="form-control" id="mukim" type="text">
+                            <label class="form-label">Pelbagai Barang Dan Perbelanjaan Kewangan</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="rm13">RM</span>
+                                <input class="form-control kiraJumlah" type="number" value="0"
+                                    aria-describedby="rm13">
+                            </div>
                         </div>
                         <div class="col-lg-6">
-                            <label class="form-label" for="parlimen">Jumlah Perbelanjaan</label>
-                            <input class="form-control" id="parlimen" type="text">
+                            <label class="form-label">Jumlah Perbelanjaan</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="rm">RM</span>
+                                <input class="form-control" id="result" type="number" value="0"
+                                    aria-describedby="rm" disabled>
+                                <input type="hidden" name="result" id="resultHide" value="0">
+                            </div>
                         </div>
-
-                        <div class="col-lg-6">
-                        </div>
-                        <div class="col-lg-6">
-
-                        </div>
-
-
-
+                        <input type="hidden" name="profil_id" value="{{ $profil->id }}">
 
                         <div class="col" style="text-align: center">
                             <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
@@ -121,10 +162,6 @@
                                 onclick="return confirm('Adakah anda mahu mengubah data ini?')"><span
                                     class="fas fa-save"></span>&nbsp;Simpan
                             </button>
-                            <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                                href="/kemasukanData/bahagian5">&nbsp;Seterusnya
-                                <span class="far fa-arrow-alt-circle-right"></span>
-                            </a>
                         </div>
 
                     </div>
@@ -133,6 +170,14 @@
         </div>
     </div>
     <script>
+        $(".kiraJumlah").keyup(function() {
+            let jumlah = 0;
+            jQuery.each($(".kiraJumlah"), function(key, val) {
+                jumlah += parseInt(val.value);
+            });
+            $("#result").val(jumlah);
+            $("#resultHide").val(jumlah);
+        });
         $('input.number').keyup(function() {
             if (
                 ($(this).val().length > 0) && ($(this).val().substr(0, 3) != 'RM') ||

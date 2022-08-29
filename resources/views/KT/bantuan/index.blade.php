@@ -50,38 +50,22 @@
                         @foreach ($bantuans as $bantuan)
                             <tr class="align-middle bantuan">
                                 <td>
-                                    <div class="d-flex align-items-center" onclick="openmodal({{ $bantuan->id }},this)">
-                                        <div class="ms-2"><b>{{ $loop->iteration }}.</b>
-                                        </div>
-                                    </div>
+                                    {{ $loop->iteration }}
                                 </td>
                                 <td>
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $bantuan->id }}">
-
                                         <div class="ms-2"><b>{{ $bantuan->nama_bantuan }}</b></div>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                        data-bs-target="#error-modal-{{ $bantuan->id }}">
-
-                                        <div class="ms-2"><b>{{ $bantuan->kementerian }}</b></div>
-                                    </div>
+                                    {{ $bantuan->kementerian }}
                                 </td>
                                 <td>
-                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                        data-bs-target="#error-modal-{{ $bantuan->id }}">
-
-                                        <div class="ms-2"><b>{{ $bantuan->agensi }}</b></div>
-                                    </div>
+                                    {{ $bantuan->agensi }}
                                 </td>
                                 <td>
-                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                        data-bs-target="#error-modal-{{ $bantuan->id }}">
-
-                                        <div class="ms-2"><b>{{ $bantuan->sektor }}</b></div>
-                                    </div>
+                                    {{ $bantuan->sektor }}
                                 </td>
 
                                 <div class="modal fade" id="error-modal-{{ $bantuan->id }}" tabindex="-1" role="dialog"
@@ -118,7 +102,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <td align="right">
+                                <td>
                                     <div>
                                         {{-- <form action="{{ route('bantuan.destroy', $bantuan->id) }}" method="POST"> --}}
 

@@ -1,8 +1,6 @@
 <?php
 
 use App\Models\Profil;
-use App\Models\Profil_air;
-use App\Models\Profil_kir;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,10 +16,9 @@ return new class extends Migration
     {
         Schema::create('perbelanjaans', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(Profil::class)->constrained()->cascadeOnDelete();
             $table->string('kod_perbelanjaan')->nullable();
             $table->string('jumlah_perbelanjaan')->nullable();
-
-            $table->foreignIdFor(Profil::class)->nullable();
             $table->string('user_id')->nullable();
             $table->timestamps();
         });

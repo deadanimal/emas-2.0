@@ -60,8 +60,8 @@
                             <label class="form-label" for="kategori">Kategori (KIR/AIR)</label>
                             <select class="form-control" name="kategori">
                                 <option selected disabled hidden>SILA PILIH</option>
-                                <option value="1">KIR</option>
-                                <option value="2">AIR</option>
+                                <option value="KIR">KIR</option>
+                                <option value="AIR">AIR</option>
                             </select>
                         </div>
                         <div class="col-lg-6">
@@ -169,10 +169,7 @@
                                 onclick="return confirm('Adakah anda mahu mengubah data ini?')"><span
                                     class="fas fa-save"></span>&nbsp;Simpan
                             </button>
-                            <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                                href="/kemasukanData/bahagian2">&nbsp;Seterusnya
-                                <span class="far fa-arrow-alt-circle-right"></span>
-                            </a>
+
                         </div>
 
 

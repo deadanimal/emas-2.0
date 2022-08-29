@@ -186,19 +186,15 @@ Route::group(
 
         // Kemasukan Data
         // Route::resource('/kemasukanData', KemasukanDataController::class);
-        Route::get('/kemasukanData/bahagian1', [KemasukanDataController::class, 'bahagian1']);
-        Route::get('/kemasukanData/bahagian2', [KemasukanDataController::class, 'bahagian2']);
-        Route::get('/kemasukanData/bahagian3', [KemasukanDataController::class, 'bahagian3']);
-        Route::get('/kemasukanData/bahagian4', [KemasukanDataController::class, 'bahagian4']);
-        Route::get('/kemasukanData/bahagian5', [KemasukanDataController::class, 'bahagian5']);
-        Route::get('/kemasukanData/bahagian6', [KemasukanDataController::class, 'bahagian6']);
+        Route::get('/kemasukanData/bahagian', [KemasukanDataController::class, 'bahagian']);
 
         Route::post('/kemasukanData-bahagian1', [KemasukanDataController::class, 'simpanBahagian1']);
         Route::post('/kemasukanData-bahagian2', [KemasukanDataController::class, 'simpanBahagian2']);
         Route::post('/kemasukanData-bahagian3', [KemasukanDataController::class, 'simpanBahagian3']);
         Route::post('/kemasukanData-bahagian4', [KemasukanDataController::class, 'simpanBahagian4']);
         Route::post('/kemasukanData-bahagian5', [KemasukanDataController::class, 'simpanBahagian5']);
-        Route::post('/kemasukanData-bahagian6', [KemasukanDataController::class, 'simpanBahagian6']);
+
+        Route::get('/kemasukanData/bahagian-excel', [KemasukanDataController::class, 'bahagian6']);
     }
 );
 

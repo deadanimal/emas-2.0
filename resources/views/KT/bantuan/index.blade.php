@@ -50,11 +50,23 @@
                         @foreach ($bantuans as $bantuan)
                             <tr class="align-middle bantuan">
                                 <td>
+                                    {{ $loop->iteration }}
+                                </td>
+                                <td>
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $bantuan->id }}">
 
-                                        <div class="ms-2"><b>{{ $bantuan->namaBantuan }}</b></div>
+                                        <div class="ms-2"><b>{{ $bantuan->nama_bantuan }}</b></div>
                                     </div>
+                                </td>
+                                <td>
+                                    {{ $bantuan->kementerian }}
+                                </td>
+                                <td>
+                                    {{ $bantuan->agensi }}
+                                </td>
+                                <td>
+                                    {{ $bantuan->sektor }}
                                 </td>
 
                                 <div class="modal fade" id="error-modal-{{ $bantuan->id }}" tabindex="-1" role="dialog"
@@ -91,7 +103,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <td align="right">
+                                <td>
                                     <div>
                                         {{-- <form action="{{ route('bantuan.destroy', $bantuan->id) }}" method="POST"> --}}
 

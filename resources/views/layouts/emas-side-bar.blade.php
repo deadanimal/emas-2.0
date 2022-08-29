@@ -1031,9 +1031,9 @@
                         'senarai_informasi1/*',
                         'kemasukanData',
                         'kemasukanData/*'))
-                        <a class="nav-link {{ Request::is('kemasukanData/bahagian1', 'kemasukanData/bahagian1/*', 'kemasukanData/bahagian2', 'kemasukanData/bahagian2/*', 'kemasukanData/bahagian3', 'kemasukanData/bahagian3/*', 'kemasukanData/bahagian4', 'kemasukanData/bahagian4/*', 'kemasukanData/bahagian5', 'kemasukanData/bahagian5/*', 'kemasukanData/bahagian6', 'kemasukanData/bahagian6/*') ? 'active' : '' }}
+                        <a class="nav-link {{ Request::is('kemasukanData/bahagian', 'kemasukanData/bahagian/*') ? 'active' : '' }}
 "
-                            href="/kemasukanData/bahagian1" role="button">
+                            href="/kemasukanData/bahagian" role="button">
 
                             <div class="d-flex align-items-center">
                                 <div class="col-2">
@@ -1044,6 +1044,26 @@
                                 <div class="col text-center">
                                     <span class="nav-link-text ps-1">Kemasukan
                                         Data
+                                    </span>
+                                </div>
+                                <div class="col-2">
+
+                                </div>
+                            </div>
+                        </a>
+
+                        <a class="nav-link {{ Request::is('kemasukanData/bahagian-excel', 'kemasukanData/bahagian-excel/*') ? 'active' : '' }}
+"
+                            href="/kemasukanData/bahagian-excel" role="button">
+
+                            <div class="d-flex align-items-center">
+                                <div class="col-2">
+                                    <span class="nav-link-icon">
+                                        <span class="fas fa-upload"></span>
+                                    </span>
+                                </div>
+                                <div class="col text-center">
+                                    <span class="nav-link-text ps-1">Muat Naik Data
                                     </span>
                                 </div>
                                 <div class="col-2">

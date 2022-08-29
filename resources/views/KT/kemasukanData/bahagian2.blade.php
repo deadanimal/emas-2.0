@@ -33,27 +33,31 @@
         <div class="card mb-3">
 
             <div class="card-body bg-light">
-                <form method="POST" action="/kemasukanData">
+                <form method="POST" action="/kemasukanData-bahagian2">
                     @csrf
                     <div class="row g-3">
-
-                        <div class="col-lg-12">
-                            <label class="form-label" for="keterangan">Hubungan Dengan KIR</label>
-                            <select class="form-control" name="keterangan">
-                                <option selected disabled hidden>SILA PILIH</option>
-                                <option value="1">Isteri/Suami</option>
-                                <option value="2">Anak</option>
-                                <option value="3">Ibu/Bapa (Sendiri)/Mertua/ Tiri)</option>
-                                <option value="4">Abang/Kakak/Adik</option>
-                                <option value="5">Cucu</option>
-                                <option value="6">Datuk/Nenek</option>
-                                <option value="7">Bapa/ Ibu saudara</option>
-                                <option value="8">Anak Saudara</option>
-                                <option value="9">Lain-lain</option>
-
-                            </select>
-                        </div>
-
+                        @isset($profil)
+                            <input type="hidden" name="profil_id" value="{{ $profil->id }}">
+                            @if ($profil->kategori == 'AIR')
+                                <div class="col-lg-12">
+                                    <label class="form-label" for="keterangan">Hubungan Dengan KIR</label>
+                                    <select class="form-control" name="keterangan">
+                                        <option selected disabled hidden>SILA PILIH</option>
+                                        <option value="Isteri/Suami">Isteri/Suami</option>
+                                        <option value="Anak">Anak</option>
+                                        <option value="Ibu/Bapa (Sendiri)/Mertua/ Tiri)">Ibu/Bapa (Sendiri)/Mertua/ Tiri)
+                                        </option>
+                                        <option value="Abang/Kakak/Adik">Abang/Kakak/Adik</option>
+                                        <option value="Cucu">Cucu</option>
+                                        <option value="Datuk/Nenek">Datuk/Nenek</option>
+                                        <option value="Bapa/ Ibu saudara">Bapa/ Ibu saudara</option>
+                                        <option value="Anak Saudara">Anak Saudara</option>
+                                        <option value="Lain-lain">Lain-lain</option>
+                                    </select>
+                                </div>
+                            @endif
+                        @endisset
+                        <input type="hidden" name="current_bahagian" value="3">
                         <div class="col-lg-6">
                             <label class="form-label" for="tahun_kelahiran">Tahun Kelahiran</label>
                             <input class="form-control" name="tahun_kelahiran" type="number" />
@@ -65,14 +69,15 @@
 
                         <div class="col-lg-6">
                             <label class="form-label" for="umur">Umur</label>
-                            <input class="form-control" id="umur" type="text" placeholder="Tahun (genap)">
+                            <input class="form-control" id="umur" type="number" placeholder="Tahun (genap)"
+                                name="umur">
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="jantina">Jantina</label>
                             <select class="form-control" name="jantina">
                                 <option selected disabled hidden>SILA PILIH</option>
-                                <option value="1">Lelaki</option>
-                                <option value="2">Perempuan</option>
+                                <option value="Lelaki">Lelaki</option>
+                                <option value="Perempuan">Perempuan</option>
 
                             </select>
                         </div>
@@ -80,19 +85,19 @@
                             <label class="form-label" for="kumpulan_etnik">Kumpulan Etnik</label>
                             <select class="form-control" name="kumpulan_etnik">
                                 <option selected disabled hidden>SILA PILIH</option>
-                                <option value="1">Melayu</option>
-                                <option value="2">Cina</option>
-                                <option value="3">India</option>
-                                <option value="4">Orang Asli</option>
-                                <option value="5">Lain lain</option>
+                                <option value="Melayu">Melayu</option>
+                                <option value="Cina">Cina</option>
+                                <option value="India">India</option>
+                                <option value="Orang Asli">Orang Asli</option>
+                                <option value="Lain lain">Lain lain</option>
                             </select>
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="kewarganegaraan">Kewarganegaraan</label>
                             <select class="form-control" name="kewarganegaraan">
                                 <option selected disabled hidden>SILA PILIH</option>
-                                <option value="1">Malaysia</option>
-                                <option value="2">Lain-lain</option>
+                                <option value="Malaysia">Malaysia</option>
+                                <option value="Lain-lain">Lain-lain</option>
 
                             </select>
                         </div>
@@ -100,38 +105,40 @@
                             <label class="form-label" for="agama">Agama</label>
                             <select class="form-control" name="agama">
                                 <option selected disabled hidden>SILA PILIH</option>
-                                <option value="1">Islam</option>
-                                <option value="2">Kristian</option>
-                                <option value="3">Buddha</option>
-                                <option value="4">Hindu</option>
-                                <option value="5">Lain lain</option>
+                                <option value="Islam">Islam</option>
+                                <option value="Kristian">Kristian</option>
+                                <option value="Buddha">Buddha</option>
+                                <option value="Hindu">Hindu</option>
+                                <option value="Lain lain">Lain lain</option>
                             </select>
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="status_perkahwinan">Status Perkahwinan</label>
                             <select class="form-control" name="status_perkahwinan">
                                 <option selected disabled hidden>SILA PILIH</option>
-                                <option value="1">Belum Pernah Berkahwin</option>
-                                <option value="2">Berkahwin</option>
-                                <option value="3">Balu/ Duda</option>
-                                <option value="4">Bercerai/ Berpisah</option>
-                                <option value="5">Ditinggalkan</option>
+                                <option value="Belum Pernah Berkahwin">Belum Pernah Berkahwin</option>
+                                <option value="Berkahwin">Berkahwin</option>
+                                <option value="Balu/ Duda">Balu/ Duda</option>
+                                <option value="Bercerai/ Berpisah">Bercerai/ Berpisah</option>
+                                <option value="Ditinggalkan">Ditinggalkan</option>
                             </select>
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="taraf_pendidikan">Taraf Pendidikan Tertinggi</label>
                             <select class="form-control" name="taraf_pendidikan">
                                 <option selected disabled hidden>SILA PILIH</option>
-                                <option value="1">Pra Sekolah</option>
-                                <option value="2">Sekolah Rendah (Darjah/Tahun 1 hingga 6)</option>
-                                <option value="3">Menengah Rendah</option>
-                                <option value="4">Menengah Atas</option>
-                                <option value="5">Vokasional/ Teknik</option>
-                                <option value="6">Inst. Kemahiran/ Perdagangan</option>
-                                <option value="7">Lepasan Menengah</option>
-                                <option value="8">Lepasan Politeknik/ Maktab/ Kolej/ Universiti</option>
-                                <option value="9">Tiada Pendidikan</option>
-                                <option value="10">Lain-lain</option>
+                                <option value="Pra Sekolah">Pra Sekolah</option>
+                                <option value="Sekolah Rendah (Darjah/Tahun 1 hingga 6)">Sekolah Rendah (Darjah/Tahun 1
+                                    hingga 6)</option>
+                                <option value="Menengah Rendah">Menengah Rendah</option>
+                                <option value="Menengah Atas">Menengah Atas</option>
+                                <option value="Vokasional/ Teknik">Vokasional/ Teknik</option>
+                                <option value="Inst. Kemahiran/ Perdagangan">Inst. Kemahiran/ Perdagangan</option>
+                                <option value="Lepasan Menengah">Lepasan Menengah</option>
+                                <option value="Lepasan Politeknik/ Maktab/ Kolej/ Universiti">Lepasan Politeknik/ Maktab/
+                                    Kolej/ Universiti</option>
+                                <option value="Tiada Pendidikan">Tiada Pendidikan</option>
+                                <option value="Lain-lain">Lain-lain</option>
 
                             </select>
                         </div>
@@ -139,23 +146,23 @@
                             <label class="form-label" for="kemahiran_yang_dimiliki">Kemahiran Yang Dimiliki</label>
                             <select class="form-control" name="kemahiran_yang_dimiliki">
                                 <option selected disabled hidden>SILA PILIH</option>
-                                <option value="1">Mekanik</option>
-                                <option value="2">Automotif/Elektronik</option>
-                                <option value="3">Pertukangan rumah</option>
-                                <option value="4">Pertukangan perabot</option>
-                                <option value="5">Pertukangan paip</option>
-                                <option value="6">Membancuh simen</option>
-                                <option value="7">Membuat batu-bata</option>
-                                <option value="8">Kraftangan</option>
-                                <option value="9">Menjahit</option>
-                                <option value="10">Andaman</option>
-                                <option value="11">Memasak</option>
-                                <option value="12">Kimpalan</option>
-                                <option value="13">Ternakan</option>
-                                <option value="14">Perikanan</option>
-                                <option value="15">Pertanian</option>
-                                <option value="16">Lain-lain</option>
-                                <option value="17">Tiada kemahiran</option>
+                                <option value="Mekanik">Mekanik</option>
+                                <option value="Automotif/Elektronik">Automotif/Elektronik</option>
+                                <option value="Pertukangan rumah">Pertukangan rumah</option>
+                                <option value="Pertukangan perabot">Pertukangan perabot</option>
+                                <option value="Pertukangan paip">Pertukangan paip</option>
+                                <option value="Membancuh simen">Membancuh simen</option>
+                                <option value="Membuat batu-bata">Membuat batu-bata</option>
+                                <option value="Kraftangan">Kraftangan</option>
+                                <option value="Menjahit">Menjahit</option>
+                                <option value="Andaman">Andaman</option>
+                                <option value="Memasak">Memasak</option>
+                                <option value="Kimpalan">Kimpalan</option>
+                                <option value="Ternakan">Ternakan</option>
+                                <option value="Perikanan">Perikanan</option>
+                                <option value="Pertanian">Pertanian</option>
+                                <option value="Lain-lain">Lain-lain</option>
+                                <option value="Tiada kemahiran">Tiada kemahiran</option>
                             </select>
                         </div>
 
@@ -164,16 +171,17 @@
                             <label class="form-label" for="status_pekerjaan_utama">Status Perkerjaan Utama</label>
                             <select class="form-control" name="status_pekerjaan_utama">
                                 <option selected disabled hidden>SILA PILIH</option>
-                                <option value="1">01- Bekerja Sendiri</option>
-                                <option value="2">02- Pekerja Bergaji Kerajaan</option>
-                                <option value="3">03- Pekerja Bergaji Swasta</option>
-                                <option value="4">04- Suri Rumah</option>
-                                <option value="5">05- Pesara Kerajaan</option>
-                                <option value="6">06- Pesara Swasta</option>
-                                <option value="7">07- Pelajar</option>
-                                <option value="8">08- Masih Muda (6 tahun ke bawah)</option>
-                                <option value="9">09- Lain-lain</option>
-                                <option value="10">10- Tiada Pekerjaan</option>
+                                <option value="01- Bekerja Sendiri">01- Bekerja Sendiri</option>
+                                <option value="02- Pekerja Bergaji Kerajaan">02- Pekerja Bergaji Kerajaan</option>
+                                <option value="03- Pekerja Bergaji Swasta">03- Pekerja Bergaji Swasta</option>
+                                <option value="04- Suri Rumah">04- Suri Rumah</option>
+                                <option value="05- Pesara Kerajaan">05- Pesara Kerajaan</option>
+                                <option value="06- Pesara Swasta">06- Pesara Swasta</option>
+                                <option value="07- Pelajar">07- Pelajar</option>
+                                <option value="08- Masih Muda (6 tahun ke bawah)">08- Masih Muda (6 tahun ke bawah)
+                                </option>
+                                <option value="09- Lain-lain">09- Lain-lain</option>
+                                <option value="10- Tiada Pekerjaan">10- Tiada Pekerjaan</option>
 
                             </select>
                         </div>
@@ -185,37 +193,34 @@
 
                             <div class="col-lg-12">
                                 <label class="form-label" for="harta">Pemilikan Harta Isi Rumah/Kelengkapan Isi Rumah
-                                    (Jawapan
-                                    Pelbagai):</label>
-
-                                <select class="form-select js-choice" id="organizerMultiple" multiple="multiple"
-                                    size="1" name="organizerMultiple"
-                                    data-options='{"removeItemButton":true,"placeholder":true}'>
-                                    <option value="">Sila Pilih...</option>
-                                    <option>Basikal</option>
-                                    <option>Bot</option>
-                                    <option>Mesin Basuh</option>
-                                    <option>Dapur Minyak Tanah</option>
-                                    <option>Radio/Hi-fi</option>
-                                    <option>Telefon talian tetap</option>
-                                    <option>Langganan internet</option>
-                                    <option>Mesin Penapis Air</option>
-                                    <option>Motosikal/Skuter</option>
-                                    <option>Sampan</option>
-                                    <option>Peti Sejuk</option>
-                                    <option>Dapur kayu/arang</option>
-                                    <option>Televisyen</option>
-                                    <option>Telefon Bimbit</option>
-                                    <option>Siaran TV Berbayar</option>
-                                    <option>Rumah</option>
-                                    <option>Kereta Bermotor</option>
-                                    <option>Penyaman Udara</option>
-                                    <option>Dapur masak gas/elektrik</option>
-                                    <option>Ketuhar gelombang mikro</option>
-                                    <option>Pemain Video/VCD/DVD</option>
-                                    <option>Komputer peribadi</option>
-                                    <option>Tanah</option>
-                                    <option>Tiada Seperti Disenaraikan</option>
+                                    (Jawapan Pelbagai):</label>
+                                <select class="form-select js-choice" id="harta" multiple="multiple" size="1"
+                                    name="harta[]" data-options='{"removeItemButton":true,"placeholder":true}'>
+                                    <option value="">Sila Pilih</option>
+                                    <option value="Basikal">Basikal</option>
+                                    <option value="Bot">Bot</option>
+                                    <option value="Mesin Basuh">Mesin Basuh</option>
+                                    <option value="Dapur Minyak Tanah">Dapur Minyak Tanah</option>
+                                    <option value="Radio/Hi-fi">Radio/Hi-fi</option>
+                                    <option value="Telefon talian tetap">Telefon talian tetap</option>
+                                    <option value="Langganan internet">Langganan internet</option>
+                                    <option value="Mesin Penapis Air">Mesin Penapis Air</option>
+                                    <option value="Motosikal/Skuter">Motosikal/Skuter</option>
+                                    <option value="Sampan">Sampan</option>
+                                    <option value="Peti Sejuk">Peti Sejuk</option>
+                                    <option value="Dapur kayu/arang">Dapur kayu/arang</option>
+                                    <option value="Televisyen">Televisyen</option>
+                                    <option value="Telefon Bimbit">Telefon Bimbit</option>
+                                    <option value="Siaran TV Berbayar">Siaran TV Berbayar</option>
+                                    <option value="Rumah">Rumah</option>
+                                    <option value="Kereta Bermotor">Kereta Bermotor</option>
+                                    <option value="Penyaman Udara">Penyaman Udara</option>
+                                    <option value="Dapur masak gas/elektrik">Dapur masak gas/elektrik</option>
+                                    <option value="Ketuhar gelombang mikro">Ketuhar gelombang mikro</option>
+                                    <option value="Pemain Video/VCD/DVD">Pemain Video/VCD/DVD</option>
+                                    <option value="Komputer peribadi">Komputer peribadi</option>
+                                    <option value="Tanah">Tanah</option>
+                                    <option value="Tiada Seperti Disenaraikan">Tiada Seperti Disenaraikan</option>
                                 </select>
                             </div>
 
@@ -226,87 +231,76 @@
                             <label class="form-label" for="penyakit">Adakah Anda Menghidap Apa-apa Penyakit Dan Mendapat
                                 Rawatan Seperti Berikut
                                 (Jawapan Pelbagai):</label>
-                            <select class="form-select js-choice" id="organizerMultiple" multiple="multiple"
-                                size="1" name="organizerMultiple"
-                                data-options='{"removeItemButton":true,"placeholder":true}'>
-                                <option value="">Sila Pilih...</option>
-                                <option>Darah Tinggi</option>
-                                <option>Kencing Manis</option>
-                                <option>Lelah (Asma)</option>
-                                <option>Buah Pinggang</option>
-                                <option>Barah (Kanser)</option>
-                                <option>Jantung</option>
-                                <option>Sakit Sendi (Gout)</option>
-                                <option>Celebral Palsy (Lumpuh Otak)</option>
-                                <option>Strok</option>
-                                <option>Gastrik</option>
-                                <option>Batuk/ Tibi</option>
-                                <option>Tiada Seperti Disenaraikan</option>
+                            <select class="form-select js-choice" id="penyakit" multiple="multiple" size="1"
+                                name="penyakit[]" data-options='{"removeItemButton":true,"placeholder":true}'>
+                                <option value="">Sila Pilih</option>
+                                <option value="Darah Tinggi">Darah Tinggi</option>
+                                <option value="Kencing Manis">Kencing Manis</option>
+                                <option value="Lelah (Asma)">Lelah (Asma)</option>
+                                <option value="Buah Pinggang">Buah Pinggang</option>
+                                <option value="Barah (Kanser)">Barah (Kanser)</option>
+                                <option value="Jantung">Jantung</option>
+                                <option value="Sakit Sendi (Gout)">Sakit Sendi (Gout)</option>
+                                <option value="Celebral Palsy (Lumpuh Otak)">Celebral Palsy (Lumpuh Otak)</option>
+                                <option value="Strok">Strok</option>
+                                <option value="Gastrik">Gastrik</option>
+                                <option value="Batuk/ Tibi">Batuk/ Tibi</option>
+                                <option value="Tiada Seperti Disenaraikan">Tiada Seperti Disenaraikan</option>
                             </select>
 
                         </div>
                         <div class="col-lg-12">
-                            <label class="form-label" for="jika_ada_kecacatan">Jenis Kecacatan/Ketidakupayaan (Secara
-                                Pemerhatian,
-                                Jawapan Pelbagai):</label>
-                            <select class="form-select js-choice" id="organizerMultiple" multiple="multiple"
-                                size="1" name="organizerMultiple"
-                                data-options='{"removeItemButton":true,"placeholder":true}'>
-                                <option value="">Sila Pilih...</option>
-                                <option>Pendengaran</option>
-                                <option>Penglihatan</option>
-                                <option>Pertuturan</option>
-                                <option>Mental</option>
-                                <option>Fizikal</option>
-                                <option>Pembelajaran</option>
-                                <option>OKU Terlantar</option>
-                                <option>Pesakit Kronik</option>
-                                <option>Tiada Kecacatan</option>
-                                <option>Lain-lain</option>
-
+                            <label class="form-label" for="kecacatan">Jenis Kecacatan/Ketidakupayaan (Secara
+                                Pemerhatian, Jawapan Pelbagai):</label>
+                            <select class="form-select js-choice" id="kecacatan" multiple="multiple" size="1"
+                                name="kecacatan[]" data-options='{"removeItemButton":true,"placeholder":true}'>
+                                <option value="">Sila Pilih</option>
+                                <option value="Pendengaran">Pendengaran</option>
+                                <option value="Penglihatan">Penglihatan</option>
+                                <option value="Pertuturan">Pertuturan</option>
+                                <option value="Mental">Mental</option>
+                                <option value="Fizikal">Fizikal</option>
+                                <option value="Pembelajaran">Pembelajaran</option>
+                                <option value="OKU Terlantar">OKU Terlantar</option>
+                                <option value="Pesakit Kronik">Pesakit Kronik</option>
+                                <option value="Tiada Kecacatan">Tiada Kecacatan</option>
+                                <option value="Lain-lain">Lain-lain</option>
                             </select>
-
-
                         </div>
                         <div class="col-lg-8">
-                            <label class="form-label" for="kecacatan">Jika Ada Kecacatan, Adakah Sudah Didaftarkan Di
-                                Jabatan
-                                Kebajikan
-                                Masyarakat Sebagai OKU?</label>
-                            <select class="form-control" name="kecacatan">
-                                <option selected disabled hidden>SILA PILIH</option>
-                                <option value="1">Ya</option>
-                                <option value="2">Tidak</option>
-
+                            <label class="form-label" for="daftar_oku">Jika Ada Kecacatan, Adakah Sudah Didaftarkan Di
+                                Jabatan Kebajikan Masyarakat Sebagai OKU?</label>
+                            <select class="form-control" name="daftar_oku">
+                                <option selected disabled hidden>Sila Pilih</option>
+                                <option value="Ya">Ya</option>
+                                <option value="Tidak">Tidak</option>
                             </select>
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="status_produktiviti">Status Produktiviti</label>
                             <select class="form-control" name="status_produktiviti">
-                                <option selected disabled hidden>SILA PILIH</option>
-                                <option value="1">15-45 tahun</option>
-                                <option value="2">46-60 tahun</option>
-                                <option value="3">0-14 tahun</option>
-                                <option value="4">61 tahun ke atas</option>
+                                <option selected disabled hidden>Sila Pilih</option>
+                                <option value="15-45 tahun">15-45 tahun</option>
+                                <option value="46-60 tahun">46-60 tahun</option>
+                                <option value="0-14 tahun">0-14 tahun</option>
+                                <option value="61 tahun ke atas">61 tahun ke atas</option>
                             </select>
                         </div>
                         <div class="col-lg-12">
                             <label class="form-label" for="kumpulan_perbenlanjaan">Simpanan/Pelaburan Yang
                                 Dimiliki:</label>
-                            <select class="form-select js-choice" id="organizerMultiple" multiple="multiple"
-                                size="1" name="organizerMultiple"
+                            <select class="form-select js-choice" id="kumpulan_perbenlanjaan" multiple="multiple"
+                                size="1" name="kumpulan_perbenlanjaan[]"
                                 data-options='{"removeItemButton":true,"placeholder":true}'>
-                                <option value="">Sila Pilih...</option>
-                                <option>Tabung Haji</option>
-                                <option>ASB</option>
-                                <option>ASN</option>
-                                <option>Bank</option>
-                                <option>Koperasi</option>
-                                <option>Dana Negeri</option>
-                                <option>Lain-lain</option>
-                                <option>Tiada simpanan/Pelaburan</option>
-
-
+                                <option value="">Sila Pilih</option>
+                                <option value="Tabung Haji">Tabung Haji</option>
+                                <option value="ASB">ASB</option>
+                                <option value="ASN">ASN</option>
+                                <option value="Bank">Bank</option>
+                                <option value="Koperasi">Koperasi</option>
+                                <option value="Dana Negeri">Dana Negeri</option>
+                                <option value="Lain-lain">Lain-lain</option>
+                                <option value="Tiada simpanan/Pelaburan">Tiada simpanan/Pelaburan</option>
                             </select>
                         </div>
 
@@ -316,10 +310,7 @@
                                 onclick="return confirm('Adakah anda mahu mengubah data ini?')"><span
                                     class="fas fa-save"></span>&nbsp;Simpan
                             </button>
-                            <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                                href="/kemasukanData/bahagian3">&nbsp;Seterusnya
-                                <span class="far fa-arrow-alt-circle-right"></span>
-                            </a>
+
                         </div>
                     </div>
                 </form>

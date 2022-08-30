@@ -19,7 +19,7 @@ class ThrusController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {
         $thrust = Thrus::all();
@@ -47,6 +47,7 @@ class ThrusController extends Controller
      */
     public function store(StoreThrusRequest $request)
     {
+
         $thrust = Thrus::create($request->all());
         return redirect()->route('thrus.index');
     }
@@ -96,9 +97,10 @@ class ThrusController extends Controller
      * @param  \App\Models\Thrus  $thrus
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Thrus $thrus)
+    public function destroy(Thrus $thru)
     {
-        $thrus->delete();
+
+        $thru->delete();
 
         return redirect()->route('thrus.index')
             ->with('Berjaya', 'Thrust berjaya dibuang');

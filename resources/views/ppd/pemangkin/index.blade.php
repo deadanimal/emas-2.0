@@ -11,12 +11,10 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>Tema/Pemangkin Dasar</b></span>
-                    @can('KementerianPPD')
-                        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                            href="/pemangkin/create">
-                            <span class="fas fa-plus-circle"></span>&nbsp;Tambah
-                        </a>
-                    @endcan
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                        href="/pemangkin/create">
+                        <span class="fas fa-plus-circle"></span>&nbsp;Tambah
+                    </a>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">
                         <span class="fas fa-history"></span></a>
@@ -92,28 +90,26 @@
                                     </div>
                                 </div>
 
-                                @can('KementerianPPD')
-                                    <td align="right">
-                                        <div>
-                                            {{-- <form action="{{ route('pemangkin.destroy', $pemangkin->id) }}" method="POST"> --}}
+                                <td align="right">
+                                    <div>
+                                        {{-- <form action="{{ route('pemangkin.destroy', $pemangkin->id) }}" method="POST"> --}}
 
-                                            <a class="btn btn-primary" style="border-radius: 38px"
-                                                href="{{ route('pemangkin.edit', $pemangkin->id) }}"><i class="fas fa-edit"></i>
-                                            </a>
+                                        <a class="btn btn-primary" style="border-radius: 38px"
+                                            href="{{ route('pemangkin.edit', $pemangkin->id) }}"><i class="fas fa-edit"></i>
+                                        </a>
 
-                                            {{-- @csrf --}}
-                                            {{-- @method('DELETE') --}}
+                                        {{-- @csrf --}}
+                                        {{-- @method('DELETE') --}}
 
-                                            <button type="button" onclick="myFunction({{ $pemangkin->id }})"
-                                                class="btn btn-danger" style="border-radius: 38px">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                            <p id="ppd"></p>
+                                        <button type="button" onclick="myFunction({{ $pemangkin->id }})"
+                                            class="btn btn-danger" style="border-radius: 38px">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <p id="ppd"></p>
 
-                                            {{-- </form> --}}
-                                        </div>
-                                    </td>
-                                @endcan
+                                        {{-- </form> --}}
+                                    </div>
+                                </td>
                             </tr>
                         @endforeach
 

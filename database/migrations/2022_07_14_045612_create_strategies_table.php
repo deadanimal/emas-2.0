@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('category')->nullable();
             $table->string('desc')->nullable();
             $table->string('user_id')->nullable();
-            $table->string('thrust_id')->nullable();
+            $table->string('thrus_id')->nullable();
             $table->timestamps();
         });
     }

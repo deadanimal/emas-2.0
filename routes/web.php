@@ -220,6 +220,7 @@ Route::group(
         //Strategy
         Route::resource('/strategy', StrategyController::class);
 
+
         //Cluster
         Route::resource('/cluster', ClusterController::class);
 

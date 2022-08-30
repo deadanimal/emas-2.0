@@ -2,24 +2,23 @@
 @section('content')
     <style>
         /* #chartdiv {
-                                        width: 50%;
-                                        height: 200;
-                                    }
+                                            width: 50%;
+                                            height: 200;
+                                        }
 
-                                    #chartdiv1 {
-                                        width: 50%;
-                                        height: 200;
-                                    }
+                                        #chartdiv1 {
+                                            width: 50%;
+                                            height: 200;
+                                        }
 
-                                    #chartdiv2 {
-                                        width: 50%;
-                                        height: 200;
-                                    } */
+                                        #chartdiv2 {
+                                            width: 50%;
+                                            height: 200;
+                                        } */
 
         .column {
             float: left;
-            width: 3
-            0%;
+            width: 3 0%;
             /* padding: 10px; */
             height: 300;
         }

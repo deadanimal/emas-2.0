@@ -21,9 +21,9 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="thrust_id">Thrust</label>
+                    <label class="col-sm-2 col-form-label" for="thrus_id">Thrust</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="thrust_id">
+                        <select class="form-control" name="thrus_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
 
                             @foreach ($thrust as $thrust)

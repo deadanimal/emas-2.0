@@ -68,89 +68,92 @@
             </div>
         </div>
 
-        <div class="table-responsive scrollbar">
-            <table class="table table-hover table-striped overflow-hidden">
-                <thead>
-                    <tr>
-                        <th scope="col">No.</th>
-                        <th scope="col">Activities</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
+        <hr style="width:100%;text-align:center;">
 
-                <tbody class="list myTable" id="searchUpdateTable">
-                    @foreach ($activities as $activity)
-                        <tr class="align-middle">
-                            <td id="searchUpdateTable">
-                                <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                    data-bs-target="#error-modal-{{ $activity->id }}">
-                                    <div class="ms-2"><b>{{ $loop->iteration }}</b></div>
-                                </div>
-                            </td>
+        <div class="card">
+            <div class="table-responsive scrollbar">
+                <table class="table table-hover table-striped overflow-hidden">
+                    <thead>
+                        <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">Activities</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
 
-                            <td class="text-nowrap">
-                                <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                    data-bs-target="#error-modal-{{ $activity->id }}">
-                                    <div class="ms-2"><b>{{ $activity->namaActivity }}</b></div>
-                                </div>
-                            </td>
+                    <tbody class="list myTable" id="searchUpdateTable">
+                        @foreach ($activities as $activity)
+                            <tr class="align-middle">
+                                <td id="searchUpdateTable">
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $activity->id }}">
+                                        <div class="ms-2"><b>{{ $loop->iteration }}</b></div>
+                                    </div>
+                                </td>
+
+                                <td class="text-nowrap">
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $activity->id }}">
+                                        <div class="ms-2"><b>{{ $activity->namaActivity }}</b></div>
+                                    </div>
+                                </td>
 
 
-                            <div class="modal fade" id="error-modal-{{ $activity->id }}" tabindex="-1" role="dialog"
-                                aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
-                                    <div class="modal-content position-relative">
-                                        <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
-                                            <button
-                                                class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
-                                                data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body p-0">
-
-                                            <div class="p-4 pb-0">
-                                                <form>
-                                                    <div class="mb-3">
-                                                        <label class="col-form-label" for="namaActivity">Activities
-                                                            Name:</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">{{ $activity->namaActivity }}</label>
-
-                                                    </div>
-                                                    <br>
-
-                                                </form>
+                                <div class="modal fade" id="error-modal-{{ $activity->id }}" tabindex="-1" role="dialog"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document"
+                                        style="max-width: 500px">
+                                        <div class="modal-content position-relative">
+                                            <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                                                <button
+                                                    class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                                                    data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
-                                        </div>
+                                            <div class="modal-body p-0">
 
+                                                <div class="p-4 pb-0">
+                                                    <form>
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label" for="namaActivity">Activities
+                                                                Name:</label>
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $activity->namaActivity }}</label>
+
+                                                        </div>
+                                                        <br>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <td class="align-right" id="searchUpdateTable2">
-                                <div>
+                                <td class="align-right" id="searchUpdateTable2">
+                                    <div>
 
-                                    <a class="btn btn-primary" style="border-radius: 38px"
-                                        href="{{ route('activity.edit', $activity->id) }}"><i class="fas fa-edit"></i>
-                                    </a>
+                                        <a class="btn btn-primary" style="border-radius: 38px"
+                                            href="{{ route('activity.edit', $activity->id) }}"><i class="fas fa-edit"></i>
+                                        </a>
 
 
-                                    <button type="submit" onclick="myFunction({{ $activity->id }})" class="btn btn-danger"
-                                        style="border-radius: 38px">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                    <p id="ppd"></p>
+                                        <button type="submit" onclick="myFunction({{ $activity->id }})"
+                                            class="btn btn-danger" style="border-radius: 38px">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <p id="ppd"></p>
 
-                                </div>
-                            </td>
-                        </tr>
-                    @endforeach
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
 
-                </tbody>
+                    </tbody>
 
-            </table>
+                </table>
+            </div><br>
         </div>
-
-
 
     </div>
 

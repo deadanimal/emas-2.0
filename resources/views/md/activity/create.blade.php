@@ -6,7 +6,6 @@
         </div>
 
         <br>
-        <br>
 
         <div class="form-floating;">
             <form action="/activity" method="POST" enctype="multipart/form-data">
@@ -78,6 +77,7 @@
                         <input class="form-control" type="text" name="namaActivity" />
 
                     </div>
+
                 </div>
 
                 <div class="mb-3 row">
@@ -107,9 +107,11 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="weightage">Weightage</label>
                     <div class="col-sm-10" style="width:30%">
+
                         <input class="form-control" type="text" name="weightage" />
 
                     </div>
+
                 </div>
 
                 <div class="mb-3 row">

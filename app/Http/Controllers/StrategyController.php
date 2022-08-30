@@ -26,10 +26,10 @@ class StrategyController extends Controller
     {
         $strategys = Strategy::all();
 
-        $thrust = Thrus::all();
+        $thru = Thrus::all();
 
 
-        return view('md.strategy.index', compact('strategys', 'thrust'));
+        return view('md.strategy.index', compact('strategys', 'thru'));
     }
 
     /**
@@ -54,6 +54,8 @@ class StrategyController extends Controller
      */
     public function store(StoreStrategyRequest $request)
     {
+
+        // dd($request);
         $strategy = Strategy::create($request->all());
         return redirect()->route('strategy.index');
     }

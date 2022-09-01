@@ -58,14 +58,14 @@
                                             <div class="p-4 pb-0">
                                                 <form>
                                                     <div class="mb-3">
-                                                        <label class="col-form-label" for="namaKpi">kpi-Activity
+                                                        <label class="col-form-label" for="namaKpi">KPI
                                                             Name:</label>
                                                         <label class="form-control"
                                                             disabled="disabled">{{ $kpi->namaKpi }}</label>
 
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label class="col-form-label">kpi-Activity Information:</label>
+                                                        <label class="col-form-label">KPI-Activity Information:</label>
                                                         <label class="form-control"
                                                             disabled="disabled">{{ $kpi->keteranganKpi }}</label>
                                                     </div>
@@ -141,13 +141,13 @@
                                             <div class="p-4 pb-0">
                                                 <form>
                                                     <div class="mb-3">
-                                                        <label class="col-form-label">Perkara Utama:</label>
+                                                        <label class="col-form-label">KPI Name:</label>
                                                         <label class="form-control"
                                                             disabled="disabled">` + e.namaKpi + `</label>
 
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label class="col-form-label">Keterangan:</label>
+                                                        <label class="col-form-label">KPI Information:</label>
                                                         <label class="form-control"
                                                             disabled="disabled">` + e.keteranganKpi + `</label>
                                                     </div>

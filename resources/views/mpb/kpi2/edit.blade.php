@@ -1,7 +1,6 @@
 @extends('base')
 @section('content')
     <div class="container">
-        <br>
         <div class="mb-4 text-center">
             <H2>UPDATE DATA</H2>
         </div>
@@ -32,7 +31,8 @@
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="national_id">
                             @foreach ($national as $national)
-                                <option @selected($kpi2->national_id == $national->id) value="{{ $national->id }}">{{ $national->namaNational }}
+                                <option @selected($kpi2->national_id == $national->id) value="{{ $national->id }}">
+                                    {{ $national->namaNational }}
                                 </option>
                             @endforeach
 
@@ -64,22 +64,26 @@
                     </div>
                 </div>
 
+                <br>
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaKpi">Kpi Name</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaKpi" value="{{ $kpi2->namaKpi }}" />
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
 
+                        <div class="mb-3">
+                            <label class="form-label" for="namaKpi"><b>KPI Name:</b></label>
+                            <input class="form-control" type="text" name="namaKpi" value="{{ $kpi2->namaKpi }}" />
+
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label class="form-label" for="keteranganKpi"><b>KPI Information</b></label>
+                            <input class="form-control" name="keteranganKpi" value="{{ $kpi2->keteranganKpi }}">
+                        </div>
                     </div>
                 </div>
 
-                <br><br>
-
-                <div class="mb-3">
-                    <label class="form-label" for="keteranganKpi"><b>Kpi Information</b></label>
-                    <textarea class="form-control" name="keteranganKpi" rows="5">{{ $kpi2->keteranganKpi }}</textarea>
-                </div>
-
+                <br>
                 <div class="row">
                     <div class="col">
                         <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
@@ -90,7 +94,9 @@
 
                     <div class="col" style="text-align: right">
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save" onclick="return confirm('Are you sure you want to edit this Data?')"><span class="fas fa-save"></span>&nbsp;Save
+                            type="submit" value="Save"
+                            onclick="return confirm('Are you sure you want to edit this Data?')"><span
+                                class="fas fa-save"></span>&nbsp;Save
                         </button>
                     </div>
                 </div>

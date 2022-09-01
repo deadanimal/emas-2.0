@@ -160,6 +160,8 @@
     <script>
         $(".search").change(function() {
             var result = [];
+            var iteration = 1;
+
             jQuery.each($(".search"), function(key, val) {
                 result.push(val.value);
             });
@@ -180,6 +182,12 @@
                     $("#searchUpdateTable").append(`
                     <tr class="align-middle">
 
+                        <td>
+                                <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#error-modal-` + el.id + `">
+                                    <div class="ms-2"><b>` + iteration++ + `</b></div>
+                                </div>
+                        </td>
 
                         <td>
                             <div class="d-flex align-items-center" data-bs-toggle="modal"
@@ -187,14 +195,11 @@
 
                                 <div class="ms-2"><b>` + el.namaActivity + `</b></div>
                             </div>
-                     </td>
+                        </td>
 
-                        <td align="right">
+                        <td>
 
-                        <div>
-                                <a class="btn btn-warning" style="border-radius: 38px"
-                                    href="/activity1/` + el.id + `/edit/"><i class="fas fa-pencil-alt"></i>
-                                </a>
+                            <div>
 
                                 <a class="btn btn-primary" style="border-radius: 38px"
                                     href="/activity/` + el.id + `/edit"><i class="fas fa-edit"></i>

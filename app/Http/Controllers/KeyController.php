@@ -43,9 +43,10 @@ class KeyController extends Controller
         $user = Auth::user();
 
 
-        $list = Thrust::all();
+        // $list = Thrust::all();
+        $national = National::all();
 
-        return view('mpb.key.create', compact('list', 'user'));
+        return view('mpb.key.create', compact('national', 'user'));
     }
 
     /**
@@ -82,9 +83,9 @@ class KeyController extends Controller
 
         $user = Auth::user();
 
-        $list = Thrust::all();
+        $national = National::all();
 
-        return view('mpb.key.edit', compact('key', 'list'));
+        return view('mpb.key.edit', compact('key', 'national'));
     }
 
     /**

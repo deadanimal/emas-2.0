@@ -44,7 +44,7 @@
             <div class="table-responsive scrollbar">
 
                 <table class="table table-bordered">
-                    <thead class="table-dark">
+                    <thead class="table" style="text-align: center">
                         <tr>
                             <th scope="col">Tarikh</th>
                             <th scope="col">Aktiviti</th>

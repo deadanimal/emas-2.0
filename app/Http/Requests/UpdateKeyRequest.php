@@ -41,6 +41,10 @@ class UpdateKeyRequest extends FormRequest
             'thrust_id' => [
                 'string',
             ],
+
+            'national_id' => [
+                'string',
+            ],
         ];
     }
 }

@@ -1,8 +1,6 @@
 @extends('base')
 @section('content')
     <div class="container">
-        <br>
-
         <div class="mb-4 text-center">
             <H2>DATA ENTRY</H2>
         </div>
@@ -42,7 +40,9 @@
 
                     <div class="col" style="text-align: right">
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save"  onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span class="fas fa-save"></span>&nbsp;Save
+                            type="submit" value="Save"
+                            onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span
+                                class="fas fa-save"></span>&nbsp;Save
                         </button>
                     </div>
                 </div>

@@ -22,13 +22,13 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="national_id">Thrust</label>
+                    <label class="col-sm-2 col-form-label" for="national_id">National Initiatives</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="national_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
 
-                            @foreach ($list as $list)
-                                <option value="{{ $list->id }}">{{ $list->namaThrust }}</option>
+                            @foreach ($national as $list)
+                                <option value="{{ $list->id }}">{{ $list->namaNational }}</option>
                             @endforeach
 
                         </select>

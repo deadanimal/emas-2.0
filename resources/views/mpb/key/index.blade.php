@@ -17,8 +17,8 @@
 
         <hr style="width:100%;text-align:center;">
 
-        <select class="form-select searchKategori" style="width:30%" aria-label="Default select example">
-            <option selected disabled hidden>National Initiave</option>
+        <select class="form-select searchKategori" style="width:30%">
+            <option selected disabled hidden>National Initiatives</option>
 
             @foreach ($list as $list)
                 <option value="{{ $list->id }}">{{ $list->namaNational }}</option>
@@ -60,13 +60,13 @@
                                                 <form>
                                                     <div class="mb-3">
                                                         <label class="col-form-label" for="namaKey">Key Activities
-                                                            Information:</label>
+                                                            Name:</label>
                                                         <label class="form-control"
                                                             disabled="disabled">{{ $k->namaKey }}</label>
 
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label class="col-form-label">Keterangan:</label>
+                                                        <label class="col-form-label">Key Activities Information:</label>
                                                         <label class="form-control"
                                                             disabled="disabled">{{ $k->keteranganKey }}</label>
                                                     </div>
@@ -142,13 +142,13 @@
                                             <div class="p-4 pb-0">
                                                 <form>
                                                     <div class="mb-3">
-                                                        <label class="col-form-label">Perkara Utama:</label>
+                                                        <label class="col-form-label">Key Activities Name:</label>
                                                         <label class="form-control"
                                                             disabled="disabled">` + e.namaKey + `</label>
 
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label class="col-form-label">Keterangan:</label>
+                                                        <label class="col-form-label">Key Activites Information:</label>
                                                         <label class="form-control"
                                                             disabled="disabled">` + e.keteranganKey + `</label>
                                                     </div>

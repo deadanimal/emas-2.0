@@ -13,27 +13,30 @@ class Key extends Model implements Auditable
 
     public $table = 'keys';
 
-    protected $fillable = [
+    protected $guarded = ['id'];
 
-        'namaKey',
-        'keteranganKey',
-        'thrust_id',
-        'user_id',
-    ];
 
-    protected $with = [
-        'user',
-        'thrust'
+    // protected $fillable = [
 
-    ];
+    //     'namaKey',
+    //     'keteranganKey',
+    //     'thrust_id',
+    //     'user_id',
+    // ];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
+    // protected $with = [
+    //     'user',
+    //     'thrust'
 
-    public function thrust()
-    {
-        return $this->belongsTo(Thrust::class, 'thrust_id');
-    }
+    // ];
+
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class, 'user_id');
+    // }
+
+    // public function thrust()
+    // {
+    //     return $this->belongsTo(Thrust::class, 'thrust_id');
+    // }
 }

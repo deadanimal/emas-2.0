@@ -38,10 +38,6 @@ class Pemangkindasar extends Model implements Auditable
     // ];
 
 
-    public function kategori()
-    {
-        return $this->belongsTo(Kategori::class, 'kategori_id');
-    }
 
     public function user()
     {

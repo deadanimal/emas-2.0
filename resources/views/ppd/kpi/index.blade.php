@@ -139,10 +139,6 @@
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </div>
-                                    {{-- <form method="GET" action="/kpi1/{{ $kpi->id }}/edit/"
-                                        onsubmit="return checkForm(this);">
-                                        <input type="submit" name="myButton" value="Submit">
-                                    </form> --}}
 
                                 </td>
 
@@ -177,20 +173,32 @@
 
                                                         <div class="mb-3">
                                                             <label class="col-form-label">Tema:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->pemangkin->namaTema }}</label>
+                                                            @if ($kpi->pemangkin != null)
+                                                                <label class="form-control"
+                                                                    disabled="disabled">{{ $kpi->pemangkin->namaTema }}</label>
+                                                            @else
+                                                                <label>Tema telah dipadam</label>
+                                                            @endif
                                                         </div>
 
                                                         <div class="mb-3">
                                                             <label class="col-form-label">Bab:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->bab->namaBab }}</label>
+                                                            @if ($kpi->bab != null)
+                                                                <label class="form-control"
+                                                                    disabled="disabled">{{ $kpi->bab->namaBab }}</label>
+                                                            @else
+                                                                <label>Bab telah dipadam</label>
+                                                            @endif
                                                         </div>
 
                                                         <div class="mb-3">
                                                             <label class="col-form-label">Bidang Keutamaan:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->bidang->namaBidang }}</label>
+                                                            @if ($kpi->bidang != null)
+                                                                <label class="form-control"
+                                                                    disabled="disabled">{{ $kpi->bidang->namaBidang }}</label>
+                                                            @else
+                                                                <label>Bidang Keutamaan telah dipadam</label>
+                                                            @endif
                                                         </div>
 
                                                         <div class="mb-3">
@@ -213,12 +221,6 @@
                                                             <label class="col-form-label">Prestasi Kpi:</label>
                                                             <label class="form-control"
                                                                 disabled="disabled">{{ $kpi->prestasiKpi }}</label>
-                                                        </div>
-
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Bab:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->bab->namaBab }}</label>
                                                         </div>
 
                                                         <div class="mb-3">
@@ -264,7 +266,8 @@
                                                         </div>
 
                                                         <div class="mb-3">
-                                                            <label class="col-form-label">Peratus Pencapaian:</label>
+                                                            <label class="col-form-label">Peratus
+                                                                Pencapaian:</label>
                                                             <label class="form-control"
                                                                 disabled="disabled">{{ $kpi->peratusPencapaian }}</label>
                                                         </div>
@@ -295,7 +298,8 @@
                                                         </div>
 
                                                         <div class="mb-3">
-                                                            <label class="col-form-label">Sumber Pengesahan:</label>
+                                                            <label class="col-form-label">Sumber
+                                                                Pengesahan:</label>
                                                             <label class="form-control"
                                                                 disabled="disabled">{{ $kpi->sumberPengesahan }}</label>
                                                         </div>
@@ -392,7 +396,6 @@
             }).done(function(response) {
                 console.log(response);
                 $("#searchUpdateTable").html('');
-                // $("#searchUpdateTable2").html('');
 
                 response.forEach(el => {
                     $("#searchUpdateTable").append(`
@@ -405,7 +408,7 @@
 
                                 <div class="ms-2"><b>` + el.namaKpi + `</b></div>
                             </div>
-                     </td>
+                        </td>
 
                         <td align="right">
 

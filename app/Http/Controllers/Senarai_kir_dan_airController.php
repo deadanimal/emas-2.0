@@ -6,8 +6,6 @@ use App\Models\Info_kampung;
 use App\Models\Kampung;
 use App\Models\Negeri;
 use App\Models\Profil;
-use App\Models\Profil_air;
-
 
 class Senarai_kir_dan_airController extends Controller
 {
@@ -25,7 +23,9 @@ class Senarai_kir_dan_airController extends Controller
                 'kategori' => 'AIR',
             ])->count();
         }
-        return view('kt.senarai_kir_air.index', compact('negeris'));
+
+        return view('KT.senarai_kir_air.index', compact('negeris'));
+
     }
 
     public function index1()
@@ -47,7 +47,8 @@ class Senarai_kir_dan_airController extends Controller
             }
         }
 
-        return view('kt.senarai_kir_air.index1', compact('negeris'));
+
+        return view('KT.senarai_kir_air.index1', compact('negeris'));
     }
 
     public function index2()
@@ -74,6 +75,7 @@ class Senarai_kir_dan_airController extends Controller
                 $d['kampung'] = Kampung::where('daerah_id', $d->id)->get();
             }
         }
-        return view('kt.senarai_kir_air.index2', compact('senarai', 'senarai1', 'kampung', 'negeris'));
+
+        return view('KT.senarai_kir_air.index2', compact('senarai', 'senarai1', 'kampung'));
     }
 }

@@ -33,7 +33,7 @@ class KetuaKampungController extends Controller
         $daerahs = Daerah::all();
         $kampungs = Kampung::all();
 
-        return view('kt.bantuan.create1', compact('negeris', 'daerahs', 'kampungs'));
+        return view('KT.bantuan.create1', compact('negeris', 'daerahs', 'kampungs'));
     }
 
     /**

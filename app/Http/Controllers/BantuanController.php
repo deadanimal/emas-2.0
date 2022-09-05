@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\activity;
 use App\Models\Bantuan;
-
 use App\Models\Daerah;
 use App\Models\Info_kampung;
 use App\Models\Kampung;
 use App\Models\KetuaKampung;
 use App\Models\Negeri;
 use App\Models\Profil;
-
 use Illuminate\Http\Request;
 
 class BantuanController extends Controller
@@ -31,8 +28,7 @@ class BantuanController extends Controller
     {
         $bantuans = Bantuan::all();
 
-
-        return view('kt.bantuan.index', compact('bantuans'));
+        return view('KT.bantuan.index', compact('bantuans'));
     }
 
     public function berdasarkan_negeri()
@@ -43,7 +39,7 @@ class BantuanController extends Controller
             $bantuan['kir'] = Profil::where([['bantuan_id', $bantuan->id], ['kategori', 'KIR']])->count();
             $bantuan['air'] = Profil::where([['bantuan_id', $bantuan->id], ['kategori', 'AIR']])->count();
         }
-        return view('kt.bantuan.berdasarkan_negeri', compact('bantuans'));
+        return view('KT.bantuan.berdasarkan_negeri', compact('bantuans'));
     }
 
     public function senarai_ketua_kampung()
@@ -52,14 +48,16 @@ class BantuanController extends Controller
         $daerahs = Daerah::all();
         $kampungs = Kampung::all();
         $ketuakampungs = KetuaKampung::all();
-        return view('kt.bantuan.senarai_ketua_kampung', compact('ketuakampungs', 'negeris', 'daerahs', 'kampungs'));
+
+        return view('KT.bantuan.senarai_ketua_kampung', compact('ketuakampungs', 'negeris', 'daerahs', 'kampungs'));
+
     }
 
     public function senarai_kampung_menerima()
     {
         $bantuans = Info_kampung::all();
 
-        return view('kt.bantuan.senarai_kampung_menerima', compact('bantuans'));
+        return view('KT.bantuan.senarai_kampung_menerima', compact('bantuans'));
     }
 
     /**
@@ -70,7 +68,9 @@ class BantuanController extends Controller
     public function create()
     {
         $negeri = Negeri::with('daerah')->get();
-        return view('kt.bantuan.create', compact('negeri'));
+
+        return view('KT.bantuan.create', compact('negeri'));
+
     }
 
     /**
@@ -115,7 +115,6 @@ class BantuanController extends Controller
         return redirect('/bantuan1/senarai_kampung_menerima');
     }
 
-
     /**
      * Display the specified resource.
      *
@@ -138,20 +137,20 @@ class BantuanController extends Controller
         $negeri = Negeri::with('daerah')->get();
         $daerah = Daerah::all();
 
-        return view('kt.bantuan.edit', compact('bantuan', 'negeri', 'daerah'));
+        return view('KT.bantuan.edit', compact('bantuan', 'negeri', 'daerah'));
     }
 
     public function edit1($id)
     {
         // dd('2');
         $ketua = Maklumat_penghulu_mukim::find($id);
-        return view('kt.bantuan.edit1', compact('ketua'));
+        return view('KT.bantuan.edit1', compact('ketua'));
     }
 
     public function edit2($id)
     {
         $kampung = Info_kampung::find($id);
-        return view('kt.bantuan.edit2', compact('kampung'));
+        return view('KT.bantuan.edit2', compact('kampung'));
     }
 
     /**
@@ -179,7 +178,6 @@ class BantuanController extends Controller
 
         return redirect('/bantuan1/senarai_kampung_menerima');
     }
-
 
     /**
      * Remove the specified resource from storage.

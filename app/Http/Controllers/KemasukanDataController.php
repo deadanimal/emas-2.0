@@ -60,37 +60,37 @@ class KemasukanDataController extends Controller
                 $data = ['user' => $user, 'profil' => $uncompletedProfil];
                 switch ($uncompletedProfil->current_bahagian) {
                     case '2':
-                        return view('kt.kemasukanData.bahagian2', $data);
+                        return view('KT.kemasukanData.bahagian2', $data);
                         break;
                     case '3':
-                        return view('kt.kemasukanData.bahagian3', $data);
+                        return view('KT.kemasukanData.bahagian3', $data);
                         break;
                     case '4':
-                        return view('kt.kemasukanData.bahagian4', $data);
+                        return view('KT.kemasukanData.bahagian4', $data);
                         break;
                     case '5':
                         $data5 = ['bantuans' => Bantuan::all(), 'user' => $user, 'profil' => $uncompletedProfil];
-                        return view('kt.kemasukanData.bahagian5', $data5);
+                        return view('KT.kemasukanData.bahagian5', $data5);
                         break;
                     case 'Done':
-                        return view('kt.kemasukanData.bahagian1', compact('negeri'));
+                        return view('KT.kemasukanData.bahagian1', compact('negeri'));
                         break;
                     default:
                         return 'invalid';
                         break;
                 }
             } else {
-                return view('kt.kemasukanData.bahagian1', compact('negeri'));
+                return view('KT.kemasukanData.bahagian1', compact('negeri'));
             }
         }
-        return view('kt.kemasukanData.bahagian1', compact('negeri'));
+        return view('KT.kemasukanData.bahagian1', compact('negeri'));
 
     }
 
     public function bahagian6()
     {
         $user = Auth::user();
-        return view('kt.kemasukanData.bahagian6', ['user' => $user]);
+        return view('KT.kemasukanData.bahagian6', ['user' => $user]);
     }
 
     public function simpanBahagian1(Request $request)

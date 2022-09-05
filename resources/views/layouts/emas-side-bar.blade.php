@@ -206,7 +206,8 @@
                         'senarai_informasi1',
                         'senarai_informasi1/*',
                         'kemasukanData',
-                        'kemasukanData/*'))
+                        'kemasukanData/*',
+                        'kampung/*'))
                         <a class="nav-link btn1" href="" role="button">
 
                             <div class="d-flex align-items-center">
@@ -615,7 +616,8 @@
                         'senarai_informasi1',
                         'senarai_informasi1/*',
                         'kemasukanData',
-                        'kemasukanData/*'))
+                        'kemasukanData/*',
+                        'kampung/*'))
                         <a class="nav-link dropdown-indicator" href="#bmtkm" role="button"
                             data-bs-toggle="collapse" aria-expanded="true" aria-controls="bmtkm"
                             style="background-color: #C4D4ED">
@@ -1033,7 +1035,8 @@
                         'senarai_informasi1',
                         'senarai_informasi1/*',
                         'kemasukanData',
-                        'kemasukanData/*'))
+                        'kemasukanData/*',
+                        'kampung/*'))
                         <a class="nav-link {{ Request::is('kemasukanData/bahagian', 'kemasukanData/bahagian/*') ? 'active' : '' }}
 "
                             href="/kemasukanData/bahagian" role="button">

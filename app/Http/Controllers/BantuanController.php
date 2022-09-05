@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bantuan;
 use App\Models\Daerah;
+use App\Models\Info_kampung;
 use App\Models\Kampung;
 use App\Models\KetuaKampung;
 use App\Models\Negeri;
@@ -26,6 +27,7 @@ class BantuanController extends Controller
     public function index()
     {
         $bantuans = Bantuan::all();
+
         return view('KT.bantuan.index', compact('bantuans'));
     }
 
@@ -46,6 +48,7 @@ class BantuanController extends Controller
         $daerahs = Daerah::all();
         $kampungs = Kampung::all();
         $ketuakampungs = KetuaKampung::all();
+
         return view('KT.bantuan.senarai_ketua_kampung', compact('ketuakampungs', 'negeris', 'daerahs', 'kampungs'));
 
     }
@@ -65,6 +68,7 @@ class BantuanController extends Controller
     public function create()
     {
         $negeri = Negeri::with('daerah')->get();
+
         return view('KT.bantuan.create', compact('negeri'));
 
     }

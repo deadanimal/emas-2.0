@@ -22,6 +22,9 @@ return new class extends Migration
             $table->foreignIdFor(Negeri::class);
             $table->foreignIdFor(Daerah::class);
             $table->foreignIdFor(Negeri_mukim::class)->nullable();
+            $table->string('namaKampung')->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('maklumat')->nullable();
             $table->timestamps();
         });
     }

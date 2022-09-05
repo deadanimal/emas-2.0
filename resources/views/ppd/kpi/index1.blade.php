@@ -1,21 +1,6 @@
 @extends('base')
 @section('content')
     <style>
-        /* #chartdiv {
-                                            width: 50%;
-                                            height: 200;
-                                        }
-
-                                        #chartdiv1 {
-                                            width: 50%;
-                                            height: 200;
-                                        }
-
-                                        #chartdiv2 {
-                                            width: 50%;
-                                            height: 200;
-                                        } */
-
         .column {
             float: left;
             width: 3 0%;
@@ -25,11 +10,16 @@
     </style>
 
     <div class="container">
+
         <div class="mb-4 text-center">
-            <H2>PELAN PELAKSANAAN DASAR</H2>
+            <img src="/img/image 1.png" alt="banner" width="50%">
         </div>
 
-        <br>
+        @cannot('BPKP')
+            <div class="mb-4 text-center">
+                <img src="/img/image 2.png" alt="banner" width="50%">
+            </div>
+        @endcannot
 
         @can('BPKP')
             <div class="row">

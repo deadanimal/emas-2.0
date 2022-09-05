@@ -45,16 +45,16 @@
                 <div class="card-body bg-light">
                     <div class="row g-3">
                         <div class="col-lg-12">
-                            <label class="form-label" for="nama">Nama Kampung</label>
-                            <input class="form-control" id="nama" type="text">
+                            <label class="form-label" for="namaKampung">Nama Kampung</label>
+                            <input class="form-control" id="namaKampung" type="text">
                         </div>
                         <div class="col-lg-12">
-                            <label class="form-label" for="nama">Alamat Kampung</label>
-                            <input class="form-control" id="nama" type="text">
+                            <label class="form-label" for="alamat">Alamat Kampung</label>
+                            <input class="form-control" id="alamat" type="text">
                         </div>
                         <div class="col-lg-12">
-                            <label class="form-label" for="nama">Maklumat Kampung</label>
-                            <input class="form-control" id="nama" type="text">
+                            <label class="form-label" for="maklumat">Maklumat Kampung</label>
+                            <input class="form-control" id="maklumat" type="text">
                         </div>
                         {{-- <div class="col-lg-12">
                             <label class="form-label" for="nama">Gambar Kampung</label>

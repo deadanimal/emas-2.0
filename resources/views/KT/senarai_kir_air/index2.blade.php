@@ -35,24 +35,29 @@
                 </thead>
 
                 <tbody class="list" id="myTable">
-                    <tr class="align-middle">
-                        <td>
-                            Selangor
-                        </td>
-                        <td>
-                            Klang
-                        </td>
-                        <td>
-                            Kg Teras Jernang
-                        </td>
-                        <td>
-                            131
-                        </td>
-
-                        <td>
-                            213
-                        </td>
-                    </tr>
+                    @foreach ($negeris as $negeri)
+                        @foreach ($negeri->daerah as $d)
+                            @foreach ($d->kampung as $k)
+                                <tr class="align-middle">
+                                    <td>
+                                        {{ $negeri->name }}
+                                    </td>
+                                    <td>
+                                        {{ $d->name }}
+                                    </td>
+                                    <td>
+                                        {{ $k->name }}
+                                    </td>
+                                    <td>
+                                        {{ $d->jumlah_kir }}
+                                    </td>
+                                    <td>
+                                        {{ $d->jumlah_air }}
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endforeach
+                    @endforeach
 
                 </tbody>
 

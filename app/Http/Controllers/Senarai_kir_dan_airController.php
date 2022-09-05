@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Info_kampung;
+use App\Models\Kampung;
 use App\Models\Negeri;
 use App\Models\Profil;
 use App\Models\Profil_air;
@@ -25,7 +26,6 @@ class Senarai_kir_dan_airController extends Controller
             ])->count();
         }
         return view('kt.senarai_kir_air.index', compact('negeris'));
-
     }
 
     public function index1()
@@ -48,15 +48,32 @@ class Senarai_kir_dan_airController extends Controller
         }
 
         return view('kt.senarai_kir_air.index1', compact('negeris'));
-
     }
 
     public function index2()
     {
         $senarai = Profil::all();
         $senarai1 = Profil::all();
-        $kampung = Info_kampung::all();
+        $kampung = Kampung::all();
 
-        return view('kt.senarai_kir_air.index2', compact('senarai', 'senarai1', 'kampung'));
+        $negeris = Negeri::with('daerah')->get();
+
+        foreach ($negeris as $negeri) {
+            foreach ($negeri->daerah as $d) {
+                $d['jumlah_kir'] = Profil::where([
+                    'negeri_id' => $negeri->id,
+                    'daerah_id' => $d->id,
+                    'kategori' => 'KIR',
+                ])->count();
+                $d['jumlah_air'] = Profil::where([
+                    'negeri_id' => $negeri->id,
+                    'daerah_id' => $d->id,
+                    'kategori' => 'AIR',
+                ])->count();
+
+                $d['kampung'] = Kampung::where('daerah_id', $d->id)->get();
+            }
+        }
+        return view('kt.senarai_kir_air.index2', compact('senarai', 'senarai1', 'kampung', 'negeris'));
     }
 }

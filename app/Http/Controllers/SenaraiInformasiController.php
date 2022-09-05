@@ -19,15 +19,14 @@ class SenaraiInformasiController extends Controller
     public function index()
     {
 
-        return view('kt.senarai_informasi.index');
+        return view('KT.senarai_informasi.index');
     }
 
     public function index1()
     {
 
-        return view('kt.senarai_informasi.index1');
+        return view('KT.senarai_informasi.index1');
     }
-
 
     /**
      * Show the form for creating a new resource.

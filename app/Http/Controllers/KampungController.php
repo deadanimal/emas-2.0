@@ -28,7 +28,7 @@ class KampungController extends Controller
     {
         $daerah = Daerah::all();
         $negeri = Negeri::all();
-        return view('kt.bantuan.create2', compact('negeri', 'daerah'));
+        return view('KT.bantuan.create2', compact('negeri', 'daerah'));
     }
 
     /**

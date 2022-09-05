@@ -637,7 +637,7 @@
                                     <!-- more inner pages-->
 
                                     <ul class="nav collapse" id="lokaliti">
-                                        <li class="nav-item"><a class="nav-link btn1" href="/lokaliti">
+                                        <li class="nav-item"><a class="nav-link btn1" href="/lokaliti/index">
                                                 <div class="d-flex align-items-center"><span
                                                         class="nav-link-text1 btn1 ps-1">Lokaliti Mengikut
                                                         Negeri</span>

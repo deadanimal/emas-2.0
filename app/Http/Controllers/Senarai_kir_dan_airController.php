@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Info_kampung;
 use App\Models\Negeri;
 use App\Models\Profil;
-use App\Models\Profil_air;
-
 
 class Senarai_kir_dan_airController extends Controller
 {
@@ -24,7 +22,7 @@ class Senarai_kir_dan_airController extends Controller
                 'kategori' => 'AIR',
             ])->count();
         }
-        return view('kt.senarai_kir_air.index', compact('negeris'));
+        return view('KT.senarai_kir_air.index', compact('negeris'));
 
     }
 
@@ -47,7 +45,7 @@ class Senarai_kir_dan_airController extends Controller
             }
         }
 
-        return view('kt.senarai_kir_air.index1', compact('negeris'));
+        return view('KT.senarai_kir_air.index1', compact('negeris'));
 
     }
 
@@ -57,6 +55,6 @@ class Senarai_kir_dan_airController extends Controller
         $senarai1 = Profil::all();
         $kampung = Info_kampung::all();
 
-        return view('kt.senarai_kir_air.index2', compact('senarai', 'senarai1', 'kampung'));
+        return view('KT.senarai_kir_air.index2', compact('senarai', 'senarai1', 'kampung'));
     }
 }

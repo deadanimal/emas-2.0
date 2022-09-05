@@ -1,7 +1,6 @@
 @extends('base')
 @section('content')
     <div class="container">
-        <br>
         <div class="mb-4 text-center">
             <H2>UPDATE DATA</H2>
         </div>
@@ -17,11 +16,11 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="thrust_id">Thrust</label>
+                    <label class="col-sm-2 col-form-label" for="national_id">National Initiatives</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="thrust_id">
-                            @foreach ($list as $list)
-                                <option @selected($key->thrust_id == $list->id) value="{{ $list->id }}">{{ $list->namaThrust }}
+                        <select class="form-control" name="national_id">
+                            @foreach ($national as $list)
+                                <option @selected($key->national_id == $list->id) value="{{ $list->id }}">{{ $list->namaNational }}
                                 </option>
                             @endforeach
 
@@ -55,7 +54,9 @@
 
                     <div class="col" style="text-align: right">
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save" onclick="return confirm('Are you sure you want to edit this Data?')"><span class="fas fa-save"></span>&nbsp;Save
+                            type="submit" value="Save"
+                            onclick="return confirm('Are you sure you want to edit this Data?')"><span
+                                class="fas fa-save"></span>&nbsp;Save
                         </button>
                     </div>
                 </div>

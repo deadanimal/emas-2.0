@@ -55,7 +55,6 @@
                                 <td>
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $bantuan->id }}">
-
                                         <div class="ms-2"><b>{{ $bantuan->nama_bantuan }}</b></div>
                                     </div>
                                 </td>

@@ -44,7 +44,7 @@
             <div class="table-responsive scrollbar">
 
                 <table class="table table-bordered">
-                    <thead class="table-dark">
+                    <thead class="table" style="text-align: center">
                         <tr>
                             <th scope="col">Tarikh</th>
                             <th scope="col">Aktiviti</th>
@@ -129,6 +129,12 @@
                                     </td>
                                 @elseif($audit->auditable_type == 'App\Models\activity')
                                     <td>{{ $audit->user->name }} {{ $audit->event }} My Digital - Activity.
+                                    </td>
+                                @elseif($audit->auditable_type == 'App\Models\Lokaliti')
+                                    <td>{{ $audit->user->name }} {{ $audit->event }} Kemiskinan Tegar - Lokaliti.
+                                    </td>
+                                @elseif($audit->auditable_type == 'App\Models\User')
+                                    <td>{{ $audit->user->name }} {{ $audit->event }} Executive Dashboard - Pengguna.
                                     </td>
                                 @else
                                     <td>{{ $audit->user->name }} {{ $audit->event }} yang

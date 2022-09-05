@@ -57,7 +57,8 @@
 
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label class="col-form-label">Keterangan:</label>
+                                                        <label class="col-form-label">National Initiative
+                                                            Information:</label>
                                                         <label class="form-control"
                                                             disabled="disabled">{{ $nation->keteranganNational }}</label>
                                                     </div>

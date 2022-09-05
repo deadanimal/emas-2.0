@@ -35,6 +35,9 @@ use App\Http\Controllers\SubController;
 use App\Http\Controllers\ThrusController;
 use App\Http\Controllers\ThrustController;
 use App\Http\Controllers\TindakanController;
+use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\ResetPasswordController;
+
 use App\Models\Perkarautama;
 use Illuminate\Support\Facades\Route;
 
@@ -185,9 +188,13 @@ Route::group(
         //Kampung
         Route::resource('kampung', KampungController::class);
 
+
         // Senarai Informasi
         Route::resource('/senarai_informasi', SenaraiInformasiController::class);
         Route::get('/senarai_informasi1/index1/', [SenaraiInformasiController::class, 'index1']);
+
+        Route::post('senarai-kir-dan-air-excel', [KemasukanDataController::class, 'import']);
+
 
         // Kemasukan Data
         Route::get('/kemasukanData/bahagian', [KemasukanDataController::class, 'bahagian']);
@@ -212,6 +219,7 @@ Route::group(
 
         //Strategy
         Route::resource('/strategy', StrategyController::class);
+
 
         //Cluster
         Route::resource('/cluster', ClusterController::class);
@@ -250,6 +258,9 @@ Route::group(
         Route::get('/user1/create1/', [PenggunaController::class, 'create1']);
         Route::post('/set-semula-kata-laluan/{id}', [PenggunaController::class, 'set_semula_kata_laluan']);
         Route::get('/carian-pengguna', [PenggunaController::class, 'result_search']);
+
+        Route::post('importUserExcel', [PenggunaController::class, 'import']);
+
 
         //Audit Log
         // Route::get('/audit', AuditController::class);

@@ -1,7 +1,6 @@
 @extends('base')
 @section('content')
     <div class="container">
-        <br>
         <div class="mb-4 text-center">
             <H2>KEMAS KINI DATA</H2>
         </div>
@@ -24,7 +23,8 @@
                         <select class="form-control" name="fokus_id">
 
                             @foreach ($fokus as $fokus)
-                                <option @selected($pemacu->fokus_id == $fokus->id) value="{{ $fokus->id }}">{{ $fokus->namaFokus }}</option>
+                                <option @selected($pemacu->fokus_id == $fokus->id) value="{{ $fokus->id }}">{{ $fokus->namaFokus }}
+                                </option>
                             @endforeach
 
                         </select>
@@ -37,8 +37,9 @@
                         <select class="form-control" name="perkara_id">
 
                             @foreach ($perkara as $perkara)
-                            <option @selected($pemacu->perkara_id == $perkara->id) value="{{ $perkara->id }}">{{ $perkara->namaPerkara }}</option>
-                        @endforeach
+                                <option @selected($pemacu->perkara_id == $perkara->id) value="{{ $perkara->id }}">{{ $perkara->namaPerkara }}
+                                </option>
+                            @endforeach
 
                         </select>
                     </div>
@@ -51,7 +52,8 @@
                         <select class="form-control" name="bab_id">
 
                             @foreach ($list as $list)
-                                <option @selected($pemacu->bab_id == $list->id) value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}</option>
+                                <option @selected($pemacu->bab_id == $list->id) value="{{ $list->id }}">Bab {{ $list->noBab }}.
+                                    {{ $list->namaBab }}</option>
                             @endforeach
 
                         </select>
@@ -59,9 +61,9 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaPemacu" >Nama Pemacu Perubahan</label>
+                    <label class="col-sm-2 col-form-label" for="namaPemacu">Nama Pemacu Perubahan</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaPemacu" value="{{ $pemacu->namaPemacu }}"/>
+                        <input class="form-control" type="text" name="namaPemacu" value="{{ $pemacu->namaPemacu }}" />
 
                     </div>
                 </div>
@@ -71,8 +73,7 @@
 
                 <div class="mb-3">
                     <label class="form-label" for="keteranganBab"><b>Keterangan Pemacu Perubahan</b></label>
-                    <textarea class="form-control" name="keteranganBab"
-                        rows="5">{{ $pemacu->keteranganBab }}</textarea>
+                    <textarea class="form-control" name="keteranganBab" rows="5">{{ $pemacu->keteranganBab }}</textarea>
                 </div>
                 <div class="row">
                     <div class="col">
@@ -84,7 +85,9 @@
 
                     <div class="col" style="text-align: right">
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save" onclick="return confirm('Adakah anda mahu mengubah data ini?')"><span class="fas fa-save"></span>&nbsp;Simpan
+                            type="submit" value="Save"
+                            onclick="return confirm('Adakah anda mahu mengubah data ini?')"><span
+                                class="fas fa-save"></span>&nbsp;Simpan
                         </button>
                     </div>
                 </div>

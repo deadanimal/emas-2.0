@@ -2,7 +2,6 @@
 @section('content')
 
     <div class="container">
-        <br>
 
         <div class="mb-4 text-center">
             <H2>DATA ENTRY</H2>
@@ -15,127 +14,131 @@
             <form action="{{ route('milestone.store') }}" method="POST">
                 @csrf
 
-                <div class="mb-4 text-center">
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="thrust_id">Thrust</label>
-                        <div class="col-sm-10" style="width:30%">
-                            <select class="form-control" name="thrust_id">
-                                <option selected disabled hidden>PLEASE CHOOSE</option>
 
-                                @foreach ($thrust as $thrust)
-                                    <option value="{{ $thrust->id }}">{{ $thrust->namaThrust }}</option>
-                                @endforeach
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
 
-                            </select>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="thrust_id">Thrust</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="thrust_id">
+                                    <option selected disabled hidden>PLEASE CHOOSE</option>
+
+                                    @foreach ($thrust as $thrust)
+                                        <option value="{{ $thrust->id }}">{{ $thrust->namaThrust }}</option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="national_id">National Initiave</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="national_id">
+                                    <option selected disabled hidden>PLEASE CHOOSE</option>
+
+                                    @foreach ($nation as $nation)
+                                        <option value="{{ $nation->id }}">{{ $nation->namaNational }}</option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="key_id">Key Activities</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="key_id">
+                                    <option selected disabled hidden>PLEASE CHOOSE</option>
+
+                                    @foreach ($key as $key)
+                                        <option value="{{ $key->id }}">{{ $key->namaKey }}</option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="sub_id">Sub-Key Activities</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="sub_id">
+                                    <option selected disabled hidden>PLEASE CHOOSE</option>
+
+                                    @foreach ($sub as $sub)
+                                        <option value="{{ $sub->id }}">{{ $sub->namaSub }}</option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="kpi_id">KPI</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="kpi_id">
+                                    <option selected disabled hidden>PLEASE CHOOSE</option>
+
+                                    @foreach ($kpi as $kpi)
+                                        <option value="{{ $kpi->id }}">{{ $kpi->namaKpi }}</option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="year">Year</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="year" />
+
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="quarter">Quarter</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="quarter" />
+
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="namaMilestone">Milestone Name</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="namaMilestone" />
+
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="actual_mark">Actual Mark</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="actual_mark" />
+
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="achievement">Achievement (%)</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="achievement" />
+
+                            </div>
+                        </div>
+
+                        <br>
+                        <br>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="remark"><b>Remark:</b></label>
+                            <textarea class="form-control" name="remark" rows="3"></textarea>
                         </div>
                     </div>
-
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="national_id">National Initiave</label>
-                        <div class="col-sm-10" style="width:30%">
-                            <select class="form-control" name="national_id">
-                                <option selected disabled hidden>PLEASE CHOOSE</option>
-
-                                @foreach ($nation as $nation)
-                                    <option value="{{ $nation->id }}">{{ $nation->namaNational }}</option>
-                                @endforeach
-
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="key_id">Key Activities</label>
-                        <div class="col-sm-10" style="width:30%">
-                            <select class="form-control" name="key_id">
-                                <option selected disabled hidden>PLEASE CHOOSE</option>
-
-                                @foreach ($key as $key)
-                                    <option value="{{ $key->id }}">{{ $key->namaKey }}</option>
-                                @endforeach
-
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="sub_id">Sub-Key Activities</label>
-                        <div class="col-sm-10" style="width:30%">
-                            <select class="form-control" name="sub_id">
-                                <option selected disabled hidden>PLEASE CHOOSE</option>
-
-                                @foreach ($sub as $sub)
-                                    <option value="{{ $sub->id }}">{{ $sub->namaSub }}</option>
-                                @endforeach
-
-                            </select>
-                        </div>
-                    </div>
-
-
-
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="kpi_id">KPI</label>
-                        <div class="col-sm-10" style="width:30%">
-                            <select class="form-control" name="kpi_id">
-                                <option selected disabled hidden>PLEASE CHOOSE</option>
-
-                                @foreach ($kpi as $kpi)
-                                    <option value="{{ $kpi->id }}">{{ $kpi->namaKpi }}</option>
-                                @endforeach
-
-                            </select>
-                        </div>
-                    </div>
-
-
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="year">Year</label>
-                        <div class="col-sm-10" style="width:30%">
-                            <input class="form-control" type="text" name="year" />
-
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="quarter">Quarter</label>
-                        <div class="col-sm-10" style="width:30%">
-                            <input class="form-control" type="text" name="quarter" />
-
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="namaMilestone">Milestone Name</label>
-                        <div class="col-sm-10" style="width:30%">
-                            <input class="form-control" type="text" name="namaMilestone" />
-
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="actual_mark">Actual Mark</label>
-                        <div class="col-sm-10" style="width:30%">
-                            <input class="form-control" type="text" name="actual_mark" />
-
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="achievement">Achievement</label>
-                        <div class="col-sm-10" style="width:30%">
-                            <input class="form-control" type="text" name="achievement" />
-
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-                <br>
-
-                <div class="mb-3">
-                    <label class="form-label" for="remark"><b>Remark:</b></label>
-                    <textarea class="form-control" name="remark" rows="3"></textarea>
                 </div>
 
 

@@ -447,7 +447,7 @@
                                                         @csrf
 
                                                         <!-- Email Address -->
-                                                        <div class="mb-3">
+                                                        <div class="mb-3"><br>
                                                             <label class="form-label" for="email">E-mel
                                                                 Pengguna</label>
                                                             <input class="form-control" id="email" type="email"
@@ -455,16 +455,16 @@
                                                                 autofocus />
                                                         </div>
 
-
+                                                        <div class="modal-footer">
+                                                            <button class="btn btn-primary d-block w-100 mt-3"
+                                                                style="background-color: #047FC3; color:white"
+                                                                type="submit" name="submit">Hantar</button>
+                                                        </div>
 
                                                     </form>
                                                 </div>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button class="btn btn-primary d-block w-100 mt-3"
-                                                    style="background-color: #047FC3; color:white" type="submit"
-                                                    name="submit">Hantar</button>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>

@@ -14,27 +14,30 @@ class Sub extends Model implements Auditable
 
     public $table = 'subs';
 
-    protected $fillable = [
+    protected $guarded = ['id'];
 
-        'namaSub',
-        'keteranganSub',
-        'key_id',
-        'user_id',
-    ];
 
-    protected $with = [
-        'user',
-        'key'
+    // protected $fillable = [
 
-    ];
+    //     'namaSub',
+    //     'keteranganSub',
+    //     'key_id',
+    //     'user_id',
+    // ];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
+    // protected $with = [
+    //     'user',
+    //     'key'
 
-    public function key()
-    {
-        return $this->belongsTo(Key::class, 'key_id');
-    }
+    // ];
+
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class, 'user_id');
+    // }
+
+    // public function key()
+    // {
+    //     return $this->belongsTo(Key::class, 'key_id');
+    // }
 }

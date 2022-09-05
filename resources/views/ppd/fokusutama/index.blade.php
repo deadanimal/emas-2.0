@@ -11,11 +11,9 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>Fokus Utama</b></span>
-                    @can('KementerianPPD')
-                        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                            href="/fokusutama/create">
-                            <span class="fas fa-plus-circle"></span>&nbsp;Tambah</a>
-                    @endcan
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                        href="/fokusutama/create">
+                        <span class="fas fa-plus-circle"></span>&nbsp;Tambah</a>
 
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">
@@ -87,27 +85,21 @@
                                         </div>
                                     </div>
                                 </div>
-                                @can('KementerianPPD')
-                                    <td align="right">
-                                        <div>
-                                            {{-- <form action="{{ route('fokusutama.destroy', $fokus->id) }}" method="POST"> --}}
+                                <td align="right">
+                                    <div>
+                                        <a class="btn btn-primary" style="border-radius: 38px"
+                                            href="{{ route('fokusutama.edit', $fokus->id) }}"><i class="fas fa-edit"></i>
+                                        </a>
 
-                                            <a class="btn btn-primary" style="border-radius: 38px"
-                                                href="{{ route('fokusutama.edit', $fokus->id) }}"><i class="fas fa-edit"></i>
-                                            </a>
-                                            {{-- @csrf
-                                        @method('DELETE') --}}
 
-                                            <button type="submit" onclick="myFunction({{ $fokus->id }})"
-                                                class="btn btn-danger" style="border-radius: 38px">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                            <p id="ppd"></p>
+                                        <button type="submit" onclick="myFunction({{ $fokus->id }})"
+                                            class="btn btn-danger" style="border-radius: 38px">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <p id="ppd"></p>
 
-                                            {{-- </form> --}}
-                                        </div>
-                                    </td>
-                                @endcan
+                                    </div>
+                                </td>
 
                             </tr>
                         @endforeach

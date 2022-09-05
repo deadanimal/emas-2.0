@@ -1,7 +1,6 @@
 @extends('base')
 @section('content')
     <div class="container">
-        <br>
 
         <div class="mb-4 text-center">
             <H2>DATA ENTRY</H2>
@@ -13,6 +12,7 @@
         <div class="form-floating;">
             <form action="{{ route('kpi2.store') }}" method="POST">
                 @csrf
+
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="thrust_id">Thrust</label>
@@ -26,9 +26,7 @@
 
                         </select>
                     </div>
-                </div>
 
-                <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="national_id">National Initiave</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="national_id">
@@ -54,9 +52,7 @@
 
                         </select>
                     </div>
-                </div>
 
-                <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="sub_id">Sub-Key Activities</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="sub_id">
@@ -71,22 +67,23 @@
                 </div>
 
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaKpi">NameKpi</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaKpi" />
+                <br>
 
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+
+                        <div class="mb-3">
+                            <label class="form-label" for="namaKpi"><b>KPI Name:</b></label>
+                            <input class="form-control" type="text" name="namaKpi" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="keteranganKpi"><b>KPI Description:</b></label>
+                            <input class="form-control" type="text" name="keteranganKpi" />
+                        </div>
                     </div>
                 </div>
-
                 <br>
-                <br>
-
-                <div class="mb-3">
-                    <label class="form-label" for="keteranganKpi"><b>KPI Information:</b></label>
-                    <textarea class="form-control" name="keteranganKpi" rows="5"></textarea>
-                </div>
-
 
 
                 <div class="row">

@@ -41,6 +41,10 @@ class StoreKeyRequest extends FormRequest
             'thrust_id' => [
                 'string',
             ],
+            
+            'national_id' => [
+                'string',
+            ],
         ];
     }
 }

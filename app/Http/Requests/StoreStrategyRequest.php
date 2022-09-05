@@ -39,7 +39,7 @@ class StoreStrategyRequest extends FormRequest
                 'required',
             ],
 
-            'thrust_id' => [
+            'thrus_id' => [
                 'required',
             ],
 

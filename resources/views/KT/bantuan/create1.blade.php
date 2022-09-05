@@ -63,6 +63,7 @@
                         <div class="col-lg-12">
                             <label class="form-label" for="no_tel_pejabat">No. Telefon Pejabat</label>
                             <input class="form-control" name="no_pejabat" type="number" />
+
                         </div>
 
                         <div class="col-lg-6">
@@ -84,6 +85,7 @@
                             <input class="form-control" name="no_telefon" type="number">
                         </div>
                         <div class="col mt-5" style="text-align: center">
+
                             <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
                                 type="submit" value="Save"
                                 onclick="return confirm('Adakah anda mahu mengubah data ini?')"><span
@@ -122,4 +124,5 @@
             });
         });
     </script>
+
 @endsection

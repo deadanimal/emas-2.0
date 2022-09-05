@@ -1,7 +1,7 @@
 @extends('base')
 @section('content')
     <div class="container">
-        <br>
+
 
         <div class="mb-4 text-center">
             <H2>KEMASUKAN DATA</H2>
@@ -16,7 +16,7 @@
             <form action="{{ route('perkarautama.store') }}" method="POST">
                 @csrf
 
-                 <div class="mb-3 row">
+                <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="fokus_id">
@@ -49,14 +49,17 @@
 
                 <div class="row">
                     <div class="col">
-                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3" href="/perkarautama">
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
+                            href="/perkarautama">
                             <span class="fas fa-times-circle"></span>&nbsp;Batal
                         </a>
                     </div>
 
                     <div class="col" style="text-align: right">
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save" onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span class="fas fa-save"></span>&nbsp;Simpan
+                            type="submit" value="Save"
+                            onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span
+                                class="fas fa-save"></span>&nbsp;Simpan
                         </button>
                     </div>
                 </div>

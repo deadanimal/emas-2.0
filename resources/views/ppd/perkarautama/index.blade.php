@@ -11,12 +11,10 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>Perkara Utama</b></span>
-                    @can('BPKP')
-                        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                            href="/perkarautama/create">
-                            <span class="fas fa-plus-circle"></span>&nbsp;Tambah
-                        </a>
-                    @endcan
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                        href="/perkarautama/create">
+                        <span class="fas fa-plus-circle"></span>&nbsp;Tambah
+                    </a>
 
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">
@@ -144,6 +142,9 @@
             let val = this.value;
             var perkarautama = @json($perkarautama->toArray());
             $("#tablebody").html('');
+
+            console.log(perkarautama);
+
             perkarautama.forEach(e => {
 
                 if (val == e.fokus_id) {

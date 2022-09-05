@@ -25,6 +25,7 @@
                 <div class="card-body bg-light">
                     <div class="row">
                         <div class="col-lg-12 mb-3">
+
                             <label class="form-label" for="nama_bantuan">Nama Bantuan</label>
                             <input class="form-control" name="nama_bantuan" type="text">
                         </div>
@@ -61,7 +62,6 @@
                             <label class="form-label" for="sektor">Sektor</label>
                             <input class="form-control" name="sektor">
                         </div>
-
                         <div class="col" style="text-align: center">
                             <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
                                 type="submit" value="Save"

@@ -24,8 +24,8 @@ return new class extends Migration
             $table->string('taraf_kampung')->nullable();
             $table->string('jenis_kampung')->nullable();
             $table->string('keterangan_kampung')->nullable();
-
-            $table->foreignIdFor(Lokaliti::class);
+            $table->string('maklumat_kampung')->nullable();
+            $table->string('alamat_kampung')->nullable();
 
             $table->string('user_id')->nullable();
             $table->timestamps();

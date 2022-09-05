@@ -22,7 +22,7 @@
 
         <hr style="width:100%;text-align:center;">
 
-        <img class="img-fluid rounded" src="img/KTMap.png" alt="" />
+        <img class="img-fluid rounded" src="/img/KTMap.png" alt="" />
 
         <br><br>
 

@@ -35,6 +35,7 @@ use App\Http\Controllers\SubController;
 use App\Http\Controllers\ThrusController;
 use App\Http\Controllers\ThrustController;
 use App\Http\Controllers\TindakanController;
+use App\Http\Controllers\LokalitiController;
 use App\Models\Perkarautama;
 use Illuminate\Support\Facades\Route;
 

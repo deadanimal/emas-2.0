@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreLokalitiRequest;
 use App\Http\Requests\UpdateLokalitiRequest;
 use App\Models\Lokaliti;
+use App\Models\Negeri;
+use App\Models\Profil;
 
 class LokalitiController extends Controller
 {
@@ -15,9 +17,20 @@ class LokalitiController extends Controller
      */
     public function index()
     {
-        $lokaliti = Lokaliti::all();
 
-        return view('kt.lokaliti.index', compact('lokaliti'));
+        $negeris = Negeri::all();
+        foreach ($negeris as $negeri) {
+            $negeri['jumlah_kir'] = Profil::where([
+                'negeri_id' => $negeri->id,
+                'kategori' => 'KIR',
+            ])->count();
+            $negeri['jumlah_air'] = Profil::where([
+                'negeri_id' => $negeri->id,
+                'kategori' => 'AIR',
+            ])->count();
+        }
+
+        return view('kt.lokaliti.index', compact('negeris'));
     }
 
     public function index1()

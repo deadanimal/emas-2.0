@@ -19,16 +19,8 @@
 
 
 
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <strong>Ooops!</strong> There were some problems with your input.<br><br>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        <x-errors-component :errors="$errors->any() ? $errors->all() : null" />
+
 
         <div class="card mb-3">
 

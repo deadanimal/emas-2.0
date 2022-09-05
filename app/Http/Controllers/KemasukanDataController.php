@@ -4,13 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Imports\ProfilImport;
 use App\Models\Bantuan;
+use App\Models\Daerah;
 use App\Models\Harta;
 use App\Models\KategoriBantuan;
 use App\Models\Kecacatan;
 use App\Models\KemasukanData;
-use App\Models\Lokaliti;
-use App\Models\Negeri_mukim;
-use App\Models\Negeri_parlimen;
+use App\Models\Negeri;
 use App\Models\Pendapatan;
 use App\Models\Penyakit;
 use App\Models\Perbelanjaan;
@@ -41,6 +40,9 @@ class KemasukanDataController extends Controller
     {
         $user = auth()->user();
         $profil = Profil::where('user_id', $user->id)->get();
+
+        $negeri = Negeri::with('daerah')->get();
+
         if ($profil !== null) {
             $uncompletedProfil = null;
             foreach ($profil as $p) {
@@ -65,17 +67,17 @@ class KemasukanDataController extends Controller
                         return view('kt.kemasukanData.bahagian5', $data5);
                         break;
                     case 'Done':
-                        return view('kt.kemasukanData.bahagian1', ['user' => $user]);
+                        return view('kt.kemasukanData.bahagian1', compact('negeri'));
                         break;
                     default:
                         return 'invalid';
                         break;
                 }
             } else {
-                return view('kt.kemasukanData.bahagian1', ['user' => $user]);
+                return view('kt.kemasukanData.bahagian1', compact('negeri'));
             }
         }
-        return view('kt.kemasukanData.bahagian1', ['user' => $user]);
+        return view('kt.kemasukanData.bahagian1', compact('negeri'));
 
     }
 
@@ -87,6 +89,12 @@ class KemasukanDataController extends Controller
 
     public function simpanBahagian1(Request $request)
     {
+        $messages = [
+            'poskod.min' => ':attribute perlu mempunyai 5 angka.',
+            'poskod.max' => ':attribute perlu mempunyai 5 angka sahaja',
+
+        ];
+
         $request->validate([
             'nama' => 'required',
             'no_kad_pengenalan' => 'required',
@@ -96,49 +104,16 @@ class KemasukanDataController extends Controller
             'jumlah_isi_rumah' => 'required',
             'status_miskin' => 'required',
             'status_terkeluar' => 'required',
-            'negeri' => 'required',
-            'daerah' => 'required',
-            'mukim' => 'required',
-            'parlimen' => 'required',
-            'dun' => 'required',
             'strata' => 'required',
-            'alamat1' => 'required',
-            'poskod' => 'required',
-            'lokaliti' => 'required',
-        ]);
+            'poskod' => 'required|min:5|max:5',
+        ], $messages);
+        $negeri = Negeri::findorFail($request->negeri_id);
+        $daerah = Daerah::findorFail($request->daerah_id);
 
-        $user_id = auth()->id();
-
-        $lokaliti = Lokaliti::create([
-            'keterangan_lokaliti' => $request->lokaliti,
-            'user_id' => $user_id,
-        ]);
-
-        $parlimen = Negeri_parlimen::create([
-            'parlimen_name' => $request->parlimen,
-            'dun' => $request->dun,
-            'negeri' => $request->negeri,
-            'user_id' => $user_id,
-            'lokaliti_id' => $lokaliti->id,
-
-        ]);
-
-        $mukim = Negeri_mukim::create([
-            'mukim_name' => $request->mukim,
-            'daerah' => $request->daerah,
-            'negeri' => $request->negeri,
-            'user_id' => $user_id,
-            'lokaliti_id' => $lokaliti->id,
-        ]);
-
-        $profil = Profil::create($request->all());
-        $profil->update([
-            'user_id' => $user_id,
-            'negeri_mukim_id' => $mukim->id,
-            'lokaliti_id' => $lokaliti->id,
-            'negeri_parlimen_id' => $parlimen->id,
-            'current_bahagian' => 2,
-        ]);
+        $request['alamat1'] = $request->kampung;
+        $request['alamat2'] = $request->poskod . " , " . $daerah->name;
+        $request['alamat3'] = $negeri->name;
+        Profil::create($request->all());
 
         return back();
     }
@@ -161,33 +136,41 @@ class KemasukanDataController extends Controller
 
         $user_id = auth()->id();
 
-        foreach ($request->harta as $harta) {
-            Harta::create([
-                'nama_harta' => $harta,
-                'profil_id' => $request->profil_id,
-                'user_id' => $user_id,
-            ]);
+        if ($request->harta != null) {
+            foreach ($request->harta as $harta) {
+                Harta::create([
+                    'nama_harta' => $harta,
+                    'profil_id' => $request->profil_id,
+                    'user_id' => $user_id,
+                ]);
+            }
         }
-        foreach ($request->penyakit as $penyakit) {
-            Penyakit::create([
-                'kod_penyakit' => $penyakit,
-                'profil_id' => $request->profil_id,
-                'user_id' => $user_id,
-            ]);
+        if ($request->penyakit != null) {
+            foreach ($request->penyakit as $penyakit) {
+                Penyakit::create([
+                    'kod_penyakit' => $penyakit,
+                    'profil_id' => $request->profil_id,
+                    'user_id' => $user_id,
+                ]);
+            }
         }
-        foreach ($request->kumpulan_perbenlanjaan as $kp) {
-            Perbelanjaan::create([
-                'kod_perbelanjaan' => $kp,
-                'profil_id' => $request->profil_id,
-                'user_id' => $user_id,
-            ]);
+        if ($request->kumpulan_perbenlanjaan != null) {
+            foreach ($request->kumpulan_perbenlanjaan as $kp) {
+                Perbelanjaan::create([
+                    'kod_perbelanjaan' => $kp,
+                    'profil_id' => $request->profil_id,
+                    'user_id' => $user_id,
+                ]);
+            }
         }
-        foreach ($request->kecacatan as $kecacatan) {
-            Kecacatan::create([
-                'kod_cacat' => $kecacatan,
-                'profil_id' => $request->profil_id,
-                'user_id' => $user_id,
-            ]);
+        if ($request->kecacatan != null) {
+            foreach ($request->kecacatan as $kecacatan) {
+                Kecacatan::create([
+                    'kod_cacat' => $kecacatan,
+                    'profil_id' => $request->profil_id,
+                    'user_id' => $user_id,
+                ]);
+            }
         }
 
         Profil::find($request->profil_id)->update($request->all());
@@ -259,6 +242,7 @@ class KemasukanDataController extends Controller
         KategoriBantuan::create($request->all());
 
         Profil::find($request->profil_id)->update([
+            'bantuan_id' => $request->program_yang_diterima,
             'current_bahagian' => 'Done',
         ]);
 

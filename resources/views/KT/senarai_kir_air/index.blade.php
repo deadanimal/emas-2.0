@@ -21,29 +21,27 @@
         <hr style="width:100%;text-align:center;">
 
         <div class="table-responsive scrollbar">
-            <table class="table table-hover table-striped overflow-hidden testing" style="width: 100%">
-                <thead>
-                    <tr>
-                        <th scope="col">Negeri</th>
-                        <th scope="col">Jumlah KIR</th>
-                        <th scope="col">Jumlah AIR</th>
-
-                    </tr>
+            <table class="table table-bordered overflow-hidden" style="width: 100%;hover:  false;">
+                <thead class="text-center table-dark">
+                    <th scope="col">Negeri</th>
+                    <th scope="col">Jumlah KIR</th>
+                    <th scope="col">Jumlah AIR</th>
                 </thead>
 
-                <tbody class="list" id="myTable">
-                    <tr class="align-middle">
-                        <td>
-                            Selangor
-                        </td>
-                        <td>
-                            131
-                        </td>
-
-                        <td>
-                            213
-                        </td>
-                    </tr>
+                <tbody class="list">
+                    @foreach ($negeris as $negeri)
+                        <tr class="align-middle text-center">
+                            <td>
+                                {{ $negeri->name }}
+                            </td>
+                            <td>
+                                {{ $negeri->jumlah_kir }}
+                            </td>
+                            <td>
+                                {{ $negeri->jumlah_air }}
+                            </td>
+                        </tr>
+                    @endforeach
 
                 </tbody>
 

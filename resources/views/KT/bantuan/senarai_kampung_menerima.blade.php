@@ -14,7 +14,7 @@
                 <div class="col col-lg-8">
                     <span><b>Senarai Kampung Yang Menerima Bantuan</b></span>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/bantuan1/create2">
+                        href="{{ route('kampung.create') }}">
                         <span class="fas fa-plus-circle"></span>&nbsp;Tambah Kampung</a>
                 </div>
 

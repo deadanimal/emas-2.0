@@ -34,27 +34,26 @@
                 </thead>
 
                 <tbody class="list" id="myTable">
-                    <tr class="align-middle">
-                        <td>
-                            Selangor
-                        </td>
-                        <td>
-                            Klang
-                        </td>
-                        <td>
-                            131
-                        </td>
-
-                        <td>
-                            213
-                        </td>
-                    </tr>
-
+                    @foreach ($negeris as $negeri)
+                        @foreach ($negeri->daerah as $d)
+                            <tr class="align-middle">
+                                <td>
+                                    {{ $negeri->name }}
+                                </td>
+                                <td>
+                                    {{ $d->name }}
+                                </td>
+                                <td>
+                                    {{ $d->jumlah_kir }}
+                                </td>
+                                <td>
+                                    {{ $d->jumlah_air }}
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endforeach
                 </tbody>
-
             </table>
-
-
         </div>
     </div>
 @endsection

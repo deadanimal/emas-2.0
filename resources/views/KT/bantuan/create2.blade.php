@@ -18,88 +18,75 @@
         </div>
 
         <hr style="width:100%;text-align:center;">
+        <form action="{{ route('kampung.store') }}" method="post">
+            @csrf
+            <div class="row g-3" style="width: 100%">
+                <div class="col-6">
+                    <select class="form-select" id="negeri">
+                        <option selected disabled hidden>NEGERI</option>
+                        @foreach ($negeri as $n)
+                            <option value="{{ $n->id }}">{{ $n->name }}</option>
+                        @endforeach
 
-        <div class="row g-3" style="width: 100%">
-            <div class="col-sm">
-
-                <select class="form-select searchKategori" style="width:70%">
-                    <option selected disabled hidden>NEGERI</option>
-
-                    {{-- @foreach ($list as $list)
-                        <option value="{{ $list->id }}">{{ $list->namaKpi }}</option>
-                    @endforeach --}}
-
-                </select>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <select class="form-select" id="daerah">
+                        <option selected disabled hidden>DAERAH</option>
+                        <option disabled>Sila Pilih Negeri</option>
+                    </select>
+                </div>
             </div>
 
+            <br>
 
+            <div class="card mb-3">
 
-            <div class="col-sm">
+                <div class="card-body bg-light">
+                    <div class="row g-3">
+                        <div class="col-lg-12">
+                            <label class="form-label" for="nama">Nama Kampung</label>
+                            <input class="form-control" id="nama" type="text">
+                        </div>
+                        <div class="col-lg-12">
+                            <label class="form-label" for="nama">Alamat Kampung</label>
+                            <input class="form-control" id="nama" type="text">
+                        </div>
+                        <div class="col-lg-12">
+                            <label class="form-label" for="nama">Maklumat Kampung</label>
+                            <input class="form-control" id="nama" type="text">
+                        </div>
+                        {{-- <div class="col-lg-12">
+                            <label class="form-label" for="nama">Gambar Kampung</label>
+                            <input class="form-control" id="nama" type="text">
+                        </div> --}}
 
-                <select class="form-select searchKategori" style="width:70%">
-                    <option selected disabled hidden>DAERAH</option>
+                        <div class="col" style="text-align: center">
+                            <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
+                                type="submit" value="Save"
+                                onclick="return confirm('Adakah anda mahu mengubah data ini?')"><span
+                                    class="fas fa-save"></span>&nbsp;Tambah Kampung
+                            </button>
+                        </div>
 
-                    {{-- @foreach ($list as $list)
-                    <option value="{{ $list->id }}">{{ $list->namaKpi }}</option>
-                    @endforeach --}}
-
-                </select>
+                    </div>
+                </div>
             </div>
+        </form>
+    </div>
 
-        </div>
-
-        <br>
-
-        <div class="card mb-3">
-
-            <div class="card-body bg-light">
-                <form class="row g-3">
-                    <div class="col-lg-12">
-                        <label class="form-label" for="nama">Nama Ketua Kampung</label>
-                        <input class="form-control" id="nama" type="text">
-                    </div>
-                    <div class="col-lg-12">
-                        <label class="form-label" for="nama">Maklumat Kampung</label>
-                        <input class="form-control" id="nama" type="text">
-                    </div>
-                    <div class="col-lg-12">
-                        <label class="form-label" for="nama">Alamat Kampung</label>
-                        <input class="form-control" id="nama" type="text">
-                    </div>
-                    <div class="col-lg-12">
-                        <label class="form-label" for="nama">Gambar Kampung</label>
-                        <input class="form-control" id="nama" type="text">
-                    </div>
-
-
-
-
-
-                    <div class="col" style="text-align: center">
-                        <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save"
-                            onclick="return confirm('Adakah anda mahu mengubah data ini?')"><span
-                                class="fas fa-save"></span>&nbsp;Tambah Kampung
-                        </button>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-
-
-
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script type="text/javascript">
-            $(function() {
-                $("#pilih1").change(function() {
-                    if ($(this).val() == "3") {
-                        $("#pilih2").show();
-                    } else {
-                        $("#pilih2").hide();
-                    }
-                });
+    <script>
+        $("#negeri").change(function() {
+            var negeri_id = $(this).val();
+            var daerah = @json($daerah->toArray());
+            $("#daerah").html('');
+            daerah.forEach(d => {
+                if (d.negeri_id == negeri_id) {
+                    $("#daerah").append(`
+                         <option value="` + d.id + `">` + d.name + `</option>
+                    `);
+                }
             });
-        </script>
-    @stop
-</div>
+        });
+    </script>
+@endsection

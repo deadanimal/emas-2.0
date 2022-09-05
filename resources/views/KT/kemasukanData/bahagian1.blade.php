@@ -1,6 +1,5 @@
 @extends('base')
 @section('content')
-
     <div class="container">
         <div class="mb-4 text-center">
             <H2>KEMASUKAN DATA</H2>
@@ -16,20 +15,7 @@
 
         <hr style="width:100%;text-align:center;">
 
-
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <strong>Ooops!</strong> There were some problems with your input.<br><br>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
-
-
+        <x-errors-component :errors="$errors->any() ? $errors->all() : null" />
 
         <div class="card mb-3">
             <div class="card-body bg-light">
@@ -37,7 +23,8 @@
                     @csrf
                     <div class="row g-3">
 
-
+                        <input type="hidden" name="user_id" value="{{ auth()->id() }}" />
+                        <input type="hidden" name="current_bahagian" value="2" />
                         <div class="col-lg-12">
                             <label class="form-label" for="nama">Nama</label>
                             <input class="form-control" id="nama" name="nama" type="text">
@@ -57,7 +44,7 @@
                         </div>
 
                         <div class="col-lg-6">
-                            <label class="form-label" for="kategori">Kategori (KIR/AIR)</label>
+                            <label class="form-label" for="kategori">Kategori</label>
                             <select class="form-control" name="kategori">
                                 <option selected disabled hidden>SILA PILIH</option>
                                 <option value="KIR">KIR</option>
@@ -65,7 +52,7 @@
                             </select>
                         </div>
                         <div class="col-lg-6">
-                            <label class="form-label" for="jumlah_isi_rumah">Jumlah Isi Rumah (KIR/AIR)</label>
+                            <label class="form-label" for="jumlah_isi_rumah">Jumlah Isi Rumah</label>
                             <input class="form-control" id="jumlah_isi_rumah" type="number" name="jumlah_isi_rumah">
                         </div>
                         <div class="col-lg-6">
@@ -85,35 +72,20 @@
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="negeri">Negeri</label>
-                            <select class="form-control" name="negeri">
+                            <select class="form-control" name="negeri_id" id="negeri">
                                 <option selected disabled hidden>SILA PILIH</option>
-                                <option value="1">Johor</option>
-                                <option value="2">Kedah</option>
-                                <option value="3">Kelantan</option>
-                                <option value="4">Melaka</option>
-                                <option value="5">N.Sembilan</option>
-                                <option value="6">Pahang</option>
-                                <option value="7">P.Pinang</option>
-                                <option value="8">Perak</option>
-                                <option value="9">Perlis</option>
-                                <option value="10">Selangor</option>
-                                <option value="11">Terrenganu</option>
-                                <option value="12">Sabah</option>
-                                <option value="13">Sarawak</option>
-                                <option value="14">W.P. Kuala Lumpur</option>
-                                <option value="15">W.P. Labuan</option>
-                                <option value="16">W.P. Putrajaya</option>
-                                <option value="17">Tiada Maklumat</option>
+                                @foreach ($negeri as $n)
+                                    <option value="{{ $n->id }}">{{ $n->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="daerah">Daerah</label>
-                            <input class="form-control" id="daerah" type="text" name="daerah">
+                            <select class="form-control" name="daerah_id" id="daerah">
+                                <option selected disabled hidden>SILA PILIH NEGERI</option>
+                            </select>
                         </div>
-                        <div class="col-lg-6">
-                            <label class="form-label" for="mukim">Lokaliti</label>
-                            <input class="form-control" id="mukim" type="text" name="lokaliti">
-                        </div>
+
                         <div class="col-lg-6">
                             <label class="form-label" for="mukim">Mukim</label>
                             <input class="form-control" id="mukim" type="text" name="mukim">
@@ -135,7 +107,7 @@
                             </select>
                         </div>
 
-                        <div class="col-lg-12">
+                        {{-- <div class="col-lg-12">
                             <label class="form-label" for="alamat1">Alamat 1</label>
                             <textarea class="form-control" id="alamat1" name="alamat1" cols="30" rows="2"></textarea>
                         </div>
@@ -146,13 +118,16 @@
                         <div class="col-lg-12">
                             <label class="form-label" for="alamat3">Alamat 3</label>
                             <textarea class="form-control" id="alamat3" name="alamat3" cols="30" rows="2"></textarea>
-                        </div>
+                        </div> --}}
                         <div class="col-lg-6">
                             <label class="form-label" for="poskod">Poskod</label>
                             <input class="form-control" id="poskod" type="number" name="poskod">
                         </div>
                         <div class="col-lg-6">
+                            <label class="form-label" for="kampung">Kampung</label>
+                            <input class="form-control" id="kampung" type="text" name="kampung">
                         </div>
+
 
                         <div class="col-lg-6">
                             <label class="form-label" for="no_telefon_tetap">No. Telefon Tetap</label>
@@ -191,6 +166,23 @@
             ) {
                 $(this).val('RM');
             }
+        });
+
+        $("#negeri").change(function() {
+            var negeri_id = $(this).val();
+            $("#daerah").html(``);
+            var negeri = @json($negeri->toArray());
+
+            negeri.forEach(e => {
+                if (negeri_id == e.id) {
+                    e.daerah.forEach(el => {
+                        $("#daerah").append(`
+                            <option value="` + el.id + `">` + el.name + `</option>
+                        `);
+                    });
+                }
+            });
+
         });
     </script>
 @endsection

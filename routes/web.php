@@ -9,7 +9,9 @@ use App\Http\Controllers\ClusterController;
 use App\Http\Controllers\FokusutamaController;
 use App\Http\Controllers\InisiatifController;
 use App\Http\Controllers\InitiativeController;
+use App\Http\Controllers\KampungController;
 use App\Http\Controllers\KemasukanDataController;
+use App\Http\Controllers\KetuaKampungController;
 use App\Http\Controllers\KeyController;
 use App\Http\Controllers\Kpi2Controller;
 use App\Http\Controllers\KpiController;
@@ -177,15 +179,17 @@ Route::group(
         Route::get('/bantuan1/senarai_ketua_kampung/', [BantuanController::class, 'senarai_ketua_kampung']);
         Route::get('/bantuan1/senarai_kampung_menerima/', [BantuanController::class, 'senarai_kampung_menerima']);
 
-        Route::get('/bantuan1/create1/', [BantuanController::class, 'create1']);
-        Route::get('/bantuan1/create2/', [BantuanController::class, 'create2']);
+        //Ketua Kampung
+        Route::resource('/ketuaKampung', KetuaKampungController::class);
+
+        //Kampung
+        Route::resource('kampung', KampungController::class);
 
         // Senarai Informasi
         Route::resource('/senarai_informasi', SenaraiInformasiController::class);
         Route::get('/senarai_informasi1/index1/', [SenaraiInformasiController::class, 'index1']);
 
         // Kemasukan Data
-        // Route::resource('/kemasukanData', KemasukanDataController::class);
         Route::get('/kemasukanData/bahagian', [KemasukanDataController::class, 'bahagian']);
 
         Route::post('/kemasukanData-bahagian1', [KemasukanDataController::class, 'simpanBahagian1']);
@@ -255,3 +259,5 @@ Route::group(
 
 Route::post('importUserExcel', [PenggunaController::class, 'import']);
 Route::post('senarai-kir-dan-air-excel', [KemasukanDataController::class, 'import']);
+
+Route::post('find-by-lokaliti', [KetuaKampungController::class, 'find']);

@@ -1,12 +1,12 @@
 <?php
 
 use App\Models\Bantuan;
+use App\Models\Daerah;
 use App\Models\Info_kampung;
-use App\Models\Lokaliti;
-use App\Models\Negeri_mukim;
-use App\Models\Negeri_parlimen;
+use App\Models\Negeri;
 use App\Models\Pendapatan;
 use App\Models\Simpanan;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -23,26 +23,28 @@ return new class extends Migration
         Schema::create('profils', function (Blueprint $table) {
             $table->id();
             $table->longText('nama')->nullable();
-
-            $table->foreignIdFor(Lokaliti::class)->nullable();
-            $table->foreignIdFor(Negeri_mukim::class)->nullable();
-            $table->foreignIdFor(Negeri_parlimen::class)->nullable();
-            $table->foreignIdFor(Info_kampung::class)->nullable();
-            $table->foreignIdFor(Pendapatan::class)->nullable();
-            $table->foreignIdFor(Simpanan::class)->nullable();
-            $table->foreignIdFor(Bantuan::class)->nullable();
-
             $table->string('no_kad_pengenalan')->nullable();
-            $table->string('jumlah_pendapatan_per_kapita')->nullable();
-            $table->string('jumlah_isi_rumah')->nullable();
-            $table->string('status_miskin')->nullable();
-            $table->string('status_terkeluar')->nullable();
+
+            // $table->foreignIdFor(Lokaliti::class)->nullable();
+            // $table->foreignIdFor(Negeri_mukim::class)->nullable();
+            // $table->foreignIdFor(Negeri_parlimen::class)->nullable();
+
+            $table->foreignIdFor(Negeri::class)->nullable();
+            $table->foreignIdFor(Daerah::class)->nullable();
+            $table->string('mukim')->nullable();
+            $table->string('parlimen')->nullable();
+            $table->string('dun')->nullable();
+            $table->string('strata')->nullable();
             $table->string('alamat1')->nullable();
             $table->string('alamat2')->nullable();
             $table->string('alamat3')->nullable();
             $table->string('poskod')->nullable();
-            $table->string('longtitude_gps')->nullable();
-            $table->string('latitude_gps')->nullable();
+
+            $table->string('jumlah_pendapatan_per_kapita')->nullable();
+            $table->string('jumlah_isi_rumah')->nullable();
+            $table->string('status_miskin')->nullable();
+            $table->string('status_terkeluar')->nullable();
+
             $table->string('no_telefon_tetap')->nullable();
             $table->string('no_telefon_bimbit')->nullable();
             $table->string('tarikh_lahir')->nullable();
@@ -65,7 +67,6 @@ return new class extends Migration
             $table->string('jenis_bantuan_kebajikan_yang_diterima')->nullable();
             $table->string('jenis_bantuan_kebajikan_yang_diperlukan')->nullable();
             $table->string('jumlah_kasar_isi_rumah_sebulan')->nullable();
-            $table->string('strata')->nullable();
             $table->string('kategori')->nullable();
             $table->string('keterangan')->nullable();
             $table->string('current_bahagian')->nullable();
@@ -74,7 +75,12 @@ return new class extends Migration
             $table->string('jumlah_bantuan')->nullable();
             $table->string('jumlah_impak_bantuan')->nullable();
             $table->string('jumlah_pendapatan_kasar')->nullable();
-            $table->string('user_id')->nullable();
+
+            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Info_kampung::class)->nullable();
+            $table->foreignIdFor(Pendapatan::class)->nullable();
+            $table->foreignIdFor(Simpanan::class)->nullable();
+            $table->foreignIdFor(Bantuan::class)->nullable();
 
             $table->timestamps();
         });

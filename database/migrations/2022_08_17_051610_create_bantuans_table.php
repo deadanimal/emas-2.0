@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Daerah;
 use App\Models\Info_kampung;
+use App\Models\Negeri;
 use App\Models\Rakan_strategik;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -26,12 +28,10 @@ return new class extends Migration
             $table->string('kementerian')->nullable();
             $table->string('agensi')->nullable();
             $table->string('sektor')->nullable();
-            $table->string('negeri')->nullable();
-            $table->string('daerah')->nullable();
-            $table->string('user_id')->nullable();
+            $table->foreignIdFor(Negeri::class)->nullable();
+            $table->foreignIdFor(Daerah::class)->nullable();
             $table->foreignIdFor(Info_kampung::class)->nullable();
             $table->foreignIdFor(Rakan_strategik::class)->nullable();
-
             $table->timestamps();
         });
     }

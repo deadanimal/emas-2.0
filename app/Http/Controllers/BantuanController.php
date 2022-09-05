@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bantuan;
+use App\Models\Daerah;
+use App\Models\Kampung;
+use App\Models\KetuaKampung;
+use App\Models\Negeri;
+use App\Models\Profil;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class BantuanController extends Controller
 {
@@ -22,22 +26,27 @@ class BantuanController extends Controller
     public function index()
     {
         $bantuans = Bantuan::all();
-
         return view('kt.bantuan.index', compact('bantuans'));
     }
 
     public function berdasarkan_negeri()
     {
-        $bantuans = Bantuan::all();
+        $bantuans = Bantuan::with(['negeri'])->get()->sortBy('negeri');
 
+        foreach ($bantuans as $bantuan) {
+            $bantuan['kir'] = Profil::where([['bantuan_id', $bantuan->id], ['kategori', 'KIR']])->count();
+            $bantuan['air'] = Profil::where([['bantuan_id', $bantuan->id], ['kategori', 'AIR']])->count();
+        }
         return view('kt.bantuan.berdasarkan_negeri', compact('bantuans'));
     }
 
     public function senarai_ketua_kampung()
     {
-        $bantuans = Bantuan::all();
-
-        return view('kt.bantuan.senarai_ketua_kampung', compact('bantuans'));
+        $negeris = Negeri::all();
+        $daerahs = Daerah::all();
+        $kampungs = Kampung::all();
+        $ketuakampungs = KetuaKampung::all();
+        return view('kt.bantuan.senarai_ketua_kampung', compact('ketuakampungs', 'negeris', 'daerahs', 'kampungs'));
     }
 
     public function senarai_kampung_menerima()
@@ -47,7 +56,6 @@ class BantuanController extends Controller
         return view('kt.bantuan.senarai_kampung_menerima', compact('bantuans'));
     }
 
-
     /**
      * Show the form for creating a new resource.
      *
@@ -55,23 +63,8 @@ class BantuanController extends Controller
      */
     public function create()
     {
-
-        $user = Auth::user();
-        return view('kt.bantuan.create', ['user' => $user]);
-    }
-
-    public function create1()
-    {
-
-        $user = Auth::user();
-        return view('kt.bantuan.create1', ['user' => $user]);
-    }
-
-    public function create2()
-    {
-
-        $user = Auth::user();
-        return view('kt.bantuan.create2', ['user' => $user]);
+        $negeri = Negeri::with('daerah')->get();
+        return view('kt.bantuan.create', compact('negeri'));
     }
 
     /**
@@ -82,7 +75,8 @@ class BantuanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Bantuan::create($request->all());
+        return redirect()->route('bantuan.index');
     }
 
     /**
@@ -104,7 +98,10 @@ class BantuanController extends Controller
      */
     public function edit(Bantuan $bantuan)
     {
-        return view('kt.bantuan.edit', compact('bantuan'));
+        $negeri = Negeri::with('daerah')->get();
+        $daerah = Daerah::all();
+
+        return view('kt.bantuan.edit', compact('bantuan', 'negeri', 'daerah'));
     }
 
     /**
@@ -116,7 +113,10 @@ class BantuanController extends Controller
      */
     public function update(Request $request, Bantuan $bantuan)
     {
-        //
+        $bantuan->update($request->all());
+
+        return redirect()->route('bantuan.index');
+
     }
 
     /**
@@ -127,6 +127,7 @@ class BantuanController extends Controller
      */
     public function destroy(Bantuan $bantuan)
     {
-        //
+        $bantuan->delete();
+        return back();
     }
 }

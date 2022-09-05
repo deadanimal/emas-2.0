@@ -9,7 +9,9 @@ use App\Http\Controllers\ClusterController;
 use App\Http\Controllers\FokusutamaController;
 use App\Http\Controllers\InisiatifController;
 use App\Http\Controllers\InitiativeController;
+use App\Http\Controllers\KampungController;
 use App\Http\Controllers\KemasukanDataController;
+use App\Http\Controllers\KetuaKampungController;
 use App\Http\Controllers\KeyController;
 use App\Http\Controllers\Kpi2Controller;
 use App\Http\Controllers\KpiController;
@@ -180,13 +182,12 @@ Route::group(
         Route::get('/bantuan1/senarai_ketua_kampung/', [BantuanController::class, 'senarai_ketua_kampung']);
         Route::get('/bantuan1/senarai_kampung_menerima/', [BantuanController::class, 'senarai_kampung_menerima']);
 
-        Route::get('/bantuan1/create1/', [BantuanController::class, 'create1']);
-        Route::post('/bantuan1/create1/', [BantuanController::class, 'store1']);
-        Route::get('/bantuan1/{id}/edit1/', [BantuanController::class, 'edit1']);
+        //Ketua Kampung
+        Route::resource('/ketuaKampung', KetuaKampungController::class);
 
-        Route::get('/bantuan1/create2/', [BantuanController::class, 'create2']);
-        Route::post('/bantuan1/create2/', [BantuanController::class, 'store2']);
-        Route::get('/bantuan1/{id}/edit2/', [BantuanController::class, 'edit2']);
+        //Kampung
+        Route::resource('kampung', KampungController::class);
+
 
         // Senarai Informasi
         Route::resource('/senarai_informasi', SenaraiInformasiController::class);
@@ -196,7 +197,6 @@ Route::group(
 
 
         // Kemasukan Data
-        // Route::resource('/kemasukanData', KemasukanDataController::class);
         Route::get('/kemasukanData/bahagian', [KemasukanDataController::class, 'bahagian']);
 
         Route::post('/kemasukanData-bahagian1', [KemasukanDataController::class, 'simpanBahagian1']);
@@ -268,9 +268,7 @@ Route::group(
     }
 );
 
+Route::post('importUserExcel', [PenggunaController::class, 'import']);
+Route::post('senarai-kir-dan-air-excel', [KemasukanDataController::class, 'import']);
 
-// Route::get('/forget-password', 'ForgotPasswordController@getEmail');
-// Route::post('/forget-password', 'ForgotPasswordController@postEmail');
-
-// Route::get('/reset-password/{token}', 'ResetPasswordController@getPassword');
-// Route::post('/reset-password', 'ResetPasswordController@updatePassword');
+Route::post('find-by-lokaliti', [KetuaKampungController::class, 'find']);

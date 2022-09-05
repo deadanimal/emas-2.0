@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use OwenIt\Auditing\Contracts\Auditable;
 
-
 class Bantuan extends Model implements Auditable
 {
 
@@ -14,8 +13,21 @@ class Bantuan extends Model implements Auditable
 
     use HasFactory;
 
-
     public $table = 'bantuans';
 
     protected $guarded = ['id'];
+
+    public function negeri()
+    {
+        return $this->belongsTo(Negeri::class);
+    }
+    public function daerah()
+    {
+        return $this->belongsTo(Daerah::class);
+    }
+
+    public function profil()
+    {
+        return $this->hasMany(Profil::class);
+    }
 }

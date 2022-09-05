@@ -31,30 +31,21 @@
             <thead class="table-dark">
                 <tr>
                     <th scope="col">No.</th>
-                    <th colspan="1">Negeri/Daerah</th>
+                    <th colspan="1">Negeri</th>
                     <th scope="col">Jumlah KIR</th>
                     <th scope="col">Jumlah AIR</th>
 
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1.</td>
-                    <td>Selangor</td>
-                    <td>726</td>
-                    <td>213</td>
-
-
-                </tr>
-                <tr>
-                    <td>2.</td>
-                    <td>Sepang</td>
-                    <td>732</td>
-                    <td>423</td>
-
-
-                </tr>
-
+                @foreach ($negeris as $negeri)
+                    <tr>
+                        <td>{{ $loop->iteration }}.</td>
+                        <td>{{ $negeri->name }}</td>
+                        <td>{{ $negeri->jumlah_kir }}</td>
+                        <td>{{ $negeri->jumlah_air }}</td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     @endsection

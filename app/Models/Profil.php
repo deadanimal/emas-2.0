@@ -16,4 +16,8 @@ class Profil extends Model implements Auditable
 
     protected $guarded = ['id'];
 
+    public function negeri()
+    {
+        return $this->belongsTo(Negeri::class);
+    }
 }

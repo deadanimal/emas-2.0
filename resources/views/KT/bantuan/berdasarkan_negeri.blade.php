@@ -39,62 +39,32 @@
                     <tbody class="list" id="myTable">
                         @foreach ($bantuans as $bantuan)
                             <tr class="align-middle bantuan">
-                                <td>
-                                    <div class="d-flex align-items-center" onclick="openmodal({{ $bantuan->id }},this)">
-                                        <div class="ms-2"><b>{{ $loop->iteration }}.</b>
-                                        </div>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $bantuan->negeri->name }}</td>
+                                <td>{{ $bantuan->nama_bantuan }}</td>
+                                <td>{{ $bantuan->kir }}</td>
+                                <td>{{ $bantuan->air }}</td>
+
+
+                                <td align="right">
+                                    <div>
+                                        {{-- <form action="{{ route('bantuan.destroy', $bantuan->id) }}" method="POST"> --}}
+
+                                        <a class="btn btn-primary" style="border-radius: 38px"
+                                            href="{{ route('bantuan.edit', $bantuan->id) }}"><i class="fas fa-edit"></i>
+                                        </a>
+                                        {{-- @csrf
+                                        @method('DELETE') --}}
+
+                                        <button type="submit" onclick="myFunction({{ $bantuan->id }})"
+                                            class="btn btn-danger" style="border-radius: 38px">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <p id="ppd"></p>
+
+                                        {{-- </form> --}}
                                     </div>
                                 </td>
-                                <td>
-                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                        data-bs-target="#error-modal-{{ $bantuan->id }}">
-
-                                        <div class="ms-2"><b>{{ $bantuan->negeri }}</b></div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                        data-bs-target="#error-modal-{{ $bantuan->id }}">
-
-                                        <div class="ms-2"><b>{{ $bantuan->nama_bantuan }}</b></div>
-                                    </div>
-                                </td>
-
-                                <div class="modal fade" id="error-modal-{{ $bantuan->id }}" tabindex="-1" role="dialog"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document"
-                                        style="max-width: 500px">
-                                        <div class="modal-content position-relative">
-                                            <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
-                                                <button
-                                                    class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
-                                                    data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body p-0">
-
-                                                <div class="p-4 pb-0">
-                                                    <form>
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label" for="nama_bantuan">bantuan
-                                                                Utama:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $bantuan->nama_bantuan }}</label>
-
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Keterangan:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $bantuan->keteranganbantuan }}</label>
-                                                        </div>
-                                                        <br>
-                                                    </form>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
 
                             </tr>
                         @endforeach

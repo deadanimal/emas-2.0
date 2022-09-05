@@ -1,6 +1,5 @@
 @extends('base')
 @section('content')
-
     <div class="container">
         <div class="mb-4 text-center">
             <H2>KEMASUKAN DATA</H2>
@@ -16,18 +15,8 @@
 
         <hr style="width:100%;text-align:center;">
 
+        <x-errors-component :errors="$errors->any() ? $errors->all() : null" />
 
-
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <strong>Ooops!</strong> There were some problems with your input.<br><br>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
 
         <div class="card mb-3">
 
@@ -43,7 +32,7 @@
                             <select class="form-select" name="program_yang_diterima">
                                 <option selected disabled hidden>SILA PILIH</option>
                                 @foreach ($bantuans as $bantuan)
-                                    <option value="{{ $bantuan->nama_bantuan }}">{{ $bantuan->nama_bantuan }}</option>
+                                    <option value="{{ $bantuan->id }}">{{ $bantuan->nama_bantuan }}</option>
                                 @endforeach
 
                             </select>
@@ -80,15 +69,15 @@
                                 Diperlukan</label>
                             <select class="form-control" name="diperlukan">
                                 <option selected disabled hidden>SILA PILIH</option>
-                                <option value="1">Keperluan Asas</option>
-                                <option value="2">Ekonomi</option>
-                                <option value="3">Minda Insan</option>
-                                <option value="4">Sosio Kebajikan</option>
-                                <option value="5">Pelajaran</option>
-                                <option value="6">Pembangunan Kawasan</option>
-                                <option value="7">Kesihatan</option>
-                                <option value="8">Peluang Pekerjaan</option>
-                                <option value="9">Tiada Maklumat</option>
+                                <option value="Keperluan Asas">Keperluan Asas</option>
+                                <option value="Ekonomi">Ekonomi</option>
+                                <option value="Minda Insan">Minda Insan</option>
+                                <option value="Sosio Kebajikan">Sosio Kebajikan</option>
+                                <option value="Pelajaran">Pelajaran</option>
+                                <option value="Pembangunan Kawasan">Pembangunan Kawasan</option>
+                                <option value="Kesihatan">Kesihatan</option>
+                                <option value="Peluang Pekerjaan">Peluang Pekerjaan</option>
+                                <option value="Tiada Maklumat">Tiada Maklumat</option>
                             </select>
                         </div>
 

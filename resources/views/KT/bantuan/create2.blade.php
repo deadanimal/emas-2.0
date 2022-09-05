@@ -18,66 +18,48 @@
         </div>
 
         <hr style="width:100%;text-align:center;">
+        <form action="{{ route('kampung.store') }}" method="post">
+            @csrf
+            <div class="row g-3" style="width: 100%">
+                <div class="col-6">
+                    <select class="form-select" id="negeri">
+                        <option selected disabled hidden>NEGERI</option>
+                        @foreach ($negeri as $n)
+                            <option value="{{ $n->id }}">{{ $n->name }}</option>
+                        @endforeach
 
-        <div class="row g-3" style="width: 100%">
-            <div class="col-sm">
-
-                <select class="form-select searchKategori" style="width:70%">
-                    <option selected disabled hidden>NEGERI</option>
-
-                    {{-- @foreach ($list as $list)
-                        <option value="{{ $list->id }}">{{ $list->namaKpi }}</option>
-                    @endforeach --}}
-
-                </select>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <select class="form-select" id="daerah">
+                        <option selected disabled hidden>DAERAH</option>
+                        <option disabled>Sila Pilih Negeri</option>
+                    </select>
+                </div>
             </div>
 
+            <br>
 
+            <div class="card mb-3">
 
-            <div class="col-sm">
-
-                <select class="form-select searchKategori" style="width:70%">
-                    <option selected disabled hidden>DAERAH</option>
-
-                    {{-- @foreach ($list as $list)
-                    <option value="{{ $list->id }}">{{ $list->namaKpi }}</option>
-                    @endforeach --}}
-
-                </select>
-            </div>
-
-        </div>
-
-        <br>
-
-        <div class="card mb-3">
-
-            <div class="card-body bg-light">
-                <form action="/bantuan1/create2/" method="POST">
-                    @csrf
-
+                <div class="card-body bg-light">
                     <div class="row g-3">
                         <div class="col-lg-12">
-                            <label class="form-label" for="nama_kampung">Nama Kampung</label>
-                            <input class="form-control" id="nama_kampung" name="nama_kampung" type="text">
-
-                        </div>
-                        <div class="col-lg-12">
-                            <label class="form-label" for="maklumat_kampung">Maklumat Kampung</label>
-                            <input class="form-control" id="maklumat_kampung" name="maklumat_kampung" type="text">
-                        </div>
-                        <div class="col-lg-12">
-                            <label class="form-label" for="alamat_kampung">Alamat Kampung</label>
-                            <input class="form-control" id="alamat_kampung" name="alamat_kampung" type="text">
-                        </div>
-                        <div class="col-lg-12">
-                            <label class="form-label" for="nama">Gambar Kampung</label>
+                            <label class="form-label" for="nama">Nama Kampung</label>
                             <input class="form-control" id="nama" type="text">
                         </div>
-
-
-
-
+                        <div class="col-lg-12">
+                            <label class="form-label" for="nama">Alamat Kampung</label>
+                            <input class="form-control" id="nama" type="text">
+                        </div>
+                        <div class="col-lg-12">
+                            <label class="form-label" for="nama">Maklumat Kampung</label>
+                            <input class="form-control" id="nama" type="text">
+                        </div>
+                        {{-- <div class="col-lg-12">
+                            <label class="form-label" for="nama">Gambar Kampung</label>
+                            <input class="form-control" id="nama" type="text">
+                        </div> --}}
 
                         <div class="col" style="text-align: center">
                             <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
@@ -86,24 +68,26 @@
                                     class="fas fa-save"></span>&nbsp;Tambah Kampung
                             </button>
                         </div>
+
                     </div>
-                </form>
+                </div>
+
             </div>
-        </div>
+        </form>
+    </div>
 
-
-
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script type="text/javascript">
-            $(function() {
-                $("#pilih1").change(function() {
-                    if ($(this).val() == "3") {
-                        $("#pilih2").show();
-                    } else {
-                        $("#pilih2").hide();
-                    }
-                });
+    <script>
+        $("#negeri").change(function() {
+            var negeri_id = $(this).val();
+            var daerah = @json($daerah->toArray());
+            $("#daerah").html('');
+            daerah.forEach(d => {
+                if (d.negeri_id == negeri_id) {
+                    $("#daerah").append(`
+                         <option value="` + d.id + `">` + d.name + `</option>
+                    `);
+                }
             });
-        </script>
-    @stop
-</div>
+        });
+    </script>
+@endsection

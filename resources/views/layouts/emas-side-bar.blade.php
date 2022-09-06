@@ -83,8 +83,6 @@
                             </div>
 
                         </div>
-
-
                     </a>
 
 
@@ -116,7 +114,10 @@
                         'tindakan1',
                         'tindakan1/*',
                         'sdg',
-                        'sdg/*'))
+                        'sdg/*',
+                        'ucapan',
+                        'executive',
+                        'executiveSummary'))
                         <a class="nav-link btn1" href="" role="button">
                             <div class="d-flex align-items-center">
                                 <div class="col-2">
@@ -1131,7 +1132,7 @@
                         </a>
                     @endif
 
-                    <a class="nav-link btn1" href="/ppd" role="button">
+                    <a class="nav-link btn1" href="/ucapan" role="button">
 
                         <div class="d-flex align-items-center">
                             <div class="col-2">
@@ -1149,6 +1150,90 @@
                             </div>
                         </div>
                     </a>
+                    @if (Request::is(
+                        'ucapan',
+                        'ucapan/*',
+                        'rumusanPPD',
+                        'rumusanPPD/*',
+                        'rumusanTindakan',
+                        'rumusanTindakan/*',
+                        'executive',
+                        'executive/*',
+                        'executiveSummary',
+                        'executiveSummary/*'))
+                        <a class="nav-link dropdown-indicator" href="#tableauPPD" role="button"
+                            data-bs-toggle="collapse" aria-expanded="true" aria-controls="tableauPPD"
+                            style="background-color: #C4D4ED">
+                            <div class="d-flex justify-content-center" style="color: #047FC3">
+                                <span class="nav-link-text1 ps-1">Senarai Dashboard</span>
+                            </div>
+                        </a>
+
+                        <div class="card">
+                            <ul class="nav collapse show" id="tableauPPD" style="background-color: #E7EFFD">
+
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('ucapan', 'ucapan/*') ? 'active' : '' }}"
+                                        href="/ucapan">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text1 ps-1">Ucapan PM
+
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('rumusanPPD', 'rumusanPPD/*') ? 'active' : '' }}"
+                                        href="/rumusanPPD">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text1 ps-1">Butiran
+                                                Rumusan PPD
+
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('rumusanTindakan', 'rumusanTindakan/*') ? 'active' : '' }}"
+                                        href="/rumusanTindakan">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text1 ps-1">Rumusan
+                                                Tindakan
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('executive', 'executive/*') ? 'active' : '' }}"
+                                        href="/executive">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text1 ps-1">Executive
+                                                Dashboard
+
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('executiveSummary', 'executiveSummary/*') ? 'active' : '' }}"
+                                        href="/executiveSummary">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text1 ps-1">Executive
+                                                Summary
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    @endif
                 </li>
 
                 <hr style="width:100%;text-align:center;">
@@ -1203,28 +1288,26 @@
                 <br>
 
 
-                <li class="btn btn-falcon-default btn-sm">
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <a class="nav-link btn1" role="button" :href="route('logout')"
-                            onclick="event.preventDefault();
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a class="nav-link btn1" role="button" :href="route('logout')"
+                        onclick="event.preventDefault();
                     this.closest('form').submit();">
 
-                            <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center">
 
-                                <div class="col text-center">
-                                    <span class="fas fa-arrow-alt-circle-left"></span>
-                                    <span class="nav-link-text ps-1">Log Keluar
-                                    </span>
-                                </div>
-                                <div class="col-2">
-
-                                </div>
+                            <div class="col text-center">
+                                <span class="fas fa-arrow-alt-circle-left"></span>
+                                <span class="nav-link-text ps-1">Log Keluar
+                                </span>
                             </div>
-                        </a>
-                    </form>
+                            <div class="col-2">
 
-                </li>
+                            </div>
+                        </div>
+                    </a>
+                </form>
+
 
             </ul>
         </div>

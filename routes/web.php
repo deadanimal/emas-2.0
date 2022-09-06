@@ -266,5 +266,8 @@ Route::post('/senarai-kir-dan-air-excel', [KemasukanDataController::class, 'impo
 
 Route::post('/find-by-lokaliti', [KetuaKampungController::class, 'find']);
 
-Route::view('/ppd', 'ppd');
-Route::view('/rumusan_ppd', 'rumusan_ppd');
+Route::view('/ucapan', 'ucapan');
+Route::view('/rumusanPPD', 'rumusanPPD');
+Route::view('/rumusanTindakan', 'rumusanTindakan');
+Route::view('/executive', 'executive');
+Route::view('/executiveSummary', 'executiveSummary');

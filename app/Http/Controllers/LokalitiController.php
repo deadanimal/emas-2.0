@@ -28,14 +28,14 @@ class LokalitiController extends Controller
             ])->count();
         }
 
-        return view('kt.lokaliti.index', compact('negeris'));
+        return view('KT.lokaliti.index', compact('negeris'));
     }
 
     public function index1()
     {
         $lokaliti = Lokaliti::all();
 
-        return view('kt.lokaliti.index1', compact('lokaliti'));
+        return view('KT.lokaliti.index1', compact('lokaliti'));
     }
 
 }

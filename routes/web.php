@@ -265,3 +265,6 @@ Route::post('/importUserExcel', [PenggunaController::class, 'import']);
 Route::post('/senarai-kir-dan-air-excel', [KemasukanDataController::class, 'import']);
 
 Route::post('/find-by-lokaliti', [KetuaKampungController::class, 'find']);
+
+Route::view('/ppd', 'ppd');
+Route::view('/rumusan_ppd', 'rumusan_ppd');

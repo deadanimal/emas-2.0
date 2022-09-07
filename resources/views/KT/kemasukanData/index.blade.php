@@ -27,8 +27,9 @@
                 <tr>
                     <th scope="col">No.</th>
                     <th colspan="1">Nama</th>
-                    <th scope="col">No Kad Pengenalan</th>
                     <th scope="col">Kategori</th>
+                    <th scope="col">No Kad Pengenalan</th>
+
                     <th scope="col">Tindakan</th>
 
 
@@ -39,8 +40,8 @@
                     <tr>
                         <td>{{ $loop->iteration }}.</td>
                         <td>{{ $profil->nama }}</td>
-                        <td>{{ $profil->no_kad_pengenalan }}</td>
                         <td>{{ $profil->kategori }}</td>
+                        <td>{{ $profil->no_kad_pengenalan }}</td>
                         <td>
                             <a class="btn btn-primary" style="border-radius: 38px" href="/"><i
                                     class="fas fa-edit"></i>

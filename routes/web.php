@@ -192,6 +192,8 @@ Route::group(
         Route::post('senarai-kir-dan-air-excel', [KemasukanDataController::class, 'import']);
 
         // Kemasukan Data
+        Route::get('/kemasukanData/index', [KemasukanDataController::class, 'index']);
+
         Route::get('/kemasukanData/bahagian', [KemasukanDataController::class, 'bahagian']);
 
         Route::post('/kemasukanData-bahagian1', [KemasukanDataController::class, 'simpanBahagian1']);

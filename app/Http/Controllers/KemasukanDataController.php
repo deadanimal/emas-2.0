@@ -34,7 +34,8 @@ class KemasukanDataController extends Controller
 
     public function index()
     {
-        //
+        $profils = Profil::all();
+        return view('KT.kemasukanData.index', compact('profils'));
     }
 
     /**
@@ -84,7 +85,6 @@ class KemasukanDataController extends Controller
             }
         }
         return view('KT.kemasukanData.bahagian1', compact('negeri'));
-
     }
 
     public function bahagian6()

@@ -118,7 +118,7 @@
                         'ucapan',
                         'executive',
                         'executiveSummary'))
-                        <a class="nav-link btn1" href="" role="button">
+                        <a class="nav-link btn1" href="/fokusutama" role="button">
                             <div class="d-flex align-items-center">
                                 <div class="col-2">
                                     <span class="nav-link-icon">
@@ -1149,7 +1149,7 @@
 
                             </div>
                         </div>
-                    </a>
+                    </a><br>
                     @if (Request::is(
                         'ucapan',
                         'ucapan/*',

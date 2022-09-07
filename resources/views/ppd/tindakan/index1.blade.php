@@ -11,15 +11,18 @@
     </style>
 
     <div class="container">
-        <div class="mb-4">
-            <img src="/img/image 2.png" alt="banner" width="50%">
+        @cannot('BPKP')
+            <div class="mb-4 text-center">
+                <img src="/img/image 2.png" alt="banner" width="50%">
+            </div>
+        @endcannot
+
+
+        <div class="mb-4 text-center">
+            <img src="/img/image 3.png" alt="banner" width="50%">
         </div>
-        <br>
 
         @can('BPKP')
-            <div class="mb-4">
-                <img src="/img/image 3.png" alt="banner" width="50%">
-            </div>
             <div class="row">
                 <div class="column">
                     <b>Peratusan Dan Bilangan

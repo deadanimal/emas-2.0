@@ -1,8 +1,5 @@
 @extends('base')
 @section('content')
-    <div class="mb-4 text-center">
-        <H2>EXECUTIVE DASHBOARD</H2>
-    </div>
     <div class='tableauPlaceholder' id='viz1662428262368' style='position: relative'><noscript><a href='#'><img
                     alt='9 Fokus Utama '
                     src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;9F&#47;9FokusUtama-Dashboard&#47;9FokusUtama&#47;1_rss.png'

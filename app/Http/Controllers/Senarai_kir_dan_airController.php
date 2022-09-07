@@ -25,7 +25,6 @@ class Senarai_kir_dan_airController extends Controller
         }
 
         return view('KT.senarai_kir_air.index', compact('negeris'));
-
     }
 
     public function index1()
@@ -76,6 +75,6 @@ class Senarai_kir_dan_airController extends Controller
             }
         }
 
-        return view('KT.senarai_kir_air.index2', compact('senarai', 'senarai1', 'kampung'));
+        return view('KT.senarai_kir_air.index2', compact('senarai', 'senarai1', 'kampung', 'negeris'));
     }
 }

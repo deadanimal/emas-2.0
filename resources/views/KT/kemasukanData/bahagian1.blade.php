@@ -34,6 +34,7 @@
                             <input type="text" class="form-control" maxlength="13" name="no_kad_pengenalan">
                         </div>
                         <div class="col-lg-6">
+
                             <label class="form-label" for="pendapatanKasar">Jumlah Pendapatan Kasar Isi Rumah Dalam
                                 Sebulan</label>
                             <input class="form-control" type="number" name="jumlah_kasar_isi_rumah_sebulan">

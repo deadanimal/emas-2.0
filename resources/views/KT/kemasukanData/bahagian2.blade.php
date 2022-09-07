@@ -297,11 +297,16 @@
                         </div>
 
                         <div class="col" style="text-align: center">
+                            <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
+                                href="/kemasukanData/bahagian">
+                                <span class="fas fa-step-backward"></span>&nbsp;Kembali
+                            </a>
                             <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
                                 type="submit" value="Save"
                                 onclick="return confirm('Adakah anda mahu mengubah data ini?')"><span
                                     class="fas fa-save"></span>&nbsp;Simpan
                             </button>
+
 
                         </div>
                     </div>

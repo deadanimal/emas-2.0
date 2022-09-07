@@ -1038,6 +1038,25 @@
                         'kemasukanData',
                         'kemasukanData/*',
                         'kampung/*'))
+                        <a class="nav-link {{ Request::is('kemasukanData/index', 'kemasukanData/index/*') ? 'active' : '' }}
+"
+                            href="/kemasukanData/index" role="button">
+
+                            <div class="d-flex align-items-center">
+                                <div class="col-2">
+                                    <span class="nav-link-icon">
+                                        <span class="far fa-folder"></span>
+                                    </span>
+                                </div>
+                                <div class="col text-center">
+                                    <span class="nav-link-text ps-1">Senarai Kemasukan Data
+                                    </span>
+                                </div>
+                                <div class="col-2">
+
+                                </div>
+                            </div>
+                        </a>
                         <a class="nav-link {{ Request::is('kemasukanData/bahagian', 'kemasukanData/bahagian/*') ? 'active' : '' }}
 "
                             href="/kemasukanData/bahagian" role="button">

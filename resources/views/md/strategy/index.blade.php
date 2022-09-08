@@ -193,14 +193,6 @@
                             </td>
 
                             <td>
-                                <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                    data-bs-target="#error-modal-` + e.id + `">
-                                    <div class="ms-2"><b>` + e.desc + `</b></div>
-                                </div>
-                            </td>
-
-
-                            <td>
                                 <div>
                                     <form action="/strategy/` + e.id + `" method="POST">
 

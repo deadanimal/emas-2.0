@@ -124,14 +124,14 @@
                     <label class="col-sm-2 col-form-label" for="pencapaian">Pencapaian</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="pencapaian" type="text" class="percent form-control pencapaian" />
+                        <input type="number" name="pencapaian" class="percent form-control pencapaian" />
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="sasaran">Sasaran</label>
 
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="sasaran" type="text" class="percent form-control pencapaian" />
+                        <input type="number" name="sasaran" class="percent form-control pencapaian" />
                     </div>
 
                 </div>
@@ -140,13 +140,13 @@
                     <label class="col-sm-2 col-form-label" for="hadVarian">Had Varian</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="hadVarian" type="text" class="percent form-control" />
+                        <input type="number" name="hadVarian" class="percent form-control" />
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="hadToleransi">Had Toleransi</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="hadToleransi" type="text" class="percent form-control" />
+                        <input type="number" name="hadToleransi" class="percent form-control" />
                     </div>
 
                 </div>
@@ -155,13 +155,13 @@
                     <label class="col-sm-2 col-form-label" for="kekerapan">Kekerapan</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="kekerapan" type="text" />
+                        <input class="form-control" name="kekerapan" type="number" />
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="wajaran">Wajaran</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="wajaran" type="text" class="percent form-control pencapaian" />
+                        <input type="number" name="wajaran" class="percent form-control pencapaian" />
                     </div>
 
                 </div>

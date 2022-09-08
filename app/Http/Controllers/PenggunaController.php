@@ -113,60 +113,6 @@ class PenggunaController extends Controller
         $user->assignRole($request->role);
         $user->givePermissionTo($request->permission);
 
-        // switch ($request->role) {
-        //     case 'PPD':
-        //         $user->givePermissionTo('KementerianPPD');
-        //         $user->givePermissionTo('BahagianPPD');
-        //         $user->givePermissionTo('AgensiPPD');
-        //         break;
-        //     case 'MPB':
-        //         $user->givePermissionTo('User');
-        //         $user->givePermissionTo('Approver');
-        //         break;
-        //     case 'KT':
-        //         $user->givePermissionTo('AgensiKT');
-        //         $user->givePermissionTo('BahagianKT');
-        //         break;
-
-        //     case 'MD':
-        //         $user->givePermissionTo('KementerianMD');
-        //         $user->givePermissionTo('BahagianMD');
-        //         $user->givePermissionTo('AgensiMD');
-        //         $user->givePermissionTo('Urusetia');
-        //         $user->givePermissionTo('EpuMD');
-        //         break;
-
-        //     case 'ED':
-        //         $user->givePermissionTo('ICT');
-        //         $user->givePermissionTo('EpuED');
-        //         $user->givePermissionTo('Eksekutif');
-        //         break;
-
-        //     case 'SuperAdmin':
-        //         $user->givePermissionTo('KementerianPPD');
-        //         $user->givePermissionTo('BahagianPPD');
-        //         $user->givePermissionTo('AgensiPPD');
-        //         $user->givePermissionTo('User');
-        //         $user->givePermissionTo('Approver');
-        //         $user->givePermissionTo('AgensiKT');
-        //         $user->givePermissionTo('BahagianKT');
-        //         $user->givePermissionTo('KementerianMD');
-        //         $user->givePermissionTo('BahagianMD');
-        //         $user->givePermissionTo('AgensiMD');
-        //         $user->givePermissionTo('Urusetia');
-        //         $user->givePermissionTo('EpuMD');
-        //         $user->givePermissionTo('ICT');
-        //         $user->givePermissionTo('EpuED');
-        //         $user->givePermissionTo('Eksekutif');
-        //         break;
-
-        //     default:
-        //         # code...
-        //         break;
-        // }
-
-        // $user->syncPermissions($request->permission);
-
         return redirect()->route('user.index');
     }
 

@@ -364,7 +364,7 @@
 
                     @role('MPB')
                         <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3" href="/mpb">
+                            <a class="mb-3" href="/thrust">
                                 <div class="px-4 pt-4">
                                     <img src="img/MPB.png" class="img-fluid card-img-hover landing-img" alt="">
                                 </div>

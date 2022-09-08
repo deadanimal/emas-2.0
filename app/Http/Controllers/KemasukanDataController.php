@@ -120,7 +120,6 @@ class KemasukanDataController extends Controller
         $request['alamat2'] = $request->poskod . " , " . $daerah->name;
         $request['alamat3'] = $negeri->name;
         Profil::create($request->all());
-
         return back();
     }
 
@@ -315,6 +314,6 @@ class KemasukanDataController extends Controller
     public function import()
     {
         Excel::import(new ProfilImport, request()->file('profilfile'));
-        return back();
+        return back()->with('success');
     }
 }

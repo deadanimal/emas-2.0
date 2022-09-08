@@ -33,7 +33,7 @@
                                 data-dropzone="data-dropzone" action="#!">
                                 <div class="fallback">
                                     <input name="profilfile" type="file"
-                                        accept="application/pdf, application/vnd.ms-excel" />
+                                        accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
                                 </div>
                                 <div class="dz-message" data-dz-message="data-dz-message"> <img class="me-2"
                                         src="../../assets/img/icons/cloud-upload.svg" width="25" alt="" />Drop

@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="mb-4 text-center">
-            <H2>KEMASUKAN DATA</H2>
+            <H2>KEMASKINI DATA</H2>
         </div>
 
         <div class="col">
@@ -19,11 +19,17 @@
 
         <div class="card mb-3">
             <div class="card-body bg-light">
-                <form method="POST" action="/kemasukanData-bahagian1">
+
+                {{-- <form method="POST" action="/kemasukanData/update">
+                    @csrf --}}
+
+                <form action="/kemasukanData/{{ $kemasukanData->id }}" method="POST">
                     @csrf
+                    @method('PUT')
+
+
                     <div class="row g-3">
 
-                        <input type="hidden" name="user_id" value="{{ auth()->id() }}" />
                         <input type="hidden" name="current_bahagian" value="2" />
                         <div class="col-lg-12">
                             <label class="form-label" for="nama">Nama</label>
@@ -108,18 +114,7 @@
                             </select>
                         </div>
 
-                        {{-- <div class="col-lg-12">
-                            <label class="form-label" for="alamat1">Alamat 1</label>
-                            <textarea class="form-control" id="alamat1" name="alamat1" cols="30" rows="2"></textarea>
-                        </div>
-                        <div class="col-lg-12">
-                            <label class="form-label" for="alamat2">Alamat 2</label>
-                            <textarea class="form-control" id="alamat2" name="alamat2" cols="30" rows="2"></textarea>
-                        </div>
-                        <div class="col-lg-12">
-                            <label class="form-label" for="alamat3">Alamat 3</label>
-                            <textarea class="form-control" id="alamat3" name="alamat3" cols="30" rows="2"></textarea>
-                        </div> --}}
+
                         <div class="col-lg-6">
                             <label class="form-label" for="poskod">Poskod</label>
                             <input class="form-control" id="poskod" type="number" name="poskod">

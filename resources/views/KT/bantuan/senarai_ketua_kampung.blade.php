@@ -15,11 +15,12 @@
                     <span><b>Senarai Nama Ketua Kampung</b></span>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         href="{{ route('ketuaKampung.create') }}">
-                        <span class="fas fa-plus-circle"></span>&nbsp;Tambah</a>
-                    <button onclick="location.reload();" class="btn btn-falcon-default btn-sm"
-                        style="background-color: #047FC3; color:white">
-                        {{-- <span class="fa fa-refresh"></span> --}}
-                        &nbsp;Refresh</button>
+                        <span class="fas fa-plus-circle"></span>&nbsp;Tambah
+                    </a>
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                        onClick="window.location.reload();">
+                        <span class="fas fa-history"></span>
+                    </a>
                 </div>
 
             </div>

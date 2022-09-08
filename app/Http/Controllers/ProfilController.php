@@ -81,6 +81,9 @@ class ProfilController extends Controller
      */
     public function destroy(Profil $profil)
     {
-        //
+        $profil->delete();
+
+        return redirect()->route('KT.profil.index')
+            ->with('Berjaya', 'Keterangan berjaya dibuang');
     }
 }

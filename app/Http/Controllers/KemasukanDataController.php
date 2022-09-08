@@ -21,11 +21,6 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class KemasukanDataController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
     public function __construct()
     {
@@ -38,11 +33,7 @@ class KemasukanDataController extends Controller
         return view('KT.kemasukanData.index', compact('profils'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function bahagian()
     {
         $user = auth()->user();
@@ -98,12 +89,14 @@ class KemasukanDataController extends Controller
         $messages = [
             'poskod.min' => ':attribute perlu mempunyai 5 angka.',
             'poskod.max' => ':attribute perlu mempunyai 5 angka sahaja',
+            'no_kad_pengenalan.min' => ':attribute perlu mempunyai 12 angka',
+            'no_kad_pengenalan.max' => ':attribute perlu mempunyai 12 angka sahaja',
 
         ];
 
         $request->validate([
             'nama' => 'required',
-            'no_kad_pengenalan' => 'required',
+            'no_kad_pengenalan' => 'required|min:12|max:12',
             'jumlah_kasar_isi_rumah_sebulan' => 'required',
             'jumlah_pendapatan_per_kapita' => 'required',
             'kategori' => 'required',
@@ -254,61 +247,66 @@ class KemasukanDataController extends Controller
         return back();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $data = KemasukanData::create($request->all());
         return redirect()->route('kemasukanData.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\KemasukanData  $kemasukanData
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(KemasukanData $kemasukanData)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\KemasukanData  $kemasukanData
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(KemasukanData $kemasukanData)
     {
-        //
+        $user = auth()->user();
+        $profil = Profil::where('user_id', $user->id)->get();
+
+        $negeri = Negeri::with('daerah')->get();
+        return view('KT.kemasukanData.edit', compact('kemasukanData', 'user', 'profil', 'negeri'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\KemasukanData  $kemasukanData
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, KemasukanData $kemasukanData)
+
+    public function update(Request $request, KemasukanData $kemasukanData, Profil $profil_id)
     {
-        //
+        // dd($request);
+
+
+        $profil_id->update($request->all());
+        $profil_id->nama = $request->nama;
+        $profil_id->no_kad_pengenalan = $request->no_kad_pengenalan;
+        $profil_id->jumlah_kasar_isi_rumah_sebulan = $request->jumlah_kasar_isi_rumah_sebulan;
+        $profil_id->jumlah_pendapatan_per_kapita = $request->jumlah_pendapatan_per_kapita;
+        $profil_id->kategori = $request->kategori;
+        $profil_id->jumlah_isi_rumah = $request->jumlah_isi_rumah;
+        $profil_id->status_miskin = $request->status_miskin;
+        $profil_id->status_terkeluar = $request->status_terkeluar;
+        $profil_id->strata = $request->strata;
+        $profil_id->poskod = $request->poskod;
+
+        $negeri = Negeri::findorFail($request->negeri_id);
+        $daerah = Daerah::findorFail($request->daerah_id);
+
+        $request['alamat1'] = $request->kampung;
+        $request['alamat2'] = $request->poskod . " , " . $daerah->name;
+        $request['alamat3'] = $negeri->name;
+        Profil::create($request->all());
+
+        $profil_id->save();
+
+
+        return redirect()->route('kemasukanData.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\KemasukanData  $kemasukanData
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(KemasukanData $kemasukanData)
+    public function destroy(Profil $profil)
     {
-        //
+        $profil->delete();
+
+        return redirect()->route('KT.kemasukanData.index')
+            ->with('Berjaya', 'Profil berjaya dibuang');
     }
 
     public function import()

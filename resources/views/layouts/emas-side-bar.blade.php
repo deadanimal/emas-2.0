@@ -1049,7 +1049,7 @@
                                     </span>
                                 </div>
                                 <div class="col text-center">
-                                    <span class="nav-link-text ps-1">Senarai Kemasukan Data
+                                    <span class="nav-link-text ps-1">Senarai Data
                                     </span>
                                 </div>
                                 <div class="col-2">

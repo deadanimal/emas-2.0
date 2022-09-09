@@ -196,8 +196,8 @@ Route::group(
 
         Route::get('/kemasukanData/index', [KemasukanDataController::class, 'index']);
         Route::get('/kemasukanData/{id}/edit/', [KemasukanDataController::class, 'edit']);
-        Route::post('/kemasukanData/{id}', [KemasukanDataController::class, 'update']);
-
+        Route::put('/kemasukanData/{id}', [KemasukanDataController::class, 'update']);
+        Route::delete('/kemasukanData/{id}', [KemasukanDataController::class, 'destroy']);
 
 
         Route::get('/kemasukanData/bahagian', [KemasukanDataController::class, 'bahagian']);

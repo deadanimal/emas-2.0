@@ -36,6 +36,7 @@ class KemasukanDataController extends Controller
 
     public function bahagian()
     {
+
         $user = auth()->user();
         $profil = Profil::where('user_id', $user->id)->get();
 
@@ -260,53 +261,56 @@ class KemasukanDataController extends Controller
     }
 
 
-    public function edit(KemasukanData $kemasukanData)
+    public function edit($id)
     {
-        $user = auth()->user();
-        $profil = Profil::where('user_id', $user->id)->get();
+        $profil = Profil::find($id);
 
-        $negeri = Negeri::with('daerah')->get();
-        return view('KT.kemasukanData.edit', compact('kemasukanData', 'user', 'profil', 'negeri'));
+        $negeri = Negeri::all();
+        $daerah = Daerah::all();
+
+        // dd($profil->id);
+        return view('KT.kemasukanData.edit', compact('profil', 'negeri', 'daerah'));
     }
 
 
-    public function update(Request $request, KemasukanData $kemasukanData, Profil $profil_id)
+    public function update(Request $request, $id)
     {
         // dd($request);
+        $profil = Profil::find($id);
+
+        // $profil_id->update($request->all());
+        $profil->user_id = Auth::user()->id;
+        $profil->nama = $request->nama;
+        $profil->no_kad_pengenalan = $request->no_kad_pengenalan;
+        $profil->jumlah_kasar_isi_rumah_sebulan = $request->jumlah_kasar_isi_rumah_sebulan;
+        $profil->jumlah_pendapatan_per_kapita = $request->jumlah_pendapatan_per_kapita;
+        $profil->kategori = $request->kategori;
+        $profil->jumlah_isi_rumah = $request->jumlah_isi_rumah;
+        $profil->status_miskin = $request->status_miskin;
+        $profil->status_terkeluar = $request->status_terkeluar;
+        $profil->strata = $request->strata;
+        $profil->poskod = $request->poskod;
+
+        $profil->negeri_id = $request->negeri_id;
+        $profil->daerah_id = $request->daerah_id;
 
 
-        $profil_id->update($request->all());
-        $profil_id->nama = $request->nama;
-        $profil_id->no_kad_pengenalan = $request->no_kad_pengenalan;
-        $profil_id->jumlah_kasar_isi_rumah_sebulan = $request->jumlah_kasar_isi_rumah_sebulan;
-        $profil_id->jumlah_pendapatan_per_kapita = $request->jumlah_pendapatan_per_kapita;
-        $profil_id->kategori = $request->kategori;
-        $profil_id->jumlah_isi_rumah = $request->jumlah_isi_rumah;
-        $profil_id->status_miskin = $request->status_miskin;
-        $profil_id->status_terkeluar = $request->status_terkeluar;
-        $profil_id->strata = $request->strata;
-        $profil_id->poskod = $request->poskod;
+        $profil->save();
 
-        $negeri = Negeri::findorFail($request->negeri_id);
-        $daerah = Daerah::findorFail($request->daerah_id);
-
-        $request['alamat1'] = $request->kampung;
-        $request['alamat2'] = $request->poskod . " , " . $daerah->name;
-        $request['alamat3'] = $negeri->name;
-        Profil::create($request->all());
-
-        $profil_id->save();
-
-
-        return redirect()->route('kemasukanData.index');
+        return redirect('/kemasukanData/index');
     }
 
-    public function destroy(Profil $profil)
+    public function destroy($id)
     {
+
+        // dd('test');
+        $profil = Profil::where('id', $id)->first();
         $profil->delete();
 
-        return redirect()->route('KT.kemasukanData.index')
-            ->with('Berjaya', 'Profil berjaya dibuang');
+        return redirect()->back();
+
+        // return redirect()->route('KT.kemasukanData.index')
+        //     ->with('Berjaya', 'Profil berjaya dibuang');
     }
 
     public function import()

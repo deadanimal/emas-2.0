@@ -20,4 +20,9 @@ class Profil extends Model implements Auditable
     {
         return $this->belongsTo(Negeri::class);
     }
+
+    public function daerah()
+    {
+        return $this->belongsTo(Daerah::class);
+    }
 }

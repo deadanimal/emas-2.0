@@ -55,11 +55,15 @@
                                         href="/kemasukanData/{{ $profil->id }}/edit/"><i class="fas fa-edit"></i>
                                     </a>
 
+                                    <form action="/kemasukanData/{{ $profil->id }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger" style="border-radius: 38px">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <p id="ppd"></p>
+                                    </form>
 
-                                    <button type="submit" onclick="myFunction({{ $profil->id }})" class="btn btn-danger"
-                                        style="border-radius: 38px">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
                                 </td>
                             </tr>
                         @endforeach
@@ -88,27 +92,27 @@
 
 
         <script>
-            function myFunction(id) {
+            // function myFunction(id) {
 
 
-                let alert = "Adakah anda mahu membuang data?";
-                if (confirm(alert) == true) {
-                    $.ajax({
-                        method: "DELETE",
-                        url: "/kemasukanData/" + id,
-                        data: {
-                            "_token": "{{ csrf_token() }}",
-                        }
-                    });
+            //     let alert = "Adakah anda mahu membuang data?";
+            //     if (confirm(alert) == true) {
+            //         $.ajax({
+            //             method: "DELETE",
+            //             url: "/kemasukanData/" + id,
+            //             data: {
+            //                 "_token": "{{ csrf_token() }}",
+            //             }
+            //         });
 
-                    alert = "Berjaya di buang!";
-                    location.href = "/kemasukanData";
+            //         alert = "Berjaya di buang!";
+            //         location.href = "/kemasukanData";
 
-                } else {
-                    alert("Dibatalkan!");
-                }
-                document.getElementById("ppd").innerHTML = text;
-            }
+            //     } else {
+            //         alert("Dibatalkan!");
+            //     }
+            //     document.getElementById("ppd").innerHTML = text;
+            // }
 
             $(document).ready(function() {
                 $("#myInput").on("keyup", function() {

@@ -83,7 +83,7 @@ class ProfilController extends Controller
     {
         $profil->delete();
 
-        return redirect()->route('KT.profil.index')
+        return redirect()->route('KT.kemasukanData.index')
             ->with('Berjaya', 'Keterangan berjaya dibuang');
     }
 }

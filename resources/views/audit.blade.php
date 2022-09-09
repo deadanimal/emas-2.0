@@ -31,7 +31,7 @@
         <hr style="width:100%;text-align:center;">
 
         <div align="center">
-            <span><b> Audit Trail</b></span>
+            <span><b> Audit Trail: </b></span>
 
 
             <input id="myInput" size="20" type="text" />

@@ -70,7 +70,7 @@
                                 <option value="4">Berkahwin semula</option>
                                 <option value="5">Pengesahan oleh Focus Group</option>
                             </select>
-                        </div>
+                        </div>\
                         <div class="col-lg-6">
                             <label class="form-label" for="negeri">Negeri</label>
                             <select class="form-control" name="negeri_id" id="negeri">

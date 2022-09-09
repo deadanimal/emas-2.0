@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
-class FokusutamaController extends Controller 
+class FokusutamaController extends Controller
 {
     /**
      * Display a listing of the resource.

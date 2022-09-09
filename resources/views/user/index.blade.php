@@ -41,7 +41,7 @@
                                         <th class="font-weight-bolder opacity-7">ID Agensi/Bahagian/Kementerian</th>
                                         <th class="text-center font-weight-bolder opacity-7">Nama
                                             Agensi/Bahagian/Kementerian</th>
-                                        <th class="text-center font-weight-bolder opacity-7">Dimuat Naik Oleh</th>
+                                        <th class="text-center font-weight-bolder opacity-7">Peranan</th>
 
                                         <th class="text-center font-weight-bolder opacity-7">Profil</th>
                                         {{-- @if ($current_user != 3)
@@ -63,7 +63,7 @@
                                                 <td class="text-sm text-center font-weight-normal">
                                                     {{ $u['email'] }}</td>
                                                 <td class="text-sm text-center font-weight-normal">
-                                                    {{ $u['SuperAdmin'] }}
+                                                    {{ $u['role'] }}
                                                     {{-- <td class="text-sm text-center font-weight-normal">
                                                     {{ $u['role'] }}
                                                 </td> --}}

@@ -61,49 +61,49 @@
                         <tbody class="list myTable" id="tablebody">
                             @foreach ($initiatives as $initiative)
                                 <tr class="align-middle initiative">
-                                    <td class="text-nowrap">
+                                    <td>
                                         <div class="d-flex align-items-center" data-bs-toggle="modal"
                                             data-bs-target="#error-modal-{{ $initiative->id }}">
                                             <div class="ms-2"><b>{{ $loop->iteration }}</b></div>
                                         </div>
                                     </td>
 
-                                    <td class="text-nowrap">
+                                    <td>
                                         <div class="d-flex align-items-center" data-bs-toggle="modal"
                                             data-bs-target="#error-modal-{{ $initiative->id }}">
                                             <div class="ms-2"><b>{{ $initiative->namaInitiative }}</b></div>
                                         </div>
                                     </td>
 
-                                    <td class="text-nowrap">
+                                    <td>
                                         <div class="d-flex align-items-center" data-bs-toggle="modal"
                                             data-bs-target="#error-modal-{{ $initiative->id }}">
                                             <div class="ms-2"><b>{{ $initiative->target }}</b></div>
                                         </div>
                                     </td>
 
-                                    <td class="text-nowrap">
+                                    <td>
                                         <div class="d-flex align-items-center" data-bs-toggle="modal"
                                             data-bs-target="#error-modal-{{ $initiative->id }}">
                                             <div class="ms-2"><b>{{ $initiative->phase }}</b></div>
                                         </div>
                                     </td>
 
-                                    <td class="text-nowrap">
+                                    <td>
                                         <div class="d-flex align-items-center" data-bs-toggle="modal"
                                             data-bs-target="#error-modal-{{ $initiative->id }}">
                                             <div class="ms-2"><b>{{ $initiative->phase }}</b></div>
                                         </div>
                                     </td>
 
-                                    <td class="text-nowrap">
+                                    <td>
                                         <div class="d-flex align-items-center" data-bs-toggle="modal"
                                             data-bs-target="#error-modal-{{ $initiative->id }}">
                                             <div class="ms-2"><b>{{ $initiative->phase }}</b></div>
                                         </div>
                                     </td>
 
-                                    <td class="text-nowrap">
+                                    <td>
                                         <div class="d-flex align-items-center" data-bs-toggle="modal"
                                             data-bs-target="#error-modal-{{ $initiative->id }}">
                                             <div class="ms-2"><b>{{ $initiative->leadAgency }}</b></div>
@@ -154,7 +154,7 @@
                                         </div>
                                     </div>
 
-                                    <td class="text-nowrap">
+                                    <td>
                                         <div>
 
                                             <a class="btn btn-primary" style="border-radius: 38px"

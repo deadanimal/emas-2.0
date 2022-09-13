@@ -1,4 +1,4 @@
-@extends('base')
+@extends('base-md')
 @section('content')
     <div class="container">
         @can('Epu MD')

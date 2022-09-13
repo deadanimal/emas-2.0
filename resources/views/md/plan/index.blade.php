@@ -1,4 +1,4 @@
-@extends('base')
+@extends('base-md')
 @section('content')
     <div class="container">
         <div class="mb-4 text-center">

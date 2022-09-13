@@ -136,6 +136,21 @@
                                 @elseif($audit->auditable_type == 'App\Models\User')
                                     <td>{{ $audit->user->name }} {{ $audit->event }} Executive Dashboard - Pengguna.
                                     </td>
+                                @elseif($audit->auditable_type == 'App\Models\KemasukanData')
+                                    <td>{{ $audit->user->name }} {{ $audit->event }} Kemiskinan Tegar - Kemasukan Data.
+                                    </td>
+                                @elseif($audit->auditable_type == 'App\Models\Bantuan')
+                                    <td>{{ $audit->user->name }} {{ $audit->event }} Kemiskinan Tegar - Jenis Bantuan.
+                                    </td>
+                                @elseif($audit->auditable_type == 'App\Models\Profil')
+                                    <td>{{ $audit->user->name }} {{ $audit->event }} Kemiskinan Tegar - Profil Kir & Air.
+                                    </td>
+                                @elseif($audit->auditable_type == 'App\Models\Perbelanjaan')
+                                    <td>{{ $audit->user->name }} {{ $audit->event }} Kemiskinan Tegar - Perbelanjaan.
+                                    </td>
+                                @elseif($audit->auditable_type == 'App\Models\Pendapatan')
+                                    <td>{{ $audit->user->name }} {{ $audit->event }} Kemiskinan Tegar - Pendapatan.
+                                    </td>
                                 @else
                                     <td>{{ $audit->user->name }} {{ $audit->event }} yang
                                         lain.

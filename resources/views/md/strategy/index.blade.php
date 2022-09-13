@@ -54,21 +54,21 @@
                         <tbody class="list myTable" id="tablebody">
                             @foreach ($strategys as $strategy)
                                 <tr class="align-middle strategy">
-                                    <td class="text-nowrap">
+                                    <td>
                                         <div class="d-flex align-items-center" data-bs-toggle="modal"
                                             data-bs-target="#error-modal-{{ $strategy->id }}">
                                             <div class="ms-2"><b>{{ $loop->iteration }}</b></div>
                                         </div>
                                     </td>
 
-                                    <td class="text-nowrap">
+                                    <td>
                                         <div class="d-flex align-items-center" data-bs-toggle="modal"
                                             data-bs-target="#error-modal-{{ $strategy->id }}">
                                             <div class="ms-2"><b>{{ $strategy->namaStrategy }}</b></div>
                                         </div>
                                     </td>
 
-                                    <td class="text-nowrap">
+                                    <td>
                                         <div class="d-flex align-items-center" data-bs-toggle="modal"
                                             data-bs-target="#error-modal-{{ $strategy->id }}">
                                             <div class="ms-2"><b>{{ $strategy->category }}</b></div>
@@ -117,7 +117,7 @@
                                         </div>
                                     </div>
 
-                                    <td class="text-nowrap">
+                                    <td>
                                         <div>
 
                                             <a class="btn btn-primary" style="border-radius: 38px"
@@ -150,8 +150,8 @@
                     <button class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next"
                         data-list-pagination="next"><span class="fas fa-chevron-right"> </span>
                     </button>
-
                 </div>
+
             </div><br>
         </div>
     </div>

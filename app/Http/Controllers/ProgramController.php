@@ -40,6 +40,7 @@ class ProgramController extends Controller
     {
         $user = Auth::user();
         $initiatives = Initiative::all();
+
         return view('md.program.create', compact('user', 'initiatives'));
     }
 

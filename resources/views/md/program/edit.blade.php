@@ -13,112 +13,120 @@
             <form action="/program/{{ $program->id }}" method="POST">
                 @csrf
                 @method('PUT')
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="intiative_id">Initiative</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="intiative_id">
-                            @foreach ($initiatives as $initiative)
-                                <option @selected($program->intiative_id == $initiative->id) value="{{ $initiative->id }}">
-                                    {{ $initiative->namaInitiative }}
-                                </option>
-                            @endforeach
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="intiative_id">Initiative</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="intiative_id">
+                                    @foreach ($initiatives as $initiative)
+                                        <option @selected($program->intiative_id == $initiative->id) value="{{ $initiative->id }}">
+                                            {{ $initiative->code }} - {{ $initiative->namaInitiative }}
+                                        </option>
+                                    @endforeach
 
-                        </select>
-                    </div>
-                </div>
+                                </select>
+                            </div>
+                        </div>
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaProgram">Program Name</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaProgram" value="{{ $program->namaProgram }}" />
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="namaProgram">Program Name</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="namaProgram"
+                                    value="{{ $program->namaProgram }}" />
 
-                    </div>
-                </div>
+                            </div>
+                        </div>
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="programLead">Program Lead</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="programLead" value="{{ $program->programLead }}" />
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="programLead">Program Lead</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="programLead"
+                                    value="{{ $program->programLead }}" />
 
-                    </div>
-                </div>
+                            </div>
+                        </div>
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="leadAgency">Lead Agency/Kementerian</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="leadAgency" value="{{ $program->leadAgency }}" />
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="leadAgency">Lead Agency/Kementerian</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="leadAgency"
+                                    value="{{ $program->leadAgency }}" />
 
-                    </div>
-                </div>
+                            </div>
+                        </div>
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="programTarget">Program Target</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="programTarget"
-                            value="{{ $program->programTarget }}" />
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="programTarget">Program Target</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="programTarget"
+                                    value="{{ $program->programTarget }}" />
 
-                    </div>
-                </div>
+                            </div>
+                        </div>
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="progress">Progress Program</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="progress" value="{{ $program->progress }}" />
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="progress">Progress Plan</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="progress"
+                                    value="{{ $program->progress }}" />
 
-                    </div>
-                </div>
+                            </div>
+                        </div>
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="cost">Project Cost</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="cost" value="{{ $program->cost }}" />
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="cost">Project Cost</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="cost" value="{{ $program->cost }}" />
 
-                    </div>
-                </div>
+                            </div>
+                        </div>
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="source">Source Funding</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="source" value="{{ $program->source }}" />
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="source">Source Funding</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="source" value="{{ $program->source }}" />
 
-                    </div>
-                </div>
+                            </div>
+                        </div>
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="totalDisbursed">Total Disbursed Amount</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="totalDisbursed"
-                            value="{{ $program->totalDisbursed }}" />
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="totalDisbursed">Total Disbursed Amount</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="totalDisbursed"
+                                    value="{{ $program->totalDisbursed }}" />
 
-                    </div>
-                </div>
+                            </div>
+                        </div>
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="totalAmount">Total Amount Spending</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="totalAmount"
-                            value="{{ $program->totalAmount }}" />
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="totalAmount">Total Amount Spending</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="totalAmount"
+                                    value="{{ $program->totalAmount }}" />
 
-                    </div>
-                </div>
+                            </div>
+                        </div>
 
-                <br><br>
+                        <br><br>
 
-                <div class="row">
-                    <div class="col">
-                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                            href="/program">
-                            <span class="fas fa-times-circle"></span>&nbsp;Cancel
-                        </a>
-                    </div>
+                        <div class="row">
+                            <div class="col">
+                                <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
+                                    href="/program">
+                                    <span class="fas fa-times-circle"></span>&nbsp;Cancel
+                                </a>
+                            </div>
 
-                    <div class="col" style="text-align: right">
-                        <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save"
-                            onclick="return confirm('Are you sure you want to edit this Data?')"><span
-                                class="fas fa-save"></span>&nbsp;Save
-                        </button>
+                            <div class="col" style="text-align: right">
+                                <button class="btn btn-falcon-default btn-sm"
+                                    style="background-color: #047FC3; color:white;" type="submit" value="Save"
+                                    onclick="return confirm('Are you sure you want to edit this Data?')"><span
+                                        class="fas fa-save"></span>&nbsp;Save
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

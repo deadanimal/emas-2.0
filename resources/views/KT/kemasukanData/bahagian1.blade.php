@@ -27,7 +27,8 @@
                         <input type="hidden" name="current_bahagian" value="2" />
                         <div class="col-lg-12">
                             <label class="form-label" for="nama">Nama</label>
-                            <input class="form-control" id="nama" name="nama" type="text">
+                            <input class="form-control" id="nama" name="nama" type="text"
+                                style="text-transform: uppercase">
                         </div>
                         <div class="col-lg-12">
                             <label class="form-label" for="no_kad_pengenalan">No Kad Pengenalan</label>
@@ -70,7 +71,7 @@
                                 <option value="4">Berkahwin semula</option>
                                 <option value="5">Pengesahan oleh Focus Group</option>
                             </select>
-                        </div>\
+                        </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="negeri">Negeri</label>
                             <select class="form-control" name="negeri_id" id="negeri">

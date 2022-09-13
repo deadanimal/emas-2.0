@@ -23,7 +23,7 @@
                 </div>
 
 
-                <div class="mb-3 row">
+                {{-- <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="strategies_id">Strategy</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="strategies_id">
@@ -35,7 +35,7 @@
 
                         </select>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="initiatives">National/Sectoral Initiaves </label>
@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="agency">Lead Ministry/Agency </label>
+                    <label class="col-sm-2 col-form-label" for="agency">Secretariat </label>
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" type="text" name="agency" value="{{ $cluster->agency }}" />
 

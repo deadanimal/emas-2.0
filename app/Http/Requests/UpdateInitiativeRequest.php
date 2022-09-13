@@ -34,6 +34,11 @@ class UpdateInitiativeRequest extends FormRequest
                 'required',
             ],
 
+            'code' => [
+                'string',
+                'required',
+            ],
+
             'phase' => [
                 'string',
                 'required',

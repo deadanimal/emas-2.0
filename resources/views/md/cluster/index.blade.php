@@ -48,7 +48,7 @@
                                 <th scope="col">No.</th>
                                 <th scope="col">Cluster</th>
                                 <th scope="col">National/Sectoral Initiaves</th>
-                                <th scope="col">Lead Ministry/Agency</th>
+                                <th scope="col">Secretariat</th>
                                 <th scope="col">Action</th>
 
                             </tr>
@@ -58,28 +58,28 @@
                         <tbody class="list myTable" id="searchUpdateTable">
                             @foreach ($clusters as $cluster)
                                 <tr class="align-middle cluster">
-                                    <td class="text-nowrap">
+                                    <td>
                                         <div class="d-flex align-items-center" data-bs-toggle="modal"
                                             data-bs-target="#error-modal-{{ $cluster->id }}">
                                             <div class="ms-2"><b>{{ $loop->iteration }}</b></div>
                                         </div>
                                     </td>
 
-                                    <td class="text-nowrap">
+                                    <td>
                                         <div class="d-flex align-items-center" data-bs-toggle="modal"
                                             data-bs-target="#error-modal-{{ $cluster->id }}">
                                             <div class="ms-2"><b>{{ $cluster->namaCluster }}</b></div>
                                         </div>
                                     </td>
 
-                                    <td class="text-nowrap">
+                                    <td>
                                         <div class="d-flex align-items-center" data-bs-toggle="modal"
                                             data-bs-target="#error-modal-{{ $cluster->id }}">
                                             <div class="ms-2"><b>{{ $cluster->initiatives }}</b></div>
                                         </div>
                                     </td>
 
-                                    <td class="text-nowrap">
+                                    <td>
                                         <div class="d-flex align-items-center" data-bs-toggle="modal"
                                             data-bs-target="#error-modal-{{ $cluster->id }}">
                                             <div class="ms-2"><b>{{ $cluster->agency }}</b></div>
@@ -130,7 +130,7 @@
                                         </div>
                                     </div>
 
-                                    <td class="text-nowrap">
+                                    <td>
                                         <div>
 
                                             <a class="btn btn-primary" style="border-radius: 38px"

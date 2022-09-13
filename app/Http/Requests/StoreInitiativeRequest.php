@@ -34,6 +34,11 @@ class StoreInitiativeRequest extends FormRequest
                 'required',
             ],
 
+            'code' => [
+                'string',
+                'required',
+            ],
+
             'phase' => [
                 'string',
                 'required',

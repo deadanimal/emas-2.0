@@ -1151,24 +1151,65 @@
                         </a>
                     @endif
 
-                    <a class="nav-link btn1" href="/ucapan" role="button">
+                    @if (Request::is(
+                        'fokusutama',
+                        'fokusutama/*',
+                        'perkarautama',
+                        'perkarautama/*',
+                        'pemangkin',
+                        'pemangkin/*',
+                        'bab',
+                        'bab/*',
+                        'pemacu',
+                        'pemacu/*',
+                        'bidang',
+                        'bidang/*',
+                        'outcome',
+                        'outcome/*',
+                        'kpi',
+                        'kpi/*',
+                        'kpi1',
+                        'kpi1/*',
+                        'strategi',
+                        'strategi/*',
+                        'inisiatif',
+                        'inisiatif/*',
+                        'tindakan',
+                        'tindakan/*',
+                        'tindakan1',
+                        'tindakan1/*',
+                        'sdg',
+                        'sdg/*',
+                        'ucapan',
+                        'ucapan/*',
+                        'rumusanPPD',
+                        'rumusanPPD/*',
+                        'rumusanTindakan',
+                        'rumusanTindakan/*',
+                        'executive',
+                        'executive/*',
+                        'executiveSummary',
+                        'executiveSummary/*'))
+                        <a class="nav-link btn1" href="/ucapan" role="button">
 
-                        <div class="d-flex align-items-center">
-                            <div class="col-2">
-                                <span class="nav-link-icon">
-                                    <span class="fas fa-th"></span>
-                                </span>
-                            </div>
-                            <div class="col text-center">
-                                <span class="nav-link-text ps-1">Dashboard
+                            <div class="d-flex align-items-center">
+                                <div class="col-2">
+                                    <span class="nav-link-icon">
+                                        <span class="fas fa-th"></span>
+                                    </span>
+                                </div>
+                                <div class="col text-center">
+                                    <span class="nav-link-text ps-1">Dashboard
 
-                                </span>
-                            </div>
-                            <div class="col-2">
+                                    </span>
+                                </div>
+                                <div class="col-2">
 
+                                </div>
                             </div>
-                        </div>
-                    </a><br>
+                        </a>
+                    @endif
+                    <br>
                     @if (Request::is(
                         'ucapan',
                         'ucapan/*',

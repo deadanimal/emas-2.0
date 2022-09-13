@@ -11,151 +11,157 @@
             <form action="/activity" method="POST" enctype="multipart/form-data">
                 @csrf
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="cluster_id">Cluster</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="cluster_id">
-                            <option selected disabled hidden>PLEASE CHOOSE</option>
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
 
-                            @foreach ($clusters as $cluster)
-                                <option value="{{ $cluster->id }}">{{ $cluster->namaCluster }}</option>
-                            @endforeach
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="cluster_id">Cluster</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="cluster_id">
+                                    <option selected disabled hidden>PLEASE CHOOSE</option>
 
-                        </select>
-                    </div>
-                </div>
+                                    @foreach ($clusters as $cluster)
+                                        <option value="{{ $cluster->id }}">{{ $cluster->namaCluster }}</option>
+                                    @endforeach
 
-                <div class="mb-3 row">
+                                </select>
+                            </div>
+                        </div>
 
-                    <label class="col-sm-2 col-form-label" for="initiative_id">Initiative</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="initiative_id">
-                            <option selected disabled hidden>PLEASE CHOOSE</option>
+                        <div class="mb-3 row">
 
-                            @foreach ($initiatives as $initiative)
-                                <option value="{{ $initiative->id }}">{{ $initiative->namaInitiative }}
-                                </option>
-                            @endforeach
+                            <label class="col-sm-2 col-form-label" for="initiative_id">Initiative</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="initiative_id">
+                                    <option selected disabled hidden>PLEASE CHOOSE</option>
 
-                        </select>
-                    </div>
-                </div>
+                                    @foreach ($initiatives as $initiative)
+                                        <option value="{{ $initiative->id }}">{{ $initiative->code }} -
+                                            {{ $initiative->namaInitiative }}
+                                        </option>
+                                    @endforeach
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="program_id">Program</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="program_id">
-                            <option selected disabled hidden>PLEASE CHOOSE</option>
+                                </select>
+                            </div>
+                        </div>
 
-                            @foreach ($programs as $program)
-                                <option value="{{ $program->id }}">{{ $program->namaProgram }}</option>
-                            @endforeach
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="program_id">Program</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="program_id">
+                                    <option selected disabled hidden>PLEASE CHOOSE</option>
 
-                        </select>
-                    </div>
-                </div>
+                                    @foreach ($programs as $program)
+                                        <option value="{{ $program->id }}">{{ $program->namaProgram }}</option>
+                                    @endforeach
 
-                <div class="mb-3 row">
+                                </select>
+                            </div>
+                        </div>
 
-                    <label class="col-sm-2 col-form-label" for="plan_id">Plan</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="plan_id">
-                            <option selected disabled hidden>PLEASE CHOOSE</option>
+                        <div class="mb-3 row">
 
-                            @foreach ($plans as $plan)
-                                <option value="{{ $plan->id }}">{{ $plan->namaPlan }}
-                                </option>
-                            @endforeach
+                            <label class="col-sm-2 col-form-label" for="plan_id">Plan</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="plan_id">
+                                    <option selected disabled hidden>PLEASE CHOOSE</option>
 
-                        </select>
-                    </div>
-                </div>
+                                    @foreach ($plans as $plan)
+                                        <option value="{{ $plan->id }}">{{ $plan->namaPlan }}
+                                        </option>
+                                    @endforeach
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaActivity">Activity Name</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaActivity" />
+                                </select>
+                            </div>
+                        </div>
 
-                    </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="namaActivity">Activity Name</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="namaActivity" />
 
-                </div>
+                            </div>
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="startDate">Start Date</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="date" name="startDate" />
+                        </div>
 
-                    </div>
-                </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="startDate">Start Date</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="date" name="startDate" />
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="endDate">End Date</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="date" name="endDate" />
+                            </div>
+                        </div>
 
-                    </div>
-                </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="endDate">End Date</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="date" name="endDate" />
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="output">Output</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="output" />
+                            </div>
+                        </div>
 
-                    </div>
-                </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="output">Output</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="output" />
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="weightage">Weightage</label>
-                    <div class="col-sm-10" style="width:30%">
+                            </div>
+                        </div>
 
-                        <input class="form-control" type="text" name="weightage" />
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="weightage">Weightage</label>
+                            <div class="col-sm-10">
 
-                    </div>
+                                <input class="form-control" type="text" name="weightage" />
 
-                </div>
+                            </div>
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="weightage_progress">Weightage Progress</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="weightage_progress" />
+                        </div>
 
-                    </div>
-                </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="weightage_progress">Weightage Progress</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="weightage_progress" />
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="output_progress">Output Progress</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="output_progress" />
+                            </div>
+                        </div>
 
-                    </div>
-                </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="output_progress">Output Progress</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="output_progress" />
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="additionalOutput">Additional Output Information</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="additionalOutput" />
+                            </div>
+                        </div>
 
-                    </div>
-                </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="additionalOutput">Additional Output
+                                Information</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="additionalOutput" />
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="remarks">Remark</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="remarks" />
+                            </div>
+                        </div>
 
-                    </div>
-                </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="remarks">Remark</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="remarks" />
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="document">Attachment Document</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="document" type="file">
+                            </div>
+                        </div>
 
-                    </div>
-                </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="document">Attachment Document</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="document" type="file"
+                                    accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+
+                            </div>
+                        </div>
 
 
-                {{-- <div class="mb-3 row">
+                        {{-- <div class="mb-3 row">
 
                     <input type="file" name="carImage" id="carImage"
                         class="form-control @error('image') is-invalid @enderror">
@@ -166,40 +172,41 @@
                 </div> --}}
 
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="leadAgency">Lead Agency/PIC</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="leadAgency" />
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="leadAgency">Lead Agency/PIC</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="leadAgency" />
 
+                            </div>
+                        </div>
+
+
+
+                        <br>
+                        <br>
+
+
+
+                        <div class="row">
+                            <div class="col">
+                                <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
+                                    href="/activity">
+                                    <span class="fas fa-times-circle"></span>&nbsp;Cancel
+                                </a>
+                            </div>
+
+                            <div class="col" style="text-align: right">
+                                <button class="btn btn-falcon-default btn-sm"
+                                    style="background-color: #047FC3; color:white;" type="submit" value="Save"
+                                    onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span
+                                        class="fas fa-save"></span>&nbsp;Save
+                                </button>
+                            </div>
+                        </div>
+
+                        <input class="form-control" name="user_id" type="hidden" value="{{ $user->id }}" />
                     </div>
                 </div>
-
-
-
-                <br>
-                <br>
-
-
-
-                <div class="row">
-                    <div class="col">
-                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                            href="/activity">
-                            <span class="fas fa-times-circle"></span>&nbsp;Cancel
-                        </a>
-                    </div>
-
-                    <div class="col" style="text-align: right">
-                        <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save"
-                            onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span
-                                class="fas fa-save"></span>&nbsp;Save
-                        </button>
-                    </div>
-                </div>
-
-                <input class="form-control" name="user_id" type="hidden" value="{{ $user->id }}" />
-
 
             </form>
 

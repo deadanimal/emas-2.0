@@ -13,6 +13,9 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>Senarai Kemasukan Data KIR & AIR</b></span>
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                        href="/kemasukanData/bahagian">
+                        <span class="fas fa-plus-circle"></span>&nbsp;Tambah</a>
 
 
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
@@ -29,7 +32,8 @@
         <div id="tableExample2" data-list='{"valueNames":["senarai"],"page":20,"pagination":true}'>
 
             <div class="table-responsive scrollbar">
-                <table class="table table-hover table-striped overflow-hidden testing" style="width: 100%">
+                <table class="table table-hover table-striped overflow-hidden testing" style="width: 100%"
+                    id="datatable-basic">
                     <thead class="table-light">
                         <tr>
                             <th scope="col">No.</th>
@@ -121,6 +125,20 @@
                         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                     });
                 });
+            });
+        </script>
+
+        <script src="../../assets/js/plugins/datatables.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            const dataTableBasic = new simpleDatatables.DataTable("#datatable-basic", {
+                searchable: true,
+                fixedHeight: true,
+                sortable: true,
+                perPageSelect: false,
+                perPage: 20,
+                labels: {
+                    info: false
+                }
             });
         </script>
     @endsection

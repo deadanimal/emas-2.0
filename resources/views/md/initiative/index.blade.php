@@ -46,6 +46,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">No.</th>
+                                <th scope="col">Code</th>
                                 <th scope="col">Initiative</th>
                                 <th scope="col">Target Initiative</th>
                                 <th scope="col">Phase 1</th>
@@ -65,6 +66,13 @@
                                         <div class="d-flex align-items-center" data-bs-toggle="modal"
                                             data-bs-target="#error-modal-{{ $initiative->id }}">
                                             <div class="ms-2"><b>{{ $loop->iteration }}</b></div>
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                            data-bs-target="#error-modal-{{ $initiative->id }}">
+                                            <div class="ms-2"><b>{{ $initiative->code }}</b></div>
                                         </div>
                                     </td>
 
@@ -92,14 +100,14 @@
                                     <td>
                                         <div class="d-flex align-items-center" data-bs-toggle="modal"
                                             data-bs-target="#error-modal-{{ $initiative->id }}">
-                                            <div class="ms-2"><b>{{ $initiative->phase }}</b></div>
+                                            <div class="ms-2"><b>{{ $initiative->phase2 }}</b></div>
                                         </div>
                                     </td>
 
                                     <td>
                                         <div class="d-flex align-items-center" data-bs-toggle="modal"
                                             data-bs-target="#error-modal-{{ $initiative->id }}">
-                                            <div class="ms-2"><b>{{ $initiative->phase }}</b></div>
+                                            <div class="ms-2"><b>{{ $initiative->phase3 }}</b></div>
                                         </div>
                                     </td>
 

@@ -1,4 +1,4 @@
-@extends('base')
+@extends('base-md')
 @section('content')
     <div class="container">
         <div class="mb-4 text-center">
@@ -6,7 +6,6 @@
         </div>
 
 
-        <br>
         <br>
 
         <div class="form-floating;">
@@ -17,7 +16,7 @@
                     <div class="col-lg-6">
 
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label" for="intiative_id">Initiative</label>
+                            <label class="col-form-label" for="intiative_id">Initiative</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="intiative_id">
                                     @foreach ($initiatives as $initiative)
@@ -31,7 +30,7 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label" for="program_id">Program</label>
+                            <label class="col-form-label" for="program_id">Program</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="program_id">
                                     @foreach ($programs as $program)
@@ -45,7 +44,7 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label" for="namaPlan">Plan Name</label>
+                            <label class="col-form-label" for="namaPlan">Plan Name</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="namaPlan" value="{{ $plan->namaPlan }}" />
 
@@ -53,7 +52,7 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label" for="leadAgency">Lead Agency/Kementerian</label>
+                            <label class="col-form-label" for="leadAgency">Lead Agency/Kementerian</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="leadAgency"
                                     value="{{ $program->leadAgency }}" />

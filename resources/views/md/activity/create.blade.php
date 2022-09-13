@@ -1,4 +1,4 @@
-@extends('base')
+@extends('base-md')
 @section('content')
     <div class="container">
         <div class="mb-4 text-center">
@@ -15,7 +15,7 @@
                     <div class="col-lg-6">
 
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label" for="cluster_id">Cluster</label>
+                            <label class="col-form-label" for="cluster_id">Cluster</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="cluster_id">
                                     <option selected disabled hidden>PLEASE CHOOSE</option>
@@ -30,7 +30,7 @@
 
                         <div class="mb-3 row">
 
-                            <label class="col-sm-2 col-form-label" for="initiative_id">Initiative</label>
+                            <label class="col-form-label" for="initiative_id">Initiative</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="initiative_id">
                                     <option selected disabled hidden>PLEASE CHOOSE</option>
@@ -46,7 +46,7 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label" for="program_id">Program</label>
+                            <label class="col-form-label" for="program_id">Program</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="program_id">
                                     <option selected disabled hidden>PLEASE CHOOSE</option>
@@ -61,7 +61,7 @@
 
                         <div class="mb-3 row">
 
-                            <label class="col-sm-2 col-form-label" for="plan_id">Plan</label>
+                            <label class="col-form-label" for="plan_id">Plan</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="plan_id">
                                     <option selected disabled hidden>PLEASE CHOOSE</option>
@@ -76,7 +76,7 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label" for="namaActivity">Activity Name</label>
+                            <label class="col-form-label" for="namaActivity">Activity Name</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="namaActivity" />
 
@@ -85,7 +85,7 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label" for="startDate">Start Date</label>
+                            <label class="col-form-label" for="startDate">Start Date</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="date" name="startDate" />
 
@@ -93,7 +93,7 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label" for="endDate">End Date</label>
+                            <label class="col-form-label" for="endDate">End Date</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="date" name="endDate" />
 
@@ -101,7 +101,7 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label" for="output">Output</label>
+                            <label class="col-form-label" for="output">Output</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="output" />
 
@@ -109,7 +109,7 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label" for="weightage">Weightage</label>
+                            <label class="col-form-label" for="weightage">Weightage</label>
                             <div class="col-sm-10">
 
                                 <input class="form-control" type="text" name="weightage" />
@@ -119,7 +119,7 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label" for="weightage_progress">Weightage Progress</label>
+                            <label class="col-form-label" for="weightage_progress">Weightage Progress</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="weightage_progress" />
 
@@ -127,7 +127,7 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label" for="output_progress">Output Progress</label>
+                            <label class="col-form-label" for="output_progress">Output Progress</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="output_progress" />
 
@@ -135,7 +135,7 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label" for="additionalOutput">Additional Output
+                            <label class="col-form-label" for="additionalOutput">Additional Output
                                 Information</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="additionalOutput" />
@@ -144,7 +144,7 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label" for="remarks">Remark</label>
+                            <label class="col-form-label" for="remarks">Remark</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="remarks" />
 
@@ -152,7 +152,7 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label" for="document">Attachment Document</label>
+                            <label class="col-form-label" for="document">Attachment Document</label>
                             <div class="col-sm-10">
                                 <input class="form-control" name="document" type="file"
                                     accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
@@ -173,7 +173,7 @@
 
 
                         <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label" for="leadAgency">Lead Agency/PIC</label>
+                            <label class="col-form-label" for="leadAgency">Lead Agency/PIC</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="leadAgency" />
 

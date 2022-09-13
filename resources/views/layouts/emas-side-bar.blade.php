@@ -232,44 +232,6 @@
                         </a>
                     @endif
 
-                    @if (Request::is(
-                        'thrus',
-                        'thrus/*',
-                        'strategy',
-                        'strategy/*',
-                        'cluster',
-                        'cluster/*',
-                        'initiative',
-                        'initiative/*',
-                        'program',
-                        'program/*',
-                        'plan',
-                        'plan/*',
-                        'activity',
-                        'activity/*',
-                        'approval',
-                        'approval/*',
-                        'display',
-                        'display/*'))
-                        <a class="nav-link btn1" href="" role="button">
-
-                            <div class="d-flex align-items-center">
-                                <div class="col-2">
-                                    <span class="nav-link-icon">
-                                        <span class="fas fa-tasks"></span>
-                                    </span>
-                                </div>
-                                <div class="col text-center" style="color: #047FC3">
-                                    <span class="nav-link-text ps-1">MyDigital</span>
-                                </div>
-
-                                <div class="col-2">
-
-                                </div>
-
-                            </div>
-                        </a>
-                    @endif
 
                     @if (Request::is('audit', 'audit/*', 'user', 'user/*', 'userRole', 'userRole/*', 'user1', 'user1/*'))
                         <a class="nav-link btn1" href="" role="button">
@@ -779,158 +741,7 @@
                         </div>
                     @endif
 
-                    {{-- <br> --}}
 
-                    @if (Request::is(
-                        'thrus',
-                        'thrus/*',
-                        'strategy',
-                        'strategy/*',
-                        'cluster',
-                        'cluster/*',
-                        'initiative',
-                        'initiative/*',
-                        'program',
-                        'program/*',
-                        'plan',
-                        'plan/*',
-                        'activity',
-                        'activity/*',
-                        'approval',
-                        'approval/*',
-                        'display',
-                        'display/*'))
-                        <a class="nav-link dropdown-indicator" href="#md" role="button"
-                            data-bs-toggle="collapse" aria-expanded="true" aria-controls="md"
-                            style="background-color: #C4D4ED">
-                            <div class="d-flex justify-content-center" style="color: #047FC3">
-                                <span class="nav-link-text1 ps-1">Information</span>
-                            </div>
-                        </a>
-
-                        <div class="card">
-                            <ul class="nav collapse show" id="md" style="background-color: #E7EFFD">
-                                <li class="nav-item">
-                                    <a class="nav-link btn1 {{ Request::is('thrus', 'thrus/*') ? 'active' : '' }}"
-                                        href="/thrus">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1"> List
-                                                of Thrust
-                                            </span>
-                                        </div>
-                                    </a>
-                                    <!-- more inner pages-->
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link btn1 {{ Request::is('strategy', 'strategy/*') ? 'active' : '' }}"
-                                        href="/strategy">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List
-                                                of Strategy
-                                            </span>
-                                        </div>
-                                    </a>
-                                    <!-- more inner pages-->
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link btn1 {{ Request::is('cluster', 'cluster/*') ? 'active' : '' }}"
-                                        href="/cluster">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List
-                                                of Cluster
-                                            </span>
-                                        </div>
-                                    </a>
-                                    <!-- more inner pages-->
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link btn1 {{ Request::is('initiative', 'initiative/*') ? 'active' : '' }}"
-                                        href="/initiative">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List
-                                                of Initiative</span>
-                                        </div>
-                                    </a>
-                                    <!-- more inner pages-->
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link btn1 {{ Request::is('program', 'program/*') ? 'active' : '' }}"
-                                        href="/program">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List
-                                                of Program
-                                            </span>
-                                        </div>
-                                    </a>
-                                    <!-- more inner pages-->
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link btn1 {{ Request::is('plan', 'plan/*') ? 'active' : '' }}"
-                                        href="/plan">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List
-                                                of Plan
-                                            </span>
-                                        </div>
-                                    </a>
-                                    <!-- more inner pages-->
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link btn1 {{ Request::is('activity', 'activity/*') ? 'active' : '' }}"
-                                        href="/activity">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List
-                                                of Activities
-                                            </span>
-                                        </div>
-                                    </a>
-                                    <!-- more inner pages-->
-                                </li>
-                                @can('Kementerian MD')
-                                    <li class="nav-item">
-                                        <a class="nav-link btn1 dropdown-indicator  {{ Request::is('approval', 'approval/*', 'display', 'display/*') ? 'active' : '' }}"
-                                            href="#cluster" role="button" data-bs-toggle="collapse"
-                                            aria-expanded="false" aria-controls="cluster">
-                                            <div class="d-flex align-items-center">
-                                                <span class="nav-link-text1 ps-1">Status of Cluster</span>
-                                            </div>
-                                        </a>
-                                        <!-- more inner pages-->
-
-                                        <ul class="nav collapse" id="cluster">
-                                            <li class="nav-item"><a class="nav-link btn1" href="/display/cluster1">
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="nav-link-text1 btn1 ps-1">List of Program Based
-                                                            Status</span>
-                                                    </div>
-                                                </a>
-                                                <!-- more inner pages-->
-                                            </li>
-                                        </ul>
-                                        <ul class="nav collapse" id="cluster">
-                                            <li class="nav-item"><a class="nav-link btn1" href="/">
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="nav-link-text1 btn1 ps-1">List of Cluster Based on
-                                                            Program
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                                <!-- more inner pages-->
-                                            </li>
-                                        </ul>
-                                        @can('Epu MD')
-                                            <ul class="nav collapse" id="cluster">
-                                                <li class="nav-item"><a class="nav-link btn1" href="/approval/cluster">
-                                                        <div class="d-flex align-items-center"><span
-                                                                class="nav-link-text1 btn1 ps-1">List for Approval
-                                                            </span>
-                                                        </div>
-                                                    </a>
-                                                    <!-- more inner pages-->
-                                                </li>
-                                            </ul>
-                                        @endcan
-
-                                    </li>
-                                @endcan
-
-
-                            </ul>
-                        </div>
-                    @endif
 
                     @if (Request::is('audit', 'audit/*', 'user', 'user/*', 'userRole', 'userRole/*', 'user1', 'user1/*'))
                         <a class="nav-link dropdown-indicator" href="#ED" role="button"
@@ -1152,6 +963,81 @@
                     @endif
 
                     @if (Request::is(
+                        'thrust',
+                        'thrust/*',
+                        'national',
+                        'national/*',
+                        'key',
+                        'key/*',
+                        'sub',
+                        'sub/*',
+                        'kpi2',
+                        'kpi2/*',
+                        'milestone',
+                        'milestone/*',
+                        'mpb'))
+                        <a class="nav-link btn1" href="/" role="button">
+
+                            <div class="d-flex align-items-center">
+                                <div class="col-2">
+                                    <span class="nav-link-icon">
+                                        <span class="fas fa-th"></span>
+                                    </span>
+                                </div>
+                                <div class="col text-center">
+                                    <span class="nav-link-text ps-1">Dashboard
+
+                                    </span>
+                                </div>
+                                <div class="col-2">
+
+                                </div>
+                            </div>
+                        </a>
+                    @endif
+
+                    @if (Request::is(
+                        'lokaliti',
+                        'lokaliti/*',
+                        'lokaliti1',
+                        'lokaliti1/*',
+                        'senarai_kir_air',
+                        'senarai_kir_air/*',
+                        'senarai_kir_air1',
+                        'senarai_kir_air1/*',
+                        'bantuan',
+                        'bantuan/*',
+                        'bantuan1',
+                        'bantuan1/*',
+                        'senarai_informasi',
+                        'senarai_informasi/*',
+                        'senarai_informasi1',
+                        'senarai_informasi1/*',
+                        'kemasukanData',
+                        'kemasukanData/*',
+                        'kampung/*'))
+                        <a class="nav-link btn1" href="/" role="button">
+
+                            <div class="d-flex align-items-center">
+                                <div class="col-2">
+                                    <span class="nav-link-icon">
+                                        <span class="fas fa-th"></span>
+                                    </span>
+                                </div>
+                                <div class="col text-center">
+                                    <span class="nav-link-text ps-1">Dashboard
+
+                                    </span>
+                                </div>
+                                <div class="col-2">
+
+                                </div>
+                            </div>
+                        </a>
+                    @endif
+
+
+                    @if (Request::is(
                         'fokusutama',
                         'fokusutama/*',
                         'perkarautama',
@@ -1321,30 +1207,7 @@
                         </div>
                     </a>
                 </li>
-                {{-- <a class="nav-link btn1" href="/dashboard" role="button">
-                    <div class="row d-flex align-items-center ">
-                        <div class="col-2">
-                            <span class="nav-link-icon">
-                                <span class="fas fa-home">
-                                </span>
-                            </span>
-                        </div>
-                        <div class="col text-center">
-                            {{ auth()->user()->role }}
-                            <br>
-                            {{ auth()->user()->getPermissionNames() }}
-
-
-                        </div>
-
-                        <div class="col-2">
-
-                        </div>
-
-                    </div>
-
-
-                </a> --}}
+              
                 <br>
 
 
@@ -1372,21 +1235,5 @@
             </ul>
         </div>
     </div>
-
-
-    {{-- <script>
-        // Add active class to the current button (highlight it)
-        var header = document.getElementById("myDIV");
-        var navitem = header.getElementsByClassName("nav-item");
-        for (var i = 0; i < navitem.length; i++) {
-            navitem[i].addEventListener("click", function() {
-                var current = document.getElementsByClassName("active");
-                if (current.length > 0) {
-                    current[0].className = current[0].className.replace(" active", "");
-                }
-                this.className += " active";
-            });
-        }
-    </script> --}}
 
 </nav>

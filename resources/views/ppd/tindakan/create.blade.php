@@ -9,14 +9,6 @@
         <br>
         <br>
 
-        {{-- <div class="mb-3 row" >
-            <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
-            <div class="col-sm-10" style="width:30%">
-                <input class="form-control" name="fokus_id" placeholder="Sila Pilih"/>
-            </div>
-        </div> --}}
-
-
 
         <div class="form-floating;">
             <form action="{{ route('tindakan.store') }}" method="POST">

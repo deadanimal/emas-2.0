@@ -17,32 +17,6 @@
                 @method('PUT')
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="fokus_id">
-
-                            @foreach ($fokus as $fokus)
-                                <option @selected($bidang->fokus_id == $fokus->id) value="{{ $fokus->id }}">{{ $fokus->namaFokus }}
-                                </option>
-                            @endforeach
-
-                        </select>
-                    </div>
-
-                    <label class="col-sm-2 col-form-label" for="perkara_id">Perkara Utama</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="perkara_id">
-
-                            @foreach ($perkara as $perkara)
-                                <option @selected($bidang->perkara_id == $perkara->id) value="{{ $perkara->id }}">
-                                    {{ $perkara->namaPerkara }}</option>
-                            @endforeach
-
-                        </select>
-                    </div>
-                </div>
-
-                <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="pemangkin_id">
@@ -55,6 +29,24 @@
                         </select>
                     </div>
 
+                    <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="fokus_id">
+
+                            @foreach ($fokus as $fokus)
+                                <option @selected($bidang->fokus_id == $fokus->id) value="{{ $fokus->id }}">{{ $fokus->namaFokus }}
+                                </option>
+                            @endforeach
+
+                        </select>
+                    </div>
+
+
+                </div>
+
+                <div class="mb-3 row">
+
+
                     <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="bab_id">
@@ -62,6 +54,17 @@
                             @foreach ($list as $list)
                                 <option @selected($bidang->bab_id == $list->id) value="{{ $list->id }}">Bab {{ $list->noBab }}.
                                     {{ $list->namaBab }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                    <label class="col-sm-2 col-form-label" for="perkara_id">Perkara Utama</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="perkara_id">
+
+                            @foreach ($perkara as $perkara)
+                                <option @selected($bidang->perkara_id == $perkara->id) value="{{ $perkara->id }}">
+                                    {{ $perkara->namaPerkara }}</option>
                             @endforeach
 
                         </select>

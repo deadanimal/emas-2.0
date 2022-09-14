@@ -9,14 +9,6 @@
         <br>
         <br>
 
-        {{-- <div class="mb-3 row" >
-            <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
-            <div class="col-sm-10" style="width:30%">
-                <input class="form-control" name="fokus_id" placeholder="Sila Pilih"/>
-            </div>
-        </div> --}}
-
-
 
         <div class="form-floating;">
             <form action="{{ route('kpi.store') }}" method="POST">
@@ -24,6 +16,17 @@
 
 
                 <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="pemangkin_id">
+                            <option selected disabled hidden>Sila Pilih</option>
+
+                            @foreach ($listTema as $listTema)
+                                <option value="{{ $listTema->id }}">{{ $listTema->namaTema }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
                     <label class="col-sm-2 col-form-label" for="fokusutama_id">Fokus Utama</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="fokusutama_id">
@@ -31,6 +34,23 @@
 
                             @foreach ($fokusUtama as $fu)
                                 <option value="{{ $fu->id }}">{{ $fu->namaFokus }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+
+
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="bab_id">
+                            <option selected disabled hidden>Sila Pilih</option>
+
+                            @foreach ($listBab as $listBab)
+                                <option value="{{ $listBab->id }}">Bab {{ $listBab->noBab }}. {{ $listBab->namaBab }}
+                                </option>
                             @endforeach
 
                         </select>
@@ -48,33 +68,8 @@
 
                         </select>
                     </div>
-                </div>
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="pemangkin_id">
-                            <option selected disabled hidden>Sila Pilih</option>
 
-                            @foreach ($listTema as $listTema)
-                                <option value="{{ $listTema->id }}">{{ $listTema->namaTema }}</option>
-                            @endforeach
-
-                        </select>
-                    </div>
-
-                    <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="bab_id">
-                            <option selected disabled hidden>Sila Pilih</option>
-
-                            @foreach ($listBab as $listBab)
-                                <option value="{{ $listBab->id }}">Bab {{ $listBab->noBab }}. {{ $listBab->namaBab }}
-                                </option>
-                            @endforeach
-
-                        </select>
-                    </div>
                 </div>
 
                 <div class="mb-3 row">
@@ -89,6 +84,19 @@
 
                         </select>
                     </div>
+                    <label class="col-sm-2 col-form-label" for="indikator">Indikator Terpilih</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="indikator">
+                            <option selected disabled hidden>SILA PILIH</option>
+                            <option value="1">Ya</option>
+                            <option value="2">Tidak</option>
+
+
+                        </select>
+                    </div>
+
+                </div>
+                <div class="mb-3 row">
 
                     <label class="col-sm-2 col-form-label" for="outcome_id">Outcome Nasional</label>
                     <div class="col-sm-10" style="width:30%">
@@ -103,23 +111,11 @@
                     </div>
                 </div>
 
-
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="namaKpi">Nama KPI</label>
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" type="text" name="namaKpi" />
 
-                    </div>
-
-                    <label class="col-sm-2 col-form-label" for="indikator">Indikator Terpilih</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="indikator">
-                            <option selected disabled hidden>SILA PILIH</option>
-                            <option value="1">Ya</option>
-                            <option value="2">Tidak</option>
-
-
-                        </select>
                     </div>
                 </div>
 

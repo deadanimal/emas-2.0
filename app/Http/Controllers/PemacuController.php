@@ -48,9 +48,9 @@ class PemacuController extends Controller
         $user = Auth::user();
 
         $list = Bab::all();
-        $fokus = Fokusutama::all();
-        $perkara = Perkarautama::all();
-        return view('ppd.pemacu.create', compact('user', 'list', 'fokus', 'perkara'));
+        $fokuss = Fokusutama::all();
+        $perkaras = Perkarautama::all();
+        return view('ppd.pemacu.create', compact('user', 'list', 'fokuss', 'perkaras'));
     }
 
     /**

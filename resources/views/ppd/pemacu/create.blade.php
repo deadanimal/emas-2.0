@@ -20,15 +20,18 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="fokus_id">
-                            <option selected disabled hidden>SILA PILIH</option>
+                        <div class="form-group">
 
-                            @foreach ($fokus as $fokus)
-                                <option value="{{ $fokus->id }}">{{ $fokus->namaFokus }}
-                                </option>
-                            @endforeach
+                            <select class="form-control" name="fokus_id" id="pilih1" required>
+                                <option selected disabled hidden>SILA PILIH</option>
 
-                        </select>
+                                @foreach ($fokuss as $fokus)
+                                    <option value="{{ $fokus->id }}">{{ $fokus->namaFokus }}
+                                    </option>
+                                @endforeach
+
+                            </select>
+                        </div>
                     </div>
                 </div>
 
@@ -36,15 +39,18 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="perkara_id">Perkara Utama</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="perkara_id">
-                            <option selected disabled hidden>SILA PILIH</option>
+                        <div class="input-group">
 
-                            @foreach ($perkara as $perkara)
-                            <option value="{{ $perkara->id }}">{{ $perkara->namaPerkara }}
-                            </option>
-                        @endforeach
+                            <select class="form-control" name="perkara_id" id="pilih2" required>
+                                <option selected disabled hidden>SILA PILIH</option>
 
-                        </select>
+                                {{-- @foreach ($perkaras as $perkara)
+                                    <option value="{{ $perkara->id }}">{{ $perkara->namaPerkara }}
+                                    </option>
+                                @endforeach --}}
+
+                            </select>
+                        </div>
                     </div>
                 </div>
 
@@ -116,4 +122,31 @@
             </ul>
         </div>
     @endif
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        $("#pilih1").change(function() {
+            $("#pilih2").html('');
+
+            var fokus_id = @json($fokuss->toArray());
+            // console.log($fokus);
+
+            fokus_id.forEach(fokus => {
+                if (fokus.name == this.value) {
+                    fokus.perkaras.forEach(perkara => {
+                        $("#pilih2").append(`
+                                <option value=" ` + perkara.name + ` ">
+                                                     ` + perkara.name + `
+                                </option>
+                            `)
+                    });
+
+                }
+            });
+
+
+
+
+        })
+    </script>
 @endsection

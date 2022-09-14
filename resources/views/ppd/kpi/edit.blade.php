@@ -17,34 +17,7 @@
                 @method('PUT')
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="fokusutama_id">Fokus Utama</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="fokusutama_id">
-                            @foreach ($fokusUtama as $fu)
-                                <option @selected($kpi->fokusutama_id == $fu->id) value="{{ $fu->id }}">
-                                    {{ $fu->namaFokus }}
-                                </option>
-                            @endforeach
 
-                        </select>
-                    </div>
-
-                    <label class="col-sm-2 col-form-label" for="perkarautama_id">Perkara Utama</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="perkarautama_id">
-                            @foreach ($perkaraUtama as $pu)
-                                <option @selected($kpi->perkarautama_id == $pu->id) value="{{ $pu->id }}">
-                                    {{ $pu->namaPerkara }}
-                                </option>
-                            @endforeach
-
-                        </select>
-                    </div>
-
-                </div>
-
-
-                <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="pemangkin_id">
@@ -57,6 +30,26 @@
                         </select>
                     </div>
 
+                    <label class="col-sm-2 col-form-label" for="fokusutama_id">Fokus Utama</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="fokusutama_id">
+                            @foreach ($fokusUtama as $fu)
+                                <option @selected($kpi->fokusutama_id == $fu->id) value="{{ $fu->id }}">
+                                    {{ $fu->namaFokus }}
+                                </option>
+                            @endforeach
+
+                        </select>
+                    </div>
+
+
+
+                </div>
+
+
+                <div class="mb-3 row">
+
+
                     <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="bab_id">
@@ -64,6 +57,18 @@
                                 <option @selected($kpi->bab_id == $listB->id) value="{{ $listB->id }}">Bab
                                     {{ $listB->noBab }}.
                                     {{ $listB->namaBab }}
+                                </option>
+                            @endforeach
+
+                        </select>
+                    </div>
+
+                    <label class="col-sm-2 col-form-label" for="perkarautama_id">Perkara Utama</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="perkarautama_id">
+                            @foreach ($perkaraUtama as $pu)
+                                <option @selected($kpi->perkarautama_id == $pu->id) value="{{ $pu->id }}">
+                                    {{ $pu->namaPerkara }}
                                 </option>
                             @endforeach
 
@@ -85,6 +90,19 @@
                         </select>
                     </div>
 
+                    <label class="col-sm-2 col-form-label" for="indikator">Indikator Terpilih</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="indikator">
+                            <option @selected($kpi->indikator == '1') value="1">Ya</option>
+                            <option @selected($kpi->indikator == '2') value="2">Tidak</option>
+                        </select>
+                    </div>
+
+
+                </div>
+                <div class="mb-3 row">
+
+
                     <label class="col-sm-2 col-form-label" for="outcome_id">Outcome Nasional</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="outcome_id">
@@ -104,13 +122,7 @@
                         <input class="form-control" name="namaKpi" value="{{ $kpi->namaKpi }}" />
                     </div>
 
-                    <label class="col-sm-2 col-form-label" for="indikator">Indikator Terpilih</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="indikator">
-                            <option @selected($kpi->indikator == '1') value="1">Ya</option>
-                            <option @selected($kpi->indikator == '2') value="2">Tidak</option>
-                        </select>
-                    </div>
+
                 </div>
 
 

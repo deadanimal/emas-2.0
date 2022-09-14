@@ -3,7 +3,7 @@
     <style>
         .column {
             float: left;
-            width: 3 0%;
+            width: 30%;
             /* padding: 10px; */
             height: 300;
         }
@@ -56,9 +56,9 @@
 
                     </select>
                 </div>
-                <label class="col-sm-2 col-form-label" for="bab_id">Sukuan Tahun</label>
+                <label class="col-sm-2 col-form-label" for="bab_id">Tahun</label>
                 <div class="col-sm-10" style="width:20%">
-                    <input class="form-control" type="text" placeholder="Tulis Tahun">
+                    <input class="form-control myInput" type="text" placeholder="Tulis Tahun">
                 </div>
             </div>
         </div>
@@ -76,10 +76,11 @@
 
                     </select>
                 </div>
-                <label class="col-sm-2 col-form-label" for="bab_id">Tahun</label>
+                <label class="col-sm-2 col-form-label" for="bab_id">Sukuan Tahun</label>
                 <div class="col-sm-10" style="width:20%">
-                    <input class="form-control myInput" type="text" placeholder="Tulis Tahun">
+                    <input class="form-control" type="text" placeholder="Tulis Tahun">
                 </div>
+
             </div>
         </div>
 
@@ -102,7 +103,7 @@
 
         <div class="mb-3 row">
             <div class="row align-items-center">
-                <label class="col-sm-2 col-form-label" for="bidang_id">Status KPI</label>
+                <label class="col-sm-2 col-form-label" for="bidang_id">Kementerian/Bahagian </label>
                 <div class="col-sm-10" style="width:40%">
                     <select class="form-control" name="bidang_id">
                         <option selected disabled hidden>Sila Pilih</option>
@@ -118,7 +119,8 @@
 
         <div class="mb-3 row">
             <div class="row align-items-center">
-                <label class="col-sm-2 col-form-label" for="bidang_id">Kementerian/Bahagian </label>
+
+                <label class="col-sm-2 col-form-label" for="bidang_id">Status KPI</label>
                 <div class="col-sm-10" style="width:40%">
                     <select class="form-control" name="bidang_id">
                         <option selected disabled hidden>Sila Pilih</option>
@@ -129,6 +131,7 @@
 
                     </select>
                 </div>
+
             </div>
         </div>
 

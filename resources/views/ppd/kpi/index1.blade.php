@@ -15,11 +15,11 @@
             <img src="/img/image 1.png" alt="banner" width="50%">
         </div>
 
-        @cannot('BPKP')
+        {{-- @cannot('BPKP')
             <div class="mb-4 text-center">
                 <img src="/img/image 2.png" alt="banner" width="50%">
             </div>
-        @endcannot
+        @endcannot --}}
 
         @can('BPKP')
             <div class="row">
@@ -210,7 +210,7 @@
                                                         <form action="/kpi/lulus/{{ $kpi->id }}" method="post">
                                                             @csrf
                                                             @method('POST')
-                                                            <button type="submit" class="btn btn-success">Lulus</button>
+                                                            <button type="submit" class="btn btn-success">Sah</button>
                                                         </form>
                                                         <form action="{{ route('kpi.ditolak', $kpi->id) }}" method="post">
                                                             @csrf

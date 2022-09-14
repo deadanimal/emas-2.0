@@ -39,98 +39,98 @@
                     <div id="chartdiv2"></div>
                 </div>
             </div>
-
-            <br><br>
-
-            <div class="mb-3 row">
-                <div class="row align-items-center">
-                    <label class="col-sm-2 col-form-label" for="tema_id">Tema/Pemangkin Dasar</label>
-                    <div class="col-sm-10" style="width:40%">
-                        <select class="form-control search" name="tema_id">
-                            <option selected disabled hidden value="null">Sila Pilih</option>
-
-                            @foreach ($tema as $tema)
-                                <option value="{{ $tema->id }}">{{ $tema->namaTema }}</option>
-                            @endforeach
-
-                        </select>
-                    </div>
-                    <label class="col-sm-2 col-form-label" for="bab_id">Sukuan Tahun</label>
-                    <div class="col-sm-10" style="width:20%">
-                        <input class="form-control" type="text" placeholder="Tulis Tahun">
-                    </div>
-                </div>
-            </div>
-
-            <div class="mb-3 row">
-                <div class="row align-items-center">
-                    <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
-                    <div class="col-sm-10" style="width:40%">
-                        <select class="form-control search" name="bab_id">
-                            <option selected disabled hidden value="null">Sila Pilih</option>
-
-                            @foreach ($bab as $bab)
-                                <option value="{{ $bab->id }}">{{ $bab->namaBab }}</option>
-                            @endforeach
-
-                        </select>
-                    </div>
-                    <label class="col-sm-2 col-form-label" for="bab_id">Tahun</label>
-                    <div class="col-sm-10" style="width:20%">
-                        <input class="form-control myInput" type="text" placeholder="Tulis Tahun">
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="mb-3 row">
-                <div class="row align-items-center">
-                    <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan</label>
-                    <div class="col-sm-10" style="width:40%">
-                        <select class="form-control search" name="bidang_id">
-                            <option selected disabled hidden value="null">Sila Pilih</option>
-
-                            @foreach ($bidang as $bidang)
-                                <option value="{{ $bidang->id }}">{{ $bidang->namaBidang }}</option>
-                            @endforeach
-
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mb-3 row">
-                <div class="row align-items-center">
-                    <label class="col-sm-2 col-form-label" for="bidang_id">Status KPI</label>
-                    <div class="col-sm-10" style="width:40%">
-                        <select class="form-control" name="bidang_id">
-                            <option selected disabled hidden>Sila Pilih</option>
-
-                            {{-- @foreach ($listBidang as $listBidang)
-                        <option value="{{ $listBidang->id }}">{{ $listBidang->namaBidang }}</option>
-                    @endforeach --}}
-
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mb-3 row">
-                <div class="row align-items-center">
-                    <label class="col-sm-2 col-form-label" for="bidang_id">Kementerian/Bahagian </label>
-                    <div class="col-sm-10" style="width:40%">
-                        <select class="form-control" name="bidang_id">
-                            <option selected disabled hidden>Sila Pilih</option>
-
-                            {{-- @foreach ($listBidang as $listBidang)
-                        <option value="{{ $listBidang->id }}">{{ $listBidang->namaBidang }}</option>
-                    @endforeach --}}
-
-                        </select>
-                    </div>
-                </div>
-            </div>
         @endcan
+
+        <br><br>
+
+        <div class="mb-3 row">
+            <div class="row align-items-center">
+                <label class="col-sm-2 col-form-label" for="tema_id">Tema/Pemangkin Dasar</label>
+                <div class="col-sm-10" style="width:40%">
+                    <select class="form-control search" name="tema_id">
+                        <option selected disabled hidden value="null">Sila Pilih</option>
+
+                        @foreach ($tema as $tema)
+                            <option value="{{ $tema->id }}">{{ $tema->namaTema }}</option>
+                        @endforeach
+
+                    </select>
+                </div>
+                <label class="col-sm-2 col-form-label" for="bab_id">Sukuan Tahun</label>
+                <div class="col-sm-10" style="width:20%">
+                    <input class="form-control" type="text" placeholder="Tulis Tahun">
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <div class="row align-items-center">
+                <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
+                <div class="col-sm-10" style="width:40%">
+                    <select class="form-control search" name="bab_id">
+                        <option selected disabled hidden value="null">Sila Pilih</option>
+
+                        @foreach ($bab as $bab)
+                            <option value="{{ $bab->id }}">{{ $bab->namaBab }}</option>
+                        @endforeach
+
+                    </select>
+                </div>
+                <label class="col-sm-2 col-form-label" for="bab_id">Tahun</label>
+                <div class="col-sm-10" style="width:20%">
+                    <input class="form-control myInput" type="text" placeholder="Tulis Tahun">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="mb-3 row">
+            <div class="row align-items-center">
+                <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan</label>
+                <div class="col-sm-10" style="width:40%">
+                    <select class="form-control search" name="bidang_id">
+                        <option selected disabled hidden value="null">Sila Pilih</option>
+
+                        @foreach ($bidang as $bidang)
+                            <option value="{{ $bidang->id }}">{{ $bidang->namaBidang }}</option>
+                        @endforeach
+
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <div class="row align-items-center">
+                <label class="col-sm-2 col-form-label" for="bidang_id">Status KPI</label>
+                <div class="col-sm-10" style="width:40%">
+                    <select class="form-control" name="bidang_id">
+                        <option selected disabled hidden>Sila Pilih</option>
+
+                        {{-- @foreach ($listBidang as $listBidang)
+                        <option value="{{ $listBidang->id }}">{{ $listBidang->namaBidang }}</option>
+                    @endforeach --}}
+
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <div class="row align-items-center">
+                <label class="col-sm-2 col-form-label" for="bidang_id">Kementerian/Bahagian </label>
+                <div class="col-sm-10" style="width:40%">
+                    <select class="form-control" name="bidang_id">
+                        <option selected disabled hidden>Sila Pilih</option>
+
+                        {{-- @foreach ($listBidang as $listBidang)
+                        <option value="{{ $listBidang->id }}">{{ $listBidang->namaBidang }}</option>
+                    @endforeach --}}
+
+                    </select>
+                </div>
+            </div>
+        </div>
 
 
         <div id="tableExample2" data-list='{"valueNames":["kpi"],"page":6,"pagination":true}'>
@@ -254,9 +254,6 @@
 
         </div>
     </div>
-
-
-
 @endsection
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>

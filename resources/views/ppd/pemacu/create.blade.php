@@ -17,6 +17,24 @@
             <form action="{{ route('pemacu.store') }}" method="POST">
                 @csrf
 
+                {{-- <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <div class="form-group">
+
+                            <select class="form-control" name="fokus_id" id="pilih1" required>
+                                <option selected disabled hidden>SILA PILIH</option>
+
+                                @foreach ($fokuss as $fokus)
+                                    <option value="{{ $fokus->id }}">{{ $fokus->namaFokus }}
+                                    </option>
+                                @endforeach
+
+                            </select>
+                        </div>
+                    </div>
+                </div> --}}
+
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
                     <div class="col-sm-10" style="width:30%">
@@ -37,12 +55,12 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="perkara_id">Perkara Utama</label>
+                    <label class="col-sm-2 col-form-label" for="">Perkara Utama</label>
                     <div class="col-sm-10" style="width:30%">
                         <div class="input-group">
 
                             <select class="form-control" name="perkara_id" id="pilih2" required>
-                                <option selected disabled hidden>SILA PILIH</option>
+                                <option selected disabled hidden>Sila pilih</option>
 
                                 {{-- @foreach ($perkaras as $perkara)
                                     <option value="{{ $perkara->id }}">{{ $perkara->namaPerkara }}
@@ -58,15 +76,18 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="bab_id">
-                            <option selected disabled hidden>SILA PILIH</option>
+                        <div class="input-group">
 
-                            @foreach ($list as $list)
-                                <option value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}
-                                </option>
-                            @endforeach
+                            <select class="form-control" name="bab_id" id="pilih3" required>
+                                <option selected disabled hidden>SILA PILIH</option>
 
-                        </select>
+                                @foreach ($babs as $list)
+                                    <option value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}
+                                    </option>
+                                @endforeach
+
+                            </select>
+                        </div>
                     </div>
                 </div>
 
@@ -77,6 +98,7 @@
 
                     </div>
                 </div>
+
 
 
                 <br>
@@ -123,30 +145,41 @@
         </div>
     @endif
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script>
         $("#pilih1").change(function() {
-            $("#pilih2").html('');
 
-            var fokus_id = @json($fokuss->toArray());
-            // console.log($fokus);
-
-            fokus_id.forEach(fokus => {
-                if (fokus.name == this.value) {
-                    fokus.perkaras.forEach(perkara => {
-                        $("#pilih2").append(`
-                                <option value=" ` + perkara.name + ` ">
-                                                     ` + perkara.name + `
-                                </option>
-                            `)
-                    });
-
+            var fokus_id = $(this).val();
+            var perkaras = @json($perkaras->toArray());
+            $("#pilih2").html(``);
+            perkaras.forEach(perkara => {
+                if (perkara.fokus_id == fokus_id) {
+                    $("#pilih2").append(`
+                        <option value="` + perkara.id + `">` + perkara.namaPerkara + `</option>
+                    `);
                 }
             });
+        });
 
-
-
-
-        })
+        $("#pilih2").change(function() {
+            var perkara_id = $(this).val();
+            var babs = @json($babs->toArray());
+            $("#pilih3").html(``);
+            babs.forEach(bab => {
+                if (bab.perkara_id == perkara_id) {
+                    $("#pilih3").append(`
+                        <option value="` + bab.id + `">` + bab.namaBab + `</option>
+                    `);
+                }
+            });
+        });
     </script>
+
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        $('#pilih1').change(function() {
+            $('#pilih2 div').hide();
+            $('#' + $(this).val()).show();
+        });
+    </script> --}}
 @endsection

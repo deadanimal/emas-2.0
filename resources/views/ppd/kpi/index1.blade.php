@@ -43,6 +43,9 @@
 
         <br><br>
 
+        <hr style="width:100%;text-align:center;"><br>
+
+
         <div class="mb-3 row">
             <div class="row align-items-center">
                 <label class="col-sm-2 col-form-label" for="tema_id">Tema/Pemangkin Dasar</label>
@@ -62,6 +65,7 @@
                 </div>
             </div>
         </div>
+
 
         <div class="mb-3 row">
             <div class="row align-items-center">
@@ -83,6 +87,7 @@
 
             </div>
         </div>
+
 
 
         <div class="mb-3 row">
@@ -134,6 +139,9 @@
 
             </div>
         </div>
+        <br>
+
+        <hr style="width:100%;text-align:center;">
 
 
         <div id="tableExample2" data-list='{"valueNames":["kpi"],"page":6,"pagination":true}'>

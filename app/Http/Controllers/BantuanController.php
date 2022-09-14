@@ -9,6 +9,7 @@ use App\Models\Kampung;
 use App\Models\KetuaKampung;
 use App\Models\Negeri;
 use App\Models\Profil;
+use App\Models\Maklumat_penghulu_mukim;
 use Illuminate\Http\Request;
 
 class BantuanController extends Controller
@@ -50,7 +51,6 @@ class BantuanController extends Controller
         $ketuakampungs = KetuaKampung::all();
 
         return view('KT.bantuan.senarai_ketua_kampung', compact('ketuakampungs', 'negeris', 'daerahs', 'kampungs'));
-
     }
 
     public function senarai_kampung_menerima()
@@ -70,7 +70,6 @@ class BantuanController extends Controller
         $negeri = Negeri::with('daerah')->get();
 
         return view('KT.bantuan.create', compact('negeri'));
-
     }
 
     /**

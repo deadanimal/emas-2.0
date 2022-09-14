@@ -11,11 +11,11 @@
     </style>
 
     <div class="container">
-        @cannot('BPKP')
+        {{-- @cannot('BPKP')
             <div class="mb-4 text-center">
                 <img src="/img/image 2.png" alt="banner" width="50%">
             </div>
-        @endcannot
+        @endcannot --}}
 
 
         <div class="mb-4 text-center">

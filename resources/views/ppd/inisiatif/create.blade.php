@@ -25,23 +25,7 @@
 
                         </select>
                     </div>
-                </div>
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="perkara_id">Perkara Utama</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="perkara_id">
-                            <option selected disabled hidden>SILA PILIH</option>
-
-                            @foreach ($perkara as $perkara)
-                                <option value="{{ $perkara->id }}">{{ $perkara->namaPerkara }}</option>
-                            @endforeach
-
-                        </select>
-                    </div>
-                </div>
-
-                <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="pemangkin_id">
@@ -53,6 +37,7 @@
 
                         </select>
                     </div>
+
                 </div>
 
                 <div class="mb-3 row">
@@ -62,12 +47,27 @@
                             <option selected disabled hidden>SILA PILIH</option>
 
                             @foreach ($bab as $bab)
-                                <option value="{{ $bab->id }}">{{ $bab->namaBab }}</option>
+                                <option value="{{ $bab->id }}">Bab {{ $bab->noBab }}. {{ $bab->namaBab }}</option>
                             @endforeach
 
                         </select>
                     </div>
+
+                    <label class="col-sm-2 col-form-label" for="perkara_id">Perkara Utama</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="perkara_id">
+                            <option selected disabled hidden>SILA PILIH</option>
+
+                            @foreach ($perkara as $perkara)
+                                <option value="{{ $perkara->id }}">{{ $perkara->namaPerkara }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+
+
                 </div>
+
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan</label>
@@ -99,9 +99,9 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaInisiatif" >Nama Inisiatif</label>
+                    <label class="col-sm-2 col-form-label" for="namaInisiatif">Nama Inisiatif</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaInisiatif"/>
+                        <input class="form-control" type="text" name="namaInisiatif" />
 
                     </div>
                 </div>
@@ -117,14 +117,17 @@
 
                 <div class="row">
                     <div class="col">
-                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3" href="/inisiatif">
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
+                            href="/inisiatif">
                             <span class="fas fa-times-circle"></span>&nbsp;Batal
                         </a>
                     </div>
 
                     <div class="col" style="text-align: right">
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save" onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span class="fas fa-save"></span>&nbsp;Simpan
+                            type="submit" value="Save"
+                            onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span
+                                class="fas fa-save"></span>&nbsp;Simpan
                         </button>
                     </div>
                 </div>

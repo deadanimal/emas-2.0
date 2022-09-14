@@ -18,7 +18,7 @@
 
                 <div class="mb-3 row">
 
-                    <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema</label>
+                    <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="pemangkin_id">
                             @foreach ($listTema as $listT)

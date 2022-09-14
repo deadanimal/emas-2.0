@@ -218,7 +218,7 @@
                                     </span>
                                 </div>
                                 <div class="col text-center" style="color: #047FC3">
-                                    <span class="nav-link-text ps-1">Perlaksanaan Program
+                                    <span class="nav-link-text ps-1">Pelaksanaan Program
                                         Pembasmian Kemiskinan
                                         Tegar Keluarga Malaysia
                                         (BMTKM)</span>
@@ -306,8 +306,7 @@
                                 <li class="nav-item"><a
                                         class="nav-link btn1 {{ Request::is('perkarautama', 'perkarautama/*') ? 'active' : '' }}"
                                         href="/perkarautama">
-                                        <div class="d-flex align-items-center"><span
-                                                class="nav-link-text1 ps-1">Perkara
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Perkara
                                                 Utama</span>
                                         </div>
                                     </a>
@@ -1207,7 +1206,7 @@
                         </div>
                     </a>
                 </li>
-              
+
                 <br>
 
 

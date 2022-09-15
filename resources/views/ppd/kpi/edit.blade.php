@@ -32,8 +32,8 @@
 
                     <label class="col-sm-2 col-form-label" for="fokusutama_id">Fokus Utama</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="fokusutama_id">
-                            @foreach ($fokusUtama as $fu)
+                        <select class="form-control" name="fokusutama_id" id="pilih1">
+                            @foreach ($fokuss as $fu)
                                 <option @selected($kpi->fokusutama_id == $fu->id) value="{{ $fu->id }}">
                                     {{ $fu->namaFokus }}
                                 </option>
@@ -65,8 +65,8 @@
 
                     <label class="col-sm-2 col-form-label" for="perkarautama_id">Perkara Utama</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="perkarautama_id">
-                            @foreach ($perkaraUtama as $pu)
+                        <select class="form-control" name="perkarautama_id" id="pilih2">
+                            @foreach ($perkaras as $pu)
                                 <option @selected($kpi->perkarautama_id == $pu->id) value="{{ $pu->id }}">
                                     {{ $pu->namaPerkara }}
                                 </option>
@@ -167,4 +167,20 @@
             </ul>
         </div>
     @endif
+
+    <script>
+        $("#pilih1").change(function() {
+
+            var fokus_id = $(this).val();
+            var perkaras = @json($perkaras->toArray());
+            $("#pilih2").html(``);
+            perkaras.forEach(perkara => {
+                if (perkara.fokus_id == fokus_id) {
+                    $("#pilih2").append(`
+                            <option value="` + perkara.id + `">` + perkara.namaPerkara + `</option>
+                        `);
+                }
+            });
+        });
+    </script>
 @endsection

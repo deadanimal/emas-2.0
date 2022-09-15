@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use DataTables;
 
 class PenggunaController extends Controller
 {
@@ -40,14 +41,27 @@ class PenggunaController extends Controller
         ]);
     }
 
-    public function index1()
+    public function index1(Request $request)
     {
-        $role = Role::all();
-        $user = User::all();
-        return view('user.index1', [
-            'role' => $role,
-            'user' => $user,
-        ]);
+        // $role = Role::all();
+        // $user = User::all();
+        // return view('user.index1', [
+        //     'role' => $role,
+        //     'user' => $user,
+        // ]);
+
+        if ($request->ajax()) {
+            $data = User::select('id', 'name', 'email')->get();
+            return Datatables::of($data)->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    $btn = '<a href="javascript:void(0)" class="btn btn-primary btn-sm">View</a>';
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
+        return view('user.index1');
     }
 
     /**

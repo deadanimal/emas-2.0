@@ -29,10 +29,10 @@
                     </div>
                     <label class="col-sm-2 col-form-label" for="fokusutama_id">Fokus Utama</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="fokusutama_id">
+                        <select class="form-control" name="fokusutama_id" id="pilih1">
                             <option selected disabled hidden>Sila Pilih</option>
 
-                            @foreach ($fokusUtama as $fu)
+                            @foreach ($fokuss as $fu)
                                 <option value="{{ $fu->id }}">{{ $fu->namaFokus }}</option>
                             @endforeach
 
@@ -58,13 +58,13 @@
 
                     <label class="col-sm-2 col-form-label" for="perkarautama_id">Perkara Utama</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="perkarautama_id">
+                        <select class="form-control" name="perkarautama_id" id="pilih2">
                             <option selected disabled hidden>Sila Pilih</option>
 
-                            @foreach ($perkaraUtama as $pu)
+                            {{-- @foreach ($perkaras as $pu)
                                 <option value="{{ $pu->id }}">{{ $pu->namaPerkara }}
                                 </option>
-                            @endforeach
+                            @endforeach --}}
 
                         </select>
                     </div>
@@ -165,4 +165,22 @@
             </ul>
         </div>
     @endif
+
+
+
+    <script>
+        $("#pilih1").change(function() {
+
+            var fokus_id = $(this).val();
+            var perkaras = @json($perkaras->toArray());
+            $("#pilih2").html(``);
+            perkaras.forEach(perkara => {
+                if (perkara.fokus_id == fokus_id) {
+                    $("#pilih2").append(`
+                            <option value="` + perkara.id + `">` + perkara.namaPerkara + `</option>
+                        `);
+                }
+            });
+        });
+    </script>
 @endsection

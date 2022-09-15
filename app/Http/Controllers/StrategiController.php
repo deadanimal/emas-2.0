@@ -46,11 +46,11 @@ class StrategiController extends Controller
         $user = Auth::user();
 
         $list = Bidang::all();
-        $fokus = Fokusutama::all();
-        $perkara = Perkarautama::all();
+        $fokuss = Fokusutama::all();
+        $perkaras = Perkarautama::all();
         $pemangkin = Pemangkindasar::all();
         $bab = Bab::all();
-        return view('ppd.strategi.create', compact('user', 'list', 'bab', 'perkara', 'pemangkin', 'fokus'));
+        return view('ppd.strategi.create', compact('user', 'list', 'bab', 'perkaras', 'pemangkin', 'fokuss'));
     }
 
     /**
@@ -85,12 +85,12 @@ class StrategiController extends Controller
     public function edit(Strategi $strategi)
     {
         $list = Bidang::all();
-        $fokus = Fokusutama::all();
-        $perkara = Perkarautama::all();
+        $fokuss = Fokusutama::all();
+        $perkaras = Perkarautama::all();
         $pemangkin = Pemangkindasar::all();
         $bab = Bab::all();
 
-        return view('ppd.strategi.edit', compact('strategi', 'list', 'bab', 'perkara', 'pemangkin', 'fokus'));
+        return view('ppd.strategi.edit', compact('strategi', 'list', 'bab', 'perkaras', 'pemangkin', 'fokuss'));
     }
 
     /**

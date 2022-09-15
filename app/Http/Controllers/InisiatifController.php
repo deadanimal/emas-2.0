@@ -54,12 +54,12 @@ class InisiatifController extends Controller
         $user = Auth::user();
 
         $list = Strategi::all();
-        $fokus = Fokusutama::all();
-        $perkara = Perkarautama::all();
+        $fokuss = Fokusutama::all();
+        $perkaras = Perkarautama::all();
         $pemangkin = Pemangkindasar::all();
         $bab = Bab::all();
         $bidang = Bidang::all();
-        return view('ppd.inisiatif.create', compact('user', 'list', 'fokus', 'perkara', 'pemangkin', 'bab', 'bidang'));
+        return view('ppd.inisiatif.create', compact('user', 'list', 'fokuss', 'perkaras', 'pemangkin', 'bab', 'bidang'));
     }
 
     /**
@@ -94,13 +94,13 @@ class InisiatifController extends Controller
     public function edit(Inisiatif $inisiatif)
     {
         $list = Strategi::all();
-        $fokus = Fokusutama::all();
-        $perkara = Perkarautama::all();
+        $fokuss = Fokusutama::all();
+        $perkaras = Perkarautama::all();
         $pemangkin = Pemangkindasar::all();
         $bab = Bab::all();
         $bidang = Bidang::all();
 
-        return view('ppd.inisiatif.edit', compact('inisiatif', 'list', 'fokus', 'perkara', 'pemangkin', 'bab', 'bidang'));
+        return view('ppd.inisiatif.edit', compact('inisiatif', 'list', 'fokuss', 'perkaras', 'pemangkin', 'bab', 'bidang'));
     }
 
     /**

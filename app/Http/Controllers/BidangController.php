@@ -41,13 +41,13 @@ class BidangController extends Controller
     {
         $user = Auth::user();
 
-        $list = Bab::all();
-        $fokus = Fokusutama::all();
-        $pemangkin = Pemangkindasar::all();
-        $perkara = Perkarautama::all();
+        $babs = Bab::all();
+        $fokuss = Fokusutama::all();
+        $temas = Pemangkindasar::all();
+        $perkaras = Perkarautama::all();
 
 
-        return view('ppd.bidang.create', compact('user', 'list', 'fokus', 'pemangkin', 'perkara'));
+        return view('ppd.bidang.create', compact('user', 'babs', 'fokuss', 'temas', 'perkaras'));
     }
 
     /**
@@ -81,12 +81,12 @@ class BidangController extends Controller
      */
     public function edit(Bidang $bidang)
     {
-        $list = Bab::all();
-        $fokus = Fokusutama::all();
-        $pemangkin = Pemangkindasar::all();
-        $perkara = Perkarautama::all();
+        $babs = Bab::all();
+        $fokuss = Fokusutama::all();
+        $temas = Pemangkindasar::all();
+        $perkaras = Perkarautama::all();
 
-        return view('ppd.bidang.edit', compact('bidang', 'list', 'fokus', 'pemangkin', 'perkara'));
+        return view('ppd.bidang.edit', compact('bidang', 'babs', 'fokuss', 'temas', 'perkaras'));
     }
 
     /**

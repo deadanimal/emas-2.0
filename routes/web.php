@@ -172,6 +172,8 @@ Route::group(
         Route::resource('/senarai_kir_air', Senarai_kir_dan_airController::class);
         Route::get('/senarai_kir_air1/index1/', [Senarai_kir_dan_airController::class, 'index1']);
         Route::get('/senarai_kir_air1/index2/', [Senarai_kir_dan_airController::class, 'index2']);
+        // Route::get('/senarai_kir_air1/list', [Senarai_kir_dan_airController::class, 'getSenarai'])->name('senarai_kir_air1.list');
+        Route::get('senarai_kir_air1', [Senarai_kir_dan_airController::class, 'senarai'])->name('senarai_kir_air1.senarai');
 
         // Jenis Bantuan
         Route::resource('/bantuan', BantuanController::class);
@@ -256,6 +258,9 @@ Route::group(
         //User Management
         Route::resource('/userRole', RolesandpermissionController::class);
         Route::resource('/user', PenggunaController::class);
+        Route::get('users', [PenggunaController::class, 'index1'])->name('users.index1');
+
+
         Route::get('/user1/index1/', [PenggunaController::class, 'index1']);
         Route::get('/user1/create1/', [PenggunaController::class, 'create1']);
         Route::post('/set-semula-kata-laluan/{id}', [PenggunaController::class, 'set_semula_kata_laluan']);

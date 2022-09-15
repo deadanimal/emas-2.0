@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePemangkindasarRequest;
 use App\Http\Requests\UpdatePemangkindasarRequest;
+use App\Models\Fokusutama;
 use App\Models\Pemangkindasar;
+use App\Models\Perkarautama;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -37,11 +39,12 @@ class PemangkindasarController extends Controller
     {
         $user = Auth::user();
 
-        // $list= Tema::all();
+        $perkaras = Perkarautama::all();
+        $fokuss = Fokusutama::all();
 
 
         // $list= Kategori::all();
-        return view('ppd.pemangkin.create', compact('user',));
+        return view('ppd.pemangkin.create', compact('user', 'perkaras', 'fokuss'));
     }
 
     /**
@@ -76,8 +79,10 @@ class PemangkindasarController extends Controller
     public function edit($id)
     {
         $pemangkindasar = Pemangkindasar::find($id);
+        $perkaras = Perkarautama::all();
+        $fokuss = Fokusutama::all();
 
-        return view('ppd.pemangkin.edit', compact('pemangkindasar'));
+        return view('ppd.pemangkin.edit', compact('pemangkindasar', 'perkaras', 'fokuss'));
     }
 
     /**

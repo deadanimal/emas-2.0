@@ -6,6 +6,10 @@ use App\Models\Info_kampung;
 use App\Models\Kampung;
 use App\Models\Negeri;
 use App\Models\Profil;
+use Illuminate\Http\Request;
+use DataTables;
+
+
 
 class Senarai_kir_dan_airController extends Controller
 {
@@ -76,5 +80,22 @@ class Senarai_kir_dan_airController extends Controller
         }
 
         return view('KT.senarai_kir_air.index2', compact('senarai', 'senarai1', 'kampung', 'negeris'));
+    }
+
+    public function senarai(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = Negeri::select('id', 'name')->get();
+
+            return Datatables::of($data)->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    $btn = '<a href="javascript:void(0)" class="btn btn-primary btn-sm">View</a>';
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
+        return view('negeris');
     }
 }

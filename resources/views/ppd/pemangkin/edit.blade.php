@@ -18,6 +18,34 @@
                 @method('PUT')
 
                 <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="fokus_id" id="pilih1">
+
+                            @foreach ($fokuss as $fokus)
+                                <option @selected($pemangkindasar->fokus_id == $fokus->id) value="{{ $fokus->id }}">{{ $fokus->namaFokus }}
+                                </option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="perkara_id">Perkara Utama</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="perkara_id" id="pilih2">
+
+                            @foreach ($perkaras as $perkara)
+                                <option @selected($pemangkindasar->perkara_id == $perkara->id) value="{{ $perkara->id }}">{{ $perkara->namaPerkara }}
+                                </option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="kategori_id">Kategori</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="kategori_id">
@@ -32,7 +60,8 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="namaTema">Nama Tema/Pemangkin</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaTema" value="{{ $pemangkindasar->namaTema }}" />
+                        <input class="form-control" type="text" name="namaTema"
+                            value="{{ $pemangkindasar->namaTema }}" />
 
                     </div>
                 </div>
@@ -56,7 +85,9 @@
 
                     <div class="col" style="text-align: right">
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save" onclick="return confirm('Adakah anda mahu mengubah data ini?')"><span class="fas fa-save"></span>&nbsp;Simpan
+                            type="submit" value="Save"
+                            onclick="return confirm('Adakah anda mahu mengubah data ini?')"><span
+                                class="fas fa-save"></span>&nbsp;Simpan
                         </button>
                     </div>
                 </div>
@@ -77,4 +108,20 @@
             </ul>
         </div>
     @endif
+
+    <script>
+        $("#pilih1").change(function() {
+
+            var fokus_id = $(this).val();
+            var perkaras = @json($perkaras->toArray());
+            $("#pilih2").html(``);
+            perkaras.forEach(perkara => {
+                if (perkara.fokus_id == fokus_id) {
+                    $("#pilih2").append(`
+                        <option value="` + perkara.id + `">` + perkara.namaPerkara + `</option>
+                    `);
+                }
+            });
+        });
+    </script>
 @endsection

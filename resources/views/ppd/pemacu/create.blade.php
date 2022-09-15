@@ -74,7 +74,7 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
+                    <label class="col-sm-2 col-form-label" for="">Bab</label>
                     <div class="col-sm-10" style="width:30%">
                         <div class="input-group">
 

@@ -19,9 +19,9 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="fokus_id">
+                        <select class="form-control" name="fokus_id" id="pilih1">
 
-                            @foreach ($fokus as $fokus)
+                            @foreach ($fokuss as $fokus)
                                 <option @selected($bab->fokus_id == $fokus->id) value="{{ $fokus->id }}">{{ $fokus->namaFokus }}
                                 </option>
                             @endforeach
@@ -33,9 +33,9 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="pemangkin_id">
+                        <select class="form-control" name="pemangkin_id" id="pilih2">
 
-                            @foreach ($list as $list)
+                            @foreach ($temas as $list)
                                 <option @selected($bab->pemangkin_id == $list->id) value="{{ $list->id }}">{{ $list->namaTema }}
                                 </option>
                             @endforeach
@@ -130,4 +130,20 @@
             </ul>
         </div>
     @endif
+
+    <script>
+        $("#pilih1").change(function() {
+
+            var fokus_id = $(this).val();
+            var temas = @json($temas->toArray());
+            $("#pilih2").html(``);
+            temas.forEach(tema => {
+                if (tema.fokus_id == fokus_id) {
+                    $("#pilih2").append(`
+                        <option value="` + tema.id + `">` + tema.namaTema + `</option>
+                    `);
+                }
+            });
+        });
+    </script>
 @endsection

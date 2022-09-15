@@ -46,9 +46,9 @@ class BabController extends Controller
     {
         $user = Auth::user();
 
-        $list = Pemangkindasar::all();
-        $fokus = Fokusutama::all();
-        return view('ppd.bab.create', compact('user', 'list', 'fokus'));
+        $temas = Pemangkindasar::all();
+        $fokuss = Fokusutama::all();
+        return view('ppd.bab.create', compact('user', 'temas', 'fokuss'));
     }
 
     /**
@@ -82,9 +82,9 @@ class BabController extends Controller
      */
     public function edit(Bab $bab)
     {
-        $list = Pemangkindasar::all();
+        $temas = Pemangkindasar::all();
 
-        $fokus = Fokusutama::all();
+        $fokuss = Fokusutama::all();
 
         //cara baru dapatkan ID
         $bab = Bab::with('pemangkin:id')->find($bab->id);
@@ -96,7 +96,7 @@ class BabController extends Controller
 
         // dd($bab);
 
-        return view('ppd.bab.edit', compact('bab', 'list', 'fokus'));
+        return view('ppd.bab.edit', compact('bab', 'temas', 'fokuss'));
     }
 
     /**

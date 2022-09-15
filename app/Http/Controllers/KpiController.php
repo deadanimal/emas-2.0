@@ -81,10 +81,10 @@ class KpiController extends Controller
         $listBab = Bab::all();
         $listTema = Pemangkindasar::all();
 
-        $fokusUtama = Fokusutama::all();
-        $perkaraUtama = Perkarautama::all();
+        $fokuss = Fokusutama::all();
+        $perkaras = Perkarautama::all();
 
-        return view('ppd.kpi.create', compact('user', 'list', 'listBidang', 'listBab', 'listTema', 'fokusUtama', 'perkaraUtama'));
+        return view('ppd.kpi.create', compact('user', 'list', 'listBidang', 'listBab', 'listTema', 'fokuss', 'perkaras'));
     }
 
     /**
@@ -148,10 +148,10 @@ class KpiController extends Controller
         $listBab = Bab::all();
         $listTema = Pemangkindasar::all();
 
-        $fokusUtama = Fokusutama::all();
-        $perkaraUtama = Perkarautama::all();
+        $fokuss = Fokusutama::all();
+        $perkaras = Perkarautama::all();
 
-        return view('ppd.kpi.edit', compact('kpi', 'list', 'listBidang', 'listBab', 'listTema', 'fokusUtama', 'perkaraUtama'));
+        return view('ppd.kpi.edit', compact('kpi', 'list', 'listBidang', 'listBab', 'listTema', 'fokuss', 'perkaras'));
     }
 
     public function edit1($id_kpi)

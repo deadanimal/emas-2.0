@@ -230,8 +230,20 @@
         });
         $('#example').dataTable({
             "language": {
-                "search": "Carian:"
+                "search": "Carian:",
+                "zeroRecords": "Rekod tidak dijumpai",
+                "lengthMenu": "Lihat _MENU_ ",
+                "info": "Menunjukkan _START_ dari _END_ daripada _TOTAL_",
+                "infoEmpty": "Menunjukkan 0 dari 0 daripada 0",
+                "paginate": {
+                    "first": "Pertama",
+                    "last": "Terakhir",
+                    "next": "Seterusnya",
+                    "previous": "Sebelumnya"
+                },
+
             }
+
         });
     </script>
 @endsection

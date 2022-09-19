@@ -22,90 +22,83 @@
                         onClick="window.location.reload();">
                         <span class="fas fa-history"></span></a>
                 </div>
-                <div class="col-12 col-sm-auto ms-auto">
-                    <input class="form-control myInput" type="text" placeholder="Carian">
-                </div>
+              
             </div>
         </div>
 
         <hr style="width:100%;text-align:center;">
 
-        <div id="tableExample2" data-list='{"valueNames":["bantuan"],"page":5,"pagination":true}'>
 
-            <div class="table-responsive scrollbar">
-                <table class="table table-hover table-striped overflow-hidden testing" style="width: 100%">
-                    <thead>
-                        <tr>
-                            <th scope="col">No.</th>
-                            <th scope="col">Nama Bantuan</th>
-                            <th scope="col">Kementerian</th>
-                            <th scope="col">Agensi</th>
-                            <th scope="col">Sektor</th>
-                            <th scope="col">Tindakan</th>
+        <div class="table-responsive scrollbar">
+            <table class="table table-bordered user_datatable" id="example">
+                <thead>
+                    <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">Nama Bantuan</th>
+                        <th scope="col">Kementerian</th>
+                        <th scope="col">Agensi</th>
+                        <th scope="col">Sektor</th>
+                        <th scope="col">Tindakan</th>
+
+                    </tr>
+                </thead>
+
+                <tbody class="list" id="myTable">
+                    @foreach ($bantuans as $bantuan)
+                        <tr class="align-middle bantuan">
+                            <td>
+                                {{ $loop->iteration }}
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#error-modal-{{ $bantuan->id }}">
+                                    <div class="ms-2"><b>{{ $bantuan->nama_bantuan }}</b></div>
+                                </div>
+                            </td>
+                            <td>
+                                {{ $bantuan->kementerian }}
+                            </td>
+                            <td>
+                                {{ $bantuan->agensi }}
+                            </td>
+                            <td>
+                                {{ $bantuan->sektor }}
+                            </td>
+                            <td>
+                                <div>
+
+                                    <a class="btn btn-primary" style="border-radius: 38px"
+                                        href="{{ route('bantuan.edit', $bantuan->id) }}"><i class="fas fa-edit"></i>
+                                    </a>
+                                    <form action="{{ route('bantuan.destroy', $bantuan->id) }}" method="post"
+                                        class="d-inline">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit"
+                                            onclick="return confirm('Adakah anda mahu membuang data ini?')"
+                                            class="btn btn-danger" style="border-radius: 38px">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
 
                         </tr>
-                    </thead>
+                    @endforeach
 
-                    <tbody class="list" id="myTable">
-                        @foreach ($bantuans as $bantuan)
-                            <tr class="align-middle bantuan">
-                                <td>
-                                    {{ $loop->iteration }}
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                        data-bs-target="#error-modal-{{ $bantuan->id }}">
-                                        <div class="ms-2"><b>{{ $bantuan->nama_bantuan }}</b></div>
-                                    </div>
-                                </td>
-                                <td>
-                                    {{ $bantuan->kementerian }}
-                                </td>
-                                <td>
-                                    {{ $bantuan->agensi }}
-                                </td>
-                                <td>
-                                    {{ $bantuan->sektor }}
-                                </td>
-                                <td>
-                                    <div>
+                </tbody>
 
-                                        <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="{{ route('bantuan.edit', $bantuan->id) }}"><i class="fas fa-edit"></i>
-                                        </a>
-                                        <form action="{{ route('bantuan.destroy', $bantuan->id) }}" method="post"
-                                            class="d-inline">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit"
-                                                onclick="return confirm('Adakah anda mahu membuang data ini?')"
-                                                class="btn btn-danger" style="border-radius: 38px">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </td>
-
-                            </tr>
-                        @endforeach
-
-                    </tbody>
-
-                </table>
+            </table>
 
 
-            </div>
-
-            <div class="d-flex justify-content-center mt-3">
-                <button class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous"
-                    data-list-pagination="prev"><span class="fas fa-chevron-left"></span>
-                </button>
-                <ul class="pagination mb-0"></ul>
-                <button class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next"
-                    data-list-pagination="next"><span class="fas fa-chevron-right"> </span>
-                </button>
-            </div>
         </div>
 
+
     </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
+    </script>
 @endsection

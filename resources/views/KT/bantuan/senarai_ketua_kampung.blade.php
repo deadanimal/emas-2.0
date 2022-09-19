@@ -62,8 +62,8 @@
 
 
         <div class="table-responsive scrollbar">
-            <table class="table table-bordered" style="width: 100%">
-                <thead class="bg-dark text-white text-center">
+            <table class="table table-bordered user_datatable" id="example">
+                <thead>
                     <th scope="col">No.</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Tarikh Mula Khidmat</th>
@@ -162,6 +162,10 @@
                 console.log(response);
             });
 
+        });
+
+        $(document).ready(function() {
+            $('#example').DataTable();
         });
     </script>
 @endsection

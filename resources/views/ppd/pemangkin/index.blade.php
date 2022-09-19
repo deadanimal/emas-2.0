@@ -19,9 +19,7 @@
                         onClick="window.location.reload();">
                         <span class="fas fa-history"></span></a>
                 </div>
-                <div class="col-12 col-sm-auto ms-auto">
-                    <input class="form-control myInput" type="text" placeholder="Carian">
-                </div>
+
             </div>
         </div>
 

@@ -82,20 +82,20 @@ class Senarai_kir_dan_airController extends Controller
         return view('KT.senarai_kir_air.index2', compact('senarai', 'senarai1', 'kampung', 'negeris'));
     }
 
-    public function senarai(Request $request)
-    {
-        if ($request->ajax()) {
-            $data = Negeri::select('id', 'name')->get();
+    // public function senarai(Request $request)
+    // {
+    //     if ($request->ajax()) {
+    //         $data = Negeri::select('id', 'name')->get();
 
-            return Datatables::of($data)->addIndexColumn()
-                ->addColumn('action', function ($row) {
-                    $btn = '<a href="javascript:void(0)" class="btn btn-primary btn-sm">View</a>';
-                    return $btn;
-                })
-                ->rawColumns(['action'])
-                ->make(true);
-        }
+    //         return Datatables::of($data)->addIndexColumn()
+    //             ->addColumn('action', function ($row) {
+    //                 $btn = '<a href="javascript:void(0)" class="btn btn-primary btn-sm">View</a>';
+    //                 return $btn;
+    //             })
+    //             ->rawColumns(['action'])
+    //             ->make(true);
+    //     }
 
-        return view('negeris');
-    }
+    //     return view('negeris');
+    // }
 }

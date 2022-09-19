@@ -18,9 +18,7 @@
                         onClick="window.location.reload();">
                         <span class="fas fa-history"></span></a>
                 </div>
-                <div class="col-12 col-sm-auto ms-auto">
-                    <input class="form-control myInput" type="text" placeholder="Carian">
-                </div>
+
             </div>
         </div>
 
@@ -49,38 +47,36 @@
                 </select>
             </div>
         </div>
+        <br>
+        <div class="table-responsive scrollbar">
+            <div class="card scrollbar-overlay" style="max-height: 50rem">
 
-        <div id="tableExample2" data-list='{"valueNames":["bab"],"page":5,"pagination":true}'>
-            <div class="table-responsive scrollbar">
-                <div class="card scrollbar-overlay" style="max-height: 50rem">
+                <table class="table table-bordered user_datatable" id="example">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="list myTable" id="searchUpdateTable">
+                        @foreach ($babs as $bab)
+                            <tr class="align-middle">
 
-                    <table class="table table-hover table-striped overflow-hidden" value="null">
-                        <thead>
-                            <tr>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody class="list myTable" id="searchUpdateTable">
-                            @foreach ($babs as $bab)
-                                <tr class="align-middle">
+                                <td>
+                                    <div class="d-flex align-items-center" onclick="openmodal({{ $bab->id }},this)">
+                                        <div class="ms-2"><b>{{ $loop->iteration }}. {{ $bab->namaBab }}</b></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $bab->id }}">
+                                        <div class="ms-2"><b>Bab {{ $bab->noBab }}</b></div>
+                                    </div>
 
-                                    <td>
-                                        <div class="d-flex align-items-center"
-                                            onclick="openmodal({{ $bab->id }},this)">
-                                            <div class="ms-2"><b>{{ $loop->iteration }}. {{ $bab->namaBab }}</b></div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                            data-bs-target="#error-modal-{{ $bab->id }}">
-                                            <div class="ms-2"><b>Bab {{ $bab->noBab }}</b></div>
-                                        </div>
+                                </td>
 
-                                    </td>
-
-                                    {{-- <div class="modal fade" id="error-modal-{{ $bab->id }}" tabindex="-1"
+                                {{-- <div class="modal fade" id="error-modal-{{ $bab->id }}" tabindex="-1"
                                         role="dialog" aria-hidden value="null"="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document"
                                             style="max-width: 500px">
@@ -121,88 +117,75 @@
                                         </div>
                                     </div> --}}
 
-                                    <td align="right">
-                                        <div>
-                                            {{-- <form action="{{ route('bab.destroy', $bab->id) }}" method="POST"> --}}
+                                <td align="right">
+                                    <div>
+                                        {{-- <form action="{{ route('bab.destroy', $bab->id) }}" method="POST"> --}}
 
-                                            <a class="btn btn-primary" style="border-radius: 38px"
-                                                href="{{ route('bab.edit', $bab->id) }}"><i class="fas fa-edit"></i>
-                                            </a>
-                                            {{-- @csrf
+                                        <a class="btn btn-primary" style="border-radius: 38px"
+                                            href="{{ route('bab.edit', $bab->id) }}"><i class="fas fa-edit"></i>
+                                        </a>
+                                        {{-- @csrf
                                         @method('DELETE') --}}
 
-                                            <button type="submit" onclick="myFunction({{ $bab->id }})"
-                                                class="btn btn-danger" style="border-radius: 38px">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                            <p id="ppd"></p>
+                                        <button type="submit" onclick="myFunction({{ $bab->id }})"
+                                            class="btn btn-danger" style="border-radius: 38px">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <p id="ppd"></p>
 
 
-                                            {{-- </form> --}}
+                                        {{-- </form> --}}
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <div class="modal fade" id="error-modal-{{ $bab->id }}" tabindex="-1" role="dialog"
+                                aria-hidden value="null"="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
+                                    <div class="modal-content position-relative">
+                                        <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                                            <button
+                                                class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                                                data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
-                                    </td>
-                                </tr>
+                                        <div class="modal-body p-0">
 
-                                <div class="modal fade" id="error-modal-{{ $bab->id }}" tabindex="-1" role="dialog"
-                                    aria-hidden value="null"="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document"
-                                        style="max-width: 500px">
-                                        <div class="modal-content position-relative">
-                                            <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
-                                                <button
-                                                    class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
-                                                    data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body p-0">
+                                            <div class="p-4 pb-0">
+                                                <form>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Bab:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $bab->namaBab }}</label>
 
-                                                <div class="p-4 pb-0">
-                                                    <form>
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Bab:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $bab->namaBab }}</label>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">No Bab:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $bab->noBab }}</label>
 
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">No Bab:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $bab->noBab }}</label>
-
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Keterangan:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $bab->keteranganBab }}</label>
-                                                        </div>
-                                                    </form>
-                                                    <br>
-                                                </div>
-
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Keterangan:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $bab->keteranganBab }}</label>
+                                                    </div>
+                                                </form>
+                                                <br>
                                             </div>
 
                                         </div>
+
                                     </div>
                                 </div>
-                            @endforeach
+                            </div>
+                        @endforeach
 
-                        </tbody>
-                    </table>
+                    </tbody>
+                </table>
 
-                </div>
             </div>
-
-            <div class="d-flex justify-content-center mt-3">
-                <button class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous"
-                    data-list-pagination="prev"><span class="fas fa-chevron-left"></span>
-                </button>
-                <ul class="pagination mb-0"></ul>
-                <button class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next"
-                    data-list-pagination="next"><span class="fas fa-chevron-right"> </span>
-                </button>
-            </div>
-
-
         </div>
+
     </div>
 
     <script>
@@ -262,19 +245,7 @@
 
                     `);
 
-                    // $("#searchUpdateTable2").append(`
-                //     <div>
 
-                //         <a class="btn btn-primary" style="border-radius: 38px"
-                //             href="/bab/` + el.id + `/edit"><i class="fas fa-edit"></i>
-                //         </a>
-
-                //         <button type="submit" onclick="myFunction({{ `+el.id+` }})" class="btn btn-danger"
-                //             style="border-radius: 38px">
-                //             <i class="fas fa-trash"></i>
-                //         </button>
-                //     </div>
-                // `);
                 });
             });
 
@@ -383,22 +354,34 @@
 
         // });
 
-        $(document).ready(function() {
-            $(".myInput").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                $(".myTable tr").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
 
-
-
-        });
 
         function openmodal(id) {
             // console.log('masuk');
             var modal = "#error-modal-" + id;
             $(modal).appendTo("body").modal("show");
         }
+
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
+
+        $('#example').dataTable({
+            "language": {
+                "search": "Carian:",
+                "zeroRecords": "Rekod tidak dijumpai",
+                "lengthMenu": "Lihat _MENU_ ",
+                "info": "Menunjukkan _START_ dari _END_ daripada _TOTAL_",
+                "infoEmpty": "Menunjukkan 0 dari 0 daripada 0",
+                "paginate": {
+                    "first": "Pertama",
+                    "last": "Terakhir",
+                    "next": "Seterusnya",
+                    "previous": "Sebelumnya"
+                },
+
+            }
+
+        });
     </script>
 @endsection

@@ -19,9 +19,7 @@
                         <span class="fas fa-history"></span>
                     </a>
                 </div>
-                <div class="col-12 col-sm-auto ms-auto">
-                    <input class="form-control myInput" type="text" placeholder="Carian">
-                </div>
+
             </div>
         </div>
 
@@ -99,280 +97,257 @@
                     @endforeach
                 </select>
             </div>
-        </div>
+        </div><br>
 
-        <div id="tableExample2" data-list='{"valueNames":["kpi"],"page":5,"pagination":true}'>
-            <div class="table-responsive scrollbar">
-                <table class="table table-hover table-striped overflow-hidden" value="null">
-                    <thead>
-                        <tr>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody class="list myTable" id="searchUpdateTable">
-                        @foreach ($kpis as $kpi)
-                            <tr class="align-middle">
-                                <td id="searchUpdateTable">
-                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                        data-bs-target="#error-modal-{{ $kpi->id }}">
+        <div class="table-responsive scrollbar">
+            <table class="table table-bordered user_datatable" id="example">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody class="list myTable" id="searchUpdateTable">
+                    @foreach ($kpis as $kpi)
+                        <tr class="align-middle">
+                            <td id="searchUpdateTable">
+                                <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#error-modal-{{ $kpi->id }}">
 
-                                        <div class="ms-2"><b>{{ $kpi->namaKpi }}</b></div>
-                                    </div>
-                                </td>
-
-
-
-                                <td class="align-right" id="searchUpdateTable2">
-                                    <div>
-                                        <a class="btn btn-warning" style="border-radius: 38px" onclick="Kpi(this)"
-                                            href="/kpi1/{{ $kpi->id }}/edit/"><i class="fas fa-pencil-alt"></i>
-                                        </a>
-
-
-                                        <a type="button" class="btn btn-primary" style="border-radius: 38px"
-                                            href="{{ route('kpi.edit', $kpi->id) }}"><i class="fas fa-edit"></i>
-                                        </a>
-
-                                        <button type="submit" onclick="myFunction({{ $kpi->id }})"
-                                            class="btn btn-danger" style="border-radius: 38px">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </div>
-
-                                </td>
+                                    <div class="ms-2"><b>{{ $kpi->namaKpi }}</b></div>
+                                </div>
+                            </td>
 
 
 
-                                <div class="modal fade" id="error-modal-{{ $kpi->id }}" tabindex="-1" role="dialog"
-                                    aria-hidden value="null"="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document"
-                                        style="max-width: 1100px">
-                                        <div class="modal-content position-relative">
-                                            <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
-                                                <button
-                                                    class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
-                                                    data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body p-0">
+                            <td class="align-right" id="searchUpdateTable2">
+                                <div>
+                                    <a class="btn btn-warning" style="border-radius: 38px" onclick="Kpi(this)"
+                                        href="/kpi1/{{ $kpi->id }}/edit/"><i class="fas fa-pencil-alt"></i>
+                                    </a>
 
-                                                <div class="p-4 pb-0">
-                                                    <form>
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Kpi:</label>
+
+                                    <a type="button" class="btn btn-primary" style="border-radius: 38px"
+                                        href="{{ route('kpi.edit', $kpi->id) }}"><i class="fas fa-edit"></i>
+                                    </a>
+
+                                    <button type="submit" onclick="myFunction({{ $kpi->id }})" class="btn btn-danger"
+                                        style="border-radius: 38px">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+
+                            </td>
+
+
+
+                            <div class="modal fade" id="error-modal-{{ $kpi->id }}" tabindex="-1" role="dialog"
+                                aria-hidden value="null"="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 1100px">
+                                    <div class="modal-content position-relative">
+                                        <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                                            <button
+                                                class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body p-0">
+
+                                            <div class="p-4 pb-0">
+                                                <form>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Kpi:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $kpi->namaKpi }}</label>
+
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Keterangan:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $kpi->keteranganKpi }}</label>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Tema:</label>
+                                                        @if ($kpi->pemangkin != null)
                                                             <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->namaKpi }}</label>
+                                                                disabled="disabled">{{ $kpi->pemangkin->namaTema }}</label>
+                                                        @else
+                                                            <label>Tema telah dipadam</label>
+                                                        @endif
+                                                    </div>
 
-                                                        </div>
-
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Keterangan:</label>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Bab:</label>
+                                                        @if ($kpi->bab != null)
                                                             <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->keteranganKpi }}</label>
-                                                        </div>
+                                                                disabled="disabled">{{ $kpi->bab->namaBab }}</label>
+                                                        @else
+                                                            <label>Bab telah dipadam</label>
+                                                        @endif
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Tema:</label>
-                                                            @if ($kpi->pemangkin != null)
-                                                                <label class="form-control"
-                                                                    disabled="disabled">{{ $kpi->pemangkin->namaTema }}</label>
-                                                            @else
-                                                                <label>Tema telah dipadam</label>
-                                                            @endif
-                                                        </div>
-
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Bab:</label>
-                                                            @if ($kpi->bab != null)
-                                                                <label class="form-control"
-                                                                    disabled="disabled">{{ $kpi->bab->namaBab }}</label>
-                                                            @else
-                                                                <label>Bab telah dipadam</label>
-                                                            @endif
-                                                        </div>
-
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Bidang Keutamaan:</label>
-                                                            @if ($kpi->bidang != null)
-                                                                <label class="form-control"
-                                                                    disabled="disabled">{{ $kpi->bidang->namaBidang }}</label>
-                                                            @else
-                                                                <label>Bidang Keutamaan telah dipadam</label>
-                                                            @endif
-                                                        </div>
-
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Outcome Nasional:</label>
-                                                            @if ($kpi->outcome != null)
-                                                                <label class="form-control"
-                                                                    disabled="disabled">{{ $kpi->outcome->namaOutcome }}</label>
-                                                            @else
-                                                                <label>Outcome telah dipadam</label>
-                                                            @endif
-                                                        </div>
-
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Jenis KPI:</label>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Bidang Keutamaan:</label>
+                                                        @if ($kpi->bidang != null)
                                                             <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->jenisKpi }}</label>
-                                                        </div>
+                                                                disabled="disabled">{{ $kpi->bidang->namaBidang }}</label>
+                                                        @else
+                                                            <label>Bidang Keutamaan telah dipadam</label>
+                                                        @endif
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Prestasi Kpi:</label>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Outcome Nasional:</label>
+                                                        @if ($kpi->outcome != null)
                                                             <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->prestasiKpi }}</label>
-                                                        </div>
+                                                                disabled="disabled">{{ $kpi->outcome->namaOutcome }}</label>
+                                                        @else
+                                                            <label>Outcome telah dipadam</label>
+                                                        @endif
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Unit:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->unitUkuran }}</label>
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Jenis KPI:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $kpi->jenisKpi }}</label>
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Pencapaian:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->pencapaian }}</label>
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Prestasi Kpi:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $kpi->prestasiKpi }}</label>
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Sasaran:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->sasaran }}</label>
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Unit:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $kpi->unitUkuran }}</label>
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Had Varian:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->hadVarian }}</label>
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Pencapaian:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $kpi->pencapaian }}</label>
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Had Toleransi:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->hadToleransi }}</label>
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Sasaran:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $kpi->sasaran }}</label>
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Kekerapan:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->kekerapan }}</label>
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Had Varian:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $kpi->hadVarian }}</label>
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Wajaran:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->wajaran }}</label>
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Had Toleransi:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $kpi->hadToleransi }}</label>
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Peratus
-                                                                Pencapaian:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->peratusPencapaian }}</label>
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Kekerapan:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $kpi->kekerapan }}</label>
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Tahun Asas:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->tahunAsas }}</label>
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Wajaran:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $kpi->wajaran }}</label>
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Peratus Pencapaian Tahun
-                                                                Asas:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->peratusPencapaianAsas }}</label>
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Peratus
+                                                            Pencapaian:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $kpi->peratusPencapaian }}</label>
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Sumber Data:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->sumberData }}</label>
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Tahun Asas:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $kpi->tahunAsas }}</label>
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Sasaran 2021:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->sasaran2021 }}</label>
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Peratus Pencapaian Tahun
+                                                            Asas:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $kpi->peratusPencapaianAsas }}</label>
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Sumber
-                                                                Pengesahan:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->sumberPengesahan }}</label>
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Sumber Data:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $kpi->sumberData }}</label>
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Sasaran 2022:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->sasaran2022 }}</label>
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Sasaran 2021:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $kpi->sasaran2021 }}</label>
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Sasaran 2023:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->sasaran2023 }}</label>
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Sumber
+                                                            Pengesahan:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $kpi->sumberPengesahan }}</label>
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Sasaran 2024:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->sasaran2024 }}</label>
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Sasaran 2022:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $kpi->sasaran2022 }}</label>
+                                                    </div>
 
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Sasaran 2025:</label>
-                                                            <label class="form-control"
-                                                                disabled="disabled">{{ $kpi->sasaran2025 }}</label>
-                                                        </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Sasaran 2023:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $kpi->sasaran2023 }}</label>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Sasaran 2024:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $kpi->sasaran2024 }}</label>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Sasaran 2025:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $kpi->sasaran2025 }}</label>
+                                                    </div>
 
 
-                                                    </form>
-                                                    <br>
+                                                </form>
+                                                <br>
 
-                                                    <a href="javascript:window.print();">Print Page</a>
-
-                                                </div>
+                                                <a href="javascript:window.print();">Print Page</a>
 
                                             </div>
 
                                         </div>
+
                                     </div>
                                 </div>
-                            </tr>
-                        @endforeach
+                            </div>
+                        </tr>
+                    @endforeach
 
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="d-flex justify-content-center mt-3">
-                <button class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous"
-                    data-list-pagination="prev"><span class="fas fa-chevron-left"></span>
-                </button>
-                <ul class="pagination mb-0"></ul>
-                <button class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next"
-                    data-list-pagination="next"><span class="fas fa-chevron-right"> </span>
-                </button>
-            </div>
-
-
+                </tbody>
+            </table>
         </div>
+
     </div>
 
 
     <script>
-        // function checkForm(form) {
-        //     //
-        //     // validate form fields
-        //     //
-
-        //     form.myButton.disabled = true;
-        //     return true;
-        // }
-
         function Kpi(btn) {
 
             btn.style.visibility = 'hidden';
@@ -463,12 +438,24 @@
         }
 
         $(document).ready(function() {
-            $(".myInput").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                $(".myTable tr").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
+            $('#example').DataTable();
+        });
+        $('#example').dataTable({
+            "language": {
+                "search": "Carian:",
+                "zeroRecords": "Rekod tidak dijumpai",
+                "lengthMenu": "Lihat _MENU_ ",
+                "info": "Menunjukkan _START_ dari _END_ daripada _TOTAL_",
+                "infoEmpty": "Menunjukkan 0 dari 0 daripada 0",
+                "paginate": {
+                    "first": "Pertama",
+                    "last": "Terakhir",
+                    "next": "Seterusnya",
+                    "previous": "Sebelumnya"
+                },
+
+            }
+
         });
     </script>
 @endsection

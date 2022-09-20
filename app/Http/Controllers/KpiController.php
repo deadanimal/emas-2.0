@@ -67,6 +67,27 @@ class KpiController extends Controller
         return view('ppd.kpi.index1', compact('kpis', 'tema', 'bab', 'bidang'));
     }
 
+    public function index2(Request $request)
+    {
+        $tema = Pemangkindasar::all();
+        $bab = Bab::all();
+        $bidang = Bidang::all();
+
+        // $graf = Kpis::select()
+
+
+        if ($request->user()->role == 'SuperAdmin') {
+
+            $kpis = Kpi::all();
+        } else {
+            $user_id = $request->user()->id;
+
+            $kpis = Kpi::where('user_id', '=', $user_id)->get();
+        }
+
+        return view('ppd.kpi.index2', compact('kpis', 'tema', 'bab', 'bidang'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

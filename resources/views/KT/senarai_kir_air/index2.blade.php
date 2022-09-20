@@ -28,12 +28,11 @@
                     <table class="table table-bordered user_datatable" id="example">
                         <thead>
                             <tr>
-                                <th>No</th>
                                 <th>Negeri</th>
                                 <th>Daerah</th>
                                 <th>Kampung</th>
-
-                                <th>Action</th>
+                                <th>Jumlah Kir</th>
+                                <th>Jumlah Air</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -17,6 +17,7 @@ use App\Models\Profil;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 
 class KemasukanDataController extends Controller
@@ -29,6 +30,8 @@ class KemasukanDataController extends Controller
 
     public function index()
     {
+        DB::table('profils')->delete();
+
         $profils = Profil::all();
         return view('KT.kemasukanData.index', compact('profils'));
     }

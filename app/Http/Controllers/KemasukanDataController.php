@@ -30,7 +30,7 @@ class KemasukanDataController extends Controller
 
     public function index()
     {
-        DB::table('profils')->delete();
+        // DB::table('profils')->delete();
 
         $profils = Profil::all();
         return view('KT.kemasukanData.index', compact('profils'));

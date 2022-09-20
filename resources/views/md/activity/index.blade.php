@@ -20,9 +20,7 @@
                         <span class="fas fa-history"></span>
                     </a>
                 </div>
-                <div class="col-12 col-sm-auto ms-auto">
-                    <input class="form-control myInput" type="text" placeholder="Search">
-                </div>
+
             </div>
         </div>
 
@@ -72,7 +70,7 @@
 
         <div class="card">
             <div class="table-responsive scrollbar">
-                <table class="table table-hover table-striped overflow-hidden">
+                <table class="table table-bordered user_datatable" id="example">
                     <thead>
                         <tr>
                             <th scope="col">No.</th>
@@ -247,12 +245,7 @@
         }
 
         $(document).ready(function() {
-            $(".myInput").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                $(".myTable tr").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
+            $('#example').DataTable();
         });
     </script>
 @endsection

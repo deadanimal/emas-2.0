@@ -384,7 +384,7 @@
                                         </li>
                                     </ul>
                                     <ul class="nav collapse" id="kpi">
-                                        <li class="nav-item"><a class="nav-link" href="/kpi1/index1">
+                                        <li class="nav-item"><a class="nav-link btn1" href="/kpi1/index1">
                                                 <div class="d-flex align-items-center"><span
                                                         class="nav-link-text1 btn1 ps-1">Senarai Markah Berdasarkan
                                                         Status</span>
@@ -393,7 +393,17 @@
                                             <!-- more inner pages-->
                                         </li>
                                     </ul>
+                                    <ul class="nav collapse" id="kpi">
+                                        <li class="nav-item"><a class="nav-link btn1" href="/kpi1/index1">
+                                                <div class="d-flex align-items-center"><span
+                                                        class="nav-link-text1 btn1 ps-1">Pelaporan Prestasi</span>
+                                                </div>
+                                            </a>
+                                            <!-- more inner pages-->
+                                        </li>
+                                    </ul>
                                 </li>
+
                                 <li class="nav-item"><a
                                         class="nav-link btn1 {{ Request::is('strategi', 'strategi/*') ? 'active' : '' }}"
                                         href="/strategi">
@@ -412,15 +422,7 @@
                                     </a>
                                     <!-- more inner pages-->
                                 </li>
-                                {{-- <li class="nav-item"><a
-                                        class="nav-link btn1 {{ Request::is('tindakan', 'tindakan/*', 'tindakan1', 'tindakan1/*') ? 'active' : '' }}"
-                                        href="/tindakan">
-                                        <div class="d-flex align-items-center"><span
-                                                class="nav-link-text1 ps-1">Tindakan</span>
-                                        </div>
-                                    </a>
-                                    <!-- more inner pages-->
-                                </li> --}}
+
                                 <li class="nav-item">
                                     <a class="nav-link btn1 dropdown-indicator  {{ Request::is('tindakan', 'tindakan/*', 'tindakan1', 'tindakan1/*') ? 'active' : '' }}"
                                         href="#tindakan" role="button" data-bs-toggle="collapse"
@@ -442,10 +444,19 @@
                                         </li>
                                     </ul>
                                     <ul class="nav collapse" id="tindakan">
-                                        <li class="nav-item"><a class="nav-link" href="/tindakan1/index1">
+                                        <li class="nav-item"><a class="nav-link btn1" href="/tindakan1/index1">
                                                 <div class="d-flex align-items-center"><span
                                                         class="nav-link-text1 btn1 ps-1">Senarai Markah Berdasarkan
                                                         Status</span>
+                                                </div>
+                                            </a>
+                                            <!-- more inner pages-->
+                                        </li>
+                                    </ul>
+                                    <ul class="nav collapse" id="tindakan">
+                                        <li class="nav-item"><a class="nav-link btn1" href="/kpi1/index1">
+                                                <div class="d-flex align-items-center"><span
+                                                        class="nav-link-text1 btn1 ps-1">Pelaporan Prestasi</span>
                                                 </div>
                                             </a>
                                             <!-- more inner pages-->
@@ -460,6 +471,37 @@
                                         </div>
                                     </a>
                                     <!-- more inner pages-->
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 dropdown-indicator  {{ Request::is('pelaporan', 'pelaporan/*') ? 'active' : '' }}"
+                                        href="#pelaporan" role="button" data-bs-toggle="collapse"
+                                        aria-expanded="false" aria-controls="pelaporan">
+                                        <div class="d-flex align-items-center">
+                                            <span class="nav-link-text1 ps-1">Pelaporan
+                                                Prestasi</span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+
+                                    <ul class="nav collapse" id="pelaporan">
+                                        <li class="nav-item"><a class="nav-link btn1" href="/kpi1/index1">
+                                                <div class="d-flex align-items-center"><span
+                                                        class="nav-link-text1 btn1 ps-1">Kemajuan KPI</span>
+                                                </div>
+                                            </a>
+                                            <!-- more inner pages-->
+                                        </li>
+                                    </ul>
+
+                                    <ul class="nav collapse" id="pelaporan">
+                                        <li class="nav-item"><a class="nav-link btn1" href="/kpi1/index1">
+                                                <div class="d-flex align-items-center"><span
+                                                        class="nav-link-text1 btn1 ps-1">Kemajuan Tindakan</span>
+                                                </div>
+                                            </a>
+                                            <!-- more inner pages-->
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
                         </div>

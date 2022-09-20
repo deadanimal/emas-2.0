@@ -73,7 +73,8 @@
                         Penyelaras</label>
                     <div class="col-sm-10" style="width:30%">
 
-                        <input class="form-control" type="text" name="kementerian_penyelaras" />
+                        <input class="form-control" type="text" name="kementerian_penyelaras"
+                            value="{{ $tindakans->kementerian_penyelaras }}" />
 
                     </div>
 
@@ -84,11 +85,11 @@
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="kementerian_pelaksana">
                             <option selected disabled hidden>SILA PILIH</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                            <option @selected($tindakans->kementerian_pelaksana == '1') value="1">1</option>
+                            <option @selected($tindakans->kementerian_pelaksana == '2') value="2">2</option>
+                            <option @selected($tindakans->kementerian_pelaksana == '3') value="3">3</option>
+                            <option @selected($tindakans->kementerian_pelaksana == '4') value="4">4</option>
+                            <option @selected($tindakans->kementerian_pelaksana == '5') value="5">5</option>
 
                         </select>
                     </div>
@@ -97,11 +98,11 @@
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="tempohSiap">
                             <option selected disabled hidden>SILA PILIH</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                            <option @selected($tindakans->tempohSiap = '1') value="1">1</option>
+                            <option @selected($tindakans->tempohSiap = '2') value="2">2</option>
+                            <option @selected($tindakans->tempohSiap = '3') value="3">3</option>
+                            <option @selected($tindakans->tempohSiap = '4') value="4">4</option>
+                            <option @selected($tindakans->tempohSiap = '5') value="5">5</option>
 
                         </select>
                     </div>
@@ -112,18 +113,18 @@
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="kategoriSasaran">
                             <option selected disabled hidden>SILA PILIH</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                            <option @selected($tindakans->kategoriSasaran = '1') value="1">1</option>
+                            <option @selected($tindakans->kategoriSasaran = '2') value="2">2</option>
+                            <option @selected($tindakans->kategoriSasaran = '3') value="3">3</option>
+                            <option @selected($tindakans->kategoriSasaran = '4') value="4">4</option>
+                            <option @selected($tindakans->kategoriSasaran = '5') value="5">5</option>
 
                         </select>
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="catatan2021">Catatan 2021</label>
                     <div class="col-sm-10" style="width:30%">
-                        <textarea class="form-control" row="10" name="catatan2021"></textarea>
+                        <textarea class="form-control" row="10" name="catatan2021" value="{{ $tindakans->catatan2021 }}"></textarea>
                     </div>
                 </div>
 
@@ -132,18 +133,18 @@
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="statusPelaksanaan2021">
                             <option selected disabled hidden>SILA PILIH</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                            <option @selected($tindakans->statusPelaksanaan2021 = '1') value="1">1</option>
+                            <option @selected($tindakans->statusPelaksanaan2021 = '2') value="2">2</option>
+                            <option @selected($tindakans->statusPelaksanaan2021 = '3') value="3">3</option>
+                            <option @selected($tindakans->statusPelaksanaan2021 = '4') value="4">4</option>
+                            <option @selected($tindakans->statusPelaksanaan2021 = '5') value="5">5</option>
 
                         </select>
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="catatan2022">Catatan 2022</label>
                     <div class="col-sm-10" style="width:30%">
-                        <textarea class="form-control" row="10" name="catatan2022"></textarea>
+                        <textarea class="form-control" row="10" name="catatan2022" value="{{ $tindakans->catatan2022 }}"></textarea>
 
                     </div>
                 </div>
@@ -151,7 +152,7 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="sasaran2021">Sasaran 2021</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="sasaran2021" />
+                        <input class="form-control" name="sasaran2021" value="{{ $tindakans->sasaran2021 }}" />
 
                     </div>
 
@@ -160,9 +161,9 @@
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="status">
                             <option selected disabled hidden>SILA PILIH</option>
-                            <option value="1">Belum Dilaksana</option>
-                            <option value="2">Dalam Pelaksanaan</option>
-                            <option value="2">Tamat Pelaksanaan</option>
+                            <option @selected($tindakans->status = '1') value="1">Belum Dilaksana</option>
+                            <option @selected($tindakans->status = '2') value="2">Dalam Pelaksanaan</option>
+                            <option @selected($tindakans->status = '3') value="3">Tamat Pelaksanaan</option>
                         </select>
                     </div>
 
@@ -172,7 +173,20 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="pencapaian2021">Pencapaian 2021</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="pencapaian2021" />
+                        <input class="form-control" name="pencapaian2021" value="{{ $tindakans->pencapaian2021 }}" />
+
+                    </div>
+
+                    <label class="col-sm-2 col-form-label" for="status">Pilih Tahun Berkaitan</label>
+
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="tahun" id="pilih1">
+                            <option selected disabled hidden>SILA PILIH TAHUN</option>
+                            <option value="Q1">Q1 (JAN-MAC)</option>
+                            <option value="Q2">Q2 (APR-JUN)</option>
+                            <option value="Q3">Q3 (JUL-SEP)</option>
+                            <option value="Q4">Q4 (OKT-DIS)</option>
+                        </select>
 
                     </div>
 
@@ -181,7 +195,14 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="statusPelaksanaan">Status Pelaksanaan 2022</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="statusPelaksanaan" />
+                        <input class="form-control" name="statusPelaksanaan"
+                            value="{{ $tindakans->statusPelaksanaan }}" />
+
+                    </div>
+
+                    <label class="col-sm-2 col-form-label" for=""></label>
+                    <div class="col-sm-10" style="width:30%" id="pilih2">
+                        <input class="form-control" type="text" name="namaThrust" />
 
                     </div>
 
@@ -190,7 +211,7 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="pencapaian2022">Pencapaian 2022</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="pencapaian2022" />
+                        <input class="form-control" name="pencapaian2022" value="{{ $tindakans->pencapaian2022 }}" />
 
                     </div>
 

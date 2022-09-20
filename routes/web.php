@@ -105,6 +105,8 @@ Route::group(
         Route::get('/kpi1/{id}/edit/', [KpiController::class, 'edit1']);
         Route::post('/kpi1/{id}', [KpiController::class, 'update1']);
         Route::get('/kpi1/index1/', [KpiController::class, 'index1']);
+        Route::get('/kpi1/pelaporan_prestasi_kpi/', [KpiController::class, 'index2']);
+
         Route::post('/kpi/lulus/{id}', [KpiController::class, 'lulus'])->name('kpi.lulus');
         Route::post('/kpi/ditolak/{id}', [KpiController::class, 'ditolak'])->name('kpi.ditolak');
         //Search

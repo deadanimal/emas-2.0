@@ -63,22 +63,21 @@
 
         <hr style="width:100%;text-align:center;">
 
-        <div id="tableExample2" data-list='{"valueNames":["bantuan"],"page":5,"pagination":true}'>
 
-            <div class="table-responsive scrollbar">
-                <table class="table table-hover table-striped overflow-hidden testing" style="width: 100%">
-                    <thead>
-                        <tr>
-                            <th scope="col">No.</th>
-                            <th scope="col">Nama Penerima</th>
-                            <th scope="col">Hubungan</th>
-                            <th scope="col">No. Kad Pengenalan</th>
-                            <th scope="col">Bantuan Yang Diterima</th>
+        <div class="table-responsive scrollbar">
+            <table class="table table-bordered user_datatable" id="example">
+                <thead>
+                    <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">Nama Penerima</th>
+                        <th scope="col">Hubungan</th>
+                        <th scope="col">No. Kad Pengenalan</th>
+                        <th scope="col">Bantuan Yang Diterima</th>
 
-                        </tr>
-                    </thead>
+                    </tr>
+                </thead>
 
-                    {{-- <tbody class="list" id="myTable">
+                {{-- <tbody class="list" id="myTable">
                         @foreach ($bantuans as $bantuan)
                             <tr class="align-middle bantuan">
                                 <td>
@@ -145,21 +144,33 @@
 
                     </tbody> --}}
 
-                </table>
+            </table>
 
 
-            </div>
-
-            <div class="d-flex justify-content-center mt-3">
-                <button class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous"
-                    data-list-pagination="prev"><span class="fas fa-chevron-left"></span>
-                </button>
-                <ul class="pagination mb-0"></ul>
-                <button class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next"
-                    data-list-pagination="next"><span class="fas fa-chevron-right"> </span>
-                </button>
-            </div>
         </div>
 
+
     </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
+        $('#example').dataTable({
+            "language": {
+                "search": "Carian:",
+                "zeroRecords": "Rekod tidak dijumpai",
+                "lengthMenu": "Lihat _MENU_ ",
+                "info": "Menunjukkan _START_ dari _END_ daripada _TOTAL_",
+                "infoEmpty": "Menunjukkan 0 dari 0 daripada 0",
+                "paginate": {
+                    "first": "Pertama",
+                    "last": "Terakhir",
+                    "next": "Seterusnya",
+                    "previous": "Sebelumnya"
+                },
+
+            }
+        });
+    </script>
 @endsection

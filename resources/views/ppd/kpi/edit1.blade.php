@@ -413,10 +413,10 @@
 
         $(function() {
             $("#pilih1").change(function() {
-                if ($(this).val() == "3") {
-                    $("#pilih2").show();
-                } else {
+                if ($(this).val() == "1") {
                     $("#pilih2").hide();
+                } else {
+                    $("#pilih2").show();
                 }
             });
         });

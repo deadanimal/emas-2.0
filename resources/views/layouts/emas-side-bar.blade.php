@@ -1163,42 +1163,7 @@
                                     <a class="nav-link btn1 {{ Request::is('ucapan', 'ucapan/*') ? 'active' : '' }}"
                                         href="/ucapan">
                                         <div class="d-flex align-items-center"><span
-                                                class="nav-link-text1 ps-1">Ucapan PM
-
-                                            </span>
-                                        </div>
-                                    </a>
-                                    <!-- more inner pages-->
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link btn1 {{ Request::is('rumusanPPD', 'rumusanPPD/*') ? 'active' : '' }}"
-                                        href="/rumusanPPD">
-                                        <div class="d-flex align-items-center"><span
-                                                class="nav-link-text1 ps-1">Butiran
-                                                Rumusan PPD
-
-                                            </span>
-                                        </div>
-                                    </a>
-                                    <!-- more inner pages-->
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link btn1 {{ Request::is('rumusanTindakan', 'rumusanTindakan/*') ? 'active' : '' }}"
-                                        href="/rumusanTindakan">
-                                        <div class="d-flex align-items-center"><span
-                                                class="nav-link-text1 ps-1">Rumusan
-                                                Tindakan
-                                            </span>
-                                        </div>
-                                    </a>
-                                    <!-- more inner pages-->
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link btn1 {{ Request::is('executive', 'executive/*') ? 'active' : '' }}"
-                                        href="/executive">
-                                        <div class="d-flex align-items-center"><span
-                                                class="nav-link-text1 ps-1">Executive
-                                                Dashboard
+                                                class="nav-link-text1 ps-1">Ucapan RMke -12 YAB PM
 
                                             </span>
                                         </div>
@@ -1209,8 +1174,54 @@
                                     <a class="nav-link btn1 {{ Request::is('executiveSummary', 'executiveSummary/*') ? 'active' : '' }}"
                                         href="/executiveSummary">
                                         <div class="d-flex align-items-center"><span
-                                                class="nav-link-text1 ps-1">Executive
-                                                Summary
+                                                class="nav-link-text1 ps-1">Ringkasan Eksekutif
+
+
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('executive', 'executive/*') ? 'active' : '' }}"
+                                        href="/executive">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text1 ps-1">Dashboard Eksekutif
+
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('KPISummary', 'KPISummary/*') ? 'active' : '' }}"
+                                        href="/KPISummary">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text1 ps-1">Ringkasan Prestasi KPI Nasional
+
+
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('rumusanTindakan', 'rumusanTindakan/*') ? 'active' : '' }}"
+                                        href="/rumusanTindakan">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text1 ps-1">Ringkasan Kemajuan Tindakan
+
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('rumusanPPD', 'rumusanPPD/*') ? 'active' : '' }}"
+                                        href="/rumusanPPD">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text1 ps-1">Ringkasan Pencapaian PPD
+
                                             </span>
                                         </div>
                                     </a>

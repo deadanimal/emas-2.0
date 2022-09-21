@@ -328,7 +328,7 @@
                                                 </form>
                                                 <br>
 
-                                                <a href="javascript:window.print();">Print Page</a>
+                                                {{-- <a href="javascript:window.print();">Print Page</a> --}}
 
                                             </div>
 
@@ -348,12 +348,12 @@
 
 
     <script>
-        function Kpi(btn) {
+        // function Kpi(btn) {
 
-            btn.style.visibility = 'hidden';
+        //     btn.style.visibility = 'hidden';
 
 
-        }
+        // }
 
         $(".search").change(function() {
             var result = [];

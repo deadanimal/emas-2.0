@@ -38,17 +38,29 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" value="{{ $kpi->pemangkin->namaTema }}" readonly />
-                        <input class="form-control" name="pemangkin_id" type="hidden" value="{{ $kpi->pemangkin->id }}" />
+                        {{-- <input class="form-control" value="{{ $kpi->pemangkin->namaTema }}" readonly />
+                        <input class="form-control" name="pemangkin_id" type="hidden" value="{{ $kpi->pemangkin->id }}" /> --}}
 
+                        @if ($kpi->pemangkin != null)
+                            <input class="form-control" value="{{ $kpi->pemangkin->namaTema }}" readonly />
+                            <input class="form-control" name="bidang_id" type="hidden" value="{{ $kpi->pemangkin->id }}" />
+                        @else
+                            <input class="form-control" value="Tema/ Pemangkin Dasar telah dipadam" readonly />
+                        @endif
 
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" value="{{ $kpi->bab->namaBab }}" readonly />
-                        <input class="form-control" name="bab_id" type="hidden" value="{{ $kpi->bab->id }}" />
+                        {{-- <input class="form-control" value="{{ $kpi->bab->namaBab }}" readonly />
+                        <input class="form-control" name="bab_id" type="hidden" value="{{ $kpi->bab->id }}" /> --}}
 
+                        @if ($kpi->bab != null)
+                            <input class="form-control" value="{{ $kpi->bab->namaBab }}" readonly />
+                            <input class="form-control" name="bidang_id" type="hidden" value="{{ $kpi->bab->id }}" />
+                        @else
+                            <input class="form-control" value="Bab telah dipadam" readonly />
+                        @endif
 
                     </div>
                 </div>
@@ -56,10 +68,15 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" value="{{ $kpi->bidang->namaBidang }}" readonly />
-                        <input class="form-control" name="bidang_id" type="hidden" value="{{ $kpi->bidang->id }}" />
+                        {{-- <input class="form-control" value="{{ $kpi->bidang->namaBidang }}" readonly />
+                        <input class="form-control" name="bidang_id" type="hidden" value="{{ $kpi->bidang->id }}" /> --}}
 
-
+                        @if ($kpi->bidang != null)
+                            <input class="form-control" value="{{ $kpi->bidang->namaBidang }}" readonly />
+                            <input class="form-control" name="bidang_id" type="hidden" value="{{ $kpi->bidang->id }}" />
+                        @else
+                            <input class="form-control" value="Bidang Keutamaan telah dipadam" readonly />
+                        @endif
 
                     </div>
 
@@ -109,6 +126,7 @@
 
                     <label class="col-sm-2 col-form-label" for="unitUkuran">Unit</label>
                     <div class="col-sm-10" style="width:30%">
+
                         <select class="form-control" name="unitUkuran">
                             <option value="%">%</option>
                             <option value="RM">RM</option>
@@ -245,7 +263,7 @@
 
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="status">
-                            <option selected disabled hidden>SILA PILIH</option>
+                            <option selected disabled hidden>SILA PILIH STATUS</option>
                             <option @selected($kpi->status == '1') value="1">Belum Mencapai Sasaran</option>
                             <option @selected($kpi->status == '2') value="2">Tidak Mencapai Sasaran</option>
                             <option @selected($kpi->status == '3') value="2">Mencapai Sasaran</option>

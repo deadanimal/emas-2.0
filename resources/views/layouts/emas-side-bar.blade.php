@@ -105,6 +105,10 @@
                         'kpi/*',
                         'kpi1',
                         'kpi1/*',
+                        'prestasi',
+                        'prestasi/*',
+                        'prestasi_kpi',
+                        'prestasi_kpi/*',
                         'strategi',
                         'strategi/*',
                         'inisiatif',
@@ -274,6 +278,10 @@
                         'kpi/*',
                         'kpi1',
                         'kpi1/*',
+                        'prestasi',
+                        'prestasi/*',
+                        'prestasi_kpi',
+                        'prestasi_kpi/*',
                         'strategi',
                         'strategi/*',
                         'inisiatif',
@@ -393,15 +401,7 @@
                                             <!-- more inner pages-->
                                         </li>
                                     </ul>
-                                    <ul class="nav collapse" id="kpi">
-                                        <li class="nav-item"><a class="nav-link btn1" href="/kpi1/index1">
-                                                <div class="d-flex align-items-center"><span
-                                                        class="nav-link-text1 btn1 ps-1">Pelaporan Prestasi</span>
-                                                </div>
-                                            </a>
-                                            <!-- more inner pages-->
-                                        </li>
-                                    </ul>
+
                                 </li>
 
                                 <li class="nav-item"><a
@@ -453,15 +453,7 @@
                                             <!-- more inner pages-->
                                         </li>
                                     </ul>
-                                    <ul class="nav collapse" id="tindakan">
-                                        <li class="nav-item"><a class="nav-link btn1" href="/kpi1/index1">
-                                                <div class="d-flex align-items-center"><span
-                                                        class="nav-link-text1 btn1 ps-1">Pelaporan Prestasi</span>
-                                                </div>
-                                            </a>
-                                            <!-- more inner pages-->
-                                        </li>
-                                    </ul>
+
                                 </li>
                                 <li class="nav-item"><a
                                         class="nav-link btn1 {{ Request::is('sdg', 'sdg/*') ? 'active' : '' }}"
@@ -472,36 +464,41 @@
                                     </a>
                                     <!-- more inner pages-->
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link btn1 dropdown-indicator  {{ Request::is('pelaporan', 'pelaporan/*') ? 'active' : '' }}"
-                                        href="#pelaporan" role="button" data-bs-toggle="collapse"
-                                        aria-expanded="false" aria-controls="pelaporan">
-                                        <div class="d-flex align-items-center">
-                                            <span class="nav-link-text1 ps-1">Pelaporan
-                                                Prestasi</span>
+
+                            </ul>
+                        </div>
+
+                        <br>
+
+                        <a class="nav-link dropdown-indicator" href="#abc" role="button"
+                            data-bs-toggle="collapse" aria-expanded="true" aria-controls="abc"
+                            style="background-color: #C4D4ED">
+                            <div class="d-flex justify-content-center" style="color: #047FC3">
+                                <span class="nav-link-text ps-1">Prestasi Pelaporan</span>
+                            </div>
+                        </a>
+
+                        <div class="card">
+                            <ul class="nav collapse show" id="abc" style="background-color: #E7EFFD">
+                                <li class="nav-item"><a
+                                        class="nav-link btn1 {{ Request::is('prestasi/pelaporan_prestasi_kpi', 'prestasi/pelaporan_prestasi_kpi/*') ? 'active' : '' }}"
+                                        href="/prestasi/pelaporan_prestasi_kpi">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text1 ps-1">Prestasi KPI Nasional
+                                            </span>
                                         </div>
                                     </a>
                                     <!-- more inner pages-->
-
-                                    <ul class="nav collapse" id="pelaporan">
-                                        <li class="nav-item"><a class="nav-link btn1" href="/kpi1/index1">
-                                                <div class="d-flex align-items-center"><span
-                                                        class="nav-link-text1 btn1 ps-1">Kemajuan KPI</span>
-                                                </div>
-                                            </a>
-                                            <!-- more inner pages-->
-                                        </li>
-                                    </ul>
-
-                                    <ul class="nav collapse" id="pelaporan">
-                                        <li class="nav-item"><a class="nav-link btn1" href="/kpi1/index1">
-                                                <div class="d-flex align-items-center"><span
-                                                        class="nav-link-text1 btn1 ps-1">Kemajuan Tindakan</span>
-                                                </div>
-                                            </a>
-                                            <!-- more inner pages-->
-                                        </li>
-                                    </ul>
+                                </li>
+                                <li class="nav-item"><a
+                                        class="nav-link btn1 {{ Request::is('prestasi/pelaporan_prestasi_tindakan', 'prestasi/pelaporan_prestasi_tindakan/*') ? 'active' : '' }}"
+                                        href="/prestasi/pelaporan_prestasi_tindakan">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text1 ps-1">Prestasi Tindakan
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
                                 </li>
                             </ul>
                         </div>
@@ -535,16 +532,7 @@
 
                         <div class="card">
                             <ul class="nav collapse show" id="mpb" style="background-color: #E7EFFD">
-                                {{-- <li class="nav-item">
-                                    <a class="nav-link btn1 {{ Request::is('thrust', 'thrust/*') ? 'active' : '' }}"
-                                        href="/thrust">
-                                        <div class="d-flex align-items-center"><span
-                                                class="nav-link-text1 ps-1">Thrust
-                                            </span>
-                                        </div>
-                                    </a>
-                                    <!-- more inner pages-->
-                                </li> --}}
+
                                 <li class="nav-item">
                                     <a class="nav-link btn1 {{ Request::is('national', 'national/*') ? 'active' : '' }}"
                                         href="/national">
@@ -950,24 +938,7 @@
                             </div>
                         </a>
                     @endif
-                    {{-- <a class="nav-link" href="/markah/" role="button">
 
-                        <div class="d-flex align-items-center">
-                            <div class="col-2">
-                                <span class="nav-link-icon">
-                                    <span class="far fa-folder"></span>
-                                </span>
-                            </div>
-                            <div class="col text-center">
-                                <span class="nav-link-text ps-1">Kemas Kini
-                                    Data
-                                </span>
-                            </div>
-                            <div class="col-2">
-
-                            </div>
-                        </div>
-                    </a> --}}
 
                     @if (Request::is(
                         'thrust',
@@ -1097,6 +1068,10 @@
                         'kpi/*',
                         'kpi1',
                         'kpi1/*',
+                        'prestasi',
+                        'prestasi/*',
+                        'prestasi_kpi',
+                        'prestasi_kpi/*',
                         'strategi',
                         'strategi/*',
                         'inisiatif',

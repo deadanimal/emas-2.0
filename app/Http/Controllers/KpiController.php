@@ -19,11 +19,6 @@ use Spatie\Permission\Models\Role;
 
 class KpiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
     public function __construct()
     {
@@ -69,30 +64,21 @@ class KpiController extends Controller
 
     public function index2(Request $request)
     {
-        $tema = Pemangkindasar::all();
+
+        $kpis = Kpi::all();
+        $outcomes = Outcome::all();
+
+        //Filter
+        $fokusUtama = Fokusutama::all();
+        $perkaraUtama = Perkarautama::all();
+        $temaPemangkin = Pemangkindasar::all();
         $bab = Bab::all();
         $bidang = Bidang::all();
 
-        // $graf = Kpis::select()
-
-
-        if ($request->user()->role == 'SuperAdmin') {
-
-            $kpis = Kpi::all();
-        } else {
-            $user_id = $request->user()->id;
-
-            $kpis = Kpi::where('user_id', '=', $user_id)->get();
-        }
-
-        return view('ppd.kpi.index2', compact('kpis', 'tema', 'bab', 'bidang'));
+        return view('ppd.kpi.index2', compact('kpis', 'fokusUtama', 'perkaraUtama', 'temaPemangkin', 'bab', 'bidang', 'outcomes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         $user = Auth::user();
@@ -108,12 +94,7 @@ class KpiController extends Controller
         return view('ppd.kpi.create', compact('user', 'list', 'listBidang', 'listBab', 'listTema', 'fokuss', 'perkaras'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreKpiRequest  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(StoreKpiRequest $request)
     {
 
@@ -122,12 +103,7 @@ class KpiController extends Controller
         return redirect()->route('kpi.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Kpi  $kpi
-     * @return \Illuminate\Http\Response
-     */
+
 
     public function lulus($id)
     {
@@ -155,12 +131,7 @@ class KpiController extends Controller
         return view('ppd.kpi.show', compact('kpi'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Kpi  $kpi
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Kpi $kpi)
     {
         // $kpi = Kpi::find($kpi);
@@ -187,13 +158,14 @@ class KpiController extends Controller
         return view('ppd.kpi.edit1', compact('kpi'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateKpiRequest  $request
-     * @param  \App\Models\Kpi  $kpi
-     * @return \Illuminate\Http\Response
-     */
+    public function edit2($id_kpi)
+    {
+        $kpi = Kpi::find($id_kpi);
+    
+        return view('ppd.kpi.edit2', compact('kpi'));
+    }
+
+
     public function update(UpdateKpiRequest $request, Kpi $kpi)
     {
         $kpi->update($request->all());
@@ -206,12 +178,12 @@ class KpiController extends Controller
         return redirect()->route('kpi.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Kpi  $kpi
-     * @return \Illuminate\Http\Response
-     */
+    public function update2(UpdateKpiRequest $request, Kpi $kpi)
+    {
+        $kpi->update($request->all());
+        return redirect()->route('kpi.index');
+    }
+
     public function destroy(Kpi $kpi)
     {
         $kpi->delete();

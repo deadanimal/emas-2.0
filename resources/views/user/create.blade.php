@@ -37,7 +37,7 @@
                         <div class="card-body pt-0">
                             <div class="row">
                                 <div class="col-6">
-                                    <label for="">Nama Pengguna:</label>
+                                    <label for="">ID Pengguna:</label>
                                     <div class="input-group">
                                         <input class="form-control mb-3" type="text" name="name"
                                             :value="old('name')" required>

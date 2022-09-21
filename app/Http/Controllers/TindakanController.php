@@ -55,6 +55,20 @@ class TindakanController extends Controller
         return view('ppd.tindakan.index1', compact('tindakans', 'bab', 'tema', 'bidang'));
     }
 
+    public function index2()
+    {
+        $tindakans = Tindakan::all();
+        $list = Inisiatif::all();
+        $fokus = Fokusutama::all();
+        $perkara = Perkarautama::all();
+        $pemangkin = Pemangkindasar::all();
+        $bab = Bab::all();
+        $bidang = Bidang::all();
+        $strategi = Strategi::all();
+
+        return view('ppd.tindakan.index2', compact('tindakans', 'list', 'fokus', 'perkara', 'pemangkin', 'bab', 'bidang', 'strategi'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -142,6 +156,13 @@ class TindakanController extends Controller
 
 
         return view('ppd.tindakan.edit1', compact('tindakans'));
+    }
+
+    public function edit2($id_tindakan)
+    {
+        $tindakans = Tindakan::find($id_tindakan);
+
+        return view('ppd.tindakan.edit2', compact('tindakans'));
     }
 
     /**

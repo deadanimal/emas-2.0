@@ -348,12 +348,6 @@
 
 
     <script>
-        // function Kpi(btn) {
-
-        //     btn.style.visibility = 'hidden';
-
-
-        // }
 
         $(".search").change(function() {
             var result = [];
@@ -440,6 +434,7 @@
         $(document).ready(function() {
             $('#example').DataTable();
         });
+        
         $('#example').dataTable({
             "language": {
                 "search": "Carian:",

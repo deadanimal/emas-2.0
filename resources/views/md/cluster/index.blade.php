@@ -29,8 +29,7 @@
         <br>
         <div class="card">
             <div class="table-responsive scrollbar">
-                <table class="table table-bordered user_datatable" id="example">
-
+                <table class="table table-bordered align-middle" id="example">
                     <thead>
                         <tr>
                             <th scope="col">No.</th>
@@ -43,7 +42,7 @@
                     </thead>
 
 
-                    <tbody class="list myTable" id="searchUpdateTable">
+                    <tbody>
                         @foreach ($clusters as $cluster)
                             <tr class="align-middle cluster">
                                 <td>
@@ -90,7 +89,7 @@
                                                 <div class="p-4 pb-0">
                                                     <form>
                                                         <div class="mb-3">
-                                                            <label class="col-form-label" for="namaStrategy">Strategy
+                                                            <label class="col-form-label" for="namaCluster">Cluster
                                                                 Name:</label>
                                                             <label class="form-control"
                                                                 disabled="disabled">{{ $cluster->namaCluster }}</label>
@@ -105,7 +104,7 @@
                                                         </div>
 
                                                         <div class="mb-3">
-                                                            <label class="col-form-label">Lead Ministry/Agency:</label>
+                                                            <label class="col-form-label">Secretariat:</label>
                                                             <label class="form-control"
                                                                 disabled="disabled">{{ $cluster->agency }}</label>
                                                         </div>
@@ -270,8 +269,8 @@
         }
 
 
-        $(document).ready(function() {
-            $('#example').DataTable();
-        });
+        // $(document).ready(function() {
+        //     $('#example').DataTable();
+        // });
     </script>
 @endsection

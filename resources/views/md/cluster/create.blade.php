@@ -18,6 +18,18 @@
                         <input class="form-control" type="text" name="namaCluster" />
 
                     </div>
+
+                    <label class="col-sm-2 col-form-label" for="namaCluster">Responsible User</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="cluster_id">
+                            <option selected disabled hidden>PLEASE CHOOSE</option>
+
+                            {{-- @foreach ($clusters as $cluster)
+                                <option value="{{ $cluster->id }}">{{ $cluster->namaCluster }}</option>
+                            @endforeach --}}
+
+                        </select>
+                    </div>
                 </div>
 
                 {{-- <div class="mb-3 row">

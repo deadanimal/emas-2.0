@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreStrategyRequest;
 use App\Http\Requests\UpdateStrategyRequest;
+use App\Models\Category;
 use App\Models\Strategy;
 use App\Models\Thrus;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\DB;
 
 class StrategyController extends Controller
 {
@@ -41,9 +42,13 @@ class StrategyController extends Controller
     {
         $user = Auth::user();
 
-        $thrust = Thrus::all();
+        $thrusts = Thrus::all();
+        // $thrusts = DB::table('thruses')->get();
+        $strategys = Thrus::all();
 
-        return view('md.strategy.create', compact('user', 'thrust'));
+
+
+        return view('md.strategy.create', compact('user', 'thrusts', 'strategys'));
     }
 
     /**

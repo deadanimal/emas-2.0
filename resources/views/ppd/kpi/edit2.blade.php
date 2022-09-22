@@ -19,6 +19,105 @@
 
                 <br>
 
+                <div class="row align-items-center">
+                    <div class="col col-lg-8">
+                        <span><b>Prestasi KPI Nasional - Pencapaian Semasa</b></span>
+
+
+                    </div>
+
+                    <hr><br>
+
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th class="align-middle">Tahun Semasa Yang Dilaporkan</th>
+                                <th class="align-middle">Q1 (JAN-MAC)</th>
+                                <th class="align-middle">Q2 (APRIL-JUN)</th>
+                                <th class="align-middle">Q3 (JULAI-SEPT)</th>
+                                <th class="align-middle">Q4 (OKT-DIS)</th>
+                                <th class="align-middle">Pencapaian</th>
+                                <th class="align-middle">Prestasi KPI</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" name="tahun">
+                                            <option @selected($kpi->tahun == '2015') value="2015">2015</option>
+                                            <option @selected($kpi->tahun == '2016') value="2016">2016</option>
+                                            <option @selected($kpi->tahun == '2017') value="2017">2017</option>
+                                            <option @selected($kpi->tahun == '2018') value="2018">2018</option>
+                                            <option @selected($kpi->tahun == '2019') value="2019">2019</option>
+                                            <option @selected($kpi->tahun == '2020') value="2020">2020</option>
+                                            <option @selected($kpi->tahun == '2021') value="2021">2021</option>
+                                            <option @selected($kpi->tahun == '2022') value="2022">2022</option>
+                                            <option @selected($kpi->tahun == '2023') value="2023">2023</option>
+
+                                        </select>
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="number" name="q1" class="form-control pencapaian" id="mySelect"
+                                        onchange="myFunction()" placeholder="Pencapaian"
+                                        value="{{ $kpi->peratusPencapaian }}" />
+                                </td>
+                                <td>
+                                    <input type="number" name="q2" class="form-control pencapaian" id="mySelect"
+                                        onchange="myFunction()" placeholder="Pencapaian"
+                                        value="{{ $kpi->peratusPencapaian }}" />
+                                </td>
+                                <td>
+                                    <input type="number" name="q3" class="form-control pencapaian" id="mySelect"
+                                        onchange="myFunction()" placeholder="Pencapaian"
+                                        value="{{ $kpi->peratusPencapaian }}" />
+                                </td>
+                                <td>
+                                    <input type="number" name="q4" class="form-control pencapaian" id="mySelect"
+                                        onchange="myFunction()" placeholder="Pencapaian"
+                                        value="{{ $kpi->peratusPencapaian }}" />
+
+                                    {{-- <input type="text" name="q4" id="mySelect" onchange="myFunction()"
+                                    class="percent form-control" value="{{ $kpi->peratusPencapaian }}" /> --}}
+
+                                </td>
+                                <td>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="peratusPencapaian" id="mySelect"
+                                            onchange="myFunction()" class="percent form-control"
+                                            value="{{ $kpi->peratusPencapaian }}" readonly />
+
+                                    </div>
+                                </td>
+                                <td id="prestasi"></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <br>
+
+
+
+
+                    <div class="mb-3 row">
+
+                        <label class="col-sm-2 col-form-label" for="peratusPencapaian">Peratus Pencapaian</label>
+
+                        <div class="col-sm-10" style="width:30%">
+                            <input type="text" name="peratusPencapaian" id="mySelect" onchange="myFunction()"
+                                class="percent form-control" value="{{ $kpi->peratusPencapaian }}" />
+
+                        </div>
+
+
+                    </div><br>
+                </div>
+                <hr><br>
+
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema</label>
                     <div class="col-sm-10" style="width:30%">
@@ -51,7 +150,8 @@
 
                         @if ($kpi->bidang != null)
                             <input class="form-control" value="{{ $kpi->bidang->namaBidang }}" readonly />
-                            <input class="form-control" name="bidang_id" type="hidden" value="{{ $kpi->bidang->id }}" />
+                            <input class="form-control" name="bidang_id" type="hidden"
+                                value="{{ $kpi->bidang->id }}" />
                         @else
                             <input class="form-control" value="Bidang Keutamaan telah dipadam" readonly />
                         @endif
@@ -63,7 +163,8 @@
 
                         @if ($kpi->outcome != null)
                             <input class="form-control" value="{{ $kpi->outcome->namaOutcome }}" readonly />
-                            <input class="form-control" name="outcome_id" type="hidden" value="{{ $kpi->outcome->id }}" />
+                            <input class="form-control" name="outcome_id" type="hidden"
+                                value="{{ $kpi->outcome->id }}" />
                         @else
                             <input class="form-control" value="Outcome telah dipadam" readonly />
                         @endif
@@ -80,7 +181,7 @@
                         <input class="form-control" name="namaKpi" value="{{ $kpi->namaKpi }}" readonly />
                     </div>
 
-                    <label class="col-sm-2 col-form-label" for="jenisKpi">Jenis KPI</label>
+                    <label class="col-sm-2 col-form-label" for="jenisKpi">Jenis Sasaran</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="jenisKpi" readonly>
                             <option @selected($kpi->jenisKpi == 'Minimum') value="Minimum">Minimum</option>
@@ -94,7 +195,7 @@
                 <div class="mb-3 row">
 
 
-                    <label class="col-sm-2 col-form-label" for="unitUkuran">Unit</label>
+                    <label class="col-sm-2 col-form-label" for="unitUkuran">Unit Ukuran</label>
                     <div class="col-sm-10" style="width:30%">
 
                         <select class="form-control" name="unitUkuran" readonly>
@@ -123,8 +224,8 @@
                     <label class="col-sm-2 col-form-label" for="hadVarian">Varians</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="number" name="hadVarian" class="percent form-control" value="{{ $kpi->hadVarian }}"
-                            readonly />
+                        <input type="number" name="hadVarian" class="percent form-control"
+                            value="{{ $kpi->hadVarian }}" readonly />
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="hadToleransi">Had Toleransi</label>
@@ -259,109 +360,13 @@
                 </div><br>
                 <hr>
 
-                <div class="row align-items-center">
-                    <div class="col col-lg-8">
-                        <span><b>Prestasi KPI Nasional - Pencapaian Semasa</b></span>
 
-
-                    </div>
-
-                </div>
-                <hr><br>
-
-                <table class="table table-bordered">
-                    <thead class="table-dark">
-                        <tr>
-                            <th class="align-middle">Tahun Semasa Yang Dilaporkan</th>
-                            <th class="align-middle">Q1 (JAN-MAC)</th>
-                            <th class="align-middle">Q2 (APRIL-JUN)</th>
-                            <th class="align-middle">Q3 (JULAI-SEPT)</th>
-                            <th class="align-middle">Q4 (OKT-DIS)</th>
-                            <th class="align-middle">Pencapaian</th>
-                            <th class="align-middle">Prestasi KPI</th>
-
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="col-sm-10">
-                                    <select class="form-control" name="tahun">
-                                        <option @selected($kpi->tahun == '2015') value="2015">2015</option>
-                                        <option @selected($kpi->tahun == '2016') value="2016">2016</option>
-                                        <option @selected($kpi->tahun == '2017') value="2017">2017</option>
-                                        <option @selected($kpi->tahun == '2018') value="2018">2018</option>
-                                        <option @selected($kpi->tahun == '2019') value="2019">2019</option>
-                                        <option @selected($kpi->tahun == '2020') value="2020">2020</option>
-                                        <option @selected($kpi->tahun == '2021') value="2021">2021</option>
-                                        <option @selected($kpi->tahun == '2022') value="2022">2022</option>
-                                        <option @selected($kpi->tahun == '2023') value="2023">2023</option>
-
-                                    </select>
-                                </div>
-                            </td>
-                            <td>
-                                <input type="number" name="q1" class="form-control pencapaian" id="mySelect"
-                                    onchange="myFunction()" placeholder="Pencapaian"
-                                    value="{{ $kpi->peratusPencapaian }}" />
-                            </td>
-                            <td>
-                                <input type="number" name="q2" class="form-control pencapaian" id="mySelect"
-                                    onchange="myFunction()" placeholder="Pencapaian"
-                                    value="{{ $kpi->peratusPencapaian }}" />
-                            </td>
-                            <td>
-                                <input type="number" name="q3" class="form-control pencapaian" id="mySelect"
-                                    onchange="myFunction()" placeholder="Pencapaian"
-                                    value="{{ $kpi->peratusPencapaian }}" />
-                            </td>
-                            <td>
-                                <input type="number" name="q4" class="form-control pencapaian" id="mySelect"
-                                    onchange="myFunction()" placeholder="Pencapaian"
-                                    value="{{ $kpi->peratusPencapaian }}" />
-
-                                {{-- <input type="text" name="q4" id="mySelect" onchange="myFunction()"
-                                    class="percent form-control" value="{{ $kpi->peratusPencapaian }}" /> --}}
-
-                            </td>
-                            <td>
-                                <div class="col-sm-10">
-                                    <input type="text" name="peratusPencapaian" id="mySelect"
-                                        onchange="myFunction()" class="percent form-control"
-                                        value="{{ $kpi->peratusPencapaian }}" />
-
-                                </div>
-                            </td>
-                            <td id="prestasi"></td>
-                        </tr>
-
-                    </tbody>
-                </table>
-
-                <br>
-
-
-
-
-                <div class="mb-3 row">
-
-                    <label class="col-sm-2 col-form-label" for="peratusPencapaian">Peratus Pencapaian</label>
-
-                    <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="peratusPencapaian" id="mySelect" onchange="myFunction()"
-                            class="percent form-control" value="{{ $kpi->peratusPencapaian }}" />
-
-                    </div>
-
-
-                </div><br>
 
 
                 <div class="col" style="text-align: center">
                     <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
                         type="submit" value="Save"
-                        onclick="return confirm('Adakah anda mahu menyimpan data ini?')">&nbsp;Simpan Kemas Kini Markah
+                        onclick="return confirm('Adakah anda mahu menyimpan data ini?')">&nbsp;Simpan Data
                     </button>
                 </div>
 
@@ -372,18 +377,18 @@
     </div>
 
     <script>
-        window.addEventListener('load', () => {
-            document.querySelector('#selector').addEventListener('change', yesnoCheck)
-            yesnoCheck({
-                target: document.querySelector('#selector')
-            })
-        })
+        // window.addEventListener('load', () => {
+        //     document.querySelector('#selector').addEventListener('change', yesnoCheck)
+        //     yesnoCheck({
+        //         target: document.querySelector('#selector')
+        //     })
+        // })
 
-        function yesnoCheck(e) {
-            document.querySelectorAll('#q1, #q2, #q3, #q4').forEach(el => el.classList.add('hidden'));
-            let targ = e.target.querySelector('option:checked').dataset.targ;
-            document.querySelector(targ).classList.remove('hidden');
-        }
+        // function yesnoCheck(e) {
+        //     document.querySelectorAll('#q1, #q2, #q3, #q4').forEach(el => el.classList.add('hidden'));
+        //     let targ = e.target.querySelector('option:checked').dataset.targ;
+        //     document.querySelector(targ).classList.remove('hidden');
+        // }
 
         $(".pencapaian").keyup(function() {
 

@@ -28,6 +28,18 @@
 
                         </select>
                     </div>
+
+                    <label class="col-sm-2 col-form-label" for="user">Bahagian</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="user">
+
+                            {{-- @foreach ($fokuss as $fokus)
+                                <option @selected($bab->fokus_id == $fokus->id) value="{{ $fokus->id }}">{{ $fokus->namaFokus }}
+                                </option>
+                            @endforeach --}}
+
+                        </select>
+                    </div>
                 </div>
 
                 <div class="mb-3 row">

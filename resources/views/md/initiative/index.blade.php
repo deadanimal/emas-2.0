@@ -46,9 +46,9 @@
                             <th scope="col">Code</th>
                             <th scope="col">Initiative</th>
                             <th scope="col">Target Initiative</th>
-                            <th scope="col">Phase 1</th>
-                            <th scope="col">Phase 2</th>
-                            <th scope="col">Phase 3</th>
+                            <th scope="col">Phase </th>
+                            {{-- <th scope="col">Phase 2</th>
+                            <th scope="col">Phase 3</th> --}}
                             <th scope="col">Lead Agency</th>
                             <th scope="col">Action</th>
 
@@ -94,7 +94,7 @@
                                     </div>
                                 </td>
 
-                                <td>
+                                {{-- <td>
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $initiative->id }}">
                                         <div class="ms-2"><b>{{ $initiative->phase2 }}</b></div>
@@ -106,7 +106,7 @@
                                         data-bs-target="#error-modal-{{ $initiative->id }}">
                                         <div class="ms-2"><b>{{ $initiative->phase3 }}</b></div>
                                     </div>
-                                </td>
+                                </td> --}}
 
                                 <td>
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
@@ -216,6 +216,13 @@
                             <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-` + e.id + `">
+                                    <div class="ms-2"><b>` + e.code + `</b></div>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#error-modal-` + e.id + `">
                                     <div class="ms-2"><b>` + e.namaInitiative + `</b></div>
                                 </div>
                             </td>
@@ -237,18 +244,18 @@
                             <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-` + e.id + `">
-                                    <div class="ms-2"><b>` + e.phase + `</b></div>
+                                    <div class="ms-2"><b>` + e.phase2 + `</b></div>
                                 </div>
                             </td>
 
                             <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-` + e.id + `">
-                                    <div class="ms-2"><b>` + e.phase + `</b></div>
+                                    <div class="ms-2"><b>` + e.phase3 + `</b></div>
                                 </div>
                             </td>
 
-                            <td>
+                             <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-` + e.id + `">
                                     <div class="ms-2"><b>` + e.leadAgency + `</b></div>

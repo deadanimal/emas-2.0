@@ -14,9 +14,7 @@
                     <span><b>Lokaliti Mengikut Negeri</b></span>
 
                 </div>
-                <div class="col-12 col-sm-auto ms-auto">
-                    <input class="form-control myInput" type="text" placeholder="Search">
-                </div>
+
             </div>
         </div>
 

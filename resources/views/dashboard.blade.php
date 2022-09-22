@@ -409,7 +409,7 @@
                     </div>
                     @role('MD')
                         <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3" href="/thrus">
+                            <a class="mb-3" href="/cluster">
                                 <div class="px-4 pt-4">
                                     <img src="img/MD.png" class="img-fluid card-img-hover landing-img" alt="">
                                 </div>

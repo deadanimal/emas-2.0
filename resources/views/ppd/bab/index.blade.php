@@ -47,7 +47,7 @@
                 </select>
             </div>
         </div>
-        <br>
+        <hr> <br>
         <div class="table-responsive scrollbar">
             <div class="card scrollbar-overlay" style="max-height: 50rem">
 

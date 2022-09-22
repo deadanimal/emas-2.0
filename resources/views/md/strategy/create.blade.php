@@ -23,10 +23,10 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="thrus_id">Thrust</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="thrus_id">
+                        <select class="form-control" name="thrus_id" id="pilih1">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
 
-                            @foreach ($thrust as $thrust)
+                            @foreach ($thrusts as $thrust)
                                 <option value="{{ $thrust->id }}">{{ $thrust->namaThrust }}</option>
                             @endforeach
 
@@ -35,9 +35,9 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="category">Category</label>
+                    <label class="col-sm-2 col-form-label" for="">Category</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="category">
+                        <select class="form-control" name="category" id="pilih2">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
                             <option value="DEB">DEB</option>
                             <option value="4IR">4IR</option>
@@ -83,13 +83,6 @@
 
     </div>
 
-    {{-- <script>
-        function ConfirmSave() {
-            var isconfirm = window.confirm("Adakah anda mahu menyimpan data?");
-            if (isconfirm)
-                self.location = "Save.php";
-        }
-    </script> --}}
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -101,4 +94,21 @@
             </ul>
         </div>
     @endif
+
+    <script>
+        $("#pilih1").change(function() {
+
+            var thrus_id = $(this).val();
+            var thrusts = @json($thrusts->toArray());
+            $("#pilih2").html(``);
+            thrusts.forEach(thrust => {
+                console.log(thrusts);
+                if (thrust.thrus_id == thrus_id) {
+                    $("#pilih2").append(`
+                        <option value="` + thrust.id + `">` + thrust.category + `</option>
+                    `);
+                }
+            });
+        });
+    </script>
 @endsection

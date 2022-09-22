@@ -111,10 +111,10 @@
 
         </div>
 
-        <br>
+        <hr>
 
         <div class="table-responsive scrollbar">
-            <table class="table table-bordered user_datatable" id="example">
+            <table class="table table-bordered" id="example">
                 <thead>
                     <tr>
                         <th scope="col"></th>
@@ -338,27 +338,20 @@
             }
             document.getElementById("ppd").innerHTML = text;
         }
-
-
+    </script>
+    <script>
         $(document).ready(function() {
-            $('#example').DataTable();
-        });
-        $('#example').dataTable({
-            "language": {
-                "search": "Carian:",
-                "zeroRecords": "Rekod tidak dijumpai",
-                "lengthMenu": "Lihat _MENU_ ",
-                "info": "Menunjukkan _START_ dari _END_ daripada _TOTAL_",
-                "infoEmpty": "Menunjukkan 0 dari 0 daripada 0",
-                "paginate": {
-                    "first": "Pertama",
-                    "last": "Terakhir",
-                    "next": "Seterusnya",
-                    "previous": "Sebelumnya"
-                },
+            $('#example').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5'
+                ]
 
-            }
 
+            });
         });
     </script>
 @endsection

@@ -122,7 +122,8 @@
                                 <td class="align-right" id="searchUpdateTable2">
                                     <div>
                                         <a class="btn btn-warning" style="border-radius: 38px" onclick="Kpi(this)"
-                                            href="/prestasi_kpi/{{ $kpi->id }}/edit/"><i class="fas fa-pencil-alt"></i>
+                                            href="/prestasi_kpi/{{ $kpi->id }}/edit/"><i
+                                                class="fas fa-pencil-alt"></i>
                                         </a>
 
                                     </div>

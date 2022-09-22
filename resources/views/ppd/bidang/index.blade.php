@@ -34,7 +34,7 @@
             @endforeach
 
         </select>
-        <br>
+        <hr>
 
         <div class="table-responsive scrollbar">
             <table class="table table-bordered user_datatable" id="example">
@@ -75,9 +75,15 @@
                                             <div class="p-4 pb-0">
                                                 <form>
                                                     <div class="mb-3">
-                                                        <label class="col-form-label">Bidang Keutamaan:</label>
+                                                        <label class="col-form-label">Bidang Utama:</label>
                                                         <label class="form-control"
                                                             disabled="disabled">{{ $bidang->namaBidang }}</label>
+
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Bidang Keutamaan:</label>
+                                                        <label class="form-control" disabled="disabled">BK
+                                                            {{ $bidang->noBidang }}</label>
 
                                                     </div>
 
@@ -157,6 +163,11 @@
                                                         <label class="form-control"
                                                             disabled="disabled">` + e.namaBidang + `</label>
 
+                                                    </div>
+   <div class="mb-3">
+                                                        <label class="col-form-label">Bidang Keutamaan:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">` + e.noBidang + `</label>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label class="col-form-label">Keterangan:</label>

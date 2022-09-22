@@ -238,12 +238,17 @@
 
     <script>
         $(document).ready(function() {
-            $('#example').DataTable();
-        });
-        $('#example').dataTable({
-            "language": {
-                "search": "Carian:"
-            }
+            $('#example').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5'
+                ]
+
+
+            });
         });
     </script>
 @stop

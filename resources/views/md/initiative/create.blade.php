@@ -24,6 +24,17 @@
 
                         </select>
                     </div>
+                    <label class="col-sm-2 col-form-label" for="namaCluster">Responsible User</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="cluster_id">
+                            <option selected disabled hidden>PLEASE CHOOSE</option>
+
+                            {{-- @foreach ($clusters as $cluster)
+                                <option value="{{ $cluster->id }}">{{ $cluster->namaCluster }}</option>
+                            @endforeach --}}
+
+                        </select>
+                    </div>
                 </div>
 
                 <div class="mb-3 row">
@@ -32,12 +43,30 @@
                         <input class="form-control" type="text" name="namaInitiative" />
 
                     </div>
+                    <label class="col-sm-2 col-form-label" for="category">Category</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="category" id="pilih2">
+                            <option selected disabled hidden>PLEASE CHOOSE</option>
+                            <option value="DEB">DEB</option>
+                            <option value="4IR">4IR</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="code">Initiatives Code</label>
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" type="text" name="code" />
+
+                    </div>
+
+                    <label class="col-sm-2 col-form-label" for="national">Level</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="national">
+                            <option selected disabled hidden>PLEASE CHOOSE</option>
+                            <option value="National">National</option>
+                            <option value="Sectoral">Sectoral</option>
+                        </select>
 
                     </div>
                 </div>
@@ -50,7 +79,7 @@
                     </div>
                 </div>
 
-                <div class="mb-3 row">
+                {{-- <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="phase">Phase</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="phase">
@@ -58,6 +87,20 @@
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
+                        </select>
+                    </div>
+                </div> --}}
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="phase">Phase</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control js-choice" id="phase" multiple="multiple" size="1"
+                            name="phase" data-options='{"removeItemButton":true,"placeholder":true}'>
+                            <option value="">PLEASE CHOOSE</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
                         </select>
                     </div>
                 </div>

@@ -101,7 +101,8 @@
             </div>
 
 
-        </div><br>
+        </div>
+        <hr>
 
 
         <div class="table-responsive scrollbar">

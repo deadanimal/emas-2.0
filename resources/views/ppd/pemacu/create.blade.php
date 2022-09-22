@@ -17,24 +17,6 @@
             <form action="{{ route('pemacu.store') }}" method="POST">
                 @csrf
 
-                {{-- <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <div class="form-group">
-
-                            <select class="form-control" name="fokus_id" id="pilih1" required>
-                                <option selected disabled hidden>SILA PILIH</option>
-
-                                @foreach ($fokuss as $fokus)
-                                    <option value="{{ $fokus->id }}">{{ $fokus->namaFokus }}
-                                    </option>
-                                @endforeach
-
-                            </select>
-                        </div>
-                    </div>
-                </div> --}}
-
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
                     <div class="col-sm-10" style="width:30%">
@@ -152,6 +134,7 @@
             var perkaras = @json($perkaras->toArray());
             $("#pilih2").html(``);
             perkaras.forEach(perkara => {
+                console.log(perkaras);
                 if (perkara.fokus_id == fokus_id) {
                     $("#pilih2").append(`
                         <option value="` + perkara.id + `">` + perkara.namaPerkara + `</option>

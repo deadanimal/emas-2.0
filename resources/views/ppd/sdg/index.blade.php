@@ -29,7 +29,8 @@
             @foreach ($list as $list)
                 <option value="{{ $list->id }}">{{ $list->namaTema }}</option>
             @endforeach
-        </select><br>
+        </select>
+        <hr>
 
         <div class="table-responsive scrollbar">
             <div class="card scrollbar-overlay" style="max-height: 50rem">

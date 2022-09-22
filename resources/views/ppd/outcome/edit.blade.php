@@ -18,6 +18,18 @@
 
 
                 <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="pemangkin_id">
+
+                            @foreach ($pemangkin as $pemangkin)
+                                <option @selected($outcome->pemangkin_id == $pemangkin->id) value="{{ $pemangkin->id }}">{{ $pemangkin->namaTema }}
+                                </option>
+                            @endforeach
+
+                        </select>
+                    </div>
+
                     <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="fokus_id">
@@ -30,17 +42,7 @@
                         </select>
                     </div>
 
-                    <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="pemangkin_id">
 
-                            @foreach ($pemangkin as $pemangkin)
-                                <option @selected($outcome->pemangkin_id == $pemangkin->id) value="{{ $pemangkin->id }}">{{ $pemangkin->namaTema }}
-                                </option>
-                            @endforeach
-
-                        </select>
-                    </div>
                 </div>
 
                 <div class="mb-3 row">

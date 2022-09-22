@@ -114,6 +114,71 @@
                     <div class="card">
                         <ul class="nav collapse show" id="md" style="background-color: #E7EFFD">
                             <li class="nav-item">
+                                <a class="nav-link btn1 {{ Request::is('cluster', 'cluster/*') ? 'active' : '' }}"
+                                    href="/cluster">
+                                    <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List
+                                            of Cluster
+                                        </span>
+                                    </div>
+                                </a>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn1 dropdown-indicator  {{ Request::is('initiative', 'initiative/*', 'thrus', 'thrus/*', 'strategy', 'strategy/*') ? 'active' : '' }}"
+                                    href="#thrust" role="button" data-bs-toggle="collapse" aria-expanded="false"
+                                    aria-controls="thrust">
+                                    <div class="d-flex align-items-center">
+                                        <span class="nav-link-text1 ps-1">List
+                                            of Initiative</span>
+                                    </div>
+                                </a>
+                                <!-- more inner pages-->
+
+                                <ul class="nav collapse" id="thrust">
+                                    <li class="nav-item"><a class="nav-link btn1" href="/thrus">
+                                            <div class="d-flex align-items-center"><span
+                                                    class="nav-link-text1 btn1 ps-1">List
+                                                    of Thrust</span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+                                </ul>
+                                <ul class="nav collapse" id="thrust">
+                                    <li class="nav-item"><a class="nav-link btn1" href="/strategy">
+                                            <div class="d-flex align-items-center"><span
+                                                    class="nav-link-text1 btn1 ps-1">List
+                                                    of Strategy
+                                                </span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+                                </ul>
+                                <ul class="nav collapse" id="thrust">
+                                    <li class="nav-item"><a class="nav-link btn1" href="/initiative">
+                                            <div class="d-flex align-items-center"><span
+                                                    class="nav-link-text1 btn1 ps-1">List
+                                                    of Initiative
+                                                </span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+                                </ul>
+
+
+                            </li>
+                            {{-- <li class="nav-item">
+                                <a class="nav-link btn1 {{ Request::is('initiative', 'initiative/*') ? 'active' : '' }}"
+                                    href="/initiative">
+                                    <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List
+                                            of Initiative</span>
+                                    </div>
+                                </a>
+                                <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link btn1 {{ Request::is('thrus', 'thrus/*') ? 'active' : '' }}"
                                     href="/thrus">
                                     <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1"> List
@@ -132,26 +197,9 @@
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link btn1 {{ Request::is('cluster', 'cluster/*') ? 'active' : '' }}"
-                                    href="/cluster">
-                                    <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List
-                                            of Cluster
-                                        </span>
-                                    </div>
-                                </a>
-                                <!-- more inner pages-->
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link btn1 {{ Request::is('initiative', 'initiative/*') ? 'active' : '' }}"
-                                    href="/initiative">
-                                    <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List
-                                            of Initiative</span>
-                                    </div>
-                                </a>
-                                <!-- more inner pages-->
-                            </li>
+                            </li> --}}
+
+
                             <li class="nav-item">
                                 <a class="nav-link btn1 {{ Request::is('program', 'program/*') ? 'active' : '' }}"
                                     href="/program">

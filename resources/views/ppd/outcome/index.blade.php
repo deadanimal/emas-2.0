@@ -31,7 +31,8 @@
             @foreach ($list as $list)
                 <option value="{{ $list->id }}">{{ $list->namaBidang }}</option>
             @endforeach
-        </select><br>
+        </select>
+        <hr>
 
         <div class="table-responsive scrollbar">
             <table class="table table-bordered user_datatable" id="example">

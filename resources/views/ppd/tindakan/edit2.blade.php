@@ -3,7 +3,7 @@
 
     <div class="container">
         <div class="mb-4 text-center">
-            <H2>{{ $tindakans->namaTindakan }}</H2>
+            <H2>KEMASKINI PRESTASI TINDAKAN</H2>
         </div>
 
         <br>
@@ -25,6 +25,101 @@
             <form action="/tindakan/{{ $tindakans->id }}" method="POST">
                 @csrf
                 @method('PUT')
+
+                <div class="row align-items-center">
+                    <div class="col col-lg-8">
+                        <span><b>Prestasi Tindakan - Pencapaian Semasa</b></span>
+
+
+                    </div>
+
+                    <hr><br>
+
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th class="align-middle">Tahun Semasa Yang Dilaporkan</th>
+                                <th class="align-middle">Q1 (JAN-MAC)</th>
+                                <th class="align-middle">Q2 (APRIL-JUN)</th>
+                                <th class="align-middle">Q3 (JULAI-SEPT)</th>
+                                <th class="align-middle">Q4 (OKT-DIS)</th>
+                                <th class="align-middle">Pencapaian</th>
+                                <th class="align-middle">Prestasi Tindakan</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" name="tahun">
+                                            <option @selected($tindakans->tahun == '2015') value="2015">2015</option>
+                                            <option @selected($tindakans->tahun == '2016') value="2016">2016</option>
+                                            <option @selected($tindakans->tahun == '2017') value="2017">2017</option>
+                                            <option @selected($tindakans->tahun == '2018') value="2018">2018</option>
+                                            <option @selected($tindakans->tahun == '2019') value="2019">2019</option>
+                                            <option @selected($tindakans->tahun == '2020') value="2020">2020</option>
+                                            <option @selected($tindakans->tahun == '2021') value="2021">2021</option>
+                                            <option @selected($tindakans->tahun == '2022') value="2022">2022</option>
+                                            <option @selected($tindakans->tahun == '2023') value="2023">2023</option>
+
+                                        </select>
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="number" name="q1" class="form-control pencapaian" id="mySelect"
+                                        onchange="myFunction()" placeholder="Pencapaian"
+                                        value="{{ $tindakans->peratusPencapaian }}" />
+                                </td>
+                                <td>
+                                    <input type="number" name="q2" class="form-control pencapaian" id="mySelect"
+                                        onchange="myFunction()" placeholder="Pencapaian"
+                                        value="{{ $tindakans->peratusPencapaian }}" />
+                                </td>
+                                <td>
+                                    <input type="number" name="q3" class="form-control pencapaian" id="mySelect"
+                                        onchange="myFunction()" placeholder="Pencapaian"
+                                        value="{{ $tindakans->peratusPencapaian }}" />
+                                </td>
+                                <td>
+                                    <input type="number" name="q4" class="form-control pencapaian" id="mySelect"
+                                        onchange="myFunction()" placeholder="Pencapaian"
+                                        value="{{ $tindakans->peratusPencapaian }}" />
+
+                                    {{-- <input type="text" name="q4" id="mySelect" onchange="myFunction()"
+                                    class="percent form-control" value="{{ $tindakans->peratusPencapaian }}" /> --}}
+
+                                </td>
+                                <td>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="peratusPencapaian" id="mySelect"
+                                            onchange="myFunction()" class="percent form-control"
+                                            value="{{ $tindakans->peratusPencapaian }}" />
+
+                                    </div>
+                                </td>
+                                <td id="prestasi"></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <br>
+                    <div class="mb-3 row">
+
+                        <label class="col-sm-2 col-form-label" for="peratusPencapaian">Peratus Pencapaian</label>
+
+                        <div class="col-sm-10" style="width:30%">
+                            <input type="text" name="peratusPencapaian" id="mySelect" onchange="myFunction()"
+                                class="percent form-control" value="{{ $tindakans->peratusPencapaian }}" />
+
+                        </div>
+
+
+                    </div><br>
+                </div>
+                <hr><br>
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema</label>
@@ -65,7 +160,8 @@
                     <label class="col-sm-2 col-form-label" for="namaTindakan">Tindakan</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="namaTindakan" value="{{ $tindakans->namaTindakan }}" readonly />
+                        <input class="form-control" name="namaTindakan" value="{{ $tindakans->namaTindakan }}"
+                            readonly />
                     </div>
 
 
@@ -81,7 +177,8 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="kementerian_pelaksana">Kementerian/Agensi Pelaksana</label>
+                    <label class="col-sm-2 col-form-label" for="kementerian_pelaksana">Kementerian/Agensi
+                        Pelaksana</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="kementerian_pelaksana" readonly>
                             <option selected disabled hidden>SILA PILIH</option>
@@ -120,7 +217,8 @@
                             <option @selected($tindakans->kategoriSasaran = 'Quantifiable targets ') value="Quantifiable targets ">Quantifiable targets -
                                 sasaran dapat diukur secara spesifik
                             </option>
-                            <option @selected($tindakans->kategoriSasaran = 'Broad Policy') value="Broad Policy">Broad Policy – sasaran lebih luas dan
+                            <option @selected($tindakans->kategoriSasaran = 'Broad Policy') value="Broad Policy">Broad Policy – sasaran lebih luas
+                                dan
                                 dicapai dalam
                                 jangka masa lebih panjang
                             </option>
@@ -158,7 +256,7 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="sasaran2021">Sasaran 2021</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="sasaran2021" value="{{ $tindakans->sasaran2021 }}" readonly/>
+                        <input class="form-control" name="sasaran2021" value="{{ $tindakans->sasaran2021 }}" readonly />
 
                     </div>
 
@@ -179,7 +277,8 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="pencapaian2021">Pencapaian 2021</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="pencapaian2021" value="{{ $tindakans->pencapaian2021 }}" readonly/>
+                        <input class="form-control" name="pencapaian2021" value="{{ $tindakans->pencapaian2021 }}"
+                            readonly />
 
                     </div>
 
@@ -199,112 +298,17 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="pencapaian2022">Pencapaian 2022</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="pencapaian2022" value="{{ $tindakans->pencapaian2022 }}" readonlye/>
+                        <input class="form-control" name="pencapaian2022" value="{{ $tindakans->pencapaian2022 }}"
+                            readonlye />
 
                     </div>
-
-                </div>
-
-                <br><br>
-
-
-                <div class="row align-items-center">
-                    <div class="col col-lg-8">
-                        <span><b>Prestasi Tindakan - Pencapaian Semasa</b></span>
-
-
-                    </div>
-
-                </div>
-                <hr><br>
-
-                <table class="table table-bordered">
-                    <thead class="table-dark">
-                        <tr>
-                            <th class="align-middle">Tahun Semasa Yang Dilaporkan</th>
-                            <th class="align-middle">Q1 (JAN-MAC)</th>
-                            <th class="align-middle">Q2 (APRIL-JUN)</th>
-                            <th class="align-middle">Q3 (JULAI-SEPT)</th>
-                            <th class="align-middle">Q4 (OKT-DIS)</th>
-                            <th class="align-middle">Pencapaian</th>
-                            <th class="align-middle">Prestasi Tindakan</th>
-
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="col-sm-10">
-                                    <select class="form-control" name="tahun">
-                                        <option @selected($tindakans->tahun == '2015') value="2015">2015</option>
-                                        <option @selected($tindakans->tahun == '2016') value="2016">2016</option>
-                                        <option @selected($tindakans->tahun == '2017') value="2017">2017</option>
-                                        <option @selected($tindakans->tahun == '2018') value="2018">2018</option>
-                                        <option @selected($tindakans->tahun == '2019') value="2019">2019</option>
-                                        <option @selected($tindakans->tahun == '2020') value="2020">2020</option>
-                                        <option @selected($tindakans->tahun == '2021') value="2021">2021</option>
-                                        <option @selected($tindakans->tahun == '2022') value="2022">2022</option>
-                                        <option @selected($tindakans->tahun == '2023') value="2023">2023</option>
-
-                                    </select>
-                                </div>
-                            </td>
-                            <td>
-                                <input type="number" name="q1" class="form-control pencapaian" id="mySelect"
-                                    onchange="myFunction()" placeholder="Pencapaian"
-                                    value="{{ $tindakans->peratusPencapaian }}" />
-                            </td>
-                            <td>
-                                <input type="number" name="q2" class="form-control pencapaian" id="mySelect"
-                                    onchange="myFunction()" placeholder="Pencapaian"
-                                    value="{{ $tindakans->peratusPencapaian }}" />
-                            </td>
-                            <td>
-                                <input type="number" name="q3" class="form-control pencapaian" id="mySelect"
-                                    onchange="myFunction()" placeholder="Pencapaian"
-                                    value="{{ $tindakans->peratusPencapaian }}" />
-                            </td>
-                            <td>
-                                <input type="number" name="q4" class="form-control pencapaian" id="mySelect"
-                                    onchange="myFunction()" placeholder="Pencapaian"
-                                    value="{{ $tindakans->peratusPencapaian }}" />
-
-                                {{-- <input type="text" name="q4" id="mySelect" onchange="myFunction()"
-                                    class="percent form-control" value="{{ $tindakans->peratusPencapaian }}" /> --}}
-
-                            </td>
-                            <td>
-                                <div class="col-sm-10">
-                                    <input type="text" name="peratusPencapaian" id="mySelect"
-                                        onchange="myFunction()" class="percent form-control"
-                                        value="{{ $tindakans->peratusPencapaian }}" />
-
-                                </div>
-                            </td>
-                            <td id="prestasi"></td>
-                        </tr>
-
-                    </tbody>
-                </table>
-
-                <br>
-
-
-
-
-                <div class="mb-3 row">
-
-                    <label class="col-sm-2 col-form-label" for="peratusPencapaian">Peratus Pencapaian</label>
-
-                    <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="peratusPencapaian" id="mySelect" onchange="myFunction()"
-                            class="percent form-control" value="{{ $tindakans->peratusPencapaian }}" />
-
-                    </div>
-
 
                 </div><br>
+
+                <hr><br>
+
+
+
 
 
                 <div class="col" style="text-align: center">
@@ -319,5 +323,82 @@
         </div>
 
     </div>
+
+    <script>
+        $(".pencapaian").keyup(function() {
+
+            var checkAllInputFilled = true;
+            jQuery.each($(".pencapaian"), function(key, val) {
+                if (val.value == '') {
+                    checkAllInputFilled = false;
+                }
+            });
+
+            if (checkAllInputFilled) {
+
+                let sasaran = $('input[name="sasaran"]').val();
+                let wajaran = $('input[name="wajaran"]').val();
+
+                let pencapaian = $('input[name="q1"]').val();
+                let result = (pencapaian / sasaran) * wajaran;
+                $('input[name="peratusPencapaian"]').val(result);
+                $('input[name="peratusPencapaian"]').trigger('change');
+
+
+
+                let pencapaian1 = $('input[name="q2"]').val();
+                let result1 = (pencapaian1 / sasaran) * wajaran;
+                $('input[name="peratusPencapaian1"]').val(result1);
+                $('input[name="peratusPencapaian1"]').trigger('change');
+
+
+
+                let pencapaian2 = $('input[name="q3"]').val();
+                let result2 = (pencapaian2 / sasaran) * wajaran;
+                $('input[name="q3"]').val(result2);
+                $('input[name="q3"]').trigger('change');
+
+
+
+                let pencapaian3 = $('input[name="q4"]').val();
+                let result3 = (pencapaian3 / sasaran) * wajaran;
+                $('input[name="q4"]').val(result3);
+                $('input[name="q4"]').trigger('change');
+
+
+            }
+        });
+
+
+        function myFunction() {
+
+            var x = document.getElementById("mySelect").value;
+            x = x.substring(0, x.length - 1)
+            x = parseFloat(x)
+            var prestasiColor = "yellow"
+
+            if (x >= 80) {
+                prestasiColor = "green"
+                var prestasiShown = document.getElementById("prestasi");
+                prestasiShown.innerHTML = "<img src='/img/green.png'></img> "
+
+            } else if (x <= 80 && x >= 50) {
+                prestasiColor = "yellow"
+                var prestasiShown = document.getElementById("prestasi");
+                prestasiShown.innerHTML = "<img src='/img/yellow.png'></img> "
+
+            } else {
+                prestasiColor = "red"
+                var prestasiShown = document.getElementById("prestasi");
+                prestasiShown.innerHTML = "<img src='/img/red.png'></img> "
+
+
+            }
+
+
+            prestasiShown.style.color = prestasiColor;
+
+        }
+    </script>
 
 @endsection

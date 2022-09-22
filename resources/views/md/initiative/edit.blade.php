@@ -53,13 +53,27 @@
                     </div>
                 </div>
 
-                <div class="mb-3 row">
+                {{-- <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="phase">Phase</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="phase">
                             <option @selected($initiative->phase == '1') value="1">1</option>
                             <option @selected($initiative->phase == '2') value="2">2</option>
                             <option @selected($initiative->phase == '3') value="3">3</option>
+                        </select>
+                    </div>
+                </div> --}}
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="phase">Phase</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control js-choice" id="phase" multiple="multiple" size="1"
+                            name="phase" data-options='{"removeItemButton":true,"placeholder":true}'>
+                            <option value="">PLEASE CHOOSE</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
                         </select>
                     </div>
                 </div>

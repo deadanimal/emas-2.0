@@ -108,7 +108,7 @@
 
         </div>
 
-        <br>
+        <hr>
 
         <div class="table-responsive scrollbar">
             <table class="table table-bordered user_datatable" id="example">

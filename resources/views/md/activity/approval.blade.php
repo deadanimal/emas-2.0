@@ -1,6 +1,5 @@
 @extends('base-md')
 @section('content')
-
     <div class="container">
         @can('Epu MD')
             <div class="mb-4 text-center">
@@ -18,9 +17,7 @@
                     <table class="table mb-0" style="width: 400%" value="null" id="example">
                         <thead class="text-black bg-200">
                             <tr>
-                                @can('Epu MD')
-                                    <th class="align-middle">No.</th>
-                                @endcan
+                                <th class="align-middle">No.</th>
                                 <th class="align-middle">Cluster</th>
                                 <th class="align-middle">Initiative </th>
                                 <th class="align-middle">Program</th>
@@ -36,17 +33,13 @@
                                 <th class="align-middle">Remarks</th>
 
                                 <th class="align-middle">Status</th>
-                                @can('Epu MD')
-                                    <th class="align-middle">Tindakan</th>
-                                @endcan
+                                <th class="align-middle">Tindakan</th>
                             </tr>
                         </thead>
                         <tbody class="list myTable" id="searchUpdateTable">
                             @foreach ($activities as $activity)
                                 <tr class="activity">
-                                    @can('Epu MD')
-                                        <td class="align-middle">{{ $loop->iteration }}.</td>
-                                    @endcan
+                                    <td class="align-middle">{{ $loop->iteration }}.</td>
                                     <td class="align-middle">{{ $activity->cluster->namaCluster ?? '' }}</td>
                                     <td class="align-middle">{{ $activity->initiative->namaInitiative ?? '' }}</td>
                                     <td class="align-middle">{{ $activity->program->namaProgram ?? '' }}</td>
@@ -61,41 +54,38 @@
                                     <td class="align-middle">{{ $activity->additionalOutput }}</td>
                                     <td class="align-middle">{{ $activity->remarks }}</td>
 
-                                    @can('Epu MD')
-                                        <td class="align-middle">
-                                            <div class="col-auto ms-auto">
-                                                @if ($activity->lulus == 1 && $activity->ditolak == 0)
-                                                    <span class="btn btn-primary" disabled>Lulus</span>
-                                                @elseif ($activity->lulus == 0 && $activity->ditolak == 1)
-                                                    <span class="btn btn-danger" disabled>Ditolak</span>
-                                                @else
-                                                    <form action="/activity/lulus/{{ $activity->id }}" method="post">
-                                                        @csrf
-                                                        @method('POST')
-                                                        <button type="submit" class="btn btn-success">Lulus</button>
-                                                    </form>
-                                                    <form action="{{ route('activity.ditolak', $activity->id) }}"
-                                                        method="post">
-                                                        @csrf
-                                                        @method('POST')
-                                                        <button type="submit" class="btn btn-danger">Tolak</button>
-                                                    </form>
-                                                @endif
-                                            </div>
-                                        </td>
-                                    @else
-                                        <td class="align-middle">
-                                            <div class="col-auto ms-auto">
-                                                @if ($activity->lulus == 1 && $activity->ditolak == 0)
-                                                    <span class="btn btn-primary" disabled>Lulus</span>
-                                                @elseif ($activity->lulus == 0 && $activity->ditolak == 1)
-                                                    <span class="btn btn-danger" disabled>Ditolak</span>
-                                                @else
-                                                    <span class="btn btn-info" disabled>Dalam Semakan</span>
-                                                @endif
-                                            </div>
-                                        </td>
-                                    @endcan
+                                    <td class="align-middle">
+                                        <div class="col-auto ms-auto">
+                                            @if ($activity->lulus == 1 && $activity->ditolak == 0)
+                                                <span class="btn btn-primary" disabled>Lulus</span>
+                                            @elseif ($activity->lulus == 0 && $activity->ditolak == 1)
+                                                <span class="btn btn-danger" disabled>Ditolak</span>
+                                            @else
+                                                <form action="/activity/lulus/{{ $activity->id }}" method="post">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <button type="submit" class="btn btn-success">Lulus</button>
+                                                </form>
+                                                <form action="{{ route('activity.ditolak', $activity->id) }}"
+                                                    method="post">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <button type="submit" class="btn btn-danger">Tolak</button>
+                                                </form>
+                                            @endif
+                                        </div>
+                                    </td>
+                                    <td class="align-middle">
+                                        <div class="col-auto ms-auto">
+                                            @if ($activity->lulus == 1 && $activity->ditolak == 0)
+                                                <span class="btn btn-primary" disabled>Lulus</span>
+                                            @elseif ($activity->lulus == 0 && $activity->ditolak == 1)
+                                                <span class="btn btn-danger" disabled>Ditolak</span>
+                                            @else
+                                                <span class="btn btn-info" disabled>Dalam Semakan</span>
+                                            @endif
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -107,7 +97,7 @@
 
     </div>
 
-  
+
 
     <script>
         $(document).ready(function() {

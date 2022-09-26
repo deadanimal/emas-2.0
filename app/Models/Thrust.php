@@ -22,4 +22,28 @@ class Thrust extends Model implements Auditable
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function national()
+    {
+        return $this->belongsTo(National::class, 'national_id');
+    }
+
+    public function key()
+    {
+        return $this->belongsTo(Key::class, 'key_id');
+    }
+    public function sub()
+    {
+        return $this->belongsTo(Sub::class, 'sub_id');
+    }
+
+    public function kpi()
+    {
+        return $this->belongsTo(Kpi2::class, 'kpi_id');
+    }
+
+    public function milestone()
+    {
+        return $this->belongsTo(Milestone::class, 'miles_id');
+    }
 }

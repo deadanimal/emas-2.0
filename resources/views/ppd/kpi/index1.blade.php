@@ -21,25 +21,23 @@
             </div>
         @endcannot --}}
 
-        @can('BPKP')
-            <div class="row">
-                <div class="column">
-                    <b>Peratusan Dan Bilangan
-                        Status Kelulusan</b>
-                    <div id="chartdiv"></div>
-                </div>
-                <div class="column">
-                    <b>Peratusan Dan Bilangan
-                        Mengikut Kementerian</b>
-                    <div id="chartdiv1"></div>
-                </div>
-                <div class="column">
-                    <b>Peratusan Dan Bilangan Status
-                        Tema Dan Pemangkin Dasar</b>
-                    <div id="chartdiv2"></div>
-                </div>
+        <div class="row">
+            <div class="column">
+                <b>Peratusan Dan Bilangan
+                    Status Kelulusan</b>
+                <div id="chartdiv"></div>
             </div>
-        @endcan
+            <div class="column">
+                <b>Peratusan Dan Bilangan
+                    Mengikut Kementerian</b>
+                <div id="chartdiv1"></div>
+            </div>
+            <div class="column">
+                <b>Peratusan Dan Bilangan Status
+                    Tema Dan Pemangkin Dasar</b>
+                <div id="chartdiv2"></div>
+            </div>
+        </div>
 
         <br><br>
 
@@ -150,9 +148,7 @@
                     <table class="table table-bordered" id="example">
                         <thead class="text-black bg-200">
                             <tr>
-                                @can('BPKP')
-                                    <th class="align-middle">User</th>
-                                @endcan
+                                <th class="align-middle">User</th>
                                 <th class="align-middle">KPI Nasional</th>
                                 <th class="align-middle">Tema </th>
                                 <th class="align-middle">Jenis KPI</th>
@@ -174,20 +170,16 @@
                                 <th class="align-middle">Sasaran 2025</th>
                                 <th class="align-middle">Sumber Data</th>
                                 <th class="align-middle">Sumber Pengesahan</th>
-                                @can('KementerianPPD')
-                                    <th class="align-middle">Status</th>
+                                <th class="align-middle">Status</th>
 
-                                    <th class="align-middle">Tindakan</th>
-                                @endcan
+                                <th class="align-middle">Tindakan</th>
                             </tr>
                         </thead>
                         <tbody class="list myTable" id="searchUpdateTable">
                             @foreach ($kpis as $kpi)
                                 <tr class="kpi">
-                                    @can('BPKP')
-                                        <td class="align-middle">{{ $loop->iteration }}. {{ $kpi->user->name }}
-                                        </td>
-                                    @endcan
+                                    <td class="align-middle">{{ $loop->iteration }}. {{ $kpi->user->name }}
+                                    </td>
                                     <td class="align-middle">{{ $kpi->namaKpi }}</td>
                                     <td class="align-middle">{{ $kpi->pemangkin->namaTema ?? '' }}</td>
                                     <td class="align-middle">{{ $kpi->jenisKpi }}</td>
@@ -209,40 +201,37 @@
                                     <td class="align-middle">{{ $kpi->sasaran2025 }}</td>
                                     <td class="align-middle">{{ $kpi->sumberData }}</td>
                                     <td class="align-middle">{{ $kpi->sumberPengesahan }}</td>
-                                    @can('BPKP')
-                                        <td class="align-middle">
-                                            <div class="col-auto ms-auto">
-                                                @if ($kpi->lulus == 1 && $kpi->ditolak == 0)
-                                                    <span class="btn btn-primary" disabled>Lulus</span>
-                                                @elseif ($kpi->lulus == 0 && $kpi->ditolak == 1)
-                                                    <span class="btn btn-danger" disabled>Ditolak</span>
-                                                @else
-                                                    <form action="/kpi/lulus/{{ $kpi->id }}" method="post">
-                                                        @csrf
-                                                        @method('POST')
-                                                        <button type="submit" class="btn btn-success">Sah</button>
-                                                    </form>
-                                                    <form action="{{ route('kpi.ditolak', $kpi->id) }}" method="post">
-                                                        @csrf
-                                                        @method('POST')
-                                                        <button type="submit" class="btn btn-danger">Tolak</button>
-                                                    </form>
-                                                @endif
-                                            </div>
-                                        </td>
-                                    @else
-                                        <td class="align-middle">
-                                            <div class="col-auto ms-auto">
-                                                @if ($kpi->lulus == 1 && $kpi->ditolak == 0)
-                                                    <span class="btn btn-primary" disabled>Lulus</span>
-                                                @elseif ($kpi->lulus == 0 && $kpi->ditolak == 1)
-                                                    <span class="btn btn-danger" disabled>Ditolak</span>
-                                                @else
-                                                    <span class="btn btn-info" disabled>Dalam Semakan</span>
-                                                @endif
-                                            </div>
-                                        </td>
-                                    @endcan
+                                    <td class="align-middle">
+                                        <div class="col-auto ms-auto">
+                                            @if ($kpi->lulus == 1 && $kpi->ditolak == 0)
+                                                <span class="btn btn-primary" disabled>Lulus</span>
+                                            @elseif ($kpi->lulus == 0 && $kpi->ditolak == 1)
+                                                <span class="btn btn-danger" disabled>Ditolak</span>
+                                            @else
+                                                <span class="btn btn-info" disabled>Dalam Semakan</span>
+                                            @endif
+                                        </div>
+                                    </td>
+                                    <td class="align-middle">
+                                        <div class="col-auto ms-auto">
+                                            @if ($kpi->lulus == 1 && $kpi->ditolak == 0)
+                                                <span class="btn btn-primary" disabled>Lulus</span>
+                                            @elseif ($kpi->lulus == 0 && $kpi->ditolak == 1)
+                                                <span class="btn btn-danger" disabled>Ditolak</span>
+                                            @else
+                                                <form action="/kpi/lulus/{{ $kpi->id }}" method="post">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <button type="submit" class="btn btn-success">Sah</button>
+                                                </form>
+                                                <form action="{{ route('kpi.ditolak', $kpi->id) }}" method="post">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <button type="submit" class="btn btn-danger">Tolak</button>
+                                                </form>
+                                            @endif
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -352,6 +341,8 @@
                 .removeClass('btn-default')
                 .addClass('btn-primary active')
         }
+    </script>
+    <script>
         $(document).ready(function() {
             $('#example').DataTable({
                 dom: 'Bfrtip',

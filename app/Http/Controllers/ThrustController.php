@@ -4,8 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreThrustRequest;
 use App\Http\Requests\UpdateThrustRequest;
+use App\Models\Key;
+use App\Models\National;
+use App\Models\Sub;
+use App\Models\Thrus;
 use App\Models\Thrust;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+
 
 
 class ThrustController extends Controller
@@ -25,6 +31,20 @@ class ThrustController extends Controller
         $thrust = Thrust::all();
 
         return view('mpb.thrust.index', compact('thrust'));
+    }
+
+    public function index1(Request $request)
+    {
+
+        // dd($request);
+        $thrusts = Thrust::all();
+        // $nationals = National::all();
+        // $keys = Key::all();
+        // $subs = Sub::all();
+
+        return view('mpb.display.displayThrust', compact('thrusts'));
+
+        // return view('mpb.display.displayThrust', compact('thrusts', 'nationals', 'keys', 'subs'));
     }
 
     /**
@@ -99,5 +119,26 @@ class ThrustController extends Controller
 
         return redirect()->route('thrust.index')
             ->with('Berjaya', 'Thrust berjaya dibuang');
+    }
+
+    public function lulus($id)
+    {
+
+        $thrust = Thrust::find($id);
+        $thrust->lulus = true;
+        $thrust->ditolak = false;
+        $thrust->save();
+
+        return redirect()->to('displayThrust/index1');
+    }
+
+    public function ditolak(Request $request)
+    {
+        $thrust = Thrust::find($request->id);
+        $thrust->lulus = false;
+        $thrust->ditolak = true;
+        $thrust->save();
+
+        return redirect()->to('displayThrust/index1');
     }
 }

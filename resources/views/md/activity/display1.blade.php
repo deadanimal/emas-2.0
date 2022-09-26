@@ -8,7 +8,8 @@
         <div class="card mx-ncard my-ncard shadow-none">
             <div class="card-body">
                 <div class="table-responsive scrollbar">
-                    <table class="table mb-0" style="width: 400%" value="null">
+                    <table class="table mb-0" style="width: 400%" value="null" id="example
+                    ">
                         <thead class="text-black bg-200">
                             <tr>
                                 @role('SuperAdmin')
@@ -99,4 +100,20 @@
         </div>
 
     </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5'
+                ]
+
+
+            });
+        });
+    </script>
 @endsection

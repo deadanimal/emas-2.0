@@ -12,24 +12,20 @@
                         <thead class="text-black bg-200">
                             <tr>
                                 <th class="align-middle">No.</th>
-                                <th class="align-middle">Cluster</th>
-                                <th class="align-middle">Initiative </th>
-                                <th class="align-middle">Program</th>
-                                <th class="align-middle">Plan</th>
-                                <th class="align-middle">Activity</th>
-                                <th class="align-middle">Start Date </th>
-                                <th class="align-middle">End Date</th>
-                                <th class="align-middle">Output</th>
-                                <th class="align-middle">Weightage</th>
-                                <th class="align-middle">Weightage Progress </th>
-                                <th class="align-middle">Output Progress</th>
-                                <th class="align-middle">Additional Output Info</th>
-                                <th class="align-middle">Remarks</th>
+                                <th class="align-middle">Thrust</th>
+                                <th class="align-middle">National Initiative </th>
+                                <th class="align-middle">Key Activities</th>
+                                <th class="align-middle">Sub-Key Activities</th>
+                                <th class="align-middle">KPI</th>
+                                <th class="align-middle">Milestone </th>
+                                <th class="align-middle">Actual Mark (%)</th>
+                                <th class="align-middle">Target Mark (%)</th>
+                                <th class="align-middle">Achievement (%)</th>
                                 <th class="align-middle">Status</th>
-                                <th class="align-middle">Tindakan</th>
+
                             </tr>
                         </thead>
-                        <tbody class="list myTable" id="searchUpdateTable">
+                        {{-- <tbody class="list myTable" id="searchUpdateTable">
                             @foreach ($activities as $activity)
                                 <tr class="activity">
                                     <td class="align-middle">{{ $loop->iteration }}.</td>
@@ -81,7 +77,7 @@
                                     </td>
                                 </tr>
                             @endforeach
-                        </tbody>
+                        </tbody> --}}
                     </table>
                 </div>
             </div>

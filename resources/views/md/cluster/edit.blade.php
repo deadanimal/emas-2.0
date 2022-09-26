@@ -20,6 +20,18 @@
                         <input class="form-control" type="text" name="namaCluster" value="{{ $cluster->namaCluster }}" />
 
                     </div>
+
+                    <label class="col-sm-2 col-form-label" for="chairman">Chairman</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="chairman">
+                            <option selected disabled hidden>PLEASE CHOOSE</option>
+
+                            {{-- @foreach ($clusters as $cluster)
+                                <option value="{{ $cluster->id }}">{{ $cluster->namaCluster }}</option>
+                            @endforeach --}}
+
+                        </select>
+                    </div>
                 </div>
 
 
@@ -37,15 +49,23 @@
                     </div>
                 </div> --}}
 
-                <div class="mb-3 row">
+                {{-- <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="initiatives">National/Sectoral Initiaves </label>
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" type="text" name="initiatives" value="{{ $cluster->initiatives }}" />
 
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="category">Category</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="category">
+                            <option @selected($cluster->category == 'DEB') value="DEB">DEB</option>
+                            <option @selected($cluster->category == '4IR') value="4IR">4IR</option>
+
+                        </select>
+                    </div>
                     <label class="col-sm-2 col-form-label" for="agency">Secretariat </label>
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" type="text" name="agency" value="{{ $cluster->agency }}" />

@@ -168,6 +168,11 @@ Route::group(
 
         //Milestone
         Route::resource('/milestone', MilestoneController::class);
+
+        Route::get('/displayThrust', [ThrustController::class, 'index1']);
+
+        // Route::view('/displayThrust', 'displayThrust');
+        // Route::view('/displayThrust1', 'displayThrust1');
     }
 );
 

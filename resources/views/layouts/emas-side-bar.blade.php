@@ -954,7 +954,7 @@
                         'milestone',
                         'milestone/*',
                         'mpb'))
-                        <a class="nav-link" href="/" role="button">
+                        <a class="nav-link" href="/displayThrust" role="button">
 
                             <div class="d-flex align-items-center">
                                 <div class="col-2">

@@ -19,9 +19,9 @@
 
                     </div>
 
-                    <label class="col-sm-2 col-form-label" for="namaCluster">Responsible User</label>
+                    <label class="col-sm-2 col-form-label" for="chairman">Chairman</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="cluster_id">
+                        <select class="form-control" name="chairman">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
 
                             {{-- @foreach ($clusters as $cluster)
@@ -46,15 +46,25 @@
                     </div>
                 </div> --}}
 
-                <div class="mb-3 row">
+                {{-- <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="initiatives">National/Sectoral Initiative</label>
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" type="text" name="initiatives" />
 
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="cat_id">Category</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="cat_id">
+                            <option selected disabled hidden>PLEASE CHOOSE</option>
+                            <option value="DEB">DEB</option>
+                            <option value="4IR">4IR</option>
+                        </select>
+
+                    </div>
+
                     <label class="col-sm-2 col-form-label" for="agency">Secretariat</label>
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" type="text" name="agency" value="KPWKM" />

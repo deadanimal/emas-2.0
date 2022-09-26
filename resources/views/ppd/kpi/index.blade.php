@@ -155,6 +155,8 @@
 
                                             <div class="p-4 pb-0">
                                                 <form>
+
+
                                                     <div class="mb-3">
                                                         <label class="col-form-label">Kpi:</label>
                                                         <label class="form-control"

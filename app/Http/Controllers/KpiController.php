@@ -14,8 +14,6 @@ use App\Models\Perkarautama;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
 
 class KpiController extends Controller
 {
@@ -161,7 +159,7 @@ class KpiController extends Controller
     public function edit2($id_kpi)
     {
         $kpi = Kpi::find($id_kpi);
-    
+
         return view('ppd.kpi.edit2', compact('kpi'));
     }
 

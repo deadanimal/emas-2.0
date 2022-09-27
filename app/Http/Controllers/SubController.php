@@ -24,7 +24,7 @@ class SubController extends Controller
 
     public function index()
     {
-        $subs = Sub::all();
+        $subs = Sub::where('user_id', Auth::user()->id)->get();
 
         $list = Key::all();
 
@@ -41,7 +41,7 @@ class SubController extends Controller
         $user = Auth::user();
 
 
-        $list = Key::all();
+        $list = Key::where('user_id', Auth::user()->id)->get();
 
         return view('mpb.sub.create', compact('list', 'user'));
     }
@@ -79,7 +79,7 @@ class SubController extends Controller
     {
         $user = Auth::user();
 
-        $list = Key::all();
+        $list = Key::where('user_id', Auth::user()->id)->get();
 
         return view('mpb.sub.edit', compact('sub', 'list'));
     }

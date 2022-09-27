@@ -169,7 +169,9 @@ Route::group(
         //Milestone
         Route::resource('/milestone', MilestoneController::class);
 
-        Route::get('/displayThrust', [ThrustController::class, 'index1']);
+        Route::get('/displayThrust', [MilestoneController::class, 'index1']);
+        Route::get('/displayThrust1', [MilestoneController::class, 'index2']);
+
 
         // Route::view('/displayThrust', 'displayThrust');
         // Route::view('/displayThrust1', 'displayThrust1');

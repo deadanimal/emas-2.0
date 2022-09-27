@@ -25,7 +25,7 @@ class Thrust extends Model implements Auditable
 
     public function national()
     {
-        return $this->belongsTo(National::class, 'national_id');
+        return $this->belongsTo(National::class, 'national_id', 'id');
     }
 
     public function key()

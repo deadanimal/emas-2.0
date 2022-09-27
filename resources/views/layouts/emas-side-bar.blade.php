@@ -154,7 +154,8 @@
                         'kpi2/*',
                         'milestone',
                         'milestone/*',
-                        'mpb'))
+                        'mpb',
+                        'displayThrust'))
                         <a class="nav-link btn1" href="/mpb" role="button">
 
                             <div class="d-flex align-items-center">
@@ -521,7 +522,8 @@
                         'kpi2/*',
                         'milestone',
                         'milestone/*',
-                        'mpb'))
+                        'mpb',
+                        'displayThrust'))
                         <a class="nav-link dropdown-indicator" href="#mpb" role="button"
                             data-bs-toggle="collapse" aria-expanded="true" aria-controls="mpb"
                             style="background-color: #C4D4ED">
@@ -953,7 +955,8 @@
                         'kpi2/*',
                         'milestone',
                         'milestone/*',
-                        'mpb'))
+                        'mpb',
+                        'displayThrust'))
                         <a class="nav-link" href="/displayThrust" role="button">
 
                             <div class="d-flex align-items-center">
@@ -987,7 +990,8 @@
                         'kpi2/*',
                         'milestone',
                         'milestone/*',
-                        'mpb'))
+                        'mpb',
+                        'displayThrust'))
                         <a class="nav-link btn1" href="/" role="button">
 
                             <div class="d-flex align-items-center">

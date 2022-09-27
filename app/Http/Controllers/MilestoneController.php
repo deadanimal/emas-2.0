@@ -11,6 +11,8 @@ use App\Models\National;
 use App\Models\Sub;
 use App\Models\Thrust;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+
 
 
 
@@ -29,11 +31,21 @@ class MilestoneController extends Controller
 
     public function index()
     {
-        $miles = Milestone::all();
-        $list = Kpi2::all();
+        $miles = Milestone::where('user_id', Auth::user()->id)->get();
+        $list = Kpi2::where('user_id', Auth::user()->id)->get();
 
 
         return view('mpb.milestone.index', compact('miles', 'list'));
+    }
+
+    public function index1(Request $request)
+    {
+
+        $miles = Milestone::where('user_id', Auth::user()->id)->get();
+
+
+        return view('mpb.display.displayThrust', compact('miles'));
+
     }
 
     /**
@@ -45,12 +57,12 @@ class MilestoneController extends Controller
     {
         $user = Auth::user();
 
-        $miles = Milestone::all();
-        $thrust = Thrust::all();
-        $nation = National::all();
-        $key = Key::all();
-        $sub = Sub::all();
-        $kpi = Kpi2::all();
+        $miles = Milestone::where('user_id', Auth::user()->id)->get();
+        $thrust = Thrust::where('user_id', Auth::user()->id)->get();
+        $nation = National::where('user_id', Auth::user()->id)->get();
+        $key = Key::where('user_id', Auth::user()->id)->get();
+        $sub = Sub::where('user_id', Auth::user()->id)->get();
+        $kpi = Kpi2::where('user_id', Auth::user()->id)->get();
         // $list= Quarter::all();
 
 
@@ -91,12 +103,12 @@ class MilestoneController extends Controller
      */
     public function edit(Milestone $milestone)
     {
-        $miles = Milestone::all();
-        $thrust = Thrust::all();
-        $nation = National::all();
-        $key = Key::all();
-        $sub = Sub::all();
-        $kpi = Kpi2::all();
+        $miles = Milestone::where('user_id', Auth::user()->id)->get();
+        $thrust = Thrust::where('user_id', Auth::user()->id)->get();
+        $nation = National::where('user_id', Auth::user()->id)->get();
+        $key = Key::where('user_id', Auth::user()->id)->get();
+        $sub = Sub::where('user_id', Auth::user()->id)->get();
+        $kpi = Kpi2::where('user_id', Auth::user()->id)->get();
         // $list= Quarter::all();
 
 

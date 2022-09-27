@@ -26,7 +26,7 @@ class Kpi2Controller extends Controller
 
     public function index()
     {
-        $kpis = Kpi2::all();
+        $kpis = Kpi2::where('user_id', Auth::user()->id)->get();
         $list = Sub::all();
 
         return view('mpb.kpi2.index', compact('kpis', 'list'));
@@ -41,12 +41,12 @@ class Kpi2Controller extends Controller
     {
         $user = Auth::user();
 
-        $kpi2 = Kpi2::all();
+        $kpi2 = Kpi2::where('user_id', Auth::user()->id)->get();
 
-        $thrust = Thrust::all();
-        $national = National::all();
-        $key = Key::all();
-        $sub = Sub::all();
+        $thrust = Thrust::where('user_id', Auth::user()->id)->get();
+        $national = National::where('user_id', Auth::user()->id)->get();
+        $key = Key::where('user_id', Auth::user()->id)->get();
+        $sub = Sub::where('user_id', Auth::user()->id)->get();
 
         return view('mpb.kpi2.create', compact('user', 'kpi2', 'thrust', 'key', 'sub', 'national'));
     }
@@ -85,10 +85,10 @@ class Kpi2Controller extends Controller
     {
         // dd($kpi2);
 
-        $thrust = Thrust::all();
-        $national = National::all();
-        $key = Key::all();
-        $sub = Sub::all();
+        $thrust = Thrust::where('user_id', Auth::user()->id)->get();
+        $national = National::where('user_id', Auth::user()->id)->get();
+        $key = Key::where('user_id', Auth::user()->id)->get();
+        $sub = Sub::where('user_id', Auth::user()->id)->get();
 
         return view('mpb.kpi2.edit', compact('kpi2', 'thrust', 'key', 'sub', 'national'));
     }

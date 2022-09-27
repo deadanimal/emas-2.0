@@ -24,7 +24,7 @@ class NationalController extends Controller
 
     public function index()
     {
-        $national = National::all();
+        $national = National::where('user_id', Auth::user()->id)->get();
 
         $list = Thrust::all();
 
@@ -41,7 +41,7 @@ class NationalController extends Controller
         $user = Auth::user();
 
 
-        $list = Thrust::all();
+        $list = Thrust::where('user_id', Auth::user()->id)->get();
 
         return view('mpb.national.create', compact('list', 'user'));
     }
@@ -79,7 +79,7 @@ class NationalController extends Controller
     {
         $user = Auth::user();
 
-        $list = Thrust::all();
+        $list = Thrust::where('user_id', Auth::user()->id)->get();
 
         return view('mpb.national.edit', compact('national', 'list'));
     }

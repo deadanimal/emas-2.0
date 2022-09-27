@@ -144,113 +144,121 @@
 
 
 
-        <div id="tableExample2" data-list='{"valueNames":["tindakan"],"page":6,"pagination":true}'>
-            <div class="card mx-ncard my-ncard shadow-none">
-                <div class="card-body">
-                    <div class="table-responsive scrollbar">
-                        <table class="table mb-0" style="width: 400%">
-                            <thead class="text-black bg-200">
-                                <tr>
-                                    @role('admin')
-                                        <th class="align-middle">User</th>
-                                    @endrole
-                                    <th class="align-middle">Tindakan</th>
-                                    <th class="align-middle">Kementerian/ Agensi Penyelaras </th>
-                                    <th class="align-middle">Kementerian/ Agensi Pelaksana</th>
-                                    <th class="align-middle">Tempoh Siap</th>
-                                    <th class="align-middle">Kategori Sasaran </th>
-                                    <th class="align-middle">Status Pelaksanaan 2021</th>
-                                    <th class="align-middle">Catatan 2021</th>
-                                    <th class="align-middle">Pencapaian 2021</th>
-                                    <th class="align-middle">Status Pelaksanaan 2022 </th>
-                                    <th class="align-middle">Catatan 2022</th>
-                                    <th class="align-middle">Pencapaian 2022</th>
+        <div class="card mx-ncard my-ncard shadow-none">
+            <div class="card-body">
+                <div class="table-responsive scrollbar">
+                    <table class="table table-bordered" id="example">
+                        <thead class="text-black bg-200">
+                            <tr>
+                                <th class="align-middle">User</th>
+                                <th class="align-middle">Tindakan</th>
+                                <th class="align-middle">Kementerian/ Agensi Penyelaras </th>
+                                <th class="align-middle">Kementerian/ Agensi Pelaksana</th>
+                                <th class="align-middle">Tempoh Siap</th>
+                                <th class="align-middle">Kategori Sasaran </th>
+                                <th class="align-middle">Status Pelaksanaan 2021</th>
+                                <th class="align-middle">Catatan 2021</th>
+                                <th class="align-middle">Pencapaian 2021</th>
+                                <th class="align-middle">Status Pelaksanaan 2022 </th>
+                                <th class="align-middle">Catatan 2022</th>
+                                <th class="align-middle">Pencapaian 2022</th>
 
-                                    @role('bahagian')
-                                        <th class="align-middle">Status</th>
-                                    @endrole
-                                    @role('admin')
-                                        <th class="align-middle">Tindakan</th>
-                                    @endrole
+                                <th class="align-middle">Status</th>
+
+                                <th class="align-middle">Tindakan</th>
+                            </tr>
+                        </thead>
+                        <tbody class="list myTable" id="bulk-select-body">
+                            @foreach ($tindakans as $tindakan)
+                                <tr class="perkara">
+                                    <td class="align-middle">{{ $loop->iteration }}. {{ $tindakan->user->name }}
+                                    </td>
+                                    <td class="align-middle">{{ $tindakan->namaTindakan }}</td>
+                                    {{-- <td class="align-middle">{{ $tindakan->pemangkin->namaTema ?? '' }}</td> --}}
+                                    <td class="align-middle">{{ $tindakan->kementerian_penyelaras }}</td>
+                                    <td class="align-middle">{{ $tindakan->kementerian_pelaksana }}</td>
+                                    <td class="align-middle">{{ $tindakan->tempohSiap }}</td>
+                                    <td class="align-middle">{{ $tindakan->kategoriSasaran }}</td>
+                                    <td class="align-middle">{{ $tindakan->statusPelaksanaan2021 }}</td>
+                                    <td class="align-middle">{{ $tindakan->catatan2021 }}</td>
+                                    <td class="align-middle">{{ $tindakan->pencapaian2021 }}</td>
+                                    <td class="align-middle">{{ $tindakan->statusPelaksanaan }}</td>
+                                    <td class="align-middle">{{ $tindakan->catatan2022 }}</td>
+                                    <td class="align-middle">{{ $tindakan->pencapaian2022 }}</td>
+
+
+                                    <td class="align-middle">
+                                        <div class="col-auto ms-auto">
+                                            @if ($tindakan->lulus == 1 && $tindakan->ditolak == 0)
+                                                <span class="btn btn-primary" disabled>Lulus</span>
+                                            @elseif ($tindakan->lulus == 0 && $tindakan->ditolak == 1)
+                                                <span class="btn btn-danger" disabled>Ditolak</span>
+                                            @else
+                                                <span class="btn btn-info" disabled>Dalam Semakan</span>
+                                            @endif
+                                        </div>
+                                    </td>
+
+                                    <td class="align-middle">
+
+                                        <div class="col-auto ms-auto">
+                                            @if ($tindakan->lulus == 1 && $tindakan->ditolak == 0)
+                                                <span class="btn btn-primary" disabled>Lulus</span>
+                                            @elseif ($tindakan->lulus == 0 && $tindakan->ditolak == 1)
+                                                <span class="btn btn-danger" disabled>Ditolak</span>
+                                            @else
+                                                <form action="/tindakan/lulus/{{ $tindakan->id }}" method="post">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <button type="submit" class="btn btn-success">Lulus</button>
+                                                </form>
+                                                <form action="{{ route('tindakan.ditolak', $tindakan->id) }}"
+                                                    method="post">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <button type="submit" class="btn btn-danger">Tolak</button>
+                                                </form>
+                                            @endif
+                                        </div>
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody class="list myTable" id="bulk-select-body">
-                                @foreach ($tindakans as $tindakan)
-                                    <tr class="perkara">
-                                        @role('admin')
-                                            <td class="align-middle">{{ $loop->iteration }}. {{ $tindakan->user->name }}
-                                            </td>
-                                        @endrole
-                                        <td class="align-middle">{{ $tindakan->namaTindakan }}</td>
-                                        {{-- <td class="align-middle">{{ $tindakan->pemangkin->namaTema ?? '' }}</td> --}}
-                                        <td class="align-middle">{{ $tindakan->kementerian_penyelaras }}</td>
-                                        <td class="align-middle">{{ $tindakan->kementerian_pelaksana }}</td>
-                                        <td class="align-middle">{{ $tindakan->tempohSiap }}</td>
-                                        <td class="align-middle">{{ $tindakan->kategoriSasaran }}</td>
-                                        <td class="align-middle">{{ $tindakan->statusPelaksanaan2021 }}</td>
-                                        <td class="align-middle">{{ $tindakan->catatan2021 }}</td>
-                                        <td class="align-middle">{{ $tindakan->pencapaian2021 }}</td>
-                                        <td class="align-middle">{{ $tindakan->statusPelaksanaan }}</td>
-                                        <td class="align-middle">{{ $tindakan->catatan2022 }}</td>
-                                        <td class="align-middle">{{ $tindakan->pencapaian2022 }}</td>
-
-                                        @role('admin')
-                                            <td class="align-middle">
-
-                                                <div class="col-auto ms-auto">
-                                                    @if ($tindakan->lulus == 1 && $tindakan->ditolak == 0)
-                                                        <span class="btn btn-primary" disabled>Lulus</span>
-                                                    @elseif ($tindakan->lulus == 0 && $tindakan->ditolak == 1)
-                                                        <span class="btn btn-danger" disabled>Ditolak</span>
-                                                    @else
-                                                        <form action="/tindakan/lulus/{{ $tindakan->id }}" method="post">
-                                                            @csrf
-                                                            @method('POST')
-                                                            <button type="submit" class="btn btn-success">Lulus</button>
-                                                        </form>
-                                                        <form action="{{ route('tindakan.ditolak', $tindakan->id) }}"
-                                                            method="post">
-                                                            @csrf
-                                                            @method('POST')
-                                                            <button type="submit" class="btn btn-danger">Tolak</button>
-                                                        </form>
-                                                    @endif
-                                                </div>
-                                            </td>
-                                        @else
-                                            <td class="align-middle">
-                                                <div class="col-auto ms-auto">
-                                                    @if ($tindakan->lulus == 1 && $tindakan->ditolak == 0)
-                                                        <span class="btn btn-primary" disabled>Lulus</span>
-                                                    @elseif ($tindakan->lulus == 0 && $tindakan->ditolak == 1)
-                                                        <span class="btn btn-danger" disabled>Ditolak</span>
-                                                    @else
-                                                        <span class="btn btn-info" disabled>Dalam Semakan</span>
-                                                    @endif
-                                                </div>
-                                            </td>
-                                        @endrole
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
-
-            <div class="d-flex justify-content-center mt-3">
-                <button class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous"
-                    data-list-pagination="prev"><span class="fas fa-chevron-left"></span>
-                </button>
-                <ul class="pagination mb-0"></ul>
-                <button class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next"
-                    data-list-pagination="next"><span class="fas fa-chevron-right"> </span>
-                </button>
-            </div>
-
-
         </div>
+
     </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+
+                    {
+                        extend: 'pdfHtml5',
+                        title: 'Tindakan',
+                        orientation: 'landscape',
+                        pageSize: 'A1'
+                    }, {
+                        extend: 'csvHtml5',
+                        title: 'Tindakan',
+                        orientation: 'landscape',
+                        pageSize: 'A1'
+                    }, {
+                        extend: 'excelHtml5',
+                        title: 'Tindakan',
+                        orientation: 'landscape',
+                        pageSize: 'A1'
+                    }
+                ]
+
+
+            });
+        });
+    </script>
 @endsection
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>

@@ -26,7 +26,7 @@ class KeyController extends Controller
 
     public function index()
     {
-        $keys = Key::all();
+        $keys = Key::where('user_id', Auth::user()->id)->get();
 
         $list = National::all();
 
@@ -44,7 +44,7 @@ class KeyController extends Controller
 
 
         // $list = Thrust::all();
-        $national = National::all();
+        $national = National::where('user_id', Auth::user()->id)->get();
 
         return view('mpb.key.create', compact('national', 'user'));
     }
@@ -83,7 +83,7 @@ class KeyController extends Controller
 
         $user = Auth::user();
 
-        $national = National::all();
+        $national = National::where('user_id', Auth::user()->id)->get();
 
         return view('mpb.key.edit', compact('key', 'national'));
     }

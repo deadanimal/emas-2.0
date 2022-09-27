@@ -28,24 +28,24 @@ class ThrustController extends Controller
 
     public function index()
     {
-        $thrust = Thrust::all();
+        $thrust = Thrust::where('user_id', Auth::user()->id)->get();
 
         return view('mpb.thrust.index', compact('thrust'));
     }
 
-    public function index1(Request $request)
-    {
+    // public function index1(Request $request)
+    // {
 
-        // dd($request);
-        $thrusts = Thrust::all();
-        // $nationals = National::all();
-        // $keys = Key::all();
-        // $subs = Sub::all();
+    //     // dd($request);
+    //     $thrusts = Thrust::with(['national'])->where('user_id', Auth::user()->id)->get();
+    //     // $nationals = National::all();
+    //     // $keys = Key::all();
+    //     // $subs = Sub::all();
 
-        return view('mpb.display.displayThrust', compact('thrusts'));
+    //     return view('mpb.display.displayThrust', compact('thrusts'));
 
-        // return view('mpb.display.displayThrust', compact('thrusts', 'nationals', 'keys', 'subs'));
-    }
+    //     // return view('mpb.display.displayThrust', compact('thrusts', 'nationals', 'keys', 'subs'));
+    // }
 
     /**
      * Show the form for creating a new resource.

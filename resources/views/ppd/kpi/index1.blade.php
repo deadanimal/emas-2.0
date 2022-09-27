@@ -183,7 +183,15 @@
                                     <td class="align-middle">{{ $kpi->namaKpi }}</td>
                                     <td class="align-middle">{{ $kpi->pemangkin->namaTema ?? '' }}</td>
                                     <td class="align-middle">{{ $kpi->jenisKpi }}</td>
-                                    <td class="align-middle">{{ $kpi->prestasiKpi }}</td>
+                                    <td class="align-middle">
+                                        @if ($kpi->peratusPencapaian > 80)
+                                            <img src='/img/green.png'>
+                                        @elseif ($kpi->peratusPencapaian <= 80 && $kpi->peratusPencapaian >= 50)
+                                            <img src='/img/yellow.png'>
+                                        @elseif ($kpi->peratusPencapaian < 50)
+                                            <img src='/img/red.png'>
+                                        @endif
+                                    </td>
                                     <td class="align-middle">{{ $kpi->unitUkuran }}</td>
                                     <td class="align-middle">{{ $kpi->pencapaian }}</td>
                                     <td class="align-middle">{{ $kpi->sasaran }}</td>
@@ -342,15 +350,77 @@
                 .addClass('btn-primary active')
         }
     </script>
+    {{-- <script>
+        $(document).ready(function() {
+            $('#example').DataTable({
+                "processing": true,
+                "dom": 'lBfrtip',
+                "buttons": [{
+                    extend: 'collection',
+                    text: 'Print Option',
+                    collectionLayout: 'rcoi-dt-pdf-button-group-hack',
+                    autoClose: true,
+                    buttons: [{
+                            extend: 'pdfHtml5',
+                            text: 'PDF',
+                            orientation: 'landscape',
+                            title: 'KPI Nasional',
+                            pageSize: 'TABLOID',
+                            footer: true,
+                            exportOptions: {
+                                columns: ':visible',
+                                orthogonal: 'print'
+                            }
+                        },
+                        {
+                            extend: 'csvHtml5',
+                            text: 'CSV',
+                            orientation: 'landscape',
+                            title: 'KPI Nasional',
+                            exportOptions: {
+                                columns: ':visible',
+                                orthogonal: 'print'
+                            }
+                        },
+                        {
+                            extend: 'excelHtml5',
+                            text: 'Excel',
+                            orientation: 'landscape',
+                            title: 'KPI Nasional',
+                            exportOptions: {
+                                columns: ':visible',
+                                orthogonal: 'print'
+                            }
+                        },
+
+
+                    ]
+                }]
+            });
+        });
+    </script> --}}
     <script>
         $(document).ready(function() {
             $('#example').DataTable({
                 dom: 'Bfrtip',
                 buttons: [
-                    'copyHtml5',
-                    'excelHtml5',
-                    'csvHtml5',
-                    'pdfHtml5'
+
+                    {
+                        extend: 'pdfHtml5',
+                        title: 'KPI Nasional',
+                        orientation: 'landscape',
+                        pageSize: 'A1'
+                    }, {
+                        extend: 'csvHtml5',
+                        title: 'KPI Nasional',
+                        orientation: 'landscape',
+                        pageSize: 'A1'
+                    }, {
+                        extend: 'excelHtml5',
+                        title: 'KPI Nasional',
+                        orientation: 'landscape',
+                        pageSize: 'A1'
+                    }
                 ]
 
 

@@ -3,7 +3,7 @@
 
     <div class="container">
         <div class="mb-4 text-center">
-            <H2>KEMASKINI PRESTASI TINDAKAN</H2>
+            <H2>KEMASKINI PRESTASI TINDAKAN - <br>{{ $tindakans->namaTindakan }}</H2>
         </div>
 
         <br>
@@ -22,7 +22,7 @@
 
         <div class="form-floating;">
 
-            <form action="/tindakan/{{ $tindakans->id }}" method="POST">
+            <form action="/prestasi/{{ $tindakans->id }}" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -53,18 +53,8 @@
                             <tr>
                                 <td>
                                     <div class="col-sm-10">
-                                        <select class="form-control" name="tahun">
-                                            <option @selected($tindakans->tahun == '2015') value="2015">2015</option>
-                                            <option @selected($tindakans->tahun == '2016') value="2016">2016</option>
-                                            <option @selected($tindakans->tahun == '2017') value="2017">2017</option>
-                                            <option @selected($tindakans->tahun == '2018') value="2018">2018</option>
-                                            <option @selected($tindakans->tahun == '2019') value="2019">2019</option>
-                                            <option @selected($tindakans->tahun == '2020') value="2020">2020</option>
-                                            <option @selected($tindakans->tahun == '2021') value="2021">2021</option>
-                                            <option @selected($tindakans->tahun == '2022') value="2022">2022</option>
-                                            <option @selected($tindakans->tahun == '2023') value="2023">2023</option>
+                                        <input class="form-control" value="{{ $tindakans->tempohSiap }}" readonly />
 
-                                        </select>
                                     </div>
                                 </td>
                                 <td>
@@ -88,13 +78,13 @@
                                         value="{{ $tindakans->peratusPencapaian }}" />
 
                                     {{-- <input type="text" name="q4" id="mySelect" onchange="myFunction()"
-                                    class="percent form-control" value="{{ $tindakans->peratusPencapaian }}" /> --}}
+                                    class="form-control" value="{{ $tindakans->peratusPencapaian }}" /> --}}
 
                                 </td>
                                 <td>
                                     <div class="col-sm-10">
                                         <input type="text" name="peratusPencapaian" id="mySelect"
-                                            onchange="myFunction()" class="percent form-control"
+                                            onchange="myFunction()" class="form-control"
                                             value="{{ $tindakans->peratusPencapaian }}" />
 
                                     </div>
@@ -112,7 +102,7 @@
 
                         <div class="col-sm-10" style="width:30%">
                             <input type="text" name="peratusPencapaian" id="mySelect" onchange="myFunction()"
-                                class="percent form-control" value="{{ $tindakans->peratusPencapaian }}" />
+                                class="form-control" value="{{ $tindakans->peratusPencapaian }}" />
 
                         </div>
 
@@ -160,8 +150,7 @@
                     <label class="col-sm-2 col-form-label" for="namaTindakan">Tindakan</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="namaTindakan" value="{{ $tindakans->namaTindakan }}"
-                            readonly />
+                        <input class="form-control" name="namaTindakan" value="{{ $tindakans->namaTindakan }}" readonly />
                     </div>
 
 
@@ -180,75 +169,44 @@
                     <label class="col-sm-2 col-form-label" for="kementerian_pelaksana">Kementerian/Agensi
                         Pelaksana</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="kementerian_pelaksana" readonly>
-                            <option selected disabled hidden>SILA PILIH</option>
-                            <option @selected($tindakans->kementerian_pelaksana == '1') value="1">1</option>
-                            <option @selected($tindakans->kementerian_pelaksana == '2') value="2">2</option>
-                            <option @selected($tindakans->kementerian_pelaksana == '3') value="3">3</option>
-                            <option @selected($tindakans->kementerian_pelaksana == '4') value="4">4</option>
-                            <option @selected($tindakans->kementerian_pelaksana == '5') value="5">5</option>
-
-                        </select>
+                        <input class="form-control" type="text" name="kementerian_pelaksana" readonly
+                            value="{{ $tindakans->kementerian_pelaksana }}" />
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="tempohSiap">Tempoh Siap</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="tempohSiap" readonly>
-                            <option selected disabled hidden>SILA PILIH</option>
-                            <option @selected($tindakans->tempohSiap = '1') value="1">1</option>
-                            <option @selected($tindakans->tempohSiap = '2') value="2">2</option>
-                            <option @selected($tindakans->tempohSiap = '3') value="3">3</option>
-                            <option @selected($tindakans->tempohSiap = '4') value="4">4</option>
-                            <option @selected($tindakans->tempohSiap = '5') value="5">5</option>
+                        <input class="form-control" type="text" name="tempohSiap" readonly
+                            value="{{ $tindakans->tempohSiap }}" />
 
-                        </select>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="kategoriSasaran">Kategori Sasaran</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="kategoriSasaran" readonly>
-                            <option selected disabled hidden>SILA PILIH</option>
-                            <option @selected($tindakans->kategoriSasaran = 'Low Hanging Fruits') value="Low Hanging Fruits">Low Hanging Fruits – sasaran
-                                dapat dicapai dengan cepat dan
-                                mudah (1-2 tahun sahaja)
-                            </option>
-                            <option @selected($tindakans->kategoriSasaran = 'Quantifiable targets ') value="Quantifiable targets ">Quantifiable targets -
-                                sasaran dapat diukur secara spesifik
-                            </option>
-                            <option @selected($tindakans->kategoriSasaran = 'Broad Policy') value="Broad Policy">Broad Policy – sasaran lebih luas
-                                dan
-                                dicapai dalam
-                                jangka masa lebih panjang
-                            </option>
+                        <input class="form-control" type="text" name="kategoriSasaran" readonly
+                            value="{{ $tindakans->kategoriSasaran }}" />
 
-
-                        </select>
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="catatan2021">Catatan 2021</label>
                     <div class="col-sm-10" style="width:30%">
-                        <textarea class="form-control" row="10" name="catatan2021" value="{{ $tindakans->catatan2021 }}" readonly></textarea>
+                        <textarea class="form-control" row="10" name="catatan2021" readonly>{{ $tindakans->catatan2021 }}</textarea>
+
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="statusPelaksanaan2021">Status Pelaksanaan</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="statusPelaksanaan2021" readonly>
-                            <option selected disabled hidden>SILA PILIH</option>
-                            <option @selected($tindakans->statusPelaksanaan2021 = 'Belum Mula') value="Belum Mula">Belum Mula</option>
-                            <option @selected($tindakans->statusPelaksanaan2021 = 'Dalam Pelaksanaan') value="Dalam Pelaksanaan">Dalam Pelaksanaan</option>
-                            <option @selected($tindakans->statusPelaksanaan2021 = 'Siap') value="Siap">Siap</option>
-                            <option @selected($tindakans->statusPelaksanaan2021 = 'Tiada Maklumat') value="Tiada Maklumat">Tiada Maklumat</option>
+                        <input class="form-control" type="text" name="statusPelaksanaan2021" readonly
+                            value="{{ $tindakans->statusPelaksanaan2021 }}" />
 
-                        </select>
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="catatan2022">Catatan 2022</label>
                     <div class="col-sm-10" style="width:30%">
-                        <textarea class="form-control" row="10" name="catatan2022" value="{{ $tindakans->catatan2022 }}" readonly></textarea>
+                        <textarea class="form-control" row="10" name="catatan2022" readonly>{{ $tindakans->catatan2022 }}</textarea>
 
                     </div>
                 </div>
@@ -263,12 +221,8 @@
                     <label class="col-sm-2 col-form-label" for="status">Status</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="status" readonly>
-                            <option selected disabled hidden>SILA PILIH</option>
-                            <option @selected($tindakans->status = '1') value="1">Belum Dilaksana</option>
-                            <option @selected($tindakans->status = '2') value="2">Dalam Pelaksanaan</option>
-                            <option @selected($tindakans->status = '3') value="3">Tamat Pelaksanaan</option>
-                        </select>
+                        <input class="form-control" name="status" value="{{ $tindakans->status }}" readonly />
+
                     </div>
 
 
@@ -299,7 +253,7 @@
                     <label class="col-sm-2 col-form-label" for="pencapaian2022">Pencapaian 2022</label>
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" name="pencapaian2022" value="{{ $tindakans->pencapaian2022 }}"
-                            readonlye />
+                            readonly readonlye />
 
                     </div>
 

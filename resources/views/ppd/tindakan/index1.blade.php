@@ -190,11 +190,11 @@
                                     <td class="align-middle">
                                         <div class="col-auto ms-auto">
                                             @if ($tindakan->lulus == 1 && $tindakan->ditolak == 0)
-                                                <span class="btn btn-primary" disabled>Lulus</span>
+                                                <span class="badge bg-success">Lulus</span>
                                             @elseif ($tindakan->lulus == 0 && $tindakan->ditolak == 1)
-                                                <span class="btn btn-danger" disabled>Ditolak</span>
+                                                <span class="badge bg-danger">Ditolak</span>
                                             @else
-                                                <span class="btn btn-info" disabled>Dalam Semakan</span>
+                                                <span class="badge bg-info text-dark">Dalam Semakan</span>
                                             @endif
                                         </div>
                                     </td>
@@ -203,9 +203,9 @@
 
                                         <div class="col-auto ms-auto">
                                             @if ($tindakan->lulus == 1 && $tindakan->ditolak == 0)
-                                                <span class="btn btn-primary" disabled>Lulus</span>
+                                                <span class="badge bg-success">Dilulus</span>
                                             @elseif ($tindakan->lulus == 0 && $tindakan->ditolak == 1)
-                                                <span class="btn btn-danger" disabled>Ditolak</span>
+                                                <span class="badge bg-danger">Ditolak</span>
                                             @else
                                                 <form action="/tindakan/lulus/{{ $tindakan->id }}" method="post">
                                                     @csrf

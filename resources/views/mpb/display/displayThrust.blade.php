@@ -14,14 +14,14 @@
             <div class="table-responsive scrollbar">
                 <table class="table mb-0" style="width: 400%" value="null" id="example">
                     <thead class="text-black bg-200">
-                        <tr>
+                        <tr style="text-align: center">
                             <th class="align-middle" rowspan=2>No.</th>
                             <th class="align-middle" rowspan=2>Thrust</th>
                             <th class="align-middle" rowspan=2>National Initiative </th>
                             <th class="align-middle" rowspan=2>Key Activities</th>
                             <th class="align-middle" rowspan=2>Sub-Key Activities</th>
                             <th class="align-middle" rowspan=2>KPI</th>
-                            <th class="align-middle" style="text-align: center" colspan=4>Milestone </th>
+                            <th class="align-middle" colspan=4>Milestone </th>
                             <th class="align-middle" rowspan=2>Actual Mark (%)</th>
                             <th class="align-middle" rowspan=2>Target Mark (%)</th>
                             <th class="align-middle" rowspan=2>Achievement (%)</th>
@@ -30,7 +30,7 @@
 
 
                         </tr>
-                        <tr>
+                        <tr style="text-align: center">
                             <td>Q1</td>
                             <td>Q2 </td>
                             <td>Q3</td>
@@ -41,7 +41,7 @@
 
                     <tbody class="list myTable" id="searchUpdateTable">
                         @foreach ($miles as $thrust)
-                            <tr class="thrust">
+                            <tr class="thrust" style="text-align: center">
                                 <td class="align-middle">{{ $loop->iteration }}.</td>
                                 <td class="align-middle">{{ $thrust->thrust->namaThrust }}</td>
                                 <td class="align-middle">{{ $thrust->national->namaNational ?? '' }}</td>
@@ -167,4 +167,3 @@
         });
     </script>
 @endsection
-

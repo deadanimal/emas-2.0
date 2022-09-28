@@ -132,8 +132,9 @@
 
                             <td align="right">
                                 <div>
-                                    <a class="btn btn-warning" style="border-radius: 38px"
-                                        href="/prestasi/{{ $tindakan->id }}/edit/"><i class="fas fa-pencil-alt"></i>
+                                    <a class="btn btn-success" style="border-radius: 38px"
+                                        href="/prestasi/{{ $tindakan->id }}/edit/"><i
+                                            class="fas fa-arrow-alt-circle-right"></i>
                                     </a>
 
 
@@ -185,8 +186,8 @@
 
                             <div>
 
-                                    <a class="btn btn-warning" style="border-radius: 38px"
-                                        href="/tindakan1/` + el.id + `/edit/"><i class="fas fa-pencil-alt"></i>
+                                    <a class="btn btn-success" style="border-radius: 38px"
+                                        href="/tindakan1/` + el.id + `/edit/"><i class="fas fa-arrow-alt-circle-right"></i>
                                     </a>
 
 

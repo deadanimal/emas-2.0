@@ -7,12 +7,13 @@
     </style>
     <div class="container">
         <div class="mb-4 text-center">
-            <H2>KEMASKINI PRESTASI KPI NASIONAL</H2>
+            <H2>KEMASKINI PRESTASI KPI NASIONAL - <br>{{ $kpi->namaKpi }}
+            </H2>
         </div>
 
         <div class="form-floating;">
 
-            <form action="/kpi/{{ $kpi->id }}" method="POST">
+            <form action="/prestasi_kpi/{{ $kpi->id }}" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -46,48 +47,40 @@
                             <tr>
                                 <td>
                                     <div class="col-sm-10">
-                                        <select class="form-control" name="tahun">
-                                            <option @selected($kpi->tahun == '2015') value="2015">2015</option>
-                                            <option @selected($kpi->tahun == '2016') value="2016">2016</option>
-                                            <option @selected($kpi->tahun == '2017') value="2017">2017</option>
-                                            <option @selected($kpi->tahun == '2018') value="2018">2018</option>
-                                            <option @selected($kpi->tahun == '2019') value="2019">2019</option>
-                                            <option @selected($kpi->tahun == '2020') value="2020">2020</option>
-                                            <option @selected($kpi->tahun == '2021') value="2021">2021</option>
-                                            <option @selected($kpi->tahun == '2022') value="2022">2022</option>
-                                            <option @selected($kpi->tahun == '2023') value="2023">2023</option>
 
-                                        </select>
+
+                                        <input type="number" name="tahunAsas" class="form-control"
+                                            value="{{ $kpi->tahunAsas }}" readonly />
                                     </div>
                                 </td>
                                 <td>
-                                    <input type="number" name="q1" class="form-control pencapaian" id="mySelect"
-                                        onchange="myFunction()" placeholder="Pencapaian"
-                                        value="{{ $kpi->peratusPencapaian }}" />
+                                    <input type="number" name="q1" for="q1" class="form-control pencapaian"
+                                        id="mySelect" onchange="myFunction()" placeholder="Pencapaian"
+                                        value="{{ $kpi->q1 }}" />
                                 </td>
                                 <td>
-                                    <input type="number" name="q2" class="form-control pencapaian" id="mySelect"
-                                        onchange="myFunction()" placeholder="Pencapaian"
-                                        value="{{ $kpi->peratusPencapaian }}" />
+                                    <input type="number" name="q2" for="q2" class="form-control pencapaian"
+                                        id="mySelect" onchange="myFunction()" placeholder="Pencapaian"
+                                        value="{{ $kpi->q2 }}" />
                                 </td>
                                 <td>
-                                    <input type="number" name="q3" class="form-control pencapaian" id="mySelect"
-                                        onchange="myFunction()" placeholder="Pencapaian"
-                                        value="{{ $kpi->peratusPencapaian }}" />
+                                    <input type="number" name="q3" for="q3" class="form-control pencapaian"
+                                        id="mySelect" onchange="myFunction()" placeholder="Pencapaian"
+                                        value="{{ $kpi->q3 }}" />
                                 </td>
                                 <td>
-                                    <input type="number" name="q4" class="form-control pencapaian" id="mySelect"
-                                        onchange="myFunction()" placeholder="Pencapaian"
-                                        value="{{ $kpi->peratusPencapaian }}" />
+                                    <input type="number" name="q4" for="q4" class="form-control pencapaian"
+                                        id="mySelect" onchange="myFunction()" placeholder="Pencapaian"
+                                        value="{{ $kpi->q4 }}" />
 
                                     {{-- <input type="text" name="q4" id="mySelect" onchange="myFunction()"
-                                    class="percent form-control" value="{{ $kpi->peratusPencapaian }}" /> --}}
+                                    class="form-control" value="{{ $kpi->peratusPencapaian }}" /> --}}
 
                                 </td>
                                 <td>
                                     <div class="col-sm-10">
                                         <input type="text" name="peratusPencapaian" id="mySelect"
-                                            onchange="myFunction()" class="percent form-control"
+                                            onchange="myFunction()" class="form-control"
                                             value="{{ $kpi->peratusPencapaian }}" readonly />
 
                                     </div>
@@ -109,7 +102,7 @@
 
                         <div class="col-sm-10" style="width:30%">
                             <input type="text" name="peratusPencapaian" id="mySelect" onchange="myFunction()"
-                                class="percent form-control" value="{{ $kpi->peratusPencapaian }}" />
+                                class="form-control" value="{{ $kpi->peratusPencapaian }}" />
 
                         </div>
 
@@ -124,7 +117,8 @@
 
                         @if ($kpi->pemangkin != null)
                             <input class="form-control" value="{{ $kpi->pemangkin->namaTema }}" readonly />
-                            <input class="form-control" name="bidang_id" type="hidden" value="{{ $kpi->pemangkin->id }}" />
+                            <input class="form-control" name="bidang_id" type="hidden"
+                                value="{{ $kpi->pemangkin->id }}" />
                         @else
                             <input class="form-control" value="Tema/ Pemangkin Dasar telah dipadam" readonly />
                         @endif
@@ -183,11 +177,8 @@
 
                     <label class="col-sm-2 col-form-label" for="jenisKpi">Jenis Sasaran</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="jenisKpi" readonly>
-                            <option @selected($kpi->jenisKpi == 'Minimum') value="Minimum">Minimum</option>
-                            <option @selected($kpi->jenisKpi == 'Maximum') value="Maximum">Maximum</option>
+                        <input class="form-control" name="jenisKpi" value="{{ $kpi->jenisKpi }}" readonly />
 
-                        </select>
                     </div>
                 </div>
 
@@ -198,15 +189,11 @@
                     <label class="col-sm-2 col-form-label" for="unitUkuran">Unit Ukuran</label>
                     <div class="col-sm-10" style="width:30%">
 
-                        <select class="form-control" name="unitUkuran" readonly>
-                            <option @selected($kpi->unitUkuran == '%') value="%">%</option>
-                            <option @selected($kpi->unitUkuran == 'RM') value="RM">RM</option>
-                            <option @selected($kpi->unitUkuran == 'Bilangan') value="Bilangan">Bilangan</option>
-                            <option @selected($kpi->unitUkuran == 'Indeks') value="Indeks">Indeks</option>
-                            <option @selected($kpi->unitUkuran == 'Kedudukan') value="Kedudukan">Kedudukan</option>
-
-                        </select>
+                        <input type="number" name="unitUkuran" class="form-control pencapaian"
+                            value="{{ $kpi->unitUkuran }}" readonly />
                     </div>
+
+
 
                 </div>
 
@@ -214,7 +201,7 @@
 
                     <label class="col-sm-2 col-form-label" for="sasaran">Sasaran</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input type="number" name="sasaran" class="percent form-control pencapaian"
+                        <input type="number" name="sasaran" class="form-control pencapaian"
                             value="{{ $kpi->sasaran }}" readonly />
                     </div>
 
@@ -224,15 +211,15 @@
                     <label class="col-sm-2 col-form-label" for="hadVarian">Varians</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="number" name="hadVarian" class="percent form-control"
-                            value="{{ $kpi->hadVarian }}" readonly />
+                        <input type="number" name="hadVarian" class="form-control" value="{{ $kpi->hadVarian }}"
+                            readonly />
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="hadToleransi">Had Toleransi</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="number" name="hadToleransi" class="percent form-control"
-                            value="{{ $kpi->hadToleransi }}" readonly />
+                        <input type="number" name="hadToleransi" class="form-control" value="{{ $kpi->hadToleransi }}"
+                            readonly />
                     </div>
 
                 </div>
@@ -248,7 +235,7 @@
                     <label class="col-sm-2 col-form-label" for="wajaran">Wajaran</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="number" name="wajaran" class="percent form-control pencapaian"
+                        <input type="number" name="wajaran" class="form-control pencapaian"
                             value="{{ $kpi->wajaran }}" readonly />
                     </div>
 
@@ -258,20 +245,8 @@
 
                     <label class="col-sm-2 col-form-label" for="tahunAsas">Tahun Asas</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="tahunAsas" readonly>
-                            <option @selected($kpi->tahunAsas = '2010') value="2010">2010</option>
-                            <option @selected($kpi->tahunAsas = '2011') value="2011">2011</option>
-                            <option @selected($kpi->tahunAsas = '2012') value="2012">2012</option>
-                            <option @selected($kpi->tahunAsas = '2013') value="2013">2013</option>
-                            <option @selected($kpi->tahunAsas = '2014') value="2014">2014</option>
-                            <option @selected($kpi->tahunAsas = '2015') value="2015">2015</option>
-                            <option @selected($kpi->tahunAsas = '2016') value="2016">2016</option>
-                            <option @selected($kpi->tahunAsas = '2017') value="2017">2017</option>
-                            <option @selected($kpi->tahunAsas = '2018') value="2018">2018</option>
-                            <option @selected($kpi->tahunAsas = '2019') value="2019">2019</option>
-                            <option @selected($kpi->tahunAsas = '2020') value="2020">2020</option>
-
-                        </select>
+                        <input type="text" name="tahunAsas" type="text" class="form-control"
+                            value="{{ $kpi->tahunAsas }}" readonly />
                     </div>
 
                 </div>
@@ -281,7 +256,7 @@
                         Asas</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="peratusPencapaianAsas" type="text" class="percent form-control"
+                        <input type="text" name="peratusPencapaianAsas" type="text" class="form-control"
                             value="{{ $kpi->peratusPencapaianAsas }}" readonly />
 
                     </div>
@@ -299,7 +274,7 @@
                     <label class="col-sm-2 col-form-label" for="sasaran2021">Sasaran 2021</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="sasaran2021" type="text" class="percent form-control"
+                        <input type="text" name="sasaran2021" type="text" class="form-control"
                             value="{{ $kpi->sasaran2021 }}" readonly />
                     </div>
 
@@ -316,19 +291,15 @@
                     <label class="col-sm-2 col-form-label" for="sasaran2022">Sasaran 2022</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="sasaran2022" type="text" class="percent form-control"
+                        <input type="text" name="sasaran2022" type="text" class="form-control"
                             value="{{ $kpi->sasaran2022 }}" readonly />
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="status">Status</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="status" readonly>
-                            <option selected disabled hidden>SILA PILIH STATUS</option>
-                            <option @selected($kpi->status == '1') value="1">Belum Mencapai Sasaran</option>
-                            <option @selected($kpi->status == '2') value="2">Tidak Mencapai Sasaran</option>
-                            <option @selected($kpi->status == '3') value="2">Mencapai Sasaran</option>
-                        </select>
+                        <input type="text" name="status" type="text" class="form-control"
+                            value="{{ $kpi->status }}" readonly />
                     </div>
 
                 </div>
@@ -337,7 +308,7 @@
                     <label class="col-sm-2 col-form-label" for="sasaran2023">Sasaran 2023</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="sasaran2023" type="text" class="percent form-control"
+                        <input type="text" name="sasaran2023" type="text" class="form-control"
                             value="{{ $kpi->sasaran2023 }}" readonly />
                     </div>
 
@@ -351,7 +322,7 @@
 
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="sasaran2024" type="text" class="percent form-control"
+                        <input type="text" name="sasaran2024" type="text" class="form-control"
                             value="{{ $kpi->sasaran2024 }}" readonly />
                     </div>
 
@@ -377,19 +348,6 @@
     </div>
 
     <script>
-        // window.addEventListener('load', () => {
-        //     document.querySelector('#selector').addEventListener('change', yesnoCheck)
-        //     yesnoCheck({
-        //         target: document.querySelector('#selector')
-        //     })
-        // })
-
-        // function yesnoCheck(e) {
-        //     document.querySelectorAll('#q1, #q2, #q3, #q4').forEach(el => el.classList.add('hidden'));
-        //     let targ = e.target.querySelector('option:checked').dataset.targ;
-        //     document.querySelector(targ).classList.remove('hidden');
-        // }
-
         $(".pencapaian").keyup(function() {
 
             var checkAllInputFilled = true;

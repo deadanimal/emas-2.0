@@ -121,9 +121,9 @@
 
                                 <td class="align-right" id="searchUpdateTable2">
                                     <div>
-                                        <a class="btn btn-warning" style="border-radius: 38px" onclick="Kpi(this)"
+                                        <a class="btn btn-success" style="border-radius: 38px" onclick="Kpi(this)"
                                             href="/prestasi_kpi/{{ $kpi->id }}/edit/"><i
-                                                class="fas fa-pencil-alt"></i>
+                                                class="fas fa-arrow-alt-circle-right"></i>
                                         </a>
 
                                     </div>
@@ -187,8 +187,8 @@
                         <td align="right">
 
                         <div>
-                                <a class="btn btn-warning" style="border-radius: 38px"
-                                    href="/kpi1/` + el.id + `/edit/"><i class="fas fa-pencil-alt"></i>
+                                <a class="btn btn-success" style="border-radius: 38px"
+                                    href="/kpi1/` + el.id + `/edit/"><i class="fas fa-arrow-alt-circle-right"></i>
                                 </a>
 
                                 <a class="btn btn-primary" style="border-radius: 38px"

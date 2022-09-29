@@ -209,23 +209,26 @@
                                     <td class="align-middle">{{ $kpi->sasaran2025 }}</td>
                                     <td class="align-middle">{{ $kpi->sumberData }}</td>
                                     <td class="align-middle">{{ $kpi->sumberPengesahan }}</td>
+                                    @can('Bahagian PPD')
+                                        <td class="align-middle">
+                                            <div class="col-auto ms-auto">
+                                                @if ($kpi->lulus == 1 && $kpi->ditolak == 0)
+                                                    <span class="badge bg-success">Lulus</span>
+                                                @elseif ($kpi->lulus == 0 && $kpi->ditolak == 1)
+                                                    <span class="badge bg-danger">Ditolak</span>
+                                                @else
+                                                    <span class="badge bg-info text-dark">Dalam Semakan</span>
+                                                @endif
+                                            </div>
+                                        </td>
+                                    @endcan
+
                                     <td class="align-middle">
                                         <div class="col-auto ms-auto">
                                             @if ($kpi->lulus == 1 && $kpi->ditolak == 0)
-                                                <span class="btn btn-primary" disabled>Lulus</span>
+                                                <span class="badge bg-success">Dilulus</span>
                                             @elseif ($kpi->lulus == 0 && $kpi->ditolak == 1)
-                                                <span class="btn btn-danger" disabled>Ditolak</span>
-                                            @else
-                                                <span class="btn btn-info" disabled>Dalam Semakan</span>
-                                            @endif
-                                        </div>
-                                    </td>
-                                    <td class="align-middle">
-                                        <div class="col-auto ms-auto">
-                                            @if ($kpi->lulus == 1 && $kpi->ditolak == 0)
-                                                <span class="btn btn-primary" disabled>Lulus</span>
-                                            @elseif ($kpi->lulus == 0 && $kpi->ditolak == 1)
-                                                <span class="btn btn-danger" disabled>Ditolak</span>
+                                                <span class="badge bg-danger">Ditolak</span>
                                             @else
                                                 <form action="/kpi/lulus/{{ $kpi->id }}" method="post">
                                                     @csrf

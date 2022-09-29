@@ -159,13 +159,14 @@ class KpiController extends Controller
     public function edit2($id_kpi)
     {
         $kpi = Kpi::find($id_kpi);
-
+        // dd($kpi);
         return view('ppd.kpi.edit2', compact('kpi'));
     }
 
 
     public function update(UpdateKpiRequest $request, Kpi $kpi)
     {
+
         $kpi->update($request->all());
         return redirect()->route('kpi.index');
     }
@@ -176,10 +177,20 @@ class KpiController extends Controller
         return redirect()->route('kpi.index');
     }
 
-    public function update2(UpdateKpiRequest $request, Kpi $kpi)
+    public function update2(Request $request, $id)
     {
-        $kpi->update($request->all());
-        return redirect()->route('kpi.index');
+
+        $kpi = Kpi::find($id);
+
+        $kpi->q1 = $request->q1;
+        $kpi->q2 = $request->q2;
+        $kpi->q3 = $request->q3;
+        $kpi->q4 = $request->q4;
+
+        $kpi->save();
+        // dd($request);
+
+        return redirect('/prestasi/pelaporan_prestasi_kpi');
     }
 
     public function destroy(Kpi $kpi)

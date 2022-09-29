@@ -134,13 +134,17 @@ Route::group(
         Route::resource('/sdg', SdgController::class);
 
         //Prestasi Pelaporan
+
         //KPI
         Route::get('/prestasi/pelaporan_prestasi_kpi/', [KpiController::class, 'index2']);
         Route::get('/prestasi_kpi/{id}/edit/', [KpiController::class, 'edit2']);
+        Route::put('/prestasi_kpi/{id}', [KpiController::class, 'update2']);
+
 
         //Tindakan
         Route::get('/prestasi/pelaporan_prestasi_tindakan/', [TindakanController::class, 'index2']);
         Route::get('/prestasi/{id}/edit/', [TindakanController::class, 'edit2']);
+        Route::put('/prestasi/{id}', [TindakanController::class, 'update2']);
     }
 );
 

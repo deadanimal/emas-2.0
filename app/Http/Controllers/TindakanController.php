@@ -184,6 +184,12 @@ class TindakanController extends Controller
         return redirect()->route('tindakan.index');
     }
 
+    public function update2(UpdateTindakanRequest $request, Tindakan $tindakan)
+    {
+        $tindakan->update($request->all());
+        return redirect('/prestasi/pelaporan_prestasi_tindakan');
+    }
+
     /**
      * Remove the specified resource from storage.
      *

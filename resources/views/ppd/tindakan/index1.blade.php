@@ -163,9 +163,9 @@
                                 <th class="align-middle">Catatan 2022</th>
                                 <th class="align-middle">Pencapaian 2022</th>
 
-                                <th class="align-middle">Status</th>
+                                <th class="align-middle">Status Pengesahan</th>
 
-                                <th class="align-middle">Tindakan</th>
+                                <th class="align-middle">Pengesahan</th>
                             </tr>
                         </thead>
                         <tbody class="list myTable" id="bulk-select-body">
@@ -187,7 +187,7 @@
                                     <td class="align-middle">{{ $tindakan->pencapaian2022 }}</td>
 
 
-                                    <td class="align-middle">
+                                    <td class="align-middle" style="text-align: center">
                                         <div class="col-auto ms-auto">
                                             @if ($tindakan->lulus == 1 && $tindakan->ditolak == 0)
                                                 <span class="badge bg-success">Lulus</span>
@@ -199,18 +199,18 @@
                                         </div>
                                     </td>
 
-                                    <td class="align-middle">
+                                    <td class="align-middle" style="text-align: center">
 
                                         <div class="col-auto ms-auto">
                                             @if ($tindakan->lulus == 1 && $tindakan->ditolak == 0)
-                                                <span class="badge bg-success">Dilulus</span>
+                                                <span class="badge bg-success">Disahkan</span>
                                             @elseif ($tindakan->lulus == 0 && $tindakan->ditolak == 1)
                                                 <span class="badge bg-danger">Ditolak</span>
                                             @else
                                                 <form action="/tindakan/lulus/{{ $tindakan->id }}" method="post">
                                                     @csrf
                                                     @method('POST')
-                                                    <button type="submit" class="btn btn-success">Lulus</button>
+                                                    <button type="submit" class="btn btn-success">Sahkan</button>
                                                 </form>
                                                 <form action="{{ route('tindakan.ditolak', $tindakan->id) }}"
                                                     method="post">

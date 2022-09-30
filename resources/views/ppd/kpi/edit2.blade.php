@@ -48,9 +48,13 @@
                                 <td>
                                     <div class="col-sm-10">
 
-
-                                        <input type="number" name="tahunAsas" class="form-control"
-                                            value="{{ $kpi->tahunAsas }}" readonly />
+                                        <select class="form-control" name="tahun">
+                                            <option @selected($kpi->tahun2021 == '2021') value="2021">2021</option>
+                                            <option @selected($kpi->tahun2022 == '2022') value="2022">2022</option>
+                                            <option @selected($kpi->tahun2023 == '2023') value="2023">2023</option>
+                                            <option @selected($kpi->tahun2024 == '2024') value="2024">2024</option>
+                                            <option @selected($kpi->tahun2025 == '2025') value="2025">2025</option>
+                                        </select>
                                     </div>
                                 </td>
                                 <td>
@@ -117,8 +121,7 @@
 
                         @if ($kpi->pemangkin != null)
                             <input class="form-control" value="{{ $kpi->pemangkin->namaTema }}" readonly />
-                            <input class="form-control" name="bidang_id" type="hidden"
-                                value="{{ $kpi->pemangkin->id }}" />
+                            <input class="form-control" name="bidang_id" type="hidden" value="{{ $kpi->pemangkin->id }}" />
                         @else
                             <input class="form-control" value="Tema/ Pemangkin Dasar telah dipadam" readonly />
                         @endif

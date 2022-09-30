@@ -210,7 +210,7 @@
                                     <td class="align-middle">{{ $kpi->sumberData }}</td>
                                     <td class="align-middle">{{ $kpi->sumberPengesahan }}</td>
                                     @can('Bahagian PPD')
-                                        <td class="align-middle">
+                                        <td class="align-middle" style="text-align: center">
                                             <div class="col-auto ms-auto">
                                                 @if ($kpi->lulus == 1 && $kpi->ditolak == 0)
                                                     <span class="badge bg-success">Lulus</span>
@@ -223,17 +223,17 @@
                                         </td>
                                     @endcan
 
-                                    <td class="align-middle">
+                                    <td class="align-middle" style="text-align: center">
                                         <div class="col-auto ms-auto">
                                             @if ($kpi->lulus == 1 && $kpi->ditolak == 0)
-                                                <span class="badge bg-success">Dilulus</span>
+                                                <span class="badge bg-success">Disahkan</span>
                                             @elseif ($kpi->lulus == 0 && $kpi->ditolak == 1)
                                                 <span class="badge bg-danger">Ditolak</span>
                                             @else
                                                 <form action="/kpi/lulus/{{ $kpi->id }}" method="post">
                                                     @csrf
                                                     @method('POST')
-                                                    <button type="submit" class="btn btn-success">Sah</button>
+                                                    <button type="submit" class="btn btn-success">Sahkan</button>
                                                 </form>
                                                 <form action="{{ route('kpi.ditolak', $kpi->id) }}" method="post">
                                                     @csrf

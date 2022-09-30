@@ -7,6 +7,8 @@ use App\Http\Requests\UpdateInitiativeRequest;
 use App\Models\Cluster;
 use App\Models\Initiative;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+
 
 
 class InitiativeController extends Controller
@@ -37,6 +39,7 @@ class InitiativeController extends Controller
     {
         $user = Auth::user();
         $cluster = Cluster::all();
+
         return view('md.initiative.create', compact('user', 'cluster'));
     }
 
@@ -46,9 +49,43 @@ class InitiativeController extends Controller
      * @param  \App\Http\Requests\StoreInitiativeRequest  $request
      * @return \Illuminate\Http\Response
      */
+
+
+
     public function store(StoreInitiativeRequest $request)
     {
-        $initiative = Initiative::create($request->all());
+
+
+        // $initiative = Initiative::create($request->all());
+        // return redirect()->route('initiative.index');
+
+        // $input = $request->all();
+        // $input['phase'] = $request->input('phase');
+        // Initiative::create($input);
+        // return redirect()->route('initiative.index');
+
+        $initiatives = new Initiative();
+
+        $initiatives->user_id = Auth::user()->id;
+        $initiatives->cluster_id = $request->cluster_id;
+        // $initiatives->namaCluster = $request->namaCluster;
+        $initiatives->namaInitiative = $request->namaInitiative;
+        // $initiatives->category = $request->category;
+        $initiatives->code = $request->code;
+        // $initiatives->national = $request->national;
+        $initiatives->target = $request->target;
+        // $initiatives->phase = 'a';
+        $initiatives->leadAgency = $request->leadAgency;
+
+
+
+        // if (!empty($request->phase)) {
+        $initiatives->phase = implode(" , ", $request->phase);
+        // }
+
+
+
+        $initiatives->save();
         return redirect()->route('initiative.index');
     }
 
@@ -85,9 +122,34 @@ class InitiativeController extends Controller
      * @param  \App\Models\Initiative  $initiative
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateInitiativeRequest $request, Initiative $initiative)
+    public function update(Request $request, $id)
     {
-        $initiative->update($request->all());
+        // $initiative->update($request->all());
+
+        $initiative = Initiative::find($id);
+
+        $initiative->user_id = Auth::user()->id;
+        $initiative->cluster_id = $request->cluster_id;
+        // $initiative->namaCluster = $request->namaCluster;
+        $initiative->namaInitiative = $request->namaInitiative;
+        // $initiative->category = $request->category;
+        $initiative->code = $request->code;
+        // $initiative->national = $request->national;
+        $initiative->target = $request->target;
+        // $initiative->phase = 'a';
+        $initiative->leadAgency = $request->leadAgency;
+
+
+
+        // if (!empty($request->phase)) {
+        $initiative->phase = implode(',', $request->phase);
+        // }
+
+
+
+        $initiative->save();
+
+
         return redirect()->route('initiative.index');
     }
 

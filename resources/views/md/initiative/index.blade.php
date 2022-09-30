@@ -143,6 +143,10 @@
                                                             <label class="form-control"
                                                                 disabled="disabled">{{ $initiative->target }}</label>
                                                         </div>
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label">Phase:</label>{{ $initiative->phase }}
+
+                                                        </div>
 
                                                         <div class="mb-3">
                                                             <label class="col-form-label">Lead Agency:</label>

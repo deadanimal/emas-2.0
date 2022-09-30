@@ -20,6 +20,7 @@
         @endif
 
 
+
         <div class="form-floating;">
 
             <form action="/prestasi/{{ $tindakans->id }}" method="POST">
@@ -39,11 +40,9 @@
                         <thead class="table-light">
                             <tr>
                                 <th class="align-middle">Tahun Semasa Yang Dilaporkan</th>
-                                <th class="align-middle">Q1 (JAN-MAC)</th>
-                                <th class="align-middle">Q2 (APRIL-JUN)</th>
-                                <th class="align-middle">Q3 (JULAI-SEPT)</th>
-                                <th class="align-middle">Q4 (OKT-DIS)</th>
+                                <th class="align-middle">Pilih Quarter</th>
                                 <th class="align-middle">Pencapaian</th>
+                                <th class="align-middle">Catatan</th>
                                 <th class="align-middle">Prestasi Tindakan</th>
 
 
@@ -63,34 +62,25 @@
                                     </div>
                                 </td>
                                 <td>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" name="quarter">
+                                            <option @selected($tindakans->q1 == 'Q1') value="Q1">Q1</option>
+                                            <option @selected($tindakans->q2 == 'Q2') value="Q2">Q2</option>
+                                            <option @selected($tindakans->q3 == 'Q3') value="Q3">Q3</option>
+                                            <option @selected($tindakans->q4 == 'Q4') value="Q4">Q4</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td>
                                     <input type="number" name="q1" class="form-control pencapaian" id="mySelect"
                                         onchange="myFunction()" placeholder="Pencapaian"
                                         value="{{ $tindakans->peratusPencapaian }}" />
                                 </td>
-                                <td>
-                                    <input type="number" name="q2" class="form-control pencapaian" id="mySelect"
-                                        onchange="myFunction()" placeholder="Pencapaian"
-                                        value="{{ $tindakans->peratusPencapaian }}" />
-                                </td>
-                                <td>
-                                    <input type="number" name="q3" class="form-control pencapaian" id="mySelect"
-                                        onchange="myFunction()" placeholder="Pencapaian"
-                                        value="{{ $tindakans->peratusPencapaian }}" />
-                                </td>
-                                <td>
-                                    <input type="number" name="q4" class="form-control pencapaian" id="mySelect"
-                                        onchange="myFunction()" placeholder="Pencapaian"
-                                        value="{{ $tindakans->peratusPencapaian }}" />
 
-                                    {{-- <input type="text" name="q4" id="mySelect" onchange="myFunction()"
-                                    class="form-control" value="{{ $tindakans->peratusPencapaian }}" /> --}}
-
-                                </td>
                                 <td>
                                     <div class="col-sm-10">
-                                        <input type="text" name="peratusPencapaian" id="mySelect"
-                                            onchange="myFunction()" class="form-control"
-                                            value="{{ $tindakans->peratusPencapaian }}" />
+                                        <input type="text" name="catatan" class="form-control"
+                                            value="{{ $tindakans->catatan }}" />
 
                                     </div>
                                 </td>
@@ -155,8 +145,7 @@
                     <label class="col-sm-2 col-form-label" for="namaTindakan">Tindakan</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="namaTindakan" value="{{ $tindakans->namaTindakan }}"
-                            readonly />
+                        <input class="form-control" name="namaTindakan" value="{{ $tindakans->namaTindakan }}" readonly />
                     </div>
 
 

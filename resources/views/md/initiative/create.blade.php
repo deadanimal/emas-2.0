@@ -9,7 +9,7 @@
         <br>
 
         <div class="form-floating;">
-            <form action="{{ route('initiative.store') }}" method="POST">
+            <form method="post" action="{{ route('initiative.store') }}" enctype="multipart/form-data">
                 @csrf
 
                 <div class="mb-3 row">
@@ -94,14 +94,45 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="phase">Phase</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control js-choice" id="phase" multiple="multiple" size="1"
-                            name="phase" data-options='{"removeItemButton":true,"placeholder":true}'>
+                        {{-- <select class="form-control js-choice" id="phase" multiple="multiple" size="1"
+                            name="phase[]" data-options='{"removeItemButton":true,"placeholder":true}'>
                             <option value="">PLEASE CHOOSE</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                        </select>
+                        </select> --}}
+
+                        {{-- <label><input type="checkbox" name="phase[]" value="1"> 1</label>
+                        <label><input type="checkbox" name="phase[]" value="2"> 2</label>
+                        <label><input type="checkbox" name="phase[]" value="3"> 3</label>
+                        <label><input type="checkbox" name="phase[]" value="4"> 4</label> --}}
+
+                        {{-- <div class="form-group"><br>
+                            <label><input type="checkbox" name="phase_1"> 1</label>
+                            <label><input type="checkbox" name="phase_2" value="2"> 2</label>
+                            <label><input type="checkbox" name="phase_3" value="3"> 3</label>
+                            <label><input type="checkbox" name="phase_4" value="4"> 4</label>
+                        </div>
+
+                        $request->phase_1 --}}
+
+
+                        <div class="mb-2 col-sm-7">
+                            <div class="form-check">
+                                <input type="checkbox" name="phase[]" value="1" class="form-check-input">
+                                1
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" name="phase[]" value="2" class="form-check-input">2
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" name="phase[]" value="3" class="form-check-input">3
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" name="phase[]" value="4" class="form-check-input">4
+                            </div>
+                        </div>
                     </div>
                 </div>
 

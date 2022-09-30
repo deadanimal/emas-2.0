@@ -53,8 +53,13 @@
                             <tr>
                                 <td>
                                     <div class="col-sm-10">
-                                        <input class="form-control" value="{{ $tindakans->tempohSiap }}" readonly />
-
+                                        <select class="form-control" name="tahun">
+                                            <option @selected($tindakans->tahun2021 == '2021') value="2021">2021</option>
+                                            <option @selected($tindakans->tahun2022 == '2022') value="2022">2022</option>
+                                            <option @selected($tindakans->tahun2023 == '2023') value="2023">2023</option>
+                                            <option @selected($tindakans->tahun2024 == '2024') value="2024">2024</option>
+                                            <option @selected($tindakans->tahun2025 == '2025') value="2025">2025</option>
+                                        </select>
                                     </div>
                                 </td>
                                 <td>
@@ -150,7 +155,8 @@
                     <label class="col-sm-2 col-form-label" for="namaTindakan">Tindakan</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="namaTindakan" value="{{ $tindakans->namaTindakan }}" readonly />
+                        <input class="form-control" name="namaTindakan" value="{{ $tindakans->namaTindakan }}"
+                            readonly />
                     </div>
 
 

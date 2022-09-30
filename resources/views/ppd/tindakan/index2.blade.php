@@ -187,18 +187,8 @@
                             <div>
 
                                     <a class="btn btn-success" style="border-radius: 38px"
-                                        href="/tindakan1/` + el.id + `/edit/"><i class="fas fa-arrow-alt-circle-right"></i>
+                                        href="/prestasi/` + el.id + `/edit/"><i class="fas fa-arrow-alt-circle-right"></i>
                                     </a>
-
-
-                                    <a class="btn btn-primary" style="border-radius: 38px"
-                                        href="/tindakan/` + el.id + `/edit"><i class="fas fa-edit"></i>
-                                    </a>
-
-                                    <button type="submit" onclick="myFunction({{ `+el.id+` }})" class="btn btn-danger"
-                                        style="border-radius: 38px">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
                                 </div>
                         </td>
 

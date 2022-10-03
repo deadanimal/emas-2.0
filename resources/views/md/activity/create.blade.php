@@ -104,7 +104,7 @@
                         <div class="mb-3 row">
                             <label class="col-form-label" for="output">Output</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" name="output" />
+                                <input class="form-control" type="number" name="output" />
 
                             </div>
                         </div>
@@ -113,16 +113,17 @@
                             <label class="col-form-label" for="weightage">Weightage</label>
                             <div class="col-sm-10">
 
-                                <input class="form-control" type="text" name="weightage" />
+                                <input class="form-control" type="number" name="weightage" />
 
                             </div>
 
                         </div>
 
+
                         <div class="mb-3 row">
                             <label class="col-form-label" for="weightage_progress">Weightage Progress</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" name="weightage_progress" />
+                                <input class="form-control" type="number" name="weightage_progress" />
 
                             </div>
                         </div>
@@ -130,7 +131,7 @@
                         <div class="mb-3 row">
                             <label class="col-form-label" for="output_progress">Output Progress</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" name="output_progress" />
+                                <input class="form-control" type="number" name="output_progress" />
 
                             </div>
                         </div>
@@ -139,7 +140,7 @@
                             <label class="col-form-label" for="additionalOutput">Additional Output
                                 Information</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" name="additionalOutput" />
+                                <input class="form-control" type="number" name="additionalOutput" />
 
                             </div>
                         </div>

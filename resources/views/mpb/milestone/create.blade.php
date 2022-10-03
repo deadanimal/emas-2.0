@@ -8,8 +8,6 @@
         </div>
 
 
-        <br>
-
         <form action="{{ route('milestone.store') }}" method="POST">
             @csrf
 
@@ -122,11 +120,20 @@
                         </div>
                     </div>
 
-                    <div class="row mb-3">
+                    {{-- <div class="row mb-3">
                         <label class="col-form-label" for="achievement">Achievement (%)</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="text" name="achievement" />
 
+                        </div>
+                    </div> --}}
+
+                    <div class="col-lg-10">
+                        <label class="col-form-label" for="achievement">Achievement</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="rm2">%</span>
+                            <input class="form-control" type="number" value="0" aria-describedby="rm2"
+                                name="achievement">
                         </div>
                     </div>
 

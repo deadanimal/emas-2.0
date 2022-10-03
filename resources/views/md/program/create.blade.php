@@ -48,7 +48,7 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-form-label" for="leadAgency">Lead Agency/Kementerian</label>
+                            <label class="col-form-label" for="leadAgency">Lead Agency/Ministry</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="leadAgency" />
 
@@ -90,7 +90,7 @@
                         <div class="mb-3 row">
                             <label class="col-form-label" for="totalDisbursed">Total Disbursed Amount</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" name="totalDisbursed" />
+                                <input class="form-control" type="number" name="totalDisbursed" />
 
                             </div>
                         </div>
@@ -98,7 +98,7 @@
                         <div class="mb-3 row">
                             <label class="col-form-label" for="totalAmount">Total Amount Spending</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" name="totalAmount" />
+                                <input class="form-control" type="number" name="totalAmount" />
 
                             </div>
                         </div>

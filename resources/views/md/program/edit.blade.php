@@ -49,7 +49,7 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-form-label" for="leadAgency">Lead Agency/Kementerian</label>
+                            <label class="col-form-label" for="leadAgency">Lead Agency/Ministry</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="leadAgency"
                                     value="{{ $program->leadAgency }}" />
@@ -78,7 +78,7 @@
                         <div class="mb-3 row">
                             <label class="col-form-label" for="cost">Project Cost</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" name="cost" value="{{ $program->cost }}" />
+                                <input class="form-control" type="number" name="cost" value="{{ $program->cost }}" />
 
                             </div>
                         </div>
@@ -86,7 +86,7 @@
                         <div class="mb-3 row">
                             <label class="col-form-label" for="source">Source Funding</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" name="source" value="{{ $program->source }}" />
+                                <input class="form-control" type="number" name="source" value="{{ $program->source }}" />
 
                             </div>
                         </div>

@@ -23,53 +23,26 @@
 
                     <label class="col-sm-2 col-form-label" for="chairman">Chairman</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="chairman">
-                            <option selected disabled hidden>PLEASE CHOOSE</option>
+                        <input class="form-control" type="text" name="chairman" />
 
-                            {{-- @foreach ($clusters as $cluster)
-                                <option value="{{ $cluster->id }}">{{ $cluster->namaCluster }}</option>
-                            @endforeach --}}
-
-                        </select>
                     </div>
                 </div>
 
 
-                {{-- <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="strategies_id">Strategy</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="strategies_id">
-                            @foreach ($strategies as $strategies)
-                                <option @selected($cluster->strategies_id == $strategies->id) value="{{ $strategies->id }}">
-                                    {{ $strategies->namaStrategy }}
-                                </option>
-                            @endforeach
 
-                        </select>
-                    </div>
-                </div> --}}
-
-                {{-- <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="initiatives">National/Sectoral Initiaves </label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="initiatives" value="{{ $cluster->initiatives }}" />
-
-                    </div>
-                </div> --}}
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="category">Category</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="category">
-                            <option @selected($cluster->category == 'DEB') value="DEB">DEB</option>
-                            <option @selected($cluster->category == '4IR') value="4IR">4IR</option>
-
-                        </select>
-                    </div>
                     <label class="col-sm-2 col-form-label" for="agency">Secretariat </label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="agency" value="{{ $cluster->agency }}" />
+                        <select class="form-control" name="agency">
+                            <option @selected($cluster->agency == 'MOHR') value="MOHR">MOHR</option>
+                            <option @selected($cluster->agency == 'KKMM') value="KKMM">KKMM</option>
+                            <option @selected($cluster->agency == 'MOSTI') value="MOSTI">MOSTI</option>
+                            <option @selected($cluster->agency == 'MITI') value="MITI">MITI</option>
+                            <option @selected($cluster->agency == 'KPWKM') value="KPWKM">KPWKM</option>
+                            <option @selected($cluster->agency == 'MAMPU') value="MAMPU">MAMPU</option>
 
+                        </select>
                     </div>
                 </div>
 

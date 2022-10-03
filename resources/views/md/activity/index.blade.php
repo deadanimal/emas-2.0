@@ -75,6 +75,7 @@
                         <tr>
                             <th scope="col">No.</th>
                             <th scope="col">Activities</th>
+                            <th scope="col">Percentage Progress (%)</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -95,6 +96,7 @@
                                         <div class="ms-2"><b>{{ $activity->namaActivity }}</b></div>
                                     </div>
                                 </td>
+                                <td></td>
 
 
                                 <div class="modal fade" id="error-modal-{{ $activity->id }}" tabindex="-1" role="dialog"

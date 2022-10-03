@@ -26,7 +26,7 @@
                                 <th class="align-middle">Additional Output Info</th>
                                 <th class="align-middle">Remarks</th>
                                 <th class="align-middle">Status</th>
-                                <th class="align-middle">Tindakan</th>
+                                <th class="align-middle">Action</th>
                             </tr>
                         </thead>
                         <tbody class="list myTable" id="searchUpdateTable">
@@ -57,13 +57,13 @@
                                                 <form action="/activity/lulus/{{ $activity->id }}" method="post">
                                                     @csrf
                                                     @method('POST')
-                                                    <button type="submit" class="btn btn-success">Lulus</button>
+                                                    <button type="submit" class="btn btn-success">Approve</button>
                                                 </form>
                                                 <form action="{{ route('activity.ditolak', $activity->id) }}"
                                                     method="post">
                                                     @csrf
                                                     @method('POST')
-                                                    <button type="submit" class="btn btn-danger">Tolak</button>
+                                                    <button type="submit" class="btn btn-danger">Reject</button>
                                                 </form>
                                             @endif
                                         </div>
@@ -71,11 +71,11 @@
                                     <td class="align-middle">
                                         <div class="col-auto ms-auto">
                                             @if ($activity->lulus == 1 && $activity->ditolak == 0)
-                                                <span class="btn btn-primary" disabled>Lulus</span>
+                                                <span class="btn btn-primary" disabled>Approved</span>
                                             @elseif ($activity->lulus == 0 && $activity->ditolak == 1)
-                                                <span class="btn btn-danger" disabled>Ditolak</span>
+                                                <span class="btn btn-danger" disabled>Rejected</span>
                                             @else
-                                                <span class="btn btn-info" disabled>Dalam Semakan</span>
+                                                <span class="btn btn-info" disabled>In Review</span>
                                             @endif
                                         </div>
                                     </td>

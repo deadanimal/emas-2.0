@@ -34,8 +34,10 @@
                         <tr>
                             <th scope="col">No.</th>
                             <th scope="col">Cluster</th>
-                            <th scope="col">National/Sectoral Initiaves</th>
+                            <th scope="col">Total Initiatives DEB</th>
+                            <th scope="col">Total Initiatives 4IR</th>
                             <th scope="col">Secretariat</th>
+                            <th scope="col">Chairman</th>
                             <th scope="col">Action</th>
 
                         </tr>
@@ -62,7 +64,14 @@
                                 <td>
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $cluster->id }}">
-                                        <div class="ms-2"><b>{{ $cluster->initiatives }}</b></div>
+                                        <div class="ms-2"><b>{{ $cluster->deb }}</b></div>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $cluster->id }}">
+                                        <div class="ms-2"><b>{{ $cluster->deb2 }}</b></div>
                                     </div>
                                 </td>
 
@@ -70,6 +79,13 @@
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $cluster->id }}">
                                         <div class="ms-2"><b>{{ $cluster->agency }}</b></div>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $cluster->id }}">
+                                        <div class="ms-2"><b>{{ $cluster->chairman }}</b></div>
                                     </div>
                                 </td>
 
@@ -97,8 +113,8 @@
                                                         </div>
 
                                                         <div class="mb-3">
-                                                            <label class="col-form-label">National/Sectoral
-                                                                Initiatives:</label>
+                                                            <label class="col-form-label">Total Initiatives by DEB &
+                                                                4IR:</label>
                                                             <label class="form-control"
                                                                 disabled="disabled">{{ $cluster->initiatives }}</label>
                                                         </div>

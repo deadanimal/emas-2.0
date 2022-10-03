@@ -121,17 +121,17 @@
                         <div class="mb-2 col-sm-7">
                             <div class="form-check">
                                 <input type="checkbox" name="phase[]" value="1" class="form-check-input">
-                                1
+                                1 (2021 - 2022)
                             </div>
                             <div class="form-check">
-                                <input type="checkbox" name="phase[]" value="2" class="form-check-input">2
+                                <input type="checkbox" name="phase[]" value="2" class="form-check-input">2 (2023 -
+                                2025)
                             </div>
                             <div class="form-check">
-                                <input type="checkbox" name="phase[]" value="3" class="form-check-input">3
+                                <input type="checkbox" name="phase[]" value="3" class="form-check-input">3 (2026 -
+                                2030)
                             </div>
-                            <div class="form-check">
-                                <input type="checkbox" name="phase[]" value="4" class="form-check-input">4
-                            </div>
+
                         </div>
                     </div>
                 </div>

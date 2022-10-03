@@ -124,12 +124,11 @@
                                 <!-- more inner pages-->
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link btn1 dropdown-indicator  {{ Request::is('initiative', 'initiative/*', 'thrus', 'thrus/*', 'strategy', 'strategy/*') ? 'active' : '' }}"
+                                <a class="nav-link btn1 dropdown-indicator  {{ Request::is('initiative', 'initiative/*', 'thrus', 'thrus/*', 'strategy', 'strategy/*', 'sectoral', 'sectoral/*') ? 'active' : '' }}"
                                     href="#thrust" role="button" data-bs-toggle="collapse" aria-expanded="false"
                                     aria-controls="thrust">
                                     <div class="d-flex align-items-center">
-                                        <span class="nav-link-text1 ps-1">List
-                                            of Initiative</span>
+                                        <span class="nav-link-text1 ps-1">List of Main Element</span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
@@ -149,6 +148,17 @@
                                             <div class="d-flex align-items-center"><span
                                                     class="nav-link-text1 btn1 ps-1">List
                                                     of Strategy
+                                                </span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+                                </ul>
+                                <ul class="nav collapse" id="thrust">
+                                    <li class="nav-item"><a class="nav-link btn1" href="/sectoral">
+                                            <div class="d-flex align-items-center"><span
+                                                    class="nav-link-text1 btn1 ps-1">List
+                                                    of Sectoral
                                                 </span>
                                             </div>
                                         </a>

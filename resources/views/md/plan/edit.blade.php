@@ -52,7 +52,7 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-form-label" for="leadAgency">Lead Agency/Kementerian</label>
+                            <label class="col-form-label" for="leadAgency">Lead Agency/Ministry</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="leadAgency"
                                     value="{{ $program->leadAgency }}" />

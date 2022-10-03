@@ -27,6 +27,7 @@ use App\Http\Controllers\PlanController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\RolesandpermissionController;
 use App\Http\Controllers\SdgController;
+use App\Http\Controllers\SectoralController;
 use App\Http\Controllers\SenaraiInformasiController;
 use App\Http\Controllers\Senarai_kir_dan_airController;
 use App\Http\Controllers\StrategiController;
@@ -269,6 +270,9 @@ Route::group(
         Route::get('/display1/cluster2/', [ActivityController::class, 'cluster2']);
         Route::post('/activity/lulus/{id}', [ActivityController::class, 'lulus'])->name('activity.lulus');
         Route::post('/activity/ditolak/{id}', [ActivityController::class, 'ditolak'])->name('activity.ditolak');
+
+        //Sectoral
+        Route::resource('/sectoral', SectoralController::class);
     }
 );
 

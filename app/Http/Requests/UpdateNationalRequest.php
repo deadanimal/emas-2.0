@@ -31,7 +31,6 @@ class UpdateNationalRequest extends FormRequest
 
             'keteranganNational' => [
                 'string',
-                'required',
             ],
 
             'year' => [

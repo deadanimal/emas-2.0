@@ -16,8 +16,8 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="thrust_id">Thrust</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <label class="col-form-label" for="thrust_id">Thrust</label>
+                    <div class="col-sm-10">
                         <select class="form-control" name="thrust_id">
                             @foreach ($thrust as $thrust)
                                 <option @selected($kpi2->thrust_id == $thrust->id) value="{{ $thrust->id }}">{{ $thrust->namaThrust }}
@@ -26,9 +26,12 @@
 
                         </select>
                     </div>
+                </div>
+                <div class="mb-3 row">
 
-                    <label class="col-sm-2 col-form-label" for="national_id">National Initiave</label>
-                    <div class="col-sm-10" style="width:30%">
+
+                    <label class="col-form-label" for="national_id">National Initiative</label>
+                    <div class="col-sm-10">
                         <select class="form-control" name="national_id">
                             @foreach ($national as $national)
                                 <option @selected($kpi2->national_id == $national->id) value="{{ $national->id }}">
@@ -41,8 +44,8 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="key_id">Key Activities</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <label class="col-form-label" for="key_id">Key Activity</label>
+                    <div class="col-sm-10">
                         <select class="form-control" name="key_id">
                             @foreach ($key as $key)
                                 <option @selected($kpi2->key_id == $key->id) value="{{ $key->id }}">{{ $key->namaKey }}
@@ -51,9 +54,12 @@
 
                         </select>
                     </div>
+                </div>
+                <div class="mb-3 row">
 
-                    <label class="col-sm-2 col-form-label" for="sub_id">Sub-Key Activities</label>
-                    <div class="col-sm-10" style="width:30%">
+
+                    <label class="col-form-label" for="sub_id">Sub-Key Activity</label>
+                    <div class="col-sm-10">
                         <select class="form-control" name="sub_id">
                             @foreach ($sub as $sub)
                                 <option @selected($kpi2->sub_id == $sub->id) value="{{ $sub->id }}">{{ $sub->namaSub }}
@@ -70,7 +76,7 @@
                     <div class="col-lg-8">
 
                         <div class="mb-3">
-                            <label class="form-label" for="namaKpi"><b>KPI Name:</b></label>
+                            <label class="form-label" for="namaKpi"><b>KPI:</b></label>
                             <input class="form-control" type="text" name="namaKpi" value="{{ $kpi2->namaKpi }}" />
 
                         </div>

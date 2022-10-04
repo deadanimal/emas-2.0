@@ -26,7 +26,6 @@ class StoreKeyRequest extends FormRequest
         return [
             'keteranganKey' => [
                 'string',
-                'required',
             ],
 
             'namaKey' => [
@@ -41,7 +40,7 @@ class StoreKeyRequest extends FormRequest
             'thrust_id' => [
                 'string',
             ],
-            
+
             'national_id' => [
                 'string',
             ],

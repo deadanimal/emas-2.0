@@ -26,7 +26,7 @@ class StoreMilestoneRequest extends FormRequest
         return [
             'namaMilestone' => [
                 'string',
-                'required',
+                // 'required',
             ],
 
             'remark' => [

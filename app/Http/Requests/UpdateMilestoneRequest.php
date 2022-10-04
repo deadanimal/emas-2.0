@@ -31,7 +31,7 @@ class UpdateMilestoneRequest extends FormRequest
 
             'remark' => [
                 'string',
-                'required',
+                // 'required',
             ],
 
             'year' => [

@@ -31,7 +31,6 @@ class UpdateSubRequest extends FormRequest
 
             'keteranganSub' => [
                 'string',
-                'required',
             ],
 
             'user_id' => [

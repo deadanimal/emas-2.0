@@ -12,17 +12,10 @@
             <form action="{{ route('national.store') }}" method="POST">
                 @csrf
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaNational">National Initiative Name</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaNational" />
-
-                    </div>
-                </div>
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="thrust_id">Thrust</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <select class="form-control" name="thrust_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
 
@@ -35,15 +28,28 @@
                 </div>
 
                 <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="namaNational">National Initiative</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="namaNational" />
+
+                    </div>
+                </div>
+
+
+                <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="year">Year</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="year">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
 
                         </select>
 
@@ -55,12 +61,10 @@
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="quarter">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-
+                            <option value="Q1">Q1</option>
+                            <option value="Q2">Q2</option>
+                            <option value="Q3">Q3</option>
+                            <option value="Q4">Q4</option>
                         </select>
 
                     </div>

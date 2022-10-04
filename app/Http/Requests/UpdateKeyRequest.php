@@ -26,7 +26,6 @@ class UpdateKeyRequest extends FormRequest
         return [
             'keteranganKey' => [
                 'string',
-                'required',
             ],
 
             'namaKey' => [

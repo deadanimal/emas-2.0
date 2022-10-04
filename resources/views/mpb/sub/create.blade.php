@@ -13,8 +13,8 @@
                 @csrf
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="key_id">Key Activities</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <label class="col-sm-2 col-form-label" for="key_id">Key Activity</label>
+                    <div class="col-sm-10">
                         <select class="form-control" name="key_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
 
@@ -28,8 +28,8 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaSub">Sub-Activity</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <label class="col-sm-2 col-form-label" for="namaSub">Sub-Key Activity</label>
+                    <div class="col-sm-10">
                         <input class="form-control" type="text" name="namaSub" />
 
                     </div>

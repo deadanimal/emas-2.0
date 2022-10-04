@@ -31,7 +31,6 @@ class UpdateKpi2Request extends FormRequest
 
             'keteranganKpi' => [
                 'string',
-                'required',
             ],
 
             'thrust_id' => [

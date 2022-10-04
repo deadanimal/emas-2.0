@@ -1,6 +1,5 @@
 @extends('base')
 @section('content')
-
     <div class="container">
 
         <div class="mb-4 text-center">
@@ -44,7 +43,7 @@
                     </div>
 
                     <div class="row mb-3">
-                        <label class="col-form-label" for="key_id">Key Activities</label>
+                        <label class="col-form-label" for="key_id">Key Activity</label>
                         <div class="col-sm-10">
                             <select class="form-control" name="key_id">
                                 <option selected disabled hidden>PLEASE CHOOSE</option>
@@ -58,7 +57,7 @@
                     </div>
 
                     <div class="row mb-3">
-                        <label class="col-form-label" for="sub_id">Sub-Key Activities</label>
+                        <label class="col-form-label" for="sub_id">Sub-Key Activity</label>
                         <div class="col-sm-10">
                             <select class="form-control" name="sub_id">
                                 <option selected disabled hidden>PLEASE CHOOSE</option>
@@ -105,7 +104,7 @@
                     </div>
 
                     <div class="row mb-3">
-                        <label class="col-form-label" for="namaMilestone">Milestone Name</label>
+                        <label class="col-form-label" for="namaMilestone">Milestone</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="text" name="namaMilestone" />
 
@@ -113,9 +112,17 @@
                     </div>
 
                     <div class="row mb-3">
-                        <label class="col-form-label" for="actual_mark">Actual Mark</label>
+                        <label class="col-form-label" for="actual_mark">Actual</label>
                         <div class="col-sm-10">
-                            <input class="form-control" type="text" name="actual_mark" />
+                            <input class="form-control target" type="text" name="actual_mark" />
+
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-form-label" for="target">Target</label>
+                        <div class="col-sm-10">
+                            <input class="form-control target" type="text" name="target" />
 
                         </div>
                     </div>
@@ -132,10 +139,15 @@
                         <label class="col-form-label" for="achievement">Achievement</label>
                         <div class="input-group">
                             <span class="input-group-text" id="rm2">%</span>
-                            <input class="form-control" type="number" value="0" aria-describedby="rm2"
-                                name="achievement">
+                            <input class="form-control" type="number" aria-describedby="rm2" name="achievement"
+                                id="mySelect" onchange="myFunction()" readonly>
+                            <td id="prestasi"></td>
                         </div>
                     </div>
+
+
+                    {{-- calculation
+                    actual/ target * 100 --}}
 
                     <br>
                     <br>
@@ -159,7 +171,8 @@
 
                 <div class="col" style="text-align: right">
                     <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                        type="submit" value="Save" onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span
+                        type="submit" value="Save"
+                        onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span
                             class="fas fa-save"></span>&nbsp;Save
                     </button>
                 </div>
@@ -173,13 +186,60 @@
 
     </div>
 
-    {{-- <script>
-        function ConfirmSave() {
-            var isconfirm = window.confirm("Adakah anda mahu menyimpan data?");
-            if (isconfirm)
-                self.location = "Save.php";
-        }
-    </script> --}}
+    <script>
+        $(".target").keyup(function() {
+
+            var checkAllInputFilled = true;
+            jQuery.each($(".target"), function(key, val) {
+                if (val.value == '') {
+                    checkAllInputFilled = false;
+                }
+            });
+
+            if (checkAllInputFilled) {
+                let num1 = $('input[name="actual_mark"]').val();
+                let num2 = $('input[name="target"]').val();
+
+
+                let result = (num1 / num2) * 100;
+
+                $('input[name="achievement"]').val(result);
+                $('input[name="achievement"]').trigger('change');
+
+            }
+
+            function myFunction() {
+
+                var x = document.getElementById("mySelect").value;
+                x = x.substring(0, x.length - 1)
+                x = parseFloat(x)
+                var prestasiColor = "yellow"
+
+                if (x >= 80) {
+                    prestasiColor = "green"
+                    var prestasiShown = document.getElementById("prestasi");
+                    prestasiShown.innerHTML = "<img src='/img/green.png'></img> "
+
+                } else if (x <= 80 && x >= 50) {
+                    prestasiColor = "yellow"
+                    var prestasiShown = document.getElementById("prestasi");
+                    prestasiShown.innerHTML = "<img src='/img/yellow.png'></img> "
+
+                } else {
+                    prestasiColor = "red"
+                    var prestasiShown = document.getElementById("prestasi");
+                    prestasiShown.innerHTML = "<img src='/img/red.png'></img> "
+
+
+                }
+
+                prestasiShown.style.color = prestasiColor;
+
+            }
+
+
+        });
+    </script>
 
     @if ($errors->any())
         <div class="alert alert-danger">

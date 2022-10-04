@@ -102,9 +102,9 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-form-label" for="output">Output</label>
+                            <label class="col-form-label" for="output">Output Target</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="number" name="output" />
+                                <input class="form-control output" type="number" name="output" />
 
                             </div>
                         </div>
@@ -113,28 +113,30 @@
                             <label class="col-form-label" for="weightage">Weightage</label>
                             <div class="col-sm-10">
 
-                                <input class="form-control" type="number" name="weightage" />
+                                <input class="form-control output" type="number" name="weightage" />
 
                             </div>
 
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label" for="output_progress">Output Progress</label>
+                            <div class="col-sm-10">
+                                <input class="form-control output" type="number" name="output_progress" />
+
+                            </div>
                         </div>
 
 
                         <div class="mb-3 row">
                             <label class="col-form-label" for="weightage_progress">Weightage Progress</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="number" name="weightage_progress" />
+                                <input class="form-control" onchange="myFunction()" type="number" name="weightage_progress"
+                                    readonly />
 
                             </div>
                         </div>
 
-                        <div class="mb-3 row">
-                            <label class="col-form-label" for="output_progress">Output Progress</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="number" name="output_progress" />
-
-                            </div>
-                        </div>
 
                         <div class="mb-3 row">
                             <label class="col-form-label" for="additionalOutput">Additional Output
@@ -144,6 +146,7 @@
 
                             </div>
                         </div>
+
 
                         <div class="mb-3 row">
                             <label class="col-form-label" for="remarks">Remark</label>
@@ -161,18 +164,6 @@
 
                             </div>
                         </div>
-
-
-                        {{-- <div class="mb-3 row">
-
-                    <input type="file" name="carImage" id="carImage"
-                        class="form-control @error('image') is-invalid @enderror">
-
-                    @error('image')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div> --}}
-
 
                         <div class="mb-3 row">
                             <label class="col-form-label" for="leadAgency">Lead Agency/PIC</label>
@@ -234,4 +225,37 @@
             </ul>
         </div>
     @endif
+
+    <script>
+        $(".output").keyup(function() {
+
+            var checkAllInputFilled = true;
+            jQuery.each($(".output"), function(key, val) {
+                if (val.value == '') {
+                    checkAllInputFilled = false;
+                }
+            });
+
+            if (checkAllInputFilled) {
+                let num1 = $('input[name="output"]').val();
+                let num2 = $('input[name="weightage"]').val();
+                let num3 = $('input[name="weightage_progress"]').val();
+                let num4 = $('input[name="output_progress"]').val();
+
+
+                // let result = (output / weightage) * weightage_progress;
+                let result = [(num4 / num1) * num2];
+
+                $('input[name="weightage_progress"]').val(result);
+                $('input[name="weightage_progress"]').trigger('change');
+
+            }
+
+            // [(Output progress / Output Target) x Weightage]
+
+            //    outputprogress/ output
+
+            //     progressoutput / output * weightage
+        });
+    </script>
 @endsection

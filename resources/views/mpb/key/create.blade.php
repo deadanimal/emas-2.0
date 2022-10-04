@@ -13,17 +13,8 @@
                 @csrf
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaKey">Key Activities Name</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaKey" />
-
-                    </div>
-                </div>
-
-
-                <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="national_id">National Initiatives</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <select class="form-control" name="national_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
 
@@ -32,6 +23,14 @@
                             @endforeach
 
                         </select>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="namaKey">Key Activity</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="namaKey" />
+
                     </div>
                 </div>
 

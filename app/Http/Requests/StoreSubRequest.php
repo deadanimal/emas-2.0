@@ -31,7 +31,6 @@ class StoreSubRequest extends FormRequest
 
             'keteranganSub' => [
                 'string',
-                'required',
             ],
 
             'user_id' => [

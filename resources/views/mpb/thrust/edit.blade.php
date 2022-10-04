@@ -23,6 +23,15 @@
                     </div>
                 </div>
 
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="user">User</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="user" value="{{ $thrust->user }}" />
+
+                    </div>
+                </div>
+
+
                 <br><br>
 
                 <div class="mb-3">
@@ -40,7 +49,9 @@
 
                     <div class="col" style="text-align: right">
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save" onclick="return confirm('Are you sure you want to edit this Data?')"><span class="fas fa-save"></span>&nbsp;Save
+                            type="submit" value="Save"
+                            onclick="return confirm('Are you sure you want to edit this Data?')"><span
+                                class="fas fa-save"></span>&nbsp;Save
                         </button>
                     </div>
                 </div>

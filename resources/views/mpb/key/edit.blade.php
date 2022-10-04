@@ -17,7 +17,7 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="national_id">National Initiatives</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <select class="form-control" name="national_id">
                             @foreach ($national as $list)
                                 <option @selected($key->national_id == $list->id) value="{{ $list->id }}">{{ $list->namaNational }}
@@ -29,13 +29,15 @@
                 </div>
 
 
+
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaKey">Key Activities</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <label class="col-sm-2 col-form-label" for="namaKey">Key Activity</label>
+                    <div class="col-sm-10">
                         <input class="form-control" type="text" name="namaKey" value="{{ $key->namaKey }}" />
 
                     </div>
                 </div>
+
 
                 <br><br>
 

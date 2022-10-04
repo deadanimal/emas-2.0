@@ -31,7 +31,6 @@ class StoreNationalRequest extends FormRequest
 
             'keteranganNational' => [
                 'string',
-                'required',
             ],
 
             'year' => [

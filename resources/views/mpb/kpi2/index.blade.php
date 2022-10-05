@@ -8,7 +8,7 @@
         <br>
 
         <span><b>KPI Information</b></span>
-        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/kpi2/create">
+        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/MPB/kpi2/create">
             <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
         <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
             onClick="window.location.reload();">
@@ -163,10 +163,10 @@
 
                             <td align="right">
                                 <div>
-                                    <form action="/kpi2/` + e.id + `" method="POST">
+                                    <form action="/MPB/kpi2/` + e.id + `" method="POST">
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="/kpi2/` + e.id + `"><i
+                                            href="/MPB/kpi2/` + e.id + `"><i
                                                 class="fas fa-edit"></i>
                                         </a>
 
@@ -198,14 +198,14 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/kpi2/" + id,
+                    url: "/MPB/kpi2/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }
                 });
 
                 alert = "Berjaya di buang!";
-                location.href = "/kpi2";
+                location.href = "/MPB/kpi2";
 
             } else {
                 alert("Dibatalkan!");

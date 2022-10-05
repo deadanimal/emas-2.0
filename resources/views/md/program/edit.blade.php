@@ -10,7 +10,7 @@
         <br>
 
         <div class="form-floating;">
-            <form action="/program/{{ $program->id }}" method="POST">
+            <form action="/MD/program/{{ $program->id }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="row justify-content-center">
@@ -114,7 +114,7 @@
                         <div class="row">
                             <div class="col">
                                 <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                                    href="/program">
+                                    href="/MD/program">
                                     <span class="fas fa-times-circle"></span>&nbsp;Cancel
                                 </a>
                             </div>

@@ -25,7 +25,7 @@
         <div class="card mb-3">
 
             <div class="card-body bg-light">
-                <form method="POST" action="/kemasukanData-bahagian2">
+                <form method="POST" action="KT/kemasukanData-bahagian2">
                     @csrf
                     <div class="row g-3">
                         @isset($profil)

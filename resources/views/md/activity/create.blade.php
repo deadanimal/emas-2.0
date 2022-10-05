@@ -5,7 +5,7 @@
             <H2>DATA ENTRY</H2>
         </div>
         <div class="form-floating;">
-            <form action="/activity" method="POST" enctype="multipart/form-data">
+            <form action="MD/activity" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="row justify-content-center">
@@ -180,7 +180,7 @@
                         <div class="row">
                             <div class="col">
                                 <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                                    href="/activity">
+                                    href="MD/activity">
                                     <span class="fas fa-times-circle"></span>&nbsp;Cancel
                                 </a>
                             </div>

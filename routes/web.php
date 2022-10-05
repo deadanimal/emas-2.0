@@ -62,17 +62,13 @@ Route::get('/dashboard', function () {
 
 require __DIR__ . '/auth.php';
 
-Route::group(['middleware' => ['auth']], function () {
-    // Route::resource('roles', RoleController::class);
-    // Route::resource('users', UserController::class);
-    Route::resource('/fokusutama', FokusutamaController::class);
-    Route::resource('/perkarautama', Perkarautama::class);
-    Route::get('/perkarautama', [Perkarautama::class, 'perakarautama'])->name('perkarautama');
-});
 
 //MODULE 1 PPD
 Route::group(
-    ['middleware' => ['role:PPD']],
+    [
+        'middleware' => ['role:PPD'],
+        'prefix' => 'PPD',
+    ],
     function () {
 
         //Fokus Utama
@@ -150,11 +146,14 @@ Route::group(
 );
 
 Route::group(
-    ['middleware' => ['role:MPB']],
+    [
+        'middleware' => ['role:MPB'],
+        'prefix' => 'MPB',
+    ],
     function () {
 
         //MODULE 2 MPB
-        Route::view('/mpb', 'mpb');
+        Route::view('/dashboardMPB', 'dashboardMPB');
 
         //ThrustInformation
         Route::resource('/thrust', ThrustController::class);
@@ -184,7 +183,10 @@ Route::group(
 );
 
 Route::group(
-    ['middleware' => ['role:KT']],
+    [
+        'middleware' => ['role:KT'],
+        'prefix' => 'KT',
+    ],
     function () {
         // Module 3 KT
 
@@ -239,7 +241,10 @@ Route::group(
 );
 
 Route::group(
-    ['middleware' => ['role:MD']],
+    [
+        'middleware' => ['role:MD'],
+        'prefix' => 'MD',
+    ],
     function () {
         // Module 4 MD
 
@@ -277,7 +282,10 @@ Route::group(
 );
 
 Route::group(
-    ['middleware' => ['role:ED']],
+    [
+        'middleware' => ['role:ED'],
+        'prefix' => 'ED',
+    ],
     function () {
 
         // Module 5 ED

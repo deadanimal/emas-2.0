@@ -54,7 +54,7 @@
                                             @elseif ($activity->lulus == 0 && $activity->ditolak == 1)
                                                 <span class="btn btn-danger" disabled>Ditolak</span>
                                             @else
-                                                <form action="/activity/lulus/{{ $activity->id }}" method="post">
+                                                <form action="/MD/activity/lulus/{{ $activity->id }}" method="post">
                                                     @csrf
                                                     @method('POST')
                                                     <button type="submit" class="btn btn-success">Approve</button>

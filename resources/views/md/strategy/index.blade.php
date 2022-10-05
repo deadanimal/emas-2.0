@@ -12,7 +12,7 @@
 
                     <span><b>List of Strategy</b></span>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/strategy/create">
+                        href="/MD/strategy/create">
                         <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
 
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
@@ -180,10 +180,10 @@
 
                             <td>
                                 <div>
-                                    <form action="/strategy/` + e.id + `" method="POST">
+                                    <form action="/MD/strategy/` + e.id + `" method="POST">
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="/strategy/` + e.id + `"><i
+                                            href="/MD/strategy/` + e.id + `"><i
                                                 class="fas fa-edit"></i>
                                         </a>
 

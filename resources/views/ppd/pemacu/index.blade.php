@@ -11,7 +11,7 @@
                 <div class="col col-lg-8">
                     <span><b>Pemacu Perubahan</b></span>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/pemacu/create">
+                        href="/PPD/pemacu/create">
                         <span class="fas fa-plus-circle"></span>&nbsp;Tambah
                     </a>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
@@ -161,7 +161,7 @@
 
                 $.ajax({
                     method: "POST",
-                    url: "/search_pemacu",
+                    url: "/PPD/search_pemacu",
                     data: {
                         "_token": "{{ csrf_token() }}",
                         "result": result,
@@ -187,7 +187,7 @@
                             <div>
 
                                     <a class="btn btn-primary" style="border-radius: 38px"
-                                        href="/pemacu/` + el.id + `/edit"><i class="fas fa-edit"></i>
+                                        href="/PPD/pemacu/` + el.id + `/edit"><i class="fas fa-edit"></i>
                                     </a>
 
                                     <button type="submit" onclick="myFunction({{ `+el.id+` }})" class="btn btn-danger"

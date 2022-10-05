@@ -84,7 +84,7 @@
                 <div class="row">
                     <div class="col">
                         <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                            href="/pemangkin">
+                            href="/PPD/pemangkin">
                             <span class="fas fa-times-circle"></span>&nbsp;Batal
                         </a>
                     </div>

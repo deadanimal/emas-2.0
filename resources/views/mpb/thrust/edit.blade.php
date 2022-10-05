@@ -11,7 +11,7 @@
         <br>
 
         <div class="form-floating;">
-            <form action="/thrust/{{ $thrust->id }}" method="POST">
+            <form action="MPB/thrust/{{ $thrust->id }}" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -42,7 +42,7 @@
                 <div class="row">
                     <div class="col">
                         <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                            href="/thrust">
+                            href="MPB/thrust">
                             <span class="fas fa-times-circle"></span>&nbsp;Cancel
                         </a>
                     </div>

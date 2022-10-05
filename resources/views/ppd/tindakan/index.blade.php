@@ -12,7 +12,7 @@
                 <div class="col col-lg-8">
                     <span><b>Tindakan</b></span>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/tindakan/create">
+                        href="/PPD/tindakan/create">
                         <span class="fas fa-plus-circle"></span>&nbsp;Tambah
                     </a>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
@@ -225,7 +225,7 @@
                                 <div>
                                     {{-- <form action="{{ route('tindakan.destroy', $tindakan->id) }}" method="POST"> --}}
                                     <a class="btn btn-warning" style="border-radius: 38px"
-                                        href="/tindakan1/{{ $tindakan->id }}/edit/"><i class="fas fa-pencil-alt"></i>
+                                        href="/PPD/tindakan1/{{ $tindakan->id }}/edit/"><i class="fas fa-pencil-alt"></i>
                                     </a>
 
                                     <a class="btn btn-primary" style="border-radius: 38px"
@@ -262,7 +262,7 @@
 
             $.ajax({
                 method: "POST",
-                url: "/search_tindakan",
+                url: "/PPD/search_tindakan",
                 data: {
                     "_token": "{{ csrf_token() }}",
                     "result": result,
@@ -289,12 +289,12 @@
                             <div>
 
                                     <a class="btn btn-warning" style="border-radius: 38px"
-                                        href="/tindakan1/` + el.id + `/edit/"><i class="fas fa-pencil-alt"></i>
+                                        href="/PPD/tindakan1/` + el.id + `/edit/"><i class="fas fa-pencil-alt"></i>
                                     </a>
 
 
                                     <a class="btn btn-primary" style="border-radius: 38px"
-                                        href="/tindakan/` + el.id + `/edit"><i class="fas fa-edit"></i>
+                                        href="/PPD/tindakan/` + el.id + `/edit"><i class="fas fa-edit"></i>
                                     </a>
 
                                     <button type="submit" onclick="myFunction({{ `+el.id+` }})" class="btn btn-danger"
@@ -324,7 +324,7 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/tindakan/" + id,
+                    url: "/PPD/tindakan/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }

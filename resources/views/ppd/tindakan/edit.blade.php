@@ -10,7 +10,7 @@
         <br>
 
         <div class="form-floating;">
-            <form action="/tindakan/{{ $tindakan->id }}" method="POST">
+            <form action="/PPD/tindakan/{{ $tindakan->id }}" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -131,7 +131,7 @@
                 <div class="row">
                     <div class="col">
                         <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                            href="/tindakan">
+                            href="/PPD/tindakan">
                             <span class="fas fa-times-circle"></span>&nbsp;Batal
                         </a>
                     </div>

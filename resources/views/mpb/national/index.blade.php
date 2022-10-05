@@ -9,7 +9,7 @@
         <br>
 
         <span><b>National Iniative Information</b></span>
-        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/national/create">
+        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/MPB/national/create">
             <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
         <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
             onClick="window.location.reload();">
@@ -109,14 +109,14 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/national/" + id,
+                    url: "/MPB/national/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }
                 });
 
                 alert = "Berjaya di buang!";
-                location.href = "/national";
+                location.href = "/MPB/national";
 
             } else {
                 alert("Dibatalkan!");

@@ -11,7 +11,7 @@
                 <div class="col col-lg-8">
                     <span><b>Outcome Nasional</b></span>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/outcome/create">
+                        href="/PPD/outcome/create">
                         <span class="fas fa-plus-circle"></span>&nbsp;Tambah
                     </a>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
@@ -174,10 +174,10 @@
 
                             <td align="right">
                                 <div>
-                                    <form action="/outcome/` + e.id + `" method="POST">
+                                    <form action="/PPD/outcome/` + e.id + `" method="POST">
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="/outcome/` + e.id + `"><i
+                                            href="/PPD/outcome/` + e.id + `"><i
                                                 class="fas fa-edit"></i>
                                         </a>
 
@@ -209,7 +209,7 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/outcome/" + id,
+                    url: "/PPD/outcome/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }

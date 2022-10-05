@@ -11,7 +11,7 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>Bab</b></span>
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/bab/create">
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/PPD/bab/create">
                         <span class="fas fa-plus-circle"></span>&nbsp;Tambah
                     </a>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
@@ -231,7 +231,7 @@
                             <div>
 
                                     <a class="btn btn-primary" style="border-radius: 38px"
-                                        href="/bab/` + el.id + `/edit"><i class="fas fa-edit"></i>
+                                        href="/PPD/bab/` + el.id + `/edit"><i class="fas fa-edit"></i>
                                     </a>
 
                                     <button type="submit" onclick="myFunction({{ `+el.id+` }})" class="btn btn-danger"
@@ -259,7 +259,7 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/bab/" + id,
+                    url: "/PPD/bab/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }

@@ -20,7 +20,7 @@
 
         <div class="col-12 ">
             <div class="col-12">
-                <form action="/senarai-kir-dan-air-excel" method="POST" enctype="multipart/form-data">
+                <form action="KT/senarai-kir-dan-air-excel" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     *Fail Yang Dimuat Naik Mestilah Mengikut Format Asal Yang Disediakan

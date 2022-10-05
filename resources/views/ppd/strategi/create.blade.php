@@ -105,7 +105,7 @@
                 <div class="row">
                     <div class="col">
                         <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                            href="/strategi">
+                            href="/PPD/strategi">
                             <span class="fas fa-times-circle"></span>&nbsp;Batal
                         </a>
                     </div>

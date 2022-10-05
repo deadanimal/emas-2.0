@@ -13,7 +13,7 @@
                 <div class="col col-lg-8">
                     <span><b>Bidang Keutamaan</b></span>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/bidang/create">
+                        href="/PPD/bidang/create">
                         <span class="fas fa-plus-circle"></span>&nbsp;Tambah
                     </a>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
@@ -189,7 +189,7 @@
                                     <form action="/bidang/` + e.id + `" method="POST">
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="/bidang/` + e.id + `"><i
+                                            href="/PPD/bidang/` + e.id + `"><i
                                                 class="fas fa-edit"></i>
                                         </a>
 
@@ -221,7 +221,7 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/bidang/" + id,
+                    url: "PPD/bidang/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }

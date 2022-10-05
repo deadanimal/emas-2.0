@@ -52,7 +52,7 @@
 
                             <td>
                                 <a class="btn btn-primary" style="border-radius: 38px"
-                                    href="/kemasukanData/{{ $profil->id }}/edit/"><i class="fas fa-edit"></i>
+                                    href="KT/kemasukanData/{{ $profil->id }}/edit/"><i class="fas fa-edit"></i>
                                 </a>
 
                                 <form action="/kemasukanData/{{ $profil->id }}" method="POST">

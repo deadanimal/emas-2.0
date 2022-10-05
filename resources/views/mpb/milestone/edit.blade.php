@@ -6,7 +6,7 @@
         </div>
 
         <div class="form-floating;">
-            <form action="/milestone/{{ $milestone->id }}" method="POST">
+            <form action="/MPB/milestone/{{ $milestone->id }}" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -155,7 +155,7 @@
 
                 <div class="col" style="text-align: right">
                     <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                        href="/milestone">
+                        href="/MPB/milestone">
                         <span class="fas fa-times-circle"></span>&nbsp;Cancel
                     </a>
                     <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"

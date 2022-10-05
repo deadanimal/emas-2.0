@@ -5,10 +5,6 @@
             <H2>UPDATE DATA</H2>
         </div>
 
-
-        <br>
-
-
         <div class="form-floating;">
             <form action="/activity/{{ $activity->id }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -108,7 +104,7 @@
                         <div class="mb-3 row">
                             <label class="col-form-label" for="output">Output</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="number" name="output"
+                                <input class="form-control output" type="number" name="output"
                                     value="{{ $activity->output }}" />
 
                             </div>
@@ -117,8 +113,17 @@
                         <div class="mb-3 row">
                             <label class="col-form-label" for="weightage">Weightage</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="number" name="weightage"
+                                <input class="form-control output" type="number" name="weightage"
                                     value="{{ $activity->weightage }}" />
+
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label" for="output_progress">Output Progress</label>
+                            <div class="col-sm-10">
+                                <input class="form-control output" type="number" name="output_progress"
+                                    value="{{ $activity->output_progress }}" />
 
                             </div>
                         </div>
@@ -127,16 +132,7 @@
                             <label class="col-form-label" for="weightage_progress">Weightage Progress</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="number" name="weightage_progress"
-                                    value="{{ $activity->weightage_progress }}" />
-
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label class="col-form-label" for="output_progress">Output Progress</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="number" name="output_progress"
-                                    value="{{ $activity->output_progress }}" />
+                                    value="{{ $activity->weightage_progress }}" readonly />
 
                             </div>
                         </div>
@@ -216,4 +212,30 @@
             </ul>
         </div>
     @endif
+
+    <script>
+        $(".output").keyup(function() {
+
+            var checkAllInputFilled = true;
+            jQuery.each($(".output"), function(key, val) {
+                if (val.value == '') {
+                    checkAllInputFilled = false;
+                }
+            });
+
+            if (checkAllInputFilled) {
+                let num1 = $('input[name="output"]').val();
+                let num2 = $('input[name="weightage"]').val();
+                let num3 = $('input[name="weightage_progress"]').val();
+                let num4 = $('input[name="output_progress"]').val();
+
+
+                let result = [(num4 / num1) * num2];
+
+                $('input[name="weightage_progress"]').val(result);
+                $('input[name="weightage_progress"]').trigger('change');
+
+            }
+        });
+    </script>
 @endsection

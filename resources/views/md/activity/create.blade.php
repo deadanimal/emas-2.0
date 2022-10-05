@@ -4,9 +4,6 @@
         <div class="mb-4 text-center">
             <H2>DATA ENTRY</H2>
         </div>
-
-        <br>
-
         <div class="form-floating;">
             <form action="/activity" method="POST" enctype="multipart/form-data">
                 @csrf

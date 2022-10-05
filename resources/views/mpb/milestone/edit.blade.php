@@ -117,6 +117,15 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3">
+                            <label class="col-form-label" for="target">Target</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="target" value="{{ $milestone->target }}"
+                                    readonly />
+
+                            </div>
+                        </div>
+
                         {{-- <div class="row mb-3">
                             <label class="col-form-label" for="achievement">Achievement (%)</label>
                             <div class="col-sm-10">
@@ -144,21 +153,16 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col">
-                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                            href="/milestone">
-                            <span class="fas fa-times-circle"></span>&nbsp;Cancel
-                        </a>
-                    </div>
-
-                    <div class="col" style="text-align: right">
-                        <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save"
-                            onclick="return confirm('Are you sure you want to edit this Data?')"><span
-                                class="fas fa-save"></span>&nbsp;Save
-                        </button>
-                    </div>
+                <div class="col" style="text-align: right">
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
+                        href="/milestone">
+                        <span class="fas fa-times-circle"></span>&nbsp;Cancel
+                    </a>
+                    <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
+                        type="submit" value="Save"
+                        onclick="return confirm('Are you sure want to edit this data?')"><span
+                            class="fas fa-save"></span>&nbsp;Save
+                    </button>
                 </div>
 
 
@@ -167,6 +171,61 @@
         </div>
 
     </div>
+
+    <script>
+        $(".target").keyup(function() {
+
+            var checkAllInputFilled = true;
+            jQuery.each($(".target"), function(key, val) {
+                if (val.value == '') {
+                    checkAllInputFilled = false;
+                }
+            });
+
+            if (checkAllInputFilled) {
+                let num1 = $('input[name="actual_mark"]').val();
+                let num2 = $('input[name="target"]').val();
+
+
+                let result = (num1 / num2) * 100;
+
+                $('input[name="achievement"]').val(result);
+                $('input[name="achievement"]').trigger('change');
+
+            }
+
+            function myFunction() {
+
+                var x = document.getElementById("mySelect").value;
+                x = x.substring(0, x.length - 1)
+                x = parseFloat(x)
+                var prestasiColor = "yellow"
+
+                if (x >= 80) {
+                    prestasiColor = "green"
+                    var prestasiShown = document.getElementById("prestasi");
+                    prestasiShown.innerHTML = "<img src='/img/green.png'></img> "
+
+                } else if (x <= 80 && x >= 50) {
+                    prestasiColor = "yellow"
+                    var prestasiShown = document.getElementById("prestasi");
+                    prestasiShown.innerHTML = "<img src='/img/yellow.png'></img> "
+
+                } else {
+                    prestasiColor = "red"
+                    var prestasiShown = document.getElementById("prestasi");
+                    prestasiShown.innerHTML = "<img src='/img/red.png'></img> "
+
+
+                }
+
+                prestasiShown.style.color = prestasiColor;
+
+            }
+
+
+        });
+    </script>
 
     @if ($errors->any())
         <div class="alert alert-danger">

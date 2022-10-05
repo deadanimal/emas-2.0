@@ -80,21 +80,15 @@
                     <textarea class="form-control" name="keteranganNational" rows="5">{{ $national->keteranganNational }}</textarea>
                 </div>
 
-                <div class="row">
-                    <div class="col">
-                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                            href="/national">
-                            <span class="fas fa-times-circle"></span>&nbsp;Cancel
-                        </a>
-                    </div>
-
-                    <div class="col" style="text-align: right">
-                        <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save"
-                            onclick="return confirm('Are you sure you want to edit this Data?')"><span
-                                class="fas fa-save"></span>&nbsp;Save
-                        </button>
-                    </div>
+                <div class="col" style="text-align: right">
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
+                        href="/national">
+                        <span class="fas fa-times-circle"></span>&nbsp;Cancel
+                    </a>
+                    <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
+                        type="submit" value="Save" onclick="return confirm('Are you sure want to edit this data?')"><span
+                            class="fas fa-save"></span>&nbsp;Save
+                    </button>
                 </div>
 
             </form>

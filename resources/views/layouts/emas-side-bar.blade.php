@@ -371,7 +371,7 @@
                                     <!-- more inner pages-->
                                 </li>
                                 <li class="nav-item"><a
-                                        class="nav-link btn1 {{ Request::is('kpi', 'kpi/*', 'kpi1', 'kpi1/*') ? 'active' : '' }}"
+                                        class="nav-link btn1 {{ Request::is('kpi', 'kpi/*') ? 'active' : '' }}"
                                         href="/kpi">
                                         <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">KPI
                                                 Nasional
@@ -403,7 +403,7 @@
                                     <!-- more inner pages-->
                                 </li>
                                 <li class="nav-item"><a
-                                        class="nav-link btn1 {{ Request::is('tindakan', 'tindakan/*', 'tindakan1', 'tindakan1/*') ? 'active' : '' }}"
+                                        class="nav-link btn1 {{ Request::is('tindakan', 'tindakan/*') ? 'active' : '' }}"
                                         href="/tindakan">
                                         <div class="d-flex align-items-center"><span
                                                 class="nav-link-text1 ps-1">Tindakan</span>
@@ -440,7 +440,7 @@
                             <ul class="nav collapse show" id="abc" style="background-color: #E7EFFD">
 
                                 <li class="nav-item">
-                                    <a class="nav-link btn1 dropdown-indicator  {{ Request::is('prestasi/pelaporan_prestasi_kpi', 'prestasi/pelaporan_prestasi_kpi/*') ? 'active' : '' }}"
+                                    <a class="nav-link btn1 dropdown-indicator  {{ Request::is('prestasi/pelaporan_prestasi_kpi', 'prestasi/pelaporan_prestasi_kpi/*', 'kpi1', 'kpi1/*') ? 'active' : '' }}"
                                         href="#kpi1" role="button" data-bs-toggle="collapse"
                                         aria-expanded="false" aria-controls="kpi1">
                                         <div class="d-flex align-items-center">
@@ -474,7 +474,7 @@
 
 
                                 <li class="nav-item">
-                                    <a class="nav-link btn1 dropdown-indicator  {{ Request::is('prestasi/pelaporan_prestasi_tindakan', 'prestasi/pelaporan_prestasi_tindakan/*') ? 'active' : '' }}"
+                                    <a class="nav-link btn1 dropdown-indicator  {{ Request::is('prestasi/pelaporan_prestasi_tindakan', 'prestasi/pelaporan_prestasi_tindakan/*', 'tindakan1', 'tindakan1/*') ? 'active' : '' }}"
                                         href="#kpi2" role="button" data-bs-toggle="collapse"
                                         aria-expanded="false" aria-controls="kpi2">
                                         <div class="d-flex align-items-center">
@@ -972,7 +972,7 @@
                                 </div>
                                 <div class="col text-center">
                                     <span class="nav-link-text ps-1">
-                                        Data Update
+                                        List of Approval
                                     </span>
                                 </div>
                                 <div class="col-2">
@@ -1075,8 +1075,6 @@
                         'outcome/*',
                         'kpi',
                         'kpi/*',
-                        'kpi1',
-                        'kpi1/*',
                         'prestasi',
                         'prestasi/*',
                         'prestasi_kpi',

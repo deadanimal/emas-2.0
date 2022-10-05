@@ -64,10 +64,10 @@
                                 <td>
                                     <div class="col-sm-10">
                                         <select class="form-control" name="quarter">
-                                            <option @selected($tindakans->q1 == 'Q1') value="Q1">Q1</option>
-                                            <option @selected($tindakans->q2 == 'Q2') value="Q2">Q2</option>
-                                            <option @selected($tindakans->q3 == 'Q3') value="Q3">Q3</option>
-                                            <option @selected($tindakans->q4 == 'Q4') value="Q4">Q4</option>
+                                            <option @selected($tindakans->q1 == 'Q1') value="Q1">Q1 (JAN-MAC)</option>
+                                            <option @selected($tindakans->q2 == 'Q2') value="Q2">Q2 (APR-JUN)</option>
+                                            <option @selected($tindakans->q3 == 'Q3') value="Q3">Q3 (JUL-SEP)</option>
+                                            <option @selected($tindakans->q4 == 'Q4') value="Q4">Q4 (OKT-DIS)</option>
                                         </select>
                                     </div>
                                 </td>

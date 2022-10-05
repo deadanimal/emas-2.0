@@ -8,7 +8,7 @@
         <br>
 
         <span><b>Milestone by KPI Information</b></span>
-        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/milestone/create">
+        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/MPB/milestone/create">
             <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
         <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
             onClick="window.location.reload();">
@@ -194,10 +194,10 @@
 
                             <td align="right">
                                 <div>
-                                    <form action="/milestone/` + e.id + `" method="POST">
+                                    <form action="/MPB/milestone/` + e.id + `" method="POST">
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="/milestone/` + e.id + `"><i
+                                            href="/MPB/milestone/` + e.id + `"><i
                                                 class="fas fa-edit"></i>
                                         </a>
 
@@ -229,14 +229,14 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/milestone/" + id,
+                    url: "/MPB/milestone/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }
                 });
 
                 alert = "Berjaya di buang!";
-                location.href = "/milestone";
+                location.href = "/MPB/milestone";
 
             } else {
                 alert("Dibatalkan!");

@@ -12,7 +12,7 @@
                 <div class="col col-lg-8">
                     <span><b>Fokus Utama</b></span>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/fokusutama/create">
+                        href="/PPD/fokusutama/create">
                         <span class="fas fa-plus-circle"></span>&nbsp;Tambah</a>
 
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
@@ -114,14 +114,14 @@
                 if (confirm(alert) == true) {
                     $.ajax({
                         method: "DELETE",
-                        url: "/fokusutama/" + id,
+                        url: "/PPD/fokusutama/" + id,
                         data: {
                             "_token": "{{ csrf_token() }}",
                         }
                     });
 
                     alert = "Berjaya di buang!";
-                    location.href = "/fokusutama";
+                    location.href = "/PPD/fokusutama";
 
                 } else {
                     alert("Dibatalkan!");

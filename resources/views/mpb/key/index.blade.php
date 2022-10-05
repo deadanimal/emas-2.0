@@ -9,7 +9,7 @@
         <br>
 
         <span><b>Key Activities Information</b></span>
-        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/key/create">
+        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/MPB/key/create">
             <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
         <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
             onClick="window.location.reload();">
@@ -164,10 +164,10 @@
 
                             <td align="right">
                                 <div>
-                                    <form action="/key/` + e.id + `" method="POST">
+                                    <form action="/MPB/key/` + e.id + `" method="POST">
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="/key/` + e.id + `"><i
+                                            href="/MPB/key/` + e.id + `"><i
                                                 class="fas fa-edit"></i>
                                         </a>
 
@@ -199,14 +199,14 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/key/" + id,
+                    url: "/MPB/key/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }
                 });
 
                 alert = "Berjaya di buang!";
-                location.href = "/key";
+                location.href = "/MPB/key";
 
             } else {
                 alert("Dibatalkan!");

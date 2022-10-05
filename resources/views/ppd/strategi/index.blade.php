@@ -12,7 +12,7 @@
                 <div class="col col-lg-8">
                     <span><b>Strategi</b></span>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/strategi/create">
+                        href="/PPD/strategi/create">
                         <span class="fas fa-plus-circle"></span>&nbsp;Tambah
                     </a>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
@@ -173,10 +173,10 @@
 
                             <td align="right">
                                 <div>
-                                    <form action="/strategi/` + e.id + `" method="POST">
+                                    <form action="/PPD/strategi/` + e.id + `" method="POST">
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="/strategi/` + e.id + `"><i
+                                            href="/PPD/strategi/` + e.id + `"><i
                                                 class="fas fa-edit"></i>
                                         </a>
 
@@ -208,7 +208,7 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/strategi/" + id,
+                    url: "/PPD/strategi/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }

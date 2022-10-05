@@ -114,8 +114,8 @@
                     <div class="card">
                         <ul class="nav collapse show" id="md" style="background-color: #E7EFFD">
                             <li class="nav-item">
-                                <a class="nav-link btn1 {{ Request::is('cluster', 'cluster/*') ? 'active' : '' }}"
-                                    href="/cluster">
+                                <a class="nav-link btn1 {{ Request::is('MD/cluster', 'MD/cluster/*') ? 'active' : '' }}"
+                                    href="/MD/cluster">
                                     <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List
                                             of Cluster
                                         </span>
@@ -124,7 +124,7 @@
                                 <!-- more inner pages-->
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link btn1 dropdown-indicator  {{ Request::is('initiative', 'initiative/*', 'thrus', 'thrus/*', 'strategy', 'strategy/*', 'sectoral', 'sectoral/*') ? 'active' : '' }}"
+                                <a class="nav-link btn1 dropdown-indicator  {{ Request::is('MD/initiative', 'MD/initiative/*', 'MD/thrus', 'MD/thrus/*', 'MD/strategy', 'MD/strategy/*', 'MD/sectoral', 'MD/sectoral/*') ? 'active' : '' }}"
                                     href="#thrust" role="button" data-bs-toggle="collapse" aria-expanded="false"
                                     aria-controls="thrust">
                                     <div class="d-flex align-items-center">
@@ -134,7 +134,7 @@
                                 <!-- more inner pages-->
 
                                 <ul class="nav collapse" id="thrust">
-                                    <li class="nav-item"><a class="nav-link btn1" href="/thrus">
+                                    <li class="nav-item"><a class="nav-link btn1" href="/MD/thrus">
                                             <div class="d-flex align-items-center"><span
                                                     class="nav-link-text1 btn1 ps-1">List
                                                     of Thrust</span>
@@ -144,7 +144,7 @@
                                     </li>
                                 </ul>
                                 <ul class="nav collapse" id="thrust">
-                                    <li class="nav-item"><a class="nav-link btn1" href="/strategy">
+                                    <li class="nav-item"><a class="nav-link btn1" href="/MD/strategy">
                                             <div class="d-flex align-items-center"><span
                                                     class="nav-link-text1 btn1 ps-1">List
                                                     of Strategy
@@ -155,7 +155,7 @@
                                     </li>
                                 </ul>
                                 <ul class="nav collapse" id="thrust">
-                                    <li class="nav-item"><a class="nav-link btn1" href="/sectoral">
+                                    <li class="nav-item"><a class="nav-link btn1" href="/MD/sectoral">
                                             <div class="d-flex align-items-center"><span
                                                     class="nav-link-text1 btn1 ps-1">List
                                                     of Sectoral
@@ -166,7 +166,7 @@
                                     </li>
                                 </ul>
                                 <ul class="nav collapse" id="thrust">
-                                    <li class="nav-item"><a class="nav-link btn1" href="/initiative">
+                                    <li class="nav-item"><a class="nav-link btn1" href="/MD/initiative">
                                             <div class="d-flex align-items-center"><span
                                                     class="nav-link-text1 btn1 ps-1">List
                                                     of Initiative
@@ -211,8 +211,8 @@
 
 
                             <li class="nav-item">
-                                <a class="nav-link btn1 {{ Request::is('program', 'program/*') ? 'active' : '' }}"
-                                    href="/program">
+                                <a class="nav-link btn1 {{ Request::is('MD/program', 'MD/program/*') ? 'active' : '' }}"
+                                    href="/MD/program">
                                     <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List
                                             of Program
                                         </span>
@@ -221,8 +221,8 @@
                                 <!-- more inner pages-->
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link btn1 {{ Request::is('plan', 'plan/*') ? 'active' : '' }}"
-                                    href="/plan">
+                                <a class="nav-link btn1 {{ Request::is('MD/plan', 'MD/plan/*') ? 'active' : '' }}"
+                                    href="/MD/plan">
                                     <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List
                                             of Plan
                                         </span>
@@ -231,8 +231,8 @@
                                 <!-- more inner pages-->
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link btn1 {{ Request::is('activity', 'activity/*') ? 'active' : '' }}"
-                                    href="/activity">
+                                <a class="nav-link btn1 {{ Request::is('MD/activity', 'MD/activity/*') ? 'active' : '' }}"
+                                    href="/MD/activity">
                                     <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List
                                             of Activities
                                         </span>
@@ -242,7 +242,7 @@
                             </li>
                             @can('Kementerian MD')
                                 <li class="nav-item">
-                                    <a class="nav-link btn1 dropdown-indicator  {{ Request::is('approval', 'approval/*', 'display', 'display/*') ? 'active' : '' }}"
+                                    <a class="nav-link btn1 dropdown-indicator  {{ Request::is('MD/approval', 'MD/approval/*', 'MD/display', 'MD/display/*') ? 'active' : '' }}"
                                         href="#cluster" role="button" data-bs-toggle="collapse" aria-expanded="false"
                                         aria-controls="cluster">
                                         <div class="d-flex align-items-center">
@@ -252,7 +252,7 @@
                                     <!-- more inner pages-->
 
                                     <ul class="nav collapse" id="cluster">
-                                        <li class="nav-item"><a class="nav-link btn1" href="/display/cluster1">
+                                        <li class="nav-item"><a class="nav-link btn1" href="/MD/display/cluster1">
                                                 <div class="d-flex align-items-center"><span
                                                         class="nav-link-text1 btn1 ps-1">List of Program Based
                                                         Status</span>
@@ -262,7 +262,7 @@
                                         </li>
                                     </ul>
                                     <ul class="nav collapse" id="cluster">
-                                        <li class="nav-item"><a class="nav-link btn1" href="/display/cluster1">
+                                        <li class="nav-item"><a class="nav-link btn1" href="/MD/display/cluster1">
                                                 <div class="d-flex align-items-center"><span
                                                         class="nav-link-text1 btn1 ps-1">List of Cluster Based on
                                                         Program
@@ -274,7 +274,7 @@
                                     </ul>
                                     @can('Epu MD')
                                         <ul class="nav collapse" id="cluster">
-                                            <li class="nav-item"><a class="nav-link btn1" href="/approval/cluster">
+                                            <li class="nav-item"><a class="nav-link btn1" href="/MD/approval/cluster">
                                                     <div class="d-flex align-items-center"><span
                                                             class="nav-link-text1 btn1 ps-1">List for Approval
                                                         </span>
@@ -299,7 +299,7 @@
 
 
 
-                <a class="nav-link btn1" href="/" role="button">
+                <a class="nav-link btn1" href="/MD/dashboard" role="button">
 
                     <div class="d-flex align-items-center">
                         <div class="col-2">

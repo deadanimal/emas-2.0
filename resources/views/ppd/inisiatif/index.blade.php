@@ -12,7 +12,7 @@
                 <div class="col col-lg-8">
                     <span><b>Inisiatif</b></span>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/inisiatif/create">
+                        href="/PPD/inisiatif/create">
                         <span class="fas fa-plus-circle"></span>&nbsp;Tambah
                     </a>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
@@ -196,7 +196,7 @@
 
             $.ajax({
                 method: "POST",
-                url: "/search_inisiatif",
+                url: "/PPD/search_inisiatif",
                 data: {
                     "_token": "{{ csrf_token() }}",
                     "result": result,
@@ -223,7 +223,7 @@
                             <div>
 
                                     <a class="btn btn-primary" style="border-radius: 38px"
-                                        href="/inisiatif/` + el.id + `/edit"><i class="fas fa-edit"></i>
+                                        href="/PPD/inisiatif/` + el.id + `/edit"><i class="fas fa-edit"></i>
                                     </a>
 
                                     <button type="submit" onclick="myFunction({{ `+el.id+` }})" class="btn btn-danger"
@@ -251,7 +251,7 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/inisiatif/" + id,
+                    url: "/PPD/inisiatif/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }

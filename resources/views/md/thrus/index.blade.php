@@ -12,7 +12,7 @@
 
                     <span><b>List of Thrust</b></span>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/thrus/create">
+                        href="/MD/thrus/create">
                         <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
 
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"

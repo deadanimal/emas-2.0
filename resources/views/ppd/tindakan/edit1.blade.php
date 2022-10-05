@@ -22,7 +22,7 @@
 
         <div class="form-floating;">
 
-            <form action="/tindakan/{{ $tindakans->id }}" method="POST">
+            <form action="/PPD/tindakan/{{ $tindakans->id }}" method="POST">
                 @csrf
                 @method('PUT')
 

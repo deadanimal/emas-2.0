@@ -8,7 +8,7 @@
         <br>
 
         <span><b>Thrust Information</b></span>
-        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/thrust/create">
+        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="MPB/thrust/create">
             <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
         <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
             onClick="window.location.reload();">
@@ -107,14 +107,14 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/thrust/" + id,
+                    url: "/MPB/thrust/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }
                 });
 
                 alert = "Berjaya di buang!";
-                location.href = "/thrust";
+                location.href = "/MPB/thrust";
 
             } else {
                 alert("Dibatalkan!");

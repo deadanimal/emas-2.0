@@ -196,10 +196,10 @@
 
                             <td>
                                 <div>
-                                    <form action="/cluster/` + e.id + `" method="POST">
+                                    <form action="/MD/cluster/` + e.id + `" method="POST">
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="/cluster/` + e.id + `"><i
+                                            href="/MD/cluster/` + e.id + `"><i
                                                 class="fas fa-edit"></i>
                                         </a>
 
@@ -269,14 +269,14 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/cluster/" + id,
+                    url: "/MD/cluster/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }
                 });
 
                 alert = "Berjaya di buang!";
-                location.href = "/cluster";
+                location.href = "/MD/cluster";
 
             } else {
                 alert("Dibatalkan!");

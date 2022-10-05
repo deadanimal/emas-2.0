@@ -14,7 +14,7 @@
                 <div class="col col-lg-8">
                     <span><b>Senarai Jenis Bantuan Yang Disediakan</b></span>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/bantuan/create">
+                        href="KT/bantuan/create">
                         <span class="fas fa-plus-circle"></span>&nbsp;Tambah
                     </a>
 

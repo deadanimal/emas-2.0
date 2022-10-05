@@ -133,7 +133,7 @@
                             <td align="right">
                                 <div>
                                     <a class="btn btn-success" style="border-radius: 38px"
-                                        href="/prestasi/{{ $tindakan->id }}/edit/"><i
+                                        href="/PPD/prestasi/{{ $tindakan->id }}/edit/"><i
                                             class="fas fa-arrow-alt-circle-right"></i>
                                     </a>
 
@@ -160,7 +160,7 @@
 
             $.ajax({
                 method: "POST",
-                url: "/search_tindakan",
+                url: "/PPD/search_tindakan",
                 data: {
                     "_token": "{{ csrf_token() }}",
                     "result": result,
@@ -187,7 +187,7 @@
                             <div>
 
                                     <a class="btn btn-success" style="border-radius: 38px"
-                                        href="/prestasi/` + el.id + `/edit/"><i class="fas fa-arrow-alt-circle-right"></i>
+                                        href="PPD/prestasi/` + el.id + `/edit/"><i class="fas fa-arrow-alt-circle-right"></i>
                                     </a>
                                 </div>
                         </td>
@@ -212,7 +212,7 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/tindakan/" + id,
+                    url: "/PPD/tindakan/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }

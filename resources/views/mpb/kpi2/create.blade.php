@@ -91,7 +91,7 @@
 
 
                 <div class="col" style="text-align: right">
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3" href="/kpi2">
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3" href="/MPB/kpi2">
                         <span class="fas fa-times-circle"></span>&nbsp;Cancel
                     </a>
                     <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"

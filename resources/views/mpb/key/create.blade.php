@@ -46,7 +46,7 @@
 
 
                 <div class="col" style="text-align: right">
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3" href="/key">
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3" href="/MPB/key">
                         <span class="fas fa-times-circle"></span>&nbsp;Cancel
                     </a>
                     <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"

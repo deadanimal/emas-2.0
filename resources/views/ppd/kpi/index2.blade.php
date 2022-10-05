@@ -122,7 +122,7 @@
                                 <td class="align-right" id="searchUpdateTable2">
                                     <div>
                                         <a class="btn btn-success" style="border-radius: 38px" onclick="Kpi(this)"
-                                            href="/prestasi_kpi/{{ $kpi->id }}/edit/"><i
+                                            href="/PPD/prestasi_kpi/{{ $kpi->id }}/edit/"><i
                                                 class="fas fa-arrow-alt-circle-right"></i>
                                         </a>
 
@@ -162,7 +162,7 @@
 
             $.ajax({
                 method: "POST",
-                url: "/search_kpi",
+                url: "/PPD/search_kpi",
                 data: {
                     "_token": "{{ csrf_token() }}",
                     "result": result,
@@ -188,7 +188,7 @@
 
                         <div>
                                 <a class="btn btn-success" style="border-radius: 38px"
-                                    href="/prestasi_kpi/` + el.id + `/edit/"><i class="fas fa-arrow-alt-circle-right"></i>
+                                    href="/PPD/prestasi_kpi/` + el.id + `/edit/"><i class="fas fa-arrow-alt-circle-right"></i>
                                 </a>
                             </div>
                         </td>

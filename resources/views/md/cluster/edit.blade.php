@@ -10,7 +10,7 @@
         <br>
 
         <div class="form-floating;">
-            <form action="/cluster/{{ $cluster->id }}" method="POST">
+            <form action="/MD/cluster/{{ $cluster->id }}" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -56,7 +56,7 @@
                 <div class="row">
                     <div class="col">
                         <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                            href="/cluster">
+                            href="/MD/cluster">
                             <span class="fas fa-times-circle"></span>&nbsp;Cancel
                         </a>
                     </div>

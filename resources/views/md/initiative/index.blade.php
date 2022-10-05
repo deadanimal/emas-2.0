@@ -12,7 +12,7 @@
                 <div class="col col-lg-8">
                     <span><b>List of Initiative</b></span>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/initiative/create">
+                        href="/MD/initiative/create">
                         <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">
@@ -269,10 +269,10 @@
 
                             <td>
                                 <div>
-                                    <form action="/initiative/` + e.id + `" method="POST">
+                                    <form action="/MD/initiative/` + e.id + `" method="POST">
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="/initiative/` + e.id + `"><i
+                                            href="/MD/initiative/` + e.id + `"><i
                                                 class="fas fa-edit"></i>
                                         </a>
 

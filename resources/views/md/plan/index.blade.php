@@ -12,7 +12,7 @@
                 <div class="col col-lg-8">
                     <span><b>List of Plan</b></span>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/plan/create">
+                        href="/MD/plan/create">
                         <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
 
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"

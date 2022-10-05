@@ -164,10 +164,10 @@
 
                             <td align="right">
                                 <div>
-                                    <form action="/sub/` + e.id + `" method="POST">
+                                    <form action="/MPB/sub/` + e.id + `" method="POST">
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="/sub/` + e.id + `"><i
+                                            href="/MPB/sub/` + e.id + `"><i
                                                 class="fas fa-edit"></i>
                                         </a>
 
@@ -199,14 +199,14 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/sub/" + id,
+                    url: "/MPB/sub/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }
                 });
 
                 alert = "Berjaya di buang!";
-                location.href = "/sub";
+                location.href = "/MPB/sub";
 
             } else {
                 alert("Dibatalkan!");

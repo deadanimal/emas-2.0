@@ -21,7 +21,7 @@
         <div class="card mb-3">
 
             <div class="card-body bg-light">
-                <form method="POST" action="/kemasukanData-bahagian5">
+                <form method="POST" action="KT/kemasukanData-bahagian5">
                     @csrf
                     <div class="row g-3">
 

@@ -207,7 +207,7 @@
                                             @elseif ($tindakan->lulus == 0 && $tindakan->ditolak == 1)
                                                 <span class="badge bg-danger">Ditolak</span>
                                             @else
-                                                <form action="/tindakan/lulus/{{ $tindakan->id }}" method="post">
+                                                <form action="/PPD/tindakan/lulus/{{ $tindakan->id }}" method="post">
                                                     @csrf
                                                     @method('POST')
                                                     <button type="submit" class="btn btn-success">Sahkan</button>

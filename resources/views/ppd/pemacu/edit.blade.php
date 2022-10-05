@@ -12,7 +12,7 @@
 
 
         <div class="form-floating;">
-            <form action="/pemacu/{{ $pemacu->id }}" method="POST">
+            <form action="/PPD/pemacu/{{ $pemacu->id }}" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -78,7 +78,7 @@
                 <div class="row">
                     <div class="col">
                         <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                            href="/pemacu">
+                            href="/PPD/pemacu">
                             <span class="fas fa-times-circle"></span>&nbsp;Batal
                         </a>
                     </div>

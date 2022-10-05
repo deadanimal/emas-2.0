@@ -11,7 +11,8 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>KPI Nasional</b></span>
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/kpi/create">
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                        href="/PPD/kpi/create">
                         <span class="fas fa-plus-circle"></span>&nbsp;Tambah
                     </a>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
@@ -124,7 +125,7 @@
                             <td class="align-right" id="searchUpdateTable2">
                                 <div>
                                     <a class="btn btn-warning" style="border-radius: 38px" onclick="Kpi(this)"
-                                        href="/kpi1/{{ $kpi->id }}/edit/"><i class="fas fa-pencil-alt"></i>
+                                        href="kpi1/{{ $kpi->id }}/edit/"><i class="fas fa-pencil-alt"></i>
                                     </a>
 
 
@@ -359,7 +360,7 @@
 
             $.ajax({
                 method: "POST",
-                url: "/search_kpi",
+                url: "/PPD/search_kpi",
                 data: {
                     "_token": "{{ csrf_token() }}",
                     "result": result,
@@ -385,11 +386,11 @@
 
                         <div>
                                 <a class="btn btn-warning" style="border-radius: 38px"
-                                    href="/kpi1/` + el.id + `/edit/"><i class="fas fa-pencil-alt"></i>
+                                    href="/PPD/kpi1/` + el.id + `/edit/"><i class="fas fa-pencil-alt"></i>
                                 </a>
 
                                 <a class="btn btn-primary" style="border-radius: 38px"
-                                    href="/kpi/` + el.id + `/edit"><i class="fas fa-edit"></i>
+                                    href="/PPD/kpi/` + el.id + `/edit"><i class="fas fa-edit"></i>
                                 </a>
 
                                 <button type="submit" onclick="myFunction({{ `+el.id+` }})" class="btn btn-danger"
@@ -418,7 +419,7 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/kpi/" + id,
+                    url: "/PPD/kpi/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }

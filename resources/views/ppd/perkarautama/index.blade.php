@@ -12,7 +12,7 @@
                 <div class="col col-lg-8">
                     <span><b>Perkara Utama</b></span>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/perkarautama/create">
+                        href="/PPD/perkarautama/create">
                         <span class="fas fa-plus-circle"></span>&nbsp;Tambah
                     </a>
 
@@ -174,10 +174,10 @@
 
                             <td align="right">
                                 <div>
-                                    <form action="/perkarautama/` + e.id + `" method="POST">
+                                    <form action="/PPD/perkarautama/` + e.id + `" method="POST">
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="/perkarautama/` + e.id + `"><i
+                                            href="/PPD/perkarautama/` + e.id + `"><i
                                                 class="fas fa-edit"></i>
                                         </a>
 
@@ -210,7 +210,7 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/perkarautama/" + id,
+                    url: "/PPD/perkarautama/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }

@@ -10,7 +10,7 @@
         <br>
 
         <div class="form-floating;">
-            <form action="/sub/{{ $sub->id }}" method="POST">
+            <form action="/MPB/sub/{{ $sub->id }}" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="col" style="text-align: right">
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3" href="/sub">
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3" href="/MPB/sub">
                         <span class="fas fa-times-circle"></span>&nbsp;Cancel
                     </a>
                     <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"

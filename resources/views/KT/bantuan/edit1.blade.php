@@ -23,7 +23,7 @@
         <div class="card mb-3">
 
             <div class="card-body bg-light">
-                <form action="/bantuan1/{{ $ketua->id }}" method="POST">
+                <form action="KT/bantuan1/{{ $ketua->id }}" method="POST">
                     @csrf
                     @method('PUT')
 

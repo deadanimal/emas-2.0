@@ -13,7 +13,7 @@
 
         <div class="form-floating;">
 
-            <form action="/prestasi_kpi/{{ $kpi->id }}" method="POST">
+            <form action="/PPD/prestasi_kpi/{{ $kpi->id }}" method="POST">
                 @csrf
                 @method('PUT')
 

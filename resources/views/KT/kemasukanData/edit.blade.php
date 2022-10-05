@@ -23,7 +23,7 @@
                 {{-- <form method="POST" action="/kemasukanData/update">
                     @csrf --}}
 
-                <form action="/kemasukanData/{{ $profil->id }}" method="POST">
+                <form action="KT/kemasukanData/{{ $profil->id }}" method="POST">
                     @csrf
                     @method('PUT')
 

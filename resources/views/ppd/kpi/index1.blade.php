@@ -230,7 +230,7 @@
                                             @elseif ($kpi->lulus == 0 && $kpi->ditolak == 1)
                                                 <span class="badge bg-danger">Ditolak</span>
                                             @else
-                                                <form action="/kpi/lulus/{{ $kpi->id }}" method="post">
+                                                <form action="/PPD/kpi/lulus/{{ $kpi->id }}" method="post">
                                                     @csrf
                                                     @method('POST')
                                                     <button type="submit" class="btn btn-success">Sahkan</button>
@@ -265,7 +265,7 @@
 
             $.ajax({
                 method: "POST",
-                url: "/search_kpi1",
+                url: "/PPD/search_kpi1",
                 data: {
                     "_token": "{{ csrf_token() }}",
                     "result": result,

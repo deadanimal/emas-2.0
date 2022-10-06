@@ -314,6 +314,7 @@ Route::post('/senarai-kir-dan-air-excel', [KemasukanDataController::class, 'impo
 
 Route::post('/find-by-lokaliti', [KetuaKampungController::class, 'find']);
 
+
 Route::view('/ucapan', 'ucapan');
 Route::view('/rumusanPPD', 'rumusanPPD');
 Route::view('/rumusanTindakan', 'rumusanTindakan');

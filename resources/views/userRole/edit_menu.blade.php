@@ -33,7 +33,7 @@
                         <b class="text-white">Kemaskini Kebenaran</b>
                     </div>
                     <div class="card-body">
-                        <form action="/user/kemaskini/{{ $peranan }}/{{ $kebenaran->id }}" method="POST">
+                        <form action="/ED/user/kemaskini/{{ $peranan }}/{{ $kebenaran->id }}" method="POST">
                             @csrf
                             <div class="row">
                                 <div class="col-12">
@@ -47,8 +47,8 @@
                             <div class="row">
                                 <div class="col text-end">
                                     <button class="btn btn-success" type="submit">Simpan</button>
-                                    {{-- <a href="/user/{{$id_kumpulan}}/edit" class="btn btn-success">Simpan</a> --}}
-                                    <a href="/user/{{ $peranan }}/edit" class="btn btn-danger">Kembali</a>
+                                    {{-- <a href="/ED/user/{{$id_kumpulan}}/edit" class="btn btn-success">Simpan</a> --}}
+                                    <a href="/ED/user/{{ $peranan }}/edit" class="btn btn-danger">Kembali</a>
                                 </div>
                             </div>
                         </form>

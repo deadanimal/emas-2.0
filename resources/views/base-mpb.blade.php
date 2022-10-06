@@ -29,8 +29,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     {{-- <script src="vendors/dropzone/dropzone.min.js"></script> --}}
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-{{--
-    <script type="text/javascript" src="/assets/js/datatables.min.js"></script>
+
+    {{-- <script type="text/javascript" src="/assets/js/datatables.min.js"></script>
     <script type="text/javascript" src="/assets/js/datatables.js"></script> --}}
     <script src="/assets/js/flatpickr.js"></script>
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
@@ -53,81 +53,91 @@
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap"
         rel="stylesheet">
     <link href="/vendors/overlayscrollbars/OverlayScrollbars.min.css" rel="stylesheet">
-    <link href="/assets/css/theme-rtl.min.css" rel="stylesheet" id="style-rtl">
+    {{-- <link href="/assets/css/theme-rtl.min.css" rel="stylesheet" id="style-rtl"> --}}
     <link href="/assets/css/theme.min.css" rel="stylesheet" id="style-default">
-    <link href="/assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
-    <link href="/assets/css/user.min.css" rel="stylesheet" id="user-style-default">
-    {{-- <link rel="stylesheet" type="text/css" href="/assets/css/datatables.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/datatables.min.css" />
-     --}}
-    <script>
-        var APP_URL = {!! json_encode(url('/')) !!}
+    <link href="/vendors/choices/choices.min.css" rel="stylesheet" />
+    {{-- <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet"> --}}
+    <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    {{-- <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet"> --}}
+    {{-- <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet"> --}}
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> --}}
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script> --}}
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> --}}
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
 
-        var isRTL = JSON.parse(localStorage.getItem('isRTL'));
-        if (isRTL) {
-            var linkDefault = document.getElementById('style-default');
-            var userLinkDefault = document.getElementById('user-style-default');
-            linkDefault.setAttribute('disabled', true);
-            userLinkDefault.setAttribute('disabled', true);
-            document.querySelector('html').setAttribute('dir', 'rtl');
-        } else {
-            var linkRTL = document.getElementById('style-rtl');
-            var userLinkRTL = document.getElementById('user-style-rtl');
-            linkRTL.setAttribute('disabled', true);
-            userLinkRTL.setAttribute('disabled', true);
-        }
-    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.html5.min.js"></script>
+
 </head>
-<img src="/img/banner.png" alt="banner" width="100%">
+
 
 <body>
     <style>
         .form-control {
-            border-color: #009640;
+            border-color: #76bbe9;
         }
 
-        .risda-dg {
-            color: #0F5E31;
+        .emas-dg {
+            color: #76bbe9;
         }
 
-        .risda-bg-dg {
+        .emas-bg-dg {
             background-color: #76bbe9;
+            /* z-index: 99; */
+            /* overflow: hidden */
+            position: relative;
             color: #07385E;
 
         }
 
-        .risda-g {
-            color: #009640;
+        .footerContent {
+            background-color: #76bbe9;
+            color: #07385E;
+
+
         }
 
-        .risda-bg-g {
+        .emas-g {
+            color: #76bbe9;
+        }
+
+        .emas-bg-g {
             background-color: #e8efeb;
         }
 
-        .nav-link-risda {
+        .nav-link-emas {
             color: #0F5E31;
         }
 
-        .nav-link-risda.active {
-            background-color: #0F5E31;
+        .nav-link-emas.active {
+            background-color: #047FC3;
             color: white;
         }
 
         .nav-link.active {
-            background-color: #0F5E31;
+            background-color: #76bbe9;
             color: white;
         }
 
         .nav-pills .nav-link.active,
         .nav-pills .show>.nav-link {
             color: #fff;
-            background-color: #0F5E31;
+            background-color: #76bbe9;
         }
 
         .nav-link {
             display: block;
             padding: 0.5rem 1rem;
-            color: #009640;
+            /* color: #009640; */
             -webkit-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
             -o-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
             transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
@@ -136,7 +146,7 @@
         .nav-link:hover,
         .nav-link:focus {
             color: #fff;
-            background-color: #06558a;
+            background-color: #047FC3;
             text-decoration: none;
             border-radius: 5px;
         }
@@ -170,21 +180,21 @@
         .tox .tox-menu__footer .tox-button:focus:last-child,
         .tox .tox-dialog__footer .tox-button:focus:last-child {
             color: #fff;
-            background-color: #009640;
-            border-color: #009640;
+            /* background-color: #009640;
+            border-color: #009640; */
             -webkit-box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%), 0 0 0 0 rgb(76 143 233 / 50%);
             box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%), 0 0 0 0 rgb(76 143 233 / 50%);
         }
 
         .btn-outline-primary {
             color: #009640;
-            border-color: #009640;
+            /* border-color: #009640; */
         }
 
         .btn-outline-primary:hover {
             color: #fff;
-            background-color: #3679ed;
-            border-color: #0F5E31;
+            background-color: #047FC3;
+            border-color: #76bbe9;
         }
 
         .nav-link-side {
@@ -207,7 +217,7 @@
         .nav-link-side:hover,
         .nav-link-side:focus {
             color: #fff;
-            background-color: #06558a;
+            background-color: #047FC3;
             text-decoration: none;
             border-radius: 5px;
         }
@@ -220,15 +230,15 @@
 
         li {
             display: list-item;
-            color: #009640;
+            /* color: #009640; */
             text-align: -webkit-match-parent;
         }
 
         .page-item.active .page-link {
             z-index: 3;
             color: var(--falcon-pagination-active-color);
-            background-color: #009640;
-            border-color: #009640;
+            /* background-color: #009640;
+            border-color: #009640; */
         }
 
         .dropdown-indicator:after {
@@ -257,44 +267,53 @@
             transition-property: transform, border-color, -webkit-transform;
         }
 
+
+
+
+
         @media (min-width: 601px) {
             .navbar-vertical.navbar-expand-xl {
-                max-width: 350px;
+                max-width: 250px;
                 top: 0;
                 height: 100%;
                 margin: 0;
             }
 
+
             .navbar-vertical.navbar-expand-xl .navbar-collapse {
                 width: 100%;
-                height: 100%;
-                background: white;
+                height: 95%;
+                background: #ffffff;
             }
 
             .navbar-vertical.navbar-expand-xl .navbar-vertical-content {
                 width: 100%;
-                height: 100%;
+                height: auto;
                 padding: 0.5rem 0 0 0;
             }
 
             .navbar-vertical {
                 position: absolute;
-                background: white;
+                background: #ffffff;
                 max-width: 350px;
             }
 
             .navbar-vertical-content {
-                background: white;
+                background: #ffffff;
                 width: 350px;
             }
 
             .navbar-nav {
-                background: white;
+                background: #ffffff;
                 width: 350px;
             }
 
-            .risda-m {
-                margin-left: 350px;
+            .content1 {
+                background-color: white
+            }
+
+            .modal-content-bg {
+                background-color: white
             }
 
             .navbar-vertical .navbar-collapse .navbar-vertical-content {
@@ -308,13 +327,15 @@
         }
 
         @media only screen and (max-width: 600px) {
-            .risda-m {
+            .emas-m {
                 margin-left: 0px;
+                position: absolute;
+
             }
 
             .navbar-vertical {
                 position: absolute;
-                background: #009640;
+                /* background: #009640; */
                 max-width: 100%;
             }
 
@@ -329,7 +350,7 @@
             .navbar-vertical.navbar-expand-xl .navbar-collapse {
                 width: 100%;
                 height: auto;
-                background: #009640;
+                /* background: #009640; */
             }
 
             .navbar-vertical.navbar-expand-xl .navbar-vertical-content {
@@ -340,167 +361,136 @@
 
             .navbar-vertical {
                 position: absolute;
-                background: #009640;
+                /* background: #009640; */
                 max-width: 100%;
             }
 
             .navbar-vertical-content {
-                background: #009640;
+                /* background: #009640; */
                 width: 100%;
             }
-        }
 
+
+
+        }
     </style>
     <?php
     use Illuminate\Support\Facades\Auth;
     ?>
 
+
     <!-- ===============================================-->
     <!--    Main Content-->
     <!-- ===============================================-->
+
+    <img src="/img/banner.png" alt="banner" width="100%">
+
+
     <main class="main" id="top">
+        <div class="container-fluid px-0" data-layout="container" style="overflow: hidden">
+            <script>
+                var isFluid = JSON.parse(localStorage.getItem('isFluid'));
+                if (isFluid) {
+                    var container = document.querySelector('[data-layout]');
+                    container.classList.remove('container');
+                    container.classList.add('container-fluid');
+                }
+            </script>
 
-        <div class="container">
-            <div class="mb-4 text-center">
-            </div>
-
-            @if (auth()->user() == 'bahagian' || auth()->user() == 'kementerian')
-                <div class="row pb-3">
-                    <div class="col-md-6 col-lg-4 text-center">
-                        <a class="mb-3" href="/fokusutama">
-                            <div class="px-4 pt-4">
-                                <img src="img/PPD.png" class="img-fluid card-img-hover landing-img"
-                                    alt="Pelan Pelaksanaan">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 col-lg-4 text-center">
-                        <a class="mb-3" href="/thrust">
-                            <div class="px-4 pt-4">
-                                <img src="img/MPB.png" class="img-fluid card-img-hover landing-img" alt="">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 col-lg-4 text-center">
-                        <a class="mb-3" href="/">
-                            <div class="px-4 pt-4">
-                                <img src="img/KT.png" class="img-fluid card-img-hover landing-img" alt="">
-                            </div>
-                        </a>
-                    </div>
-
-                </div>
-
-                <div class="row pb-3">
-                    <div class="col-md-6 col-lg-2 text-center">
-
-                    </div>
-                    <div class="col-md-6 col-lg-4 text-center">
-                        <a class="mb-3" href="/">
-                            <div class="px-4 pt-4">
-                                <img src="img/MD.png" class="img-fluid card-img-hover landing-img" alt="">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 col-lg-4 text-center">
-                        <a class="mb-3" href="/">
-                            <div class="px-4 pt-4">
-                                <img src="img/ED.png" class="img-fluid card-img-hover landing-img" alt="">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 col-lg-2 text-center">
-                    </div>
-                </div>
+            @if (Request::is('mpb'))
             @else
-                <div class="row pb-3">
-                    <div class="col-md-6 col-lg-4 text-center">
-                        <a class="mb-3" href="/fokusutama">
-                            <div class="px-4 pt-4">
-                                <img src="img/PPD.png" class="img-fluid card-img-hover landing-img"
-                                    alt="Pelan Pelaksanaan">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 col-lg-4 text-center">
-                        <a class="mb-3" href="/thrust" id="myAnchor">
-                            <div class="px-4 pt-4">
-                                <img src="img/MPB.png" class="img-fluid card-img-hover landing-img" alt=""
-                                    style="opacity: 50%">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 col-lg-4 text-center">
-                        <a class="mb-3" href="/" id="myAnchor">
-                            <div class="px-4 pt-4">
-                                <img src="img/KT.png" class="img-fluid card-img-hover landing-img" alt=""
-                                    style="opacity: 50%">
-                            </div>
-                        </a>
-                    </div>
-
-                </div>
-
-                <div class="row pb-3">
-                    <div class="col-md-6 col-lg-2 text-center">
-
-                    </div>
-                    <div class="col-md-6 col-lg-4 text-center">
-                        <a class="mb-3" href="/" id="myAnchor">
-                            <div class="px-4 pt-4">
-                                <img src="img/MD.png" class="img-fluid card-img-hover landing-img" alt=""
-                                    style="opacity: 50%">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 col-lg-4 text-center">
-                        <a class="mb-3" href="/" id="myAnchor">
-                            <div class="px-4 pt-4">
-                                <img src="img/ED.png" class="img-fluid card-img-hover landing-img" alt=""
-                                    style="opacity: 50%">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 col-lg-2 text-center">
-                    </div>
-                </div>
+                @include('layouts.emas-side-mpb')
             @endif
+
+
+
+            <div class="content content1">
+
+
+                @if (Request::is('mpb'))
+                @else
+                    <button class="btn navbar-toggler-humburger-icon navbar-toggler me-1 me-sm-3 navbar-vertical-toggle"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse"
+                        aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle Navigation">
+                        <span class="fas fa-angle-right">
+                            <span class="fas fa-angle-left"></span>
+                        </span>
+                    </button>
+                @endif
+
+
+                <div class="row" style="background: white;">
+
+                    <div class="col-12">
+                        @yield('content')
+                    </div>
+
+
+
+                </div>
+            </div>
         </div>
 
-        <footer class="risda-bg-dg">
-            <div class="row p-">
+
+        <footer class="emas-bg-dg">
+            <div class="row">
                 <div class="col">
                     <div class="text-center">
-                        <b>Copyright</b> ©️ <b>UNIT PERANCANG EKONOMI</b>
+                        Copyright ©️ <b>UNIT PERANCANG EKONOMI</b>
                     </div>
                 </div>
             </div>
         </footer>
+
+        {{-- <img src="/img/footer.png" alt="footer" width="100%"> --}}
+
 
     </main>
     <!-- ===============================================-->
     <!--    End of Main Content-->
     <!-- ===============================================-->
 
-
     <!-- ===============================================-->
     <!--    JavaScripts-->
     <!-- ===============================================-->
-    <script src="../../../vendors/popper/popper.min.js"></script>
-    <script src="../../../vendors/bootstrap/bootstrap.min.js"></script>
-    <script src="../../../vendors/anchorjs/anchor.min.js"></script>
-    <script src="../../../vendors/is/is.min.js"></script>
-    <script src="../../../vendors/fontawesome/all.min.js"></script>
-    <script src="../../../vendors/lodash/lodash.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-    <script src="../../../vendors/list.js/list.min.js"></script>
-    <script src="../../../assets/js/theme.js"></script>
+
+
+
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script> --}}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"
+        integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        document.getElementById("myAnchor").addEventListener("click", function(event) {
-            event.preventDefault()
+        $(".tahun").datepicker({
+            format: "yyyy",
+            viewMode: "years",
+            minViewMode: "years",
+            autoclose: true
         });
     </script>
+    <script src="/vendors/popper/popper.min.js"></script>
+    <script src="/vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="/vendors/anchorjs/anchor.min.js"></script>
+    <script src="/vendors/is/is.min.js"></script>
+    <script src="/vendors/chart/chart.min.js"></script>
+    <script src="/vendors/leaflet/leaflet.js"></script>
+    <script src="/vendors/leaflet.markercluster/leaflet.markercluster.js"></script>
+    <script src="/vendors/leaflet.tilelayer.colorfilter/leaflet-tilelayer-colorfilter.min.js"></script>
+    <script src="/vendors/countup/countUp.umd.js"></script>
+    <script src="/vendors/echarts/echarts.min.js"></script>
+    <script src="/vendors/progressbar/progressbar.min.js"></script>
+    <script src="/vendors/fullcalendar/main.min.js"></script>
+    <script src="/assets/js/flatpickr.js"></script>
+    <script src="/vendors/dayjs/dayjs.min.js"></script>
+    <script src="/vendors/fontawesome/all.min.js"></script>
+    <script src="/vendors/lodash/lodash.min.js"></script>
+    <script src="/vendors/list.js/list.min.js"></script>
+    <script src="/assets/js/theme.js"></script>
+    <script src="/vendors/choices/choices.min.js"></script>
+
+
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-@extends('base')
+@extends('base-kt')
 @section('content')
     <div class="container">
         <div class="mb-4 text-center">
@@ -23,7 +23,7 @@
                 {{-- <form method="POST" action="/kemasukanData/update">
                     @csrf --}}
 
-                <form action="KT/kemasukanData/{{ $profil->id }}" method="POST">
+                <form action="/KT/kemasukanData/{{ $profil->id }}" method="POST">
                     @csrf
                     @method('PUT')
 

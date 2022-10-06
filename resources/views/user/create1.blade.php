@@ -31,7 +31,7 @@
                         <h5 class="mb-0">Upload Files</h5>
                     </div>
                     <div class="card-body bg-light">
-                        <form action="/importUserExcel" method="POST" enctype="multipart/form-data"
+                        <form action="/ED/importUserExcel" method="POST" enctype="multipart/form-data"
                             class="dropzone dropzone-multiple p-0" id="my-awesome-dropzone" data-dropzone="data-dropzone"
                             action="#!">
                             @csrf

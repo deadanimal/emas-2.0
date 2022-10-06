@@ -1,4 +1,4 @@
-@extends('base')
+@extends('base-kt')
 @section('content')
     <div class="container">
 
@@ -20,7 +20,7 @@
 
         <div class="col-12 ">
             <div class="col-12">
-                <form action="KT/senarai-kir-dan-air-excel" method="POST" enctype="multipart/form-data">
+                <form action="/KT/senarai-kir-dan-air-excel" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     *Fail Yang Dimuat Naik Mestilah Mengikut Format Asal Yang Disediakan

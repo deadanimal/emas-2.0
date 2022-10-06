@@ -1,4 +1,4 @@
-@extends('base')
+@extends('base-mpb')
 @section('content')
     <div class="container">
         <br>

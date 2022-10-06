@@ -11,7 +11,7 @@
                 <div class="col col-lg-8">
                     <span><b>Muat Naik Pengguna</b></span>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/user1/create1">
+                        href="/ED/user1/create1">
                         <span class="fas fa-plus-circle"></span>&nbsp;Tambah Secara Pukal</a>
 
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
@@ -29,7 +29,7 @@
 
         <div class="col-12 ">
             <div class="col-12">
-                <form method="POST" action="/user">
+                <form method="POST" action="/ED/user">
                     @csrf
                     <div class="card mt-4" id="basic-info">
 

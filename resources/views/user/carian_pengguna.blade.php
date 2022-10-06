@@ -29,7 +29,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="col-12">
-                    <a href="/user/create" class="btn btn-outline-primary" type="submit" style="float: right;">Daftar
+                    <a href="/ED/user/create" class="btn btn-outline-primary" type="submit" style="float: right;">Daftar
                         Pengguna</a>
                 </div>
             </div>

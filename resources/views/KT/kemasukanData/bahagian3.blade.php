@@ -1,4 +1,4 @@
-@extends('base')
+@extends('base-kt')
 @section('content')
     <div class="container">
         <div class="mb-4 text-center">
@@ -22,7 +22,7 @@
         <div class="card mb-3">
 
             <div class="card-body bg-light">
-                <form method="POST" action="KT/kemasukanData-bahagian3">
+                <form method="POST" action="/KT/kemasukanData-bahagian3">
                     @csrf
                     <input type="hidden" name="current_bahagian" value="4">
                     <input type="hidden" name="profil_id" value="{{ $profil->id }}">

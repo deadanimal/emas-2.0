@@ -11,7 +11,7 @@
                 <div class="col col-lg-8">
                     <span><b>Senarai Peranan</b></span>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/userRole/create">
+                        href="/ED/userRole/create">
                         <span class="fas fa-plus-circle"></span>&nbsp;Tambah Peranan</a>
 
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
@@ -45,7 +45,7 @@
                                             <td class="text-sm text-center font-weight-normal">{{ ucwords($role->name) }}
                                             </td>
                                             <td class="text-sm text-center font-weight-normal">
-                                                <a href="/userRole/{{ $role->id }}/edit"
+                                                <a href="/ED/userRole/{{ $role->id }}/edit"
                                                     class="btn bg-gradient-info">Kemaskini Kebenaran</a>
                                             </td>
                                             <td class="text-sm text-center font-weight-normal">
@@ -69,7 +69,7 @@
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn bg-gradient-secondary"
                                                             data-bs-dismiss="modal">Batal</button>
-                                                        <form method="POST" action="user/{{ $role->id }}">
+                                                        <form method="POST" action="/ED/user/{{ $role->id }}">
                                                             @method('DELETE')
                                                             @csrf
                                                             <button class="btn bg-gradient-danger" type="submit">Hapus

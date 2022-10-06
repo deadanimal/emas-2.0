@@ -16,7 +16,7 @@
                         <b class="text-white">{{ $roles->name }}</b>
                     </div>
                     <div class="card-body">
-                        <form action="/userRole/{{ $roles->id }}" method="POST">
+                        <form action="/ED/userRole/{{ $roles->id }}" method="POST">
                             @method('PUT')
                             @csrf
                             <div class="row">
@@ -68,7 +68,7 @@
                             <div class="row">
                                 <div class="col text-center">
                                     <button type="submit" class="btn btn-success">Simpan</button>
-                                    <a href="/userRole" class="btn btn-danger">Kembali</a>
+                                    <a href="/ED/userRole" class="btn btn-danger">Kembali</a>
                                 </div>
                             </div>
                         </form>

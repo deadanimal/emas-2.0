@@ -1,4 +1,4 @@
-@extends('base')
+@extends('base-tableau')
 @section('content')
     <div class='tableauPlaceholder' id='viz1662428262368' style='position: relative'><noscript><a href='#'><img
                     alt='9 Fokus Utama '

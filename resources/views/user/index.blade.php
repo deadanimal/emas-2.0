@@ -14,7 +14,7 @@
                 <div class="col col-lg-8">
                     <span><b>Senarai Pengguna</b></span>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/user/create">
+                        href="/ED/user/create">
                         <span class="fas fa-plus-circle"></span>&nbsp;Daftar Pengguna</a>
 
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
@@ -65,7 +65,7 @@
                                                     {{ $u['role'] }}
                                                 </td> --}}
                                             <td class="text-sm text-center font-weight-normal"><a
-                                                    class="btn btn-info text-white" href="/user/{{ $u->id }}/edit"
+                                                    class="btn btn-info text-white" href="/ED/user/{{ $u->id }}/edit"
                                                     style="color:black;">
                                                     Kemaskini
                                                 </a>
@@ -89,7 +89,7 @@
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn bg-gradient-secondary"
                                                                 data-bs-dismiss="modal">Batal</button>
-                                                            <form method="POST" action="/user/{{ $u->id }}">
+                                                            <form method="POST" action="/ED/user/{{ $u->id }}">
                                                                 @method('DELETE')
                                                                 @csrf
 
@@ -139,7 +139,7 @@
                                                     @endif
                                                 </td>
                                                 <td class="text-sm text-center font-weight-normal">
-                                                    <a class="btn btn-info text-white" href="/user/{{ $user->id }}/edit"
+                                                    <a class="btn btn-info text-white" href="/ED/user/{{ $user->id }}/edit"
                                                         style="color:black;">
                                                         Kemaskini
                                                     </a>
@@ -172,7 +172,7 @@
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn bg-gradient-secondary"
                                                                     data-bs-dismiss="modal">Batal</button>
-                                                                <form method="POST" action="/user/{{ $user->id }}">
+                                                                <form method="POST" action="/ED/user/{{ $user->id }}">
                                                                     @method('DELETE')
                                                                     @csrf
 

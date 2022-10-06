@@ -1,4 +1,4 @@
-@extends('base')
+@extends('base-kt')
 @section('content')
     <div class="container">
         <div class="mb-4 text-center">
@@ -14,7 +14,7 @@
                 <div class="col col-lg-8">
                     <span><b>Senarai Kemasukan Data KIR & AIR</b></span>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/kemasukanData/bahagian">
+                        href="/KT/kemasukanData/bahagian">
                         <span class="fas fa-plus-circle"></span>&nbsp;Tambah</a>
 
 
@@ -52,10 +52,10 @@
 
                             <td>
                                 <a class="btn btn-primary" style="border-radius: 38px"
-                                    href="KT/kemasukanData/{{ $profil->id }}/edit/"><i class="fas fa-edit"></i>
+                                    href="/KT/kemasukanData/{{ $profil->id }}/edit/"><i class="fas fa-edit"></i>
                                 </a>
 
-                                <form action="/kemasukanData/{{ $profil->id }}" method="POST">
+                                <form action="/KT/kemasukanData/{{ $profil->id }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger" style="border-radius: 38px">

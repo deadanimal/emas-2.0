@@ -32,7 +32,7 @@
                             </div> --}}
                             <div class="form-group mt-4 text-end">
                                 <button class="btn btn-success" type="submit">Simpan</button>
-                                <a href="/user" class="btn btn-danger">Kembali</a>
+                                <a href="/ED/user" class="btn btn-danger">Kembali</a>
                             </div>
                         </form>
                     </div>

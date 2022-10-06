@@ -1,4 +1,4 @@
-@extends('base')
+@extends('base-kt')
 @section('content')
     <div class="container">
         <div class="mb-4 text-center">
@@ -19,7 +19,7 @@
 
         <div class="card mb-3">
             <div class="card-body bg-light">
-                <form method="POST" action="KT/kemasukanData-bahagian1">
+                <form method="POST" action="/KT/kemasukanData-bahagian1">
                     @csrf
                     <div class="row g-3">
 

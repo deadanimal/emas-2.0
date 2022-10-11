@@ -137,7 +137,16 @@
 
                     <div class="card">
                         <ul class="nav collapse show" id="mpb" style="background-color: #E7EFFD">
-
+                            <li class="nav-item">
+                                <a class="nav-link btn1 {{ Request::is('MPB/thrust', 'MPB/thrust/*') ? 'active' : '' }}"
+                                    href="/MPB/thrust">
+                                    <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List of
+                                            Thrust
+                                        </span>
+                                    </div>
+                                </a>
+                                <!-- more inner pages-->
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link btn1 {{ Request::is('MPB/national', 'MPB/national/*') ? 'active' : '' }}"
                                     href="/MPB/national">

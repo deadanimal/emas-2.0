@@ -53,7 +53,7 @@ class RolesandpermissionController extends Controller
         // dd($request);
         Role::create(['name' => $request->DESCRIPTION]);
 
-        return redirect('/userRole');
+        return redirect('/ED/userRole');
     }
 
     /**
@@ -108,7 +108,7 @@ class RolesandpermissionController extends Controller
             }
         }
 
-        return redirect('/userRole');
+        return redirect('/ED/userRole');
     }
 
     /**
@@ -123,7 +123,7 @@ class RolesandpermissionController extends Controller
         $role = Role::find($role);
         $role->delete();
 
-        return redirect('/userRole');
+        return redirect('/ED/userRole');
     }
 
     public function edit_menu($role_id, $permission_id)
@@ -140,6 +140,6 @@ class RolesandpermissionController extends Controller
         $kebenaran = Permission::where('id', $permission_id)->first();
         $kebenaran->name = $request->name;
         $kebenaran->save();
-        return redirect('/userRole/' . $role_id . '/edit');
+        return redirect('/ED/userRole/' . $role_id . '/edit');
     }
 }

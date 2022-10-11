@@ -33,8 +33,7 @@
                 <div id="chartdiv1"></div>
             </div>
             <div class="column">
-                <b>Peratusan Dan Bilangan Status
-                    Tema Dan Pemangkin Dasar</b>
+                <b>Peratusan Bilangan Status Bab</b>
                 <div id="chartdiv2"></div>
             </div>
         </div>
@@ -170,9 +169,10 @@
                                 <th class="align-middle">Sasaran 2025</th>
                                 <th class="align-middle">Sumber Data</th>
                                 <th class="align-middle">Sumber Pengesahan</th>
-                                <th class="align-middle">Status</th>
+                                <th class="align-middle">Paparan</th>
+                                <th class="align-middle">Status Pengesahan</th>
 
-                                <th class="align-middle">Tindakan</th>
+                                {{-- <th class="align-middle">Tindakan</th> --}}
                             </tr>
                         </thead>
                         <tbody class="list myTable" id="searchUpdateTable">
@@ -209,11 +209,16 @@
                                     <td class="align-middle">{{ $kpi->sasaran2025 }}</td>
                                     <td class="align-middle">{{ $kpi->sumberData }}</td>
                                     <td class="align-middle">{{ $kpi->sumberPengesahan }}</td>
+                                    <td class="align-middle">
+                                        <button class="btn btn-black" type="button" data-bs-toggle="modal"
+                                            data-bs-target="#error-modal-{{ $kpi->id }}">Lihat
+                                        </button>
+                                    </td>
                                     @can('Bahagian PPD')
                                         <td class="align-middle" style="text-align: center">
                                             <div class="col-auto ms-auto">
                                                 @if ($kpi->lulus == 1 && $kpi->ditolak == 0)
-                                                    <span class="badge bg-success">Lulus</span>
+                                                    <span class="badge bg-success">Disahkan</span>
                                                 @elseif ($kpi->lulus == 0 && $kpi->ditolak == 1)
                                                     <span class="badge bg-danger">Ditolak</span>
                                                 @else
@@ -223,7 +228,7 @@
                                         </td>
                                     @endcan
 
-                                    <td class="align-middle" style="text-align: center">
+                                    {{-- <td class="align-middle" style="text-align: center">
                                         <div class="col-auto ms-auto">
                                             @if ($kpi->lulus == 1 && $kpi->ditolak == 0)
                                                 <span class="badge bg-success">Disahkan</span>
@@ -242,7 +247,120 @@
                                                 </form>
                                             @endif
                                         </div>
-                                    </td>
+                                    </td> --}}
+
+                                    <div class="modal fade" id="error-modal-{{ $kpi->id }}" tabindex="-1"
+                                        role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document"
+                                            style="max-width: 500px">
+                                            <div class="modal-content position-relative">
+                                                <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                                                    <button
+                                                        class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                                                        data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body p-0">
+
+
+                                                    <div class="p-4 pb-0">
+
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label">Status:</label>
+
+                                                            @if ($kpi->lulus == 1 && $kpi->ditolak == 0)
+                                                                <span class="badge bg-success">Disahkan</span>
+                                                            @elseif ($kpi->lulus == 0 && $kpi->ditolak == 1)
+                                                                <span class="badge bg-danger">Ditolak</span>
+                                                            @else
+                                                                <span class="badge bg-info text-dark">Dalam
+                                                                    Semakan</span>
+                                                            @endif
+                                                        </div>
+
+
+
+                                                        <form>
+                                                            <div class="mb-3">
+                                                                <label class="col-form-label">KPI Nasional
+                                                                    :</label>
+                                                                <label class="form-control"
+                                                                    disabled="disabled">{{ $kpi->namaKpi }}</label>
+
+                                                            </div>
+
+                                                            <div class="mb-3">
+                                                                <label class="col-form-label">Tema/Pemangkin Dasar:</label>
+                                                                <label class="form-control"
+                                                                    disabled="disabled">{{ $kpi->pemangkin->namaTema ?? '' }}</label>
+                                                            </div>
+
+                                                            <div class="mb-3">
+                                                                <label class="col-form-label">Prestasi KPI
+                                                                    :</label>
+                                                                @if ($kpi->peratusPencapaian > 80)
+                                                                    <img src='/img/green.png'>
+                                                                @elseif ($kpi->peratusPencapaian <= 80 && $kpi->peratusPencapaian >= 50)
+                                                                    <img src='/img/yellow.png'>
+                                                                @elseif ($kpi->peratusPencapaian < 50)
+                                                                    <img src='/img/red.png'>
+                                                                @endif
+                                                            </div>
+
+                                                            <div class="mb-3">
+                                                                <label class="col-form-label">Pencapaian :</label>
+                                                                <label class="form-control"
+                                                                    disabled="disabled">{{ $kpi->pencapaian }}</label>
+
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label class="col-form-label">Sasaran :</label>
+                                                                <label class="form-control"
+                                                                    disabled="disabled">{{ $kpi->sasaran }}</label>
+
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label class="col-form-label">Wajaran :</label>
+                                                                <label class="form-control"
+                                                                    disabled="disabled">{{ $kpi->wajaran }}</label>
+
+                                                            </div>
+
+                                                            <br>
+                                                        </form>
+                                                        @can('BPKP')
+                                                            <div class="mb-3">
+                                                                <label class="col-form-label">Tindakan Pengesahan:</label>
+                                                                @if ($kpi->lulus == 1 && $kpi->ditolak == 0)
+                                                                    <span class="badge bg-success">Sah</span>
+                                                                @elseif ($kpi->lulus == 0 && $kpi->ditolak == 1)
+                                                                    <span class="badge bg-danger">Tolak</span>
+                                                                @else
+                                                                    <form action="/PPD/kpi/lulus/{{ $kpi->id }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                        @method('POST')
+                                                                        <button type="submit"
+                                                                            class="btn btn-success">Sahkan</button>
+                                                                    </form>
+                                                                    <form action="{{ route('kpi.ditolak', $kpi->id) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                        @method('POST')
+                                                                        <button type="submit"
+                                                                            class="btn btn-danger">Tolak</button>
+                                                                    </form>
+                                                                @endif
+                                                            </div>
+                                                        @endcan
+
+
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -304,20 +422,6 @@
                             </tr>
 
                     `);
-
-                    // $("#searchUpdateTable2").append(`
-                //     <div>
-
-                //         <a class="btn btn-primary" style="border-radius: 38px"
-                //             href="/kpi1/` + el.id + `/edit"><i class="fas fa-edit"></i>
-                //         </a>
-
-                //         <button type="submit" onclick="myFunction({{ `+el.id+` }})" class="btn btn-danger"
-                //             style="border-radius: 38px">
-                //             <i class="fas fa-trash"></i>
-                //         </button>
-                //     </div>
-                // `);
                 });
             });
 

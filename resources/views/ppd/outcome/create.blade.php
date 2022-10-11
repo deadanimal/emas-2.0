@@ -64,6 +64,23 @@
                         </select>
                     </div>
 
+                    <label class="col-sm-2 col-form-label" for="perkara_id">Perkara Utama</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="perkara_id" id="pilih2">
+
+                            @foreach ($perkaras as $perkara)
+                                <option @selected($perkara->perkara_id == $perkara->id) value="{{ $perkara->id }}">
+                                    {{ $perkara->namaPerkara }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+
+
+                </div>
+
+                <div class="mb-3 row">
+
                     <label class="col-sm-2 col-form-label" for="namaOutcome">Nama Outcome Nasional</label>
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" type="text" name="namaOutcome" />

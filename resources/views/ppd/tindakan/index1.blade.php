@@ -162,10 +162,10 @@
                                 <th class="align-middle">Status Pelaksanaan 2022 </th>
                                 <th class="align-middle">Catatan 2022</th>
                                 <th class="align-middle">Pencapaian 2022</th>
-
+                                <th class="align-middle">Paparan</th>
                                 <th class="align-middle">Status Pengesahan</th>
 
-                                <th class="align-middle">Pengesahan</th>
+                                {{-- <th class="align-middle">Pengesahan</th> --}}
                             </tr>
                         </thead>
                         <tbody class="list myTable" id="bulk-select-body">
@@ -185,6 +185,11 @@
                                     <td class="align-middle">{{ $tindakan->statusPelaksanaan }}</td>
                                     <td class="align-middle">{{ $tindakan->catatan2022 }}</td>
                                     <td class="align-middle">{{ $tindakan->pencapaian2022 }}</td>
+                                    <td class="align-middle">
+                                        <button class="btn btn-black" type="button" data-bs-toggle="modal"
+                                            data-bs-target="#error-modal-{{ $tindakan->id }}">Lihat
+                                        </button>
+                                    </td>
 
 
                                     <td class="align-middle" style="text-align: center">
@@ -198,7 +203,7 @@
                                             @endif
                                         </div>
                                     </td>
-
+                                    {{--
                                     <td class="align-middle" style="text-align: center">
 
                                         <div class="col-auto ms-auto">
@@ -220,7 +225,109 @@
                                                 </form>
                                             @endif
                                         </div>
-                                    </td>
+                                    </td> --}}
+
+                                    <div class="modal fade" id="error-modal-{{ $tindakan->id }}" tabindex="-1"
+                                        role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document"
+                                            style="max-width: 500px">
+                                            <div class="modal-content position-relative">
+                                                <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                                                    <button
+                                                        class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                                                        data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body p-0">
+
+
+                                                    <div class="p-4 pb-0">
+
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label">Status Pengeshan:</label>
+
+                                                            @if ($tindakan->lulus == 1 && $tindakan->ditolak == 0)
+                                                                <span class="badge bg-success">Lulus</span>
+                                                            @elseif ($tindakan->lulus == 0 && $tindakan->ditolak == 1)
+                                                                <span class="badge bg-danger">Ditolak</span>
+                                                            @else
+                                                                <span class="badge bg-info text-dark">Dalam
+                                                                    Semakan</span>
+                                                            @endif
+                                                        </div>
+
+
+
+                                                        <form>
+                                                            <div class="mb-3">
+                                                                <label class="col-form-label">Tindakan
+                                                                    :</label>
+                                                                <label class="form-control"
+                                                                    disabled="disabled">{{ $tindakan->namaTindakan }}</label>
+
+                                                            </div>
+
+                                                            <div class="mb-3">
+                                                                <label class="col-form-label">Tema/Pemangkin Dasar:</label>
+                                                                <label class="form-control"
+                                                                    disabled="disabled">{{ $tindakan->pemangkin->namaTema ?? '' }}</label>
+                                                            </div>
+
+                                                            <div class="mb-3">
+                                                                <label class="col-form-label">Kategori Sasaran :</label>
+                                                                <label class="form-control"
+                                                                    disabled="disabled">{{ $tindakan->kategoriSasaran }}</label>
+
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label class="col-form-label">Tempoh Siap :</label>
+                                                                <label class="form-control"
+                                                                    disabled="disabled">{{ $tindakan->tempohSiap }}</label>
+
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label class="col-form-label">Status Pelaksanaan :</label>
+                                                                <label class="form-control"
+                                                                    disabled="disabled">{{ $tindakan->statusPelaksanaan }}</label>
+
+                                                            </div>
+
+                                                            <br>
+                                                        </form>
+                                                        @can('BPKP')
+                                                            <div class="mb-3">
+                                                                <label class="col-form-label">Tindakan:</label>
+                                                                @if ($tindakan->lulus == 1 && $tindakan->ditolak == 0)
+                                                                    <span class="badge bg-success">Disahkan</span>
+                                                                @elseif ($tindakan->lulus == 0 && $tindakan->ditolak == 1)
+                                                                    <span class="badge bg-danger">Ditolak</span>
+                                                                @else
+                                                                    <form action="/PPD/tindakan/lulus/{{ $tindakan->id }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                        @method('POST')
+                                                                        <button type="submit"
+                                                                            class="btn btn-success">Sahkan</button>
+                                                                    </form>
+                                                                    <form
+                                                                        action="{{ route('tindakan.ditolak', $tindakan->id) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                        @method('POST')
+                                                                        <button type="submit"
+                                                                            class="btn btn-danger">Tolak</button>
+                                                                    </form>
+                                                                @endif
+                                                            </div>
+                                                        @endcan
+
+
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 </tr>
                             @endforeach
                         </tbody>

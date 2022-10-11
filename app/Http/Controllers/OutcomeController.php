@@ -8,6 +8,7 @@ use App\Models\Bidang;
 use App\Models\Fokusutama;
 use App\Models\Outcome;
 use App\Models\Pemangkindasar;
+use App\Models\Perkarautama;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -45,7 +46,8 @@ class OutcomeController extends Controller
         $list = Bidang::all();
         $fokus = Fokusutama::all();
         $pemangkin = Pemangkindasar::all();
-        return view('ppd.outcome.create', compact('user', 'list', 'pemangkin', 'fokus'));
+        $perkaras = Perkarautama::all();
+        return view('ppd.outcome.create', compact('user', 'list', 'pemangkin', 'fokus', 'perkaras'));
     }
 
     /**
@@ -83,8 +85,9 @@ class OutcomeController extends Controller
         $list = Bidang::all();
         $fokus = Fokusutama::all();
         $pemangkin = Pemangkindasar::all();
+        $perkaras = Perkarautama::all();
 
-        return view('ppd.outcome.edit', compact('outcome', 'list', 'pemangkin', 'fokus'));
+        return view('ppd.outcome.edit', compact('outcome', 'list', 'pemangkin', 'fokus', 'perkaras'));
     }
 
     /**

@@ -76,6 +76,17 @@
                         <input class="form-control" type="text" name="namaBidang" />
 
                     </div>
+
+                    <label class="col-sm-2 col-form-label" for="bahagian">Bahagian Penyelaras:</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="bahagian">
+                            <option selected disabled hidden>SILA PILIH</option>
+                            <option value="EPU">EPU</option>
+                            <option value="JPM">JPM</option>
+
+                        </select>
+
+                    </div>
                 </div>
 
                 <div class="mb-3 row">
@@ -174,8 +185,8 @@
         //     babs.forEach(bab => {
         //         if (bab.tema_id == tema_id) {
         //             $("#pilih4").append(`
-        //                 <option value="` + bab.id + `">` + bab.namaBab + `</option>
-        //             `);
+    //                 <option value="` + bab.id + `">` + bab.namaBab + `</option>
+    //             `);
         //         }
         //     });
         // });

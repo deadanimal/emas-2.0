@@ -29,7 +29,7 @@
                         </select>
                     </div>
 
-                    <label class="col-sm-2 col-form-label" for="name">Bahagian</label>
+                    <label class="col-sm-2 col-form-label" for="name">Bahagian Penyelaras</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="name">
 
@@ -61,6 +61,7 @@
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" name="namaBab" value="{{ $bab->namaBab }}" />
                     </div>
+
                 </div>
 
                 <div class="mb-3 row">

@@ -48,14 +48,28 @@ class KpiController extends Controller
         // $graf = Kpis::select()
 
 
-        if ($request->user()->role == 'SuperAdmin') {
+        // if ($request->user()->role == 'SuperAdmin') {
+
+        //     $kpis = Kpi::all();
+        // } else {
+        //     $user_id = $request->user()->id;
+
+        //     $kpis = Kpi::where('user_id', '=', $user_id)->get();
+        // }
+
+        if ($request->user()->can('BPKP')) {
 
             $kpis = Kpi::all();
         } else {
+
             $user_id = $request->user()->id;
 
             $kpis = Kpi::where('user_id', '=', $user_id)->get();
         }
+
+
+
+
 
         return view('ppd.kpi.index1', compact('kpis', 'tema', 'bab', 'bidang'));
     }
@@ -111,7 +125,7 @@ class KpiController extends Controller
         $kpi->ditolak = false;
         $kpi->save();
 
-        return redirect()->to('kpi1/index1');
+        return redirect()->to('PPD/kpi1/index1');
     }
 
     public function ditolak(Request $request)
@@ -121,7 +135,7 @@ class KpiController extends Controller
         $kpi->ditolak = true;
         $kpi->save();
 
-        return redirect()->to('kpi1/index1');
+        return redirect()->to('PPD/kpi1/index1');
     }
 
     public function show(Kpi $kpi)

@@ -46,13 +46,15 @@
                                             </td>
                                             <td class="text-sm text-center font-weight-normal">
                                                 <a href="/ED/userRole/{{ $role->id }}/edit"
-                                                    class="btn bg-gradient-info">Kemaskini Kebenaran</a>
+                                                    class="btn bg-gradient-info"><span class="badge bg-info text-dark"
+                                                        disabled>Kemaskini Kebenaran</span></a>
                                             </td>
                                             <td class="text-sm text-center font-weight-normal">
                                                 <a class="btn bg-gradient-danger" data-bs-toggle="modal"
                                                     style="cursor: pointer"
-                                                    data-bs-target="#modaldelete-{{ $role->id }}">
-                                                    Hapus Peranan
+                                                    data-bs-target="#modaldelete-{{ $role->id }}"><span
+                                                        class="badge bg-danger text-dark" disabled>Hapus Peranan
+                                                    </span>
                                                 </a>
                                             </td>
                                         </tr>

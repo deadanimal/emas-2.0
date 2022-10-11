@@ -41,7 +41,7 @@
 
                     </div>
 
-                    <label class="col-form-label" for="bidang_id">Bidang Utama</label>
+                    <label class="col-form-label" for="bidang_id">Bidang Keutamaan</label>
                     <div>
 
                         <input class="form-control" value="{{ $tindakans->bidang->namaBidang ?? 'Tiada' }}" readonly />

@@ -77,6 +77,15 @@
                         <input class="form-control" type="text" name="namaBidang" value="{{ $bidang->namaBidang }}" />
 
                     </div>
+
+                    <label class="col-sm-2 col-form-label" for="bahagian">Bahagian Penyelaras</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="bahagian">
+                            <option @selected($bidang->bahagian == 'EPU') value="EPU">EPU</option>
+                            <option @selected($bidang->bahagian == 'JPM') value="JPM">JPM</option>
+
+                        </select>
+                    </div>
                 </div>
 
                 <div class="mb-3 row">

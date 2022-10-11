@@ -10,11 +10,14 @@
 
         </div>
 
+
         <div class="card-body">
             <div class="table-responsive scrollbar">
                 <table class="table mb-0" style="width: 400%" value="null" id="example">
                     <thead class="text-black bg-200">
                         <tr style="text-align: center">
+                            <th class="align-middle" rowspan=2>View</th>
+
                             <th class="align-middle" rowspan=2>No.</th>
                             <th class="align-middle" rowspan=2>Thrust</th>
                             <th class="align-middle" rowspan=2>National Initiative </th>
@@ -42,7 +45,13 @@
                     <tbody class="list myTable" id="searchUpdateTable">
                         @foreach ($miles as $thrust)
                             <tr class="thrust" style="text-align: center">
-                                <td class="align-middle">{{ $loop->iteration }}.</td>
+                                <td>
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $thrust->id }}">View
+                                    </button>
+                                </td>
+                                <td class="align-middle">{{ $loop->iteration }}.
+                                </td>
                                 <td class="align-middle">{{ $thrust->thrust->namaThrust }}</td>
                                 <td class="align-middle">{{ $thrust->national->namaNational ?? '' }}</td>
                                 <td class="align-middle">{{ $thrust->key->namaKey ?? '' }}</td>
@@ -56,6 +65,63 @@
                                 <td class="align-middle">{{ $thrust->targetMark }}</td>
                                 <td class="align-middle">{{ $thrust->achievement }}</td>
                                 <td class="align-middle">{{ $thrust->remark }}</td>
+
+                                <div class="modal fade" id="error-modal-{{ $thrust->id }}" tabindex="-1" role="dialog"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document"
+                                        style="max-width: 500px">
+                                        <div class="modal-content position-relative">
+                                            <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                                                <button
+                                                    class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body p-0">
+
+                                                <div class="p-4 pb-0">
+                                                    <form>
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label" for="namaThrust">Thrust
+                                                                :</label>
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $thrust->thrust->namaThrust }}</label>
+
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label">National:</label>
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $thrust->national->namaNational }}</label>
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label">Achievement:</label>
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $thrust->achievement }}</label>
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label">Remark:</label>
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $thrust->remark }}</label>
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label">Status:</label>
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $thrust->remark }}</label>
+                                                        </div>
+
+
+
+                                                        <br>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
 
                                 @can('Approver')
                                     <td class="align-middle">

@@ -98,7 +98,7 @@
                                 </div>
 
                             </div>
-                            <div class="col-6">
+                            <div class="row">
 
                                 <div class="col" style="text-align: right">
                                     <button class="btn btn-falcon-default btn-sm"

@@ -86,12 +86,23 @@
                             <label class="form-label" for="keteranganKpi"><b>KPI Information</b></label>
                             <input class="form-control" name="keteranganKpi" value="{{ $kpi2->keteranganKpi }}">
                         </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="baseline"><b>Baseline:</b></label>
+                            <input class="form-control" type="text" name="baseline" value="{{ $kpi2->baseline }}" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="outcome"><b>Outcome:</b></label>
+                            <input class="form-control" type="text" name="outcome" value="{{ $kpi2->outcome }}" />
+                        </div>
                     </div>
                 </div>
 
                 <br>
                 <div class="col" style="text-align: right">
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3" href="/MPB/kpi2">
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
+                        href="/MPB/kpi2">
                         <span class="fas fa-times-circle"></span>&nbsp;Cancel
                     </a>
                     <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"

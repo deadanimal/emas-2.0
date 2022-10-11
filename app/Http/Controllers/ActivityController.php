@@ -52,8 +52,18 @@ class ActivityController extends Controller
         //     $activities = activity::where('user_id', '=', $user_id)->get();
         // }
 
-        $activities = activity::all();
+        if ($request->user()->can('Epu MD')) {
 
+            $activities = activity::with('cluster')->get();
+        } else {
+
+            $user_id = $request->user()->id;
+
+            $activities = activity::where('user_id', '=', $user_id)->get();
+        }
+
+
+        // $activities = activity::with('cluster')->get();
 
         return view('md.activity.approval', compact('activities'));
     }
@@ -66,7 +76,7 @@ class ActivityController extends Controller
         $activities->ditolak = false;
         $activities->save();
 
-        return redirect()->to('approval/cluster');
+        return redirect()->to('MD/approval/cluster');
     }
 
     public function ditolak(Request $request)
@@ -76,7 +86,7 @@ class ActivityController extends Controller
         $activities->ditolak = true;
         $activities->save();
 
-        return redirect()->to('approval/cluster');
+        return redirect()->to('MD/approval/cluster');
     }
 
     public function cluster1(Request $request)
@@ -138,9 +148,9 @@ class ActivityController extends Controller
     public function store(StoreactivityRequest $request)
     {
         // dd($request);
-        $request->validate([
-            'document' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+        // $request->validate([
+        //     'document' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // ]);
 
         $imageName = time() . '.' . $request->document->extension();
 

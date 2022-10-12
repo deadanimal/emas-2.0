@@ -44,6 +44,7 @@
                         <tr>
                             <th scope="col">No.</th>
                             <th scope="col">Program</th>
+                            <th scope="col">Progress %</th>
                             <th scope="col">Action</th>
 
                         </tr>
@@ -63,6 +64,12 @@
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $program->id }}">
                                         <div class="ms-2"><b>{{ $program->namaProgram }}</b></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $program->id }}">
+                                        <div class="ms-2"><b>{{ $program->progress }}</b></div>
                                     </div>
                                 </td>
 

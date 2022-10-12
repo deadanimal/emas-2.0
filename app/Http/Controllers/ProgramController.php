@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProgramRequest;
 use App\Http\Requests\UpdateProgramRequest;
+use App\Models\Cluster;
 use App\Models\Initiative;
 use App\Models\Program;
 use Illuminate\Support\Facades\Auth;
@@ -40,8 +41,9 @@ class ProgramController extends Controller
     {
         $user = Auth::user();
         $initiatives = Initiative::all();
+        $clusters = Cluster::all();
 
-        return view('md.program.create', compact('user', 'initiatives'));
+        return view('md.program.create', compact('user', 'initiatives', 'clusters'));
     }
 
     /**
@@ -76,7 +78,9 @@ class ProgramController extends Controller
     public function edit(Program $program)
     {
         $initiatives = Initiative::all();
-        return view('md.program.edit', compact('initiatives', 'program'));
+        $clusters = Cluster::all();
+
+        return view('md.program.edit', compact('initiatives', 'program', 'clusters'));
     }
 
     /**

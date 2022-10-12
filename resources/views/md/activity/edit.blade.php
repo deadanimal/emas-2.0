@@ -70,7 +70,8 @@
                                     @endforeach
 
                                 </select>
-                            </div>
+                            </div><br>
+                            <hr>
 
                         </div>
 
@@ -170,6 +171,15 @@
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="leadAgency"
                                     value="{{ $activity->leadAgency }}" />
+
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label" for="PIC">PIC</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="PIC"
+                                    value="{{ $activity->PIC }}" />
 
                             </div>
                         </div>

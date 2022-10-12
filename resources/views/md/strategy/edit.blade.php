@@ -15,7 +15,7 @@
                 @method('PUT')
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaStrategy">Strategy Name</label>
+                    <label class="col-sm-2 col-form-label" for="namaStrategy">Strategy</label>
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" type="text" name="namaStrategy"
                             value="{{ $strategy->namaStrategy }}" />
@@ -58,14 +58,13 @@
                 </div>
 
                 <div class="row">
-                    <div class="col">
+
+
+                    <div class="col" style="text-align: right">
                         <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
                             href="/MD/strategy">
                             <span class="fas fa-times-circle"></span>&nbsp;Cancel
                         </a>
-                    </div>
-
-                    <div class="col" style="text-align: right">
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
                             type="submit" value="Save"
                             onclick="return confirm('Are you sure you want to edit this Data?')"><span

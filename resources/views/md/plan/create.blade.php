@@ -50,10 +50,50 @@
                             </div>
                         </div>
 
-                        <div class="mb-3 row">
+                        {{-- <div class="mb-3 row">
                             <label class="col-form-label" for="leadAgency">Lead Agency/Ministry</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="leadAgency" />
+
+                            </div>
+                        </div> --}}
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label" for="progress">Progress Plan</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="progress" />
+
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label" for="cost">Project Cost</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="cost" />
+
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label" for="source">Source Funding</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="source" />
+
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label" for="totalDisbursed">Total Disbursed Amount</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="number" name="totalDisbursed" />
+
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label" for="totalAmount">Total Amount Spending</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="number" name="totalAmount" />
 
                             </div>
                         </div>
@@ -64,14 +104,12 @@
 
 
                         <div class="row">
-                            <div class="col">
+
+                            <div class="col" style="text-align: right">
                                 <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
                                     href="/MD/plan">
                                     <span class="fas fa-times-circle"></span>&nbsp;Cancel
                                 </a>
-                            </div>
-
-                            <div class="col" style="text-align: right">
                                 <button class="btn btn-falcon-default btn-sm"
                                     style="background-color: #047FC3; color:white;" type="submit" value="Save"
                                     onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span

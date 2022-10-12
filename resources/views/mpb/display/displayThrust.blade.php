@@ -29,7 +29,7 @@
                             <th class="align-middle" rowspan=2>Target Mark (%)</th>
                             <th class="align-middle" rowspan=2>Achievement (%)</th>
                             <th class="align-middle" rowspan=2>Remark </th>
-                            <th class="align-middle" rowspan=2>Status </th>
+                            {{-- <th class="align-middle" rowspan=2>Status </th> --}}
 
 
                         </tr>
@@ -79,6 +79,31 @@
                                             <div class="modal-body p-0">
 
                                                 <div class="p-4 pb-0">
+
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">User
+                                                            :</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $thrust->user->name }}</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $thrust->user->email }}</label>
+
+
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Status:</label>
+                                                        @if ($thrust->lulus == 1 && $thrust->ditolak == 0)
+                                                            <span class="badge bg-success" disabled>Approved</span>
+                                                        @elseif ($thrust->lulus == 0 && $thrust->ditolak == 1)
+                                                            <span class="badge bg-danger" disabled>Rejected</span>
+                                                        @else
+                                                            <span class="badge bg-info text-dark" disabled>In
+                                                                Progress</span>
+                                                        @endif
+                                                    </div>
+
+
                                                     <form>
                                                         <div class="mb-3">
                                                             <label class="col-form-label" for="namaThrust">Thrust
@@ -116,6 +141,35 @@
 
                                                         <br>
                                                     </form>
+
+                                                    @can('Approver')
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label">Action:</label>
+                                                            @if ($thrust->lulus == 1 && $thrust->ditolak == 0)
+                                                                <span class="btn btn-primary" disabled>Approved</span>
+                                                            @elseif ($thrust->lulus == 0 && $thrust->ditolak == 1)
+                                                                <span class="btn btn-danger" disabled>Rejected</span>
+                                                            @else
+                                                                <div style="text-align: right">
+                                                                    <form action="/MPB/thrust/lulus/{{ $thrust->id }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                        @method('POST')
+                                                                        <button type="submit"
+                                                                            class="btn btn-success">Approve</button>
+                                                                    </form>
+
+                                                                    <form action="/MPB/thrust/ditolak/{{ $thrust->id }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                        @method('POST')
+                                                                        <button type="submit"
+                                                                            class="btn btn-danger">Reject</button>
+                                                                    </form>
+                                                                </div>
+                                                            @endif
+                                                        </div>
+                                                    @endcan
                                                 </div>
                                             </div>
 
@@ -123,7 +177,7 @@
                                     </div>
                                 </div>
 
-                                @can('Approver')
+                                {{-- @can('Approver')
                                     <td class="align-middle">
                                         <div class="col-auto ms-auto">
                                             @if ($thrust->lulus == 1 && $thrust->ditolak == 0)
@@ -156,7 +210,7 @@
                                             @endif
                                         </div>
                                     </td>
-                                @endcan
+                                @endcan --}}
 
 
                             </tr>

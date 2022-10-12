@@ -28,7 +28,7 @@
 
                         <div class="mb-3 row">
 
-                            <label class="col-form-label" for="initiative_id">Initiative</label>
+                            <label class="col-form-label" for="initiative_id">Initiative Code</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="initiative_id">
                                     <option selected disabled hidden>PLEASE CHOOSE</option>
@@ -71,7 +71,9 @@
 
                                 </select>
                             </div>
-                        </div>
+                        </div><br>
+
+                        <hr>
 
                         <div class="mb-3 row">
                             <label class="col-form-label" for="namaActivity">Activity Name</label>
@@ -95,6 +97,18 @@
                             <div class="col-sm-10">
                                 <input class="form-control" type="date" name="endDate" />
 
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label" for="unit">Unit</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="noBab">
+                                    <option selected disabled hidden>PLEASE CHOOSE</option>
+                                    <option value="%">%</option>
+                                    <option value="Number">Number</option>
+
+                                </select>
                             </div>
                         </div>
 
@@ -170,6 +184,14 @@
                             </div>
                         </div>
 
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label" for="PIC">PIC</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="PIC" />
+
+                            </div>
+                        </div>
 
 
                         <br>

@@ -12,7 +12,7 @@
 
                     <span><b>List of Cluster</b></span>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/cluster/create">
+                        href="/MD/cluster/create">
                         <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">

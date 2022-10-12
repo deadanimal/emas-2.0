@@ -156,14 +156,12 @@
 
 
                 <div class="row">
-                    <div class="col">
+
+                    <div class="col" style="text-align: right">
                         <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
                             href="/MD/initiative">
                             <span class="fas fa-times-circle"></span>&nbsp;Cancel
                         </a>
-                    </div>
-
-                    <div class="col" style="text-align: right">
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
                             type="submit" value="Save"
                             onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span

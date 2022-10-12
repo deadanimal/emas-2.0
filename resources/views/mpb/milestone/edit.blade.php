@@ -11,75 +11,113 @@
                 @method('PUT')
 
                 <div class="row justify-content-center">
+
+                    <div class="row mb-3">
+                        <label class="col-form-label" for="thrust_id">Thrust</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="thrust_id">
+                                @foreach ($thrust as $thrust)
+                                    <option @selected($milestone->thrust_id == $thrust->id) value="{{ $thrust->id }}">
+                                        {{ $thrust->namaThrust }}
+                                    </option>
+                                @endforeach
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-form-label" for="national_id">National Initiative</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="national_id">
+                                @foreach ($nation as $nation)
+                                    <option @selected($milestone->national_id == $nation->id) value="{{ $nation->id }}">
+                                        {{ $nation->namaNational }}
+                                    </option>
+                                @endforeach
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-form-label" for="key_id">Key Activity</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="key_id">
+                                @foreach ($key as $key)
+                                    <option @selected($milestone->key_id == $key->id) value="{{ $key->id }}">{{ $key->namaKey }}
+                                    </option>
+                                @endforeach
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-form-label" for="sub_id">Sub-Key Activity</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="sub_id">
+                                @foreach ($sub as $sub)
+                                    <option @selected($milestone->sub_id == $sub->id) value="{{ $sub->id }}">{{ $sub->namaSub }}
+                                    </option>
+                                @endforeach
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-form-label" for="kpi_id">KPI</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="kpi_id">
+                                @foreach ($kpi as $kpi)
+                                    <option @selected($milestone->kpi_id == $kpi->id) value="{{ $kpi->id }}">
+                                        {{ $kpi->namaKpi }}
+                                    </option>
+                                @endforeach
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-form-label" for="base_id">Baseline</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="base_id">
+                                {{-- @foreach ($kpi as $kpi)
+                                    <option @selected($milestone->base_id == $kpi->id) value="{{ $kpi->id }}">
+                                        {{ $kpi->namaKpi }}
+                                    </option>
+                                @endforeach --}}
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-form-label" for="outcome_id">Outcome</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="outcome_id">
+                                {{-- @foreach ($kpi as $kpi)
+                                    <option @selected($milestone->outcome_id == $kpi->id) value="{{ $kpi->id }}">
+                                        {{ $kpi->namaKpi }}
+                                    </option>
+                                @endforeach --}}
+
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="col-lg-6">
-
                         <div class="row mb-3">
-                            <label class="col-form-label" for="thrust_id">Thrust</label>
+                            <label class="col-form-label" for="namaMilestone">Milestone</label>
                             <div class="col-sm-10">
-                                <select class="form-control" name="thrust_id">
-                                    @foreach ($thrust as $thrust)
-                                        <option @selected($milestone->thrust_id == $thrust->id) value="{{ $thrust->id }}">
-                                            {{ $thrust->namaThrust }}
-                                        </option>
-                                    @endforeach
+                                <input class="form-control" type="text" name="namaMilestone"
+                                    value="{{ $milestone->namaMilestone }}" />
 
-                                </select>
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label class="col-form-label" for="national_id">National Initiative</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" name="national_id">
-                                    @foreach ($nation as $nation)
-                                        <option @selected($milestone->national_id == $nation->id) value="{{ $nation->id }}">
-                                            {{ $nation->namaNational }}
-                                        </option>
-                                    @endforeach
-
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label class="col-form-label" for="key_id">Key Activity</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" name="key_id">
-                                    @foreach ($key as $key)
-                                        <option @selected($milestone->key_id == $key->id) value="{{ $key->id }}">{{ $key->namaKey }}
-                                        </option>
-                                    @endforeach
-
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label class="col-form-label" for="sub_id">Sub-Key Activity</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" name="sub_id">
-                                    @foreach ($sub as $sub)
-                                        <option @selected($milestone->sub_id == $sub->id) value="{{ $sub->id }}">{{ $sub->namaSub }}
-                                        </option>
-                                    @endforeach
-
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label class="col-form-label" for="kpi_id">KPI</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" name="kpi_id">
-                                    @foreach ($kpi as $kpi)
-                                        <option @selected($milestone->kpi_id == $kpi->id) value="{{ $kpi->id }}">
-                                            {{ $kpi->namaKpi }}
-                                        </option>
-                                    @endforeach
-
-                                </select>
-                            </div>
-                        </div>
 
                         <div class="row mb-3">
                             <label class="col-form-label" for="year">Year</label>
@@ -98,51 +136,46 @@
                             </div>
                         </div>
 
-
                         <div class="row mb-3">
-                            <label class="col-form-label" for="namaMilestone">Milestone</label>
+                            <label class="col-form-label" for="target">Target</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" name="namaMilestone"
-                                    value="{{ $milestone->namaMilestone }}" />
+                                <input class="form-control target" type="number" name="target"
+                                    value="{{ $milestone->target }}" />
 
                             </div>
                         </div>
+
+
 
                         <div class="row mb-3">
                             <label class="col-form-label" for="actual_mark">Actual</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" name="actual_mark"
-                                    value="{{ $milestone->actual_mark }}" readonly />
+                                <input class="form-control target" type="number" name="actual_mark"
+                                    value="{{ $milestone->actual_mark }}" />
 
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label class="col-form-label" for="target">Target</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="text" name="target" value="{{ $milestone->target }}"
-                                    readonly />
-
-                            </div>
-                        </div>
-
-                        {{-- <div class="row mb-3">
-                            <label class="col-form-label" for="achievement">Achievement (%)</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="text" name="achievement"
-                                    value="{{ $milestone->achievement }}" />
-
-                            </div>
-                        </div> --}}
 
                         <div class="col-lg-10">
                             <label class="col-form-label" for="achievement">Achievement</label>
                             <div class="input-group">
-                                <span class="input-group-text" id="rm2">%</span>
+                                {{-- <span class="input-group-text" id="rm2">%</span> --}}
                                 <input class="form-control" type="number" aria-describedby="rm2"
-                                    value="{{ $milestone->achievement }}">
+                                    value="{{ $milestone->achievement }}" id="mySelect" readonly>
+                            </div>
+                        </div><br>
+
+
+                        <div class="col-lg-10">
+                            <label class="col-form-label" id="prestasi1">Result</label>
+                            <div>
+
+                                <div id="prestasi"></div>
+
                             </div>
                         </div>
+
 
                         <br><br>
 
@@ -175,6 +208,7 @@
     <script>
         $(".target").keyup(function() {
 
+
             var checkAllInputFilled = true;
             jQuery.each($(".target"), function(key, val) {
                 if (val.value == '') {
@@ -194,7 +228,9 @@
 
             }
 
-            function myFunction() {
+            $('#mySelect').change(function() {
+
+                // console.log('check');
 
                 var x = document.getElementById("mySelect").value;
                 x = x.substring(0, x.length - 1)
@@ -219,9 +255,9 @@
 
                 }
 
-                prestasiShown.style.color = prestasiColor;
+                // prestasiShown.style.color = prestasiColor;
 
-            }
+            });
 
 
         });

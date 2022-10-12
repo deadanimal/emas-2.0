@@ -31,6 +31,8 @@
                         <tr>
                             <th scope="col">No.</th>
                             <th scope="col">Plan</th>
+                            <th scope="col">Progress Plan %</th>
+
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -49,6 +51,12 @@
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $plan->id }}">
                                         <div class="ms-2"><b>{{ $plan->namaPlan }}</b></div>
+                                    </div>
+                                </td>
+                                <td class="text-nowrap">
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $plan->id }}">
+                                        <div class="ms-2"><b>{{ $plan->progress }}</b></div>
                                     </div>
                                 </td>
 

@@ -17,12 +17,26 @@
                     <div class="col-lg-6">
 
                         <div class="mb-3 row">
-                            <label class="col-form-label" for="intiative_id">Initiative</label>
+                            <label class="col-form-label" for="intiative_id">Initiative Code</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="intiative_id">
                                     @foreach ($initiatives as $initiative)
                                         <option @selected($program->intiative_id == $initiative->id) value="{{ $initiative->id }}">
                                             {{ $initiative->code }} - {{ $initiative->namaInitiative }}
+                                        </option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label" for="cluster_id">Cluster</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="cluster_id">
+                                    @foreach ($cluster as $cluster)
+                                        <option @selected($program->cluster_id == $cluster->id) value="{{ $cluster->id }}">
+                                            {{ $cluster->code }} - {{ $cluster->namaCluster }}
                                         </option>
                                     @endforeach
 
@@ -66,7 +80,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-3 row">
+                        {{-- <div class="mb-3 row">
                             <label class="col-form-label" for="progress">Progress Plan</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="progress"
@@ -107,19 +121,19 @@
                                     value="{{ $program->totalAmount }}" />
 
                             </div>
-                        </div>
+                        </div> --}}
 
                         <br><br>
 
                         <div class="row">
-                            <div class="col">
+
+
+                            <div class="col" style="text-align: right">
                                 <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
                                     href="/MD/program">
                                     <span class="fas fa-times-circle"></span>&nbsp;Cancel
                                 </a>
-                            </div>
 
-                            <div class="col" style="text-align: right">
                                 <button class="btn btn-falcon-default btn-sm"
                                     style="background-color: #047FC3; color:white;" type="submit" value="Save"
                                     onclick="return confirm('Are you sure you want to edit this Data?')"><span

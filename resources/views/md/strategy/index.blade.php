@@ -89,8 +89,8 @@
                                                 <div class="p-4 pb-0">
                                                     <form>
                                                         <div class="mb-3">
-                                                            <label class="col-form-label" for="namaStrategy">Strategy
-                                                                Name:</label>
+                                                            <label class="col-form-label"
+                                                                for="namaStrategy">Strategy:</label>
                                                             <label class="form-control"
                                                                 disabled="disabled">{{ $strategy->namaStrategy }}</label>
 
@@ -215,7 +215,7 @@
                                             <div class="p-4 pb-0">
                                                 <form>
                                                     <div class="mb-3">
-                                                        <label class="col-form-label">Strategy Name:</label>
+                                                        <label class="col-form-label">Strategy:</label>
                                                         <label class="form-control"
                                                             disabled="disabled">` + e.namaStrategy + `</label>
 

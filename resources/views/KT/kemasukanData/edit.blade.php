@@ -32,12 +32,12 @@
 
                         <input type="hidden" name="current_bahagian" value="2" />
                         <div class="col-lg-12">
-                            <label class="form-label" for="nama">Nama</label>
+                            <label class="form-label" for="nama">Nama*</label>
                             <input class="form-control" id="nama" name="nama" type="text"
                                 value="{{ $profil->nama }}">
                         </div>
                         <div class="col-lg-12">
-                            <label class="form-label" for="no_kad_pengenalan">No Kad Pengenalan</label>
+                            <label class="form-label" for="no_kad_pengenalan">No Kad Pengenalan*</label>
                             <input type="number" class="form-control" id="no_kad_pengenalan" name="no_kad_pengenalan"
                                 value="{{ $profil->no_kad_pengenalan }}">
                         </div>

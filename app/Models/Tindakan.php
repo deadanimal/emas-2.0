@@ -58,6 +58,11 @@ class Tindakan extends Model implements Auditable
         return $this->belongsTo(Inisiatif::class, 'inisiatif_id');
     }
 
+    public function strategi()
+    {
+        return $this->belongsTo(Strategi::class, 'strategi_id');
+    }
+
     public function perkara()
     {
         return $this->belongsTo(Perkarautama::class, 'perkara_id');

@@ -101,14 +101,14 @@ class KemasukanDataController extends Controller
         $request->validate([
             'nama' => 'required',
             'no_kad_pengenalan' => 'required|min:12|max:12',
-            'jumlah_kasar_isi_rumah_sebulan' => 'required',
-            'jumlah_pendapatan_per_kapita' => 'required',
-            'kategori' => 'required',
-            'jumlah_isi_rumah' => 'required',
-            'status_miskin' => 'required',
-            'status_terkeluar' => 'required',
-            'strata' => 'required',
-            'poskod' => 'required|min:5|max:5',
+            // 'jumlah_kasar_isi_rumah_sebulan' => 'required',
+            // 'jumlah_pendapatan_per_kapita' => 'required',
+            // 'kategori' => 'required',
+            // 'jumlah_isi_rumah' => 'required',
+            // 'status_miskin' => 'required',
+            // 'status_terkeluar' => 'required',
+            // 'strata' => 'required',
+            // 'poskod' => 'required|min:5|max:5',
         ], $messages);
         $negeri = Negeri::findorFail($request->negeri_id);
         $daerah = Daerah::findorFail($request->daerah_id);
@@ -123,7 +123,7 @@ class KemasukanDataController extends Controller
     public function simpanBahagian2(Request $request)
     {
         $request->validate([
-            'tahun_kelahiran' => 'required',
+            // 'tahun_kelahiran' => 'required',
             'tarikh_lahir' => 'required',
             'umur' => 'required',
             'jantina' => 'required',
@@ -275,6 +275,50 @@ class KemasukanDataController extends Controller
         return view('KT.kemasukanData.edit', compact('profil', 'negeri', 'daerah'));
     }
 
+    public function edit1($id)
+    {
+        $profil = Profil::find($id);
+
+        $negeri = Negeri::all();
+        $daerah = Daerah::all();
+
+        // dd($profil->id);
+        return view('KT.kemasukanData.edit1', compact('profil', 'negeri', 'daerah'));
+    }
+
+    public function edit2($id)
+    {
+        $profil = Profil::find($id);
+
+        $negeri = Negeri::all();
+        $daerah = Daerah::all();
+
+        // dd($profil->id);
+        return view('KT.kemasukanData.edit2', compact('profil', 'negeri', 'daerah'));
+    }
+
+    public function edit3($id)
+    {
+        $profil = Profil::find($id);
+
+        $negeri = Negeri::all();
+        $daerah = Daerah::all();
+
+        // dd($profil->id);
+        return view('KT.kemasukanData.edit3', compact('profil', 'negeri', 'daerah'));
+    }
+
+    public function edit4($id)
+    {
+        $profil = Profil::find($id);
+
+        $negeri = Negeri::all();
+        $daerah = Daerah::all();
+
+        // dd($profil->id);
+        return view('KT.kemasukanData.edit4', compact('profil', 'negeri', 'daerah'));
+    }
+
 
     public function update(Request $request, $id)
     {
@@ -300,7 +344,73 @@ class KemasukanDataController extends Controller
 
         $profil->save();
 
-        return redirect('/kemasukanData/index');
+        return redirect('/KT/kemasukanData/index');
+    }
+
+    public function update1(Request $request, $id)
+    {
+
+        $profil = Profil::find($id);
+
+        $profil->user_id = Auth::user()->id;
+        $profil->tarikh_lahir = $request->tarikh_lahir;
+        $profil->umur = $request->umur;
+        $profil->jantina = $request->jantina;
+        $profil->kumpulan_etnik = $request->kumpulan_etnik;
+        $profil->kewarganegaraan = $request->kewarganegaraan;
+        $profil->agama = $request->agama;
+        $profil->status_perkahwinan = $request->status_perkahwinan;
+        $profil->taraf_pendidikan = $request->taraf_pendidikan;
+        $profil->kemahiran_yang_dimiliki = $request->kemahiran_yang_dimiliki;
+        $profil->status_pekerjaan_utama = $request->status_pekerjaan_utama;
+
+        $profil->save();
+
+        return redirect('/KT/kemasukanData/index');
+    }
+
+    public function update2(Request $request, $id)
+    {
+
+        $profil = Profil::find($id);
+
+        $profil->user_id = Auth::user()->id;
+        $profil->pendapatan_harta = $request->pendapatan_harta;
+        $profil->kiriman_isi_rumah = $request->kiriman_isi_rumah;
+        $profil->nafkah = $request->nafkah;
+        $profil->biasiswa = $request->biasiswa;
+        $profil->pencen = $request->pencen;
+        $profil->hadiah = $request->hadiah;
+        $profil->pembayaran = $request->pembayaran;
+        $profil->jumlah_bantuan = $request->jumlah_bantuan;
+        $profil->jumlah_impak_bantuan = $request->jumlah_impak_bantuan;
+        $profil->jumlah_pendapatan_kasar = $request->jumlah_pendapatan_kasar;
+
+        $profil->save();
+
+        return redirect('/KT/kemasukanData/index');
+    }
+
+    public function update3(Request $request, $id)
+    {
+
+
+
+        $profil = Profil::find($id);
+
+        $profil->save();
+
+        return redirect('/KT/kemasukanData/index');
+    }
+
+    public function update4(Request $request, $id)
+    {
+
+        $profil = Profil::find($id);
+
+        $profil->save();
+
+        return redirect('/KT/kemasukanData/index');
     }
 
     public function destroy($id)

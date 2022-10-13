@@ -26,12 +26,12 @@
                         <input type="hidden" name="user_id" value="{{ auth()->id() }}" />
                         <input type="hidden" name="current_bahagian" value="2" />
                         <div class="col-lg-12">
-                            <label class="form-label" for="nama">Nama</label>
+                            <label class="form-label" for="nama">Nama*</label>
                             <input class="form-control" id="nama" name="nama" type="text"
                                 style="text-transform: uppercase">
                         </div>
                         <div class="col-lg-12">
-                            <label class="form-label" for="no_kad_pengenalan">No Kad Pengenalan</label>
+                            <label class="form-label" for="no_kad_pengenalan">No Kad Pengenalan*</label>
                             <input type="number" class="form-control" id="no_kad_pengenalan" name="no_kad_pengenalan">
                         </div>
                         <div class="col-lg-6">
@@ -144,7 +144,7 @@
                             <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
                                 type="submit" value="Save"
                                 onclick="return confirm('Adakah anda mahu mengubah data ini?')"><span
-                                    class="fas fa-save"></span>&nbsp;Simpan
+                                    class="fas fa-save"></span>&nbsp;Seterusnya
                             </button>
 
                         </div>

@@ -1,10 +1,8 @@
 @extends('base-kt')
 @section('content')
-
-
     <div class="container">
         <div class="mb-4 text-center">
-            <H2>KEMASUKAN DATA</H2>
+            <H2>KEMASKINI DATA</H2>
         </div>
 
         <div class="col">
@@ -17,16 +15,16 @@
 
         <hr style="width:100%;text-align:center;">
 
-
-
         <x-errors-component :errors="$errors->any() ? $errors->all() : null" />
 
-
         <div class="card mb-3">
-
             <div class="card-body bg-light">
-                <form method="POST" action="/KT/kemasukanData-bahagian2">
+
+
+                <form action="/KT/kemasukanData/{{ $profil->id }}" method="POST">
                     @csrf
+                    @method('PUT')
+
                     <div class="row g-3">
                         @isset($profil)
                             <input type="hidden" name="profil_id" value="{{ $profil->id }}">
@@ -50,15 +48,11 @@
                             @endif
                         @endisset
                         <input type="hidden" name="current_bahagian" value="3">
-                        {{-- <div class="col-lg-6">
-                            <label class="form-label" for="tahun_kelahiran">Tahun Kelahiran</label>
-                            <input class="form-control" name="tahun_kelahiran" type="number" />
-                        </div> --}}
                         <div class="col-lg-6">
                             <label class="form-label" for="tarikh_lahir">Tarikh Lahir</label>
                             {{-- <input class="form-control" name="tarikh_lahir" type="date" /> --}}
                             <input class="form-control" type="date" name="tarikh_lahir" id='birthday'
-                                onchange="ageCount()">
+                                onchange="ageCount()" value="{{ $profil->tarikh_lahir }}">
 
                         </div>
 
@@ -66,121 +60,125 @@
 
                         <div class="col-lg-6">
                             <label class="form-label" for="umur">Umur</label>
-                            <p id="demo"></p>
-                            <input class="form-control" name="umur" id="umur_" value="" readonly />
+                            <p id="demo" name="umur"></p>
+                            {{-- <input class="form-control" name="umur" id="demo" readonly /> --}}
 
 
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="jantina">Jantina</label>
-                            <select class="form-control" name="jantina">
-                                <option selected disabled hidden>SILA PILIH</option>
-                                <option value="Lelaki">Lelaki</option>
-                                <option value="Perempuan">Perempuan</option>
-
-                            </select>
+                            <input class="form-control"name="jantina" type="text" value="{{ $profil->jantina }}">
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="kumpulan_etnik">Kumpulan Etnik</label>
+
                             <select class="form-control" name="kumpulan_etnik">
-                                <option selected disabled hidden>SILA PILIH</option>
-                                <option value="Melayu">Melayu</option>
-                                <option value="Cina">Cina</option>
-                                <option value="India">India</option>
-                                <option value="Orang Asli">Orang Asli</option>
-                                <option value="Lain lain">Lain lain</option>
+                                <option @selected($profil->kumpulan_etnik == 'Melayu') value="Melayu">Melayu</option>
+                                <option @selected($profil->kumpulan_etnik == 'Cina') value="Cina">Cina</option>
+                                <option @selected($profil->kumpulan_etnik == 'India') value="India">India</option>
+                                <option @selected($profil->kumpulan_etnik == 'Orang Asli') value="Orang Asli">Orang Asli</option>
+                                <option @selected($profil->kumpulan_etnik == 'Lain lain') value="Lain lain">Lain lain</option>
+
                             </select>
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="kewarganegaraan">Kewarganegaraan</label>
                             <select class="form-control" name="kewarganegaraan">
-                                <option selected disabled hidden>SILA PILIH</option>
-                                <option value="Malaysia">Malaysia</option>
-                                <option value="Lain-lain">Lain-lain</option>
+                                <option @selected($profil->kewarganegaraan == 'Malaysia') value="Malaysia">Malaysia</option>
+                                <option @selected($profil->kewarganegaraan == 'Lain lain') value="Lain lain">Lain lain</option>
 
                             </select>
+
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="agama">Agama</label>
                             <select class="form-control" name="agama">
-                                <option selected disabled hidden>SILA PILIH</option>
-                                <option value="Islam">Islam</option>
-                                <option value="Kristian">Kristian</option>
-                                <option value="Buddha">Buddha</option>
-                                <option value="Hindu">Hindu</option>
-                                <option value="Lain lain">Lain lain</option>
+                                <option @selected($profil->agama == 'Islam') value="Islam">Islam</option>
+                                <option @selected($profil->agama == 'Kristian') value="Kristian">Kristian</option>
+                                <option @selected($profil->agama == 'Buddha') value="Buddha">Buddha</option>
+                                <option @selected($profil->agama == 'Hindu') value="Hindu">Hindu</option>
+                                <option @selected($profil->agama == 'Lain lain') value="Lain lain">Lain lain</option>
+
                             </select>
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="status_perkahwinan">Status Perkahwinan</label>
                             <select class="form-control" name="status_perkahwinan">
-                                <option selected disabled hidden>SILA PILIH</option>
-                                <option value="Belum Pernah Berkahwin">Belum Pernah Berkahwin</option>
-                                <option value="Berkahwin">Berkahwin</option>
-                                <option value="Balu/ Duda">Balu/ Duda</option>
-                                <option value="Bercerai/ Berpisah">Bercerai/ Berpisah</option>
-                                <option value="Ditinggalkan">Ditinggalkan</option>
+                                <option @selected($profil->status_perkahwinan == 'Belum Pernah Berkahwin') value="Belum Pernah Berkahwin">Belum Pernah Berkahwin
+                                </option>
+                                <option @selected($profil->status_perkahwinan == 'Berkahwin') value="Berkahwin">Berkahwin</option>
+                                <option @selected($profil->status_perkahwinan == 'Balu/ Duda') value="Balu/ Duda">Balu/ Duda</option>
+                                <option @selected($profil->status_perkahwinan == 'Bercerai/ Berpisah') value="Bercerai/ Berpisah">Bercerai/ Berpisah</option>
+                                <option @selected($profil->status_perkahwinan == 'Ditinggalkan') value="Ditinggalkan">Ditinggalkan</option>
+
                             </select>
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="taraf_pendidikan">Taraf Pendidikan Tertinggi</label>
                             <select class="form-control" name="taraf_pendidikan">
-                                <option selected disabled hidden>SILA PILIH</option>
-                                <option value="Pra Sekolah">Pra Sekolah</option>
-                                <option value="Sekolah Rendah (Darjah/Tahun 1 hingga 6)">Sekolah Rendah (Darjah/Tahun 1
-                                    hingga 6)</option>
-                                <option value="Menengah Rendah">Menengah Rendah</option>
-                                <option value="Menengah Atas">Menengah Atas</option>
-                                <option value="Vokasional/ Teknik">Vokasional/ Teknik</option>
-                                <option value="Inst. Kemahiran/ Perdagangan">Inst. Kemahiran/ Perdagangan</option>
-                                <option value="Lepasan Menengah">Lepasan Menengah</option>
-                                <option value="Lepasan Politeknik/ Maktab/ Kolej/ Universiti">Lepasan Politeknik/ Maktab/
-                                    Kolej/ Universiti</option>
-                                <option value="Tiada Pendidikan">Tiada Pendidikan</option>
-                                <option value="Lain-lain">Lain-lain</option>
+                                <option @selected($profil->taraf_pendidikan == 'Pra Sekolah') value="Pra Sekolah">Pra Sekolah</option>
+                                <option @selected($profil->taraf_pendidikan == 'Sekolah Rendah (Darjah/Tahun 1 hingga 6)') value="Sekolah Rendah (Darjah/Tahun 1 hingga 6)">
+                                    Sekolah Rendah (Darjah/Tahun 1 hingga 6)</option>
+                                <option @selected($profil->taraf_pendidikan == 'Menengah Rendah') value="Menengah Rendah">Menengah Rendah</option>
+                                <option @selected($profil->taraf_pendidikan == 'Menengah Atas') value="Menengah Atas">Menengah Atas</option>
+                                <option @selected($profil->taraf_pendidikan == 'Vokasional/ Teknik') value="Vokasional/ Teknik">Vokasional/ Teknik
+                                </option>
+                                <option @selected($profil->taraf_pendidikan == 'Inst. Kemahiran/ Perdagangan') value="Inst. Kemahiran/ Perdagangan">Inst. Kemahiran/
+                                    Perdagangan</option>
+                                <option @selected($profil->taraf_pendidikan == 'Lepasan Menengah') value="Lepasan Menengah">Lepasan Menengah</option>
+                                <option @selected($profil->taraf_pendidikan == 'Tiada Pendidikan') value="Tiada Pendidikan">Tiada Pendidikan</option>
+                                <option @selected($profil->taraf_pendidikan == 'Lain lain') value="Lain lain">Lain lain</option>
 
                             </select>
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="kemahiran_yang_dimiliki">Kemahiran Yang Dimiliki</label>
                             <select class="form-control" name="kemahiran_yang_dimiliki">
-                                <option selected disabled hidden>SILA PILIH</option>
-                                <option value="Mekanik">Mekanik</option>
-                                <option value="Automotif/Elektronik">Automotif/Elektronik</option>
-                                <option value="Pertukangan rumah">Pertukangan rumah</option>
-                                <option value="Pertukangan perabot">Pertukangan perabot</option>
-                                <option value="Pertukangan paip">Pertukangan paip</option>
-                                <option value="Membancuh simen">Membancuh simen</option>
-                                <option value="Membuat batu-bata">Membuat batu-bata</option>
-                                <option value="Kraftangan">Kraftangan</option>
-                                <option value="Menjahit">Menjahit</option>
-                                <option value="Andaman">Andaman</option>
-                                <option value="Memasak">Memasak</option>
-                                <option value="Kimpalan">Kimpalan</option>
-                                <option value="Ternakan">Ternakan</option>
-                                <option value="Perikanan">Perikanan</option>
-                                <option value="Pertanian">Pertanian</option>
-                                <option value="Lain-lain">Lain-lain</option>
-                                <option value="Tiada kemahiran">Tiada kemahiran</option>
+                                <option @selected($profil->agama == 'Mekanik') value="Mekanik">Mekanik</option>
+                                <option @selected($profil->agama == 'Automotif/Elektronik') value="Automotif/Elektronik">Automotif/Elektronik
+                                </option>
+                                <option @selected($profil->agama == 'Pertukangan rumah') value="Pertukangan rumah">Pertukangan rumah</option>
+                                <option @selected($profil->agama == 'Pertukangan perabot') value="Pertukangan perabot">Pertukangan perabot
+                                </option>
+                                <option @selected($profil->agama == 'Pertukangan paip') value="Pertukangan paip">Pertukangan paip</option>
+                                <option @selected($profil->agama == 'Membancuh simen') value="Membancuh simen">Membancuh simen</option>
+                                <option @selected($profil->agama == 'Membuat batu-bata') value="Membuat batu-bata">Membuat batu-bata</option>
+                                <option @selected($profil->agama == 'Kraftangan') value="Kraftangan">Kraftangan</option>
+                                <option @selected($profil->agama == 'Menjahit') value="Menjahit">Menjahit</option>
+                                <option @selected($profil->agama == 'Andaman') value="Andaman">Andaman</option>
+                                <option @selected($profil->agama == 'Memasak') value="Memasak">Memasak</option>
+                                <option @selected($profil->agama == 'Kimpalan') value="Kimpalan">Kimpalan</option>
+                                <option @selected($profil->agama == 'Ternakan') value="Ternakan">Ternakan</option>
+                                <option @selected($profil->agama == 'Perikanan') value="Perikanan">Perikanan</option>
+                                <option @selected($profil->agama == 'Pertanian') value="Pertanian">Pertanian</option>
+                                <option @selected($profil->agama == 'Lain lain') value="Lain lain">Lain lain</option>
+                                <option @selected($profil->agama == 'Tiada kemahiran') value="Tiada kemahiran">Tiada kemahiran</option>
+
                             </select>
+
+
                         </div>
 
 
                         <div class="col-lg-6">
                             <label class="form-label" for="status_pekerjaan_utama">Status Perkerjaan Utama</label>
                             <select class="form-control" name="status_pekerjaan_utama">
-                                <option selected disabled hidden>SILA PILIH</option>
-                                <option value="01- Bekerja Sendiri">01- Bekerja Sendiri</option>
-                                <option value="02- Pekerja Bergaji Kerajaan">02- Pekerja Bergaji Kerajaan</option>
-                                <option value="03- Pekerja Bergaji Swasta">03- Pekerja Bergaji Swasta</option>
-                                <option value="04- Suri Rumah">04- Suri Rumah</option>
-                                <option value="05- Pesara Kerajaan">05- Pesara Kerajaan</option>
-                                <option value="06- Pesara Swasta">06- Pesara Swasta</option>
-                                <option value="07- Pelajar">07- Pelajar</option>
-                                <option value="08- Masih Muda (6 tahun ke bawah)">08- Masih Muda (6 tahun ke bawah)
+                                <option @selected($profil->status_pekerjaan_utama == '01- Bekerja Sendiri') value="01- Bekerja Sendiri">01- Bekerja Sendiri
                                 </option>
-                                <option value="09- Lain-lain">09- Lain-lain</option>
-                                <option value="10- Tiada Pekerjaan">10- Tiada Pekerjaan</option>
+                                <option @selected($profil->status_pekerjaan_utama == '02- Pekerja Bergaji Kerajaan') value="02- Pekerja Bergaji Kerajaan">02- Pekerja
+                                    Bergaji Kerajaan</option>
+                                <option @selected($profil->status_pekerjaan_utama == '03- Pekerja Bergaji Swasta') value="03- Pekerja Bergaji Swasta">03- Pekerja
+                                    Bergaji Swasta</option>
+                                <option @selected($profil->status_pekerjaan_utama == '04- Suri Rumah') value="04- Suri Rumah">04- Suri Rumah</option>
+                                <option @selected($profil->status_pekerjaan_utama == '05- Pesara Kerajaan') value="05- Pesara Kerajaan">05- Pesara Kerajaan
+                                </option>
+                                <option @selected($profil->status_pekerjaan_utama == '06- Pesara Swasta') value="06- Pesara Swasta">06- Pesara Swasta</option>
+                                <option @selected($profil->status_pekerjaan_utama == '07- Pelajar') value="07- Pelajar">07- Pelajar</option>
+                                <option @selected($profil->status_pekerjaan_utama == '08- Masih Muda (6 tahun ke bawah)') value="08- Masih Muda (6 tahun ke bawah)">08- Masih
+                                    Muda (6 tahun ke bawah)</option>
+                                <option @selected($profil->status_pekerjaan_utama == '09- Lain-lain') value="09- Lain-lain">09- Lain-lain</option>
+                                <option @selected($profil->status_pekerjaan_utama == '10- Tiada Pekerjaan') value="10- Tiada Pekerjaan">10- Tiada Pekerjaan
+                                </option>
 
                             </select>
                         </div>
@@ -317,11 +315,14 @@
 
                         </div>
                     </div>
+
+
                 </form>
+
+
             </div>
         </div>
     </div>
-
 
     <script>
         $('input.number').keyup(function() {
@@ -349,7 +350,6 @@
             var ageM = Math.abs(currentM - prevM); //converting any negative value to positive
 
             document.getElementById('demo').innerHTML = ageY + ' Tahun ' + ageM + ' Bulan';
-            document.getElementById('umur_').value = ageY + ' Tahun ' + ageM + ' Bulan';
         }
     </script>
 @endsection

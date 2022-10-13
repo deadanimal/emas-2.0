@@ -224,7 +224,21 @@ Route::group(
 
         Route::get('/kemasukanData/index', [KemasukanDataController::class, 'index']);
         Route::get('/kemasukanData/{id}/edit/', [KemasukanDataController::class, 'edit']);
+        Route::get('/kemasukanData/{id}/bahagian_2/', [KemasukanDataController::class, 'edit1']);
+        Route::get('/kemasukanData/{id}/bahagian_3/', [KemasukanDataController::class, 'edit2']);
+        Route::get('/kemasukanData/{id}/bahagian_4/', [KemasukanDataController::class, 'edit3']);
+        Route::get('/kemasukanData/{id}/bahagian_5/', [KemasukanDataController::class, 'edit4']);
+
+
+
         Route::put('/kemasukanData/{id}', [KemasukanDataController::class, 'update']);
+        Route::put('/kemasukanData/{id}', [KemasukanDataController::class, 'update1']);
+        Route::put('/kemasukanData/{id}', [KemasukanDataController::class, 'update2']);
+        Route::put('/kemasukanData/{id}', [KemasukanDataController::class, 'update3']);
+        Route::put('/kemasukanData/{id}', [KemasukanDataController::class, 'update4']);
+
+
+
         Route::delete('/kemasukanData/{id}', [KemasukanDataController::class, 'destroy']);
 
 

@@ -36,14 +36,14 @@
 
                     <hr><br>
 
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="example">
                         <thead class="table-light">
                             <tr>
                                 <th class="align-middle">Tahun Semasa Yang Dilaporkan</th>
                                 <th class="align-middle">Pilih Quarter</th>
-                                <th class="align-middle">Pencapaian</th>
                                 <th class="align-middle">Catatan</th>
-                                <th class="align-middle">Prestasi Tindakan</th>
+                                <th class="align-middle">Sasaran</th>
+                                <th class="align-middle">Pencapaian</th>
 
 
                             </tr>
@@ -72,15 +72,14 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <input type="number" name="q1" class="form-control pencapaian" id="mySelect"
-                                        onchange="myFunction()" placeholder="Pencapaian"
-                                        value="{{ $tindakans->peratusPencapaian }}" />
+                                    <input type="text" name="q1" class="form-control pencapaian" id="mySelect"
+                                        onchange="myFunction()" value="{{ $tindakans->catatan }}" />
                                 </td>
 
                                 <td>
                                     <div class="col-sm-10">
-                                        <input type="text" name="catatan" class="form-control"
-                                            value="{{ $tindakans->catatan }}" />
+                                        <input type="number" name="catatan" class="form-control"
+                                            value="{{ $tindakans->sasaran }}" />
 
                                     </div>
                                 </td>
@@ -143,16 +142,27 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="namaTindakan">Tindakan</label>
-
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" name="namaTindakan" value="{{ $tindakans->namaTindakan }}" readonly />
                     </div>
 
+                    <label class="col-sm-2 col-form-label" for="namaStrategi">Strategi</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" name="namaStrategi" value="{{ $tindakans->strategi->namaStrategi }}"
+                            readonly />
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="namaInisiatif">Inisiatif</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" name="namaInisiatif"
+                            value="{{ $tindakans->inisiatif->namaInisiatif }}" readonly />
+                    </div>
 
                     <label class="col-sm-2 col-form-label" for="kementerian_penyelaras">Kementerian/Agensi
                         Penyelaras</label>
                     <div class="col-sm-10" style="width:30%">
-
                         <input class="form-control" type="text" name="kementerian_penyelaras" readonly
                             value="{{ $tindakans->kementerian_penyelaras }}" />
 
@@ -348,6 +358,33 @@
             prestasiShown.style.color = prestasiColor;
 
         }
+
+        $(document).ready(function() {
+            $('#example').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+
+                    {
+                        extend: 'pdfHtml5',
+                        title: 'Prestasi Tindakan',
+                        orientation: 'landscape',
+                        pageSize: 'A1'
+                    }, {
+                        extend: 'csvHtml5',
+                        title: 'Prestasi Tindakan',
+                        orientation: 'landscape',
+                        pageSize: 'A1'
+                    }, {
+                        extend: 'excelHtml5',
+                        title: 'Prestasi Tindakan',
+                        orientation: 'landscape',
+                        pageSize: 'A1'
+                    }
+                ]
+
+
+            });
+        });
     </script>
 
 @endsection

@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="mb-4 text-center">
-            <H2>KEMASUKAN DATA</H2>
+            <H2>KEMASKINI DATA</H2>
         </div>
 
         <div class="col">
@@ -15,17 +15,20 @@
 
         <hr style="width:100%;text-align:center;">
 
-
-
         <x-errors-component :errors="$errors->any() ? $errors->all() : null" />
 
         <div class="card mb-3">
-
             <div class="card-body bg-light">
-                <form method="POST" action="/KT/kemasukanData-bahagian3">
+
+                {{-- <form method="POST" action="/kemasukanData/update">
+                    @csrf --}}
+
+                <form action="/KT/kemasukanData/{{ $profil->id }}" method="POST">
                     @csrf
+                    @method('PUT')
+
                     <input type="hidden" name="current_bahagian" value="4">
-                    <input type="hidden" name="profil_id" value="{{ $profil->id }}">
+                    <input type="hidden" value="{{ $profil->id }}">
                     <div class="row g-3">
                         <div class="col-lg-6">
                             <label class="form-label">Jumlah Pendapatan
@@ -119,18 +122,12 @@
                         </div>
 
                     </div>
+
+
                 </form>
+
+
             </div>
         </div>
     </div>
-    <script>
-        $('input.number').keyup(function() {
-            if (
-                ($(this).val().length > 0) && ($(this).val().substr(0, 3) != 'RM') ||
-                ($(this).val() == '')
-            ) {
-                $(this).val('RM');
-            }
-        });
-    </script>
 @endsection

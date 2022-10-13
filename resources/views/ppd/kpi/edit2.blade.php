@@ -29,14 +29,15 @@
 
                     <hr><br>
 
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="example">
                         <thead class="table-light">
                             <tr>
                                 <th class="align-middle">Tahun Semasa Yang Dilaporkan</th>
-                                <th class="align-middle">Q1 (JAN-MAC)</th>
+                                {{-- <th class="align-middle">Q1 (JAN-MAC)</th>
                                 <th class="align-middle">Q2 (APRIL-JUN)</th>
                                 <th class="align-middle">Q3 (JULAI-SEPT)</th>
-                                <th class="align-middle">Q4 (OKT-DIS)</th>
+                                <th class="align-middle">Q4 (OKT-DIS)</th> --}}
+                                <th class="align-middle">Pilih Quarter</th>
                                 <th class="align-middle">Pencapaian</th>
                                 <th class="align-middle">Prestasi KPI</th>
 
@@ -58,6 +59,16 @@
                                     </div>
                                 </td>
                                 <td>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" name="quarter">
+                                            <option @selected($kpi->q1 == 'Q1') value="Q1">Q1 (JAN-MAC)</option>
+                                            <option @selected($kpi->q2 == 'Q2') value="Q2">Q2 (APR-JUN)</option>
+                                            <option @selected($kpi->q3 == 'Q3') value="Q3">Q3 (JUL-SEP)</option>
+                                            <option @selected($kpi->q4 == 'Q4') value="Q4">Q4 (OKT-DIS)</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                {{-- <td>
                                     <input type="number" name="q1" for="q1" class="form-control pencapaian"
                                         id="mySelect" onchange="myFunction()" placeholder="Pencapaian"
                                         value="{{ $kpi->q1 }}" />
@@ -71,16 +82,14 @@
                                     <input type="number" name="q3" for="q3" class="form-control pencapaian"
                                         id="mySelect" onchange="myFunction()" placeholder="Pencapaian"
                                         value="{{ $kpi->q3 }}" />
-                                </td>
+                                </td> --}}
                                 <td>
                                     <input type="number" name="q4" for="q4" class="form-control pencapaian"
                                         id="mySelect" onchange="myFunction()" placeholder="Pencapaian"
                                         value="{{ $kpi->q4 }}" />
 
-                                    {{-- <input type="text" name="q4" id="mySelect" onchange="myFunction()"
-                                    class="form-control" value="{{ $kpi->peratusPencapaian }}" /> --}}
 
-                                </td>
+                                    {{-- </td>
                                 <td>
                                     <div class="col-sm-10">
                                         <input type="text" name="peratusPencapaian" id="mySelect"
@@ -88,7 +97,7 @@
                                             value="{{ $kpi->peratusPencapaian }}" readonly />
 
                                     </div>
-                                </td>
+                                </td> --}}
                                 <td id="prestasi"></td>
                             </tr>
 
@@ -147,8 +156,7 @@
 
                         @if ($kpi->bidang != null)
                             <input class="form-control" value="{{ $kpi->bidang->namaBidang }}" readonly />
-                            <input class="form-control" name="bidang_id" type="hidden"
-                                value="{{ $kpi->bidang->id }}" />
+                            <input class="form-control" name="bidang_id" type="hidden" value="{{ $kpi->bidang->id }}" />
                         @else
                             <input class="form-control" value="Bidang Keutamaan telah dipadam" readonly />
                         @endif
@@ -160,8 +168,7 @@
 
                         @if ($kpi->outcome != null)
                             <input class="form-control" value="{{ $kpi->outcome->namaOutcome }}" readonly />
-                            <input class="form-control" name="outcome_id" type="hidden"
-                                value="{{ $kpi->outcome->id }}" />
+                            <input class="form-control" name="outcome_id" type="hidden" value="{{ $kpi->outcome->id }}" />
                         @else
                             <input class="form-control" value="Outcome telah dipadam" readonly />
                         @endif
@@ -425,5 +432,34 @@
             prestasiShown.style.color = prestasiColor;
 
         }
+
+      
+
+        $(document).ready(function() {
+            $('#example').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+
+                    {
+                        extend: 'pdfHtml5',
+                        title: 'Prestasi KPI Nasional',
+                        orientation: 'landscape',
+                        pageSize: 'A1'
+                    }, {
+                        extend: 'csvHtml5',
+                        title: 'Prestasi KPI Nasional',
+                        orientation: 'landscape',
+                        pageSize: 'A1'
+                    }, {
+                        extend: 'excelHtml5',
+                        title: 'Prestasi KPI Nasional',
+                        orientation: 'landscape',
+                        pageSize: 'A1'
+                    }
+                ]
+
+
+            });
+        });
     </script>
 @endsection

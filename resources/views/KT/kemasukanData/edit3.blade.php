@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="mb-4 text-center">
-            <H2>KEMASUKAN DATA</H2>
+            <H2>KEMASKINI DATA</H2>
         </div>
 
         <div class="col">
@@ -15,19 +15,19 @@
 
         <hr style="width:100%;text-align:center;">
 
-
-
         <x-errors-component :errors="$errors->any() ? $errors->all() : null" />
 
-
         <div class="card mb-3">
-
             <div class="card-body bg-light">
-                <div class="card-header" style="text-align: center">
-                    <b>Anggaran Perbelanjaan Isi Rumah</b>
-                </div><br>
-                <form method="POST" action="/KT/kemasukanData-bahagian4">
+
+                {{-- <form method="POST" action="/kemasukanData/update">
+                    @csrf --}}
+
+                <form action="/KT/kemasukanData/{{ $profil->id }}" method="POST">
                     @csrf
+                    @method('PUT')
+
+                    <input type="hidden" value="{{ $profil->id }}">
                     <div class="row g-3">
 
 
@@ -160,26 +160,12 @@
                         </div>
 
                     </div>
+
+
                 </form>
+
+
             </div>
         </div>
     </div>
-    <script>
-        $(".kiraJumlah").keyup(function() {
-            let jumlah = 0;
-            jQuery.each($(".kiraJumlah"), function(key, val) {
-                jumlah += parseInt(val.value);
-            });
-            $("#result").val(jumlah);
-            $("#resultHide").val(jumlah);
-        });
-        $('input.number').keyup(function() {
-            if (
-                ($(this).val().length > 0) && ($(this).val().substr(0, 3) != 'RM') ||
-                ($(this).val() == '')
-            ) {
-                $(this).val('RM');
-            }
-        });
-    </script>
 @endsection

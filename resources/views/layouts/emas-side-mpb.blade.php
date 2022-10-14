@@ -88,7 +88,7 @@
 
 
 
-                    <a class="nav-link btn1" href="/MPB/dahsboardMPB" role="button">
+                    <a class="nav-link btn1" href="/MPB/dashboardMPB" role="button">
 
                         <div class="d-flex align-items-center">
                             <div class="col-2">
@@ -106,7 +106,7 @@
                         </div>
                     </a>
 
-                    <a class="nav-link" href="/" role="button">
+                    {{-- <a class="nav-link" href="/" role="button">
 
                         <div class="d-flex align-items-center">
                             <div class="col-2">
@@ -123,7 +123,8 @@
 
                             </div>
                         </div>
-                    </a><br>
+                    </a> --}}
+                    <br>
 
 
                     {{-- @if (in_array(url()->current(), [url('thrust'), url('national'), url('key'), url('sub'), url('kpi2'), url('milestone')])) --}}
@@ -137,16 +138,19 @@
 
                     <div class="card">
                         <ul class="nav collapse show" id="mpb" style="background-color: #E7EFFD">
-                            <li class="nav-item">
-                                <a class="nav-link btn1 {{ Request::is('MPB/thrust', 'MPB/thrust/*') ? 'active' : '' }}"
-                                    href="/MPB/thrust">
-                                    <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List of
-                                            Thrust
-                                        </span>
-                                    </div>
-                                </a>
-                                <!-- more inner pages-->
-                            </li>
+                            @can('Approver')
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('MPB/thrust', 'MPB/thrust/*') ? 'active' : '' }}"
+                                        href="/MPB/thrust">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List of
+                                                Thrust
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
+                            @endcan
+
                             <li class="nav-item">
                                 <a class="nav-link btn1 {{ Request::is('MPB/national', 'MPB/national/*') ? 'active' : '' }}"
                                     href="/MPB/national">

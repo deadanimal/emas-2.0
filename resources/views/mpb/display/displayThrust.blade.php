@@ -28,7 +28,7 @@
                             <th class="align-middle" rowspan=2>Actual Mark (%)</th>
                             <th class="align-middle" rowspan=2>Target Mark (%)</th>
                             <th class="align-middle" rowspan=2>Achievement (%)</th>
-                            <th class="align-middle" rowspan=2>Remark </th>
+                            <th class="align-middle" rowspan=2>User Remark </th>
                             {{-- <th class="align-middle" rowspan=2>Status </th> --}}
 
 
@@ -80,16 +80,16 @@
 
                                                 <div class="p-4 pb-0">
 
-                                                    <div class="mb-3">
-                                                        <label class="col-form-label">User
-                                                            :</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">{{ $thrust->user->name }}</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">{{ $thrust->user->email }}</label>
-
-
-                                                    </div>
+                                                    @can('Approver')
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label">User
+                                                                :</label>
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $thrust->user->name }}</label>
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $thrust->user->email }}</label>
+                                                        </div>
+                                                    @endcan
 
                                                     <div class="mb-3">
                                                         <label class="col-form-label">Status:</label>
@@ -126,7 +126,7 @@
                                                         </div>
 
                                                         <div class="mb-3">
-                                                            <label class="col-form-label">Remark:</label>
+                                                            <label class="col-form-label">User Remark:</label>
                                                             <label class="form-control"
                                                                 disabled="disabled">{{ $thrust->remark }}</label>
                                                         </div>
@@ -134,7 +134,7 @@
                                                         <div class="mb-3">
                                                             <label class="col-form-label">Status:</label>
                                                             <label class="form-control"
-                                                                disabled="disabled">{{ $thrust->remark }}</label>
+                                                                disabled="disabled">{{ $thrust->status }}</label>
                                                         </div>
 
 
@@ -143,6 +143,11 @@
                                                     </form>
 
                                                     @can('Approver')
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label">Approver Remark:</label>
+                                                            <input class="form-control" type="text" name="approver" />
+
+                                                        </div>
                                                         <div class="mb-3">
                                                             <label class="col-form-label">Action:</label>
                                                             @if ($thrust->lulus == 1 && $thrust->ditolak == 0)
@@ -170,6 +175,10 @@
                                                             @endif
                                                         </div>
                                                     @endcan
+
+
+
+
                                                 </div>
                                             </div>
 

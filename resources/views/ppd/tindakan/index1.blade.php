@@ -113,6 +113,34 @@
         </div>
 
         <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label" for="strategi_id">Strategi</label>
+            <div class="col-sm-10" style="width:40%">
+                <select class="form-control" name="strategi_id">
+                    <option selected disabled hidden>Sila Pilih</option>
+
+                    @foreach ($strategis as $strategi)
+                        <option value="{{ $strategi->id }}">{{ $strategi->namaStrategi }}</option>
+                    @endforeach
+
+                </select>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label" for="inisiatif_id">Inisiatif</label>
+            <div class="col-sm-10" style="width:40%">
+                <select class="form-control" name="inisiatif_id">
+                    <option selected disabled hidden>Sila Pilih</option>
+
+                    @foreach ($inisiatifs as $inisiatif)
+                        <option value="{{ $inisiatif->id }}">{{ $inisiatif->namaInisiatif }}</option>
+                    @endforeach
+
+                </select>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
             <label class="col-sm-2 col-form-label" for="bidang_id">Status Tindakan</label>
             <div class="col-sm-10" style="width:40%">
                 <select class="form-control" name="bidang_id">

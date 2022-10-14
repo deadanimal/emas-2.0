@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="mb-4 text-center">
-            <H2>DATA ENTRY</H2>
+            <H2>DATA ENTRY FOR THRUST</H2>
         </div>
 
         <br>
@@ -43,7 +43,7 @@
 
 
                 <div class="row">
-            
+
 
                     <div class="col" style="text-align: right">
                         <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"

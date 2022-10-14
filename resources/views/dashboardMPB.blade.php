@@ -338,72 +338,140 @@
         <div class="container">
 
             <div class="row pb-3">
-                <div class="col-md-6 col-lg-4 text-center">
-                    <a class="mb-3" href="/MPB/national">
-                        <div class="px-4 pt-4">
-                            <img src="../../assets/img/generic/g1.png" class="img-fluid card-img-hover landing-img">
+
+                @if (Auth::user()->hasRole('MPB'))
+                    @if (auth()->user()->thrust1)
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <a class="mb-3" href="/MPB/national">
+                                <div class="px-4 pt-4">
+                                    <img src="../../assets/img/generic/g1.png"
+                                        class="img-fluid card-img-hover landing-img">
+                                </div>
+                            </a>
+
                         </div>
-                    </a>
-                    {{-- <div class="card-body">
-                        <a href="/national" class="card-title">1. Building Workforce of the Future</a>
+                    @else
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <a class="mb-3">
+                                <div class="px-4 pt-4">
+                                    <img src="../../assets/img/generic/g1.png"
+                                        class="img-fluid card-img-hover landing-img" style="opacity: 50%">
+                                </div>
+                            </a>
 
-                    </div> --}}
-                </div>
-                <div class="col-md-6 col-lg-4 text-center">
-                    <a class="mb-3" href="/MPB/national">
-                        <div class="px-4 pt-4">
-                            <img src="../../assets/img/generic/g2.png" class="img-fluid card-img-hover landing-img">
                         </div>
-                    </a>
-                    {{-- <div class="card-body">
-                        <a href="/MPB/national" class="card-title">2. Driving Digitalisation and Innovation</a>
+                    @endif
 
-
-                    </div> --}}
-                </div>
-
-                <div class="col-md-6 col-lg-4 text-center">
-                    <a class="mb-3" href="/MPB/national">
-                        <div class="px-4 pt-4">
-                            <img src="../../assets/img/generic/g3.png" class="img-fluid card-img-hover landing-img">
+                    @if (auth()->user()->thrust2)
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <a class="mb-3" href="/MPB/national">
+                                <div class="px-4 pt-4">
+                                    <img src="../../assets/img/generic/g2.png"
+                                        class="img-fluid card-img-hover landing-img">
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                    {{-- <div class="card-body">
-                        <h5 class="card-title">3. Making Industry Accountable for Productivity</h5>
+                    @else
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <a class="mb-3">
+                                <div class="px-4 pt-4">
+                                    <img src="../../assets/img/generic/g2.png"
+                                        class="img-fluid card-img-hover landing-img" style="opacity: 50%">
+                                </div>
+                            </a>
+                        </div>
+                    @endif
 
-                    </div> --}}
-                </div>
-                <div class="row pb-3">
+                    @if (auth()->user()->thrust3)
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <a class="mb-3" href="/MPB/national">
+                                <div class="px-4 pt-4">
+                                    <img src="../../assets/img/generic/g3.png"
+                                        class="img-fluid card-img-hover landing-img">
+                                </div>
+                            </a>
+                        </div>
+                    @else
+                        <div class="col-md-6 col-lg-4 text-center">
+                            <a class="mb-3">
+                                <div class="px-4 pt-4">
+                                    <img src="../../assets/img/generic/g3.png"
+                                        class="img-fluid card-img-hover landing-img" style="opacity: 50%">
+                                </div>
+                            </a>
+                        </div>
+                    @endif
 
-                    <div class="col-md-6 col-lg-2 text-center">
-                    </div>
+                    @if (auth()->user()->thrust4)
+                        <div class="row pb-3">
 
-                    <div class="col-md-6 col-lg-4 text-center">
-                        <a class="mb-3" href="/MPB/national">
-                            <div class="px-4 pt-4">
-                                <img src="../../assets/img/generic/g4.png" class="img-fluid card-img-hover landing-img">
+                            <div class="col-md-6 col-lg-2 text-center">
                             </div>
-                        </a>
-                        {{-- <div class="card-body">
-                            <h5 class="card-title">4. Forging a Robust Ecosystem</h5>
 
-                        </div> --}}
-                    </div>
-
-                    <div class="col-md-6 col-lg-4 text-center">
-                        <a class="mb-3" href="/MPB/national">
-                            <div class="px-4 pt-4">
-                                <img src="../../assets/img/generic/g5.png" class="img-fluid card-img-hover landing-img">
+                            <div class="col-md-6 col-lg-4 text-center">
+                                <a class="mb-3" href="/MPB/national">
+                                    <div class="px-4 pt-4">
+                                        <img src="../../assets/img/generic/g4.png"
+                                            class="img-fluid card-img-hover landing-img">
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                        {{-- <div class="card-body">
-                            <h5 class="card-title">5. Securing a Strong Implementation Mechanism</h5>
 
-                        </div> --}}
-                    </div>
-                    <div class="col-md-6 col-lg-2 text-center">
-                    </div>
-                </div>
+                            <div class="col-md-6 col-lg-4 text-center">
+                                <a class="mb-3" href="/MPB/national">
+                                    <div class="px-4 pt-4">
+                                        <img src="../../assets/img/generic/g5.png"
+                                            class="img-fluid card-img-hover landing-img">
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col-md-6 col-lg-2 text-center">
+                            </div>
+
+                        </div>
+                    @else
+                        <div class="row pb-3">
+
+                            <div class="col-md-6 col-lg-2 text-center">
+                            </div>
+
+                            <div class="col-md-6 col-lg-4 text-center">
+                                <a class="mb-3">
+                                    <div class="px-4 pt-4">
+                                        <img src="../../assets/img/generic/g4.png"
+                                            class="img-fluid card-img-hover landing-img" style="opacity: 50%">
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col-md-6 col-lg-4 text-center">
+                                <a class="mb-3">
+                                    <div class="px-4 pt-4">
+                                        <img src="../../assets/img/generic/g5.png"
+                                            class="img-fluid card-img-hover landing-img" style="opacity: 50%">
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col-md-6 col-lg-2 text-center">
+                            </div>
+
+                        </div>
+                    @endif
+
+
+
+
+
+                @endif
+
+
+
+
+
+
+
             </div>
         </div>
 

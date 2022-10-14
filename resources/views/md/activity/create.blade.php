@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="mb-4 text-center">
-            <H2>DATA ENTRY</H2>
+            <H2>DATA ENTRY FOR ACTIVITY</H2>
         </div>
         <div class="form-floating;">
             <form action="/MD/activity" method="POST" enctype="multipart/form-data">
@@ -101,18 +101,6 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-form-label" for="unit">Unit</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" name="noBab">
-                                    <option selected disabled hidden>PLEASE CHOOSE</option>
-                                    <option value="%">%</option>
-                                    <option value="Number">Number</option>
-
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
                             <label class="col-form-label" for="output">Output Target</label>
                             <div class="col-sm-10">
                                 <input class="form-control output" type="number" name="output" />
@@ -131,6 +119,50 @@
                         </div>
 
                         <div class="mb-3 row">
+                            <label class="col-form-label" for="weightage_progress">Weightage Progress</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" onchange="myFunction()" type="number" name="weightage_progress"
+                                    readonly />
+
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label" for="leadAgency">Lead Agency</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="leadAgency" />
+
+                            </div>
+                        </div>
+
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label" for="PIC">PIC</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="PIC" />
+
+                            </div>
+                        </div><br>
+
+                        <hr>
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label" for="unit">Unit</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="unit">
+                                    <option selected disabled hidden>PLEASE CHOOSE</option>
+                                    <option value="%">%</option>
+                                    <option value="Number">Number</option>
+
+                                </select>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="mb-3 row">
                             <label class="col-form-label" for="output_progress">Output Progress</label>
                             <div class="col-sm-10">
                                 <input class="form-control output" type="number" name="output_progress" />
@@ -139,14 +171,7 @@
                         </div>
 
 
-                        <div class="mb-3 row">
-                            <label class="col-form-label" for="weightage_progress">Weightage Progress</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" onchange="myFunction()" type="number" name="weightage_progress"
-                                    readonly />
 
-                            </div>
-                        </div>
 
 
                         <div class="mb-3 row">
@@ -176,44 +201,19 @@
                             </div>
                         </div>
 
-                        <div class="mb-3 row">
-                            <label class="col-form-label" for="leadAgency">Lead Agency/PIC</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="text" name="leadAgency" />
-
-                            </div>
-                        </div>
-
-
-                        <div class="mb-3 row">
-                            <label class="col-form-label" for="PIC">PIC</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="text" name="PIC" />
-
-                            </div>
-                        </div>
-
-
                         <br>
                         <br>
 
-
-
-                        <div class="row">
-                            <div class="col">
-                                <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                                    href="/MD/activity">
-                                    <span class="fas fa-times-circle"></span>&nbsp;Cancel
-                                </a>
-                            </div>
-
-                            <div class="col" style="text-align: right">
-                                <button class="btn btn-falcon-default btn-sm"
-                                    style="background-color: #047FC3; color:white;" type="submit" value="Save"
-                                    onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span
-                                        class="fas fa-save"></span>&nbsp;Save
-                                </button>
-                            </div>
+                        <div class="col" style="text-align: right">
+                            <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
+                                href="/MD/activity">
+                                <span class="fas fa-times-circle"></span>&nbsp;Cancel
+                            </a>
+                            <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
+                                type="submit" value="Save"
+                                onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span
+                                    class="fas fa-save"></span>&nbsp;Save
+                            </button>
                         </div>
 
                         <input class="form-control" name="user_id" type="hidden" value="{{ $user->id }}" />

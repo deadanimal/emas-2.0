@@ -51,8 +51,10 @@ class TindakanController extends Controller
         $tema = Pemangkindasar::all();
         $bab = Bab::all();
         $bidang = Bidang::all();
+        $strategis = Strategi::all();
+        $inisiatifs = Inisiatif::all();
 
-        return view('ppd.tindakan.index1', compact('tindakans', 'bab', 'tema', 'bidang'));
+        return view('ppd.tindakan.index1', compact('tindakans', 'bab', 'tema', 'bidang', 'inisiatifs', 'strategis'));
     }
 
     public function index2()

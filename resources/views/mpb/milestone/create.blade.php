@@ -130,7 +130,8 @@
                     <div class="row mb-3">
                         <label class="col-form-label" for="year">Year</label>
                         <div class="col-sm-10">
-                            <input class="form-control" type="month" name="year" />
+                            <input class="form-control" type="text" maxlength="4" name="year"
+                                onkeypress='validate(event)' />
 
                         </div>
                     </div>
@@ -188,7 +189,7 @@
                     <br>
 
                     <div class="mb-3">
-                        <label class="form-label" for="remark"><b>Remark:</b></label>
+                        <label class="form-label" for="remark"><b>User Remark:</b></label>
                         <textarea class="form-control" name="remark" rows="3"></textarea>
                     </div>
                 </div>
@@ -267,6 +268,26 @@
 
 
         });
+    </script>
+
+    <script>
+        function validate(evt) {
+            var theEvent = evt || window.event;
+
+            // Handle paste
+            if (theEvent.type === 'paste') {
+                key = event.clipboardData.getData('text/plain');
+            } else {
+                // Handle key press
+                var key = theEvent.keyCode || theEvent.which;
+                key = String.fromCharCode(key);
+            }
+            var regex = /[0-9]|\./;
+            if (!regex.test(key)) {
+                theEvent.returnValue = false;
+                if (theEvent.preventDefault) theEvent.preventDefault();
+            }
+        }
     </script>
 
     @if ($errors->any())

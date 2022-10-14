@@ -24,7 +24,7 @@
         <div class="form-floating;">
 
             <form action="/PPD/prestasi/{{ $tindakans->id }}" method="POST">
-                @csrf
+                @csrf 
                 @method('PUT')
 
                 <div class="row align-items-center">

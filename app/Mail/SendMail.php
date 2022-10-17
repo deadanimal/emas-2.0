@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Mail;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
+
+class SendMail extends Mailable
+{
+    use Queueable, SerializesModels;
+
+    public $data;
+    public $kpi;
+
+    /**
+     * Create a new message instance.
+     *
+     * @return void
+     */
+    public function __construct($data, $kpi = null)
+    {
+        $this->data = $data;
+        $this->kpi = $kpi;
+    }
+
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+        return $this->from('adwa@testing.info')->subject('PPD - Status Update')->view('dynamic_email_template')->with('data', $this->data);
+    }
+}

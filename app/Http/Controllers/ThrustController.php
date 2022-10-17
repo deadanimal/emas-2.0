@@ -129,7 +129,8 @@ class ThrustController extends Controller
         $thrust->ditolak = false;
         $thrust->save();
 
-        return redirect()->to('displayThrust/index1');
+
+        return redirect()->to('MPB/displayThrust');
     }
 
     public function ditolak(Request $request)
@@ -139,6 +140,7 @@ class ThrustController extends Controller
         $thrust->ditolak = true;
         $thrust->save();
 
-        return redirect()->to('displayThrust/index1');
+
+        return redirect()->to('MPB/displayThrust');
     }
 }

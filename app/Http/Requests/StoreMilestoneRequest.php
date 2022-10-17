@@ -77,6 +77,12 @@ class StoreMilestoneRequest extends FormRequest
             'sub_id' => [
                 'string',
             ],
+
+            'approver_remark' => [
+                'string',
+            ],
+
+
         ];
     }
 }

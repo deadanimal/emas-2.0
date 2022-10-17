@@ -36,8 +36,9 @@ use App\Http\Controllers\SubController;
 use App\Http\Controllers\ThrusController;
 use App\Http\Controllers\ThrustController;
 use App\Http\Controllers\TindakanController;
-use App\Models\Perkarautama;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SendEmailController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -158,6 +159,7 @@ Route::group(
         //ThrustInformation
         Route::resource('/thrust', ThrustController::class);
 
+
         //National
         Route::resource('/national', NationalController::class);
 
@@ -172,6 +174,8 @@ Route::group(
 
         //Milestone
         Route::resource('/milestone', MilestoneController::class);
+        Route::post('/milestone/lulus/{id}', [MilestoneController::class, 'lulus'])->name('milestone.lulus');
+        Route::post('/milestone/ditolak/{id}', [MilestoneController::class, 'ditolak'])->name('milestone.ditolak');
 
         Route::get('/displayThrust', [MilestoneController::class, 'index1']);
         Route::get('/displayThrust1', [MilestoneController::class, 'index2']);
@@ -334,3 +338,9 @@ Route::view('/rumusanPPD', 'rumusanPPD');
 Route::view('/rumusanTindakan', 'rumusanTindakan');
 Route::view('/executive', 'executive');
 Route::view('/executiveSummary', 'executiveSummary');
+
+// Route::get('/sendemail', 'SendEmailController@index');
+// Route::post('/sendemail/send', 'SendEmailController@send');
+
+Route::get('sendemail', [SendEmailController::class, 'index']);
+Route::post('/sendemail/send', [SendEmailController::class, 'send']);

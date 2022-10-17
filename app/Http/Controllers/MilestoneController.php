@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreMilestoneRequest;
 use App\Http\Requests\UpdateMilestoneRequest;
+use App\Mail\MPBStatus;
+use App\Mail\SendMail;
 use App\Models\Key;
 use App\Models\Kpi2;
 use App\Models\Milestone;
@@ -12,9 +14,8 @@ use App\Models\Sub;
 use App\Models\Thrust;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-
-
-
+use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 
 class MilestoneController extends Controller
 {
@@ -45,7 +46,6 @@ class MilestoneController extends Controller
 
 
         return view('mpb.display.displayThrust', compact('miles'));
-
     }
 
     /**
@@ -140,5 +140,37 @@ class MilestoneController extends Controller
     public function destroy(Milestone $milestone)
     {
         //
+    }
+
+    public function lulus($id)
+    {
+
+        $miles = Milestone::find($id);
+        $data  = User::find($miles->user_id);
+
+        $miles->lulus = true;
+        $miles->ditolak = false;
+        $miles->save();
+
+        Mail::to($data->email)->send(new MPBStatus($data, $miles));
+
+
+
+        return redirect()->to('MPB/displayThrust');
+    }
+
+    public function ditolak(Request $request)
+    {
+        $miles = Milestone::find($request->id);
+        $data  = User::find($miles->user_id);
+
+        $miles->lulus = false;
+        $miles->ditolak = true;
+        $miles->save();
+
+        Mail::to($data->email)->send(new MPBStatus($data, $miles));
+
+
+        return redirect()->to('MPB/displayThrust');
     }
 }

@@ -99,7 +99,7 @@
                                                             <span class="badge bg-danger" disabled>Rejected</span>
                                                         @else
                                                             <span class="badge bg-info text-dark" disabled>In
-                                                                Progress</span>
+                                                                Progress {{ $thrust->lulus }}</span>
                                                         @endif
                                                     </div>
 
@@ -143,11 +143,16 @@
                                                     </form>
 
                                                     @can('Approver')
-                                                        <div class="mb-3">
-                                                            <label class="col-form-label">Approver Remark:</label>
-                                                            <input class="form-control" type="text" name="approver" />
+                                                        <form action="{{ route('milestone.store') }}" method="POST">
+                                                            @csrf
+                                                            <div class="mb-3">
+                                                                <label class="col-form-label">Approver Remark:</label>
+                                                                <input class="form-control" type="text"
+                                                                    name="approver_remark" />
 
-                                                        </div>
+                                                            </div>
+                                                        </form>
+                                                        
                                                         <div class="mb-3">
                                                             <label class="col-form-label">Action:</label>
                                                             @if ($thrust->lulus == 1 && $thrust->ditolak == 0)
@@ -156,7 +161,7 @@
                                                                 <span class="btn btn-danger" disabled>Rejected</span>
                                                             @else
                                                                 <div style="text-align: right">
-                                                                    <form action="/MPB/thrust/lulus/{{ $thrust->id }}"
+                                                                    <form action="/MPB/milestone/lulus/{{ $thrust->id }}"
                                                                         method="post">
                                                                         @csrf
                                                                         @method('POST')
@@ -164,7 +169,7 @@
                                                                             class="btn btn-success">Approve</button>
                                                                     </form>
 
-                                                                    <form action="/MPB/thrust/ditolak/{{ $thrust->id }}"
+                                                                    <form action="/MPB/milestone/ditolak/{{ $thrust->id }}"
                                                                         method="post">
                                                                         @csrf
                                                                         @method('POST')

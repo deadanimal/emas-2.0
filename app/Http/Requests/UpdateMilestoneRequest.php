@@ -77,6 +77,10 @@ class UpdateMilestoneRequest extends FormRequest
             'sub_id' => [
                 'string',
             ],
+
+            'approver_remark' => [
+                'string',
+            ],
         ];
     }
 }

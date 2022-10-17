@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreKpiRequest;
 use App\Http\Requests\UpdateKpiRequest;
+use App\Mail\SendMail;
 use App\Models\Bab;
 use App\Models\Bidang;
 use App\Models\Fokusutama;
@@ -14,6 +15,7 @@ use App\Models\Perkarautama;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class KpiController extends Controller
 {
@@ -121,9 +123,13 @@ class KpiController extends Controller
     {
 
         $kpi = Kpi::find($id);
+        $data  = User::find($kpi->user_id);
+
         $kpi->lulus = true;
         $kpi->ditolak = false;
         $kpi->save();
+
+        Mail::to($data->email)->send(new SendMail($data, $kpi));
 
         return redirect()->to('PPD/kpi1/index1');
     }
@@ -131,9 +137,14 @@ class KpiController extends Controller
     public function ditolak(Request $request)
     {
         $kpi = Kpi::find($request->id);
+        $data  = User::find($kpi->user_id);
+
         $kpi->lulus = false;
         $kpi->ditolak = true;
         $kpi->save();
+
+        Mail::to($data->email)->send(new SendMail($data, $kpi));
+
 
         return redirect()->to('PPD/kpi1/index1');
     }

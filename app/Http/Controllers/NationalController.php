@@ -6,6 +6,7 @@ use App\Http\Requests\StoreNationalRequest;
 use App\Http\Requests\UpdateNationalRequest;
 use App\Models\National;
 use App\Models\Thrust;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -43,8 +44,11 @@ class NationalController extends Controller
 
         $list = Thrust::where('user_id', Auth::user()->id)->get();
 
+
+
         return view('mpb.national.create', compact('list', 'user'));
     }
+
 
     /**
      * Store a newly created resource in storage.

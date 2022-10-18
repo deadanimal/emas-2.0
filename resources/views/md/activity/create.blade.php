@@ -196,7 +196,8 @@
                             <label class="col-form-label" for="document">Attachment Document</label>
                             <div class="col-sm-10">
                                 <input class="form-control" name="document" type="file"
-                                    accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+                                    accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                                    required>
 
                             </div>
                         </div>

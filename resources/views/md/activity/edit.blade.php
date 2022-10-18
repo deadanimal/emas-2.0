@@ -70,10 +70,10 @@
                                     @endforeach
 
                                 </select>
-                            </div><br>
-                            <hr>
+                            </div>
 
-                        </div>
+                        </div><br>
+                        <hr>
 
                         <div class="mb-3 row">
                             <label class="col-form-label" for="namaActivity">Activity Name</label>
@@ -123,7 +123,7 @@
                         <div class="mb-3 row">
                             <label class="col-form-label" for="weightage_progress">Weightage Progress</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="number" name="weightage_progress"
+                                <input class="form-control" onchange="myFunction()" name="weightage_progress"
                                     value="{{ $activity->weightage_progress }}" readonly />
 
                             </div>
@@ -151,7 +151,7 @@
                             <label class="col-form-label" for="unit">Unit</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="unit">
-                                    <option selected disabled hidden>SILA PILIH SASARAN</option>
+                                    <option selected disabled hidden>PLEASE CHOOSE</option>
                                     <option @selected($activity->unit == '%') value="%">%
                                     </option>
                                     <option @selected($activity->unit == 'Number') value="Number">Number

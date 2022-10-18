@@ -177,6 +177,9 @@ class ActivityController extends Controller
         $activity->additionalOutput = $request->additionalOutput;
         $activity->remarks = $request->remarks;
         $activity->document_pdf = $imageName;
+        $activity->unit = $request->unit;
+        $activity->PIC = $request->PIC;
+
         // dd($activity);
         $activity->save();
 
@@ -263,6 +266,8 @@ class ActivityController extends Controller
         $activity->output_progress = $request->output_progress;
         $activity->additionalOutput = $request->additionalOutput;
         $activity->remarks = $request->remarks;
+        $activity->unit = $request->unit;
+        $activity->PIC = $request->PIC;
         if (!empty($request->document)) {
             $imageName = time() . '.' . $request->document->extension();
 

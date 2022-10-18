@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="mb-4 text-center">
-            <H2>DATA ENTRY</H2>
+            <H2>DATA ENTRY FOR NATIONAL INITIATIVE</H2>
         </div>
 
         <br>
@@ -16,7 +16,7 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="thrust_id">Thrust</label>
                     <div class="col-sm-10">
-                        <select class="form-control" name="thrust_id">
+                        <select class="form-control" id="thrust_id" name="thrust_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
 
                             @foreach ($list as $list)
@@ -30,7 +30,7 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="namaNational">National Initiative</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" name="namaNational" />
+                        <input class="form-control" type="text" id="namaNational" name="namaNational" />
 
                     </div>
                 </div>
@@ -94,7 +94,8 @@
                     </button>
                 </div>
 
-                <input class="form-control" name="user_id" type="hidden" value="{{ $user->id }}" />
+                <input class="form-control" name="user_id" onchange="selectUser()" type="hidden" id="user_id"
+                    value="{{ $user->id }}" />
 
 
             </form>
@@ -110,6 +111,19 @@
                 self.location = "Save.php";
         }
     </script> --}}
+
+    <script>
+        function selectUser() {
+            let select = document.getElementById('user_id');
+            let namaThrust = document.getElementById('thrust_id');
+
+            if (select.value === 'default') {
+                namaThrust.value = '';
+            } else {
+                namaThrust.value = JSON.parse(select.value).address;
+            }
+        }
+    </script>
 
     @if ($errors->any())
         <div class="alert alert-danger">

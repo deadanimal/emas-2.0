@@ -33,6 +33,6 @@ class MDStatus extends Mailable
      */
     public function build()
     {
-        return $this->from('adwa@testing.info')->subject('MPB - Information Status Update')->view('dynamic_email_MPB')->with('data', $this->data);
+        return $this->from('EPU@testing.info')->subject('MPB - Information Status Update')->view('dynamic_email_MPB')->with('data', $this->data);
     }
 }

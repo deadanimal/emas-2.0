@@ -373,14 +373,12 @@
                                 <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                     <tr>
                                         <td>
-                                            <p><b>Pelan Pelaksanaan Dasar - Pengesahan Status KPI</b></p><br>
+                                            <p><b> Malaysia Productivity Blueprint - Milestone Notify</b></p><br>
 
-                                            <p>Hi, <b>{{ $data['name'] }}</b></p>
-                                            @if ($kpi['lulus'] == 1)
-                                                <p>Status pengesahan KPI anda <b>Disahkan</b>.</p>
-                                            @else
-                                                <p>Status pengesahan<b>Ditolak</b>. Sila cuba lagi.</p>
-                                            @endif
+                                            <p>Hello, <b>Approver</b></p>
+                                            <p>This is to notify that user <b>{{ $data['name'] }}</b>, has created the
+                                                Milestone name: <b>{{ $miles['namaMilestone'] }}</b></p>
+
                                             <table role="presentation" border="0" cellpadding="0" cellspacing="0"
                                                 class="btn btn-primary">
                                                 <tbody>
@@ -390,8 +388,8 @@
                                                                 cellspacing="0">
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td> <a href="http://www.epu-emas2.0.prototype.com.my/MPB/displayThrust"
-                                                                                target="_blank">Lihat</a> </td>
+                                                                        <td> <a href="http://www.epu-emas2.0.prototype.com.my/MPB/milestone"
+                                                                                target="_blank">View</a> </td>
                                                                     </tr>
                                                                 </tbody>
                                                             </table>

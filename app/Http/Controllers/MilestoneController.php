@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreMilestoneRequest;
 use App\Http\Requests\UpdateMilestoneRequest;
+use App\Mail\MPBMilestone;
 use App\Mail\MPBStatus;
 use App\Mail\SendMail;
 use App\Models\Key;
@@ -57,12 +58,17 @@ class MilestoneController extends Controller
     {
         $user = Auth::user();
 
+
         $miles = Milestone::where('user_id', Auth::user()->id)->get();
+
         $thrust = Thrust::where('user_id', Auth::user()->id)->get();
         $nation = National::where('user_id', Auth::user()->id)->get();
         $key = Key::where('user_id', Auth::user()->id)->get();
         $sub = Sub::where('user_id', Auth::user()->id)->get();
         $kpi = Kpi2::where('user_id', Auth::user()->id)->get();
+
+
+
         // $list= Quarter::all();
 
 
@@ -80,6 +86,10 @@ class MilestoneController extends Controller
     public function store(StoreMilestoneRequest $request)
     {
         $miles = Milestone::create($request->validated());
+        $data  = User::find($miles->user_id);
+
+        Mail::to($data->email)->send(new MPBMilestone($data, $miles));
+
 
         return redirect()->route('milestone.index');
     }

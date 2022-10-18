@@ -7,9 +7,10 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class MPBStatus extends Mailable
+class MPBMilestone extends Mailable
 {
     use Queueable, SerializesModels;
+
 
     public $data;
     public $miles;
@@ -33,6 +34,6 @@ class MPBStatus extends Mailable
      */
     public function build()
     {
-        return $this->subject('MPB - Information Status Update')->view('dynamic_email_MPB')->with('data', $this->data);
+        return $this->subject('MPB - Milestone Update')->view('dynamic_email_MPB_Milestone')->with('data', $this->data);
     }
 }

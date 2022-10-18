@@ -32,6 +32,6 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->from('adwa@testing.info')->subject('PPD - Status Update')->view('dynamic_email_template')->with('data', $this->data);
+        return $this->from('EPU@testing.info')->subject('PPD - Pengesahan KPI')->view('dynamic_email_template')->with('data', $this->data);
     }
 }

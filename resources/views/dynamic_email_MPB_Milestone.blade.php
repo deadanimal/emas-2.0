@@ -388,7 +388,7 @@
                                                                 cellspacing="0">
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td> <a href="http://www.epu-emas2.0.prototype.com.my/MPB/milestone"
+                                                                        <td> <a href="http://epu-emas2.0.prototype.com.my/MPB/milestone"
                                                                                 target="_blank">View</a> </td>
                                                                     </tr>
                                                                 </tbody>

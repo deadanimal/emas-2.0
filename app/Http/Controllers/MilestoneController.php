@@ -43,7 +43,11 @@ class MilestoneController extends Controller
     public function index1(Request $request)
     {
 
-        $miles = Milestone::where('user_id', Auth::user()->id)->get();
+        if ($request->user()->can('Approver')) {
+            $miles = Milestone::all();
+        } else {
+            $miles = Milestone::where('user_id', Auth::user()->id)->get();
+        }
 
 
         return view('mpb.display.displayThrust', compact('miles'));

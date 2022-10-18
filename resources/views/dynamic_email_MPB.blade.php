@@ -390,8 +390,8 @@
                                                                 cellspacing="0">
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td> <a href="http://www.epu-emas2.0.prototype.com.my"
-                                                                                target="_blank">Lihat</a> </td>
+                                                                        <td> <a href="http://www.epu-emas2.0.prototype.com.my/MPB/displayThrust"
+                                                                                target="_blank">View</a> </td>
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
@@ -399,10 +399,6 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
-
-                                            <p>Paparan terbaik menggunakan Mozilla Firefox versi 77 dan ke atas dan
-                                                Google Chrome versi 83 dan ke atas dengan resolusi 1366 x 768.
-                                            </p>
                                         </td>
                                     </tr>
                                 </table>

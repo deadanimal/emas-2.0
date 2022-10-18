@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="mb-4 text-center">
-            <H2>UPDATE DATA</H2>
+            <H2>UPDATE DATA FOR MILESTONE</H2>
         </div>
 
         <div class="form-floating;">

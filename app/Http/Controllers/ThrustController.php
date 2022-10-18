@@ -26,9 +26,16 @@ class ThrustController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $thrust = Thrust::where('user_id', Auth::user()->id)->get();
+        if ($request->user()->can('Approver')) {
+            $thrust = Thrust::all();
+
+        } else {
+
+            $thrust = Thrust::where('user_id', Auth::user()->id)->get();
+
+        }
 
         return view('mpb.thrust.index', compact('thrust'));
     }
@@ -47,11 +54,7 @@ class ThrustController extends Controller
     //     // return view('mpb.display.displayThrust', compact('thrusts', 'nationals', 'keys', 'subs'));
     // }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function create()
     {
         $user = Auth::user();

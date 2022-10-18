@@ -3,7 +3,7 @@
     <div class="container">
 
         <div class="mb-4 text-center">
-            <H2>DATA ENTRY</H2>
+            <H2>DATA ENTRY FOR MILESTONE</H2>
         </div>
 
 

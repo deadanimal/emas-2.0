@@ -97,6 +97,16 @@ class UpdateactivityRequest extends FormRequest
             'plan_id' => [
                 'string',
             ],
+
+            'PIC' => [
+                'string',
+                'required',
+            ],
+
+            'unit' => [
+                'string',
+                'required',
+            ],
         ];
     }
 }

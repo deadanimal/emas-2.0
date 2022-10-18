@@ -17,6 +17,7 @@ use App\Http\Controllers\Kpi2Controller;
 use App\Http\Controllers\KpiController;
 use App\Http\Controllers\LokalitiController;
 use App\Http\Controllers\MilestoneController;
+use App\Http\Controllers\MPBController;
 use App\Http\Controllers\NationalController;
 use App\Http\Controllers\OutcomeController;
 use App\Http\Controllers\PemacuController;
@@ -158,6 +159,12 @@ Route::group(
 
         //ThrustInformation
         Route::resource('/thrust', ThrustController::class);
+        Route::get('/mpb/{id}/edit', [MPBController::class, 'edit']);
+        Route::post('thrust/{id}', [MPBController::class, 'update']);
+
+        Route::post('thrust/{id}', [MPBController::class, 'thrust']);
+
+
 
 
         //National

@@ -390,7 +390,7 @@
                                                                 cellspacing="0">
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td> <a href="http://www.epu-emas2.0.prototype.com.my/MPB/displayThrust"
+                                                                        <td> <a href="http://epu-emas2.0.prototype.com.my/MPB/displayThrust"
                                                                                 target="_blank">View</a> </td>
                                                                     </tr>
                                                                 </tbody>

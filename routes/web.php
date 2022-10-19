@@ -160,8 +160,7 @@ Route::group(
         //ThrustInformation
         Route::resource('/thrust', ThrustController::class);
         Route::get('/mpb/{id}/edit', [MPBController::class, 'edit']);
-        Route::post('thrust/{id}', [MPBController::class, 'update']);
-
+        Route::get('/mpb_view', [MPBController::class, 'index']);
         Route::post('thrust/{id}', [MPBController::class, 'thrust']);
 
 

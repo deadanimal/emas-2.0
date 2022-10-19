@@ -8,8 +8,13 @@
         <br>
 
         <span><b>Thrust Information</b></span>
-        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/MPB/thrust/create">
-            <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
+        @can('Approver')
+            <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/MPB/thrust/create">
+                <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
+            <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/MPB/mpb_view">
+                <span class="far fa-user"></span>&nbsp;Assign Thrust</a>
+        @endcan
+
         <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
             onClick="window.location.reload();">
             <span class="fas fa-history"></span></a>

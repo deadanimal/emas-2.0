@@ -26,6 +26,13 @@
 
                         </select>
                     </div>
+
+                    <label class="col-sm-2 col-form-label" for="responsible_user">Responsible User</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="responsible_user"
+                            value="{{ $initiative->responsible_user }}" />
+
+                    </div>
                 </div>
 
                 <div class="mb-3 row">
@@ -35,12 +42,32 @@
                             value="{{ $initiative->namaInitiative }}" />
 
                     </div>
+
+                    <label class="col-sm-2 col-form-label" for="category">Category</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="category" id="pilih2">
+                            <option @selected($initiative->category == 'DEB') value="DEB">DEB</option>
+                            <option @selected($initiative->category == '4IR') value="4IR">4IR</option>
+
+                        </select>
+                    </div>
                 </div>
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="code">Initiatives Code</label>
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" type="text" name="code" value="{{ $initiative->code }}" />
+
+                    </div>
+
+                    <label class="col-sm-2 col-form-label" for="sec_id">Level</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="sec_id">
+                            <option selected disabled hidden>PLEASE CHOOSE</option>
+                            <option @selected($initiative->sec_id == 'National') value="National">National</option>
+                            <option @selected($initiative->sec_id == 'Sectoral') value="Sectoral">Sectoral</option>
+
+                        </select>
 
                     </div>
                 </div>

@@ -31,7 +31,7 @@ class UpdateThrusRequest extends FormRequest
 
             'desc' => [
                 'string',
-                'required',
+                // 'required',
             ],
 
             'category' => [

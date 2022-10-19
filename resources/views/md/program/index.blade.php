@@ -44,7 +44,7 @@
                         <tr>
                             <th scope="col">No.</th>
                             <th scope="col">Program</th>
-                            <th scope="col">Progress %</th>
+                            <th scope="col">Progress Program %</th>
                             <th scope="col">Action</th>
 
                         </tr>

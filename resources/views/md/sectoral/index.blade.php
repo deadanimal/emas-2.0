@@ -43,8 +43,8 @@
                     <thead>
                         <tr>
                             <th scope="col">No.</th>
-                            <th scope="col">sectoral</th>
-                            <th scope="col">Progress %</th>
+                            <th scope="col">Sectoral</th>
+                            <th scope="col">National</th>
                             <th scope="col">Action</th>
 
                         </tr>
@@ -63,13 +63,13 @@
                                 <td>
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $sectoral->id }}">
-                                        <div class="ms-2"><b>{{ $sectoral->namasectoral }}</b></div>
+                                        <div class="ms-2"><b>{{ $sectoral->namaSectoral }}</b></div>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $sectoral->id }}">
-                                        <div class="ms-2"><b>{{ $sectoral->progress }}</b></div>
+                                        <div class="ms-2"><b>{{ $sectoral->namaNational }}</b></div>
                                     </div>
                                 </td>
 
@@ -89,10 +89,17 @@
                                                 <div class="p-4 pb-0">
                                                     <form>
                                                         <div class="mb-3">
-                                                            <label class="col-form-label" for="namasectoral">sectoral
+                                                            <label class="col-form-label" for="namaSectoral">Sectoral
                                                                 Name:</label>
                                                             <label class="form-control"
-                                                                disabled="disabled">{{ $sectoral->namasectoral }}</label>
+                                                                disabled="disabled">{{ $sectoral->namaSectoral }}</label>
+
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="col-form-label" for="namaNational">National
+                                                                Name:</label>
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $sectoral->namaNational }}</label>
 
                                                         </div>
                                                         <br>

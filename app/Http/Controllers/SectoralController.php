@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreSectoralRequest;
 use App\Http\Requests\UpdateSectoralRequest;
+use App\Models\Cluster;
+use App\Models\Initiative;
 use App\Models\Sectoral;
+use Illuminate\Support\Facades\Auth;
 
 class SectoralController extends Controller
 {
@@ -13,9 +16,18 @@ class SectoralController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        //
+        $sectorals = Sectoral::all();
+        $initiatives = Initiative::all();
+
+        return view('md.sectoral.index', compact('initiatives', 'sectorals'));
     }
 
     /**
@@ -25,7 +37,9 @@ class SectoralController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+        // $strategies = Strategy::all();
+        return view('md.cluster.create', compact('user'));
     }
 
     /**

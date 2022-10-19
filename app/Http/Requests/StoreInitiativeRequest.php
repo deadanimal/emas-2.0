@@ -55,6 +55,16 @@ class StoreInitiativeRequest extends FormRequest
             'user_id' => [
                 'string',
             ],
+
+            'national' => [
+                'string',
+                'required',
+            ],
+
+            'responsible_user' => [
+                'string',
+                'required',
+            ],
         ];
     }
 }

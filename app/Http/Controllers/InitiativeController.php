@@ -76,6 +76,11 @@ class InitiativeController extends Controller
         $initiatives->target = $request->target;
         // $initiatives->phase = 'a';
         $initiatives->leadAgency = $request->leadAgency;
+        $initiatives->sec_id = $request->sec_id;
+        $initiatives->responsible_user = $request->responsible_user;
+        $initiatives->category = $request->category;
+
+
 
 
 
@@ -138,6 +143,11 @@ class InitiativeController extends Controller
         $initiative->target = $request->target;
         // $initiative->phase = 'a';
         $initiative->leadAgency = $request->leadAgency;
+        $initiative->sec_id = $request->sec_id;
+        $initiative->responsible_user = $request->responsible_user;
+        $initiative->category = $request->category;
+
+
 
 
 

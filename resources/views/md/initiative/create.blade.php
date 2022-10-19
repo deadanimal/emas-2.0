@@ -24,16 +24,10 @@
 
                         </select>
                     </div>
-                    <label class="col-sm-2 col-form-label" for="namaCluster">Responsible User</label>
+                    <label class="col-sm-2 col-form-label" for="responsible_user">Responsible User</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="cluster_id">
-                            <option selected disabled hidden>PLEASE CHOOSE</option>
+                        <input class="form-control" type="text" name="responsible_user" />
 
-                            {{-- @foreach ($clusters as $cluster)
-                                <option value="{{ $cluster->id }}">{{ $cluster->namaCluster }}</option>
-                            @endforeach --}}
-
-                        </select>
                     </div>
                 </div>
 
@@ -56,13 +50,13 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="code">Initiatives Code</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="code" />
+                        <input class="form-control" type="number" name="code" />
 
                     </div>
 
-                    <label class="col-sm-2 col-form-label" for="national">Level</label>
+                    <label class="col-sm-2 col-form-label" for="sec_id">Level</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="national">
+                        <select class="form-control" name="sec_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
                             <option value="National">National</option>
                             <option value="Sectoral">Sectoral</option>

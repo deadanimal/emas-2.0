@@ -31,7 +31,7 @@ class StoreStrategyRequest extends FormRequest
 
             'desc' => [
                 'string',
-                'required',
+                // 'required',
             ],
 
             'category' => [

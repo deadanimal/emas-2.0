@@ -31,7 +31,7 @@ class UpdateStrategyRequest extends FormRequest
 
             'desc' => [
                 'string',
-                'required',
+                // 'required',
             ],
 
             'category' => [
@@ -40,7 +40,8 @@ class UpdateStrategyRequest extends FormRequest
             ],
 
             'thrus_id' => [
-                'required',
+                'string',
+                // 'required',
             ],
 
             'user_id' => [

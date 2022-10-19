@@ -44,11 +44,11 @@ class StrategyController extends Controller
 
         $thrusts = Thrus::all();
         // $thrusts = DB::table('thruses')->get();
-        $strategys = Thrus::all();
+        $categories = Thrus::all();
 
 
 
-        return view('md.strategy.create', compact('user', 'thrusts', 'strategys'));
+        return view('md.strategy.create', compact('user', 'thrusts', 'categories'));
     }
 
     /**
@@ -87,8 +87,10 @@ class StrategyController extends Controller
         // dd($strategy);
 
         $thrust = Thrus::all();
+        $categories = Thrus::all();
 
-        return view('md.strategy.edit', compact('strategy', 'thrust'));
+
+        return view('md.strategy.edit', compact('strategy', 'thrust', 'categories'));
     }
 
     /**

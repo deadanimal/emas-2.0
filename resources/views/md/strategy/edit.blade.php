@@ -27,7 +27,7 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="thrust_id">Thrust</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="thrust_id">
+                        <select class="form-control" name="thrust_id" id="pilih1">
                             @foreach ($thrust as $thrust)
                                 <option @selected($strategy->thrust_id == $thrust->id) value="{{ $thrust->id }}">{{ $thrust->namaThrust }}
                                 </option>
@@ -40,7 +40,7 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="category">Category</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="category">
+                        <select class="form-control" name="category" id="pilih2">
                             <option @selected($strategy->category == 'DEB') value="DEB">DEB</option>
                             <option @selected($strategy->category == '4IR') value="4IR">4IR</option>
 
@@ -77,7 +77,7 @@
 
         </div>
 
-    </div>
+    </div><br>
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -89,4 +89,20 @@
             </ul>
         </div>
     @endif
+
+    <script>
+        $("#pilih1").change(function() {
+
+            var thrus_id = $(this).val();
+            var categories = @json($categories->toArray());
+            $("#pilih2").html(``);
+            categories.forEach(cat => {
+                if (cat.id == thrus_id) {
+                    $("#pilih2").append(`
+                        <option value="` + cat.id + `">` + cat.category + `</option>
+                    `);
+                }
+            });
+        });
+    </script>
 @endsection

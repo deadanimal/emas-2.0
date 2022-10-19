@@ -31,7 +31,7 @@ class UpdateClusterRequest extends FormRequest
 
             'desc' => [
                 'string',
-                'required',
+                // 'required',
             ],
 
             'strategies_id' => [
@@ -40,6 +40,11 @@ class UpdateClusterRequest extends FormRequest
 
             'user_id' => [
                 'string',
+            ],
+
+            'chairman' => [
+                'string',
+                'required',
             ],
         ];
     }

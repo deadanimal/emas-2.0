@@ -31,7 +31,7 @@ class StoreThrusRequest extends FormRequest
 
             'desc' => [
                 'string',
-                'required',
+                // 'required',
             ],
 
             'category' => [

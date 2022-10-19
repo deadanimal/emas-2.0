@@ -37,10 +37,19 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="">Category</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="category" id="pilih2">
+                        {{-- <select class="form-control" name="category" id="pilih2">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
                             <option value="DEB">DEB</option>
                             <option value="4IR">4IR</option>
+                        </select> --}}
+
+                        <select class="form-control" name="category" id="pilih2">
+                            <option selected disabled hidden>PLEASE CHOOSE</option>
+
+                            {{-- @foreach ($categories as $cat)
+                                <option value="{{ $cat->id }}">{{ $cat->category }}</option>
+                            @endforeach --}}
+
                         </select>
 
                     </div>
@@ -80,7 +89,7 @@
 
         </div>
 
-    </div>
+    </div><br>
 
 
     @if ($errors->any())
@@ -98,13 +107,12 @@
         $("#pilih1").change(function() {
 
             var thrus_id = $(this).val();
-            var thrusts = @json($thrusts->toArray());
+            var categories = @json($categories->toArray());
             $("#pilih2").html(``);
-            thrusts.forEach(thrust => {
-                console.log(thrusts);
-                if (thrust.thrus_id == thrus_id) {
+            categories.forEach(cat => {
+                if (cat.id == thrus_id) {
                     $("#pilih2").append(`
-                        <option value="` + thrust.id + `">` + thrust.category + `</option>
+                        <option value="` + cat.id + `">` + cat.category + `</option>
                     `);
                 }
             });

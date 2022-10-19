@@ -9,11 +9,8 @@ class MPBController extends Controller
 {
     public function index()
     {
-        $user = User::all();
-
-        return view('mpb.index', [
-            'user' => $user,
-        ]);
+        $users = User::role('MPB')->get();
+        return view('mpb.thrust.mpb_view', compact('users'));
     }
 
     public function edit($id)
@@ -27,36 +24,21 @@ class MPBController extends Controller
         ]);
     }
 
-    // public function update(Request $request, User $user)
-    // {
-
-    //     $user->update($request->all());
-    //     $user->thrust1 = $request->thrust1;
-    //     $user->thrust2 = $request->thrust2;
-    //     $user->thrust3 = $request->thrust3;
-    //     $user->thrust4 = $request->thrust4;
-    //     $user->thrust5 = $request->thrust5;
-
-    //     $user->save();
-    //     // dd('jadi');
-
-    //     return back();
-    // }
-
     public function thrust(Request $request, $id)
     {
 
-        $user = User::find($id);
-        $user->update($request->all());
-        $user->thrust1 = $request->thrust1;
-        $user->thrust2 = $request->thrust2;
-        $user->thrust3 = $request->thrust3;
-        $user->thrust4 = $request->thrust4;
-        $user->thrust5 = $request->thrust5;
+        $users = User::find($id);
+        $users->update($request->all());
+        $users->thrust1 = $request->thrust1;
+        $users->thrust2 = $request->thrust2;
+        $users->thrust3 = $request->thrust3;
+        $users->thrust4 = $request->thrust4;
+        $users->thrust5 = $request->thrust5;
 
-        $user->save();
+        $users->save();
         // dd('jadi');
 
-        return back();
+        // return back();
+        return redirect()->to('MPB/mpb_view');
     }
 }

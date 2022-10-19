@@ -172,7 +172,7 @@
                                             <div class="p-4 pb-0">
                                                 <form>
                                                     <div class="mb-3">
-                                                        <label class="col-form-label">Perkara Utama:</label>
+                                                        <label class="col-form-label">Milestone Name:</label>
                                                         <label class="form-control"
                                                             disabled="disabled">` + e.namaMilestone + `</label>
 

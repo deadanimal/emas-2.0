@@ -2,28 +2,28 @@
 @section('content')
     <div class="container">
         <div class="mb-4 text-center">
-            <H2>DATA ENTRY FOR SECTORAL</H2>
+            <H2>DATA ENTRY FOR CLUSTER</H2>
         </div>
 
         <br>
         <br>
 
         <div class="form-floating;">
-            <form action="{{ route('sectoral.store') }}" method="POST">
+            <form action="{{ route('cluster.store') }}" method="POST">
                 @csrf
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaSectoral">Sectoral Name</label>
+                    <label class="col-sm-2 col-form-label" for="namaCluster">Cluster Name</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaSectoral" />
+                        <input class="form-control" type="text" name="namaCluster" />
 
                     </div>
-                    {{--
+
                     <label class="col-sm-2 col-form-label" for="chairman">Chairman</label>
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" type="text" name="chairman" />
 
-                    </div> --}}
+                    </div>
                 </div>
 
 

@@ -33,7 +33,7 @@
                 <tbody>
                     @foreach ($thrust as $thru)
                         <tr class="align-middle">
-                            <td class="text-nowrap">
+                            <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-{{ $thru->id }}">
                                     <div class="ms-2"><b>{{ $thru->namaThrust }}</b></div>

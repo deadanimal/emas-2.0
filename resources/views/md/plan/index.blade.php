@@ -40,20 +40,20 @@
                     <tbody class="list myTable" id="searchUpdateTable">
                         @foreach ($plans as $plan)
                             <tr class="align-middle plan">
-                                <td class="text-nowrap">
+                                <td>
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $plan->id }}">
                                         <div class="ms-2"><b>{{ $loop->iteration }}</b></div>
                                     </div>
                                 </td>
 
-                                <td class="text-nowrap">
+                                <td>
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $plan->id }}">
                                         <div class="ms-2"><b>{{ $plan->namaPlan }}</b></div>
                                     </div>
                                 </td>
-                                <td class="text-nowrap">
+                                <td>
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $plan->id }}">
                                         <div class="ms-2"><b>{{ $plan->progress }}</b></div>
@@ -85,13 +85,13 @@
                                                         </div>
                                                     </form>
                                                 </div>
-                                            </div>
+                                            </div><br>
 
                                         </div>
                                     </div>
                                 </div>
 
-                                <td class="text-nowrap">
+                                <td>
                                     <div>
 
                                         <a class="btn btn-primary" style="border-radius: 38px"

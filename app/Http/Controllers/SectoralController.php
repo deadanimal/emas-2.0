@@ -38,8 +38,9 @@ class SectoralController extends Controller
     public function create()
     {
         $user = Auth::user();
+        $clusters = Cluster::all();
         // $strategies = Strategy::all();
-        return view('md.cluster.create', compact('user'));
+        return view('md.sectoral.create', compact('user', 'clusters'));
     }
 
     /**

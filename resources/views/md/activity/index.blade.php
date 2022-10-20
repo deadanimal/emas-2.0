@@ -90,7 +90,7 @@
                                     </div>
                                 </td>
 
-                                <td class="text-nowrap">
+                                <td>
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $activity->id }}">
                                         <div class="ms-2"><b>{{ $activity->namaActivity }}</b></div>

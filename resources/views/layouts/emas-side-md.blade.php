@@ -336,9 +336,9 @@
                             </div>
                             <div class="col text-center">
 
-                                <span class="nav-link-text ps-1">{{ Auth()->User()->name }}</span>
+                                <span class="nav-link-text ps-1"><i>{{ Auth()->User()->name }}</i></span>
                                 <br>
-                                <span class="nav-link-text ps-1">{{ Auth()->User()->email }}</span>
+                                <span class="nav-link-text ps-1"><i>{{ Auth()->User()->email }}</i></span>
 
                             </div>
                             <div class="col-2">

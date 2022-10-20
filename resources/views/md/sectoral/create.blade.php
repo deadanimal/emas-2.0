@@ -16,20 +16,6 @@
 
                     <div class="col-lg-6">
 
-                        <div class="mb-3 row">
-                            <label class="col-form-label" for="initiative_id">Initiative Code</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" name="initiative_id">
-                                    <option selected disabled hidden>PLEASE CHOOSE</option>
-
-                                    @foreach ($initiatives as $initiative)
-                                        <option value="{{ $initiative->id }}">
-                                            {{ $initiative->code }} - {{ $initiative->namaInitiative }}</option>
-                                    @endforeach
-
-                                </select>
-                            </div>
-                        </div>
 
                         <div class="mb-3 row">
                             <label class="col-form-label" for="cluster_id">Cluster</label>
@@ -48,17 +34,9 @@
 
 
                         <div class="mb-3 row">
-                            <label class="col-form-label" for="namasectoral">sectoral Name</label>
+                            <label class="col-form-label" for="namaSectoral">Sectoral Name</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" name="namasectoral" />
-
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label class="col-form-label" for="sectoralLead">sectoral Lead</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="text" name="sectoralLead" />
+                                <input class="form-control" type="text" name="namaSectoral" />
 
                             </div>
                         </div>

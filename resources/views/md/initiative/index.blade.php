@@ -46,7 +46,9 @@
                             <th scope="col">Code</th>
                             <th scope="col">Initiative</th>
                             <th scope="col">Target Initiative</th>
+                            <th scope="col">Progress Initiative % </th>
                             <th scope="col">Phase </th>
+
                             {{-- <th scope="col">Phase 2</th>
                             <th scope="col">Phase 3</th> --}}
                             <th scope="col">Lead Agency</th>
@@ -86,6 +88,7 @@
                                         <div class="ms-2"><b>{{ $initiative->target }}</b></div>
                                     </div>
                                 </td>
+                                <td>test</td>
 
                                 <td>
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
@@ -144,7 +147,8 @@
                                                                 disabled="disabled">{{ $initiative->target }}</label>
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label class="col-form-label">Phase:</label>{{ $initiative->phase }}
+                                                            <label
+                                                                class="col-form-label">Phase:</label>{{ $initiative->phase }}
 
                                                         </div>
 

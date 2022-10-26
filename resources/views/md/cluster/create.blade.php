@@ -13,15 +13,15 @@
                 @csrf
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaCluster">Cluster Name</label>
+                    <label class="col-sm-2 col-form-label" for="namaCluster">Cluster*</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaCluster" />
+                        <input class="form-control" type="text" name="namaCluster" required />
 
                     </div>
 
-                    <label class="col-sm-2 col-form-label" for="chairman">Chairman</label>
+                    <label class="col-sm-2 col-form-label" for="chairman">Chairman*</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="chairman" />
+                        <input class="form-control" type="text" name="chairman" required />
 
                     </div>
                 </div>
@@ -29,9 +29,9 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="agency">Secretariat</label>
+                    <label class="col-sm-2 col-form-label" for="agency">Cluster Secretariat*</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="agency">
+                        <select class="form-control" name="agency" required>
                             <option selected disabled hidden>PLEASE CHOOSE</option>
                             <option value="MOHR">MOHR</option>
                             <option value="KKMM">KKMM</option>
@@ -40,6 +40,46 @@
                             <option value="KPWKM">KPWKM</option>
                             <option value="MAMPU">MAMPU</option>
                         </select>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="PIC">Person in Charge*</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="PIC" required />
+
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="position">Position*</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="position" required />
+
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="phone">Contact Number*</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="number" name="phone" required />
+
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="email">Primary Email Address*</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="email" required />
+
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="email2">Secondary Email Address*</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="email2" required />
+
                     </div>
                 </div>
 

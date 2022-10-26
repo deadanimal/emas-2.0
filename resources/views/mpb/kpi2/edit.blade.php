@@ -10,7 +10,7 @@
         <br>
 
         <div class="form-floating;">
-            <form action="/kpi2/{{ $kpi2->id }}" method="POST">
+            <form action="/MPB/kpi2/{{ $kpi2->id }}" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -93,8 +93,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label" for="outcome"><b>Outcome:</b></label>
-                            <input class="form-control" type="text" name="outcome" value="{{ $kpi2->outcome }}" />
+                            <label class="form-label" for="national"><b>Outcome:</b></label>
+                            <input class="form-control" type="text" name="national" value="{{ $kpi2->national }}" />
                         </div>
                     </div>
                 </div>

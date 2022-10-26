@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="mb-4 text-center">
-            <H2>MyDigital</H2>
+            <H2>MyDigital Progress Report</H2>
         </div>
 
         <br>
@@ -22,18 +22,57 @@
             </div>
         </div>
 
+        <hr>
+        <div class="row g-3">
+            <div class="col-sm" style="width:50%">
 
+                <select class="form-select search" aria-label="Default select example">
+                    <option selected disabled hidden>CLUSTER</option>
 
-        <hr style="width:100%;text-align:center;">
+                    @foreach ($cluster as $cluster)
+                        <option value="{{ $cluster->id }}">{{ $cluster->namaCluster }}</option>
+                    @endforeach
 
-        <select class="form-select search" style="width:30%" aria-label="Default select example">
-            <option selected disabled hidden>CLUSTER</option>
+                </select>
+            </div>
 
-            @foreach ($cluster as $cluster)
+            <div class="col-sm" style="width:50%">
+
+                <select class="form-select search" aria-label="Default select example">
+                    <option selected disabled hidden>DOCUMENT</option>
+
+                    {{-- @foreach ($cluster as $cluster)
                 <option value="{{ $cluster->id }}">{{ $cluster->namaCluster }}</option>
-            @endforeach
+            @endforeach --}}
 
-        </select>
+                </select>
+            </div>
+
+            <div class="col-sm" style="width:50%">
+
+                <select class="form-select search" aria-label="Default select example">
+                    <option selected disabled hidden>LEVEL</option>
+
+                    {{-- @foreach ($cluster as $cluster)
+                <option value="{{ $cluster->id }}">{{ $cluster->namaCluster }}</option>
+            @endforeach --}}
+
+                </select>
+            </div>
+
+            <div class="col-sm" style="width:50%">
+
+
+                <select class="form-select search" aria-label="Default select example">
+                    <option selected disabled hidden>PHASE</option>
+
+                    {{-- @foreach ($cluster as $cluster)
+                <option value="{{ $cluster->id }}">{{ $cluster->namaCluster }}</option>
+            @endforeach --}}
+
+                </select>
+            </div>
+        </div>
 
         {{-- <hr style="width:100%;text-align:center;"> --}}
         <br>
@@ -88,7 +127,13 @@
                                         <div class="ms-2"><b>{{ $initiative->target }}</b></div>
                                     </div>
                                 </td>
-                                <td>test</td>
+
+                                <td>
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $initiative->id }}">
+                                        <div class="ms-2"><b>{{ $initiative->progress }}</b></div>
+                                    </div>
+                                </td>
 
                                 <td>
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"

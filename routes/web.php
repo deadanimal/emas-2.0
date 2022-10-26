@@ -302,6 +302,10 @@ Route::group(
 
         //Sectoral
         Route::resource('/sectoral', SectoralController::class);
+
+        //User
+        Route::get('/user/list/', [PenggunaController::class, 'index_mydigital']);
+        Route::get('/user/create/', [PenggunaController::class, 'create_mydigital']);
     }
 );
 

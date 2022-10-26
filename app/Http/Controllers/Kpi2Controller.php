@@ -102,7 +102,9 @@ class Kpi2Controller extends Controller
      */
     public function update(UpdateKpi2Request $request, Kpi2 $kpi2)
     {
+
         $kpi2->update($request->all());
+
         return redirect()->route('kpi2.index');
     }
 

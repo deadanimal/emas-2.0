@@ -295,8 +295,26 @@
 
                 </li>
                 <br>
+                @can('Urusetia')
+                    <a class="nav-link btn1" href="/MD/user/list" role="button">
 
+                        <div class="d-flex align-items-center">
+                            <div class="col-2">
+                                <span class="nav-link-icon">
+                                    <span class="far fa-user"></span>
+                                </span>
+                            </div>
+                            <div class="col text-center">
+                                <span class="nav-link-text ps-1">User Profile
 
+                                </span>
+                            </div>
+                            <div class="col-2">
+
+                            </div>
+                        </div>
+                    </a>
+                @endcan
 
 
                 <a class="nav-link btn1" href="/MD/dashboard" role="button">

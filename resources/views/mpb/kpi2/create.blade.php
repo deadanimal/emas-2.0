@@ -92,8 +92,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label" for="outcome"><b>Outcome:</b></label>
-                            <input class="form-control" type="text" name="outcome" />
+                            <label class="form-label" for="national"><b>Outcome:</b></label>
+                            <input class="form-control" type="text" name="national" />
                         </div>
                     </div>
                 </div>

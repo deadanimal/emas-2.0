@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="mb-4 text-center">
-            <H2>MyDigital</H2>
+            <H2>MyDigital Progress Report</H2>
         </div>
 
         <br>

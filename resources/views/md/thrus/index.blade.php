@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="mb-4 text-center">
-            <H2>MyDigital</H2>
+            <H2>MyDigital Progress Report</H2>
         </div>
 
         <br>
@@ -33,7 +33,7 @@
                         <tr>
                             <th scope="col">No.</th>
                             <th scope="col">Thrust</th>
-                            <th scope="col">Type</th>
+                            <th scope="col">Document</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>

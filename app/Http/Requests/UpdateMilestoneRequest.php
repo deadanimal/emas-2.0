@@ -81,6 +81,18 @@ class UpdateMilestoneRequest extends FormRequest
             'approver_remark' => [
                 'string',
             ],
+
+            // 'baseline' => [
+            //     'string',
+            //     'required',
+
+            // ],
+
+            // 'national' => [
+            //     'string',
+            //     'required',
+
+            // ],
         ];
     }
 }

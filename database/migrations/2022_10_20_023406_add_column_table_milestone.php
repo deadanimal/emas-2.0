@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::table('milestones', function (Blueprint $table) {
             $table->string('baseline')->nullable();
             $table->string('national')->nullable();
+            $table->string('target')->nullable();
         });
     }
 
@@ -29,6 +30,7 @@ return new class extends Migration
         Schema::table('milestones', function (Blueprint $table) {
             $table->dropColumn('baseline')->nullable();
             $table->dropColumn('national')->nullable();
+            $table->dropColumn('target')->nullable();
         });
     }
 };

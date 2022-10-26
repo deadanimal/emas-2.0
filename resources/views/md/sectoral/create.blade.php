@@ -18,9 +18,9 @@
 
 
                         <div class="mb-3 row">
-                            <label class="col-form-label" for="cluster_id">Cluster</label>
+                            <label class="col-form-label" for="cluster_id">Cluster*</label>
                             <div class="col-sm-10">
-                                <select class="form-control" name="cluster_id">
+                                <select class="form-control" name="cluster_id" required>
                                     <option selected disabled hidden>PLEASE CHOOSE</option>
 
                                     @foreach ($clusters as $cluster)
@@ -34,9 +34,9 @@
 
 
                         <div class="mb-3 row">
-                            <label class="col-form-label" for="namaSectoral">Sectoral Name</label>
+                            <label class="col-form-label" for="namaSectoral">Sectoral*</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" name="namaSectoral" />
+                                <input class="form-control" type="text" name="namaSectoral" required />
 
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-form-label" for="sectoralTarget">sectoral Target</label>
+                            <label class="col-form-label" for="sectoralTarget">Sectoral Target</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="sectoralTarget" />
 

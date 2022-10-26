@@ -82,6 +82,25 @@ class StoreMilestoneRequest extends FormRequest
                 'string',
             ],
 
+            'baseline' => [
+                'string',
+                'required',
+
+            ],
+
+            'national' => [
+                'string',
+                'required',
+
+            ],
+
+            'target' => [
+                'string',
+                'required',
+
+            ],
+
+
 
         ];
     }

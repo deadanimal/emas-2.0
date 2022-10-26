@@ -81,28 +81,28 @@
                     </div>
 
                     <div class="row mb-3">
-                        <label class="col-form-label" for="base_id">Baseline</label>
+                        <label class="col-form-label" for="baseline">Baseline</label>
                         <div class="col-sm-10">
-                            <select class="form-control" name="base_id">
-                                {{-- @foreach ($kpi as $kpi)
-                                    <option @selected($milestone->base_id == $kpi->id) value="{{ $kpi->id }}">
-                                        {{ $kpi->namaKpi }}
+                            <select class="form-control" name="baseline">
+                                @foreach ($baseline as $kpi)
+                                    <option @selected($milestone->baseline == $kpi->id) value="{{ $kpi->baseline }}">
+                                        {{ $kpi->baseline }}
                                     </option>
-                                @endforeach --}}
+                                @endforeach
 
                             </select>
                         </div>
                     </div>
 
                     <div class="row mb-3">
-                        <label class="col-form-label" for="outcome_id">Outcome</label>
+                        <label class="col-form-label" for="national">Outcome</label>
                         <div class="col-sm-10">
-                            <select class="form-control" name="outcome_id">
-                                {{-- @foreach ($kpi as $kpi)
-                                    <option @selected($milestone->outcome_id == $kpi->id) value="{{ $kpi->id }}">
-                                        {{ $kpi->namaKpi }}
+                            <select class="form-control" name="national">
+                                @foreach ($national as $kpi)
+                                    <option @selected($milestone->national == $kpi->id) value="{{ $kpi->national }}">
+                                        {{ $kpi->national }}
                                     </option>
-                                @endforeach --}}
+                                @endforeach
 
                             </select>
                         </div>

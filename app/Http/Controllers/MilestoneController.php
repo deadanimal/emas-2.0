@@ -70,6 +70,10 @@ class MilestoneController extends Controller
         $key = Key::where('user_id', Auth::user()->id)->get();
         $sub = Sub::where('user_id', Auth::user()->id)->get();
         $kpi = Kpi2::where('user_id', Auth::user()->id)->get();
+        $baseline = Kpi2::where('user_id', Auth::user()->id)->get();
+        $national = Kpi2::where('user_id', Auth::user()->id)->get();
+
+
 
 
 
@@ -78,7 +82,7 @@ class MilestoneController extends Controller
 
 
 
-        return view('mpb.milestone.create', compact('user', 'miles', 'thrust', 'nation', 'key', 'sub', 'kpi'));
+        return view('mpb.milestone.create', compact('user', 'miles', 'thrust', 'nation', 'key', 'sub', 'kpi', 'baseline', 'national'));
     }
 
     /**
@@ -90,9 +94,9 @@ class MilestoneController extends Controller
     public function store(StoreMilestoneRequest $request)
     {
         $miles = Milestone::create($request->validated());
-        $data  = User::find($miles->user_id);
+        // $data  = User::find($miles->user_id);
 
-        Mail::to($data->email)->send(new MPBMilestone($data, $miles));
+        // Mail::to($data->email)->send(new MPBMilestone($data, $miles));
 
 
         return redirect()->route('milestone.index');
@@ -123,12 +127,14 @@ class MilestoneController extends Controller
         $key = Key::where('user_id', Auth::user()->id)->get();
         $sub = Sub::where('user_id', Auth::user()->id)->get();
         $kpi = Kpi2::where('user_id', Auth::user()->id)->get();
+        $baseline = Kpi2::where('user_id', Auth::user()->id)->get();
+        $national = Kpi2::where('user_id', Auth::user()->id)->get();
         // $list= Quarter::all();
 
 
 
 
-        return view('mpb.milestone.edit', compact('milestone', 'thrust', 'nation', 'key', 'sub', 'kpi'));
+        return view('mpb.milestone.edit', compact('milestone', 'thrust', 'nation', 'key', 'sub', 'kpi', 'baseline', 'national'));
     }
 
     /**

@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="mb-4 text-center">
-            <H2>MyDigital</H2>
+            <H2>MyDigital Progress Report</H2>
         </div>
 
         <br>
@@ -36,7 +36,11 @@
                             <th scope="col">Cluster</th>
                             <th scope="col">Total Initiatives DEB</th>
                             <th scope="col">Total Initiatives 4IR</th>
-                            <th scope="col">Secretariat</th>
+                            <th scope="col">Cluster Secretariat</th>
+                            <th scope="col">Person In Charge</th>
+                            <th scope="col">Position</th>
+                            <th scope="col">Contact Number</th>
+                            <th scope="col">Email Address</th>
                             <th scope="col">Chairman</th>
                             <th scope="col">Action</th>
 
@@ -79,6 +83,31 @@
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $cluster->id }}">
                                         <div class="ms-2"><b>{{ $cluster->agency }}</b></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $cluster->id }}">
+                                        <div class="ms-2"><b>{{ $cluster->PIC }}</b></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $cluster->id }}">
+                                        <div class="ms-2"><b>{{ $cluster->position }}</b></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $cluster->id }}">
+                                        <div class="ms-2"><b>{{ $cluster->phone }}</b></div>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $cluster->id }}">
+                                        <div class="ms-2"><b>{{ $cluster->email }}</b></div>
                                     </div>
                                 </td>
 

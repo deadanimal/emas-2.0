@@ -64,6 +64,16 @@ class PenggunaController extends Controller
         return view('user.index1');
     }
 
+    public function index_mydigital()
+    {
+        $role = Role::all();
+        $user = User::all();
+        return view('md.user.index', [
+            'role' => $role,
+            'user' => $user,
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -94,6 +104,20 @@ class PenggunaController extends Controller
             // 'role' => $role,
             // 'permissions' => $permissions
         ]);
+    }
+
+    public function create_mydigital()
+    {
+        $user = User::all();
+        $roles = Role::with('permissions')->get();
+        $permissions = Permission::all();
+        return view('md.user.create', [
+            'users' => $user,
+            'role' => $roles,
+            'permissions' => $permissions,
+        ]);
+
+        // $user->syncPermission('KementerianPPD');
     }
 
     /**

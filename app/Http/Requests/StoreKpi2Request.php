@@ -54,6 +54,17 @@ class StoreKpi2Request extends FormRequest
             'sub_id' => [
                 'string',
             ],
+
+            'baseline' => [
+                'string',
+                'required',
+            ],
+
+            'national' => [
+                'string',
+                'required',
+
+            ],
         ];
     }
 }

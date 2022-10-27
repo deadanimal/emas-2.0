@@ -12,138 +12,173 @@
             <form action="{{ route('program.store') }}" method="POST">
                 @csrf
 
-                <div class="row justify-content-center">
-
-                    <div class="col-lg-6">
-
-                        <div class="mb-3 row">
-                            <label class="col-form-label" for="initiative_id">Initiative Code</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" name="initiative_id">
-                                    <option selected disabled hidden>PLEASE CHOOSE</option>
-
-                                    @foreach ($initiatives as $initiative)
-                                        <option value="{{ $initiative->id }}">
-                                            {{ $initiative->code }} - {{ $initiative->namaInitiative }}</option>
-                                    @endforeach
-
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label class="col-form-label" for="cluster_id">Cluster</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" name="cluster_id">
-                                    <option selected disabled hidden>PLEASE CHOOSE</option>
-
-                                    @foreach ($clusters as $cluster)
-                                        <option value="{{ $cluster->id }}">
-                                            {{ $cluster->namaCluster }}</option>
-                                    @endforeach
-
-                                </select>
-                            </div>
-                        </div>
 
 
-                        <div class="mb-3 row">
-                            <label class="col-form-label" for="namaProgram">Program Name</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="text" name="namaProgram" />
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="initiative_id">Initiative Code</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="initiative_id">
+                            <option selected disabled hidden>PLEASE CHOOSE</option>
 
-                            </div>
-                        </div>
+                            @foreach ($initiatives as $initiative)
+                                <option value="{{ $initiative->id }}">
+                                    {{ $initiative->code }} - {{ $initiative->namaInitiative }}</option>
+                            @endforeach
 
-                        <div class="mb-3 row">
-                            <label class="col-form-label" for="programLead">Program Lead</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="text" name="programLead" />
+                        </select>
+                    </div>
+                    <label class="col-sm-2 col-form-label" for="programLead">Program Lead</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="programLead" />
 
-                            </div>
-                        </div>
+                    </div>
+                </div>
 
-                        <div class="mb-3 row">
-                            <label class="col-form-label" for="leadAgency">Lead Agency/Ministry</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="text" name="leadAgency" />
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="cluster_id">Cluster</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="cluster_id">
+                            <option selected disabled hidden>PLEASE CHOOSE</option>
 
-                            </div>
-                        </div>
+                            @foreach ($clusters as $cluster)
+                                <option value="{{ $cluster->id }}">
+                                    {{ $cluster->namaCluster }}</option>
+                            @endforeach
 
-                        <div class="mb-3 row">
-                            <label class="col-form-label" for="programTarget">Program Target</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="text" name="programTarget" />
+                        </select>
+                    </div>
 
-                            </div>
-                        </div>
+                    <label class="col-sm-2 col-form-label" for="PIC">Person In Charge</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="PIC" />
 
-                        {{-- <div class="mb-3 row">
-                            <label class="col-form-label" for="progress">Progress Plan</label>
-                            <div class="col-sm-10">
+                    </div>
+                </div>
+
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="namaProgram">Program Name</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="namaProgram" />
+
+                    </div>
+
+                    <label class="col-sm-2 col-form-label" for="position">Position</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="position" />
+
+                    </div>
+                </div>
+
+
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="leadAgency">Lead Agency/Ministry</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="leadAgency" />
+
+                    </div>
+
+
+                    <label class="col-sm-2 col-form-label" for="phoneNo">Contact Number</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="number" name="phoneNo" />
+
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="programTarget">Program Target</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="programTarget" />
+
+                    </div>
+
+                    <label class="col-sm-2 col-form-label" for="email">Primary Email Address</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="email" />
+
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for=""></label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" hidden />
+
+                    </div>
+
+                    <label class="col-sm-2 col-form-label" for="email2">Secondary Email Address</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="email2" />
+
+                    </div>
+                </div>
+
+                {{-- <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label" for="progress">Progress Plan</label>
+                            <div class="col-sm-10" style="width:30%">
                                 <input class="form-control" type="text" name="progress" />
 
                             </div>
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-form-label" for="cost">Project Cost</label>
-                            <div class="col-sm-10">
+                            <label class="col-sm-2 col-form-label" for="cost">Project Cost</label>
+                            <div class="col-sm-10" style="width:30%">
                                 <input class="form-control" type="text" name="cost" />
 
                             </div>
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-form-label" for="source">Source Funding</label>
-                            <div class="col-sm-10">
+                            <label class="col-sm-2 col-form-label" for="source">Source Funding</label>
+                            <div class="col-sm-10" style="width:30%">
                                 <input class="form-control" type="text" name="source" />
 
                             </div>
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-form-label" for="totalDisbursed">Total Disbursed Amount</label>
-                            <div class="col-sm-10">
+                            <label class="col-sm-2 col-form-label" for="totalDisbursed">Total Disbursed Amount</label>
+                            <div class="col-sm-10" style="width:30%">
                                 <input class="form-control" type="number" name="totalDisbursed" />
 
                             </div>
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-form-label" for="totalAmount">Total Amount Spending</label>
-                            <div class="col-sm-10">
+                            <label class="col-sm-2 col-form-label" for="totalAmount">Total Amount Spending</label>
+                            <div class="col-sm-10" style="width:30%">
                                 <input class="form-control" type="number" name="totalAmount" />
 
                             </div>
                         </div> --}}
 
 
-                        <br>
-                        <br>
+                <br>
+                <br>
 
 
 
-                        <div class="row">
+                <div class="row">
 
-                            <div class="col" style="text-align: right">
-                                <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                                    href="/MD/program">
-                                    <span class="fas fa-times-circle"></span>&nbsp;Cancel
-                                </a>
-                                <button class="btn btn-falcon-default btn-sm"
-                                    style="background-color: #047FC3; color:white;" type="submit" value="Save"
-                                    onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span
-                                        class="fas fa-save"></span>&nbsp;Save
-                                </button>
-                            </div>
-                        </div>
-
-                        <input class="form-control" name="user_id" type="hidden" value="{{ $user->id }}" />
-
+                    <div class="col" style="text-align: right">
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
+                            href="/MD/program">
+                            <span class="fas fa-times-circle"></span>&nbsp;Cancel
+                        </a>
+                        <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
+                            type="submit" value="Save"
+                            onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span
+                                class="fas fa-save"></span>&nbsp;Save
+                        </button>
                     </div>
                 </div>
+
+                <input class="form-control" name="user_id" type="hidden" value="{{ $user->id }}" />
+
+
             </form>
 
         </div>

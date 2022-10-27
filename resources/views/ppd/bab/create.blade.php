@@ -17,7 +17,7 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <select class="form-control" name="fokus_id" id="pilih1">
                             <option selected disabled hidden>SILA PILIH</option>
 
@@ -27,23 +27,11 @@
 
                         </select>
                     </div>
-
-                    <label class="col-sm-2 col-form-label" for="bahagian">Bahagian Penyelaras</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="bahagian">
-                            <option selected disabled hidden>SILA PILIH</option>
-
-                            {{-- @foreach ($fokuss as $fokus)
-                                <option value="{{ $fokus->id }}">{{ $fokus->namaFokus }}</option>
-                            @endforeach --}}
-
-                        </select>
-                    </div>
                 </div>
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <select class="form-control" name="pemangkin_id" id="pilih2">
                             <option selected disabled hidden>SILA PILIH</option>
 
@@ -57,7 +45,7 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="namaBab">Nama Bab</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <input class="form-control" name="namaBab" placeholder="Sila isi" />
                     </div>
                 </div>
@@ -81,6 +69,20 @@
                             <option value="12">12</option>
                         </select>
 
+                    </div>
+                </div>
+                <div class="mb-3 row">
+
+                    <label class="col-sm-2 col-form-label" for="bahagian">Bahagian Penyelaras</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="bahagian">
+                            <option selected disabled hidden>SILA PILIH</option>
+
+                            {{-- @foreach ($fokuss as $fokus)
+                                <option value="{{ $fokus->id }}">{{ $fokus->namaFokus }}</option>
+                            @endforeach --}}
+
+                        </select>
                     </div>
                 </div>
 

@@ -58,7 +58,7 @@
 
                     <a class="navbar-brand" href="/dashboard">
                         <div class="d-flex justify-content-center">
-                            <img src="/img/logo.png" alt="logo">
+                            <img src="/img/logompb.png" alt="logo">
                         </div>
                     </a>
                     <br>

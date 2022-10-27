@@ -70,7 +70,7 @@ class InitiativeController extends Controller
         $initiatives->cluster_id = $request->cluster_id;
         // $initiatives->namaCluster = $request->namaCluster;
         $initiatives->namaInitiative = $request->namaInitiative;
-        // $initiatives->category = $request->category;
+        $initiatives->category = $request->category;
         $initiatives->code = $request->code;
         // $initiatives->national = $request->national;
         $initiatives->target = $request->target;
@@ -78,7 +78,14 @@ class InitiativeController extends Controller
         $initiatives->leadAgency = $request->leadAgency;
         $initiatives->sec_id = $request->sec_id;
         $initiatives->responsible_user = $request->responsible_user;
-        $initiatives->category = $request->category;
+        $initiatives->PIC = $request->PIC;
+        $initiatives->position = $request->position;
+        $initiatives->phoneNo = $request->phoneNo;
+        $initiatives->email = $request->email;
+        $initiatives->email2 = $request->email2;
+
+
+
 
 
 
@@ -146,8 +153,11 @@ class InitiativeController extends Controller
         $initiative->sec_id = $request->sec_id;
         $initiative->responsible_user = $request->responsible_user;
         $initiative->category = $request->category;
-
-
+        $initiative->PIC = $request->PIC;
+        $initiative->position = $request->position;
+        $initiative->phoneNo = $request->phoneNo;
+        $initiative->email = $request->email;
+        $initiative->email2 = $request->email2;
 
 
 

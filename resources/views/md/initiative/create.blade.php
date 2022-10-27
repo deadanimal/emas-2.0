@@ -60,7 +60,7 @@
 
                     <label class="col-sm-2 col-form-label" for="position">Position*</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="number" name="position" />
+                        <input class="form-control" type="text" name="position" />
 
                     </div>
 

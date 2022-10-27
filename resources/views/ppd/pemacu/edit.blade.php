@@ -19,7 +19,7 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <select class="form-control" name="fokus_id" id="pilih1">
 
                             @foreach ($fokuss as $fokus)
@@ -33,7 +33,7 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="perkara_id">Perkara Utama</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <select class="form-control" name="perkara_id" id="pilih2">
 
                             @foreach ($perkaras as $perkara)

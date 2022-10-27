@@ -116,7 +116,7 @@
                                                         <div class="mb-3">
                                                             <label class="col-form-label">National:</label>
                                                             <label class="form-control"
-                                                                disabled="disabled">{{ $thrust->national->namaNational }}</label>
+                                                                disabled="disabled">{{ $thrust->national->namaNational ?? '' }}</label>
                                                         </div>
 
                                                         <div class="mb-3">
@@ -152,7 +152,7 @@
 
                                                             </div>
                                                         </form>
-                                                        
+
                                                         <div class="mb-3">
                                                             <label class="col-form-label">Action:</label>
                                                             @if ($thrust->lulus == 1 && $thrust->ditolak == 0)

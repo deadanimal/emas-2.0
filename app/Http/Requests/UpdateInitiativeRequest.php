@@ -57,11 +57,6 @@ class UpdateInitiativeRequest extends FormRequest
                 'string',
             ],
 
-            'national' => [
-                'string',
-                'required',
-            ],
-
             'responsible_user' => [
                 'string',
                 'required',

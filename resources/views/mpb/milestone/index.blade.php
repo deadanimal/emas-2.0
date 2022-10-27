@@ -7,34 +7,57 @@
 
         <br>
 
-        <span><b>Milestone by KPI Information</b></span>
-        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white" href="/MPB/milestone/create">
-            <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
-        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-            onClick="window.location.reload();">
-            <span class="fas fa-history"></span></a>
+        <div class="col">
+            <div class="row align-items-center">
+                <div class="col col-lg-8">
+
+                    <span><b>Milestone by KPI Information</b></span>
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                        href="/MPB/milestone/create">
+                        <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                        onClick="window.location.reload();">
+                        <span class="fas fa-history"></span>
+                    </a>
+                </div>
+                <div class="row g-2 ">
+                    <div class="col-sm-auto">
+
+                        <select class="form-select">
+                            <option selected disabled hidden>Year</option>
+
+                            {{-- @foreach ($list as $list)
+                                <option value="{{ $list->id }}">{{ $list->namaKpi }}</option>
+                                @endforeach --}}
+
+                        </select>
+                    </div>
+
+                    <div class="col-sm-auto">
+
+                        <select class="form-select">
+                            <option selected disabled hidden>Quarter</option>
+
+                            {{-- @foreach ($list as $list)
+                                <option value="{{ $list->id }}">{{ $list->namaKpi }}</option>
+                                @endforeach --}}
+
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
 
         <hr style="width:100%;text-align:center;">
 
-        <div class="row g-3" style="width: 60%">
-            <div class="col-sm">
-
-                <select class="form-select searchKategori" style="width:70%">
-                    <option selected disabled hidden>KPI</option>
-
-                    @foreach ($list as $list)
-                        <option value="{{ $list->id }}">{{ $list->namaKpi }}</option>
-                    @endforeach
-
-                </select>
-            </div>
-
-
+        <div class="row g-3">
 
             <div class="col-sm">
 
-                <select class="form-select searchKategori" style="width:70%">
-                    <option selected disabled hidden>YEAR</option>
+                <select class="form-select searchKategori">
+                    <option selected disabled hidden>National Initiative</option>
 
                     {{-- @foreach ($list as $list)
                     <option value="{{ $list->id }}">{{ $list->namaKpi }}</option>
@@ -45,12 +68,36 @@
 
             <div class="col-sm">
 
-                <select class="form-select searchKategori" style="width:70%">
-                    <option selected disabled hidden>QUARTER</option>
+                <select class="form-select searchKategori">
+                    <option selected disabled hidden>Key Activities</option>
 
                     {{-- @foreach ($list as $list)
                      <option value="{{ $list->id }}">{{ $list->namaKpi }}</option>
                      @endforeach --}}
+
+                </select>
+            </div>
+
+            <div class="col-sm">
+
+                <select class="form-select searchKategori">
+                    <option selected disabled hidden>Sub-Key Activities</option>
+
+                    {{-- @foreach ($list as $list)
+                     <option value="{{ $list->id }}">{{ $list->namaKpi }}</option>
+                     @endforeach --}}
+
+                </select>
+            </div>
+
+            <div class="col-sm">
+
+                <select class="form-select searchKategori">
+                    <option selected disabled hidden>KPI</option>
+
+                    @foreach ($list as $list)
+                        <option value="{{ $list->id }}">{{ $list->namaKpi }}</option>
+                    @endforeach
 
                 </select>
             </div>

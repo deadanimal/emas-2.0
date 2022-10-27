@@ -19,7 +19,7 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <select class="form-control" name="fokus_id">
                             @foreach ($list as $list)
                                 <option @selected($perkarautama->fokus_id == $list->id) value="{{ $list->id }}">{{ $list->namaFokus }}
@@ -34,7 +34,7 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="namaPerkara">Nama Perkara Utama</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <input class="form-control" type="text" name="namaPerkara"
                             value="{{ $perkarautama->namaPerkara }}" />
 
@@ -46,8 +46,7 @@
 
                 <div class="mb-3">
                     <label class="form-label" for="keteranganPerkaraUtama"><b>Keterangan Perkara Utama</b></label>
-                    <textarea class="form-control" name="keteranganPerkaraUtama"
-                        rows="5">{{ $perkarautama->keteranganPerkaraUtama }}</textarea>
+                    <textarea class="form-control" name="keteranganPerkaraUtama" rows="5">{{ $perkarautama->keteranganPerkaraUtama }}</textarea>
                 </div>
                 <div class="row">
                     <div class="col">
@@ -59,7 +58,8 @@
 
                     <div class="col" style="text-align: right">
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save" onclick="return confirm('Adakah anda mahu mengubah data ini?')"><span
+                            type="submit" value="Save"
+                            onclick="return confirm('Adakah anda mahu mengubah data ini?')"><span
                                 class="fas fa-save"></span>&nbsp;Simpan
                         </button>
                     </div>

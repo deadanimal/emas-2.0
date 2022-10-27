@@ -84,8 +84,8 @@
                             <th scope="col">No.</th>
                             <th scope="col">Code</th>
                             <th scope="col">Initiative</th>
-                            <th scope="col">Target Initiative</th>
                             <th scope="col">Progress Initiative % </th>
+                            <th scope="col">Target Initiative</th>
                             <th scope="col">Phase </th>
 
                             {{-- <th scope="col">Phase 2</th>
@@ -124,14 +124,14 @@
                                 <td>
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $initiative->id }}">
-                                        <div class="ms-2"><b>{{ $initiative->target }}</b></div>
+                                        <div class="ms-2"><b>{{ $initiative->progress }}</b></div>
                                     </div>
                                 </td>
 
                                 <td>
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $initiative->id }}">
-                                        <div class="ms-2"><b>{{ $initiative->progress }}</b></div>
+                                        <div class="ms-2"><b>{{ $initiative->target }}</b></div>
                                     </div>
                                 </td>
 

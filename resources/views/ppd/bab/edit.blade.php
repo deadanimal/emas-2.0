@@ -18,7 +18,7 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <select class="form-control" name="fokus_id" id="pilih1">
 
                             @foreach ($fokuss as $fokus)
@@ -29,22 +29,12 @@
                         </select>
                     </div>
 
-                    <label class="col-sm-2 col-form-label" for="name">Bahagian Penyelaras</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="name">
 
-                            {{-- @foreach ($fokuss as $fokus)
-                                <option @selected($bab->fokus_id == $fokus->id) value="{{ $fokus->id }}">{{ $fokus->namaFokus }}
-                                </option>
-                            @endforeach --}}
-
-                        </select>
-                    </div>
                 </div>
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <select class="form-control" name="pemangkin_id" id="pilih2">
 
                             @foreach ($temas as $list)
@@ -58,7 +48,7 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="namaBab">Nama Bab</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <input class="form-control" name="namaBab" value="{{ $bab->namaBab }}" />
                     </div>
 
@@ -97,6 +87,20 @@
                             <option {{ $bab->noBab == "12" ?'selected':'' }} value="12">12</option>
                         </select> --}}
 
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="name">Bahagian Penyelaras</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="name">
+
+                            {{-- @foreach ($fokuss as $fokus)
+                                <option @selected($bab->fokus_id == $fokus->id) value="{{ $fokus->id }}">{{ $fokus->namaFokus }}
+                                </option>
+                            @endforeach --}}
+
+                        </select>
                     </div>
                 </div>
 

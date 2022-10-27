@@ -19,7 +19,7 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10" >
                         <div class="form-group">
 
                             <select class="form-control" name="fokus_id" id="pilih1" required>
@@ -38,7 +38,7 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="">Perkara Utama</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10" >
                         <div class="input-group">
 
                             <select class="form-control" name="perkara_id" id="pilih2" required>

@@ -58,18 +58,19 @@
 
                 </select>
             </div>
-
-            <label class="col-sm-2 col-form-label" for="bab_id">Sukuan Tahun</label>
+            <label class="col-sm-2 col-form-label" for="outcome_id">Tahun</label>
             <div class="col-sm-10" style="width:20%">
-                <select class="form-control" name="bab_id">
-                    <option selected disabled hidden>Sila Pilih</option>
+                <select class="form-control" name="outcome_id">
+                    <option selected disabled hidden>SILA PILIH</option>
 
-                    {{-- @foreach ($listBab as $listBab)
-                        <option value="{{ $listBab->id }}">Bab {{ $listBab->noBab }}. {{ $listBab->namaBab }} </option>
+                    {{-- @foreach ($list as $list)
+                        <option value="{{ $list->id }}">{{ $list->namaOutcome }}</option>
                     @endforeach --}}
 
                 </select>
             </div>
+
+
         </div>
 
         <div class="mb-3 row">
@@ -85,13 +86,13 @@
                 </select>
             </div>
 
-            <label class="col-sm-2 col-form-label" for="outcome_id">Tahun</label>
+            <label class="col-sm-2 col-form-label" for="bab_id">Sukuan Tahun</label>
             <div class="col-sm-10" style="width:20%">
-                <select class="form-control" name="outcome_id">
-                    <option selected disabled hidden>SILA PILIH</option>
+                <select class="form-control" name="bab_id">
+                    <option selected disabled hidden>Sila Pilih</option>
 
-                    {{-- @foreach ($list as $list)
-                        <option value="{{ $list->id }}">{{ $list->namaOutcome }}</option>
+                    {{-- @foreach ($listBab as $listBab)
+                        <option value="{{ $listBab->id }}">Bab {{ $listBab->noBab }}. {{ $listBab->namaBab }} </option>
                     @endforeach --}}
 
                 </select>

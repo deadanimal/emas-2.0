@@ -59,77 +59,26 @@
                     <table class="table table-bordered" id="example">
                         <thead class="table-light">
                             <tr>
-                                {{-- <th class="align-middle">Tahun Semasa Yang Dilaporkan</th> --}}
-                                {{-- <th class="align-middle">Pilih Quarter</th> --}}
                                 <th class="align-middle">Pencapaian</th>
                                 <th class="align-middle">Peratus Pencapaian</th>
-
                                 <th class="align-middle">Prestasi KPI</th>
-
-
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                {{-- <td>
-                                    <div class="col-sm-10">
-
-                                        <select class="form-control" name="tahun">
-                                            <option @selected($kpi->tahun2021 == '2021') value="2021">2021</option>
-                                            <option @selected($kpi->tahun2022 == '2022') value="2022">2022</option>
-                                            <option @selected($kpi->tahun2023 == '2023') value="2023">2023</option>
-                                            <option @selected($kpi->tahun2024 == '2024') value="2024">2024</option>
-                                            <option @selected($kpi->tahun2025 == '2025') value="2025">2025</option>
-                                        </select>
-                                    </div>
-                                </td> --}}
-                                {{-- <td>
-                                    <div class="col-sm-10">
-                                        <select class="form-control" name="quarter">
-                                            <option @selected($kpi->q1 == 'Q1') value="Q1">Q1 (JAN-MAC)</option>
-                                            <option @selected($kpi->q2 == 'Q2') value="Q2">Q2 (APR-JUN)</option>
-                                            <option @selected($kpi->q3 == 'Q3') value="Q3">Q3 (JUL-SEP)</option>
-                                            <option @selected($kpi->q4 == 'Q4') value="Q4">Q4 (OKT-DIS)</option>
-                                        </select>
-                                    </div>
-                                </td> --}}
                                 <td>
-                                    <input type="number" name="q4" for="q4" class="form-control pencapaian"
+                                    <input type="number" name="pencapaian" for="pencapaian" class="form-control pencapaian"
                                         id="mySelect" onchange="myFunction()" placeholder="Pencapaian"
-                                        value="{{ $kpi->q4 }}" />
-                                    {{-- <td>
-                                    <input type="number" name="q1" for="q1" class="form-control pencapaian"
-                                        id="mySelect" onchange="myFunction()" placeholder="Pencapaian"
-                                        value="{{ $kpi->q1 }}" />
+                                        value="{{ $kpi->pencapaian }}" />
                                 </td>
                                 <td>
-                                    <input type="number" name="q2" for="q2" class="form-control pencapaian"
-                                        id="mySelect" onchange="myFunction()" placeholder="Pencapaian"
-                                        value="{{ $kpi->q2 }}" />
+                                    <input type="number" name="peratusPencapaian" for="peratusPencapaian"
+                                        class="form-control pencapaian" id="mySelect" onchange="myFunction()"
+                                        placeholder="Peratus Pencapaian" value="{{ $kpi->peratusPencapaian }}" />
                                 </td>
-                                <td>
-                                    <input type="number" name="q3" for="q3" class="form-control pencapaian"
-                                        id="mySelect" onchange="myFunction()" placeholder="Pencapaian"
-                                        value="{{ $kpi->q3 }}" />
-                                </td> --}}
-                                <td>
-                                    <input type="number" name="q4" for="q4" class="form-control pencapaian"
-                                        id="mySelect" onchange="myFunction()" placeholder="Peratus Pencapaian"
-                                        value="{{ $kpi->q4 }}" />
 
-
-                                    {{-- </td>
-                                <td>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="peratusPencapaian" id="mySelect"
-                                            onchange="myFunction()" class="form-control"
-                                            value="{{ $kpi->peratusPencapaian }}" readonly />
-
-                                    </div>
-                                </td> --}}
                                 <td id="prestasi"></td>
                             </tr>
-
                         </tbody>
                     </table>
 

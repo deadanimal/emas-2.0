@@ -34,7 +34,23 @@
                                     <option selected disabled hidden>PLEASE CHOOSE</option>
 
                                     @foreach ($initiatives as $initiative)
-                                        <option value="{{ $initiative->id }}">{{ $initiative->code }} -
+                                        <option value="{{ $initiative->id }}">{{ $initiative->code }}
+                                        </option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+
+                            <label class="col-form-label" for="initiative_id">Initiative</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="initiative_id">
+                                    <option selected disabled hidden>PLEASE CHOOSE</option>
+
+                                    @foreach ($initiatives as $initiative)
+                                        <option value="{{ $initiative->id }}">
                                             {{ $initiative->namaInitiative }}
                                         </option>
                                     @endforeach
@@ -101,6 +117,19 @@
                         </div>
 
                         <div class="mb-3 row">
+                            <label class="col-form-label" for="unit">Unit</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="unit">
+                                    <option selected disabled hidden>PLEASE CHOOSE</option>
+                                    <option value="%">%</option>
+                                    <option value="Number">Number</option>
+
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="mb-3 row">
                             <label class="col-form-label" for="output">Output Target</label>
                             <div class="col-sm-10">
                                 <input class="form-control output" type="number" name="output" />
@@ -118,61 +147,47 @@
 
                         </div>
 
-                        <div class="mb-3 row">
+                        {{-- <div class="mb-3 row">
                             <label class="col-form-label" for="weightage_progress">Weightage Progress</label>
                             <div class="col-sm-10">
                                 <input class="form-control" onchange="myFunction()" type="number" name="weightage_progress"
                                     readonly />
 
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <div class="mb-3 row">
+                        {{-- <div class="mb-3 row">
                             <label class="col-form-label" for="leadAgency">Lead Agency</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="leadAgency" />
 
                             </div>
-                        </div>
+                        </div> --}}
 
 
                         <div class="mb-3 row">
-                            <label class="col-form-label" for="PIC">PIC</label>
+                            <label class="col-form-label" for="PIC">Person In Charge</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="PIC" />
 
                             </div>
-                        </div><br>
-
-                        <hr>
-
+                        </div>
                         <div class="mb-3 row">
-                            <label class="col-form-label" for="unit">Unit</label>
+                            <label class="col-form-label" for="email">Primary Email Address</label>
                             <div class="col-sm-10">
-                                <select class="form-control" name="unit">
-                                    <option selected disabled hidden>PLEASE CHOOSE</option>
-                                    <option value="%">%</option>
-                                    <option value="Number">Number</option>
+                                <input class="form-control" type="text" name="email" />
 
-                                </select>
                             </div>
                         </div>
 
 
-
-
-
-                        <div class="mb-3 row">
+                        {{-- <div class="mb-3 row">
                             <label class="col-form-label" for="output_progress">Output Progress</label>
                             <div class="col-sm-10">
                                 <input class="form-control output" type="number" name="output_progress" />
 
                             </div>
                         </div>
-
-
-
-
 
                         <div class="mb-3 row">
                             <label class="col-form-label" for="additionalOutput">Additional Output
@@ -190,7 +205,7 @@
                                 <input class="form-control" type="text" name="remarks" />
 
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="mb-3 row">
                             <label class="col-form-label" for="document">Attachment Document</label>

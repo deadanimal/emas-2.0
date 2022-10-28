@@ -132,6 +132,9 @@
 
                                 <td class="align-right" id="searchUpdateTable2">
                                     <div>
+                                        <a class="btn btn-warning" style="border-radius: 38px"
+                                            href="activity/{{ $activity->id }}/progress/"><i class="fas fa-plus"></i>
+                                        </a>
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
                                             href="{{ route('activity.edit', $activity->id) }}"><i class="fas fa-edit"></i>
@@ -140,7 +143,7 @@
 
                                         <button type="submit" onclick="myFunction({{ $activity->id }})"
                                             class="btn btn-danger" style="border-radius: 38px">
-                                            <i class="fas fa-trash"></i>
+                                            <i class="fas fa-trash-alt"></i>
                                         </button>
                                         <p id="ppd"></p>
 

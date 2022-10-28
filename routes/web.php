@@ -105,13 +105,15 @@ Route::group(
         Route::post('/kpi1/{id}', [KpiController::class, 'update1']);
         Route::get('/kpi1/index1/', [KpiController::class, 'index1']);
 
-
-
         Route::post('/kpi/lulus/{id}', [KpiController::class, 'lulus'])->name('kpi.lulus');
         Route::post('/kpi/ditolak/{id}', [KpiController::class, 'ditolak'])->name('kpi.ditolak');
         //Search
         Route::post('/search_kpi', [KpiController::class, 'searchKpi']);
         Route::post('/search_kpi1', [KpiController::class, 'searchKpi1']);
+
+        //Penilaian KPI
+        Route::get('/kpi/{id}/penilaian/', [KpiController::class, 'edit3']);
+
 
         //Strategi
         Route::resource('/strategi', StrategiController::class);
@@ -299,6 +301,11 @@ Route::group(
         Route::get('/display1/cluster2/', [ActivityController::class, 'cluster2']);
         Route::post('/activity/lulus/{id}', [ActivityController::class, 'lulus'])->name('activity.lulus');
         Route::post('/activity/ditolak/{id}', [ActivityController::class, 'ditolak'])->name('activity.ditolak');
+
+        Route::get('/activity/{id}/progress/', [ActivityController::class, 'progress_update']);
+        Route::post('/activity/{id}', [ActivityController::class, 'update_progress']);
+
+
 
         //Sectoral
         Route::resource('/sectoral', SectoralController::class);

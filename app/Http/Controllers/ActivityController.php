@@ -236,6 +236,19 @@ class ActivityController extends Controller
         return view('md.activity.edit', compact('activity', 'plans', 'initiatives', 'programs', 'clusters'));
     }
 
+    public function progress_update(activity $activity, $id)
+    {
+        // dd($activity);
+        $activity = activity::find($id);
+        $user = Auth::user();
+        $clusters = Cluster::all();
+        $initiatives = Initiative::all();
+        $programs = Program::all();
+        $plans = Plan::all();
+
+        return view('md.activity.progress_update', compact('activity', 'plans', 'initiatives', 'programs', 'clusters'));
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -275,6 +288,38 @@ class ActivityController extends Controller
             $activity->document_pdf = $imageName;
         }
         // dd($activity);
+        $activity->save();
+
+        return redirect()->route('activity.index');
+    }
+
+    public function update_progress(UpdateactivityRequest $request, activity $activity)
+    {
+
+
+        $activity->cluster_id = $request->cluster_id;
+        $activity->initiative_id = $request->initiative_id;
+        $activity->program_id = $request->program_id;
+        $activity->plan_id = $request->plan_id;
+        $activity->user_id = Auth::user()->id;
+        $activity->leadAgency = $request->leadAgency;
+        $activity->namaActivity = $request->namaActivity;
+        $activity->startDate = $request->startDate;
+        $activity->endDate = $request->endDate;
+        $activity->output = $request->output;
+        $activity->weightage = $request->weightage;
+        $activity->weightage_progress = $request->weightage_progress;
+        $activity->output_progress = $request->output_progress;
+        $activity->additionalOutput = $request->additionalOutput;
+        $activity->remarks = $request->remarks;
+        $activity->unit = $request->unit;
+        $activity->PIC = $request->PIC;
+        if (!empty($request->document)) {
+            $imageName = time() . '.' . $request->document->extension();
+
+            $request->document->move(public_path('images'), $imageName);
+            $activity->document_pdf = $imageName;
+        }
         $activity->save();
 
         return redirect()->route('activity.index');

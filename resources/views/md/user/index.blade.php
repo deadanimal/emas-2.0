@@ -37,12 +37,9 @@
                                     <th class="text-center font-weight-bolder opacity-7">No.</th>
                                     <th class="font-weight-bolder opacity-7">Name</th>
                                     <th class="text-center font-weight-bolder opacity-7">Email</th>
-                                    <th class="text-center font-weight-bolder opacity-7">Role</th>
-
+                                    <th class="text-center font-weight-bolder opacity-7">Agency</th>
                                     <th class="text-center font-weight-bolder opacity-7">Profile</th>
-                                    @can('Urusetia')
-                                        <th class="text-center font-weight-bolder opacity-7">Hapus</th>
-                                    @endcan
+
 
                                 </tr>
                             </thead>
@@ -58,47 +55,12 @@
                                             {{ $u['email'] }}</td>
                                         <td class="text-sm text-center font-weight-normal">
                                             {{ $u['role'] }}
-                                            {{-- <td class="text-sm text-center font-weight-normal">
-                                                    {{ $u['role'] }}
-                                                </td> --}}
                                         <td class="text-sm text-center font-weight-normal"><a
                                                 class="btn btn-info text-white" href="/MD/user/{{ $u->id }}/edit"
                                                 style="color:black;">
                                                 Update
                                             </a>
                                         </td>
-                                        @can('Urusetia')
-                                            <td class="text-sm text-center font-weight-normal">
-                                                <a data-bs-toggle="modal" style="cursor: pointer"
-                                                    data-bs-target="#modaldelete-{{ $u->id }}">
-                                                    <i class="far fa-trash-alt"></i>
-                                                </a>
-                                            </td>
-
-                                            <div class="modal fade" id="modaldelete-{{ $u->id }}" tabindex="-1"
-                                                role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-body text-center">
-                                                            <i class="far fa-times-circle fa-7x" style="color: #ea0606"></i>
-                                                            <br>
-                                                            Are you sure want to delete this user?
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn bg-gradient-secondary"
-                                                                data-bs-dismiss="modal">Cancel</button>
-                                                            <form method="POST" action="/MD/user/{{ $u->id }}">
-                                                                @method('DELETE')
-                                                                @csrf
-
-                                                                <button class="btn bg-gradient-danger" style="cursor: pointer"
-                                                                    type="submit"> Delete</button>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endcan
 
                                     </tr>
                                 @endforeach

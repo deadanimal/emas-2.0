@@ -2,20 +2,75 @@
 @section('content')
     <div class="container">
         <div class="mb-4 text-center">
-            <H2>UPDATE DATA FOR ACTIVITY</H2>
+            <H2>PROGRESS UPDATE</H2>
         </div>
 
         <div class="form-floating;">
-            <form action="/MD/activity/{{ $activity->id }}" method="POST" enctype="multipart/form-data">
+            <form action="/MD/activity/{{ $activity->id }}/progress" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
+
+                <table class="table table-bordered" id="example">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="align-middle">Year</th>
+                            <th class="align-middle">Month</th>
+                            <th class="align-middle">Output (Progress)</th>
+                            <th class="align-middle">Weightage (Progress)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td>
+                                <input type="number" name="year" for="year" class="form-control" id="mySelect"
+                                    onchange="myFunction()" placeholder="Year" value="{{ $activity->year }}" />
+                            </td>
+                            <td>
+                                <input type="number" name="month" for="month" class="form-control" id="mySelect"
+                                    onchange="myFunction()" placeholder="Month" value="{{ $activity->month }}" />
+                            </td>
+                            <td>
+                                <input type="number" name="output_update" for="output_update" class="form-control output"
+                                    id="mySelect" onchange="myFunction()" placeholder="Output"
+                                    value="{{ $activity->output_update }}" />
+                            </td>
+                            <td>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="progress">%</span>
+                                    <input class="form-control" onchange="myFunction()" for="weightage_progress"
+                                        name="weightage_progress" type="number" aria-describedby="progress">
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+
+                <div class="mb-3 row">
+                    <label class="col-form-label" for="additionalOutput">Additional Output Information</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="additionalOutput" />
+
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-form-label" for="remarks">User Remarks</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="remarks" />
+
+                    </div>
+                </div><br>
+                <hr>
 
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <div class="mb-3 row">
                             <label class="col-form-label" for="cluster_id">Cluster</label>
                             <div class="col-sm-10">
-                                <select class="form-control" name="cluster_id">
+                                <select class="form-control" name="cluster_id" disabled>
                                     @foreach ($clusters as $cluster)
                                         <option @selected($activity->cluster_id == $cluster->id) value="{{ $cluster->id }}">
                                             {{ $cluster->namaCluster }}
@@ -30,7 +85,7 @@
 
                             <label class="col-form-label" for="initiative_id">Initiative Code</label>
                             <div class="col-sm-10">
-                                <select class="form-control" name="initiative_id">
+                                <select class="form-control" name="initiative_id" disabled>
                                     @foreach ($initiatives as $initiative)
                                         <option @selected($activity->initiative_id == $initiative->id) value="{{ $initiative->id }}">
                                             {{ $initiative->namaInitiative }}
@@ -46,7 +101,7 @@
 
                             <label class="col-form-label" for="program_id">Program</label>
                             <div class="col-sm-10">
-                                <select class="form-control" name="program_id">
+                                <select class="form-control" name="program_id" disabled>
                                     @foreach ($programs as $program)
                                         <option @selected($activity->program_id == $program->id) value="{{ $program->id }}">
                                             {{ $program->namaProgram }}
@@ -62,7 +117,7 @@
 
                             <label class="col-form-label" for="plan_id">Plan</label>
                             <div class="col-sm-10">
-                                <select class="form-control" name="plan_id">
+                                <select class="form-control" name="plan_id" disabled>
                                     @foreach ($plans as $plan)
                                         <option @selected($activity->plan_id == $plan->id) value="{{ $plan->id }}">
                                             {{ $plan->namaPlan }}
@@ -133,28 +188,11 @@
                             </div>
                         </div>
 
-                        {{-- <div class="mb-3 row">
-                            <label class="col-form-label" for="weightage_progress">Weightage Progress</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" onchange="myFunction()" name="weightage_progress"
-                                    value="{{ $activity->weightage_progress }}" readonly />
-
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label class="col-form-label" for="leadAgency">Lead Agency</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="text" name="leadAgency"
-                                    value="{{ $activity->leadAgency }}" />
-
-                            </div>
-                        </div> --}}
-
                         <div class="mb-3 row">
                             <label class="col-form-label" for="PIC">Person In Charge</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" name="PIC" value="{{ $activity->PIC }}" />
+                                <input class="form-control" type="text" name="PIC"
+                                    value="{{ $activity->PIC }}" />
 
                             </div>
                         </div>
@@ -162,39 +200,11 @@
                         <div class="mb-3 row">
                             <label class="col-form-label" for="email">Primary Email Address</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" name="email" value="{{ $activity->email }}" />
+                                <input class="form-control" type="text" name="email"
+                                    value="{{ $activity->email }}" />
 
                             </div>
                         </div>
-
-                        {{--
-                        <div class="mb-3 row">
-                            <label class="col-form-label" for="output_progress">Output Progress</label>
-                            <div class="col-sm-10">
-                                <input class="form-control output" type="number" name="output_progress"
-                                    value="{{ $activity->output_progress }}" />
-
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label class="col-form-label" for="additionalOutput">Additional Output
-                                Information</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="number" name="additionalOutput"
-                                    value="{{ $activity->additionalOutput }}" />
-
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label class="col-form-label" for="remarks">Remark</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="text" name="remarks"
-                                    value="{{ $activity->remarks }}" />
-
-                            </div>
-                        </div> --}}
 
                         <div class="mb-3 row">
                             <label class="col-form-label" for="document">Attachment Document</label>

@@ -78,6 +78,8 @@ class ClusterController extends Controller
         return view('md.cluster.edit', compact('strategies', 'cluster'));
     }
 
+
+
     /**
      * Update the specified resource in storage.
      *

@@ -188,6 +188,14 @@ class KpiController extends Controller
         return view('ppd.kpi.edit2', compact('kpi'));
     }
 
+    public function edit3($id_kpi)
+    {
+        $kpi = Kpi::find($id_kpi);
+
+
+        return view('ppd.kpi.penilaian', compact('kpi'));
+    }
+
 
     public function update(UpdateKpiRequest $request, Kpi $kpi)
     {

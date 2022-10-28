@@ -13,6 +13,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use DataTables;
+use Illuminate\Support\Facades\Auth;
 
 class PenggunaController extends Controller
 {
@@ -64,10 +65,19 @@ class PenggunaController extends Controller
         return view('user.index1');
     }
 
-    public function index_mydigital()
+    public function index_mydigital(Request $request)
     {
+        // if ($request->user()->can('Urusetia')) {
+        //     $user = User::all();
+        // } else {
+
+        //     $user = User::where('user_id', Auth::user()->id)->get();
+        // }
+
         $role = Role::all();
-        $user = User::all();
+        $user = User::role('MD')->get();
+
+
         return view('md.user.index', [
             'role' => $role,
             'user' => $user,
@@ -106,9 +116,12 @@ class PenggunaController extends Controller
         ]);
     }
 
-    public function create_mydigital()
+    public function create_mydigital(Request $request)
     {
-        $user = User::all();
+
+
+
+        $user = User::role('MD')->get();
         $roles = Role::with('permissions')->get();
         $permissions = Permission::all();
         return view('md.user.create', [

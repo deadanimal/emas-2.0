@@ -36,6 +36,41 @@
 
                     </div>
                 </div>
+                <br>
+
+                <h5>Contact Person</h5><br>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="agency">Ministry / Agency</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="agency" value="{{ $sub->agency }}" />
+
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="name">Name</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="name" value="{{ $sub->name }}" />
+
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="division">Division</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="division" value="{{ $sub->division }}" />
+
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="email">Email Address</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="email" value="{{ $sub->email }}" />
+
+                    </div>
+                </div>
 
                 <br><br>
 

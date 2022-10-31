@@ -162,7 +162,7 @@ class InitiativeController extends Controller
 
 
         // if (!empty($request->phase)) {
-        // $initiative->phase = implode(',', $request->phase);
+        $initiative->phase = implode(',', $request->phase);
         // }
 
 

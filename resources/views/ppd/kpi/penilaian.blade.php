@@ -54,10 +54,13 @@
 
                     <label class="col-sm col-form-label" for="suku_tahun">Sukuan Tahun</label>
                     <div class="col">
-
-                        <input class="form-control" name="suku_tahun" />
-
-
+                        <select class="form-control" name="suku_tahun">
+                            <option selected disabled hidden>SILA PILIH</option>
+                            <option value="Q1">Q1</option>
+                            <option value="Q2">Q2</option>
+                            <option value="Q3">Q3</option>
+                            <option value="Q4">Q4</option>
+                        </select>
                     </div>
                 </div>
 
@@ -101,10 +104,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-
-                                <td id="prestasi"></td>
-                            </tr>
+                            @foreach ($kpis as $kpi)
+                                <tr>
+                                    <td>{{ $loop->iteration }}.</td>
+                                    <td>{{ $kpi->namaKpi }}</td>
+                                    <td> <input class="form-control" value="{{ $kpi->pemangkin->namaTema }}" readonly />
+                                    </td>
+                                    <td> <input class="form-control" value="{{ $kpi->pemangkin->namaTema }}" readonly />
+                                    </td>
+                                    <td> <input class="form-control" value="{{ $kpi->pemangkin->namaTema }}" readonly />
+                                    </td>
+                                    <td> <input class="form-control" value="{{ $kpi->pemangkin->namaTema }}" readonly />
+                                    </td>
+                                    <td> <input class="form-control" value="{{ $kpi->pemangkin->namaTema }}" readonly />
+                                    </td>
+                                    <td> <input class="form-control" value="{{ $kpi->pemangkin->namaTema }}" readonly />
+                                    </td>
+                                    <td id="prestasi"></td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
 
@@ -113,7 +131,7 @@
                     <div class="col" style="text-align: center">
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
                             type="submit" value="Save"
-                            onclick="return confirm('Adakah anda mahu menyimpan data ini?')">&nbsp;Kemaskini
+                            onclick="return confirm('Adakah anda mahu menyimpan data ini?')">&nbsp;Kembali
                         </button>
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
                             type="submit" value="Save"

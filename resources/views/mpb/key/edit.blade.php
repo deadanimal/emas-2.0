@@ -16,6 +16,13 @@
 
 
                 <div class="mb-3 row">
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label" for="namaKey">Key Activity</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" name="namaKey" value="{{ $key->namaKey }}" />
+
+                        </div>
+                    </div>
                     <label class="col-sm-2 col-form-label" for="national_id">National Initiatives</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="national_id">
@@ -30,13 +37,7 @@
 
 
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaKey">Key Activity</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" type="text" name="namaKey" value="{{ $key->namaKey }}" />
 
-                    </div>
-                </div>
 
 
                 <br><br>

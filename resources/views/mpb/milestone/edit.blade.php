@@ -138,6 +138,14 @@
                         </div>
 
                         <div class="row mb-3">
+                            <label class="col-form-label" for="unit">Unit</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="unit" value="{{ $milestone->unit }}" />
+
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
                             <label class="col-form-label" for="target">Target</label>
                             <div class="col-sm-10">
                                 <input class="form-control target" type="number" name="target"

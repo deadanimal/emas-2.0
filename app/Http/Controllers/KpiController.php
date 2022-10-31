@@ -192,8 +192,20 @@ class KpiController extends Controller
     {
         $kpi = Kpi::find($id_kpi);
 
+        $kpis = Kpi::all();
 
-        return view('ppd.kpi.penilaian', compact('kpi'));
+
+        return view('ppd.kpi.penilaian', compact('kpi', 'kpis'));
+    }
+
+    public function edit4($id_kpi)
+    {
+        $kpi = Kpi::find($id_kpi);
+
+        $kpis = Kpi::all();
+
+
+        return view('ppd.kpi.paparan', compact('kpi', 'kpis'));
     }
 
 

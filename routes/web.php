@@ -113,6 +113,8 @@ Route::group(
 
         //Penilaian KPI
         Route::get('/kpi/{id}/penilaian/', [KpiController::class, 'edit3']);
+        Route::get('/kpi/{id}/paparan/', [KpiController::class, 'edit4']);
+
 
 
         //Strategi

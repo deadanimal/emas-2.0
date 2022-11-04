@@ -42,8 +42,8 @@
                     <option selected disabled hidden>DOCUMENT</option>
 
                     {{-- @foreach ($cluster as $cluster)
-                <option value="{{ $cluster->id }}">{{ $cluster->namaCluster }}</option>
-            @endforeach --}}
+                        <option value="{{ $cluster->id }}">{{ $cluster->namaCluster }}</option>
+                    @endforeach --}}
 
                 </select>
             </div>
@@ -86,6 +86,8 @@
                             <th scope="col">Initiative</th>
                             <th scope="col">Progress Initiative % </th>
                             <th scope="col">Target Initiative</th>
+                            <th scope="col">Actual Achievements </th>
+
                             <th scope="col">Phase </th>
 
                             {{-- <th scope="col">Phase 2</th>
@@ -132,6 +134,13 @@
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $initiative->id }}">
                                         <div class="ms-2"><b>{{ $initiative->target }}</b></div>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $initiative->id }}">
+                                        <div class="ms-2"><b>{{ $initiative->achievement }}</b></div>
                                     </div>
                                 </td>
 
@@ -213,6 +222,11 @@
 
                                 <td>
                                     <div>
+
+                                        <a class="btn btn-warning" style="border-radius: 38px" onclick="Kpi(this)"
+                                            href="initiative/{{ $initiative->id }}/update/"><i
+                                                class="fas fa-pencil-alt"></i>
+                                        </a>
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
                                             href="{{ route('initiative.edit', $initiative->id) }}"><i

@@ -14,7 +14,7 @@
             <div class="row justify-content-center">
 
                 <div class="row mb-3">
-                    <label class="col-form-label" for="thrust_id">Thrust</label>
+                    <label class="col-form-label" for="thrust_id">Thrust*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="thrust_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label class="col-form-label" for="national_id">National Initiave</label>
+                    <label class="col-form-label" for="national_id">National Initiave*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="national_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label class="col-form-label" for="key_id">Key Activity</label>
+                    <label class="col-form-label" for="key_id">Key Activity*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="key_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label class="col-form-label" for="sub_id">Sub-Key Activity</label>
+                    <label class="col-form-label" for="sub_id">Sub-Key Activity*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="sub_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
@@ -72,7 +72,7 @@
 
 
                 <div class="row mb-3">
-                    <label class="col-form-label" for="kpi_id">KPI</label>
+                    <label class="col-form-label" for="kpi_id">KPI*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="kpi_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
@@ -86,7 +86,7 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label class="col-form-label" for="baseline">Baseline</label>
+                    <label class="col-form-label" for="baseline">Baseline*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="baseline">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
@@ -100,7 +100,7 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label class="col-form-label" for="national">Outcome</label>
+                    <label class="col-form-label" for="national">Outcome*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="national">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
@@ -120,7 +120,7 @@
 
 
                     <div class="row mb-3">
-                        <label class="col-form-label" for="namaMilestone">Milestone</label>
+                        <label class="col-form-label" for="namaMilestone">Milestone*</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="text" name="namaMilestone" />
 
@@ -128,7 +128,7 @@
                     </div>
 
                     <div class="row mb-3">
-                        <label class="col-form-label" for="year">Year</label>
+                        <label class="col-form-label" for="year">Year*</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="text" maxlength="4" name="year"
                                 onkeypress='validate(event)' />
@@ -137,7 +137,7 @@
                     </div>
 
                     <div class="row mb-3">
-                        <label class="col-form-label" for="quarter">Quarter</label>
+                        <label class="col-form-label" for="quarter">Quarter*</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="text" name="quarter" />
 
@@ -145,7 +145,7 @@
                     </div>
 
                     <div class="row mb-3">
-                        <label class="col-form-label" for="unit">Unit</label>
+                        <label class="col-form-label" for="unit">Unit*</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="text" name="unit" />
 
@@ -153,7 +153,7 @@
                     </div>
 
                     <div class="row mb-3">
-                        <label class="col-form-label" for="target">Target</label>
+                        <label class="col-form-label" for="target">Target*</label>
                         <div class="col-sm-10">
                             <input class="form-control target" type="number" name="target" />
 
@@ -161,7 +161,7 @@
                     </div>
 
                     <div class="row mb-3">
-                        <label class="col-form-label" for="actual_mark">Actual</label>
+                        <label class="col-form-label" for="actual_mark">Actual*</label>
                         <div class="col-sm-10">
                             <input class="form-control target" type="number" name="actual_mark" />
 
@@ -169,7 +169,7 @@
                     </div>
 
                     <div class="col-lg-10">
-                        <label class="col-form-label" for="achievement">Achievement</label>
+                        <label class="col-form-label" for="achievement">Achievement*</label>
                         <div class="input-group">
                             {{-- <span class="input-group-text" id="rm2">%</span> --}}
                             <input class="form-control" type="number" aria-describedby="rm2" name="achievement"

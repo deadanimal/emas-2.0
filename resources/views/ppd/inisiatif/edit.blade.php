@@ -17,20 +17,8 @@
                 @method('PUT')
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="pemangkin_id">
-
-                            @foreach ($pemangkin as $pemangkin)
-                                <option @selected($inisiatif->pemangkin_id == $pemangkin->id) value="{{ $pemangkin->id }}">{{ $pemangkin->namaTema }}
-                                </option>
-                            @endforeach
-
-                        </select>
-                    </div>
-
                     <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <select class="form-control" name="fokus_id" id="pilih1">
 
                             @foreach ($fokuss as $fokus)
@@ -43,20 +31,8 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="bab_id">
-
-                            @foreach ($bab as $bab)
-                                <option @selected($inisiatif->bab_id == $bab->id) value="{{ $bab->id }}">{{ $bab->namaBab }}
-                                </option>
-                            @endforeach
-
-                        </select>
-                    </div>
-
                     <label class="col-sm-2 col-form-label" for="perkara_id">Perkara Utama</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <select class="form-control" name="perkara_id" id="pilih2">
 
                             @foreach ($perkaras as $perkara)
@@ -69,8 +45,38 @@
                 </div>
 
                 <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="pemangkin_id">
+
+                            @foreach ($pemangkin as $pemangkin)
+                                <option @selected($inisiatif->pemangkin_id == $pemangkin->id) value="{{ $pemangkin->id }}">{{ $pemangkin->namaTema }}
+                                </option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="bab_id">
+
+                            @foreach ($bab as $bab)
+                                <option @selected($inisiatif->bab_id == $bab->id) value="{{ $bab->id }}">{{ $bab->namaBab }}
+                                </option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <select class="form-control" name="bidang_id">
 
                             @foreach ($bidang as $bidang)
@@ -84,7 +90,7 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="strategi_id">Strategi</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <select class="form-control" name="strategi_id">
 
                             @foreach ($list as $list)
@@ -98,7 +104,7 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="namaInisiatif">Nama Inisiatif</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <input class="form-control" type="text" name="namaInisiatif"
                             value="{{ $inisiatif->namaInisiatif }}" />
 

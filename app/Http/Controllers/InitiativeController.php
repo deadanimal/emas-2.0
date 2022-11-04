@@ -27,6 +27,9 @@ class InitiativeController extends Controller
     {
         $initiatives = Initiative::all();
         $cluster = Cluster::all();
+
+
+
         return view('md.initiative.index', compact('initiatives', 'cluster'));
     }
 
@@ -74,7 +77,7 @@ class InitiativeController extends Controller
         $initiatives->code = $request->code;
         // $initiatives->national = $request->national;
         $initiatives->target = $request->target;
-        // $initiatives->phase = 'a';
+        $initiatives->phase = $request->phase;
         $initiatives->leadAgency = $request->leadAgency;
         $initiatives->sec_id = $request->sec_id;
         $initiatives->responsible_user = $request->responsible_user;
@@ -127,6 +130,14 @@ class InitiativeController extends Controller
         return view('md.initiative.edit', compact('cluster', 'initiative'));
     }
 
+    public function edit1(Initiative $id)
+    {
+        $initiative = $id;
+
+        $cluster = Cluster::all();
+        return view('md.initiative.update', compact('cluster', 'initiative'));
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -148,7 +159,7 @@ class InitiativeController extends Controller
         $initiative->code = $request->code;
         // $initiative->national = $request->national;
         $initiative->target = $request->target;
-        // $initiative->phase = 'a';
+        $initiative->phase = $request->phase;
         $initiative->leadAgency = $request->leadAgency;
         $initiative->sec_id = $request->sec_id;
         $initiative->responsible_user = $request->responsible_user;
@@ -162,7 +173,7 @@ class InitiativeController extends Controller
 
 
         // if (!empty($request->phase)) {
-        $initiative->phase = implode(',', $request->phase);
+        // $initiative->phase = implode(',', $request->phase);
         // }
 
 
@@ -184,5 +195,25 @@ class InitiativeController extends Controller
         $initiative->delete();
         return redirect()->route('initiative.index')
             ->with('Berjaya', 'Keterangan berjaya dibuang');
+    }
+
+    public function searchInitiative(Request $request)
+    {
+        $initiative = Initiative::where('id', '!=', 'null');
+
+        if ($request->result[0] != 'null') {
+            $initiative->where('cluster_id', $request->result[0]);
+        }
+        if ($request->result[1] != 'null') {
+            $initiative->where('category', $request->result[1]);
+        }
+        if ($request->result[2] != 'null') {
+            $initiative->where('sec_id', $request->result[2]);
+        }
+        if ($request->result[3] != 'null') {
+            $initiative->where('phase', $request->result[3]);
+        }
+
+        return response()->json($initiative->get());
     }
 }

@@ -16,6 +16,9 @@
                         onClick="window.location.reload();">
                         <span class="fas fa-history"></span>
                     </a>
+                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                        href="/PPD/kpi/penilaian">
+                        <span class="fas fa-poll"></span>&nbsp;Penilaian KPI Nasional</a>
                 </div>
 
             </div>

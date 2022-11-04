@@ -13,7 +13,7 @@
                 @csrf
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="key_id">Key Activity</label>
+                    <label class="col-sm-2 col-form-label" for="key_id">Key Activity*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="key_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
@@ -28,7 +28,7 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaSub">Sub-Key Activity</label>
+                    <label class="col-sm-2 col-form-label" for="namaSub">Sub-Key Activity*</label>
                     <div class="col-sm-10">
                         <input class="form-control" type="text" name="namaSub" />
 
@@ -38,7 +38,7 @@
                 <h5>Contact Person</h5><br>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="agency">Ministry / Agency</label>
+                    <label class="col-sm-2 col-form-label" for="agency">Ministry / Agency*</label>
                     <div class="col-sm-10">
                         <input class="form-control" type="text" name="agency" />
 
@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="name">Name</label>
+                    <label class="col-sm-2 col-form-label" for="name">Name*</label>
                     <div class="col-sm-10">
                         <input class="form-control" type="text" name="name" />
 
@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="division">Division</label>
+                    <label class="col-sm-2 col-form-label" for="division">Division*</label>
                     <div class="col-sm-10">
                         <input class="form-control" type="text" name="division" />
 
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="email">Email Address</label>
+                    <label class="col-sm-2 col-form-label" for="email">Email Address*</label>
                     <div class="col-sm-10">
                         <input class="form-control" type="text" name="email" />
 

@@ -41,7 +41,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-3 row">
+                        {{-- <div class="mb-3 row">
                             <label class="col-form-label" for="leadAgency">Lead Agency/Ministry</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="leadAgency" />
@@ -55,7 +55,7 @@
                                 <input class="form-control" type="text" name="sectoralTarget" />
 
                             </div>
-                        </div>
+                        </div> --}}
 
 
                         <br>

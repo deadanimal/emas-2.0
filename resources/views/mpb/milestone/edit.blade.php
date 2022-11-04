@@ -13,7 +13,7 @@
                 <div class="row justify-content-center">
 
                     <div class="row mb-3">
-                        <label class="col-form-label" for="thrust_id">Thrust</label>
+                        <label class="col-form-label" for="thrust_id">Thrust*</label>
                         <div class="col-sm-10">
                             <select class="form-control" name="thrust_id">
                                 @foreach ($thrust as $thrust)
@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="row mb-3">
-                        <label class="col-form-label" for="national_id">National Initiative</label>
+                        <label class="col-form-label" for="national_id">National Initiative*</label>
                         <div class="col-sm-10">
                             <select class="form-control" name="national_id">
                                 @foreach ($nation as $nation)
@@ -41,7 +41,7 @@
                     </div>
 
                     <div class="row mb-3">
-                        <label class="col-form-label" for="key_id">Key Activity</label>
+                        <label class="col-form-label" for="key_id">Key Activity*</label>
                         <div class="col-sm-10">
                             <select class="form-control" name="key_id">
                                 @foreach ($key as $key)
@@ -54,7 +54,7 @@
                     </div>
 
                     <div class="row mb-3">
-                        <label class="col-form-label" for="sub_id">Sub-Key Activity</label>
+                        <label class="col-form-label" for="sub_id">Sub-Key Activity*</label>
                         <div class="col-sm-10">
                             <select class="form-control" name="sub_id">
                                 @foreach ($sub as $sub)
@@ -67,7 +67,7 @@
                     </div>
 
                     <div class="row mb-3">
-                        <label class="col-form-label" for="kpi_id">KPI</label>
+                        <label class="col-form-label" for="kpi_id">KPI*</label>
                         <div class="col-sm-10">
                             <select class="form-control" name="kpi_id">
                                 @foreach ($kpi as $kpi)
@@ -81,7 +81,7 @@
                     </div>
 
                     <div class="row mb-3">
-                        <label class="col-form-label" for="baseline">Baseline</label>
+                        <label class="col-form-label" for="baseline">Baseline*</label>
                         <div class="col-sm-10">
                             <select class="form-control" name="baseline">
                                 @foreach ($baseline as $kpi)
@@ -95,7 +95,7 @@
                     </div>
 
                     <div class="row mb-3">
-                        <label class="col-form-label" for="national">Outcome</label>
+                        <label class="col-form-label" for="national">Outcome*</label>
                         <div class="col-sm-10">
                             <select class="form-control" name="national">
                                 @foreach ($national as $kpi)
@@ -110,7 +110,7 @@
 
                     <div class="col-lg-6">
                         <div class="row mb-3">
-                            <label class="col-form-label" for="namaMilestone">Milestone</label>
+                            <label class="col-form-label" for="namaMilestone">Milestone*</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="namaMilestone"
                                     value="{{ $milestone->namaMilestone }}" />
@@ -120,7 +120,7 @@
 
 
                         <div class="row mb-3">
-                            <label class="col-form-label" for="year">Year</label>
+                            <label class="col-form-label" for="year">Year*</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" maxlength="4" name="year"
                                     onkeypress='validate(event)' value="{{ $milestone->year }}" />
@@ -129,7 +129,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label class="col-form-label" for="quarter">Quarter</label>
+                            <label class="col-form-label" for="quarter">Quarter*</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="quarter"
                                     value="{{ $milestone->quarter }}" />
@@ -138,7 +138,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label class="col-form-label" for="unit">Unit</label>
+                            <label class="col-form-label" for="unit">Unit*</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="unit" value="{{ $milestone->unit }}" />
 
@@ -146,7 +146,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label class="col-form-label" for="target">Target</label>
+                            <label class="col-form-label" for="target">Target*</label>
                             <div class="col-sm-10">
                                 <input class="form-control target" type="number" name="target"
                                     value="{{ $milestone->target }}" />
@@ -157,7 +157,7 @@
 
 
                         <div class="row mb-3">
-                            <label class="col-form-label" for="actual_mark">Actual</label>
+                            <label class="col-form-label" for="actual_mark">Actual*</label>
                             <div class="col-sm-10">
                                 <input class="form-control target" type="number" name="actual_mark"
                                     value="{{ $milestone->actual_mark }}" />
@@ -167,7 +167,7 @@
 
 
                         <div class="col-lg-10">
-                            <label class="col-form-label" for="achievement">Achievement</label>
+                            <label class="col-form-label" for="achievement">Achievement*</label>
                             <div class="input-group">
                                 {{-- <span class="input-group-text" id="rm2">%</span> --}}
                                 <input class="form-control" type="number" aria-describedby="rm2"

@@ -29,4 +29,10 @@ class Initiative extends Model implements Auditable
     {
         return $this->attributes['phase'] = json_decode($value);
     }
+
+
+    public function cluster()
+    {
+        return $this->belongsTo(Cluster::class, 'cluster_id');
+    }
 }

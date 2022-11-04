@@ -13,15 +13,7 @@
                 @csrf
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaStrategy">Strategy</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaStrategy" />
-
-                    </div>
-                </div>
-
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="thrus_id">Thrust</label>
+                    <label class="col-sm-2 col-form-label" for="thrus_id">Thrust*</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="thrus_id" id="pilih1">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
@@ -35,7 +27,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="">Category</label>
+                    <label class="col-sm-2 col-form-label" for="">Document*</label>
                     <div class="col-sm-10" style="width:30%">
                         {{-- <select class="form-control" name="category" id="pilih2">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
@@ -51,6 +43,14 @@
                             @endforeach --}}
 
                         </select>
+
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="namaStrategy">Strategy Name*</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="namaStrategy" />
 
                     </div>
                 </div>

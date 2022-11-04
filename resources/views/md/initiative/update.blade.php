@@ -1,8 +1,18 @@
 @extends('base-md')
 @section('content')
+
+    <style>
+        .column {
+            float: left;
+            width: 30%;
+            /* padding: 10px; */
+            height: 300;
+        }
+    </style>
+
     <div class="container">
         <div class="mb-4 text-center">
-            <H2>UPDATE DATA FOR INITIATIVE</H2>
+            <H2>ACTUAL ACHIEVEMENT UPDATE</H2>
         </div>
 
 
@@ -14,23 +24,94 @@
                 @csrf
                 @method('PUT')
 
+                <div class="row">
+                    <div class="column">
+                        <table class="table table-bordered" style="width: 30%">
+                            <thead style="background-color:#FFE5B4;">
+                                <tr>
+                                    <th scope="col">
+                                        Target Initiative 1</th>
+                                    <th scope="col">Actual Achievement 1</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> <input type="number" name="taget_1" for="taget_1" class="form-control" /></td>
+                                    <td> <input type="number" name="actual_achievement1" for="actual_achievement1"
+                                            class="form-control" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="column">
+
+                        <table class="table table-bordered" style="width: 30%">
+                            <thead style="background-color:#ADD8E6;">
+                                <tr>
+                                    <th scope="col">Target Initiative 2</th>
+                                    <th scope="col">Actual Achievement 2</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> <input type="number" name="taget_1" for="taget_1" class="form-control" /></td>
+                                    <td> <input type="number" name="actual_achievement1" for="actual_achievement1"
+                                            class="form-control" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="column">
+
+
+                        <table class="table table-bordered" style="width: 30%">
+                            <thead style="background-color:#00FF00;">
+                                <tr>
+                                    <th scope="col">Target Initiative 3</th>
+                                    <th scope="col">Actual Achievement 3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> <input type="number" name="taget_1" for="taget_1" class="form-control" /></td>
+                                    <td> <input type="number" name="actual_achievement1" for="actual_achievement1"
+                                            class="form-control" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <hr><br>
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="cluster_id">Cluster*</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="cluster_id">
+                        {{-- <select class="form-control" name="cluster_id">
                             @foreach ($cluster as $cluster)
                                 <option @selected($initiative->cluster_id == $cluster->id) value="{{ $cluster->id }}">
                                     {{ $cluster->namaCluster }}
                                 </option>
                             @endforeach
 
-                        </select>
+                        </select> --}}
+
+
+                        @if ($initiative->cluster != null)
+                            <input class="form-control" value="{{ $initiative->cluster->namaCluster }}" readonly />
+                            <input class="form-control" name="cluster_id" type="hidden"
+                                value="{{ $initiative->cluster->namaCluster }}" />
+                        @else
+                            <input class="form-control" value="Files deleted" readonly />
+                        @endif
+
+
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="responsible_user">Responsible User*</label>
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" type="text" name="responsible_user"
-                            value="{{ $initiative->responsible_user }}" />
+                            value="{{ $initiative->responsible_user }}" readonly />
 
                     </div>
                 </div>
@@ -39,13 +120,13 @@
                     <label class="col-sm-2 col-form-label" for="namaInitiative">Initiative Name*</label>
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" type="text" name="namaInitiative"
-                            value="{{ $initiative->namaInitiative }}" />
+                            value="{{ $initiative->namaInitiative }}" readonly />
 
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="PIC">Person In Charge*</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="PIC" value="{{ $initiative->PIC }}" />
+                        <input class="form-control" type="text" name="PIC" value="{{ $initiative->PIC }}" readonly />
 
                     </div>
 
@@ -54,13 +135,15 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="code">Initiative Code*</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="code" value="{{ $initiative->code }}" />
+                        <input class="form-control" type="text" name="code" value="{{ $initiative->code }}"
+                            readonly />
 
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="position">Position*</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="position" value="{{ $initiative->position }}" />
+                        <input class="form-control" type="text" name="position" value="{{ $initiative->position }}"
+                            readonly />
 
                     </div>
 
@@ -70,13 +153,15 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="target">Target Initiative*</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="target" value="{{ $initiative->target }}" />
+                        <input class="form-control" type="text" name="target" value="{{ $initiative->target }}"
+                            readonly />
 
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="phoneNo">Contact Number*</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="number" name="phoneNo" value="{{ $initiative->phoneNo }}" />
+                        <input class="form-control" type="number" name="phoneNo" value="{{ $initiative->phoneNo }}"
+                            readonly />
 
                     </div>
                 </div>
@@ -97,12 +182,12 @@
                     <div class="col-sm-10" style="width:30%">
 
                         <select class="form-control" name="phase">
-                            <option @selected($initiative->phase == '1-2 (2021-2025)') value="1-2 (2021-2025)">1-2 (2021-2025)</option>
-                            <option @selected($initiative->phase == '1-2 (2021-2025)') value="1-2 (2021-2025)">1-2 (2021-2025)</option>
-                            <option @selected($initiative->phase == '1-3 (2021-2030)') value="1-3 (2021-2030)">1-3 (2021-2030)</option>
-                            <option @selected($initiative->phase == '2 (2023-2025)') value="2 (2023-2025)">2 (2023-2025)</option>
-                            <option @selected($initiative->phase == '2 (2023-2030)') value="2 (2023-2030)">2 (2023-2030)</option>
-                            <option @selected($initiative->phase == '3 (2026-2030)') value="3 (2026-2030)">3 (2026-2030)</option>
+                            <option @selected($initiative->phase == '1') value="1">1-2 (2021-2025)</option>
+                            <option @selected($initiative->phase == '2') value="2">1-2 (2021-2025)</option>
+                            <option @selected($initiative->phase == '3') value="3">1-3 (2021-2030)</option>
+                            <option @selected($initiative->phase == '4') value="4">2 (2023-2025)</option>
+                            <option @selected($initiative->phase == '5') value="5">2 (2023-2030)</option>
+                            <option @selected($initiative->phase == '6') value="6">3 (2026-2030)</option>
                         </select>
                         {{-- <div class="mb-2 col-sm-7">
                             <div class="form-check">
@@ -137,7 +222,8 @@
                     </div>
                     <label class="col-sm-2 col-form-label" for="email">Primary Email Address*</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="email" value="{{ $initiative->email }}" />
+                        <input class="form-control" type="text" name="email" value="{{ $initiative->email }}"
+                            readonly />
 
                     </div>
                 </div>
@@ -146,13 +232,14 @@
                     <label class="col-sm-2 col-form-label" for="leadAgency">Lead Agency*</label>
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" type="text" name="leadAgency"
-                            value="{{ $initiative->leadAgency }}" />
+                            value="{{ $initiative->leadAgency }}" readonly />
 
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="email2">Secondary Email Address*</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="email2" value="{{ $initiative->email2 }}" />
+                        <input class="form-control" type="text" name="email2" value="{{ $initiative->email2 }}"
+                            readonly />
                     </div>
                 </div>
 
@@ -177,7 +264,7 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for=""></label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" hidden />
+                        <input class="form-control" hidden readonly />
 
 
                     </div>
@@ -228,4 +315,5 @@
             </ul>
         </div>
     @endif
+
 @endsection

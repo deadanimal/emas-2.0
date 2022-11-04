@@ -15,7 +15,7 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-form-label" for="thrust_id">Thrust</label>
+                    <label class="col-form-label" for="thrust_id">Thrust*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="thrust_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label" for="national_id">National Initiative</label>
+                    <label class="col-form-label" for="national_id">National Initiative*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="national_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label" for="key_id">Key Activity</label>
+                    <label class="col-form-label" for="key_id">Key Activity*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="key_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label" for="sub_id">Sub-Key Activity</label>
+                    <label class="col-form-label" for="sub_id">Sub-Key Activity*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="sub_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
@@ -70,19 +70,35 @@
                     </div>
                 </div>
 
+                <div class="mb-3 row">
+                    <div class="col-sm-10">
+
+                        <label class="col-form-label" for="namaKpi">KPI*</label>
+                        <input class="form-control" type="text" name="namaKpi" />
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="col-sm-10">
+
+                        <label class="col-form-label" for="keteranganKpi">KPI Description*<></label>
+                        <input class="form-control" type="text" name="keteranganKpi" />
+                    </div>
+                </div>
+
 
                 <br>
 
-                <div class="row justify-content-center">
+                {{-- <div class="row justify-content-center">
                     <div class="col-lg-8">
 
                         <div class="mb-3">
-                            <label class="form-label" for="namaKpi"><b>KPI:</b></label>
+                            <label class="form-label" for="namaKpi"><b>KPI*</b></label>
                             <input class="form-control" type="text" name="namaKpi" />
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label" for="keteranganKpi"><b>KPI Description:</b></label>
+                            <label class="form-label" for="keteranganKpi"><b>KPI Description*</b></label>
                             <input class="form-control" type="text" name="keteranganKpi" />
                         </div>
 
@@ -96,7 +112,7 @@
                             <input class="form-control" type="text" name="national" />
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <br>
 
 

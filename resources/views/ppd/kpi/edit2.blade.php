@@ -104,7 +104,7 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
 
                         @if ($kpi->pemangkin != null)
                             <input class="form-control" value="{{ $kpi->pemangkin->namaTema }}" readonly />
@@ -114,9 +114,11 @@
                         @endif
 
                     </div>
+                </div>
+                <div class="mb-3 row">
 
                     <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
 
                         @if ($kpi->bab != null)
                             <input class="form-control" value="{{ $kpi->bab->namaBab }}" readonly />
@@ -130,7 +132,7 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
 
                         @if ($kpi->bidang != null)
                             <input class="form-control" value="{{ $kpi->bidang->namaBidang }}" readonly />
@@ -140,9 +142,12 @@
                         @endif
 
                     </div>
+                </div>
+                <div class="mb-3 row">
+
 
                     <label class="col-sm-2 col-form-label" for="outcome_id">Outcome Nasional</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
 
                         @if ($kpi->outcome != null)
                             <input class="form-control" value="{{ $kpi->outcome->namaOutcome }}" readonly />
@@ -159,20 +164,16 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="namaKpi">Nama KPI Nasional</label>
 
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <input class="form-control" name="namaKpi" value="{{ $kpi->namaKpi }}" readonly />
                     </div>
-
+                </div>
+                <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="jenisKpi">Jenis Sasaran</label>
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" name="jenisKpi" value="{{ $kpi->jenisKpi }}" readonly />
 
                     </div>
-                </div>
-
-
-                <div class="mb-3 row">
-
 
                     <label class="col-sm-2 col-form-label" for="unitUkuran">Unit Ukuran</label>
                     <div class="col-sm-10" style="width:30%">
@@ -181,9 +182,8 @@
                             value="{{ $kpi->unitUkuran }}" readonly />
                     </div>
 
-
-
                 </div>
+
 
                 <div class="mb-3 row">
 
@@ -193,15 +193,17 @@
                             value="{{ $kpi->sasaran }}" readonly />
                     </div>
 
-                </div>
-
-                <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="hadVarian">Varians</label>
 
                     <div class="col-sm-10" style="width:30%">
                         <input type="number" name="hadVarian" class="form-control" value="{{ $kpi->hadVarian }}"
                             readonly />
                     </div>
+
+
+                </div>
+
+                <div class="mb-3 row">
 
                     <label class="col-sm-2 col-form-label" for="hadToleransi">Had Toleransi</label>
 
@@ -210,15 +212,16 @@
                             readonly />
                     </div>
 
-                </div>
-
-                <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="kekerapan">Kekerapan</label>
 
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" name="kekerapan" type="number" value="{{ $kpi->kekerapan }}"
                             readonly />
                     </div>
+                </div>
+
+                <div class="mb-3 row">
+
 
                     <label class="col-sm-2 col-form-label" for="wajaran">Wajaran</label>
 
@@ -227,17 +230,16 @@
                             value="{{ $kpi->wajaran }}" readonly />
                     </div>
 
-                </div>
-
-                <div class="mb-3 row">
-
                     <label class="col-sm-2 col-form-label" for="tahunAsas">Tahun Asas</label>
                     <div class="col-sm-10" style="width:30%">
                         <input type="text" name="tahunAsas" type="text" class="form-control"
                             value="{{ $kpi->tahunAsas }}" readonly />
                     </div>
 
+
                 </div>
+
+
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="peratusPencapaianAsas">Pencapaian Tahun

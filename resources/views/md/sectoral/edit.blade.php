@@ -16,7 +16,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
 
-                        <div class="mb-3 row">
+                        {{-- <div class="mb-3 row">
                             <label class="col-form-label" for="intiative_id">Initiative Code</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="intiative_id">
@@ -28,10 +28,10 @@
 
                                 </select>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="mb-3 row">
-                            <label class="col-form-label" for="cluster_id">Cluster</label>
+                            <label class="col-form-label" for="cluster_id">Cluster*</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="cluster_id">
                                     @foreach ($cluster as $cluster)
@@ -45,15 +45,15 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label class="col-form-label" for="namasectoral">sectoral Name</label>
+                            <label class="col-form-label" for="namaSectoral">Sectoral*</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" name="namasectoral"
-                                    value="{{ $sectoral->namasectoral }}" />
+                                <input class="form-control" type="text" name="namaSectoral"
+                                    value="{{ $sectoral->namaSectoral }}" />
 
                             </div>
                         </div>
 
-                        <div class="mb-3 row">
+                        {{-- <div class="mb-3 row">
                             <label class="col-form-label" for="sectoralLead">sectoral Lead</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="sectoralLead"
@@ -78,7 +78,7 @@
                                     value="{{ $sectoral->sectoralTarget }}" />
 
                             </div>
-                        </div>
+                        </div> --}}
                         <br><br>
 
                         <div class="row">

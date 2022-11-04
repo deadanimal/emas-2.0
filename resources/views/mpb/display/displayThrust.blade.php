@@ -16,7 +16,7 @@
                 <table class="table mb-0" style="width: 400%" value="null" id="example">
                     <thead class="text-black bg-200">
                         <tr style="text-align: center">
-                            <th class="align-middle" rowspan=2>View</th>
+                            <th class="align-middle" rowspan=2>Action</th>
 
                             <th class="align-middle" rowspan=2>No.</th>
                             <th class="align-middle" rowspan=2>Thrust</th>
@@ -47,7 +47,7 @@
                             <tr class="thrust" style="text-align: center">
                                 <td>
                                     <button class="btn btn-primary" type="button" data-bs-toggle="modal"
-                                        data-bs-target="#error-modal-{{ $thrust->id }}">View
+                                        data-bs-target="#error-modal-{{ $thrust->id }}">Action
                                     </button>
                                 </td>
                                 <td class="align-middle">{{ $loop->iteration }}.

@@ -16,21 +16,11 @@
                 @csrf
                 @method('PUT')
 
+
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="pemangkin_id" id="pilih3">
-
-                            @foreach ($temas as $pemangkin)
-                                <option @selected($bidang->pemangkin_id == $pemangkin->id) value="{{ $pemangkin->id }}">
-                                    {{ $pemangkin->namaTema }}</option>
-                            @endforeach
-
-                        </select>
-                    </div>
 
                     <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <select class="form-control" name="fokus_id" id="pilih1">
 
                             @foreach ($fokuss as $fokus)
@@ -46,20 +36,8 @@
 
                 <div class="mb-3 row">
 
-
-                    <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="bab_id" id="pilih4">
-
-                            @foreach ($babs as $list)
-                                <option @selected($bidang->bab_id == $list->id) value="{{ $list->id }}">Bab {{ $list->noBab }}.
-                                    {{ $list->namaBab }}</option>
-                            @endforeach
-
-                        </select>
-                    </div>
                     <label class="col-sm-2 col-form-label" for="perkara_id">Perkara Utama</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <select class="form-control" name="perkara_id" id="pilih2">
 
                             @foreach ($perkaras as $perkara)
@@ -72,14 +50,42 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaBidang">Nama Bidang Keutamaan</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaBidang" value="{{ $bidang->namaBidang }}" />
+                    <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="pemangkin_id" id="pilih3">
 
+                            @foreach ($temas as $pemangkin)
+                                <option @selected($bidang->pemangkin_id == $pemangkin->id) value="{{ $pemangkin->id }}">
+                                    {{ $pemangkin->namaTema }}</option>
+                            @endforeach
+
+                        </select>
                     </div>
+                </div>
 
-                    <label class="col-sm-2 col-form-label" for="bahagian">Bahagian Penyelaras</label>
-                    <div class="col-sm-10" style="width:30%">
+
+                <div class="mb-3 row">
+
+
+                    <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="bab_id" id="pilih4">
+
+                            @foreach ($babs as $list)
+                                <option @selected($bidang->bab_id == $list->id) value="{{ $list->id }}">Bab {{ $list->noBab }}.
+                                    {{ $list->namaBab }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
+
+
+
+                <div class="mb-3 row">
+
+                    <label class="col-sm-2 col-form-label" for="bahagian">Penyelaras Bidang Keutamaan</label>
+                    <div class="col-sm-10">
                         <select class="form-control" name="bahagian">
                             <option @selected($bidang->bahagian == 'EPU') value="EPU">EPU</option>
                             <option @selected($bidang->bahagian == 'JPM') value="JPM">JPM</option>
@@ -90,7 +96,7 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="noBidang">Bidang Keutamaan:</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <select class="form-control" name="noBidang">
                             <option @selected($bidang->noBidang == 'A') value="A">BK A</option>
                             <option @selected($bidang->noBidang == 'B') value="B">BK B</option>
@@ -105,11 +111,19 @@
                     </div>
                 </div>
 
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="namaBidang">Nama Bidang Keutamaan</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="namaBidang" value="{{ $bidang->namaBidang }}" />
+
+                    </div>
+                </div>
+
                 <br>
                 <br>
 
                 <div class="mb-3">
-                    <label class="form-label" for="keteranganBidang"><b>Keterangan Bidang</b></label>
+                    <label class="form-label" for="keteranganBidang"><b>Keterangan Bidang Keutamaan</b></label>
                     <textarea class="form-control" name="keteranganBidang" rows="5">{{ $bidang->keteranganBidang }}</textarea>
                 </div>
 

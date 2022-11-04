@@ -14,21 +14,8 @@
                 @csrf
 
                 <div class="mb-3 row">
-
-                    <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="pemangkin_id">
-                            <option selected disabled hidden>SILA PILIH</option>
-
-                            @foreach ($pemangkin as $pemangkin)
-                                <option value="{{ $pemangkin->id }}">{{ $pemangkin->namaTema }}</option>
-                            @endforeach
-
-                        </select>
-                    </div>
-
                     <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <select class="form-control" name="fokus_id" id="pilih1">
                             <option selected disabled hidden>SILA PILIH</option>
 
@@ -38,26 +25,11 @@
 
                         </select>
                     </div>
-
-
-
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="bab_id">
-                            <option selected disabled hidden>SILA PILIH</option>
-
-                            @foreach ($bab as $bab)
-                                <option value="{{ $bab->id }}">Bab {{ $bab->noBab }}. {{ $bab->namaBab }}</option>
-                            @endforeach
-
-                        </select>
-                    </div>
-
                     <label class="col-sm-2 col-form-label" for="perkara_id">Perkara Utama</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <select class="form-control" name="perkara_id" id="pilih2">
                             <option selected disabled hidden>SILA PILIH</option>
 
@@ -67,14 +39,42 @@
 
                         </select>
                     </div>
+                </div>
 
 
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="pemangkin_id">
+                            <option selected disabled hidden>SILA PILIH</option>
+
+                            @foreach ($pemangkin as $pemangkin)
+                                <option value="{{ $pemangkin->id }}">{{ $pemangkin->namaTema }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="bab_id">
+                            <option selected disabled hidden>SILA PILIH</option>
+
+                            @foreach ($bab as $bab)
+                                <option value="{{ $bab->id }}">Bab {{ $bab->noBab }}. {{ $bab->namaBab }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
                 </div>
 
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <select class="form-control" name="bidang_id">
                             <option selected disabled hidden>SILA PILIH</option>
 
@@ -89,7 +89,7 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="strategi_id">Strategi</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <select class="form-control" name="strategi_id">
                             <option selected disabled hidden>SILA PILIH</option>
 
@@ -103,7 +103,7 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="namaInisiatif">Nama Inisiatif</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <input class="form-control" type="text" name="namaInisiatif" />
 
                     </div>

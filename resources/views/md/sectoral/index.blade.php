@@ -44,7 +44,7 @@
                         <tr>
                             <th scope="col">No.</th>
                             <th scope="col">Sectoral</th>
-                            <th scope="col">National</th>
+                            <th scope="col">Document</th>
                             <th scope="col">Action</th>
 
                         </tr>

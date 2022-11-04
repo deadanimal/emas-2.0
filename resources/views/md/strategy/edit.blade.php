@@ -14,18 +14,9 @@
                 @csrf
                 @method('PUT')
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaStrategy">Strategy</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="namaStrategy"
-                            value="{{ $strategy->namaStrategy }}" />
-
-                    </div>
-                </div>
-
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="thrust_id">Thrust</label>
+                    <label class="col-sm-2 col-form-label" for="thrust_id">Thrust*</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="thrust_id" id="pilih1">
                             @foreach ($thrust as $thrust)
@@ -38,13 +29,23 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="category">Category</label>
+                    <label class="col-sm-2 col-form-label" for="category">Document*</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="category" id="pilih2">
                             <option @selected($strategy->category == 'DEB') value="DEB">DEB</option>
                             <option @selected($strategy->category == '4IR') value="4IR">4IR</option>
 
                         </select>
+                    </div>
+                </div>
+
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="namaStrategy">Strategy Name*</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="namaStrategy"
+                            value="{{ $strategy->namaStrategy }}" />
+
                     </div>
                 </div>
 

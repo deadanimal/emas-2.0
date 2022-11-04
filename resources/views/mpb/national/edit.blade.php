@@ -16,7 +16,7 @@
                 @method('PUT')
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="thrust_id">Thrust</label>
+                    <label class="col-sm-2 col-form-label" for="thrust_id">Thrust*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="thrust_id">
                             @foreach ($list as $list)
@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaNational">National Initiative</label>
+                    <label class="col-sm-2 col-form-label" for="namaNational">National Initiative*</label>
                     <div class="col-sm-10">
                         <input class="form-control" type="text" name="namaNational"
                             value="{{ $national->namaNational }}" />
@@ -40,7 +40,7 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="year">Year</label>
+                    <label class="col-sm-2 col-form-label" for="year">Year*</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="year">
                             <option @selected($national->year == '2017') value="2017">2017</option>
@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="quarter">Quarter</label>
+                    <label class="col-sm-2 col-form-label" for="quarter">Quarter*</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="quarter">
                             <option @selected($national->quarter == 'Q1') value="Q1">Q1</option>

@@ -14,7 +14,7 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="thrust_id">Thrust</label>
+                    <label class="col-sm-2 col-form-label" for="thrust_id">Thrust*</label>
                     <div class="col-sm-10">
                         <select class="form-control" id="thrust_id" name="thrust_id">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaNational">National Initiative</label>
+                    <label class="col-sm-2 col-form-label" for="namaNational">National Initiative*</label>
                     <div class="col-sm-10">
                         <input class="form-control" type="text" id="namaNational" name="namaNational" />
 
@@ -37,7 +37,7 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="year">Year</label>
+                    <label class="col-sm-2 col-form-label" for="year">Year*</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="year">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="quarter">Quarter</label>
+                    <label class="col-sm-2 col-form-label" for="quarter">Quarter*</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="quarter">
                             <option selected disabled hidden>PLEASE CHOOSE</option>

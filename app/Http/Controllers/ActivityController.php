@@ -296,30 +296,12 @@ class ActivityController extends Controller
     public function update_progress(UpdateactivityRequest $request, activity $activity)
     {
 
-
-        $activity->cluster_id = $request->cluster_id;
-        $activity->initiative_id = $request->initiative_id;
-        $activity->program_id = $request->program_id;
-        $activity->plan_id = $request->plan_id;
         $activity->user_id = Auth::user()->id;
-        $activity->leadAgency = $request->leadAgency;
-        $activity->namaActivity = $request->namaActivity;
-        $activity->startDate = $request->startDate;
-        $activity->endDate = $request->endDate;
-        $activity->output = $request->output;
-        $activity->weightage = $request->weightage;
+        $activity->year = $request->year;
+        $activity->month = $request->month;
+        $activity->output_update = $request->output_update;
         $activity->weightage_progress = $request->weightage_progress;
-        $activity->output_progress = $request->output_progress;
-        $activity->additionalOutput = $request->additionalOutput;
-        $activity->remarks = $request->remarks;
-        $activity->unit = $request->unit;
-        $activity->PIC = $request->PIC;
-        if (!empty($request->document)) {
-            $imageName = time() . '.' . $request->document->extension();
 
-            $request->document->move(public_path('images'), $imageName);
-            $activity->document_pdf = $imageName;
-        }
         $activity->save();
 
         return redirect()->route('activity.index');

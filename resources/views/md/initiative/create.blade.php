@@ -68,21 +68,6 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="target">Target Initiative*</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="target" />
-
-                    </div>
-
-                    <label class="col-sm-2 col-form-label" for="phoneNo">Contact Number*</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="number" name="phoneNo" />
-
-                    </div>
-                </div>
-
-
-                <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="phase">Phase*</label>
                     <div class="col-sm-10" style="width:30%">
 
@@ -123,6 +108,24 @@
                         </div> --}}
                     </div>
 
+
+                    <label class="col-sm-2 col-form-label" for="phoneNo">Contact Number*</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="number" name="phoneNo" />
+
+                    </div>
+                </div>
+
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="leadAgency">Lead Agency*</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="leadAgency" />
+
+                    </div>
+
+
+
                     <label class="col-sm-2 col-form-label" for="email">Primary Email Address*</label>
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" type="text" name="email" />
@@ -131,9 +134,9 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="leadAgency">Lead Agency*</label>
+                    <label class="col-sm-2 col-form-label" for="target">Target Initiative 1*</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="leadAgency" />
+                        <input class="form-control" type="text" name="target" />
 
                     </div>
 
@@ -145,12 +148,12 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for=""></label>
+                    <label class="col-sm-2 col-form-label" for="target_2">Target Initiative 2*</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" hidden />
-
+                        <input class="form-control" type="text" name="target_2" />
 
                     </div>
+
 
                     <label class="col-sm-2 col-form-label" for="category">Document*</label>
                     <div class="col-sm-10" style="width:30%">
@@ -164,12 +167,12 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for=""></label>
+                    <label class="col-sm-2 col-form-label" for="target_3">Target Initiative 3*</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" hidden />
-
+                        <input class="form-control" type="text" name="target_3" />
 
                     </div>
+
 
                     <label class="col-sm-2 col-form-label" for="sec_id">Level*</label>
                     <div class="col-sm-10" style="width:30%">

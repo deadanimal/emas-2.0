@@ -75,7 +75,7 @@
                         <tr>
                             <th scope="col">No.</th>
                             <th scope="col">Activities</th>
-                            <th scope="col">Percentage Progress (%)</th>
+                            <th scope="col">Weightage Progress (%)</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -96,7 +96,12 @@
                                         <div class="ms-2"><b>{{ $activity->namaActivity }}</b></div>
                                     </div>
                                 </td>
-                                <td></td>
+                                <td>
+                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                        data-bs-target="#error-modal-{{ $activity->id }}">
+                                        <div class="ms-2"><b>{{ $activity->weightage_progress }}</b></div>
+                                    </div>
+                                </td>
 
 
                                 <div class="modal fade" id="error-modal-{{ $activity->id }}" tabindex="-1" role="dialog"
@@ -179,7 +184,6 @@
             }).done(function(response) {
                 console.log(response);
                 $("#searchUpdateTable").html('');
-                // $("#searchUpdateTable2").html('');
 
                 response.forEach(el => {
                     $("#searchUpdateTable").append(`
@@ -197,6 +201,14 @@
                                     data-bs-target="#error-modal-` + el.id + `">
 
                                 <div class="ms-2"><b>` + el.namaActivity + `</b></div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#error-modal-` + el.id + `">
+
+                                <div class="ms-2"><b>` + el.weightage_progress + `</b></div>
                             </div>
                         </td>
 

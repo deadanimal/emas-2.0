@@ -189,4 +189,22 @@ class BantuanController extends Controller
         $bantuan->delete();
         return back();
     }
+
+    public function find(Request $request)
+    {
+        if ($request->daerah == 'null') {
+            $bantuan = Bantuan::where('negeri_id', $request->negeri)
+                ->get();
+        } elseif ($request->kampung == 'null') {
+            $bantuan = Bantuan::where('negeri_id', $request->negeri)
+                ->where('daerah_id', $request->daerah)
+                ->get();
+        } elseif ($request->kampung != 'null') {
+            $bantuan = Bantuan::where('negeri_id', $request->negeri)
+                ->where('daerah_id', $request->daerah)
+                ->where('kampung_id', $request->kampung)
+                ->get();
+        }
+        return response()->json($bantuan);
+    }
 }

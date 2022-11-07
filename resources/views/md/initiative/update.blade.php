@@ -36,8 +36,8 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td> <input type="number" name="taget_1" for="taget_1" class="form-control" /></td>
-                                    <td> <input type="number" name="actual_achievement1" for="actual_achievement1"
+                                    <td> <input type="number" name="target" for="target" class="form-control" /></td>
+                                    <td> <input type="number" name="actual_achievement_1" for="actual_achievement_1"
                                             class="form-control" /></td>
                                 </tr>
                             </tbody>
@@ -55,8 +55,8 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td> <input type="number" name="taget_1" for="taget_1" class="form-control" /></td>
-                                    <td> <input type="number" name="actual_achievement1" for="actual_achievement1"
+                                    <td> <input type="number" name="target_2" for="target_2" class="form-control" /></td>
+                                    <td> <input type="number" name="actual_achievement_2" for="actual_achievement_2"
                                             class="form-control" /></td>
                                 </tr>
                             </tbody>
@@ -74,8 +74,8 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td> <input type="number" name="taget_1" for="taget_1" class="form-control" /></td>
-                                    <td> <input type="number" name="actual_achievement1" for="actual_achievement1"
+                                    <td> <input type="number" name="target_3" for="target_3" class="form-control" /></td>
+                                    <td> <input type="number" name="actual_achievement_3" for="actual_achievement_3"
                                             class="form-control" /></td>
                                 </tr>
                             </tbody>
@@ -87,14 +87,6 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="cluster_id">Cluster*</label>
                     <div class="col-sm-10" style="width:30%">
-                        {{-- <select class="form-control" name="cluster_id">
-                            @foreach ($cluster as $cluster)
-                                <option @selected($initiative->cluster_id == $cluster->id) value="{{ $cluster->id }}">
-                                    {{ $cluster->namaCluster }}
-                                </option>
-                            @endforeach
-
-                        </select> --}}
 
 
                         @if ($initiative->cluster != null)
@@ -166,58 +158,14 @@
                     </div>
                 </div>
 
-                {{-- <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="phase">Phase</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="phase">
-                            <option @selected($initiative->phase == '1') value="1">1</option>
-                            <option @selected($initiative->phase == '2') value="2">2</option>
-                            <option @selected($initiative->phase == '3') value="3">3</option>
-                        </select>
-                    </div>
-                </div> --}}
+
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="phase">Phase*</label>
                     <div class="col-sm-10" style="width:30%">
 
-                        <select class="form-control" name="phase">
-                            <option @selected($initiative->phase == '1') value="1">1-2 (2021-2025)</option>
-                            <option @selected($initiative->phase == '2') value="2">1-2 (2021-2025)</option>
-                            <option @selected($initiative->phase == '3') value="3">1-3 (2021-2030)</option>
-                            <option @selected($initiative->phase == '4') value="4">2 (2023-2025)</option>
-                            <option @selected($initiative->phase == '5') value="5">2 (2023-2030)</option>
-                            <option @selected($initiative->phase == '6') value="6">3 (2026-2030)</option>
-                        </select>
-                        {{-- <div class="mb-2 col-sm-7">
-                            <div class="form-check">
-                                <input type="checkbox" name="phase[]" value="1"
-                                    {{ $initiative->phase == 1 ? ' checked' : '' }} class="form-check-input">
-                                1-2 (2021-2022)
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" name="phase[]" value="2"
-                                    {{ $initiative->phase == 1 ? ' checked' : '' }} class="form-check-input">1-2 (2021-2025)
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" name="phase[]" value="2"
-                                    {{ $initiative->phase == 1 ? ' checked' : '' }} class="form-check-input">1-3 (2021-2030)
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" name="phase[]" value="3"
-                                    {{ $initiative->phase == 1 ? ' checked' : '' }} class="form-check-input">2 (2023-2025)
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" name="phase[]" value="3"
-                                    {{ $initiative->phase == 1 ? ' checked' : '' }} class="form-check-input">2 (2023-2030)
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" name="phase[]" value="3"
-                                    {{ $initiative->phase == 1 ? ' checked' : '' }} class="form-check-input">3 (2026-2030)
-                            </div>
-
-                        </div> --}}
-
+                        <input class="form-control" type="text" name="phase" value="{{ $initiative->phase }}"
+                            readonly />
 
                     </div>
                     <label class="col-sm-2 col-form-label" for="email">Primary Email Address*</label>
@@ -253,11 +201,8 @@
 
                     <label class="col-sm-2 col-form-label" for="category">Document*</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="category" id="pilih2">
-                            <option @selected($initiative->category == 'DEB') value="DEB">DEB</option>
-                            <option @selected($initiative->category == '4IR') value="4IR">4IR</option>
-
-                        </select>
+                        <input class="form-control" type="text" name="category" value="{{ $initiative->category }}"
+                            readonly />
                     </div>
                 </div>
 
@@ -271,12 +216,8 @@
 
                     <label class="col-sm-2 col-form-label" for="sec_id">Level*</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="sec_id">
-                            <option selected disabled hidden>PLEASE CHOOSE</option>
-                            <option @selected($initiative->sec_id == 'National') value="National">National</option>
-                            <option @selected($initiative->sec_id == 'Sectoral') value="Sectoral">Sectoral</option>
-
-                        </select>
+                        <input class="form-control" type="text" name="sec_id" value="{{ $initiative->sec_id }}"
+                            readonly />
 
                     </div>
                 </div>

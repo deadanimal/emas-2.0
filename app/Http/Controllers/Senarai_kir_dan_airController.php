@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Daerah;
 use App\Models\Info_kampung;
 use App\Models\Kampung;
 use App\Models\Negeri;
@@ -34,6 +35,9 @@ class Senarai_kir_dan_airController extends Controller
     public function index1()
     {
         $negeris = Negeri::with('daerah')->get();
+        $daerahs = Daerah::all();
+        $kampungs = Kampung::all();
+
 
         foreach ($negeris as $negeri) {
             foreach ($negeri->daerah as $d) {
@@ -51,14 +55,15 @@ class Senarai_kir_dan_airController extends Controller
         }
 
 
-        return view('KT.senarai_kir_air.index1', compact('negeris'));
+        return view('KT.senarai_kir_air.index1', compact('negeris', 'daerahs', 'kampungs'));
     }
 
     public function index2()
     {
         $senarai = Profil::all();
         $senarai1 = Profil::all();
-        $kampung = Kampung::all();
+        $kampungs = Kampung::all();
+        $daerahs = Daerah::all();
 
         $negeris = Negeri::with('daerah')->get();
 
@@ -79,8 +84,44 @@ class Senarai_kir_dan_airController extends Controller
             }
         }
 
-        return view('KT.senarai_kir_air.index2', compact('senarai', 'senarai1', 'kampung', 'negeris'));
+        return view('KT.senarai_kir_air.index2', compact('senarai', 'senarai1', 'kampungs', 'negeris', 'daerahs'));
     }
+
+    public function searchSenarai(Request $request)
+    {
+        $senarai = Negeri::where('id', '!=', 'null');
+
+        if ($request->result[0] != 'null') {
+            $senarai->where('fokus_id', $request->result[0]);
+        }
+        if ($request->result[1] != 'null') {
+            $senarai->where('perkara_id', $request->result[1]);
+        }
+        if ($request->result[2] != 'null') {
+            $senarai->where('bab_id', $request->result[2]);
+        }
+
+
+        return response()->json($senarai->get());
+    }
+
+    // public function find(Request $request)
+    // {
+    //     if ($request->daerah == 'null') {
+    //         $senarai = Senarai_kir_dan_airController::where('negeri_id', $request->negeri)
+    //             ->get();
+    //     } elseif ($request->kampung == 'null') {
+    //         $senarai = Senarai_kir_dan_airController::where('negeri_id', $request->negeri)
+    //             ->where('daerah_id', $request->daerah)
+    //             ->get();
+    //     } elseif ($request->kampung != 'null') {
+    //         $senarai = Senarai_kir_dan_airController::where('negeri_id', $request->negeri)
+    //             ->where('daerah_id', $request->daerah)
+    //             ->where('kampung_id', $request->kampung)
+    //             ->get();
+    //     }
+    //     return response()->json($senarai);
+    // }
 
     // public function senarai(Request $request)
     // {

@@ -215,6 +215,9 @@ Route::group(
         // Route::get('/senarai_kir_air1/list', [Senarai_kir_dan_airController::class, 'getSenarai'])->name('senarai_kir_air1.list');
         Route::get('senarai_kir_air1', [Senarai_kir_dan_airController::class, 'senarai'])->name('senarai_kir_air1.senarai');
 
+        Route::post('/search_senarai', [Senarai_kir_dan_airController::class, 'searchSenarai']);
+
+
         // Jenis Bantuan
         Route::resource('/bantuan', BantuanController::class);
         Route::get('/bantuan1/berdasarkan_negeri/', [BantuanController::class, 'berdasarkan_negeri']);
@@ -265,6 +268,11 @@ Route::group(
         Route::post('/kemasukanData-bahagian5', [KemasukanDataController::class, 'simpanBahagian5']);
 
         Route::get('/kemasukanData/bahagian-excel', [KemasukanDataController::class, 'bahagian6']);
+
+        //Senarai Indikator
+        Route::get('/maklumat/indikator', [KemasukanDataController::class, 'index1']);
+        Route::get('/maklumat/pendapatan', [KemasukanDataController::class, 'index2']);
+        Route::get('/maklumat/kategori', [KemasukanDataController::class, 'index3']);
     }
 );
 
@@ -288,6 +296,8 @@ Route::group(
         //Initiative
         Route::resource('/initiative', InitiativeController::class);
         Route::get('/initiative/{id}/update/', [InitiativeController::class, 'edit1']);
+        Route::put('/initiative/{id}', [InitiativeController::class, 'update1']);
+
 
         Route::post('/search_initiative', [InitiativeController::class, 'searchInitiative']);
 
@@ -355,6 +365,7 @@ Route::post('/importUserExcel', [PenggunaController::class, 'import']);
 Route::post('/senarai-kir-dan-air-excel', [KemasukanDataController::class, 'import']);
 
 Route::post('/find-by-lokaliti', [KetuaKampungController::class, 'find']);
+Route::post('/find-by-lokaliti', [Senarai_kir_dan_airController::class, 'find']);
 
 
 Route::view('/ucapan', 'ucapan');

@@ -36,6 +36,27 @@ class KemasukanDataController extends Controller
         return view('KT.kemasukanData.index', compact('profils'));
     }
 
+    public function index1()
+    {
+
+        $profils = Profil::all();
+        return view('KT.maklumat.maklumat', compact('profils'));
+    }
+
+    public function index2()
+    {
+
+        $profils = Profil::all();
+        return view('KT.maklumat.pendapatan', compact('profils'));
+    }
+
+    public function index3()
+    {
+
+        $profils = Profil::all();
+        return view('KT.maklumat.kategori', compact('profils'));
+    }
+
 
     public function bahagian()
     {
@@ -67,6 +88,9 @@ class KemasukanDataController extends Controller
                     case '5':
                         $data5 = ['bantuans' => Bantuan::all(), 'user' => $user, 'profil' => $uncompletedProfil];
                         return view('KT.kemasukanData.bahagian5', $data5);
+                        break;
+                    case '6':
+                        return view('KT.kemasukanData.pendapatan', $data);
                         break;
                     case 'Done':
                         return view('KT.kemasukanData.bahagian1', compact('negeri'));
@@ -190,7 +214,7 @@ class KemasukanDataController extends Controller
             'pencen' => 'required',
             'hadiah' => 'required',
             'pembayaran' => 'required',
-            'jumlah_bantuan' => 'required',
+            // 'jumlah_bantuan' => 'required',
             'jumlah_impak_bantuan' => 'required',
             'jumlah_pendapatan_kasar' => 'required',
         ]);

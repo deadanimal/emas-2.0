@@ -69,10 +69,6 @@ class KpiController extends Controller
             $kpis = Kpi::where('user_id', '=', $user_id)->get();
         }
 
-
-
-
-
         return view('ppd.kpi.index1', compact('kpis', 'tema', 'bab', 'bidang'));
     }
 

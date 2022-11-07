@@ -28,11 +28,12 @@
                         <div class="col-lg-12">
                             <label class="form-label" for="nama">Nama*</label>
                             <input class="form-control" id="nama" name="nama" type="text"
-                                style="text-transform: uppercase">
+                                style="text-transform: uppercase" required>
                         </div>
                         <div class="col-lg-12">
                             <label class="form-label" for="no_kad_pengenalan">No Kad Pengenalan*</label>
-                            <input type="number" class="form-control" id="no_kad_pengenalan" name="no_kad_pengenalan">
+                            <input type="number" class="form-control" id="no_kad_pengenalan" name="no_kad_pengenalan"
+                                required>
                         </div>
                         <div class="col-lg-6">
 

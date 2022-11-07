@@ -4,9 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Kategori extends Model
+
+class Kategori extends Model implements Auditable
 {
+    use \OwenIt\Auditing\Auditable;
+
     use HasFactory;
 
     public $table = 'kategoris';
@@ -26,4 +30,3 @@ class Kategori extends Model
         return $this->belongsTo(Pemangkindasar::class, 'tema');
     }
 }
-

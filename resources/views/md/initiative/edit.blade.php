@@ -68,31 +68,6 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="target">Target Initiative*</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="target" value="{{ $initiative->target }}" />
-
-                    </div>
-
-                    <label class="col-sm-2 col-form-label" for="phoneNo">Contact Number*</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="number" name="phoneNo" value="{{ $initiative->phoneNo }}" />
-
-                    </div>
-                </div>
-
-                {{-- <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="phase">Phase</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="phase">
-                            <option @selected($initiative->phase == '1') value="1">1</option>
-                            <option @selected($initiative->phase == '2') value="2">2</option>
-                            <option @selected($initiative->phase == '3') value="3">3</option>
-                        </select>
-                    </div>
-                </div> --}}
-
-                <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="phase">Phase*</label>
                     <div class="col-sm-10" style="width:30%">
 
@@ -132,9 +107,36 @@
                             </div>
 
                         </div> --}}
+                    </div>
 
+
+                    <label class="col-sm-2 col-form-label" for="phoneNo">Contact Number*</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="number" name="phoneNo" value="{{ $initiative->phoneNo }}" />
 
                     </div>
+                </div>
+
+                {{-- <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="phase">Phase</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <select class="form-control" name="phase">
+                            <option @selected($initiative->phase == '1') value="1">1</option>
+                            <option @selected($initiative->phase == '2') value="2">2</option>
+                            <option @selected($initiative->phase == '3') value="3">3</option>
+                        </select>
+                    </div>
+                </div> --}}
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="leadAgency">Lead Agency*</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" type="text" name="leadAgency"
+                            value="{{ $initiative->leadAgency }}" />
+
+                    </div>
+
+
                     <label class="col-sm-2 col-form-label" for="email">Primary Email Address*</label>
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" type="text" name="email" value="{{ $initiative->email }}" />
@@ -143,10 +145,9 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="leadAgency">Lead Agency*</label>
+                    <label class="col-sm-2 col-form-label" for="target">Target Initiative 1*</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="leadAgency"
-                            value="{{ $initiative->leadAgency }}" />
+                        <input class="form-control" type="text" name="target" value="{{ $initiative->target }}" />
 
                     </div>
 
@@ -157,10 +158,10 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for=""></label>
+                    <label class="col-sm-2 col-form-label" for="target_2">Target Initiative 2*</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" hidden />
-
+                        <input class="form-control" type="text" name="target_2"
+                            value="{{ $initiative->target_2 }}" />
 
                     </div>
 
@@ -175,13 +176,12 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for=""></label>
+                    <label class="col-sm-2 col-form-label" for="target_3">Target Initiative 3*</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" hidden />
-
+                        <input class="form-control" type="text" name="target_3"
+                            value="{{ $initiative->target_3 }}" />
 
                     </div>
-
                     <label class="col-sm-2 col-form-label" for="sec_id">Level*</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="sec_id">

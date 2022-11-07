@@ -104,6 +104,8 @@
         $("#negeri").change(function() {
             var negeri_id = $(this).val();
             var daerahs = @json($daerahs->toArray());
+            console.log($daerahs);
+
             $("#daerah").html('<option selected disable hidden value="null">Sila Pilih</option>');
             daerahs.forEach(daerah => {
                 if (daerah.negeri_id == negeri_id) {
@@ -163,6 +165,7 @@
             });
 
         });
+
         $(document).ready(function() {
             $('#example').DataTable({
                 dom: 'Bfrtip',

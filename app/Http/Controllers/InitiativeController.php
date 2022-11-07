@@ -86,6 +86,8 @@ class InitiativeController extends Controller
         $initiatives->phoneNo = $request->phoneNo;
         $initiatives->email = $request->email;
         $initiatives->email2 = $request->email2;
+        $initiatives->target_2 = $request->target_2;
+        $initiatives->target_3 = $request->target_3;
 
 
 
@@ -169,12 +171,36 @@ class InitiativeController extends Controller
         $initiative->phoneNo = $request->phoneNo;
         $initiative->email = $request->email;
         $initiative->email2 = $request->email2;
+        $initiative->target_2 = $request->target_2;
+        $initiative->target_3 = $request->target_3;
 
 
 
         // if (!empty($request->phase)) {
         // $initiative->phase = implode(',', $request->phase);
         // }
+
+
+
+        $initiative->save();
+
+
+        return redirect()->route('initiative.index');
+    }
+
+    public function update1(Request $request, $id)
+    {
+
+        $initiative = Initiative::find($id);
+        $initiative->user_id = Auth::user()->id;
+
+
+        $initiative->target = $request->target;
+        $initiative->target_2 = $request->target_2;
+        $initiative->target_3 = $request->target_3;
+        $initiative->actual_achievement_1 = $request->actual_achievement_1;
+        $initiative->actual_achievement_2 = $request->actual_achievement_2;
+        $initiative->actual_achievement_3 = $request->actual_achievement_3;
 
 
 

@@ -78,11 +78,8 @@
 
                 <div class="mb-3 row">
                     <div class="col-sm-10">
-                        <div class="col-sm-10">
-                            <label class="col-form-label" for="keteranganKpi">KPI Information*</label>
-                            <input class="form-control" type="text" name="keteranganKpi"
-                                value="{{ $kpi2->keteranganKpi }}">
-                        </div>
+                        <label class="col-form-label" for="keteranganKpi">KPI Description*</label>
+                        <input class="form-control" type="text" name="keteranganKpi" value="{{ $kpi2->keteranganKpi }}">
                     </div>
                 </div>
 

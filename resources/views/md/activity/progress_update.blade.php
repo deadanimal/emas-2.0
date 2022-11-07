@@ -37,10 +37,12 @@
                             </td>
                             <td>
                                 <div class="input-group">
-                                    <span class="input-group-text" id="progress">%</span>
-                                    <input class="form-control" onchange="myFunction()" for="weightage_progress"
-                                        name="weightage_progress" type="number" aria-describedby="progress">
+                                    <input class="form-control" type="text" name="weightage_progress" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">%</span>
+                                    </div>
                                 </div>
+
                             </td>
                         </tr>
 
@@ -134,7 +136,7 @@
                             <label class="col-form-label" for="namaActivity">Activity Name</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="namaActivity"
-                                    value="{{ $activity->namaActivity }}" />
+                                    value="{{ $activity->namaActivity }}" readonly />
 
                             </div>
                         </div>
@@ -143,7 +145,7 @@
                             <label class="col-form-label" for="startDate">Start Date</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="startDate"
-                                    value="{{ $activity->startDate }}" />
+                                    value="{{ $activity->startDate }}" readonly />
 
                             </div>
                         </div>
@@ -152,7 +154,8 @@
                             <label class="col-form-label" for="endDate">End Date</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="endDate"
-                                    value="{{ $activity->endDate }}" />
+                                    value="{{ $activity->endDate }}" readonly />
+
 
                             </div>
                         </div>
@@ -160,13 +163,8 @@
                         <div class="mb-3 row">
                             <label class="col-form-label" for="unit">Unit</label>
                             <div class="col-sm-10">
-                                <select class="form-control" name="unit">
-                                    <option selected disabled hidden>PLEASE CHOOSE</option>
-                                    <option @selected($activity->unit == '%') value="%">%
-                                    </option>
-                                    <option @selected($activity->unit == 'Number') value="Number">Number
-                                    </option>
-                                </select>
+                                <input class="form-control" type="text" name="unit" value="{{ $activity->unit }}"
+                                    readonly />
                             </div>
                         </div>
 
@@ -174,7 +172,7 @@
                             <label class="col-form-label" for="output">Output Target</label>
                             <div class="col-sm-10">
                                 <input class="form-control output" type="number" name="output"
-                                    value="{{ $activity->output }}" />
+                                    value="{{ $activity->output }}" readonly />
 
                             </div>
                         </div>
@@ -183,7 +181,7 @@
                             <label class="col-form-label" for="weightage">Weightage</label>
                             <div class="col-sm-10">
                                 <input class="form-control output" type="number" name="weightage"
-                                    value="{{ $activity->weightage }}" />
+                                    value="{{ $activity->weightage }}" readonly />
 
                             </div>
                         </div>
@@ -191,8 +189,8 @@
                         <div class="mb-3 row">
                             <label class="col-form-label" for="PIC">Person In Charge</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" name="PIC"
-                                    value="{{ $activity->PIC }}" />
+                                <input class="form-control" type="text" name="PIC" value="{{ $activity->PIC }}"
+                                    readonly />
 
                             </div>
                         </div>
@@ -201,7 +199,7 @@
                             <label class="col-form-label" for="email">Primary Email Address</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="email"
-                                    value="{{ $activity->email }}" />
+                                    value="{{ $activity->email }}" readonly />
 
                             </div>
                         </div>
@@ -210,7 +208,7 @@
                             <label class="col-form-label" for="document">Attachment Document</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="file" name="document"
-                                    value="{{ $activity->document }}" />
+                                    value="{{ $activity->document }}" readonly />
 
                             </div>
                         </div>

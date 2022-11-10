@@ -400,8 +400,6 @@
 
             @include('layouts.emas-side-tableau')
 
-
-
             <div class="content content1">
 
 

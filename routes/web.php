@@ -361,6 +361,7 @@ Route::group(
     }
 );
 
+
 Route::post('/importUserExcel', [PenggunaController::class, 'import']);
 Route::post('/senarai-kir-dan-air-excel', [KemasukanDataController::class, 'import']);
 
@@ -368,11 +369,24 @@ Route::post('/find-by-lokaliti', [KetuaKampungController::class, 'find']);
 Route::post('/find-by-lokaliti', [Senarai_kir_dan_airController::class, 'find']);
 
 
-Route::view('/ucapan', 'ucapan');
-Route::view('/rumusanPPD', 'rumusanPPD');
-Route::view('/rumusanTindakan', 'rumusanTindakan');
-Route::view('/executive', 'executive');
-Route::view('/executiveSummary', 'executiveSummary');
+Route::view('/PPD/dashboard', 'tableau/ppd/ucapan');
+Route::view('/PPD/ringkasan_ppd', 'tableau/ppd/rumusanPPD');
+Route::view('/PPD/rumusanTindakan', 'tableau/ppd/rumusanTindakan');
+Route::view('/PPD/ringkasan_eksekutif', 'tableau/ppd/executive');
+Route::view('/PPD/dashboard_eksekutif', 'tableau/ppd/executiveSummary');
+Route::view('/PPD/prestasi_kpi', 'tableau/ppd/prestasi_kpi');
+
+Route::view('/MPB/dashboard', 'tableau/mpb/dashboard');
+Route::view('/MPB/overall_mpb_summary', 'tableau/mpb/overall');
+Route::view('/MPB/performance', 'tableau/mpb/performance');
+
+Route::view('/MD/Tableau/main_page', 'tableau/md/dashboard1');
+Route::view('/MD/Tableau/cluster_level', 'tableau/md/dashboard2');
+Route::view('/MD/Tableau/initiative_level', 'tableau/md/dashboard3');
+Route::view('/MD/Tableau/sectoral_level', 'tableau/md/dashboard4');
+
+
+
 
 // Route::get('/sendemail', 'SendEmailController@index');
 // Route::post('/sendemail/send', 'SendEmailController@send');

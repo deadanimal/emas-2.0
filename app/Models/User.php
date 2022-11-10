@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use OwenIt\Auditing\Contracts\Auditable;
+use OwenIt\Auditing\Models\Audit;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements Auditable
@@ -22,6 +23,7 @@ class User extends Authenticatable implements Auditable
      */
     protected $fillable = [
         'name',
+        'username',
         'email',
         'password',
         'role',
@@ -49,5 +51,10 @@ class User extends Authenticatable implements Auditable
     public function profil()
     {
         return $this->hasMany(Profil::class);
+    }
+
+    public function audit()
+    {
+        return $this->belongsTo(Audit::class);
     }
 }

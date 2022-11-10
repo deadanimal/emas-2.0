@@ -176,7 +176,7 @@
 
             $.ajax({
                 method: "POST",
-                url: "/search_activity",
+                url: "/MD/search_activity",
                 data: {
                     "_token": "{{ csrf_token() }}",
                     "result": result,
@@ -246,14 +246,14 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/activity/" + id,
+                    url: "/MD/activity/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }
                 });
 
                 alert = "Berjaya di buang!";
-                location.href = "/activity";
+                location.href = "/MD/activity";
 
             } else {
                 alert("Dibatalkan!");

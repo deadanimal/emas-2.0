@@ -6,6 +6,7 @@ use App\Http\Requests\StoreClusterRequest;
 use App\Http\Requests\UpdateClusterRequest;
 use App\Models\Cluster;
 use App\Models\Strategy;
+use App\Models\Thrus;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -27,7 +28,23 @@ class ClusterController extends Controller
 
         $strategies = Strategy::all();
 
-        return view('md.cluster.index', compact('clusters', 'strategies'));
+        // $cats = Thrus::withCount('category')->get();
+
+        // $cats = Thrus::all()->count();
+
+        $cat1 = Thrus::where([
+            ['category', '=', 'DEB']
+        ])->count();
+        $cat2 = Thrus::where([
+            ['category', '=', '4IR']
+        ])->count();
+
+
+        // $categories = Thrus::where('thrus_id', '=', null)->get();
+
+
+
+        return view('md.cluster.index', compact('clusters', 'strategies', 'cat1', 'cat2'));
     }
 
     /**

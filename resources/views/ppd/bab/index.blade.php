@@ -51,7 +51,6 @@
         <hr> <br>
         <div class="table-responsive scrollbar">
             <div class="card scrollbar-overlay" style="max-height: 50rem">
-
                 <table class="table table-bordered user_datatable" id="example">
                     <thead>
                         <tr>

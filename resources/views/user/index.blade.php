@@ -222,11 +222,7 @@
                                     </tbody> --}}
                             @endrole
                         </table>
-                        {{-- @unlessrole('penyelaras')
-                            <div class="justify-content-end d-flex">
-                                {{ $users->links() }}
-                            </div>
-                        @endrole --}}
+
                     </div>
                 </div>
             </div>

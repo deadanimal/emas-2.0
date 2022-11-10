@@ -15,4 +15,14 @@ class Cluster extends Model implements Auditable
     public $table = 'clusters';
 
     protected $guarded = ['id'];
+
+    public function thrust()
+    {
+        return $this->hasMany(Thrus::class);
+    }
+
+    public function category()
+    {
+        return $this->hasMany(Thrus::class);
+    }
 }

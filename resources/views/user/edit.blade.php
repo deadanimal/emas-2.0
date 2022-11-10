@@ -8,111 +8,122 @@
         <div class="col">
             <div class="row align-items-center">
                 <div class="col col-lg-8">
-                    <span><b>Profil Pengguna</b></span>
+                    <span><b>Kemaskini Profil Pengguna</b></span>
                 </div>
             </div>
         </div>
 
         <hr style="width:100%;text-align:center;">
-        <br>
 
-        <div class="form-floating;">
-            <form action="/ED/user/{{ $users->id }}" method="POST">
-                @csrf
-                @method('PUT')
+        <div class="col-12">
+            <div class="col-12">
+                <form action="/ED/user/{{ $users->id }}" method="POST">
+                    @csrf
+                    @method('PUT')
 
+                    <div class="card mt-4" id="basic-info">
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="name">Nama:</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="name" value="{{ $users->name }}" />
+                        <br>
+                        <div class="card-body pt-0">
+                            <div class="row">
+                                <div class="row">
+                                    <label for="name">Nama Pengguna:</label>
+                                    <div>
+                                        <input class="form-control mb-3" type="text" name="name"
+                                            value="{{ $users->name }}" />
 
-                    </div>
-                </div>
+                                    </div>
+                                </div>
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="email">Emel:</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="email" value="{{ $users->email }}" />
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="username">ID Pengguna:</label>
+                                        <div>
+                                            <input class="form-control mb-3" type="text" name="username"
+                                                value="{{ $users->username }}" />
 
-                    </div>
-                </div>
+                                        </div>
+                                    </div>
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="role">Agensi</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <div class="form-group">
+                                    <div class="col-6">
+                                        <label for="email">E-mel:</label>
+                                        <div>
+                                            <input class="form-control mb-3" type="text" name="email"
+                                                value="{{ $users->email }}" />
 
-                            <select class="form-control" name="role" id="pilih1">
+                                        </div>
+                                    </div>
+                                </div>
 
-                                @foreach ($roles as $r)
-                                    <option value="{{ $r->name }}">{{ $r->name }}
-                                    </option>
-                                @endforeach
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="role">Agensi</label>
+                                        <div>
+                                            <div class="form-group">
 
-                            </select>
+                                                <select class="form-control mb-3" name="role" id="pilih1">
+
+                                                    @foreach ($roles as $r)
+                                                        <option value="{{ $r->name }}">{{ $r->name }}
+                                                        </option>
+                                                    @endforeach
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="permission">Nama Agensi</label>
+                                        <div>
+                                            <div class="form-group">
+
+                                                <select class="form-control mb-3" name="permission" id="pilih2">
+
+                                                    {{-- @foreach ($permissions as $p)
+                                                <option value="{{ $p->name }}">{{ $p->name }}
+                                                </option>
+                                            @endforeach --}}
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="created_at">Tarikh Daftar:</label>
+                                        <div>
+                                            <input class="form-control mb-3" type="text" name="created_at"
+                                                value="{{ $users->created_at }}" />
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col" style="text-align: right">
+                                        <a class="btn btn-falcon-default btn-sm"
+                                            style="background-color: white; color:#047FC3" href="/ED/user">
+                                            <span class="fas fa-times-circle"></span>&nbsp;Batal
+                                        </a>
+                                        <button class="btn btn-falcon-default btn-sm"
+                                            style="background-color: #047FC3; color:white;" type="submit" value="Save"
+                                            onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span
+                                                class="fas fa-save"></span>&nbsp;Simpan
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="permission">Nama Agensi</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <div class="form-group">
+                </form>
 
-                            <select class="form-control" name="permission" id="pilih2">
-
-                                {{-- @foreach ($permissions as $p)
-                                <option value="{{ $p->name }}">{{ $p->name }}
-                                </option>
-                            @endforeach --}}
-
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="created_at">Tarikh Daftar:</label>
-                    <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="created_at" value="{{ $users->created_at }}" />
-
-                    </div>
-                </div>
-
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="">Status Akaun:</label>
-                    <div class="col-sm-10" style="width:30%">
-                        {{-- <input class="form-control" type="text" name="" value="{{ $users->created_at }}" /> --}}
-
-                    </div>
-                </div>
-
-                <br>
-                <br>
-
-
-                <div class="row">
-
-                    <div class="col" style="text-align: right">
-                        <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                            href="/ED/user">
-                            <span class="fas fa-times-circle"></span>&nbsp;Batal
-                        </a>
-                        <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            type="submit" value="Save"
-                            onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span
-                                class="fas fa-save"></span>&nbsp;Simpan
-                        </button>
-                    </div>
-                </div>
-
-                {{-- <input class="form-control" name="user_id" type="hidden" value="{{ $user->id }}" /> --}}
-
-
-            </form>
+            </div>
 
         </div>
-
     </div>
 
     @if ($errors->any())

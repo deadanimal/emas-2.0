@@ -36,11 +36,20 @@
                         <br>
                         <div class="card-body pt-0">
                             <div class="row">
-                                <div class="col-6">
-                                    <label for="">ID Pengguna:</label>
+                                <div class="col">
+                                    <label for="">Nama Pengguna:</label>
                                     <div class="input-group">
                                         <input class="form-control mb-3" type="text" name="name"
                                             :value="old('name')" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="username">ID Pengguna:</label>
+                                    <div class="input-group">
+                                        <input class="form-control mb-3" type="number" name="username"
+                                            :value="old('username')" required>
                                     </div>
                                 </div>
                                 <div class="col-6">

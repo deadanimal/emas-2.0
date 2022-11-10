@@ -15,11 +15,11 @@ class AuditController extends Controller
 
     public function index()
     {
-        
-        $audits = Audit::all();
+
+        $audits = Audit::with('theuser')->get();
 
         // var_dump($audits);
-        // dd($audits);
+        // dd($audits);ZSA
         return view('audit', compact('audits'));
     }
 }

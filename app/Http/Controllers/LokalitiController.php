@@ -37,5 +37,4 @@ class LokalitiController extends Controller
 
         return view('KT.lokaliti.index1', compact('lokaliti'));
     }
-
 }

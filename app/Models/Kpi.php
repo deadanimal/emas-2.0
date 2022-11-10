@@ -63,4 +63,9 @@ class Kpi extends Model implements Auditable
     {
         return $this->belongsTo(Perkarautama::class, 'perkara_id');
     }
+
+    public function kategori()
+    {
+        return $this->hasMany(Pemangkindasar::class);
+    }
 }

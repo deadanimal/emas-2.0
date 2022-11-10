@@ -47,9 +47,6 @@ class KpiController extends Controller
         $bab = Bab::all();
         $bidang = Bidang::all();
 
-        // $graf = Kpis::select()
-
-
         // if ($request->user()->role == 'SuperAdmin') {
 
         //     $kpis = Kpi::all();
@@ -69,7 +66,54 @@ class KpiController extends Controller
             $kpis = Kpi::where('user_id', '=', $user_id)->get();
         }
 
-        return view('ppd.kpi.index1', compact('kpis', 'tema', 'bab', 'bidang'));
+        //graph 1
+        $overall_1 = Kpi::all()->count();
+
+        $lulus = Kpi::where([
+            ['lulus', '=', '1']
+        ])->count();
+        $ditolak = Kpi::where([
+            ['ditolak', '=', '1']
+        ])->count();
+
+        $semakan = Kpi::where([
+            ['lulus', '=', null], ['ditolak', '=', null]
+        ])->count();
+        
+        $tiada_tindakan = Kpi::where([
+            ['ditolak', '=', 'null']
+        ])->count();
+
+        // if ($overall_1 == 0){
+
+        // }
+        $percent = $lulus / $overall_1 * 100;
+
+        //graph 2
+
+
+        //graph 3
+        $overall_2 = Bab::all()->count();
+        $jumlah_bab = Bab::all()->count();
+
+        $bil_bab = $jumlah_bab / $overall_2 * 100;
+
+
+
+
+
+        return view('ppd.kpi.index1', compact(
+            'kpis',
+            'tema',
+            'bab',
+            'bidang',
+            'lulus',
+            'ditolak',
+            'semakan',
+            'tiada_tindakan',
+            'bil_bab',
+            'percent'
+        ));
     }
 
     public function index2(Request $request)

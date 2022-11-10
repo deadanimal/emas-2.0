@@ -85,9 +85,6 @@
                         </div>
                     </a>
 
-
-
-
                     <a class="nav-link btn1" href="/MPB/dashboardMPB" role="button">
 
                         <div class="d-flex align-items-center">
@@ -106,106 +103,101 @@
                         </div>
                     </a>
 
-                    {{-- <a class="nav-link" href="/" role="button">
+                </li>
+                <br>
 
-                        <div class="d-flex align-items-center">
-                            <div class="col-2">
-                                <span class="nav-link-icon">
-                                    <span class="far fa-folder"></span>
-                                </span>
-                            </div>
-                            <div class="col text-center">
-                                <span class="nav-link-text ps-1">
-                                    Data Entry
-                                </span>
-                            </div>
-                            <div class="col-2">
-
-                            </div>
-                        </div>
-                    </a> --}}
-                    <br>
+                <li class="nav-item1 mx-3 mx-md-0">
 
 
-                    {{-- @if (in_array(url()->current(), [url('thrust'), url('national'), url('key'), url('sub'), url('kpi2'), url('milestone')])) --}}
-
-                    <a class="nav-link dropdown-indicator" href="#mpb" role="button" data-bs-toggle="collapse"
-                        aria-expanded="true" aria-controls="mpb" style="background-color: #C4D4ED">
+                    <a class="nav-link dropdown-indicator" href="#tableauPPD" role="button" data-bs-toggle="collapse"
+                        aria-expanded="true" aria-controls="tableauPPD" style="background-color: #C4D4ED">
                         <div class="d-flex justify-content-center" style="color: #047FC3">
-                            <span class="nav-link-text1 ps-1">Information</span>
+                            <span class="nav-link-text1 ps-1">Senarai Dashboard</span>
                         </div>
                     </a>
 
                     <div class="card">
-                        <ul class="nav collapse show" id="mpb" style="background-color: #E7EFFD">
-                            @can('Approver')
-                                <li class="nav-item">
-                                    <a class="nav-link btn1 {{ Request::is('MPB/thrust', 'MPB/thrust/*') ? 'active' : '' }}"
-                                        href="/MPB/thrust">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">List of
-                                                Thrust
-                                            </span>
-                                        </div>
-                                    </a>
-                                    <!-- more inner pages-->
-                                </li>
-                            @endcan
+                        <ul class="nav collapse show" id="tableauPPD" style="background-color: #E7EFFD">
 
                             <li class="nav-item">
-                                <a class="nav-link btn1 {{ Request::is('MPB/national', 'MPB/national/*') ? 'active' : '' }}"
-                                    href="/MPB/national">
-                                    <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">National
-                                            Initiative
+                                <a class="nav-link btn1 {{ Request::is('PPD/dashboard', 'PPD/dashboard/*') ? 'active' : '' }}"
+                                    href="/PPD/dashboard">
+                                    <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Ucapan
+                                            RMke -12 YAB PM
+
                                         </span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link btn1 {{ Request::is('MPB/key', 'MPB/key/*') ? 'active' : '' }}"
-                                    href="/MPB/key">
-                                    <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Key
-                                            Activity
+                                <a class="nav-link btn1 {{ Request::is('PPD/ringkasan_eksekutif', 'PPD/ringkasan_eksekutif/*') ? 'active' : '' }}"
+                                    href="/PPD/ringkasan_eksekutif">
+                                    <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Ringkasan
+                                            Eksekutif
+
+
                                         </span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link btn1 {{ Request::is('MPB/sub', 'MPB/sub/*') ? 'active' : '' }}"
-                                    href="/MPB/sub">
-                                    <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Sub
-                                            Activity</span>
-                                    </div>
-                                </a>
-                                <!-- more inner pages-->
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link btn1 {{ Request::is('MPB/kpi2', 'MPB/kpi2/*') ? 'active' : '' }}"
-                                    href="/MPB/kpi2">
-                                    <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">KPI
-                                            Information
-                                        </span>
-                                    </div>
-                                </a>
-                                <!-- more inner pages-->
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link btn1 {{ Request::is('MPB/milestone', 'MPB/milestone/*') ? 'active' : '' }}"
-                                    href="/MPB/milestone">
-                                    <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Milestone
+                                <a class="nav-link btn1 {{ Request::is('PPD/dashboard_eksekutif', 'PPD/dashboard_eksekutif/*') ? 'active' : '' }}"
+                                    href="/PPD/dashboard_eksekutif">
+                                    <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">Dashboard
+                                            Eksekutif
+
                                         </span>
                                     </div>
                                 </a>
                                 <!-- more inner pages-->
                             </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link btn1 dropdown-indicator  {{ Request::is('PPD/rumusanPPD', 'PPD/rumusanPPD/*', 'PPD/rumusanTindakan', 'PPD/rumusanTindakan/*', 'PPD/KPISummary', 'PPD/KPISummary/*') ? 'active' : '' }}"
+                                    href="#kpi1" role="button" data-bs-toggle="collapse" aria-expanded="false"
+                                    aria-controls="kpi1">
+                                    <div class="d-flex align-items-center">
+                                        <span class="nav-link-text1 ps-1">Ringkasan</span>
+                                    </div>
+                                </a>
+                                <!-- more inner pages-->
 
+                                <ul class="nav collapse" id="kpi1">
+                                    <li class="nav-item"><a class="nav-link btn1" href="/PPD/prestasi_kpi">
+                                            <div class="d-flex align-items-center"><span
+                                                    class="nav-link-text1 btn1 ps-1">Ringkasan Prestasi KPI
+                                                    Nasional</span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+                                </ul>
+                                <ul class="nav collapse" id="kpi1">
+                                    <li class="nav-item"><a class="nav-link btn1" href="/PPD/rumusanTindakan">
+                                            <div class="d-flex align-items-center"><span
+                                                    class="nav-link-text1 btn1 ps-1">Ringkasan Kemajuan
+                                                    Tindakan</span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+                                </ul>
+                                <ul class="nav collapse" id="kpi1">
+                                    <li class="nav-item"><a class="nav-link btn1" href="/PPD/ringkasan_ppd">
+                                            <div class="d-flex align-items-center"><span
+                                                    class="nav-link-text1 btn1 ps-1">Ringkasan Pencapaian PPD
+                                                </span>
+                                            </div>
+                                        </a>
+                                        <!-- more inner pages-->
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
-
-                </li>
-                <br>
+                </li><br>
 
                 <li class="nav-item1 mx-3 mx-md-0">
 
@@ -251,6 +243,7 @@
                     </a>
 
                 </li>
+
 
                 <hr style="width:100%;text-align:center;">
 

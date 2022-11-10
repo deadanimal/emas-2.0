@@ -26,7 +26,7 @@
         <div class="row g-3">
             <div class="col-sm" style="width:50%">
 
-                <select class="form-select search" aria-label="Default select example">
+                <select class="form-select search">
                     <option selected disabled hidden>CLUSTER</option>
 
                     @foreach ($cluster as $cluster)
@@ -38,43 +38,50 @@
 
             <div class="col-sm" style="width:50%">
 
-                <select class="form-select search" aria-label="Default select example">
+                <select class="form-select search">
                     <option selected disabled hidden>DOCUMENT</option>
 
-                    {{-- @foreach ($cluster as $cluster)
-                        <option value="{{ $cluster->id }}">{{ $cluster->namaCluster }}</option>
+                    <option value="DEB">DEB</option>
+                    <option value="4IR">4IR</option>
+
+                    {{-- @foreach ($initiatives as $doc)
+                        <option value="{{ $doc->id }}">{{ $doc->category }}</option>
+                    @endforeach --}}
+
+
+
+                </select>
+            </div>
+
+            <div class="col-sm" style="width:50%">
+
+                <select class="form-select search">
+                    <option selected disabled hidden>LEVEL</option>
+
+                    <option value="National">National</option>
+                    <option value="Sectoral">Sectoral</option>
+
+                    {{-- @foreach ($initiatives as $level)
+                        <option value="{{ $level->id }}">{{ $level->sec_id }}</option>
                     @endforeach --}}
 
                 </select>
             </div>
 
             <div class="col-sm" style="width:50%">
-
-                <select class="form-select search" aria-label="Default select example">
-                    <option selected disabled hidden>LEVEL</option>
-
-                    {{-- @foreach ($cluster as $cluster)
-                <option value="{{ $cluster->id }}">{{ $cluster->namaCluster }}</option>
-            @endforeach --}}
-
-                </select>
-            </div>
-
-            <div class="col-sm" style="width:50%">
-
-
-                <select class="form-select search" aria-label="Default select example">
-                    <option selected disabled hidden>PHASE</option>
-
-                    {{-- @foreach ($cluster as $cluster)
-                <option value="{{ $cluster->id }}">{{ $cluster->namaCluster }}</option>
-            @endforeach --}}
-
+                <select class="form-select js-choice search" multiple="multiple" size="1" name="phase"
+                    data-options='{"removeItemButton":true,"placeholder":true}'>
+                    <option value="">SELECT PHASE</option>
+                    <option value="1-2 (2021-2025)">1-2 (2021-2025)</option>
+                    <option value="1-2 (2021-2025)">1-2 (2021-2025)</option>
+                    <option value="1-3 (2021-2030)">1-3 (2021-2030)</option>
+                    <option value="2 (2023-2025)">2 (2023-2025)</option>
+                    <option value="2 (2023-2030)">2 (2023-2030)</option>
+                    <option value="3 (2026-2030)">3 (2026-2030)</option>
                 </select>
             </div>
         </div>
 
-        {{-- <hr style="width:100%;text-align:center;"> --}}
         <br>
         <div class="card">
             <div class="table-responsive scrollbar">
@@ -266,7 +273,7 @@
             var initiative = @json($initiatives->toArray());
             $("#tablebody").html('');
 
-            console.log(initiative);
+            // console.log(initiative);
 
             initiative.forEach(e => {
 
@@ -294,10 +301,24 @@
                                 </div>
                             </td>
 
+                             <td>
+                                <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#error-modal-` + e.id + `">
+                                    <div class="ms-2"><b>` + e.progress + `</b></div>
+                                </div>
+                            </td>
+
                             <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-` + e.id + `">
                                     <div class="ms-2"><b>` + e.target + `</b></div>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#error-modal-` + e.id + `">
+                                    <div class="ms-2"><b>` + e.achievement + `</b></div>
                                 </div>
                             </td>
 
@@ -311,24 +332,9 @@
                             <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-` + e.id + `">
-                                    <div class="ms-2"><b>` + e.phase2 + `</b></div>
-                                </div>
-                            </td>
-
-                            <td>
-                                <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                    data-bs-target="#error-modal-` + e.id + `">
-                                    <div class="ms-2"><b>` + e.phase3 + `</b></div>
-                                </div>
-                            </td>
-
-                             <td>
-                                <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                    data-bs-target="#error-modal-` + e.id + `">
                                     <div class="ms-2"><b>` + e.leadAgency + `</b></div>
                                 </div>
                             </td>
-
 
                             <td>
                                 <div>
@@ -367,20 +373,20 @@
                                             <div class="p-4 pb-0">
                                                 <form>
                                                     <div class="mb-3">
-                                                        <label class="col-form-label">initiative Name:</label>
+                                                        <label class="col-form-label">Initiative Name:</label>
                                                         <label class="form-control"
                                                             disabled="disabled">` + e.namaInitiative + `</label>
 
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label class="col-form-label">Type:</label>
+                                                        <label class="col-form-label">Target Initiative:</label>
                                                         <label class="form-control"
-                                                            disabled="disabled">` + e.category + `</label>
+                                                            disabled="disabled">` + e.target + `</label>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label class="col-form-label">Description:</label>
+                                                        <label class="col-form-label">Lead Agency:</label>
                                                         <label class="form-control"
-                                                            disabled="disabled">` + e.desc + `</label>
+                                                            disabled="disabled">` + e.leadAgency + `</label>
                                                     </div>
                                                 </form>
                                             </div>
@@ -409,14 +415,14 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/initiative/" + id,
+                    url: "/MD/initiative/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }
                 });
 
                 alert = "Berjaya di buang!";
-                location.href = "/initiative";
+                location.href = "/MD/initiative";
 
             } else {
                 alert("Dibatalkan!");

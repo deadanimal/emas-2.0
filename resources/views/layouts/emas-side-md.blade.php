@@ -317,7 +317,7 @@
                 @endcan
 
 
-                <a class="nav-link btn1" href="/MD/dashboard" role="button">
+                <a class="nav-link btn1" href="/MD/Tableau/main_page" role="button">
 
                     <div class="d-flex align-items-center">
                         <div class="col-2">

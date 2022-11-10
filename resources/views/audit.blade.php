@@ -130,7 +130,17 @@
                                 <td>{{ $audit->user->name }} {{ $audit->event }} Kemiskinan Tegar - Lokaliti.
                                 </td>
                             @elseif($audit->auditable_type == 'App\Models\User')
-                                <td>{{ $audit->user->name }} {{ $audit->event }} Executive Dashboard - Pengguna.
+                                <td>
+                                    <?php
+                                    /*
+                                    echo '<pre>';
+                                    var_dump($audit->theuser);
+                                    echo '</pre>';
+                                    */
+                                    ?>
+
+                                    {{ $audit->user->name }} {{ $audit->event }} Executive Dashboard -
+                                    Pengguna.
                                 </td>
                             @elseif($audit->auditable_type == 'App\Models\KemasukanData')
                                 <td>{{ $audit->user->name }} {{ $audit->event }} Kemiskinan Tegar - Kemasukan Data.

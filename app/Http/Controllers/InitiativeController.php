@@ -30,6 +30,7 @@ class InitiativeController extends Controller
 
 
 
+
         return view('md.initiative.index', compact('initiatives', 'cluster'));
     }
 

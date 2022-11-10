@@ -68,14 +68,14 @@
                                 <td>
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $cluster->id }}">
-                                        <div class="ms-2"><b>{{ $cluster->deb }}</b></div>
+                                        <div class="ms-2"><b>{{ $cat1 }}</b></div>
                                     </div>
                                 </td>
 
                                 <td>
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $cluster->id }}">
-                                        <div class="ms-2"><b>{{ $cluster->deb2 }}</b></div>
+                                        <div class="ms-2"><b>{{ $cat2 }}</b></div>
                                     </div>
                                 </td>
 

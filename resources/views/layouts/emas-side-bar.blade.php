@@ -557,7 +557,7 @@
                         'PPD/executive/*',
                         'PPD/executiveSummary',
                         'PPD/executiveSummary/*'))
-                        <a class="nav-link btn1" href="/ucapan" role="button">
+                        <a class="nav-link btn1" href="/PPD/dashboard" role="button">
 
                             <div class="d-flex align-items-center">
                                 <div class="col-2">
@@ -599,10 +599,11 @@
                             <ul class="nav collapse show" id="tableauPPD" style="background-color: #E7EFFD">
 
                                 <li class="nav-item">
-                                    <a class="nav-link btn1 {{ Request::is('PPD/ucapan', 'PPD/ucapan/*') ? 'active' : '' }}"
-                                        href="/PPD/ucapan">
+                                    <a class="nav-link btn1 {{ Request::is('PPD/dashboard', 'PPD/dashboard/*') ? 'active' : '' }}"
+                                        href="/PPD/dashboard">
                                         <div class="d-flex align-items-center"><span
-                                                class="nav-link-text1 ps-1">Ucapan RMke -12 YAB PM
+                                                class="nav-link-text1 ps-1">Ucapan
+                                                RMke -12 YAB PM
 
                                             </span>
                                         </div>
@@ -610,10 +611,11 @@
                                     <!-- more inner pages-->
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link btn1 {{ Request::is('PPD/executiveSummary', 'PPD/executiveSummary/*') ? 'active' : '' }}"
-                                        href="/PPD/executiveSummary">
+                                    <a class="nav-link btn1 {{ Request::is('PPD/ringkasan_eksekutif', 'PPD/ringkasan_eksekutif/*') ? 'active' : '' }}"
+                                        href="/PPD/ringkasan_eksekutif">
                                         <div class="d-flex align-items-center"><span
-                                                class="nav-link-text1 ps-1">Ringkasan Eksekutif
+                                                class="nav-link-text1 ps-1">Ringkasan
+                                                Eksekutif
 
 
                                             </span>
@@ -622,10 +624,11 @@
                                     <!-- more inner pages-->
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link btn1 {{ Request::is('PPD/executive', 'PPD/executive/*') ? 'active' : '' }}"
-                                        href="/PPD/executive">
+                                    <a class="nav-link btn1 {{ Request::is('PPD/dashboard_eksekutif', 'PPD/dashboard_eksekutif/*') ? 'active' : '' }}"
+                                        href="/PPD/dashboard_eksekutif">
                                         <div class="d-flex align-items-center"><span
-                                                class="nav-link-text1 ps-1">Dashboard Eksekutif
+                                                class="nav-link-text1 ps-1">Dashboard
+                                                Eksekutif
 
                                             </span>
                                         </div>
@@ -644,7 +647,7 @@
                                     <!-- more inner pages-->
 
                                     <ul class="nav collapse" id="kpi1">
-                                        <li class="nav-item"><a class="nav-link btn1" href="/PPD/KPISummary">
+                                        <li class="nav-item"><a class="nav-link btn1" href="/PPD/prestasi_kpi">
                                                 <div class="d-flex align-items-center"><span
                                                         class="nav-link-text1 btn1 ps-1">Ringkasan Prestasi KPI
                                                         Nasional</span>
@@ -664,7 +667,7 @@
                                         </li>
                                     </ul>
                                     <ul class="nav collapse" id="kpi1">
-                                        <li class="nav-item"><a class="nav-link btn1" href="/PPD/rumusanPPD">
+                                        <li class="nav-item"><a class="nav-link btn1" href="/PPD/ringkasan_ppd">
                                                 <div class="d-flex align-items-center"><span
                                                         class="nav-link-text1 btn1 ps-1">Ringkasan Pencapaian PPD
                                                     </span>
@@ -694,6 +697,8 @@
                             <div class="col text-center">
 
                                 <span class="nav-link-text ps-1">{{ Auth()->User()->name }}</span>
+                                <br>
+                                <span class="nav-link-text ps-1">{{ Auth()->User()->username }}</span>
                                 <br>
                                 <span class="nav-link-text ps-1">{{ Auth()->User()->email }}</span>
 

@@ -391,6 +391,8 @@
 
                                 <span class="nav-link-text ps-1">{{ Auth()->User()->name }}</span>
                                 <br>
+                                <span class="nav-link-text ps-1">{{ Auth()->User()->username }}</span>
+                                <br>
                                 <span class="nav-link-text ps-1">{{ Auth()->User()->email }}</span>
 
                             </div>

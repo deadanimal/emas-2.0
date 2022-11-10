@@ -73,12 +73,12 @@
 
                         <select class="form-control" name="phase">
                             <option selected disabled hidden>PLEASE CHOOSE</option>
-                            <option value="1">1-2 (2021-2025)</option>
-                            <option value="2">1-2 (2021-2025)</option>
-                            <option value="3">1-3 (2021-2030)</option>
-                            <option value="4">2 (2023-2025)</option>
-                            <option value="5">2 (2023-2030)</option>
-                            <option value="6">3 (2026-2030)</option>
+                            <option value="1-2 (2021-2025)">1-2 (2021-2025)</option>
+                            <option value="1-2 (2021-2025)">1-2 (2021-2025)</option>
+                            <option value="1-3 (2021-2030)">1-3 (2021-2030)</option>
+                            <option value="2 (2023-2025)">2 (2023-2025)</option>
+                            <option value="2 (2023-2030)">2 (2023-2030)</option>
+                            <option value="3 (2026-2030)">3 (2026-2030)</option>
                         </select>
 
 

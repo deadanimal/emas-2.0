@@ -119,8 +119,8 @@
                             name: 'email'
                         },
                         {
-                            data: 'action',
-                            name: 'action',
+                            data: 'status',
+                            name: 'status',
                             orderable: false,
                             searchable: false
                         },

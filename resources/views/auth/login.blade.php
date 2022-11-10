@@ -391,9 +391,14 @@
                                     <x-auth-validation-errors class="mb-3" :errors="$errors" />
 
                                     <div class="mb-3">
-                                        <label class="form-label" for="email">ID Pengguna</label>
-                                        <input class="form-control" id="email" type="email" name="email"
-                                            :value="old('email')" required autofocus />
+                                        <label class="form-label" for="login">ID atau Emel Pengguna</label>
+                                        <input class="form-control" id="login" type="text" name="login"
+                                            :value="old('login')" required autofocus />
+                                        @error('login')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <div class="d-flex justify-content-between">

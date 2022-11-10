@@ -344,13 +344,13 @@ class ActivityController extends Controller
         $activity = activity::where('id', '!=', 'null');
 
         if ($request->result[0] != 'null') {
-            $activity->where('pemangkin_id', $request->result[0]);
+            $activity->where('initiative_id', $request->result[0]);
         }
         if ($request->result[1] != 'null') {
-            $activity->where('bab_id', $request->result[1]);
+            $activity->where('program_id', $request->result[1]);
         }
         if ($request->result[2] != 'null') {
-            $activity->where('bidang_id', $request->result[2]);
+            $activity->where('plan_id', $request->result[2]);
         }
 
 

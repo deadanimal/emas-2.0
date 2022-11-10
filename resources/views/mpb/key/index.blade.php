@@ -80,13 +80,14 @@
 
                             <td align="right">
                                 <div>
-                                    {{-- <form action="{{ route('key.destroy', $k->id) }}" method="POST"> --}}
 
-                                    <a class="btn btn-primary" style="border-radius: 38px"
-                                        href="{{ route('key.edit', $k->id) }}"><i class="fas fa-edit"></i>
-                                    </a>
-                                    {{-- @csrf
-                                        @method('DELETE') --}}
+                                    @can('Approver')
+                                        <a class="btn btn-primary" style="border-radius: 38px"
+                                            href="{{ route('key.edit', $k->id) }}"><i class="fas fa-edit"></i>
+                                        </a>
+                                    @endcan
+
+
 
                                     <button type="keymit" onclick="myFunction({{ $k->id }})" class="btn btn-danger"
                                         style="border-radius: 38px">
@@ -94,7 +95,6 @@
                                     </button>
                                     <p id="ppd"></p>
 
-                                    {{-- </form> --}}
                                 </div>
                             </td>
                         </tr>

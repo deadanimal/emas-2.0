@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StorePenggunaRequest;
-use App\Http\Requests\UpdatePenggunaRequest;
+
 use App\Imports\UsersImport;
 use App\Models\Pengguna;
 use App\Models\User;
@@ -14,6 +13,7 @@ use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use DataTables;
 use Illuminate\Support\Facades\Auth;
+use Yajra\DataTables\Contracts\DataTable;
 
 class PenggunaController extends Controller
 {
@@ -32,10 +32,12 @@ class PenggunaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $role = Role::all();
         $user = User::all();
+
+
         return view('user.index', [
             'role' => $role,
             'user' => $user,
@@ -44,26 +46,33 @@ class PenggunaController extends Controller
 
     public function index1(Request $request)
     {
-        // $role = Role::all();
-        // $user = User::all();
-        // return view('user.index1', [
-        //     'role' => $role,
-        //     'user' => $user,
-        // ]);
+
+        $role = Role::all();
+        $user = User::all();
+
+
 
         if ($request->ajax()) {
             $data = User::select('id', 'name', 'email')->get();
             return Datatables::of($data)->addIndexColumn()
-                ->addColumn('action', function ($row) {
-                    $btn = '<a href="javascript:void(0)" class="btn btn-primary btn-sm">View</a>';
-                    return $btn;
+                ->addColumn('status', function (User $user) {
+                    if ($user->status) {
+                        return 'Aktif';
+                    } else {
+                        return 'Tidak Aktif';
+                    }
                 })
-                ->rawColumns(['action'])
+                ->rawColumns(['status'])
                 ->make(true);
         }
 
-        return view('user.index1');
+        return view('user.index1', [
+            'role' => $role,
+            'user' => $user,
+        ]);
     }
+
+
 
     public function index_mydigital(Request $request)
     {
@@ -145,6 +154,7 @@ class PenggunaController extends Controller
         // dd($request->all());
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required'],
             'password_confirmation' => ['required'],
@@ -152,6 +162,7 @@ class PenggunaController extends Controller
 
         $user = User::create([
             'name' => $request->name,
+            'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'password_confirmation' => Hash::make(($request->password_confirmation)),
@@ -189,6 +200,7 @@ class PenggunaController extends Controller
         // $roles = Role::all();
         // $permissions = Permission::all();
 
+
         $roles = Role::with('permissions')->get();
         $permissions = Permission::all();
         return view('user.edit', [
@@ -214,6 +226,7 @@ class PenggunaController extends Controller
         // dd($user->hasPermissionTo('BPKP'));
         $user->update($request->all());
         $user->name = $request->name;
+        $user->username = $request->username;
         $user->email = $request->email;
         $user->role = $request->role;
         // $user->permissions = $request->permissions;

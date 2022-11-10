@@ -27,6 +27,12 @@
                 <div class="column">
                     <b>Peratusan Dan Bilangan
                         Status Kelulusan</b>
+                    <div>
+                        lulus= {{ $lulus }}
+                        ditolak= {{ $ditolak }}
+                        dalam semakan= {{ $semakan }}
+                        tiada tindakan= {{ $tiada_tindakan }}
+                    </div>
                     <div id="chartdiv"></div>
                 </div>
                 <div class="column">
@@ -37,140 +43,144 @@
                 <div class="column">
                     <b>Peratusan Dan Bilangan Status
                         Tema Dan Pemangkin Dasar</b>
+                    <div>
+                        tema= {{ $jumlah_tema }}
+                        pemangkin dasar= {{ $jumlah_pemangkin }}
+
+                    </div>
                     <div id="chartdiv2"></div>
                 </div>
             </div>
-        @endcan
 
 
-        <br><br>
-        <hr style="width:100%;text-align:center;"><br>
+            <br><br>
+            <hr style="width:100%;text-align:center;"><br>
 
-        <div class="mb-3 row">
-            <label class="col-sm-2 col-form-label" for="tema_id">Tema/Pemangkin Dasar</label>
-            <div class="col-sm-10" style="width:40%">
-                <select class="form-control" name="tema_id">
-                    <option selected disabled hidden>Sila Pilih</option>
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label" for="tema_id">Tema/Pemangkin Dasar</label>
+                <div class="col-sm-10" style="width:40%">
+                    <select class="form-control" name="tema_id">
+                        <option selected disabled hidden>Sila Pilih</option>
 
-                    @foreach ($tema as $tema)
-                        <option value="{{ $tema->id }}">{{ $tema->namaTema }}</option>
-                    @endforeach
+                        @foreach ($tema as $tema)
+                            <option value="{{ $tema->id }}">{{ $tema->namaTema }}</option>
+                        @endforeach
 
-                </select>
-            </div>
-            <label class="col-sm-2 col-form-label" for="outcome_id">Tahun</label>
-            <div class="col-sm-10" style="width:20%">
-                <select class="form-control" name="outcome_id">
-                    <option selected disabled hidden>SILA PILIH</option>
+                    </select>
+                </div>
+                <label class="col-sm-2 col-form-label" for="outcome_id">Tahun</label>
+                <div class="col-sm-10" style="width:20%">
+                    <select class="form-control" name="outcome_id">
+                        <option selected disabled hidden>SILA PILIH</option>
 
-                    {{-- @foreach ($list as $list)
+                        {{-- @foreach ($list as $list)
                         <option value="{{ $list->id }}">{{ $list->namaOutcome }}</option>
                     @endforeach --}}
 
-                </select>
+                    </select>
+                </div>
+
+
             </div>
 
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
+                <div class="col-sm-10" style="width:40%">
+                    <select class="form-control" name="bab_id">
+                        <option selected disabled hidden>Sila Pilih</option>
 
-        </div>
+                        @foreach ($bab as $bab)
+                            <option value="{{ $bab->id }}">Bab {{ $bab->noBab }}. {{ $bab->namaBab }}</option>
+                        @endforeach
 
-        <div class="mb-3 row">
-            <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
-            <div class="col-sm-10" style="width:40%">
-                <select class="form-control" name="bab_id">
-                    <option selected disabled hidden>Sila Pilih</option>
+                    </select>
+                </div>
 
-                    @foreach ($bab as $bab)
-                        <option value="{{ $bab->id }}">Bab {{ $bab->noBab }}. {{ $bab->namaBab }}</option>
-                    @endforeach
+                <label class="col-sm-2 col-form-label" for="bab_id">Sukuan Tahun</label>
+                <div class="col-sm-10" style="width:20%">
+                    <select class="form-control" name="bab_id">
+                        <option selected disabled hidden>Sila Pilih</option>
 
-                </select>
-            </div>
-
-            <label class="col-sm-2 col-form-label" for="bab_id">Sukuan Tahun</label>
-            <div class="col-sm-10" style="width:20%">
-                <select class="form-control" name="bab_id">
-                    <option selected disabled hidden>Sila Pilih</option>
-
-                    {{-- @foreach ($listBab as $listBab)
+                        {{-- @foreach ($listBab as $listBab)
                         <option value="{{ $listBab->id }}">Bab {{ $listBab->noBab }}. {{ $listBab->namaBab }} </option>
                     @endforeach --}}
 
-                </select>
+                    </select>
+                </div>
             </div>
-        </div>
 
-        <div class="mb-3 row">
-            <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan</label>
-            <div class="col-sm-10" style="width:40%">
-                <select class="form-control" name="bidang_id">
-                    <option selected disabled hidden>Sila Pilih</option>
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan</label>
+                <div class="col-sm-10" style="width:40%">
+                    <select class="form-control" name="bidang_id">
+                        <option selected disabled hidden>Sila Pilih</option>
 
-                    @foreach ($bidang as $bidang)
-                        <option value="{{ $bidang->id }}">{{ $bidang->namaBidang }}</option>
-                    @endforeach
+                        @foreach ($bidang as $bidang)
+                            <option value="{{ $bidang->id }}">{{ $bidang->namaBidang }}</option>
+                        @endforeach
 
-                </select>
+                    </select>
+                </div>
             </div>
-        </div>
 
-        <div class="mb-3 row">
-            <label class="col-sm-2 col-form-label" for="strategi_id">Strategi</label>
-            <div class="col-sm-10" style="width:40%">
-                <select class="form-control" name="strategi_id">
-                    <option selected disabled hidden>Sila Pilih</option>
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label" for="strategi_id">Strategi</label>
+                <div class="col-sm-10" style="width:40%">
+                    <select class="form-control" name="strategi_id">
+                        <option selected disabled hidden>Sila Pilih</option>
 
-                    @foreach ($strategis as $strategi)
-                        <option value="{{ $strategi->id }}">{{ $strategi->namaStrategi }}</option>
-                    @endforeach
+                        @foreach ($strategis as $strategi)
+                            <option value="{{ $strategi->id }}">{{ $strategi->namaStrategi }}</option>
+                        @endforeach
 
-                </select>
+                    </select>
+                </div>
             </div>
-        </div>
 
-        <div class="mb-3 row">
-            <label class="col-sm-2 col-form-label" for="inisiatif_id">Inisiatif</label>
-            <div class="col-sm-10" style="width:40%">
-                <select class="form-control" name="inisiatif_id">
-                    <option selected disabled hidden>Sila Pilih</option>
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label" for="inisiatif_id">Inisiatif</label>
+                <div class="col-sm-10" style="width:40%">
+                    <select class="form-control" name="inisiatif_id">
+                        <option selected disabled hidden>Sila Pilih</option>
 
-                    @foreach ($inisiatifs as $inisiatif)
-                        <option value="{{ $inisiatif->id }}">{{ $inisiatif->namaInisiatif }}</option>
-                    @endforeach
+                        @foreach ($inisiatifs as $inisiatif)
+                            <option value="{{ $inisiatif->id }}">{{ $inisiatif->namaInisiatif }}</option>
+                        @endforeach
 
-                </select>
+                    </select>
+                </div>
             </div>
-        </div>
 
-        <div class="mb-3 row">
-            <label class="col-sm-2 col-form-label" for="bidang_id">Status Tindakan</label>
-            <div class="col-sm-10" style="width:40%">
-                <select class="form-control" name="bidang_id">
-                    <option selected disabled hidden>Sila Pilih</option>
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label" for="bidang_id">Status Tindakan</label>
+                <div class="col-sm-10" style="width:40%">
+                    <select class="form-control" name="bidang_id">
+                        <option selected disabled hidden>Sila Pilih</option>
 
-                    {{-- @foreach ($listBidang as $listBidang)
+                        {{-- @foreach ($listBidang as $listBidang)
                         <option value="{{ $listBidang->id }}">{{ $listBidang->namaBidang }}</option>
                     @endforeach --}}
 
-                </select>
+                    </select>
+                </div>
             </div>
-        </div>
 
-        <div class="mb-3 row">
-            <label class="col-sm-2 col-form-label" for="bidang_id">Kementerian/Bahagian </label>
-            <div class="col-sm-10" style="width:40%">
-                <select class="form-control" name="bidang_id">
-                    <option selected disabled hidden>Sila Pilih</option>
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label" for="bidang_id">Kementerian/Bahagian </label>
+                <div class="col-sm-10" style="width:40%">
+                    <select class="form-control" name="bidang_id">
+                        <option selected disabled hidden>Sila Pilih</option>
 
-                    {{-- @foreach ($listBidang as $listBidang)
+                        {{-- @foreach ($listBidang as $listBidang)
                         <option value="{{ $listBidang->id }}">{{ $listBidang->namaBidang }}</option>
                     @endforeach --}}
 
-                </select>
-            </div>
-        </div><br>
+                    </select>
+                </div>
+            </div><br>
 
-        <hr style="width:100%;text-align:center;">
-
+            <hr style="width:100%;text-align:center;">
+        @endcan
 
 
         <div class="card mx-ncard my-ncard shadow-none">

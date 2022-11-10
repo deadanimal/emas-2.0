@@ -34,7 +34,7 @@ class UpdateClusterRequest extends FormRequest
                 // 'required',
             ],
 
-            'strategies_id' => [
+            'category_id' => [
                 'string',
             ],
 

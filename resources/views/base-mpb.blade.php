@@ -397,10 +397,8 @@
                 }
             </script>
 
-            @if (Request::is('mpb'))
-            @else
-                @include('layouts.emas-side-mpb')
-            @endif
+
+            @include('layouts.emas-side-mpb')
 
 
 

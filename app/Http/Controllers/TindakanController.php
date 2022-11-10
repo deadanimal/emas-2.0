@@ -54,7 +54,50 @@ class TindakanController extends Controller
         $strategis = Strategi::all();
         $inisiatifs = Inisiatif::all();
 
-        return view('ppd.tindakan.index1', compact('tindakans', 'bab', 'tema', 'bidang', 'inisiatifs', 'strategis'));
+
+        //graph 1
+        $lulus = Tindakan::where([
+            ['lulus', '=', '1']
+        ])->count();
+        $ditolak = Tindakan::where([
+            ['ditolak', '=', '1']
+        ])->count();
+
+        $semakan = Tindakan::where([
+            ['lulus', '=', null], ['ditolak', '=', null]
+        ])->count();
+
+        $tiada_tindakan = Tindakan::where([
+            ['ditolak', '=', 'null']
+        ])->count();
+
+        //graph 2
+
+        //graph 3
+        $jumlah_tema = Pemangkindasar::where([
+            ['kategori_id', '=', '1']
+        ])->count();
+        $jumlah_pemangkin = Pemangkindasar::where([
+            ['kategori_id', '=', '2']
+        ])->count();
+
+
+
+
+        return view('ppd.tindakan.index1', compact(
+            'tindakans',
+            'bab',
+            'tema',
+            'bidang',
+            'inisiatifs',
+            'strategis',
+            'lulus',
+            'ditolak',
+            'semakan',
+            'tiada_tindakan',
+            'jumlah_tema',
+            'jumlah_pemangkin'
+        ));
     }
 
     public function index2()

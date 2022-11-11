@@ -48,7 +48,7 @@
                                 <div class="col-6">
                                     <label for="username">ID Pengguna:</label>
                                     <div class="input-group">
-                                        <input class="form-control mb-3" type="number" name="username"
+                                        <input class="form-control mb-3" type="text" name="username"
                                             :value="old('username')" required>
                                     </div>
                                 </div>

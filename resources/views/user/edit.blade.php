@@ -92,10 +92,10 @@
 
                                 <div class="row">
                                     <div class="col-6">
-                                        <label for="created_at">Tarikh Daftar:</label>
+                                        <label for="status">Status:</label>
                                         <div>
-                                            <input class="form-control mb-3" type="text" name="created_at"
-                                                value="{{ $users->created_at }}" />
+                                            <input class="form-control mb-3" type="text" name="status"
+                                                value="{{ $users->status }}" />
 
                                         </div>
                                     </div>

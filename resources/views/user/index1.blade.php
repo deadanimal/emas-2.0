@@ -2,6 +2,7 @@
 @section('content')
 
 
+
     <div class="container">
         <div class="mb-4 text-center">
             <h2>EXECUTIVE DASHBOARD</h2>
@@ -20,136 +21,121 @@
         </div>
         <br>
 
-        {{-- <div id="tableExample2" data-list='{"valueNames":["user"],"page":10,"pagination":true}'>
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="table-responsive">
-                            <table class="table align-items-center mb-0 table-flush" id="datatable-basic">
 
-                                <thead>
-                                    <tr>
-                                        <th class="text-center font-weight-bolder opacity-7">Bil.</th>
-                                        <th class="font-weight-bolder opacity-7">ID Agensi/Bahagian/Kementerian</th>
-                                        <th class="text-center font-weight-bolder opacity-7">Nama
-                                            Agensi/Bahagian/Kementerian</th>
-                                        <th class="text-center font-weight-bolder opacity-7">Dimuat Naik Oleh</th>
-
-                                        <th class="text-center font-weight-bolder opacity-7">Status</th>
-                                        @if ($current_user != 3)
-                                            <th class="text-center font-weight-bolder opacity-7">Set Semula Kata
-                                                Laluan</th>
-                                        @endif
-                                        <th class="text-center font-weight-bolder opacity-7">Hapus</th>
-                                    </tr>
-                                </thead>
-                                @role('PPD')
-                                    <tbody class="list" id="myTable">
-
-                                        @foreach ($user as $key => $u)
-                                            <tr class="align-middle user">
-                                                <td class="text-sm text-center font-weight-normal">
-                                                    {{ $key + 1 }}</td>
-                                                <td class="text-sm font-weight-normal">
-                                                    {{ $u['name'] }}</td>
-                                                <td class="text-sm text-center font-weight-normal">
-                                                    {{ $u['email'] }}</td>
-                                                <td class="text-sm text-center font-weight-normal">
-                                                    {{ $u['name'] }}
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-
-                                @endrole
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="d-flex justify-content-center mt-3">
-                    <button class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous"
-                        data-list-pagination="prev"><span class="fas fa-chevron-left"></span>
-                    </button>
-                    <ul class="pagination mb-0"></ul>
-                    <button class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next"
-                        data-list-pagination="next"><span class="fas fa-chevron-right"> </span>
-                    </button>
-
-                </div>
-            </div>
-        </div> --}}
 
         <div class="container">
-            <div class="row">
-                <div class="col-12 table-responsive">
-                    <table class="table table-bordered user_datatable">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th width="100px">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
+            <div id="notifDiv"
+                style="z-index:10000; display: none; background: green; font-weight: 450; width: 350px; position: fixed; top: 80%; left: 5%; color: white; padding: 5px 20px">
             </div>
 
+            <div class="card" id="get_data">
+                <div class="card-body">
+                    <div class="row d-flex justify-content-center">
+                        <table class="table table-hover dt-responsive nowrap" id="example" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Bil.</th>
+                                    <th>ID Agensi/Bahagian/Kementerian</th>
+                                    <th>Nama Agensi/Bahagian/Kementerian</th>
+                                    <th>Email Pengguna</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <script type="text/javascript">
-            $(function() {
-                var table = $('.user_datatable').DataTable({
-                    processing: true,
-                    serverSide: true,
-                    ajax: "{{ route('users.index1') }}",
-                    columns: [{
-                            data: 'id',
-                            name: 'id'
-                        },
-                        {
-                            data: 'name',
-                            name: 'name'
-                        },
-                        {
-                            data: 'email',
-                            name: 'email'
-                        },
-                        {
-                            data: 'status',
-                            name: 'status',
-                            orderable: false,
-                            searchable: false
-                        },
-                    ]
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
+
+        $(document).ready(function() {
+            getUserList();
+
+            $(document).on('click', '.active_deactive_user', function() {
+
+                const thisRef = $(this);
+                thisRef.text('processing');
+                $.ajax({
+                    type: 'GET',
+                    url: '/ED/active_deactive_user/' + thisRef.attr('id'),
+                    success: function(response) {
+                        var response = JSON.parse(response);
+                        if (response == 'success') {
+                            showAlert(200, 'Status Updated Successfully');
+                            getUserList();
+                        } else if (JSON.parse(response) == 'failed') {
+                            $('#notifDiv').fadeIn();
+                            $('#notifDiv').css('background', 'red');
+                            $('#notifDiv').text('Unable to activate');
+                            setTimeout(() => {
+                                $('#notifDiv').fadeOut();
+                            }, 3000);
+                        }
+                    }
+
                 });
             });
-        </script>
-        <script src="../../assets/js/plugins/datatables.js" type="text/javascript"></script>
-        <script type="text/javascript">
-            const dataTableBasic = new simpleDatatables.DataTable("#datatable-basic", {
-                searchable: true,
-                fixedHeight: true,
-                sortable: true,
-                perPageSelect: false,
-                perPage: 20,
-                labels: {
-                    info: false
-                }
-            });
-        </script>
+        });
 
-        <script>
-            $(document).ready(function() {
-                $("#myInput").on("keyup", function() {
-                    var value = $(this).val().toLowerCase();
-                    $("#myTable tr").filter(function() {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+
+        function getUserList() {
+            $.ajax({
+                type: 'GET',
+                url: '/ED/userFetchList',
+                success: function(response) {
+                    var iteration = 1;
+
+                    var response = JSON.parse(response);
+                    $('#get_data').empty();
+                    $('#get_data').append(`
+                        <table class="table table-hover dt-responsive nowrap userList" id="example" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Bil.</th>
+                                    <th>ID Agensi/Bahagian/Kementerian</th>
+                                    <th>Nama Agensi/Bahagian/Kementerian</th>
+                                    <th>Email Pengguna</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>`);
+
+                    response.forEach(element => {
+                        $('.userList tbody').append(`
+                        <tr>
+                            <td>` + iteration++ + `</td>
+                            <td>${element.username}</td>
+                            <td>${element.name}</td>
+                            <td>${element.email}</td>
+                            <td>
+                            <button class="btn btn-primary btn-sm active_deactive_user" id="${element.id}">${element.status == 1 ? `Inactive` : `Active`}</button>
+                            </td>
+                        </tr>`);
                     });
-                });
-            });
-        </script>
-    @stop
+                }
+            })
+        }
+
+
+        function showAlert(code, message) {
+            $('#notifDiv').css('background', (code === 200 ? 'green' : 'red'));
+            $('#notifDiv').fadeIn();
+            $('#notifDiv').text(message);
+            setTimeout(() => {
+                $('#notifDiv').fadeOut();
+            }, 3000)
+        }
+    </script>
+
+@stop

@@ -69,10 +69,14 @@
                                             <div class="p-4 pb-0">
                                                 <form>
                                                     <div class="mb-3">
+                                                        <label class="col-form-label">Fokus Utama:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">{{ $perkara->fokus->namaFokus }}</label>
+                                                    </div>
+                                                    <div class="mb-3">
                                                         <label class="col-form-label">Perkara Utama:</label>
                                                         <label class="form-control"
                                                             disabled="disabled">{{ $perkara->namaPerkara }}</label>
-
                                                     </div>
                                                     <div class="mb-3">
                                                         <label class="col-form-label">Keterangan:</label>

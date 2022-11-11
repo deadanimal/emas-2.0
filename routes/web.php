@@ -350,8 +350,10 @@ Route::group(
 
         Route::get('/user1/index1/', [PenggunaController::class, 'index1']);
         Route::get('/user1/create1/', [PenggunaController::class, 'create1']);
-        Route::post('/set-semula-kata-laluan/{id}', [PenggunaController::class, 'set_semula_kata_laluan']);
-        Route::get('/carian-pengguna', [PenggunaController::class, 'result_search']);
+        Route::get('user/{id}/active', [PenggunaController::class, 'active']);
+
+        Route::get('/userFetchList', [PenggunaController::class, 'userFetchList']);
+        Route::get('/active_deactive_user/{id}', [PenggunaController::class, 'active_deactive_user']);
 
         Route::post('importUserExcel', [PenggunaController::class, 'import']);
 
@@ -360,6 +362,11 @@ Route::group(
         Route::get('/audit', [AuditController::class, 'index']);
     }
 );
+
+Route::get('/userFetchList', [PenggunaController::class, 'userFetchList']);
+Route::get('/active_deactive_user/{id}', [PenggunaController::class, 'active_deactive_user']);
+
+
 
 
 Route::post('/importUserExcel', [PenggunaController::class, 'import']);

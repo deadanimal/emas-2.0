@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Imports\UsersImport;
 use App\Models\Pengguna;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
@@ -47,29 +48,92 @@ class PenggunaController extends Controller
     public function index1(Request $request)
     {
 
-        $role = Role::all();
-        $user = User::all();
+        // $role = Role::all();
+        // $user = User::all();
+
+        // if ($request->ajax()) {
+        //     $data = User::select('id', 'name', 'email')->get();
+        //     return Datatables::of($data)->addIndexColumn()
+        //         ->addColumn('status', function (User $user) {
+        //             if ($user->status) {
+        //                 return 'Aktif';
+        //             } else {
+        //                 return 'Tidak Aktif';
+        //             }
+        //         })
+        //         ->rawColumns(['status'])
+        //         ->make(true);
+        // }
+
+        // return view('user.index1', [
+        //     'role' => $role,
+        //     'user' => $user,
+        // ]);
+
+        return view('user.index1');
+    }
+
+    // public function index1(Request $request)
+    // {
+    //     // $role = Role::all();
+    //     $users = User::all();
+
+    //     // $users = User::orderBy('created_at', 'desc')->get();
+
+    //     if ($request->ajax()) {
+    //         return DataTables::collection($users)
+    //             ->addIndexColumn()
+    //             ->addColumn('status', function (User $user) {
+    //                 if ($user->status) {
+    //                     $html_button = 'Active';
+    //                 } else {
+    //                     $html_button = 'Not Active';
+    //                 }
+    //                 return $html_button;
+    //             })
+    //             ->addColumn('action', function (User $user) {
+    //                 $url = '/ED/user/index1/' . $user->id;
+    //                 $url2 = '/ED/user1/index1/' . $user->id . '/active';
+    //                 if ($user->status) {
+    //                     $html_button = '<a href="' . $url . '"><button class="btn btn-primary">Edit</button></a> <a href="' . $url2 . '"><button class="btn btn-danger">Inactive</button></a>';
+    //                 } else {
+    //                     $html_button = '<a href="' . $url . '"><button class="btn btn-primary">Edit</button></a> <a href="' . $url2 . '"><button class="btn btn-success">Active</button></a>';
+    //                 }
+    //                 return $html_button;
+    //             })
+    //             ->editColumn('created_at', function (User $user) {
+    //                 return [
+    //                     'display' => ($user->created_at && $user->created_at != '0000-00-00 00:00:00') ? with(new Carbon($user->created_at))->format('d F Y') : '',
+    //                     'timestamp' => ($user->created_at && $user->created_at != '0000-00-00 00:00:00') ? with(new Carbon($user->created_at))->timestamp : ''
+    //                 ];
+    //             })
+    //             ->rawColumns(['action', 'status'])
+    //             ->make(true);
+    //     }
+
+    //     return view('user.index1', compact('users'));
+    // }
 
 
+    public function userFetchList()
+    {
+        $users = User::all();
+        echo json_encode($users);
+    }
 
-        if ($request->ajax()) {
-            $data = User::select('id', 'name', 'email')->get();
-            return Datatables::of($data)->addIndexColumn()
-                ->addColumn('status', function (User $user) {
-                    if ($user->status) {
-                        return 'Aktif';
-                    } else {
-                        return 'Tidak Aktif';
-                    }
-                })
-                ->rawColumns(['status'])
-                ->make(true);
+    public function active_deactive_user($id)
+    {
+        $user = User::find($id);
+        if ($user->status == 1) {
+            $user->status = 0;
+        } else {
+            $user->status = 1;
         }
-
-        return view('user.index1', [
-            'role' => $role,
-            'user' => $user,
-        ]);
+        if ($user->save()) {
+            echo json_encode('success');
+        } else {
+            echo json_encode('failed');
+        }
     }
 
 

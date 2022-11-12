@@ -13,6 +13,7 @@ use App\Models\Outcome;
 use App\Models\Pemangkindasar;
 use App\Models\Strategi;
 use App\Models\Tindakan;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -198,14 +199,16 @@ class TindakanController extends Controller
     public function edit1($id_tindakan)
     {
         $tindakans = Tindakan::find($id_tindakan);
+        $users = User::permission('Bahagian PPD')->get();
 
 
-        return view('ppd.tindakan.edit1', compact('tindakans'));
+        return view('ppd.tindakan.edit1', compact('tindakans', 'users'));
     }
 
     public function edit2($id_tindakan)
     {
         $tindakans = Tindakan::find($id_tindakan);
+
 
         return view('ppd.tindakan.edit2', compact('tindakans'));
     }

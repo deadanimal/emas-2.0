@@ -82,10 +82,15 @@
 
                 <div class="mb-3 row">
 
-                    <label class="col-sm-2 col-form-label" for="kementerian_pelaksana">Bahagian Penyelaras</label>
+                    <label class="col-sm-2 col-form-label" for="bahagian">Bahagian Penyelaras</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="kementerian_pelaksana"
-                            value="{{ $tindakans->kementerian_pelaksana }}" />
+                        <select class="form-control" name="bahagian">
+                            @foreach ($users as $u)
+                                <option @selected($tindakans->u_id == $u->id) value="{{ $u->id }}">{{ $u->name }}
+                                </option>
+                            @endforeach
+
+                        </select>
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="tempohSiap">Tempoh Siap</label>

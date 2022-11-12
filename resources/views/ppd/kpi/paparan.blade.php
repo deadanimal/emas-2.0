@@ -34,14 +34,14 @@
             <tbody>
                 <tr>
                     <th scope="row">1</th>
-                    <td>TESS</td>
-                    <td>TEST</td>
-                    <td>@TEST</td>
-                    <td>TESS</td>
-                    <td>TEST</td>
-                    <td>@TEST</td>
-                    <td>TEST</td>
-                    <td>@TEST</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
 
             </tbody>
@@ -80,18 +80,18 @@
             <tbody>
                 <tr>
                     <td><b>PURATA PENCAPAIAN</b></td>
-                    <td>TESS</td>
-                    <td>TEST</td>
-                    <td>@TEST</td>
-                    <td>TESS</td>
-                    <td>TEST</td>
-                    <td>@TEST</td>
-                    <td>TEST</td>
-                    <td>@TEST</td>
-                    <td>TEST</td>
-                    <td>@TEST</td>
-                    <td>TEST</td>
-                    <td>@TEST</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
 
 

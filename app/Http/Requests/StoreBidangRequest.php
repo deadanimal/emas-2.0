@@ -62,6 +62,10 @@ class StoreBidangRequest extends FormRequest
             'pemangkin_id' => [
                 'string',
             ],
+
+            'bahagian' => [
+                'string',
+            ],
         ];
     }
 }

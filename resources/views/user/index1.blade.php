@@ -119,7 +119,7 @@
                             <td>${element.name}</td>
                             <td>${element.email}</td>
                             <td>
-                            <button class="btn btn-primary btn-sm active_deactive_user" id="${element.id}">${element.status == 1 ? `Inactive` : `Active`}</button>
+                                <button class="btn ${element.status == 1 ? `btn-danger`:`btn-primary`} btn-sm active_deactive_user" id="${element.id}">${element.status == 1 ? `Inactive` : `Active`}</button>
                             </td>
                         </tr>`);
                     });

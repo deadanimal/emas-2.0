@@ -75,21 +75,16 @@
 
                             <td align="right">
                                 <div>
-                                    {{-- <form action="{{ route('thrust.destroy', $thru->id) }}" method="POST"> --}}
-
-                                    <a class="btn btn-primary" style="border-radius: 38px"
-                                        href="{{ route('thrust.edit', $thru->id) }}"><i class="fas fa-edit"></i>
-                                    </a>
-                                    {{-- @csrf
-                                        @method('DELETE') --}}
-
-                                    <button type="submit" onclick="myFunction({{ $thru->id }})" class="btn btn-danger"
-                                        style="border-radius: 38px">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                    <p id="ppd"></p>
-
-                                    {{-- </form> --}}
+                                    @can('Approver')
+                                        <a class="btn btn-primary" style="border-radius: 38px"
+                                            href="{{ route('thrust.edit', $thru->id) }}"><i class="fas fa-edit"></i>
+                                        </a>
+                                        <button type="submit" onclick="myFunction({{ $thru->id }})" class="btn btn-danger"
+                                            style="border-radius: 38px">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <p id="ppd"></p>
+                                    @endcan
                                 </div>
                             </td>
                         </tr>

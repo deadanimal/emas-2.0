@@ -57,7 +57,7 @@
 
                                 <div class="row">
                                     <div class="col-6">
-                                        <label for="role">Agensi</label>
+                                        <label for="role">Peranan:</label>
                                         <div>
                                             <div class="form-group">
 
@@ -73,7 +73,8 @@
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <label for="permission">Nama Agensi</label>
+                                        <label for="permission">Agensi/Kementerian/
+                                            Bahagian :</label>
                                         <div>
                                             <div class="form-group">
 
@@ -94,9 +95,10 @@
                                     <div class="col-6">
                                         <label for="status">Status:</label>
                                         <div>
-                                            <input class="form-control mb-3" type="text" name="status"
-                                                value="{{ $users->status }}" />
-
+                                            <select class="form-control" name="status">
+                                                <option @selected($users->status == '1') value="1">Inactive</option>
+                                                <option @selected($users->status == '0') value="0">Active</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -145,6 +147,7 @@
 
             var roles = @json($roles->toArray());
             // console.log(roles);
+            // $("#pilih1").empty('');
 
             roles.forEach(roles => {
                 if (roles.name == this.value) {

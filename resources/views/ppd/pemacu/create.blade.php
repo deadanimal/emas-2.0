@@ -18,8 +18,8 @@
                 @csrf
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
-                    <div class="col-sm-10" >
+                    <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama*</label>
+                    <div class="col-sm-10">
                         <div class="form-group">
 
                             <select class="form-control" name="fokus_id" id="pilih1" required>
@@ -37,8 +37,8 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="">Perkara Utama</label>
-                    <div class="col-sm-10" >
+                    <label class="col-sm-2 col-form-label" for="">Perkara Utama*</label>
+                    <div class="col-sm-10">
                         <div class="input-group">
 
                             <select class="form-control" name="perkara_id" id="pilih2" required>
@@ -56,8 +56,8 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="">Bab</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <label class="col-sm-2 col-form-label" for="">Bab*</label>
+                    <div class="col-sm-10">
                         <div class="input-group">
 
                             <select class="form-control" name="bab_id" id="pilih3" required>
@@ -74,8 +74,8 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaPemacu">Nama Pemacu Perubahan</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <label class="col-sm-2 col-form-label" for="namaPemacu">Nama Pemacu Perubahan*</label>
+                    <div class="col-sm-10">
                         <input class="form-control" type="text" name="namaPemacu" />
 
                     </div>

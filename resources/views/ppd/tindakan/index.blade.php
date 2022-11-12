@@ -11,10 +11,12 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>Tindakan</b></span>
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/PPD/tindakan/create">
-                        <span class="fas fa-plus-circle"></span>&nbsp;Tambah
-                    </a>
+                    @can('BPKP')
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                            href="/PPD/tindakan/create">
+                            <span class="fas fa-plus-circle"></span>&nbsp;Tambah
+                        </a>
+                    @endcan
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">
                         <span class="fas fa-history"></span></a>
@@ -223,24 +225,27 @@
 
                             <td align="right">
                                 <div>
-                                    {{-- <form action="{{ route('tindakan.destroy', $tindakan->id) }}" method="POST"> --}}
-                                    <a class="btn btn-warning" style="border-radius: 38px"
-                                        href="/PPD/tindakan1/{{ $tindakan->id }}/edit/"><i class="fas fa-pencil-alt"></i>
-                                    </a>
+                                    @can('BPKP')
+                                        {{-- <form action="{{ route('tindakan.destroy', $tindakan->id) }}" method="POST"> --}}
+                                        <a class="btn btn-warning" style="border-radius: 38px"
+                                            href="/PPD/tindakan1/{{ $tindakan->id }}/edit/"><i class="fas fa-pencil-alt"></i>
+                                        </a>
 
-                                    <a class="btn btn-primary" style="border-radius: 38px"
-                                        href="{{ route('tindakan.edit', $tindakan->id) }}"><i class="fas fa-edit"></i>
-                                    </a>
+                                        <a class="btn btn-primary" style="border-radius: 38px"
+                                            href="{{ route('tindakan.edit', $tindakan->id) }}"><i class="fas fa-edit"></i>
+                                        </a>
 
-                                    {{-- @csrf
+                                        {{-- @csrf
                                         @method('DELETE') --}}
-                                    <button type="submit" onclick="myFunction({{ $tindakan->id }})"
-                                        class="btn btn-danger" style="border-radius: 38px">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                    <p id="ppd"></p>
+                                        <button type="submit" onclick="myFunction({{ $tindakan->id }})"
+                                            class="btn btn-danger" style="border-radius: 38px">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <p id="ppd"></p>
 
-                                    {{-- </form> --}}
+                                        {{-- </form> --}}
+                                    @endcan
+
                                 </div>
                             </td>
                         </tr>

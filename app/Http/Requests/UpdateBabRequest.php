@@ -50,6 +50,10 @@ class UpdateBabRequest extends FormRequest
             'fokus_id' => [
                 'required',
             ],
+
+            'bahagian' => [
+                'required',
+            ],
         ];
     }
 }

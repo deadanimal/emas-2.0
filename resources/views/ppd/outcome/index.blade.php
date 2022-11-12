@@ -10,10 +10,12 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>Outcome Nasional</b></span>
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/PPD/outcome/create">
-                        <span class="fas fa-plus-circle"></span>&nbsp;Tambah
-                    </a>
+                    @can('BPKP')
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                            href="/PPD/outcome/create">
+                            <span class="fas fa-plus-circle"></span>&nbsp;Tambah
+                        </a>
+                    @endcan
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">
                         <span class="fas fa-history"></span></a>
@@ -89,22 +91,18 @@
 
                             <td align="right">
                                 <div>
-                                    {{-- <form action="{{ route('outcome.destroy', $outcome->id) }}" method="POST"> --}}
+                                    @can('BPKP')
+                                        <a class="btn btn-primary" style="border-radius: 38px"
+                                            href="{{ route('outcome.edit', $outcome->id) }}"><i class="fas fa-edit"></i>
+                                        </a>
 
-                                    <a class="btn btn-primary" style="border-radius: 38px"
-                                        href="{{ route('outcome.edit', $outcome->id) }}"><i class="fas fa-edit"></i>
-                                    </a>
 
-                                    {{-- @csrf
-                                        @method('DELETE') --}}
-
-                                    <button type="button" onclick="myFunction({{ $outcome->id }})" class="btn btn-danger"
-                                        style="border-radius: 38px">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                    <p id="ppd"></p>
-
-                                    {{-- </form> --}}
+                                        <button type="button" onclick="myFunction({{ $outcome->id }})" class="btn btn-danger"
+                                            style="border-radius: 38px">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <p id="ppd"></p>
+                                    @endcan
                                 </div>
                             </td>
                         </tr>

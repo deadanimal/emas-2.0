@@ -11,10 +11,12 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>KPI Nasional</b></span>
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/PPD/kpi/create">
-                        <span class="fas fa-plus-circle"></span>&nbsp;Tambah
-                    </a>
+                    @can('BPKP')
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                            href="/PPD/kpi/create">
+                            <span class="fas fa-plus-circle"></span>&nbsp;Tambah
+                        </a>
+                    @endcan
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">
                         <span class="fas fa-history"></span>
@@ -124,19 +126,21 @@
 
                             <td class="align-right" id="searchUpdateTable2">
                                 <div>
-                                    <a class="btn btn-warning" style="border-radius: 38px" onclick="Kpi(this)"
-                                        href="kpi1/{{ $kpi->id }}/edit/"><i class="fas fa-pencil-alt"></i>
-                                    </a>
+                                    @can('BPKP')
+                                        <a class="btn btn-warning" style="border-radius: 38px" onclick="Kpi(this)"
+                                            href="kpi1/{{ $kpi->id }}/edit/"><i class="fas fa-pencil-alt"></i>
+                                        </a>
 
 
-                                    <a type="button" class="btn btn-primary" style="border-radius: 38px"
-                                        href="{{ route('kpi.edit', $kpi->id) }}"><i class="fas fa-edit"></i>
-                                    </a>
+                                        <a type="button" class="btn btn-primary" style="border-radius: 38px"
+                                            href="{{ route('kpi.edit', $kpi->id) }}"><i class="fas fa-edit"></i>
+                                        </a>
 
-                                    <button type="submit" onclick="myFunction({{ $kpi->id }})" class="btn btn-danger"
-                                        style="border-radius: 38px">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
+                                        <button type="submit" onclick="myFunction({{ $kpi->id }})" class="btn btn-danger"
+                                            style="border-radius: 38px">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    @endcan
                                 </div>
 
                             </td>

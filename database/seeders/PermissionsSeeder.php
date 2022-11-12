@@ -38,8 +38,11 @@ class PermissionsSeeder extends Seeder
         $role2 = Role::create(['name' => 'MPB']);
         Permission::create(['name' => 'User']);
         Permission::create(['name' => 'Approver']);
+        Permission::create(['name' => 'Admin']);
         $role2->givePermissionTo('User');
         $role2->givePermissionTo('Approver');
+        $role2->givePermissionTo('Admin');
+
 
 
         $role3 = Role::create(['name' => 'KT']);
@@ -77,6 +80,7 @@ class PermissionsSeeder extends Seeder
         $role6->givePermissionTo('BPKP');
         $role6->givePermissionTo('User');
         $role6->givePermissionTo('Approver');
+        $role6->givePermissionTo('Admin');
         $role6->givePermissionTo('Agensi KT');
         $role6->givePermissionTo('Bahagian KT');
         $role6->givePermissionTo('Kementerian MD');
@@ -111,6 +115,8 @@ class PermissionsSeeder extends Seeder
         $user->assignRole($role2);
         $user->givePermissionTo('User');
         $user->givePermissionTo('Approver');
+        $user->givePermissionTo('Admin');
+
 
         $user = User::create([
             'name' => 'Kemiskinan Tegar',

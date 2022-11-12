@@ -11,9 +11,12 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>Fokus Utama</b></span>
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/PPD/fokusutama/create">
-                        <span class="fas fa-plus-circle"></span>&nbsp;Tambah</a>
+                    @can('BPKP')
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                            href="/PPD/fokusutama/create">
+                            <span class="fas fa-plus-circle"></span>&nbsp;Tambah</a>
+                    @endcan
+
 
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">
@@ -83,16 +86,18 @@
                             </div>
                             <td align="right">
                                 <div>
-                                    <a class="btn btn-primary" style="border-radius: 38px"
-                                        href="{{ route('fokusutama.edit', $fokus->id) }}"><i class="fas fa-edit"></i>
-                                    </a>
+                                    @can('BPKP')
+                                        <a class="btn btn-primary" style="border-radius: 38px"
+                                            href="{{ route('fokusutama.edit', $fokus->id) }}"><i class="fas fa-edit"></i>
+                                        </a>
 
+                                        <button type="submit" onclick="myFunction({{ $fokus->id }})" class="btn btn-danger"
+                                            style="border-radius: 38px">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <p id="ppd"></p>
+                                    @endcan
 
-                                    <button type="submit" onclick="myFunction({{ $fokus->id }})" class="btn btn-danger"
-                                        style="border-radius: 38px">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                    <p id="ppd"></p>
 
                                 </div>
                             </td>

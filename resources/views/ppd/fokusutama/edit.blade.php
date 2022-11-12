@@ -16,7 +16,7 @@
                 @method('PUT')
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaFokus">Nama Fokus Utama</label>
+                    <label class="col-sm-2 col-form-label" for="namaFokus">Nama Fokus Utama*</label>
                     <div class="col-sm-10">
                         <input class="form-control" type="text" name="namaFokus" value="{{ $fokusutama->namaFokus }}" />
 

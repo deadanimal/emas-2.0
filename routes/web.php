@@ -39,7 +39,7 @@ use App\Http\Controllers\ThrustController;
 use App\Http\Controllers\TindakanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SendEmailController;
-
+use App\Models\Rolesandpermission;
 
 /*
 |--------------------------------------------------------------------------
@@ -112,6 +112,8 @@ Route::group(
         Route::post('/search_kpi1', [KpiController::class, 'searchKpi1']);
 
         //Penilaian KPI
+        Route::get('/kpi/paparan/', [KpiController::class, 'paparan']);
+
         Route::get('/kpi/{id}/penilaian/', [KpiController::class, 'edit3']);
         Route::get('/kpi/{id}/paparan/', [KpiController::class, 'edit4']);
 
@@ -344,6 +346,17 @@ Route::group(
 
         //User Management
         Route::resource('/userRole', RolesandpermissionController::class);
+        Route::get('/bahagian/senarai/', [RolesandpermissionController::class, 'index1']);
+        Route::get('/bahagian/create/', [RolesandpermissionController::class, 'create1']);
+        Route::post('/bahagian', [RolesandpermissionController::class, 'simpan']);
+
+
+        Route::get('/bahagian/{id}/edit', [RolesandpermissionController::class, 'edit1']);
+        Route::post('/bahagian/{id}', [RolesandpermissionController::class, 'update_permission']);
+        Route::delete('/bahagian/{id}', [RolesandpermissionController::class, 'destroy_permission']);
+
+
+
         Route::resource('/user', PenggunaController::class);
         Route::get('users', [PenggunaController::class, 'index1'])->name('users.index1');
 

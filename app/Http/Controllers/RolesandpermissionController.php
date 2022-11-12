@@ -8,15 +8,11 @@ use App\Models\Rolesandpermission;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
-
+use PhpParser\Node\Expr\Assign;
 
 class RolesandpermissionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -32,22 +28,36 @@ class RolesandpermissionController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function index1()
+    {
+        $roles = Role::all();
+        $permissions = Permission::all();
+
+
+        return view('userRole.index1', [
+            'permissions' => $permissions,
+            'roles' => $roles
+
+        ]);
+    }
+
+
     public function create()
     {
         return view('userRole.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreRolesandpermissionRequest  $request
-     * @return \Illuminate\Http\Response
-     */
+    public function create1()
+    {
+        $roles = Role::with('permissions')->get();
+        $permissions = Permission::all();
+        return view('userRole.create1', [
+            'role' => $roles,
+            'permissions' => $permissions,
+        ]);
+    }
+
+
     public function store(Request $request)
     {
         // dd($request);
@@ -56,42 +66,48 @@ class RolesandpermissionController extends Controller
         return redirect('/ED/userRole');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Rolesandpermission  $rolesandpermission
-     * @return \Illuminate\Http\Response
-     */
+    public function simpan(Request $request)
+    {
+        $permissions = Permission::create([
+            'name' => $request->name,
+        ]);
+
+        $permissions->assignRole($request->role);
+        $permissions->givePermissionTo($request->permission);
+
+        return redirect('/ED/bahagian/senarai');
+    }
+
+
     public function show(Rolesandpermission $rolesandpermission)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Rolesandpermission  $rolesandpermission
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         $roles = Role::find($id);
-        $permissions = Permission::all();
+        $permissions = $roles->permissions()->get();
         // dd($permissions);
         return view('userRole.edit', [
             'roles' => $roles,
             'permissions' => $permissions,
-            'id_kumpulan' => $id
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateRolesandpermissionRequest  $request
-     * @param  \App\Models\Rolesandpermission  $rolesandpermission
-     * @return \Illuminate\Http\Response
-     */
+    public function edit1($id)
+    {
+        $roles = Role::find($id);
+        $permissions = Permission::find($id);
+
+        return view('userRole.edit1', [
+            'roles' => $roles,
+            'permissions' => $permissions,
+        ]);
+    }
+
+
     public function update(UpdateRolesandpermissionRequest $request, Rolesandpermission $rolesandpermission, $id)
     {
         // dd('sini');
@@ -111,12 +127,19 @@ class RolesandpermissionController extends Controller
         return redirect('/ED/userRole');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Rolesandpermission  $rolesandpermission
-     * @return \Illuminate\Http\Response
-     */
+    public function update_permission(UpdateRolesandpermissionRequest $request, Permission $permissions, $id)
+    {
+        $permissions = Permission::find($id);
+
+
+        $permissions->update($request->all());
+        $permissions->name = $request->name;
+
+        $permissions->save();
+
+        return redirect('/ED/bahagian/senarai');
+    }
+
 
     public function destroy($role)
     {
@@ -124,6 +147,14 @@ class RolesandpermissionController extends Controller
         $role->delete();
 
         return redirect('/ED/userRole');
+    }
+
+    public function destroy_permission($permission)
+    {
+        $permission = Permission::find($permission);
+        $permission->delete();
+
+        return redirect('/ED/bahagian/senarai');
     }
 
     public function edit_menu($role_id, $permission_id)

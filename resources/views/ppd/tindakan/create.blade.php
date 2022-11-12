@@ -15,7 +15,7 @@
                 @csrf
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama</label>
+                    <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="fokus_id" id="pilih1">
                             <option selected disabled hidden>SILA PILIH</option>
@@ -30,7 +30,7 @@
 
                 <div class="mb-3 row">
 
-                    <label class="col-sm-2 col-form-label" for="perkara_id">Perkara Utama</label>
+                    <label class="col-sm-2 col-form-label" for="perkara_id">Perkara Utama*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="perkara_id" id="pilih2">
                             <option selected disabled hidden>SILA PILIH</option>
@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar</label>
+                    <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="pemangkin_id">
                             <option selected disabled hidden>SILA PILIH</option>
@@ -59,7 +59,7 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
+                    <label class="col-sm-2 col-form-label" for="bab_id">Bab*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="bab_id">
                             <option selected disabled hidden>SILA PILIH</option>
@@ -74,7 +74,7 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan</label>
+                    <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="bidang_id">
                             <option selected disabled hidden>SILA PILIH</option>
@@ -89,7 +89,7 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="strategi_id">Strategi</label>
+                    <label class="col-sm-2 col-form-label" for="strategi_id">Strategi*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="strategi_id">
                             <option selected disabled hidden>SILA PILIH</option>
@@ -104,7 +104,7 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="inisiatif_id">Inisiatif</label>
+                    <label class="col-sm-2 col-form-label" for="inisiatif_id">Inisiatif*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="inisiatif_id">
                             <option selected disabled hidden>SILA PILIH</option>
@@ -119,7 +119,7 @@
 
                 <div class="mb-3 row">
 
-                    <label class="col-sm-2 col-form-label" for="namaTindakan">Nama Tindakan</label>
+                    <label class="col-sm-2 col-form-label" for="namaTindakan">Nama Tindakan*</label>
                     <div class="col-sm-10">
                         <input class="form-control" type="text" name="namaTindakan" />
 

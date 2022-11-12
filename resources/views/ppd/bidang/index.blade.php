@@ -12,10 +12,12 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>Bidang Keutamaan</b></span>
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/PPD/bidang/create">
-                        <span class="fas fa-plus-circle"></span>&nbsp;Tambah
-                    </a>
+                    @can('BPKP')
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                            href="/PPD/bidang/create">
+                            <span class="fas fa-plus-circle"></span>&nbsp;Tambah
+                        </a>
+                    @endcan
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">
                         <span class="fas fa-history"></span></a>
@@ -108,16 +110,17 @@
 
                                 <td align="right">
                                     <div>
-                                        <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="{{ route('bidang.edit', $bidang->id) }}"><i class="fas fa-edit"></i>
-                                        </a>
+                                        @can('BPKP')
+                                            <a class="btn btn-primary" style="border-radius: 38px"
+                                                href="{{ route('bidang.edit', $bidang->id) }}"><i class="fas fa-edit"></i>
+                                            </a>
 
-                                        <button type="submit" onclick="myFunction({{ $bidang->id }})"
-                                            class="btn btn-danger" style="border-radius: 38px">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                        <p id="ppd"></p>
-
+                                            <button type="submit" onclick="myFunction({{ $bidang->id }})"
+                                                class="btn btn-danger" style="border-radius: 38px">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                            <p id="ppd"></p>
+                                        @endcan
                                     </div>
                                 </td>
                             </tr>

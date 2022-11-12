@@ -18,9 +18,7 @@
                         onClick="window.location.reload();">
                         <span class="fas fa-history"></span></a>
                 </div>
-                {{-- <div class="col-12 col-sm-auto ms-auto">
-                    <input class="form-control" id="myInput" type="text" placeholder="Carian">
-                </div> --}}
+
             </div>
         </div>
 
@@ -87,6 +85,7 @@
                                                 <option value="{{ $r->name }}">{{ $r->name }}
                                                 </option>
                                             @endforeach
+
                                         </select>
                                     </div>
                                 </div>

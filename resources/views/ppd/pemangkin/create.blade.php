@@ -17,7 +17,7 @@
                 @csrf
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="">Fokus Utama</label>
+                    <label class="col-sm-2 col-form-label" for="">Fokus Utama*</label>
                     <div class="col-sm-10">
                         <div class="input-group">
 
@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="">Perkara Utama</label>
+                    <label class="col-sm-2 col-form-label" for="">Perkara Utama*</label>
                     <div class="col-sm-10">
                         <div class="input-group">
 
@@ -53,7 +53,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="kategori_id">Kategori</label>
+                    <label class="col-sm-2 col-form-label" for="kategori_id">Kategori*</label>
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="kategori_id">
                             <option value disabled hidden>Pilih Kategori</option>
@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaTema">Nama Tema/Pemangkin</label>
+                    <label class="col-sm-2 col-form-label" for="namaTema">Nama Tema/Pemangkin*</label>
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" type="text" name="namaTema" />
 

@@ -16,7 +16,9 @@ class AuditController extends Controller
     public function index()
     {
 
-        $audits = Audit::with('theuser')->get();
+        // $audits = Audit::with('theuser')->get();
+        $audits = Audit::all();
+
 
         // var_dump($audits);
         // dd($audits);ZSA

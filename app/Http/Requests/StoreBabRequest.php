@@ -39,7 +39,7 @@ class StoreBabRequest extends FormRequest
                 'required',
             ],
 
-            'pemangkin_id' => [ 
+            'pemangkin_id' => [
                 'required',
             ],
 
@@ -48,6 +48,10 @@ class StoreBabRequest extends FormRequest
             ],
 
             'fokus_id' => [
+                'required',
+            ],
+
+            'bahagian' => [
                 'required',
             ],
 

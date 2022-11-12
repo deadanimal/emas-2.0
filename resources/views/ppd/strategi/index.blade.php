@@ -11,10 +11,12 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>Strategi</b></span>
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/PPD/strategi/create">
-                        <span class="fas fa-plus-circle"></span>&nbsp;Tambah
-                    </a>
+                    @can('BPKP')
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                            href="/PPD/strategi/create">
+                            <span class="fas fa-plus-circle"></span>&nbsp;Tambah
+                        </a>
+                    @endcan
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">
                         <span class="fas fa-history"></span></a>
@@ -89,22 +91,18 @@
 
                             <td align="right">
                                 <div>
-                                    {{-- <form action="{{ route('strategi.destroy', $strategi->id) }}" method="POST"> --}}
+                                    @can('BPKP')
+                                        <a class="btn btn-primary" style="border-radius: 38px"
+                                            href="{{ route('strategi.edit', $strategi->id) }}"><i class="fas fa-edit"></i>
+                                        </a>
 
-                                    <a class="btn btn-primary" style="border-radius: 38px"
-                                        href="{{ route('strategi.edit', $strategi->id) }}"><i class="fas fa-edit"></i>
-                                    </a>
 
-                                    {{-- @csrf
-                                        @method('DELETE') --}}
-
-                                    <button type="submit" onclick="myFunction({{ $strategi->id }})" class="btn btn-danger"
-                                        style="border-radius: 38px">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                    <p id="ppd"></p>
-
-                                    {{-- </form> --}}
+                                        <button type="submit" onclick="myFunction({{ $strategi->id }})" class="btn btn-danger"
+                                            style="border-radius: 38px">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <p id="ppd"></p>
+                                    @endcan
                                 </div>
                             </td>
                         </tr>

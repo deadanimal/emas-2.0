@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateBabRequest;
 use App\Models\Bab;
 use App\Models\Fokusutama;
 use App\Models\Pemangkindasar;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -45,10 +46,11 @@ class BabController extends Controller
     public function create()
     {
         $user = Auth::user();
+        $users = User::permission('Bahagian PPD')->get();
 
         $temas = Pemangkindasar::all();
         $fokuss = Fokusutama::all();
-        return view('ppd.bab.create', compact('user', 'temas', 'fokuss'));
+        return view('ppd.bab.create', compact('user', 'temas', 'fokuss', 'users'));
     }
 
     /**
@@ -85,6 +87,8 @@ class BabController extends Controller
         $temas = Pemangkindasar::all();
 
         $fokuss = Fokusutama::all();
+        $users = User::permission('Bahagian PPD')->get();
+
 
         //cara baru dapatkan ID
         $bab = Bab::with('pemangkin:id')->find($bab->id);
@@ -96,7 +100,7 @@ class BabController extends Controller
 
         // dd($bab);
 
-        return view('ppd.bab.edit', compact('bab', 'temas', 'fokuss'));
+        return view('ppd.bab.edit', compact('bab', 'temas', 'fokuss', 'users'));
     }
 
     /**

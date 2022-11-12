@@ -14,7 +14,7 @@
             <form action="{{ route('kpi.store') }}" method="POST">
                 @csrf
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="fokusutama_id">Fokus Utama</label>
+                    <label class="col-sm-2 col-form-label" for="fokusutama_id">Fokus Utama*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="fokusutama_id" id="pilih1">
                             <option selected disabled hidden>Sila Pilih</option>
@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="perkarautama_id">Perkara Utama</label>
+                    <label class="col-sm-2 col-form-label" for="perkarautama_id">Perkara Utama*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="perkarautama_id" id="pilih2">
                             <option selected disabled hidden>Sila Pilih</option>
@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar</label>
+                    <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="pemangkin_id">
                             <option selected disabled hidden>Sila Pilih</option>
@@ -58,7 +58,7 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
+                    <label class="col-sm-2 col-form-label" for="bab_id">Bab*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="bab_id">
                             <option selected disabled hidden>Sila Pilih</option>
@@ -74,7 +74,7 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan</label>
+                    <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="bidang_id">
                             <option selected disabled hidden>Sila Pilih</option>
@@ -88,7 +88,7 @@
                 </div>
                 <div class="mb-3 row">
 
-                    <label class="col-sm-2 col-form-label" for="outcome_id">Outcome Nasional</label>
+                    <label class="col-sm-2 col-form-label" for="outcome_id">Outcome Nasional*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="outcome_id">
                             <option selected disabled hidden>SILA PILIH</option>
@@ -102,12 +102,12 @@
                 </div>
                 <div class="mb-3 row">
 
-                    <label class="col-sm-2 col-form-label" for="indikator">Indikator Terpilih</label>
+                    <label class="col-sm-2 col-form-label" for="indikator">Indikator Terpilih*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="indikator">
                             <option selected disabled hidden>SILA PILIH</option>
-                            <option value="1">Ya</option>
-                            <option value="2">Tidak</option>
+                            <option value="Ya">Ya</option>
+                            <option value="Tidak">Tidak</option>
 
 
                         </select>
@@ -117,7 +117,7 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaKpi">Nama KPI Nasional</label>
+                    <label class="col-sm-2 col-form-label" for="namaKpi">Nama KPI Nasional*</label>
                     <div class="col-sm-10">
                         <input class="form-control" type="text" name="namaKpi" />
 

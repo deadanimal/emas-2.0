@@ -148,7 +148,9 @@
                         'ED/userRole',
                         'ED/userRole/*',
                         'ED/user1',
-                        'ED/user1/*'))
+                        'ED/user1/*',
+                        'ED/bahagian/senarai',
+                        'ED/bahagian/senarai/*'))
                         <a class="nav-link btn1" href="" role="button">
 
                             <div class="d-flex align-items-center">
@@ -431,7 +433,9 @@
                         'ED/userRole',
                         'ED/userRole/*',
                         'ED/user1',
-                        'ED/user1/*'))
+                        'ED/user1/*',
+                        'ED/bahagian/senarai',
+                        'ED/bahagian/senarai/*'))
                         <a class="nav-link dropdown-indicator" href="#ED" role="button"
                             data-bs-toggle="collapse" aria-expanded="true" aria-controls="ED"
                             style="background-color: #C4D4ED">
@@ -501,6 +505,43 @@
                                         href="/ED/user1/index1">
                                         <div class="d-flex align-items-center"><span
                                                 class="nav-link-text1 ps-1">Senarai Status Pengguna
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        <br>
+                        <a class="nav-link dropdown-indicator" href="#ED" role="button"
+                            data-bs-toggle="collapse" aria-expanded="true" aria-controls="ED"
+                            style="background-color: #C4D4ED">
+                            <div class="d-flex justify-content-center" style="color: #047FC3">
+                                <span class="nav-link-text1 ps-1">Senarai</span>
+                            </div>
+                        </a>
+
+                        <div class="card">
+                            <ul class="nav collapse show" id="ED" style="background-color: #E7EFFD">
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('ED/userRole', 'ED/userRole/*') ? 'active' : '' }}"
+                                        href="/ED/userRole">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">
+                                                Senarai Peranan
+
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('ED/bahagian/senarai', 'ED/bahagian/senarai/*') ? 'active' : '' }}"
+                                        href="/ED/bahagian/senarai">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text1 ps-1">Senarai Bahagian/Agensi/Kementerian
                                             </span>
                                         </div>
                                     </a>

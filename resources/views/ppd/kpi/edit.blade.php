@@ -17,7 +17,7 @@
                 @method('PUT')
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="fokusutama_id">Fokus Utama</label>
+                    <label class="col-sm-2 col-form-label" for="fokusutama_id">Fokus Utama*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="fokusutama_id" id="pilih1">
                             @foreach ($fokuss as $fu)
@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="perkarautama_id">Perkara Utama</label>
+                    <label class="col-sm-2 col-form-label" for="perkarautama_id">Perkara Utama*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="perkarautama_id" id="pilih2">
                             @foreach ($perkaras as $pu)
@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar</label>
+                    <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="pemangkin_id">
                             @foreach ($listTema as $listT)
@@ -61,7 +61,7 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
+                    <label class="col-sm-2 col-form-label" for="bab_id">Bab*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="bab_id">
                             @foreach ($listBab as $listB)
@@ -77,7 +77,7 @@
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan</label>
+                    <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="bidang_id">
                             @foreach ($listBidang as $listBi)
@@ -90,7 +90,7 @@
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="outcome_id">Outcome Nasional</label>
+                    <label class="col-sm-2 col-form-label" for="outcome_id">Outcome Nasional*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="outcome_id">
                             @foreach ($list as $list)
@@ -104,18 +104,18 @@
                 </div>
                 <div class="mb-3 row">
 
-                    <label class="col-sm-2 col-form-label" for="indikator">Indikator Terpilih</label>
+                    <label class="col-sm-2 col-form-label" for="indikator">Indikator Terpilih*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="indikator">
-                            <option @selected($kpi->indikator == '1') value="1">Ya</option>
-                            <option @selected($kpi->indikator == '2') value="2">Tidak</option>
+                            <option @selected($kpi->indikator == 'Ya') value="Ya">Ya</option>
+                            <option @selected($kpi->indikator == 'Tidak') value="Tidak">Tidak</option>
                         </select>
                     </div>
                 </div>
 
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaKpi">Nama KPI Nasional</label>
+                    <label class="col-sm-2 col-form-label" for="namaKpi">Nama KPI Nasional*</label>
                     <div class="col-sm-10">
                         <input class="form-control" name="namaKpi" value="{{ $kpi->namaKpi }}" />
                     </div>

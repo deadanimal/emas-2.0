@@ -35,26 +35,28 @@
                     </div>
 
                     <hr>
-                    <div class="col-sm" style="width:30%">
+                    <div class="col-sm">
 
                         <select class="form-select search">
                             <option selected disabled hidden value="null">Tahun</option>
-
-                            {{-- @foreach ($fokusUtama as $fu)
-                                    <option value="{{ $fu->id }}">{{ $fu->namaFokus }}</option>
-                                @endforeach --}}
-
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
                         </select>
                     </div>
 
-                    <div class="col-sm" style="width:30%">
+                    <div class="col-sm">
 
                         <select class="form-select search">
                             <option selected disabled hidden value="null">Sukuan Tahun</option>
 
-                            {{-- @foreach ($perkaraUtama as $pu)
-                                    <option value="{{ $pu->id }}">{{ $pu->namaPerkara }}</option>
-                                @endforeach --}}
+                            <option value="Q1">Q1 (JAN-MAC)</option>
+                            <option value="Q2">Q2 (APR-JUN) </option>
+                            <option value="Q3">Q3 (JUL-SEP)</option>
+                            <option value="Q4">Q4 (OKT-DIS)</option>
+
 
                         </select>
                     </div><br><br>
@@ -77,11 +79,12 @@
                                 <td>
                                     <div class="col-sm-10">
                                         <select class="form-control" name="tahun">
-                                            <option @selected($tindakans->tahun2021 == '2021') value="2021">2021</option>
-                                            <option @selected($tindakans->tahun2022 == '2022') value="2022">2022</option>
-                                            <option @selected($tindakans->tahun2023 == '2023') value="2023">2023</option>
-                                            <option @selected($tindakans->tahun2024 == '2024') value="2024">2024</option>
-                                            <option @selected($tindakans->tahun2025 == '2025') value="2025">2025</option>
+                                            <option @selected($tindakans->statusPelaksanaan == 'Siap') value="Siap">Siap</option>
+                                            <option @selected($tindakans->statusPelaksanaan == 'Dalam Pelaksanaan') value="Dalam Pelaksanaan">Dalam Pelaksanaan
+                                            </option>
+                                            <option @selected($tindakans->statusPelaksanaan == 'Belum Mula') value="Belum Mula">Belum Mula</option>
+                                            <option @selected($tindakans->statusPelaksanaan == 'Tiada Maklumat') value="Tiada Maklumat">Tiada Maklumat
+                                            </option>
                                         </select>
                                     </div>
                                 </td>
@@ -113,7 +116,7 @@
 
                         <label class="col-sm-2 col-form-label" for="peratusPencapaian">Peratus Pencapaian</label>
 
-                        <div class="col-sm-10" style="width:30%">
+                        <div class="col-sm-10">
                             <input type="text" name="peratusPencapaian" id="mySelect" onchange="myFunction()"
                                 class="form-control" value="{{ $tindakans->peratusPencapaian }}" />
 
@@ -126,14 +129,15 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
 
                         <input class="form-control" value="{{ $tindakans->pemangkin->namaTema ?? 'Tiada' }}" readonly />
 
                     </div>
-
+                </div>
+                <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
 
                         <input class="form-control" value="{{ $tindakans->bab->namaBab ?? 'Tiada' }}" readonly />
 
@@ -142,31 +146,32 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
 
                         <input class="form-control" value="{{ $tindakans->bidang->namaBidang ?? 'Tiada' }}" readonly />
 
                     </div>
+                </div>
+                <div class="mb-3 row">
 
                     <label class="col-sm-2 col-form-label" for="outcome_id">Outcome Nasional</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
 
                         <input class="form-control" value="{{ $tindakans->outcome->namaOutcome ?? 'Tiada' }}" readonly />
 
                     </div>
                 </div>
 
-
-
-
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="namaTindakan">Tindakan</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <input class="form-control" name="namaTindakan" value="{{ $tindakans->namaTindakan }}" readonly />
                     </div>
+                </div>
+                <div class="mb-3 row">
 
                     <label class="col-sm-2 col-form-label" for="namaStrategi">Strategi</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <input class="form-control" name="namaStrategi" value="{{ $tindakans->strategi->namaStrategi }}"
                             readonly />
                     </div>
@@ -174,47 +179,50 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="namaInisiatif">Inisiatif</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <input class="form-control" name="namaInisiatif"
                             value="{{ $tindakans->inisiatif->namaInisiatif }}" readonly />
                     </div>
+                </div>
+
+                <div class="mb-3 row">
 
                     <label class="col-sm-2 col-form-label" for="kementerian_penyelaras">Kementerian/Agensi
                         Penyelaras</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10" style="width: 30%">
                         <input class="form-control" type="text" name="kementerian_penyelaras" readonly
                             value="{{ $tindakans->kementerian_penyelaras }}" />
 
                     </div>
 
-                </div>
-
-                <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="kementerian_pelaksana">Kementerian/Agensi
                         Pelaksana</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10" style="width: 30%">
                         <input class="form-control" type="text" name="kementerian_pelaksana" readonly
                             value="{{ $tindakans->kementerian_pelaksana }}" />
                     </div>
+                </div>
+
+                <div class="mb-3 row">
 
                     <label class="col-sm-2 col-form-label" for="tempohSiap">Tempoh Siap</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10" style="width: 30%">
                         <input class="form-control" type="text" name="tempohSiap" readonly
                             value="{{ $tindakans->tempohSiap }}" />
 
                     </div>
-                </div>
 
-                <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="kategoriSasaran">Kategori Sasaran</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10" style="width: 30%">
                         <input class="form-control" type="text" name="kategoriSasaran" readonly
                             value="{{ $tindakans->kategoriSasaran }}" />
 
                     </div>
+                </div>
+                {{-- <div class="mb-3 row">
 
                     <label class="col-sm-2 col-form-label" for="catatan2021">Catatan 2021</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <textarea class="form-control" row="10" name="catatan2021" readonly>{{ $tindakans->catatan2021 }}</textarea>
 
                     </div>
@@ -222,14 +230,14 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="statusPelaksanaan2021">Status Pelaksanaan</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <input class="form-control" type="text" name="statusPelaksanaan2021" readonly
                             value="{{ $tindakans->statusPelaksanaan2021 }}" />
 
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="catatan2022">Catatan 2022</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <textarea class="form-control" row="10" name="catatan2022" readonly>{{ $tindakans->catatan2022 }}</textarea>
 
                     </div>
@@ -237,14 +245,14 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="sasaran2021">Sasaran 2021</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <input class="form-control" name="sasaran2021" value="{{ $tindakans->sasaran2021 }}" readonly />
 
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="status">Status</label>
 
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <input class="form-control" name="status" value="{{ $tindakans->status }}" readonly />
 
                     </div>
@@ -254,7 +262,7 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="pencapaian2021">Pencapaian 2021</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <input class="form-control" name="pencapaian2021" value="{{ $tindakans->pencapaian2021 }}"
                             readonly />
 
@@ -265,7 +273,7 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="statusPelaksanaan">Status Pelaksanaan 2022</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <input class="form-control" name="statusPelaksanaan" readonly
                             value="{{ $tindakans->statusPelaksanaan }}" />
 
@@ -275,13 +283,13 @@
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="pencapaian2022">Pencapaian 2022</label>
-                    <div class="col-sm-10" style="width:30%">
+                    <div class="col-sm-10">
                         <input class="form-control" name="pencapaian2022" value="{{ $tindakans->pencapaian2022 }}"
                             readonly readonlye />
 
                     </div>
 
-                </div><br>
+                </div><br> --}}
 
                 <hr><br>
 

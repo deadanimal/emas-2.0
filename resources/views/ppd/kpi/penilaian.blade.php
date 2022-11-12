@@ -108,17 +108,17 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}.</td>
                                     <td>{{ $kpi->namaKpi }}</td>
-                                    <td> <input class="form-control" value="{{ $kpi->pemangkin->namaTema }}" readonly />
+                                    <td> <input class="form-control" value="{{ $kpi->wajaran }}" readonly />
                                     </td>
-                                    <td> <input class="form-control" value="{{ $kpi->pemangkin->namaTema }}" readonly />
+                                    <td> <input class="form-control" value="{{ $kpi->unitSasaran }}" readonly />
                                     </td>
-                                    <td> <input class="form-control" value="{{ $kpi->pemangkin->namaTema }}" readonly />
+                                    <td> <input class="form-control" value="{{ $kpi->sasaran2022 }}" readonly />
                                     </td>
-                                    <td> <input class="form-control" value="{{ $kpi->pemangkin->namaTema }}" readonly />
+                                    <td> <input class="form-control" value="{{ $kpi->sasaranRMK }}" readonly />
                                     </td>
-                                    <td> <input class="form-control" value="{{ $kpi->pemangkin->namaTema }}" readonly />
+                                    <td> <input class="form-control" value="{{ $kpi->pencapaianSemasa }}" readonly />
                                     </td>
-                                    <td> <input class="form-control" value="{{ $kpi->pemangkin->namaTema }}" readonly />
+                                    <td> <input class="form-control" value="{{ $kpi->prestasiKpi }}" readonly />
                                     </td>
                                     <td id="prestasi"></td>
                                 </tr>

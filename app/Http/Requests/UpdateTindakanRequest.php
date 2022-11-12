@@ -109,6 +109,10 @@ class UpdateTindakanRequest extends FormRequest
             'strategi_id' => [
                 'string',
             ],
+
+            'bahagian' => [
+                'string',
+            ],
         ];
     }
 }

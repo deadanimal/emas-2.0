@@ -79,7 +79,7 @@ class KpiController extends Controller
         $semakan = Kpi::where([
             ['lulus', '=', null], ['ditolak', '=', null]
         ])->count();
-        
+
         $tiada_tindakan = Kpi::where([
             ['ditolak', '=', 'null']
         ])->count();
@@ -267,10 +267,10 @@ class KpiController extends Controller
 
         $kpi = Kpi::find($id);
 
-        $kpi->q1 = $request->q1;
-        $kpi->q2 = $request->q2;
-        $kpi->q3 = $request->q3;
-        $kpi->q4 = $request->q4;
+        $kpi->pencapaian = $request->pencapaian;
+        $kpi->peratusPencapaian = $request->peratusPencapaian;
+        // $kpi->q3 = $request->q3;
+        // $kpi->q4 = $request->q4;
 
         $kpi->save();
         // dd($request);

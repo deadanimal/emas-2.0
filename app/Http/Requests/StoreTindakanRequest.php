@@ -46,6 +46,10 @@ class StoreTindakanRequest extends FormRequest
                 'string',
             ],
 
+            'bahagian' => [
+                'string',
+            ],
+
             'kementerian_pelaksana' => [
                 'string',
             ],

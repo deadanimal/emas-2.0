@@ -379,7 +379,7 @@
                                             @if ($kpi['lulus'] == 1)
                                                 <p>Status pengesahan KPI anda <b>Disahkan</b>.</p>
                                             @else
-                                                <p>Status pengesahan<b>Ditolak</b>. Sila cuba lagi.</p>
+                                                <p>Status pengesahan KPI and <b>Ditolak</b>. Sila cuba lagi.</p>
                                             @endif
                                             <table role="presentation" border="0" cellpadding="0" cellspacing="0"
                                                 class="btn btn-primary">
@@ -390,7 +390,7 @@
                                                                 cellspacing="0">
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td> <a href="http://www.epu-emas2.0.prototype.com.my/MPB/displayThrust"
+                                                                        <td> <a href="http://www.epu-emas2.0.prototype.com.my/PPD/kpi"
                                                                                 target="_blank">Lihat</a> </td>
                                                                     </tr>
                                                                 </tbody>

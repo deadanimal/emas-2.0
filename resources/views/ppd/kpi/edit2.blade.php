@@ -16,6 +16,7 @@
             <form action="/PPD/prestasi_kpi/{{ $kpi->id }}" method="POST">
                 @csrf
                 @method('PUT')
+                <input type="hidden" name="kpi_id" value="{{ $kpi->id }}">
 
 
                 <br>
@@ -29,6 +30,7 @@
                     <hr>
 
 
+                    {{--
                     <div class="col-sm" style="width:30%">
 
                         <select class="form-select search">
@@ -53,7 +55,7 @@
                             <option value="Q4">Q4 (OKT-DIS)</option>
 
                         </select>
-                    </div>
+                    </div> --}}
 
                     <br><br>
 
@@ -61,50 +63,81 @@
                     <table class="table table-bordered" id="example">
                         <thead class="table-light">
                             <tr>
+                                <th class="align-middle">Tahun</th>
+                                <th class="align-middle">Sukuan Tahun</th>
                                 <th class="align-middle">Pencapaian</th>
                                 <th class="align-middle">Peratus Pencapaian</th>
                                 <th class="align-middle">Prestasi KPI</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <input type="number" name="pencapaian" for="pencapaian" class="form-control pencapaian"
-                                        id="mySelect" onchange="myFunction()" placeholder="Pencapaian"
-                                        value="{{ $kpi->pencapaian }}" />
-                                </td>
-                                <td>
-                                    <div class="input-group">
-                                        <input type="number" name="peratusPencapaian" for="peratusPencapaian"
-                                            class="form-control pencapaian" id="mySelect" onchange="myFunction()"
-                                            placeholder="Peratus Pencapaian" value="{{ $kpi->peratusPencapaian }}" />
-                                        <span class="input-group-text">%</span>
+                            @foreach ($kpi_markahs as $markah)
+                                <tr>
+                                    <td>
+                                        <input class="form-control" value="{{ $markah->tahun }}" readonly />
+                                    </td>
+                                    <td>
+                                        <input class="form-control" value="{{ $markah->sukuan_tahun }}" readonly />
+                                    </td>
+                                    <td>
+                                        <input class="form-control" value="{{ $markah->pencapaian }}" readonly />
+                                    </td>
+                                    <td>
+                                        <div class="input-group">
+                                            <input class="form-control" value="{{ $markah->peratus_pencapaian }}"
+                                                readonly />
+                                            <span class="input-group-text">%</span>
 
-                                    </div>
-                                </td>
+                                        </div>
+                                    </td>
 
-                                <td id="prestasi"></td>
-                            </tr>
+                                    <td id="prestasi"></td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
 
                     <br>
+                </div>
 
 
+                <div class="mb-3 row">
+                    <label class="col-form-label" for="tahun">Tahun</label>
+                    <div class="col-sm-10">
+                        <select class="form-select" name="tahun">
+                            <option selected disabled hidden value="null">Tahun</option>
 
-                    {{--
-                    <div class="mb-3 row">
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                        </select>
+                    </div>
 
-                        <label class="col-sm-2 col-form-label" for="peratusPencapaian">Peratus Pencapaian</label>
+                    <label class="col-form-label" for="sukuan_tahun">Sukuan Tahun</label>
+                    <div class="col-sm-10">
+                        <select class="form-select" name="sukuan_tahun">
+                            <option selected disabled hidden value="null">Sukuan Tahun</option>
+                            <option value="1">Q1 (JAN-MAC)</option>
+                            <option value="2">Q2 (APR-JUN) </option>
+                            <option value="3">Q3 (JUL-SEP)</option>
+                            <option value="4">Q4 (OKT-DIS)</option>
 
-                        <div class="col-sm-10" style="width:30%">
-                            <input type="text" name="peratusPencapaian" id="mySelect" onchange="myFunction()"
-                                class="form-control" value="{{ $kpi->peratusPencapaian }}" />
+                        </select>
+                    </div>
 
-                        </div>
+                    <label class="col-form-label" for="pencapaian">Pencapaian</label>
+                    <div class="col-sm-10">
+                        <input type="number" name="pencapaian"class="form-control" placeholder="Pencapaian" />
+                    </div>
 
+                    <label class="col-form-label" for="peratus_pencapaian">Peratus Pencapaian</label>
+                    <div class="col-sm-10">
+                        <input type="number" name="peratus_pencapaian"class="form-control"
+                            placeholder="Peratus Pencapaian" />
+                    </div>
 
-                    </div><br> --}}
                 </div>
                 <hr><br>
 
@@ -157,7 +190,8 @@
 
                         @if ($kpi->outcome != null)
                             <input class="form-control" value="{{ $kpi->outcome->namaOutcome }}" readonly />
-                            <input class="form-control" name="outcome_id" type="hidden" value="{{ $kpi->outcome->id }}" />
+                            <input class="form-control" name="outcome_id" type="hidden"
+                                value="{{ $kpi->outcome->id }}" />
                         @else
                             <input class="form-control" value="Outcome telah dipadam" readonly />
                         @endif
@@ -184,8 +218,8 @@
                     <label class="col-sm-2 col-form-label" for="unitUkuran">Unit Ukuran</label>
                     <div class="col-sm-10" style="width:30%">
 
-                        <input type="number" name="unitUkuran" class="form-control pencapaian"
-                            value="{{ $kpi->unitUkuran }}" readonly />
+                        <input name="unitUkuran" class="form-control pencapaian" value="{{ $kpi->unitUkuran }}"
+                            readonly />
                     </div>
 
                 </div>
@@ -196,15 +230,13 @@
                     <label class="col-sm-2 col-form-label" for="hadVarian">Varians</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="number" name="hadVarian" class="form-control" value="{{ $kpi->hadVarian }}"
-                            readonly />
+                        <input name="hadVarian" class="form-control" value="{{ $kpi->hadVarian }}" readonly />
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="hadToleransi">Had Toleransi</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="number" name="hadToleransi" class="form-control" value="{{ $kpi->hadToleransi }}"
-                            readonly />
+                        <input name="hadToleransi" class="form-control" value="{{ $kpi->hadToleransi }}" readonly />
                     </div>
 
 
@@ -216,15 +248,13 @@
                     <label class="col-sm-2 col-form-label" for="kekerapan">Kekerapan</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="kekerapan" type="number" value="{{ $kpi->kekerapan }}"
-                            readonly />
+                        <input class="form-control" name="kekerapan" value="{{ $kpi->kekerapan }}" readonly />
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="wajaran">Wajaran</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="number" name="wajaran" class="form-control pencapaian"
-                            value="{{ $kpi->wajaran }}" readonly />
+                        <input name="wajaran" class="form-control pencapaian" value="{{ $kpi->wajaran }}" readonly />
                     </div>
 
                 </div>
@@ -232,15 +262,14 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="tahunAsas">Tahun Asas</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="tahunAsas" type="text" class="form-control"
-                            value="{{ $kpi->tahunAsas }}" readonly />
+                        <input type="text"class="form-control" value="{{ $kpi->tahunAsas }}" readonly />
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="peratusPencapaianAsas">Pencapaian Tahun
                         Asas</label>
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="peratusPencapaianAsas" type="text" class="form-control"
+                        <input type="text" name="peratusPencapaianAsas" class="form-control"
                             value="{{ $kpi->peratusPencapaianAsas }}" readonly />
 
                     </div>
@@ -253,14 +282,12 @@
 
                     <label class="col-sm-2 col-form-label" for="sumberData">Sumber Data</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" name="sumberData" type="text" value="{{ $kpi->sumberData }}"
-                            readonly />
+                        <input class="form-control" type="text" value="{{ $kpi->sumberData }}" readonly />
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="sasaran2021">Sasaran 2021</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="sasaran2021" type="text" class="form-control"
-                            value="{{ $kpi->sasaran2021 }}" readonly />
+                        <input type="text" class="form-control" value="{{ $kpi->sasaran2021 }}" readonly />
                     </div>
 
 
@@ -277,8 +304,7 @@
 
                     <label class="col-sm-2 col-form-label" for="sasaran2022">Sasaran 2022</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="sasaran2022" type="text" class="form-control"
-                            value="{{ $kpi->sasaran2022 }}" readonly />
+                        <input type="text" class="form-control" value="{{ $kpi->sasaran2022 }}" readonly />
                     </div>
 
                 </div>
@@ -286,18 +312,23 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="sasaran2023">Sasaran 2023</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="sasaran2023" type="text" class="form-control"
-                            value="{{ $kpi->sasaran2023 }}" readonly />
+                        <input type="text" class="form-control" value="{{ $kpi->sasaran2023 }}" readonly />
                     </div>
 
                     <label class="col-sm-2 col-form-label" for="sasaran2024">Sasaran 2024</label>
 
 
                     <div class="col-sm-10" style="width:30%">
-                        <input type="text" name="sasaran2024" type="text" class="form-control"
-                            value="{{ $kpi->sasaran2024 }}" readonly />
+                        <input type="text" class="form-control" value="{{ $kpi->sasaran2024 }}" readonly />
                     </div>
 
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Sasaran RMKe-12 (2021-2025)</label>
+                    <div class="col-sm-10" style="width:30%">
+                        <input class="form-control" value="{{ $kpi->sasaranRMK }}" readonly />
+                    </div>
                 </div>
 
                 <hr>

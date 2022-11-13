@@ -130,7 +130,7 @@
 
 
 
-                            <td align="right">
+                            <td class="align-right">
                                 <div>
                                     <a class="btn btn-success" style="border-radius: 38px"
                                         href="/PPD/prestasi/{{ $tindakan->id }}/edit/"><i

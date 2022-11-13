@@ -109,10 +109,10 @@
                             <th scope="col"></th>
                         </tr>
                     </thead>
-                    <tbody class="list myTable" id="searchUpdateTable">
+                    <tbody class="list myTable">
                         @foreach ($kpis as $kpi)
                             <tr class="align-middle">
-                                <td id="searchUpdateTable">
+                                <td>
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $kpi->id }}">
 
@@ -122,7 +122,7 @@
 
 
 
-                                <td class="align-right" id="searchUpdateTable2">
+                                <td class="align-right">
                                     <div>
                                         <a class="btn btn-success" style="border-radius: 38px" onclick="Kpi(this)"
                                             href="/PPD/prestasi_kpi/{{ $kpi->id }}/edit/"><i

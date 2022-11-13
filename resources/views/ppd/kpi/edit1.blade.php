@@ -185,7 +185,7 @@
 
                 <label class="col-sm-2 col-form-label" for="sasaran2021">Sasaran 2021</label>
                 <div class="col-sm-10" style="width:30%">
-                    <input type="text" name="sasaran2021" type="text" class="percent form-control"
+                    <input type="number" name="sasaran2021" class="percent form-control"
                         value="{{ $kpi->sasaran2021 }}" />
                 </div>
 
@@ -200,7 +200,7 @@
                 </div>
                 <label class="col-sm-2 col-form-label" for="sasaran2022">Sasaran 2022</label>
                 <div class="col-sm-10" style="width:30%">
-                    <input type="text" name="sasaran2022" type="text" class="percent form-control"
+                    <input type="number" name="sasaran2022" class="percent form-control"
                         value="{{ $kpi->sasaran2022 }}" />
                 </div>
             </div>
@@ -214,7 +214,7 @@
                 </div>
                 <label class="col-sm-2 col-form-label" for="sasaran2023">Sasaran 2023</label>
                 <div class="col-sm-10" style="width:30%">
-                    <input type="text" name="sasaran2023" type="text" class="percent form-control"
+                    <input type="number" name="sasaran2023" class="percent form-control"
                         value="{{ $kpi->sasaran2023 }}" />
                 </div>
 
@@ -223,12 +223,12 @@
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label" for="sasaran2024">Sasaran 2024</label>
                 <div class="col-sm-10" style="width:30%">
-                    <input type="text" name="sasaran2024" type="text" class="percent form-control"
+                    <input type="number" name="sasaran2024" class="percent form-control"
                         value="{{ $kpi->sasaran2024 }}" />
                 </div>
                 <label class="col-sm-2 col-form-label" for="sasaran2025">Sasaran 2025</label>
                 <div class="col-sm-10" style="width:30%">
-                    <input type="text" name="sasaran2025" type="text" class="percent form-control"
+                    <input type="number" name="sasaran2025" class="percent form-control"
                         value="{{ $kpi->sasaran2025 }}" />
                 </div>
 
@@ -236,9 +236,9 @@
 
             <div class="mb-3 row">
 
-                <label class="col-sm-2 col-form-label" for="sasaranRMK">Sasaran RMKe-12</label>
+                <label class="col-sm-2 col-form-label" for="sasaranRMK">Sasaran RMKe-12 (2021-2025) </label>
                 <div class="col-sm-10" style="width:30%">
-                    <input type="text" name="sasaranRMK" type="text" class="percent form-control"
+                    <input type="number" name="sasaranRMK" class="percent form-control"
                         value="{{ $kpi->sasaranRMK }}" />
                 </div>
             </div>

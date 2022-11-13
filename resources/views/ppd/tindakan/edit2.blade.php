@@ -26,6 +26,8 @@
             <form action="/PPD/prestasi/{{ $tindakans->id }}" method="POST">
                 @csrf
                 @method('PUT')
+                <input type="hidden" name="tindakan_id" value="{{ $tindakans->id }}">
+
 
                 <div class="row align-items-center">
                     <div class="col col-lg-8">
@@ -35,7 +37,7 @@
                     </div>
 
                     <hr>
-                    <div class="col-sm">
+                    {{-- <div class="col-sm">
 
                         <select class="form-select search">
                             <option selected disabled hidden value="null">Tahun</option>
@@ -59,15 +61,18 @@
 
 
                         </select>
-                    </div><br><br>
+                    </div><br><br> --}}
 
                     <table class="table table-bordered" id="example">
                         <thead class="table-light">
                             <tr>
+                                <th class="align-middle">Tahun</th>
+                                <th class="align-middle">Sukuan Tahun</th>
+
                                 <th class="align-middle">Status Pelaksanaan</th>
-                                <th class="align-middle" style="width: 50%;">Catatan</th>
-                                <th class="align-middle" style="width: 50%;">Sasaran</th>
-                                <th class="align-middle" style="width: 60%;">Pencapaian</th>
+                                <th class="align-middle">Catatan</th>
+                                <th class="align-middle">Sasaran</th>
+                                <th class="align-middle">Pencapaian</th>
                                 <th class="align-middle">Kemajuan Tindakan</th>
 
 
@@ -75,55 +80,93 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <div class="col-sm-10">
-                                        <select class="form-control" name="tahun">
-                                            <option @selected($tindakans->statusPelaksanaan == 'Siap') value="Siap">Siap</option>
-                                            <option @selected($tindakans->statusPelaksanaan == 'Dalam Pelaksanaan') value="Dalam Pelaksanaan">Dalam Pelaksanaan
-                                            </option>
-                                            <option @selected($tindakans->statusPelaksanaan == 'Belum Mula') value="Belum Mula">Belum Mula</option>
-                                            <option @selected($tindakans->statusPelaksanaan == 'Tiada Maklumat') value="Tiada Maklumat">Tiada Maklumat
-                                            </option>
-                                        </select>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="col-sm-10">
-                                        <textarea class="form-control" name="catatan" rows="3" value="{{ $tindakans->catatan }}"></textarea>
+                            @foreach ($tindakan_markahs as $markah)
+                                <tr>
+                                    <td>
+                                        <input class="form-control" value="{{ $markah->tahun }}" readonly />
+                                    </td>
+                                    <td>
+                                        <input class="form-control" value="{{ $markah->sukuan_tahun }}" readonly />
+                                    </td>
+                                    <td>
+                                        <input class="form-control" value="{{ $markah->status_pelaksanaan }}" readonly />
+                                    </td>
+                                    <td>
+                                        <textarea class="form-control" readonly>{{ $markah->catatan }}</textarea>
+                                    </td>
+                                    <td>
+                                        <textarea class="form-control" readonly>{{ $markah->sasaran }} </textarea>
+                                    </td>
+
+                                    <td>
+                                        <textarea class="form-control" readonly> {{ $markah->pencapaian }}</textarea>
+                                    </td>
 
 
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="col-sm-10">
-                                        <textarea class="form-control" name="sasaran" rows="3" value="{{ $tindakans->sasaran }}"></textarea>
-
-                                    </div>
-                                </td>
-                                <td>
-                                    <textarea type="text" name="q1" class="form-control pencapaian" id="mySelect" onchange="myFunction()"
-                                        value="{{ $tindakans->catatan }}" rows="3"></textarea>
-                                </td>
-                                <td id="prestasi"></td>
-                            </tr>
+                                    <td id="prestasi"></td>
+                                </tr>
+                            @endforeach
 
                         </tbody>
                     </table>
 
                     <br>
-                    {{-- <div class="mb-3 row">
 
-                        <label class="col-sm-2 col-form-label" for="peratusPencapaian">Peratus Pencapaian</label>
+                </div>
 
-                        <div class="col-sm-10">
-                            <input type="text" name="peratusPencapaian" id="mySelect" onchange="myFunction()"
-                                class="form-control" value="{{ $tindakans->peratusPencapaian }}" />
+                <div class="mb-3 row">
+                    <label class="col-form-label" for="tahun">Tahun</label>
+                    <div class="col-sm-10">
+                        <select class="form-select" name="tahun">
+                            <option selected disabled hidden value="null">Tahun</option>
 
-                        </div>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                        </select>
+                    </div>
+
+                    <label class="col-form-label" for="sukuan_tahun">Sukuan Tahun</label>
+                    <div class="col-sm-10">
+                        <select class="form-select" name="sukuan_tahun">
+                            <option selected disabled hidden value="null">Sukuan Tahun</option>
+                            <option value="Q1">Q1 (JAN-MAC)</option>
+                            <option value="Q2">Q2 (APR-JUN) </option>
+                            <option value="Q3">Q3 (JUL-SEP)</option>
+                            <option value="Q4">Q4 (OKT-DIS)</option>
+
+                        </select>
+                    </div>
+
+                    <label class="col-form-label" for="status_pelaksanaan">Status Pelaksanaan</label>
+                    <div class="col-sm-10">
+                        <select class="form-select" name="status_pelaksanaan">
+
+                            <option value="Siap">Siap</option>
+                            <option value="Dalam Pelaksanaan">Dalam Pelaksanaan</option>
+                            <option value="Belum Mula">Belum Mula</option>
+                            <option value="Tiada Maklumat">Tiada Maklumat</option>
+                        </select>
+                    </div>
+
+                    <label class="col-form-label" for="catatan">Catatan</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" name="catatan" class="form-control" placeholder="Catatan"></textarea>
+                    </div>
+
+                    <label class="col-form-label" for="sasaran">Sasaran</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" name="sasaran" class="form-control" placeholder="Sasaran"></textarea>
+                    </div>
+
+                    <label class="col-form-label" for="pencapaian">Pencapaian</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" name="pencapaian"class="form-control" placeholder="Pencapaian"></textarea>
+                    </div>
 
 
-                    </div><br> --}}
                 </div>
                 <hr><br>
 
@@ -165,7 +208,8 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="namaTindakan">Tindakan</label>
                     <div class="col-sm-10">
-                        <input class="form-control" name="namaTindakan" value="{{ $tindakans->namaTindakan }}" readonly />
+                        <input class="form-control" name="namaTindakan" value="{{ $tindakans->namaTindakan }}"
+                            readonly />
                     </div>
                 </div>
                 <div class="mb-3 row">

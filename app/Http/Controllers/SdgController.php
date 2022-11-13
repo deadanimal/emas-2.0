@@ -54,7 +54,25 @@ class SdgController extends Controller
      */
     public function store(StoreSdgRequest $request)
     {
-        $sdg = Sdg::create($request->all());
+        // $sdg = Sdg::create($request->all());
+
+        $sdg = new Sdg();
+        $sdg->user_id = Auth::user()->id;
+        $sdg->fokus_id = $request->fokus_id;
+        $sdg->perkara_id = $request->perkara_id;
+        $sdg->pemangkin_id = $request->pemangkin_id;
+        $sdg->keteranganSdg = $request->keteranganSdg;
+
+
+        $sdg->namaSdg = $request->namaSdg;
+
+        // $sdg->pemangkin_id = json_decode($request->pemangkin_id, true);
+
+        // $sdg->pemangkin_id = implode(",", $request->pemangkin_id);
+
+
+        $sdg->save();
+
         return redirect()->route('sdg.index');
     }
 

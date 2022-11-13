@@ -9,6 +9,7 @@ use App\Models\Bab;
 use App\Models\Bidang;
 use App\Models\Fokusutama;
 use App\Models\Kpi;
+use App\Models\KpiMarkah;
 use App\Models\Outcome;
 use App\Models\Pemangkindasar;
 use App\Models\Perkarautama;
@@ -224,13 +225,16 @@ class KpiController extends Controller
     public function edit2($id_kpi)
     {
         $kpi = Kpi::find($id_kpi);
+        $kpi_markahs = KpiMarkah::where('kpi_id', $kpi->id)->get();
+
         // dd($kpi);
-        return view('ppd.kpi.edit2', compact('kpi'));
+        return view('ppd.kpi.edit2', compact('kpi', 'kpi_markahs'));
     }
 
     public function edit3($id_kpi)
     {
         $kpi = Kpi::find($id_kpi);
+        // $kpi_markhas = KpiMarkah::where('kpi_id', $kpi->id)->get();
 
         $kpis = Kpi::all();
 
@@ -262,20 +266,25 @@ class KpiController extends Controller
         return redirect()->route('kpi.index');
     }
 
-    public function update2(Request $request, $id)
+    public function update2(Request $request)
     {
 
-        $kpi = Kpi::find($id);
+        // $kpi = Kpi::find($id);
+        // $kpi_markahs = KpiMarkah::where('kpi_id', $kpi->id)->get();
+        $kpi_markahs = new KpiMarkah();
 
-        $kpi->pencapaian = $request->pencapaian;
-        $kpi->peratusPencapaian = $request->peratusPencapaian;
-        // $kpi->q3 = $request->q3;
-        // $kpi->q4 = $request->q4;
+        $kpi_markahs->kpi_id = $request->kpi_id;
 
-        $kpi->save();
+        $kpi_markahs->tahun = $request->tahun;
+        $kpi_markahs->sukuan_tahun = $request->sukuan_tahun;
+        $kpi_markahs->pencapaian = $request->pencapaian;
+        $kpi_markahs->peratus_pencapaian = $request->peratus_pencapaian;
+
+
+        $kpi_markahs->save();
         // dd($request);
 
-        return redirect('/prestasi/pelaporan_prestasi_kpi');
+        return back();
     }
 
     public function destroy(Kpi $kpi)

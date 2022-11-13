@@ -6,6 +6,7 @@ use App\Http\Requests\StoreInitiativeRequest;
 use App\Http\Requests\UpdateInitiativeRequest;
 use App\Models\Cluster;
 use App\Models\Initiative;
+use App\Models\Initiative_update;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -136,9 +137,11 @@ class InitiativeController extends Controller
     public function edit1(Initiative $id)
     {
         $initiative = $id;
+        $initiative_update = Initiative_update::where('initiative_id', $initiative->id)->get();
+
 
         $cluster = Cluster::all();
-        return view('md.initiative.update', compact('cluster', 'initiative'));
+        return view('md.initiative.update', compact('cluster', 'initiative', 'initiative_update'));
     }
 
     /**
@@ -191,24 +194,27 @@ class InitiativeController extends Controller
 
     public function update1(Request $request, $id)
     {
+        $initiative_update = new Initiative_update();
 
-        $initiative = Initiative::find($id);
-        $initiative->user_id = Auth::user()->id;
-
-
-        $initiative->target = $request->target;
-        $initiative->target_2 = $request->target_2;
-        $initiative->target_3 = $request->target_3;
-        $initiative->actual_achievement_1 = $request->actual_achievement_1;
-        $initiative->actual_achievement_2 = $request->actual_achievement_2;
-        $initiative->actual_achievement_3 = $request->actual_achievement_3;
+        $initiative_update->initiative_id = $request->initiative_id;
 
 
+        $initiative_update->target = $request->target;
+        $initiative_update->actual_achievement = $request->actual_achievement;
 
-        $initiative->save();
+        $initiative_update->target_1 = $request->target_1;
+        $initiative_update->actual_achievement_1 = $request->actual_achievement_1;
+
+        $initiative_update->target_2 = $request->target_2;
+        $initiative_update->actual_achievement_2 = $request->actual_achievement_2;
+
+        $initiative_update->target_3 = $request->target_3;
+        $initiative_update->actual_achievement_3 = $request->actual_achievement_3;
+
+        $initiative_update->save();
 
 
-        return redirect()->route('initiative.index');
+        return back();
     }
 
     /**

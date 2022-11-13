@@ -298,7 +298,7 @@ Route::group(
         //Initiative
         Route::resource('/initiative', InitiativeController::class);
         Route::get('/initiative/{id}/update/', [InitiativeController::class, 'edit1']);
-        Route::put('/initiative/{id}', [InitiativeController::class, 'update1']);
+        Route::put('/update/{id}', [InitiativeController::class, 'update1']);
 
 
         Route::post('/search_initiative', [InitiativeController::class, 'searchInitiative']);

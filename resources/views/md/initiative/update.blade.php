@@ -20,9 +20,11 @@
         <br>
 
         <div class="form-floating;">
-            <form action="/MD/initiative/{{ $initiative->id }}" method="POST">
+            <form action="/MD/update/{{ $initiative->id }}" method="POST">
                 @csrf
                 @method('PUT')
+                <input type="hidden" name="initiative_id" value="{{ $initiative->id }}">
+
 
                 <div class="row">
                     <div class="column">
@@ -35,11 +37,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td> <input type="number" name="target" for="target" class="form-control" /></td>
-                                    <td> <input type="number" name="actual_achievement_1" for="actual_achievement_1"
-                                            class="form-control" /></td>
-                                </tr>
+                                @foreach ($initiative_update as $update)
+                                    <tr>
+                                        <td> <input class="form-control" value="{{ $update->target_1 }}" />
+                                        </td>
+                                        <td> <input class="form-control" value="{{ $update->actual_achievement_1 }}" /></td>
+                                    </tr>
+                                @endforeach
+
                             </tbody>
                         </table>
                     </div>
@@ -83,6 +88,43 @@
                     </div>
                 </div>
 
+
+                <div class="mb-3 row">
+                    <label class="col-form-label" for="">Target</label>
+                    <div class="col-sm-10" style="width: 30%">
+                        <select class="form-select" name="">
+                            <option selected disabled hidden value="null">Target</option>
+
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+
+                        </select>
+                    </div>
+
+                    <div class="col-sm-10" style="width: 30%">
+                        <input type="number" class="form-control" name="target_1">
+                    </div>
+
+                    <label class="col-form-label" for="">Actual Achievement</label>
+                    <div class="col-sm-10" style="width: 30%">
+                        <select class="form-select" name="">
+                            <option selected disabled hidden value="null">Actual Achievement</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+
+
+                        </select>
+                    </div>
+
+                    <div class="col-sm-10" style="width: 30%">
+                        <input type="number" class="form-control" name="actual_achievement_1">
+                    </div>
+
+
+                </div>
+
                 <hr><br>
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="cluster_id">Cluster*</label>
@@ -118,7 +160,8 @@
 
                     <label class="col-sm-2 col-form-label" for="PIC">Person In Charge*</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="PIC" value="{{ $initiative->PIC }}" readonly />
+                        <input class="form-control" type="text" name="PIC" value="{{ $initiative->PIC }}"
+                            readonly />
 
                     </div>
 

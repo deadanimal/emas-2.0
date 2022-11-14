@@ -126,7 +126,7 @@
                     if (e.kategori_id == 1) {
                         $("#tablebody").append(`
                 <tr class="align-middle">
-                        <td class="text-nowrap">
+                        <td>
                             <div class="d-flex align-items-center">
                                 <div class="ms-2"><b>` + e.namaTema + `</b></div>
                             </div>
@@ -134,6 +134,10 @@
 
                         <td align="right">
                             <div>
+
+                                                                    ` +
+                            @can('BPKP')
+                                `
                                 <form action="/PPD/pemangkin/` + e.id + `" method="POST">
 
                                     <a class="btn btn-primary" style="border-radius: 38px"
@@ -150,6 +154,9 @@
                                     </button>
 
                                 </form>
+                                                          ` +
+                            @endcan
+                            `
                             </div>
                         </td>
                     </tr>
@@ -163,7 +170,7 @@
                     if (e.kategori_id == 2) {
                         $("#tablebody").append(`
                 <tr class="align-middle">
-                        <td class="text-nowrap">
+                        <td >
                             <div class="d-flex align-items-center">
                                 <div class="ms-2"><b>` + e.namaTema + `</b></div>
                             </div>
@@ -171,7 +178,11 @@
 
                         <td align="right">
                             <div>
-                                <form action="/pemangkin/` + e.id + `" method="POST">
+                                                                    ` +
+                            @can('BPKP')
+                                `
+
+                                <form action="/PPD/pemangkin/` + e.id + `" method="POST">
 
                                     <a class="btn btn-primary" style="border-radius: 38px"
                                         href="PPD/pemangkin/` + e.id + `"><i
@@ -187,6 +198,10 @@
                                     </button>
 
                                 </form>
+                                                                    ` +
+                            @endcan
+                            `
+
                             </div>
                         </td>
                     </tr>

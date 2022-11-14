@@ -143,7 +143,13 @@
                 if (val == e.fokus_id) {
                     $("#tablebody").append(`
                     <tr class="align-middle">
-                            <td class="text-nowrap">
+                          <td>
+                                <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#error-modal-` + e.id + `">
+                                    <div class="ms-2"><b>` + e.fokus.namaFokus + `</b></div>
+                                </div>
+                            </td>
+                            <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-` + e.id + `">
                                     <div class="ms-2"><b>` + e.namaPerkara + `</b></div>
@@ -164,6 +170,13 @@
 
                                             <div class="p-4 pb-0">
                                                 <form>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label">Fokus Utama:</label>
+                                                        <label class="form-control"
+                                                            disabled="disabled">` + e.fokus.namaFokus + `</label>
+
+                                                    </div>
+
                                                     <div class="mb-3">
                                                         <label class="col-form-label">Perkara Utama:</label>
                                                         <label class="form-control"
@@ -187,6 +200,7 @@
 
                             <td align="right">
                                 <div>
+                                    ` + @can('BPKP') `
                                     <form action="/PPD/perkarautama/` + e.id + `" method="POST">
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
@@ -203,6 +217,7 @@
                                         </button>
 
                                     </form>
+                                    ` + @endcan `
                                 </div>
                             </td>
                         </tr>

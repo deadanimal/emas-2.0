@@ -231,7 +231,7 @@
                 "search": "Carian:",
                 "zeroRecords": "Rekod tidak dijumpai",
                 "lengthMenu": "Lihat _MENU_ ",
-                "info": "Menunjukkan _START_ dari _END_ daripada _TOTAL_",
+                "info": "Paparan _START_ hingga _END_ daripada _TOTAL_ rekod",
                 "infoEmpty": "Menunjukkan 0 dari 0 daripada 0",
                 "paginate": {
                     "first": "Pertama",

@@ -72,8 +72,12 @@
                                                 <form>
                                                     <div class="mb-3">
                                                         <label class="col-form-label">Fokus Utama:</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">{{ $perkara->fokus->namaFokus }}</label>
+                                                        @if ($perkara->fokus)
+                                                            <label class="form-control"
+                                                                disabled="disabled">{{ $perkara->fokus->namaFokus }}</label>
+                                                        @else
+                                                            <label class="form-control" disabled="disabled">-</label>
+                                                        @endif
                                                     </div>
                                                     <div class="mb-3">
                                                         <label class="col-form-label">Perkara Utama:</label>

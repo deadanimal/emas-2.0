@@ -88,7 +88,8 @@ class RolesandpermissionController extends Controller
     public function edit($id)
     {
         $roles = Role::find($id);
-        $permissions = $roles->permissions()->get();
+        // $permissions = $roles->permissions()->get();
+        $permissions = Permission::where();
         // dd($permissions);
         return view('userRole.edit', [
             'roles' => $roles,

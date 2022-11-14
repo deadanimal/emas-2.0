@@ -292,7 +292,9 @@
                         <td align="right">
 
                             <div>
-
+                                ` +
+                        @can('BPKP')
+                            `
                                     <a class="btn btn-warning" style="border-radius: 38px"
                                         href="/PPD/tindakan1/` + el.id + `/edit/"><i class="fas fa-pencil-alt"></i>
                                     </a>
@@ -307,6 +309,10 @@
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </div>
+                                                   ` +
+                        @endcan
+                        `
+
                         </td>
 
                     </tr>

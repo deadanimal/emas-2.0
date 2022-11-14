@@ -184,7 +184,9 @@
                         <td align="right">
 
                             <div>
-
+                        ` +
+                            @can('BPKP')
+                                `
                                     <a class="btn btn-primary" style="border-radius: 38px"
                                         href="/PPD/pemacu/` + el.id + `/edit"><i class="fas fa-edit"></i>
                                     </a>
@@ -194,6 +196,9 @@
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </div>
+                                                    ` +
+                            @endcan
+                            `
                         </td>
 
                     </tr>

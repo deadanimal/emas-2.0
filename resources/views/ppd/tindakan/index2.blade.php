@@ -24,7 +24,6 @@
 
         <div class="row g-3" style="width: 100%">
             <div class="col-sm">
-
                 <select class="form-select search">
                     <option selected disabled hidden value="null">PILIH FOKUS UTAMA</option>
 
@@ -175,21 +174,18 @@
                     <tr class="align-middle">
 
                         <td>
-
                             <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-` + el.id + `">
 
-                                    <div class="ms-2"><b>` + el.namaTindakan + `</b></div>
+                                <div class="ms-2"><b>` + el.namaTindakan + `</b></div>
                             </div>
                         </td>
                         <td align="right">
-
                             <div>
-
-                                    <a class="btn btn-success" style="border-radius: 38px"
+                                <a class="btn btn-success" style="border-radius: 38px"
                                         href="PPD/prestasi/` + el.id + `/edit/"><i class="fas fa-arrow-alt-circle-right"></i>
-                                    </a>
-                                </div>
+                                </a>
+                            </div>
                         </td>
 
                     </tr>

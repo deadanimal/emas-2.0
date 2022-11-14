@@ -213,7 +213,7 @@
                         <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-` + el.id + `">
-                                    <div class="ms-2"><b>` + iteration++ + `. ` + el.namaBab + `</b></div>
+                                    <div class="ms-2"><b> ` + el.namaBab + `</b></div>
                                 </div>
                         </td>
                         <td>
@@ -225,7 +225,9 @@
                             </div>
                         </td>
                         <td align="right">
-
+                             ` +
+                        @can('BPKP')
+                            `
                             <div>
 
                                     <a class="btn btn-primary" style="border-radius: 38px"
@@ -237,6 +239,9 @@
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </div>
+                                                          ` +
+                        @endcan
+                        `
                         </td>
 
                     </tr>

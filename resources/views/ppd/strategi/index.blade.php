@@ -171,6 +171,9 @@
 
                             <td align="right">
                                 <div>
+                                                                  ` +
+                        @can('BPKP')
+                            `
                                     <form action="/PPD/strategi/` + e.id + `" method="POST">
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
@@ -187,6 +190,9 @@
                                         </button>
 
                                     </form>
+                                                        ` +
+                        @endcan
+                        `
                                 </div>
                             </td>
                         </tr>

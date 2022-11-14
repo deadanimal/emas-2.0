@@ -168,13 +168,13 @@
                                 <th class="align-middle">Jenis KPI</th>
                                 <th class="align-middle">Prestasi KPI</th>
                                 <th class="align-middle">Unit</th>
-                                <th class="align-middle">Pencapaian </th>
-                                <th class="align-middle">Sasaran</th>
+                                {{-- <th class="align-middle">Pencapaian </th> --}}
+                                {{-- <th class="align-middle">Sasaran</th> --}}
                                 <th class="align-middle">Had Varian</th>
                                 <th class="align-middle">Had Toleransi</th>
                                 <th class="align-middle">Kekerapan </th>
                                 <th class="align-middle">Wajaran (%)</th>
-                                <th class="align-middle">Peratus Pencapaian (%)</th>
+                                {{-- <th class="align-middle">Peratus Pencapaian (%)</th> --}}
                                 <th class="align-middle">Tahun Asas</th>
                                 <th class="align-middle">Peratus Pencapaian Tahun Asas (%) </th>
                                 <th class="align-middle">Sasaran 2021</th>
@@ -208,13 +208,13 @@
                                         @endif
                                     </td>
                                     <td class="align-middle">{{ $kpi->unitUkuran }}</td>
-                                    <td class="align-middle">{{ $kpi->pencapaian }}</td>
-                                    <td class="align-middle">{{ $kpi->sasaran }}</td>
+                                    {{-- <td class="align-middle">{{ $kpi->pencapaian }}</td> --}}
+                                    {{-- <td class="align-middle">{{ $kpi->sasaran }}</td> --}}
                                     <td class="align-middle">{{ $kpi->hadVarian }}</td>
                                     <td class="align-middle">{{ $kpi->hadToleransi }}</td>
                                     <td class="align-middle">{{ $kpi->kekerapan }}</td>
                                     <td class="align-middle">{{ $kpi->wajaran }}</td>
-                                    <td class="align-middle">{{ $kpi->peratusPencapaian }}</td>
+                                    {{-- <td class="align-middle">{{ $kpi->peratusPencapaian }}</td> --}}
                                     <td class="align-middle">{{ $kpi->tahunAsas }}</td>
                                     <td class="align-middle">{{ $kpi->peratusPencapaianAsas }}</td>
                                     <td class="align-middle">{{ $kpi->sasaran2021 }}</td>
@@ -321,7 +321,7 @@
                                                                 @endif
                                                             </div>
 
-                                                            <div class="mb-3">
+                                                            {{-- <div class="mb-3">
                                                                 <label class="col-form-label">Pencapaian :</label>
                                                                 <label class="form-control"
                                                                     disabled="disabled">{{ $kpi->pencapaian }}</label>
@@ -332,7 +332,7 @@
                                                                 <label class="form-control"
                                                                     disabled="disabled">{{ $kpi->sasaran }}</label>
 
-                                                            </div>
+                                                            </div> --}}
                                                             <div class="mb-3">
                                                                 <label class="col-form-label">Wajaran :</label>
                                                                 <label class="form-control"

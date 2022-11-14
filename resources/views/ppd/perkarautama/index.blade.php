@@ -44,11 +44,19 @@
                     <tr>
                         <th scope="col"></th>
                         <th scope="col"></th>
+                        <th scope="col"></th>
+
                     </tr>
                 </thead>
                 <tbody class="list myTable" id="tablebody">
                     @foreach ($perkarautama as $perkara)
                         <tr class="align-middle perkara">
+                            <td>
+                                <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#error-modal-{{ $perkara->id }}">
+                                    <div class="ms-2"><b>{{ $perkara->fokus->namaFokus }}</b></div>
+                                </div>
+                            </td>
                             <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-{{ $perkara->id }}">

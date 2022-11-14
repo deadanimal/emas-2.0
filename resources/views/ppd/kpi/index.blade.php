@@ -223,8 +223,15 @@
 
                                                     <div class="mb-3">
                                                         <label class="col-form-label">Prestasi Kpi:</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">{{ $kpi->prestasiKpi }}</label>
+                                                        <label class="form-control" disabled="disabled">
+                                                            @if ($kpi->peratusPencapaian > 80)
+                                                                <img src='/img/green.png'>
+                                                            @elseif ($kpi->peratusPencapaian <= 80 && $kpi->peratusPencapaian >= 50)
+                                                                <img src='/img/yellow.png'>
+                                                            @elseif ($kpi->peratusPencapaian < 50)
+                                                                <img src='/img/red.png'>
+                                                            @endif
+                                                        </label>
                                                     </div>
 
                                                     <div class="mb-3">
@@ -233,7 +240,7 @@
                                                             disabled="disabled">{{ $kpi->unitUkuran }}</label>
                                                     </div>
 
-                                                    <div class="mb-3">
+                                                    {{-- <div class="mb-3">
                                                         <label class="col-form-label">Pencapaian:</label>
                                                         <label class="form-control"
                                                             disabled="disabled">{{ $kpi->pencapaian }}</label>
@@ -243,7 +250,7 @@
                                                         <label class="col-form-label">Sasaran:</label>
                                                         <label class="form-control"
                                                             disabled="disabled">{{ $kpi->sasaran }}</label>
-                                                    </div>
+                                                    </div> --}}
 
                                                     <div class="mb-3">
                                                         <label class="col-form-label">Had Varian:</label>
@@ -268,13 +275,13 @@
                                                         <label class="form-control"
                                                             disabled="disabled">{{ $kpi->wajaran }}</label>
                                                     </div>
-
+                                                    {{--
                                                     <div class="mb-3">
                                                         <label class="col-form-label">Peratus
                                                             Pencapaian:</label>
                                                         <label class="form-control"
                                                             disabled="disabled">{{ $kpi->peratusPencapaian }}</label>
-                                                    </div>
+                                                    </div> --}}
 
                                                     <div class="mb-3">
                                                         <label class="col-form-label">Tahun Asas:</label>

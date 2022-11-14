@@ -26,7 +26,6 @@ class StoreOutcomeRequest extends FormRequest
         return [
             'keteranganOutcome' => [
                 'string',
-                'required',
             ],
 
             'namaOutcome' => [

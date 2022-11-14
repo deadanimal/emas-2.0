@@ -26,7 +26,6 @@ class StoreBabRequest extends FormRequest
         return [
             'keteranganBab' => [
                 'string',
-                'required',
             ],
 
             'namaBab' => [

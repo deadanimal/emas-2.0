@@ -26,7 +26,6 @@ class UpdatePemangkindasarRequest extends FormRequest
         return [
             'keteranganTema' => [
                 'string',
-                'required',
             ],
 
             'namaTema' => [

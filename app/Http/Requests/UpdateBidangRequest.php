@@ -26,7 +26,6 @@ class UpdateBidangRequest extends FormRequest
         return [
             'keteranganBidang' => [
                 'string',
-                'required',
             ],
 
             'namaBidang' => [

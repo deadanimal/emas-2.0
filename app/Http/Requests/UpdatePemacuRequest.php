@@ -26,7 +26,6 @@ class UpdatePemacuRequest extends FormRequest
         return [
             'keteranganBab' => [
                 'string',
-                'required',
             ],
 
 

@@ -26,7 +26,6 @@ class UpdateInisiatifRequest extends FormRequest
         return [
             'keteranganInisiatif' => [
                 'string',
-                'required',
             ],
 
             'namaInisiatif' => [

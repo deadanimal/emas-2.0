@@ -26,7 +26,6 @@ class UpdateBabRequest extends FormRequest
         return [
             'keteranganBab' => [
                 'string',
-                'required',
             ],
 
             'namaBab' => [

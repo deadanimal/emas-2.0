@@ -26,7 +26,7 @@ class StorePemacuRequest extends FormRequest
         return [
             'keteranganBab' => [
                 'string',
-                'required',
+
             ],
 
 

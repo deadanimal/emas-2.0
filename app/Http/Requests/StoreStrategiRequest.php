@@ -26,7 +26,6 @@ class StoreStrategiRequest extends FormRequest
         return [
             'keteranganStrategi' => [
                 'string',
-                'required',
             ],
 
             'namaStrategi' => [

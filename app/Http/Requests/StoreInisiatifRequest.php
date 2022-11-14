@@ -26,7 +26,6 @@ class StoreInisiatifRequest extends FormRequest
         return [
             'keteranganInisiatif' => [
                 'string',
-                'required',
             ],
 
             'namaInisiatif' => [

@@ -26,7 +26,6 @@ class StoreSdgRequest extends FormRequest
         return [
             'keteranganSdg' => [
                 'string',
-                'required',
             ],
 
             'namaSdg' => [

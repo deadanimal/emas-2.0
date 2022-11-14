@@ -26,7 +26,6 @@ class StorePemangkindasarRequest extends FormRequest
         return [
             'keteranganTema' => [
                 'string',
-                'required',
             ],
 
             'namaTema' => [

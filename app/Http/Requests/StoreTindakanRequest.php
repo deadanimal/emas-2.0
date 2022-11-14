@@ -26,7 +26,6 @@ class StoreTindakanRequest extends FormRequest
         return [
             'keteranganTindakan' => [
                 'string',
-                'required',
             ],
 
             'namaTindakan' => [

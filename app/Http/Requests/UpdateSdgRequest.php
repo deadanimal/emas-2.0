@@ -26,7 +26,6 @@ class UpdateSdgRequest extends FormRequest
         return [
             'keteranganSdg' => [
                 'string',
-                'required',
             ],
 
             'namaSdg' => [

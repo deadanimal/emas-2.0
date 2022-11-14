@@ -26,7 +26,6 @@ class StoreBidangRequest extends FormRequest
         return [
             'keteranganBidang' => [
                 'string',
-                'required',
             ],
 
             'namaBidang' => [

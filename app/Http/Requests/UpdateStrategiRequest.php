@@ -26,7 +26,6 @@ class UpdateStrategiRequest extends FormRequest
         return [
             'keteranganStrategi' => [
                 'string',
-                'required',
             ],
 
             'namaStrategi' => [

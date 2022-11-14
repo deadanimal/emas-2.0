@@ -26,7 +26,6 @@ class UpdateOutcomeRequest extends FormRequest
         return [
             'keteranganOutcome' => [
                 'string',
-                'required',
             ],
 
             'namaOutcome' => [

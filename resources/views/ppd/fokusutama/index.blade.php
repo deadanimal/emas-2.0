@@ -11,12 +11,12 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>Fokus Utama</b></span>
-                    @can('BPKP')
+                    @if (auth()->user()->can('BPKP') ||
+                        auth()->user()->can('Kementerian PPD'))
                         <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                             href="/PPD/fokusutama/create">
                             <span class="fas fa-plus-circle"></span>&nbsp;Tambah</a>
-                    @endcan
-
+                    @endif
 
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">

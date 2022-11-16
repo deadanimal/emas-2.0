@@ -32,43 +32,18 @@
                 <div class="row align-items-center">
                     <div class="col col-lg-8">
                         <span><b>Prestasi Tindakan - Pencapaian Semasa</b></span>
-
-
                     </div>
-
                     <hr>
-                    {{-- <div class="col-sm">
 
-                        <select class="form-select search">
-                            <option selected disabled hidden value="null">Tahun</option>
-                            <option value="2021">2021</option>
-                            <option value="2022">2022</option>
-                            <option value="2023">2023</option>
-                            <option value="2024">2024</option>
-                            <option value="2025">2025</option>
-                        </select>
+                    <div class="card-header" style="text-align: center">
+                        <b><u>Paparan Data</u></b>
                     </div>
 
-                    <div class="col-sm">
-
-                        <select class="form-select search">
-                            <option selected disabled hidden value="null">Sukuan Tahun</option>
-
-                            <option value="Q1">Q1 (JAN-MAC)</option>
-                            <option value="Q2">Q2 (APR-JUN) </option>
-                            <option value="Q3">Q3 (JUL-SEP)</option>
-                            <option value="Q4">Q4 (OKT-DIS)</option>
-
-
-                        </select>
-                    </div><br><br> --}}
-
-                    <table class="table table-bordered" id="example">
+                    <table class="table table-bordered">
                         <thead class="table-light">
                             <tr>
                                 <th class="align-middle">Tahun</th>
                                 <th class="align-middle">Sukuan Tahun</th>
-
                                 <th class="align-middle">Status Pelaksanaan</th>
                                 <th class="align-middle">Catatan</th>
                                 <th class="align-middle">Sasaran</th>
@@ -101,9 +76,17 @@
                                     <td>
                                         <textarea class="form-control" readonly> {{ $markah->pencapaian }}</textarea>
                                     </td>
-
-
-                                    <td id="prestasi"></td>
+                                    <td>
+                                        @if ($markah->status_pelaksanaan == 'Siap')
+                                            <img src='/img/greens.png'>
+                                        @elseif ($markah->status_pelaksanaan == 'Dalam Pelaksanaan')
+                                            <img src='/img/yellows.png'>
+                                        @elseif ($markah->status_pelaksanaan == 'Belum Mula')
+                                            <img src='/img/reds.png'>
+                                        @else
+                                            <img src='/img/grey.png'>
+                                        @endif
+                                    </td>
                                 </tr>
                             @endforeach
 
@@ -113,157 +96,177 @@
                     <br>
 
                 </div>
+                <hr>
 
-                <div class="mb-3 row">
-                    <label class="col-form-label" for="tahun">Tahun</label>
-                    <div class="col-sm-10">
-                        <select class="form-select" name="tahun">
-                            <option selected disabled hidden value="null">Tahun</option>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header" style="text-align: center">
+                                <b><u>Kemasukan Data</u></b>
+                            </div>
+                            <div class="card-body">
+                                <label class="col-form-label" for="tahun">Tahun</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" name="tahun">
+                                        <option selected disabled hidden value="null">Tahun</option>
 
-                            <option value="2021">2021</option>
-                            <option value="2022">2022</option>
-                            <option value="2023">2023</option>
-                            <option value="2024">2024</option>
-                            <option value="2025">2025</option>
-                        </select>
+                                        <option value="2021">2021</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2024">2024</option>
+                                        <option value="2025">2025</option>
+                                    </select>
+                                </div>
+
+                                <label class="col-form-label" for="sukuan_tahun">Sukuan Tahun</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" name="sukuan_tahun">
+                                        <option selected disabled hidden value="null">Sukuan Tahun</option>
+                                        <option value="Q1">Q1 (JAN-MAC)</option>
+                                        <option value="Q2">Q2 (APR-JUN) </option>
+                                        <option value="Q3">Q3 (JUL-SEP)</option>
+                                        <option value="Q4">Q4 (OKT-DIS)</option>
+
+                                    </select>
+                                </div>
+
+                                <label class="col-form-label" for="status_pelaksanaan">Status Pelaksanaan</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" name="status_pelaksanaan">
+
+                                        <option value="Siap">Siap</option>
+                                        <option value="Dalam Pelaksanaan">Dalam Pelaksanaan</option>
+                                        <option value="Belum Mula">Belum Mula</option>
+                                        <option value="Tiada Maklumat">Tiada Maklumat</option>
+                                    </select>
+                                </div>
+
+                                <label class="col-form-label" for="catatan">Catatan</label>
+                                <div class="col-sm-10">
+                                    <textarea type="text" name="catatan" class="form-control" placeholder="Catatan"></textarea>
+                                </div>
+
+                                <label class="col-form-label" for="sasaran">Sasaran</label>
+                                <div class="col-sm-10">
+                                    <textarea type="text" name="sasaran" class="form-control" placeholder="Sasaran"></textarea>
+                                </div>
+
+                                <label class="col-form-label" for="pencapaian">Pencapaian</label>
+                                <div class="col-sm-10">
+                                    <textarea type="text" name="pencapaian"class="form-control" placeholder="Pencapaian"></textarea>
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="col" style="text-align: center">
+                                <button class="btn btn-falcon-default btn-sm"
+                                    style="background-color: #047FC3; color:white;" type="submit" value="Save"
+                                    onclick="return confirm('Adakah anda mahu menyimpan data ini?')">&nbsp;Simpan Data
+                                </button>
+                            </div>
+
+                            <br>
+                        </div>
                     </div>
+            </form>
+        </div>
+        <hr><br>
 
-                    <label class="col-form-label" for="sukuan_tahun">Sukuan Tahun</label>
-                    <div class="col-sm-10">
-                        <select class="form-select" name="sukuan_tahun">
-                            <option selected disabled hidden value="null">Sukuan Tahun</option>
-                            <option value="Q1">Q1 (JAN-MAC)</option>
-                            <option value="Q2">Q2 (APR-JUN) </option>
-                            <option value="Q3">Q3 (JUL-SEP)</option>
-                            <option value="Q4">Q4 (OKT-DIS)</option>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema</label>
+            <div class="col-sm-10">
 
-                        </select>
-                    </div>
+                <input class="form-control" value="{{ $tindakans->pemangkin->namaTema ?? 'Tiada' }}" readonly />
 
-                    <label class="col-form-label" for="status_pelaksanaan">Status Pelaksanaan</label>
-                    <div class="col-sm-10">
-                        <select class="form-select" name="status_pelaksanaan">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
+            <div class="col-sm-10">
 
-                            <option value="Siap">Siap</option>
-                            <option value="Dalam Pelaksanaan">Dalam Pelaksanaan</option>
-                            <option value="Belum Mula">Belum Mula</option>
-                            <option value="Tiada Maklumat">Tiada Maklumat</option>
-                        </select>
-                    </div>
+                <input class="form-control" value="{{ $tindakans->bab->namaBab ?? 'Tiada' }}" readonly />
 
-                    <label class="col-form-label" for="catatan">Catatan</label>
-                    <div class="col-sm-10">
-                        <textarea type="text" name="catatan" class="form-control" placeholder="Catatan"></textarea>
-                    </div>
+            </div>
+        </div>
 
-                    <label class="col-form-label" for="sasaran">Sasaran</label>
-                    <div class="col-sm-10">
-                        <textarea type="text" name="sasaran" class="form-control" placeholder="Sasaran"></textarea>
-                    </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan</label>
+            <div class="col-sm-10">
 
-                    <label class="col-form-label" for="pencapaian">Pencapaian</label>
-                    <div class="col-sm-10">
-                        <textarea type="text" name="pencapaian"class="form-control" placeholder="Pencapaian"></textarea>
-                    </div>
+                <input class="form-control" value="{{ $tindakans->bidang->namaBidang ?? 'Tiada' }}" readonly />
 
+            </div>
+        </div>
+        <div class="mb-3 row">
 
-                </div>
-                <hr><br>
+            <label class="col-sm-2 col-form-label" for="outcome_id">Outcome Nasional</label>
+            <div class="col-sm-10">
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema</label>
-                    <div class="col-sm-10">
+                <input class="form-control" value="{{ $tindakans->outcome->namaOutcome ?? 'Tiada' }}" readonly />
 
-                        <input class="form-control" value="{{ $tindakans->pemangkin->namaTema ?? 'Tiada' }}" readonly />
+            </div>
+        </div>
 
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="bab_id">Bab</label>
-                    <div class="col-sm-10">
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label" for="namaTindakan">Tindakan</label>
+            <div class="col-sm-10">
+                <input class="form-control" name="namaTindakan" value="{{ $tindakans->namaTindakan }}" readonly />
+            </div>
+        </div>
+        <div class="mb-3 row">
 
-                        <input class="form-control" value="{{ $tindakans->bab->namaBab ?? 'Tiada' }}" readonly />
+            <label class="col-sm-2 col-form-label" for="namaStrategi">Strategi</label>
+            <div class="col-sm-10">
+                <input class="form-control" name="namaStrategi" value="{{ $tindakans->strategi->namaStrategi }}"
+                    readonly />
+            </div>
+        </div>
 
-                    </div>
-                </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label" for="namaInisiatif">Inisiatif</label>
+            <div class="col-sm-10">
+                <input class="form-control" name="namaInisiatif" value="{{ $tindakans->inisiatif->namaInisiatif }}"
+                    readonly />
+            </div>
+        </div>
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="bidang_id">Bidang Keutamaan</label>
-                    <div class="col-sm-10">
+        <div class="mb-3 row">
 
-                        <input class="form-control" value="{{ $tindakans->bidang->namaBidang ?? 'Tiada' }}" readonly />
+            <label class="col-sm-2 col-form-label" for="kementerian_penyelaras">Kementerian/Agensi
+                Penyelaras</label>
+            <div class="col-sm-10" style="width: 30%">
+                <input class="form-control" type="text" name="kementerian_penyelaras" readonly
+                    value="{{ $tindakans->kementerian_penyelaras }}" />
 
-                    </div>
-                </div>
-                <div class="mb-3 row">
+            </div>
 
-                    <label class="col-sm-2 col-form-label" for="outcome_id">Outcome Nasional</label>
-                    <div class="col-sm-10">
+            <label class="col-sm-2 col-form-label" for="kementerian_pelaksana">Kementerian/Agensi
+                Pelaksana</label>
+            <div class="col-sm-10" style="width: 30%">
+                <input class="form-control" type="text" name="kementerian_pelaksana" readonly
+                    value="{{ $tindakans->kementerian_pelaksana }}" />
+            </div>
+        </div>
 
-                        <input class="form-control" value="{{ $tindakans->outcome->namaOutcome ?? 'Tiada' }}" readonly />
+        <div class="mb-3 row">
 
-                    </div>
-                </div>
+            <label class="col-sm-2 col-form-label" for="tempohSiap">Tempoh Siap</label>
+            <div class="col-sm-10" style="width: 30%">
+                <input class="form-control" type="text" name="tempohSiap" readonly
+                    value="{{ $tindakans->tempohSiap }}" />
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaTindakan">Tindakan</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" name="namaTindakan" value="{{ $tindakans->namaTindakan }}"
-                            readonly />
-                    </div>
-                </div>
-                <div class="mb-3 row">
+            </div>
 
-                    <label class="col-sm-2 col-form-label" for="namaStrategi">Strategi</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" name="namaStrategi" value="{{ $tindakans->strategi->namaStrategi }}"
-                            readonly />
-                    </div>
-                </div>
+            <label class="col-sm-2 col-form-label" for="kategoriSasaran">Kategori Sasaran</label>
+            <div class="col-sm-10" style="width: 30%">
+                <input class="form-control" type="text" name="kategoriSasaran" readonly
+                    value="{{ $tindakans->kategoriSasaran }}" />
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaInisiatif">Inisiatif</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" name="namaInisiatif"
-                            value="{{ $tindakans->inisiatif->namaInisiatif }}" readonly />
-                    </div>
-                </div>
-
-                <div class="mb-3 row">
-
-                    <label class="col-sm-2 col-form-label" for="kementerian_penyelaras">Kementerian/Agensi
-                        Penyelaras</label>
-                    <div class="col-sm-10" style="width: 30%">
-                        <input class="form-control" type="text" name="kementerian_penyelaras" readonly
-                            value="{{ $tindakans->kementerian_penyelaras }}" />
-
-                    </div>
-
-                    <label class="col-sm-2 col-form-label" for="kementerian_pelaksana">Kementerian/Agensi
-                        Pelaksana</label>
-                    <div class="col-sm-10" style="width: 30%">
-                        <input class="form-control" type="text" name="kementerian_pelaksana" readonly
-                            value="{{ $tindakans->kementerian_pelaksana }}" />
-                    </div>
-                </div>
-
-                <div class="mb-3 row">
-
-                    <label class="col-sm-2 col-form-label" for="tempohSiap">Tempoh Siap</label>
-                    <div class="col-sm-10" style="width: 30%">
-                        <input class="form-control" type="text" name="tempohSiap" readonly
-                            value="{{ $tindakans->tempohSiap }}" />
-
-                    </div>
-
-                    <label class="col-sm-2 col-form-label" for="kategoriSasaran">Kategori Sasaran</label>
-                    <div class="col-sm-10" style="width: 30%">
-                        <input class="form-control" type="text" name="kategoriSasaran" readonly
-                            value="{{ $tindakans->kategoriSasaran }}" />
-
-                    </div>
-                </div>
-                {{-- <div class="mb-3 row">
+            </div>
+        </div>
+        {{-- <div class="mb-3 row">
 
                     <label class="col-sm-2 col-form-label" for="catatan2021">Catatan 2021</label>
                     <div class="col-sm-10">
@@ -335,22 +338,10 @@
 
                 </div><br> --}}
 
-                <hr><br>
+        <hr><br>
 
 
-
-
-
-                <div class="col" style="text-align: center">
-                    <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                        type="submit" value="Save"
-                        onclick="return confirm('Adakah anda mahu menyimpan data ini?')">&nbsp;Simpan Data
-                    </button>
-                </div>
-
-
-            </form>
-        </div>
+    </div>
 
     </div>
 

@@ -112,7 +112,7 @@
             categories.forEach(cat => {
                 if (cat.id == thrus_id) {
                     $("#pilih2").append(`
-                        <option value="` + cat.id + `">` + cat.category + `</option>
+                        <option value="` + cat.category + `">` + cat.category + `</option>
                     `);
                 }
             });

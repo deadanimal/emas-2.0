@@ -7,18 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 use OwenIt\Auditing\Contracts\Auditable;
 
 
-class KpiMarkah extends Model implements Auditable
+class MatlamatSdg extends Model implements Auditable
 {
     use \OwenIt\Auditing\Auditable;
 
     use HasFactory;
 
 
-    public $table = 'kpi_markahs';
+    public $table = 'matlamat_sdgs';
     protected $guarded = [''];
 
-    public function kpi()
+    public function sdg()
     {
-        return $this->belongsTo(Kpi::class, 'kpi_id');
+        return $this->belongsTo(Sdg::class, 'sdg_id');
     }
 }

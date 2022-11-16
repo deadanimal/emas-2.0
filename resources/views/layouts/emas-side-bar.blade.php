@@ -117,7 +117,9 @@
                         'PPD/tindakan1',
                         'PPD/tindakan1/*',
                         'PPD/sdg',
-                        'PPD/sdg/*'))
+                        'PPD/sdg/*',
+                        'PPD/penilaian/kpi',
+                        'PPD/paparan/kpi'))
                         <a class="nav-link btn1" href="/PPD/fokusutama" role="button">
                             <div class="d-flex align-items-center">
                                 <div class="col-2">
@@ -204,7 +206,9 @@
                         'PPD/tindakan1',
                         'PPD/tindakan1/*',
                         'PPD/sdg',
-                        'PPD/sdg/*'))
+                        'PPD/sdg/*',
+                        'PPD/penilaian/kpi',
+                        'PPD/paparan/kpi'))
                         <!-- parent pages-->
                         <a class="nav-link dropdown-indicator" href="#ppd" role="button" data-bs-toggle="collapse"
                             aria-expanded="true" aria-controls="ppd" style="background-color: #C4D4ED">
@@ -597,7 +601,9 @@
                         'PPD/executive',
                         'PPD/executive/*',
                         'PPD/executiveSummary',
-                        'PPD/executiveSummary/*'))
+                        'PPD/executiveSummary/*',
+                        'PPD/penilaian/kpi',
+                        'PPD/paparan/kpi'))
                         <a class="nav-link btn1" href="/PPD/dashboard" role="button">
 
                             <div class="d-flex align-items-center">

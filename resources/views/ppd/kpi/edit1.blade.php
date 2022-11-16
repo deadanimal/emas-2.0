@@ -18,10 +18,6 @@
             </div>
         @endif
 
-
-
-
-
         <form action="/PPD/kpi/{{ $kpi->id }}" method="POST">
             @csrf
             @method('PUT')

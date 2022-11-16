@@ -54,13 +54,14 @@ class SdgController extends Controller
      */
     public function store(StoreSdgRequest $request)
     {
+        // dd($request->all());
         // $sdg = Sdg::create($request->all());
 
         $sdg = new Sdg();
         $sdg->user_id = Auth::user()->id;
         $sdg->fokus_id = $request->fokus_id;
         $sdg->perkara_id = $request->perkara_id;
-        $sdg->pemangkin_id = $request->pemangkin_id;
+        // $sdg->pemangkin_id = $request->pemangkin_id;
         $sdg->keteranganSdg = $request->keteranganSdg;
 
 
@@ -68,7 +69,7 @@ class SdgController extends Controller
 
         // $sdg->pemangkin_id = json_decode($request->pemangkin_id, true);
 
-        // $sdg->pemangkin_id = implode(",", $request->pemangkin_id);
+        $sdg->pemangkin_id = serialize($request->pemangkin);
 
 
         $sdg->save();
@@ -101,6 +102,14 @@ class SdgController extends Controller
         $fokus = Fokusutama::all();
         $perkara = Perkarautama::all();
 
+        try {
+            $sdg->pemangkin_id = unserialize($sdg->pemangkin_id);
+        } catch (\Throwable $th) {
+            $sdg->pemangkin_id = array($sdg->pemangkin_id);
+        }
+
+        // dd($sdg);
+
         return view('ppd.sdg.edit', compact('sdg', 'list', 'fokus', 'perkara'));
     }
 
@@ -113,7 +122,21 @@ class SdgController extends Controller
      */
     public function update(UpdateSdgRequest $request, Sdg $sdg)
     {
-        $sdg->update($request->all());
+        // $sdg->update($request->all());
+
+        $sdg->user_id = Auth::user()->id;
+        $sdg->fokus_id = $request->fokus_id;
+        $sdg->perkara_id = $request->perkara_id;
+        $sdg->keteranganSdg = $request->keteranganSdg;
+
+
+        $sdg->namaSdg = $request->namaSdg;
+
+        $sdg->pemangkin_id = serialize($request->pemangkin);
+
+
+        $sdg->save();
+
         return redirect()->route('sdg.index');
     }
 

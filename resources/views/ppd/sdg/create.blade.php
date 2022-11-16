@@ -44,7 +44,7 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="pemangkin_id[]">Tema/Pemangkin Dasar*</label>
                     <div class="col-sm-10">
-                        {{-- <select class="form-select js-choice" id="pemangkin[]" multiple="multiple" size="1"
+                        <select class="form-select js-choice" id="pemangkin[]" multiple="multiple" size="1"
                             name="pemangkin[]" data-options='{"removeItemButton":true,"placeholder":true}'>
                             <option disabled>SILA PILIH</option>
 
@@ -52,16 +52,16 @@
                                 <option value="{{ $list->id }}">{{ $list->namaTema }}</option>
                             @endforeach
 
-                        </select> --}}
+                        </select>
 
-                        <select class="form-control" name="pemangkin_id">
+                        {{-- <select class="form-control" name="pemangkin_id">
                             <option selected disabled hidden>SILA PILIH</option>
 
                             @foreach ($list as $tema)
                                 <option value="{{ $tema->id }}">{{ $tema->namaTema }}</option>
                             @endforeach
 
-                        </select>
+                        </select> --}}
                     </div>
                 </div>
 

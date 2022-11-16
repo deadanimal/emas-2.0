@@ -9,6 +9,7 @@ use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 use PhpParser\Node\Expr\Assign;
+use PhpParser\Node\Stmt\TryCatch;
 
 class RolesandpermissionController extends Controller
 {
@@ -89,7 +90,11 @@ class RolesandpermissionController extends Controller
     {
         $roles = Role::find($id);
         // $permissions = $roles->permissions()->get();
-        $permissions = Permission::find($id)->get();
+        // $permissions = Permission::find($id)->get();
+        $permissions = Permission::with('roles')->get();
+
+
+
         // dd($permissions);
         return view('userRole.edit', [
             'roles' => $roles,

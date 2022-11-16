@@ -57,7 +57,7 @@
 
                                 <div class="row">
                                     <div class="col-6">
-                                        <label for="role">Peranan:</label>
+                                        <label for="role">Dashboard:</label>
                                         <div>
                                             <div class="form-group">
 
@@ -72,6 +72,23 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-6">
+                                        <label for="permission">Peranan:</label>
+                                        <div>
+                                            <div class="form-group">
+
+                                                <select class="form-control mb-3" name="permission" id="pilih2">
+
+                                                    {{-- @foreach ($permissions as $p)
+                                                <option value="{{ $p->name }}">{{ $p->name }}
+                                                </option>
+                                            @endforeach --}}
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="col-6">
                                         <label for="permission">Agensi/Kementerian/
                                             Bahagian :</label>

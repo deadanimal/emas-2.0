@@ -111,11 +111,32 @@ Route::group(
         Route::post('/search_kpi', [KpiController::class, 'searchKpi']);
         Route::post('/search_kpi1', [KpiController::class, 'searchKpi1']);
 
+        //Prestasi Pelaporan
+
+        //KPI
+        Route::get('/prestasi/pelaporan_prestasi_kpi/', [KpiController::class, 'index2']);
+        Route::get('/prestasi_kpi/{id}/edit/', [KpiController::class, 'edit2']);
+        Route::put('/prestasi_kpi/{id}', [KpiController::class, 'update2']);
+
+
+        //Tindakan
+        Route::get('/prestasi/pelaporan_prestasi_tindakan/', [TindakanController::class, 'index2']);
+        Route::get('/prestasi/{id}/edit/', [TindakanController::class, 'edit2']);
+        Route::put('/prestasi/{id}', [TindakanController::class, 'update2']);
+
+
         //Penilaian KPI
-        Route::get('/kpi/paparan/', [KpiController::class, 'paparan']);
+
+        Route::get('/paparan/kpi/', [KpiController::class, 'paparan']);
+        Route::get('/penilaian/kpi/', [KpiController::class, 'penilaian']);
+
 
         Route::get('/kpi/{id}/penilaian/', [KpiController::class, 'edit3']);
+        Route::put('/penilaian/{id}', [KpiController::class, 'update3']);
+
         Route::get('/kpi/{id}/paparan/', [KpiController::class, 'edit4']);
+        Route::put('/paparan/{id}', [KpiController::class, 'update4']);
+
 
 
 
@@ -137,19 +158,6 @@ Route::group(
 
         //SDG
         Route::resource('/sdg', SdgController::class);
-
-        //Prestasi Pelaporan
-
-        //KPI
-        Route::get('/prestasi/pelaporan_prestasi_kpi/', [KpiController::class, 'index2']);
-        Route::get('/prestasi_kpi/{id}/edit/', [KpiController::class, 'edit2']);
-        Route::put('/prestasi_kpi/{id}', [KpiController::class, 'update2']);
-
-
-        //Tindakan
-        Route::get('/prestasi/pelaporan_prestasi_tindakan/', [TindakanController::class, 'index2']);
-        Route::get('/prestasi/{id}/edit/', [TindakanController::class, 'edit2']);
-        Route::put('/prestasi/{id}', [TindakanController::class, 'update2']);
     }
 );
 

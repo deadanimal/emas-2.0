@@ -76,7 +76,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-6">
-                                    <label for="role">Peranan :</label>
+                                    <label for="role">Dashboard :</label>
                                     <div class="form-group">
 
                                         <select class="form-control mb-3" name="role" id="pilih1" required>
@@ -90,11 +90,26 @@
                                     </div>
                                 </div>
                                 <div class="col-6">
+                                    <label for="">Peranan:</label>
+                                    <div class="input-group">
+
+                                        <select class="form-control mb-3" name="permission" id="pilih2" required>
+                                            <option selected disabled hidden>Sila pilih</option>
+                                            {{-- @foreach ($role->permissions as $permission)
+                                                <option value="{{ $permission->name }}">
+                                                    {{ ucfirst(trans($permission->name)) }}
+                                                </option>
+                                            @endforeach --}}
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
                                     <label for="">Agensi/Kementerian/
                                         Bahagian :</label>
                                     <div class="input-group">
 
-                                        <select class="form-control mb-3" name="permission" id="pilih2" required>
+                                        <select class="form-control mb-3" name="" required>
                                             <option selected disabled hidden>Sila pilih</option>
                                             {{-- @foreach ($role->permissions as $permission)
                                                 <option value="{{ $permission->name }}">

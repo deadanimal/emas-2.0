@@ -52,8 +52,7 @@
                         @foreach ($strategys as $strategy)
                             <tr class="align-middle strategy">
                                 <td>
-                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                        data-bs-target="#error-modal-{{ $strategy->id }}">
+                                    <div class="d-flex align-items-center">
                                         <div class="ms-2"><b>{{ $loop->iteration }}</b></div>
                                     </div>
                                 </td>
@@ -61,13 +60,14 @@
                                 <td>
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $strategy->id }}">
-                                        <div class="ms-2"><b>{{ $strategy->namaStrategy }}</b></div>
+                                        <div class="ms-2">
+                                            <b>{{ $strategy->namaStrategy }}</b>
+                                        </div>
                                     </div>
                                 </td>
 
                                 <td>
-                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                        data-bs-target="#error-modal-{{ $strategy->id }}">
+                                    <div class="d-flex align-items-center">
                                         <div class="ms-2"><b>{{ $strategy->category }}</b></div>
                                     </div>
                                 </td>
@@ -104,7 +104,7 @@
                                                             <label class="col-form-label">Description:</label>
                                                             <label class="form-control"
                                                                 disabled="disabled">{{ $strategy->desc }}</label>
-                                                        </div>
+                                                        </div><br>
 
                                                     </form>
                                                 </div>

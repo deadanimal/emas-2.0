@@ -34,8 +34,8 @@
                         <tr>
                             <th scope="col">No.</th>
                             <th scope="col">Cluster</th>
-                            <th scope="col">Total Initiatives DEB</th>
-                            <th scope="col">Total Initiatives 4IR</th>
+                            <th scope="col">Total Initiatives <b>DEB</b> </th>
+                            <th scope="col">Total Initiatives <b>4IR</b> </th>
                             <th scope="col">Cluster Secretariat</th>
                             <th scope="col">Person In Charge</th>
                             <th scope="col">Position</th>

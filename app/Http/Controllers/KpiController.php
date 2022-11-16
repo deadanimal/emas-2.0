@@ -48,14 +48,6 @@ class KpiController extends Controller
         $bab = Bab::all();
         $bidang = Bidang::all();
 
-        // if ($request->user()->role == 'SuperAdmin') {
-
-        //     $kpis = Kpi::all();
-        // } else {
-        //     $user_id = $request->user()->id;
-
-        //     $kpis = Kpi::where('user_id', '=', $user_id)->get();
-        // }
 
         if ($request->user()->can('BPKP')) {
 
@@ -131,6 +123,30 @@ class KpiController extends Controller
         $bidang = Bidang::all();
 
         return view('ppd.kpi.index2', compact('kpis', 'fokusUtama', 'perkaraUtama', 'temaPemangkin', 'bab', 'bidang', 'outcomes'));
+    }
+
+    public function penilaian()
+    {
+        $kpis = Kpi::all();
+
+        $tema = Pemangkindasar::first()->kpi_id;
+        $bab = Bab::all();
+        $bidang = Bidang::all();
+        $outcome = Outcome::all();
+
+        return view('ppd.kpi.penilaian', compact('kpis', 'tema', 'bab', 'bidang', 'outcome'));
+    }
+
+    public function paparan()
+    {
+        $kpis = Kpi::all();
+
+        $tema = Pemangkindasar::all();
+        $bab = Bab::all();
+        $bidang = Bidang::all();
+        $outcome = Outcome::all();
+
+        return view('ppd.kpi.paparan', compact('kpis', 'tema', 'bab', 'bidang', 'outcome'));
     }
 
 
@@ -231,26 +247,7 @@ class KpiController extends Controller
         return view('ppd.kpi.edit2', compact('kpi', 'kpi_markahs'));
     }
 
-    public function edit3($id_kpi)
-    {
-        $kpi = Kpi::find($id_kpi);
-        // $kpi_markhas = KpiMarkah::where('kpi_id', $kpi->id)->get();
 
-        $kpis = Kpi::all();
-
-
-        return view('ppd.kpi.penilaian', compact('kpi', 'kpis'));
-    }
-
-    public function edit4($id_kpi)
-    {
-        $kpi = Kpi::find($id_kpi);
-
-        $kpis = Kpi::all();
-
-
-        return view('ppd.kpi.paparan', compact('kpi', 'kpis'));
-    }
 
 
     public function update(UpdateKpiRequest $request, Kpi $kpi)
@@ -286,6 +283,13 @@ class KpiController extends Controller
 
         return back();
     }
+
+    public function update3(UpdateKpiRequest $request, Kpi $kpi)
+    {
+        $kpi->update($request->all());
+        return redirect()->route('kpi.index');
+    }
+
 
     public function destroy(Kpi $kpi)
     {

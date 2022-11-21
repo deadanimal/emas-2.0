@@ -27,6 +27,7 @@ class User extends Authenticatable implements Auditable
         'email',
         'password',
         'role',
+        'organisasi_id',
     ];
 
     /**
@@ -57,4 +58,9 @@ class User extends Authenticatable implements Auditable
     {
         return $this->belongsTo(Audit::class);
     }
+    
+    public function organisasi()
+    {
+        return $this->belongsTo(Organisasi::class);
+    }    
 }

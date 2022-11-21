@@ -14,7 +14,7 @@
                 @csrf
                 @method('PUT')
 
-                <div class="mb-3 row">
+                {{-- <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="fokus_id">Fokus Utama*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="fokus_id">
@@ -41,7 +41,7 @@
 
                         </select>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="pemangkin_id">Tema/Pemangkin Dasar*</label>

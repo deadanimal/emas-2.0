@@ -34,6 +34,7 @@ class LoginRequest extends FormRequest
         return [
             'login' => ['required', 'string'],
             'password' => ['required', 'string'],
+
         ];
     }
 
@@ -73,6 +74,7 @@ class LoginRequest extends FormRequest
         Auth::login($user, $this->boolean('remember'));
         RateLimiter::clear($this->throttleKey());
     }
+
 
 
 

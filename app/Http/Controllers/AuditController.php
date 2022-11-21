@@ -19,7 +19,6 @@ class AuditController extends Controller
         // $audits = Audit::with('theuser')->get();
         $audits = Audit::all();
 
-
         // var_dump($audits);
         // dd($audits);ZSA
         return view('audit', compact('audits'));

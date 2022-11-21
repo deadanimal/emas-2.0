@@ -295,7 +295,7 @@
 
                 </li>
                 <br>
-                @can('Urusetia')
+                {{-- @can('Urusetia')
                     <a class="nav-link btn1" href="/MD/user/list" role="button">
 
                         <div class="d-flex align-items-center">
@@ -314,7 +314,7 @@
                             </div>
                         </div>
                     </a>
-                @endcan
+                @endcan --}}
 
 
                 <a class="nav-link btn1" href="/MD/Tableau/main_page" role="button">

@@ -58,24 +58,18 @@
                             @foreach ($tindakan_markahs as $markah)
                                 <tr>
                                     <td>
-                                        <input class="form-control" value="{{ $markah->tahun }}" readonly />
-                                    </td>
+                                        {{ $markah->tahun }} </td>
                                     <td>
-                                        <input class="form-control" value="{{ $markah->sukuan_tahun }}" readonly />
-                                    </td>
+                                        {{ $markah->sukuan_tahun }} </td>
                                     <td>
-                                        <input class="form-control" value="{{ $markah->status_pelaksanaan }}" readonly />
-                                    </td>
+                                        {{ $markah->status_pelaksanaan }} </td>
                                     <td>
-                                        <textarea class="form-control" readonly>{{ $markah->catatan }}</textarea>
-                                    </td>
+                                        {{ $markah->catatan }} </td>
                                     <td>
-                                        <textarea class="form-control" readonly>{{ $markah->sasaran }} </textarea>
-                                    </td>
+                                        {{ $markah->sasaran }} </td>
 
                                     <td>
-                                        <textarea class="form-control" readonly> {{ $markah->pencapaian }}</textarea>
-                                    </td>
+                                        {{ $markah->pencapaian }} </td>
                                     <td>
                                         @if ($markah->status_pelaksanaan == 'Siap')
                                             <img src='/img/greens.png'>
@@ -105,54 +99,56 @@
                                 <b><u>Kemasukan Data</u></b>
                             </div>
                             <div class="card-body">
-                                <label class="col-form-label" for="tahun">Tahun</label>
-                                <div class="col-sm-10">
-                                    <select class="form-select" name="tahun">
-                                        <option selected disabled hidden value="null">Tahun</option>
 
-                                        <option value="2021">2021</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2024">2024</option>
-                                        <option value="2025">2025</option>
-                                    </select>
-                                </div>
+                                <div class="row mb-4">
 
-                                <label class="col-form-label" for="sukuan_tahun">Sukuan Tahun</label>
-                                <div class="col-sm-10">
-                                    <select class="form-select" name="sukuan_tahun">
-                                        <option selected disabled hidden value="null">Sukuan Tahun</option>
-                                        <option value="Q1">Q1 (JAN-MAC)</option>
-                                        <option value="Q2">Q2 (APR-JUN) </option>
-                                        <option value="Q3">Q3 (JUL-SEP)</option>
-                                        <option value="Q4">Q4 (OKT-DIS)</option>
+                                    <div class="col-sm">
+                                        <select class="form-select" name="tahun">
+                                            <option selected disabled hidden value="null">Tahun</option>
 
-                                    </select>
-                                </div>
+                                            <option value="2021">2021</option>
+                                            <option value="2022">2022</option>
+                                            <option value="2023">2023</option>
+                                            <option value="2024">2024</option>
+                                            <option value="2025">2025</option>
+                                        </select>
+                                    </div>
 
-                                <label class="col-form-label" for="status_pelaksanaan">Status Pelaksanaan</label>
-                                <div class="col-sm-10">
-                                    <select class="form-select" name="status_pelaksanaan">
+                                    <div class="col-sm">
+                                        <select class="form-select" name="sukuan_tahun">
+                                            <option selected disabled hidden value="null">Sukuan Tahun</option>
+                                            <option value="Q1">Q1 (JAN-MAC)</option>
+                                            <option value="Q2">Q2 (APR-JUN) </option>
+                                            <option value="Q3">Q3 (JUL-SEP)</option>
+                                            <option value="Q4">Q4 (OKT-DIS)</option>
 
-                                        <option value="Siap">Siap</option>
-                                        <option value="Dalam Pelaksanaan">Dalam Pelaksanaan</option>
-                                        <option value="Belum Mula">Belum Mula</option>
-                                        <option value="Tiada Maklumat">Tiada Maklumat</option>
-                                    </select>
+                                        </select>
+                                    </div>
+
+
+                                    <div class="col-sm">
+                                        <select class="form-select" name="status_pelaksanaan">
+
+                                            <option value="Siap">Siap</option>
+                                            <option value="Dalam Pelaksanaan">Dalam Pelaksanaan</option>
+                                            <option value="Belum Mula">Belum Mula</option>
+                                            <option value="Tiada Maklumat">Tiada Maklumat</option>
+                                        </select>
+                                    </div>
                                 </div>
 
                                 <label class="col-form-label" for="catatan">Catatan</label>
-                                <div class="col-sm-10">
+                                <div class="col">
                                     <textarea type="text" name="catatan" class="form-control" placeholder="Catatan"></textarea>
                                 </div>
 
                                 <label class="col-form-label" for="sasaran">Sasaran</label>
-                                <div class="col-sm-10">
+                                <div class="col">
                                     <textarea type="text" name="sasaran" class="form-control" placeholder="Sasaran"></textarea>
                                 </div>
 
                                 <label class="col-form-label" for="pencapaian">Pencapaian</label>
-                                <div class="col-sm-10">
+                                <div class="col">
                                     <textarea type="text" name="pencapaian"class="form-control" placeholder="Pencapaian"></textarea>
                                 </div>
 
@@ -163,7 +159,7 @@
                             <div class="col" style="text-align: center">
                                 <button class="btn btn-falcon-default btn-sm"
                                     style="background-color: #047FC3; color:white;" type="submit" value="Save"
-                                    onclick="return confirm('Adakah anda mahu menyimpan data ini?')">&nbsp;Simpan Data
+                                    onclick="return confirm('Adakah anda mahu menyimpan data ini?')">&nbsp;Kemas Kini
                                 </button>
                             </div>
 
@@ -338,7 +334,6 @@
 
                 </div><br> --}}
 
-        <hr><br>
 
 
     </div>

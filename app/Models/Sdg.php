@@ -16,19 +16,6 @@ class Sdg extends Model implements Auditable
 
     protected $guarded = ['id'];
 
-    // protected $fillable = [
-
-    //     'keteranganSdg',
-    //     'namaSdg',
-    //     'pemangkin_id',
-    //     'user_id',
-    // ];
-
-    // protected $with = [
-    //     'user',
-    //     'pemangkin'
-
-    // ];
 
     public function user()
     {

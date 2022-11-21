@@ -40,10 +40,12 @@ class SdgController extends Controller
     {
         $user = Auth::user();
 
+        $sdgs = Sdg::all();
+
         $list = Pemangkindasar::all();
         $fokus = Fokusutama::all();
         $perkara = Perkarautama::all();
-        return view('ppd.sdg.create', compact('user', 'list', 'fokus', 'perkara'));
+        return view('ppd.sdg.create', compact('user', 'list', 'fokus', 'perkara', 'sdgs'));
     }
 
     /**
@@ -98,6 +100,9 @@ class SdgController extends Controller
     {
         $user = Auth::user();
 
+        $sdgs = Sdg::all();
+
+
         $list = Pemangkindasar::all();
         $fokus = Fokusutama::all();
         $perkara = Perkarautama::all();
@@ -110,7 +115,7 @@ class SdgController extends Controller
 
         // dd($sdg);
 
-        return view('ppd.sdg.edit', compact('sdg', 'list', 'fokus', 'perkara'));
+        return view('ppd.sdg.edit', compact('sdg', 'list', 'fokus', 'perkara', 'sdgs'));
     }
 
     /**

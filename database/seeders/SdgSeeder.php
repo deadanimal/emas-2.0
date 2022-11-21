@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Sdg;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -15,9 +16,22 @@ class SdgSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('matlamat_sdgs')->insert([
-            'matlamat' => 'Tiada Kemiskinan',
-            'huraian' => '"Menamatkan kemiskinan dalam semua bentuk di mana-mana."',
-        ]);
+        Sdg::query()->delete();
+
+        $csvFile = fopen(public_path("sdg/Sdg.csv"), "r");
+
+        $firstline = true;
+        while (($data = fgetcsv($csvFile, 2000, ",")) !== false) {
+            if (!$firstline) {
+                Sdg::create([
+                    'id' => $data['0'],
+                    'namaSdg' => $data['1'],
+                    'keteranganSdg' => $data['2'],
+                ]);
+            }
+            $firstline = false;
+        }
+
+        fclose($csvFile);
     }
 }

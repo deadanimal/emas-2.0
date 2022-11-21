@@ -229,11 +229,6 @@ class KpiController extends Controller
     public function edit1($id_kpi)
     {
         $kpi = Kpi::find($id_kpi);
-        // dd($kpi);
-        // $list= Outcome::where('id', $kpi->outcome_id)->first();
-        // $listBidang= Bidang::where('id', $kpi->bidang_id)->first();
-        // $listBab= Bab::where('id', $kpi->bab_id)->first();
-        // $listTema= Pemangkindasar::where('id', $kpi->pemangkin_id)->first();
 
         return view('ppd.kpi.edit1', compact('kpi'));
     }

@@ -130,7 +130,7 @@
                 if (val == e.pemangkin_id) {
                     $("#tablebody").append(`
                     <tr class="align-middle">
-                            <td class="text-nowrap">
+                            <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-` + e.id + `">
                                     <div class="ms-2"><b>` + e.namaSdg + `</b></div>

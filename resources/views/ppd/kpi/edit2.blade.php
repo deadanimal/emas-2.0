@@ -66,12 +66,21 @@
                                         <input class="form-control" value="{{ $markah->pencapaian }}" readonly />
                                     </td>
                                     <td>
-                                        <div class="input-group">
-                                            <input class="form-control" value="{{ $markah->peratus_pencapaian }}"
-                                                readonly />
-                                            <span class="input-group-text">%</span>
+                                        @if ($markah->peratus_pencapaian >= 100)
+                                            <div class="input-group">
+                                                <input class="form-control" value="100" readonly />
+                                                <span class="input-group-text">%</span>
 
-                                        </div>
+                                            </div>
+                                        @else
+                                            <div class="input-group">
+                                                <input class="form-control" value="{{ $markah->peratus_pencapaian }}"
+                                                    readonly />
+                                                <span class="input-group-text">%</span>
+
+                                            </div>
+                                        @endif
+
                                     </td>
 
                                     <td>

@@ -129,12 +129,14 @@ class KpiController extends Controller
     {
         $kpis = Kpi::all();
 
+        $markah = KpiMarkah::all();
+
         $tema = Pemangkindasar::first()->kpi_id;
         $bab = Bab::all();
         $bidang = Bidang::all();
         $outcome = Outcome::all();
 
-        return view('ppd.kpi.penilaian', compact('kpis', 'tema', 'bab', 'bidang', 'outcome'));
+        return view('ppd.kpi.penilaian', compact('kpis', 'tema', 'bab', 'bidang', 'outcome', 'markah'));
     }
 
     public function paparan()

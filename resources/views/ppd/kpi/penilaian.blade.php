@@ -130,23 +130,24 @@
                         @endforeach
                     </tbody> --}}
                     <tbody>
-                        @foreach ($kpis as $kpis)
+                        @foreach ($kpis as $kpi)
                             <tr>
                                 <td>{{ $loop->iteration }}.</td>
-                                <td></td>
-                                <td> <input class="form-control" readonly />
+                                <td>{{ $kpi->namaKpi }}</td>
+                                <td>{{ $kpi->wajaran }}
                                 </td>
-                                <td> <input class="form-control" readonly />
+                                <td>{{ $kpi->unitSasaran }}
                                 </td>
-                                <td> <input class="form-control" readonly />
+                                <td>{{ $kpi->sasaran2022 }}
                                 </td>
-                                <td> <input class="form-control" readonly />
+                                <td>{{ $kpi->sasaranRMK }}
                                 </td>
-                                <td> <input class="form-control" readonly />
+                                <td>{{ $kpi->pencapaianSemasa }}
                                 </td>
-                                <td> <input class="form-control" readonly />
+                                <td>{{ $kpi->prestasiKpi }}
                                 </td>
-                                <td id="prestasi"></td>
+                                <td>{{ $kpi->peratusPencapaian }}
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

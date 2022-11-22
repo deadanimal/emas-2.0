@@ -148,14 +148,14 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/thrus/" + id,
+                    url: "/MD/thrus/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }
                 });
 
                 alert = "Berjaya di buang!";
-                location.href = "/thrus";
+                location.href = "/MD/thrus";
 
             } else {
                 alert("Dibatalkan!");

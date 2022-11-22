@@ -556,6 +556,78 @@
                             </ul>
                         </div>
                     @endif
+                    <br>
+
+                    @if (Request::is(
+                        'ED/audit',
+                        'ED/audit/*',
+                        'ED/user',
+                        'ED/user/*',
+                        'ED/userRole',
+                        'ED/userRole/*',
+                        'ED/user1',
+                        'ED/user1/*',
+                        'ED/bahagian/senarai',
+                        'ED/bahagian/senarai/*'))
+                        <a class="nav-link dropdown-indicator" href="#TD" role="button"
+                            data-bs-toggle="collapse" aria-expanded="true" aria-controls="TD"
+                            style="background-color: #C4D4ED">
+                            <div class="d-flex justify-content-center" style="color: #047FC3">
+                                <span class="nav-link-text1 ps-1">Tableau Dashboard</span>
+                            </div>
+                        </a>
+
+                        <div class="card">
+                            <ul class="nav collapse show" id="TD" style="background-color: #E7EFFD">
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 " href="/PPD/dashboard">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">
+                                                Pelan Pelaksanaan Dasar
+
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 " href="/MPB/dashboard">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text1 ps-1">Malaysia
+                                                Blueprint Productivity
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link btn1" href="/KT/Tableau">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text1 ps-1">Pelaksanaan Program Pembasmian Kemiskinan
+                                                Tegar
+                                                Keluarga Malaysia
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link btn1" href="/MD/Tableau/main_page">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">
+                                                MyDigital
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+
+                                </li>
+
+                            </ul>
+                        </div>
+                    @endif
 
                 </li>
 

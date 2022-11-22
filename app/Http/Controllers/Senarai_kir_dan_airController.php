@@ -92,13 +92,13 @@ class Senarai_kir_dan_airController extends Controller
         $senarai = Negeri::where('id', '!=', 'null');
 
         if ($request->result[0] != 'null') {
-            $senarai->where('fokus_id', $request->result[0]);
+            $senarai->where('negeri_id', $request->result[0]);
         }
         if ($request->result[1] != 'null') {
-            $senarai->where('perkara_id', $request->result[1]);
+            $senarai->where('daerah_id', $request->result[1]);
         }
         if ($request->result[2] != 'null') {
-            $senarai->where('bab_id', $request->result[2]);
+            $senarai->where('Kampung_id', $request->result[2]);
         }
 
 

@@ -234,7 +234,9 @@ class PenggunaController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'password_confirmation' => Hash::make(($request->password_confirmation)),
-            // 'role' => $request->role,
+            'dalaman' => $request->dalaman,
+            'organisasi_id' => $request->organisasi_id,
+
 
         ]);
 
@@ -271,10 +273,13 @@ class PenggunaController extends Controller
 
         $roles = Role::with('permissions')->get();
         $permissions = Permission::all();
+        $organisasi = Organisasi::all();
         return view('user.edit', [
             'users' => $users,
             'roles' => $roles,
             'permissions' => $permissions,
+            'organisasi' => $organisasi,
+
         ]);
         // dd(gettype($users->role));
         // dd($users);
@@ -297,6 +302,8 @@ class PenggunaController extends Controller
         $user->username = $request->username;
         $user->email = $request->email;
         $user->role = $request->role;
+        $user->organisasi_id = $request->organisasi_id;
+
         // $user->permissions = $request->permissions;
 
         $user->syncRoles($request->role);

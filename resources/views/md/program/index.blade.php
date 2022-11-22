@@ -236,14 +236,14 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/program/" + id,
+                    url: "/MD/program/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }
                 });
 
                 alert = "Berjaya di buang!";
-                location.href = "/program";
+                location.href = "/MD/program";
 
             } else {
                 alert("Dibatalkan!");

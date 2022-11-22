@@ -89,18 +89,34 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-6">
-                                        <label for="permission">Agensi/Kementerian/
-                                            Bahagian :</label>
+                                    {{-- <div class="col-6">
+                                        <label for="dalaman">Dalaman:</label>
                                         <div>
                                             <div class="form-group">
 
-                                                <select class="form-control mb-3" name="permission" id="pilih2">
+                                                <select class="form-control mb-3" name="dalaman">
 
-                                                    {{-- @foreach ($permissions as $p)
-                                                <option value="{{ $p->name }}">{{ $p->name }}
-                                                </option>
-                                            @endforeach --}}
+                                                    @foreach ($users as $use)
+                                                        <option value="{{ $use->dalaman }}">{{ $use->dalaman }}
+                                                        </option>
+                                                    @endforeach
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div> --}}
+
+                                    <div class="col-6">
+                                        <label for="organisasi_id">Organisasi:</label>
+                                        <div>
+                                            <div class="form-group">
+
+                                                <select class="form-control mb-3" name="organisasi_id">
+
+                                                    @foreach ($organisasi as $organ)
+                                                        <option value="{{ $organ->id }}">{{ $organ->nama }}
+                                                        </option>
+                                                    @endforeach
 
                                                 </select>
                                             </div>

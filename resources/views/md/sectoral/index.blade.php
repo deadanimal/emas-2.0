@@ -243,14 +243,14 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/sectoral/" + id,
+                    url: "/MD/sectoral/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }
                 });
 
                 alert = "Berjaya di buang!";
-                location.href = "/sectoral";
+                location.href = "/MD/sectoral";
 
             } else {
                 alert("Dibatalkan!");

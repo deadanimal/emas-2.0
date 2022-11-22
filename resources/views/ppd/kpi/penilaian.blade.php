@@ -160,11 +160,11 @@
                         <span class="fas fa-backspace"></span>&nbsp;Batal
                     </a>
                     <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                        type="submit" value="Save" onclick="return confirm('Adakah anda mahu menyimpan data ini?')">
+                        type="submit" value="Save">
                         <span class="fas fa-calculator"></span>&nbsp;Proses
                     </button>
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                        href="/PPD/kpi">
+                        href="/PPD/paparan/kpi">
                         <span class="fas fa-print"></span>&nbsp;Papar
 
                     </a>

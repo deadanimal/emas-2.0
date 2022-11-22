@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Imports\UsersImport;
+use App\Models\Organisasi;
 use App\Models\Pengguna;
 use App\Models\User;
 use Carbon\Carbon;
@@ -167,10 +168,13 @@ class PenggunaController extends Controller
         $user = User::all();
         $roles = Role::with('permissions')->get();
         $permissions = Permission::all();
+        $organisasi = Organisasi::all();
         return view('user.create', [
             'users' => $user,
             'role' => $roles,
             'permissions' => $permissions,
+            'organisasi' => $organisasi,
+
         ]);
 
         // $user->syncPermission('KementerianPPD');

@@ -111,11 +111,11 @@
 
                                         <select class="form-control mb-3" name="" required>
                                             <option selected disabled hidden>Sila pilih</option>
-                                            @foreach ($organisasi as $organ)
+                                            {{-- @foreach ($organisasi as $organ)
                                                 <option value="{{ $organ->name }}">
                                                     {{ ucfirst(trans($organ->name)) }}
                                                 </option>
-                                            @endforeach
+                                            @endforeach --}}
                                         </select>
                                     </div>
                                 </div>

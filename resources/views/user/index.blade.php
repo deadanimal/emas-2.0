@@ -38,8 +38,7 @@
                                     <th class="font-weight-bolder opacity-7">ID Agensi/Bahagian/Kementerian</th>
                                     <th class="text-center font-weight-bolder opacity-7">Nama
                                         Agensi/Bahagian/Kementerian</th>
-                                    <th class="text-center font-weight-bolder opacity-7">Nama
-                                        Agensi/Bahagian/Kementerian</th>
+
                                     <th class="text-center font-weight-bolder opacity-7">Profil</th>
                                     <th class="text-center font-weight-bolder opacity-7">Status</th>
                                     <th class="text-center font-weight-bolder opacity-7">Hapus</th>

@@ -105,17 +105,30 @@
                                 </div>
 
                                 <div class="col-6">
-                                    <label for="">Agensi/Kementerian/
-                                        Bahagian :</label>
+                                    <label for="">Dalaman:</label>
                                     <div class="input-group">
 
-                                        <select class="form-control mb-3" name="" required>
+                                        <select class="form-control mb-3" name="dalaman" required>
                                             <option selected disabled hidden>Sila pilih</option>
-                                            {{-- @foreach ($organisasi as $organ)
-                                                <option value="{{ $organ->name }}">
-                                                    {{ ucfirst(trans($organ->name)) }}
+                                            @foreach ($users as $use)
+                                                <option value="{{ $use->dalaman }}">
+                                                    {{ ucfirst(trans($use->dalaman)) }}
                                                 </option>
-                                            @endforeach --}}
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <label for="">Organisasi:</label>
+                                    <div class="input-group">
+                                        <select class="form-control mb-3" name="organisasi_id" required>
+                                            <option selected disabled hidden>Sila pilih</option>
+                                            @foreach ($organisasi as $organ)
+                                                <option value="{{ $organ->id }}">
+                                                    {{ ucfirst(trans($organ->nama)) }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -161,10 +174,6 @@
 
                 }
             });
-
-
-
-
         })
     </script>
 @endsection

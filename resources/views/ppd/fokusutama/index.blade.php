@@ -7,6 +7,7 @@
 
         <br>
 
+
         <div class="col">
             <div class="row align-items-center">
                 <div class="col col-lg-8">
@@ -17,6 +18,7 @@
                             href="/PPD/fokusutama/create">
                             <span class="fas fa-plus-circle"></span>&nbsp;Tambah</a>
                     @endif
+
 
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">

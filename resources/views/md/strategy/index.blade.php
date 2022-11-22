@@ -257,14 +257,14 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/strategy/" + id,
+                    url: "/MD/strategy/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }
                 });
 
                 alert = "Berjaya di buang!";
-                location.href = "/strategy";
+                location.href = "/MD/strategy";
 
             } else {
                 alert("Dibatalkan!");

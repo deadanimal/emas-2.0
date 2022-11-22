@@ -126,14 +126,14 @@
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",
-                    url: "/plan/" + id,
+                    url: "/MD/plan/" + id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                     }
                 });
 
                 alert = "Berjaya di buang!";
-                location.href = "/plan";
+                location.href = "/MD/plan";
 
             } else {
                 alert("Dibatalkan!");

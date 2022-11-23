@@ -51,7 +51,6 @@ class FokusutamaController extends Controller
 
         $dalaman = Auth::user()->dalaman;
         $user = Auth::user();
-        $user->givePermissionTo('ICT');
         if ($dalaman == 1) {
 
             $fokusutama = Fokusutama::all();

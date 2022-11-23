@@ -26,7 +26,7 @@ class FokusutamaController extends Controller
     {
         $user = Auth::user();
         $fokusutama = Fokusutama::all();
-        return view('ppd.fokusutama.index', compact('fokusutama', 'dalaman', 'user'));
+        return view('ppd.fokusutama.index', compact('fokusutama', 'user'));
     }
 
     public function create()

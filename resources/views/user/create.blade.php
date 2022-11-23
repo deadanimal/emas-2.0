@@ -93,14 +93,35 @@
                                     <label for="">Peranan:</label>
                                     <div class="input-group">
 
-                                        <select class="form-control mb-3" name="permission" id="pilih2" required>
+                                        {{-- <select class="form-control mb-3" name="permission" id="pilih2" required>
                                             <option selected disabled hidden>Sila pilih</option>
-                                            {{-- @foreach ($role->permissions as $permission)
+                                            @foreach ($role->permissions as $permission)
                                                 <option value="{{ $permission->name }}">
                                                     {{ ucfirst(trans($permission->name)) }}
                                                 </option>
-                                            @endforeach --}}
+                                            @endforeach
+                                        </select> --}}
+
+                                        <select class="form-select" name="permission" required>
+                                            <option selected disabled hidden value="null">Sila Pilih</option>
+                                            <option value="Kementerian/Agensi PPD">PPD - Kementerian/ Agensi</option>
+                                            <option value="Bahagian PPD">PPD - Bahagian</option>
+                                            <option value="BPKP">PPD - BPKP</option>
+                                            <option value="User">MPB - User</option>
+                                            <option value="Approver">MPB - Approver</option>
+                                            <option value="Admin">MPB - Admin</option>
+                                            <option value="Agensi KT">KT - Agensi</option>
+                                            <option value="Bahagian KT">KT - Bahagian</option>
+                                            <option value="Kementerian MD">MD - Kementerian</option>
+                                            <option value="Bahagian MD">MD - Bahagian</option>
+                                            <option value="Agensi MD">MD - Agensi</option>
+                                            <option value="Urusetia">MD - Urusetia</option>
+                                            <option value="Epu MD">MD - EPU</option>
+                                            <option value="ICT">ED - SuperAdmin</option>
+                                            <option value="Epu ED">ED - Pengurusan Atasan</option>
+
                                         </select>
+
                                     </div>
                                 </div>
 
@@ -108,13 +129,10 @@
                                     <label for="">Dalaman:</label>
                                     <div class="input-group">
 
-                                        <select class="form-control mb-3" name="dalaman" required>
-                                            <option selected disabled hidden>Sila pilih</option>
-                                            @foreach ($users as $use)
-                                                <option value="{{ $use->dalaman }}">
-                                                    {{ ucfirst(trans($use->dalaman)) }}
-                                                </option>
-                                            @endforeach
+                                        <select class="form-select" name="dalaman" required>
+                                            <option selected disabled hidden value="null">Sila Pilih</option>
+                                            <option value="1">Ya</option>
+                                            <option value="0">Tidak</option>
                                         </select>
                                     </div>
                                 </div>

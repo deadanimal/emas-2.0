@@ -68,7 +68,15 @@
 
         .risda-bg-dg {
             background-color: #76bbe9;
+            position: relative;
             color: #07385E;
+
+        }
+
+        .footerContent {
+            background-color: #76bbe9;
+            color: #07385E;
+
 
         }
 
@@ -336,125 +344,125 @@
     <main class="main" id="top">
 
         <div class="container">
-            <div class="mb-4 text-center">
+            <div class="content content1">
+
+
+                @role('PPD|MPB|KT|ED|MD')
+                    <div class="row pb-3">
+                        @role('PPD')
+                            <div class="col-md-6 col-lg-4 text-center">
+                                <a class="mb-3" href="PPD/fokusutama">
+                                    <div class="px-4 pt-4">
+                                        <img src="img/PPD.png" class="img-fluid card-img-hover landing-img"
+                                            alt="Pelan Pelaksanaan">
+                                    </div>
+                                </a>
+                            </div>
+                        @else
+                            <div class="col-md-6 col-lg-4 text-center">
+                                <a class="mb-3">
+                                    <div class="px-4 pt-4">
+                                        <img src="img/PPD.png" class="img-fluid card-img-hover landing-img"
+                                            alt="Pelan Pelaksanaan" style="opacity: 50%">
+                                    </div>
+                                </a>
+                            </div>
+                        @endrole
+
+
+                        @role('MPB')
+                            <div class="col-md-6 col-lg-4 text-center">
+                                <a class="mb-3" href="/MPB/dashboardMPB">
+                                    <div class="px-4 pt-4">
+                                        <img src="img/MPB.png" class="img-fluid card-img-hover landing-img" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                        @else
+                            <div class="col-md-6 col-lg-4 text-center">
+                                <a class="mb-3">
+                                    <div class="px-4 pt-4">
+                                        <img src="img/MPB.png" class="img-fluid card-img-hover landing-img" alt=""
+                                            style="opacity: 50%">
+                                    </div>
+                                </a>
+                            </div>
+                        @endrole
+
+                        @role('KT')
+                            <div class="col-md-6 col-lg-4 text-center">
+                                <a class="mb-3" href="KT/lokaliti/index/">
+                                    <div class="px-4 pt-4">
+                                        <img src="img/KT.png" class="img-fluid card-img-hover landing-img" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                        @else
+                            <div class="col-md-6 col-lg-4 text-center">
+                                <a class="mb-3">
+                                    <div class="px-4 pt-4">
+                                        <img src="img/KT.png" class="img-fluid card-img-hover landing-img" alt=""
+                                            style="opacity: 50%">
+                                    </div>
+                                </a>
+                            </div>
+                        @endrole
+
+
+                    </div>
+
+                    <div class="row pb-3">
+                        <div class="col-md-6 col-lg-2 text-center">
+
+                        </div>
+                        @role('MD')
+                            <div class="col-md-6 col-lg-4 text-center">
+                                <a class="mb-3" href="MD/cluster">
+                                    <div class="px-4 pt-4">
+                                        <img src="img/MD.png" class="img-fluid card-img-hover landing-img" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                        @else
+                            <div class="col-md-6 col-lg-4 text-center">
+                                <a class="mb-3">
+                                    <div class="px-4 pt-4">
+                                        <img src="img/MD.png" class="img-fluid card-img-hover landing-img" alt=""
+                                            style="opacity: 50%">
+                                    </div>
+                                </a>
+                            </div>
+                        @endrole
+
+                        @role('ED')
+                            <div class="col-md-6 col-lg-4 text-center">
+                                <a class="mb-3" href="ED/user/create">
+                                    <div class="px-4 pt-4">
+                                        <img src="img/ED.png" class="img-fluid card-img-hover landing-img" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                        @else
+                            <div class="col-md-6 col-lg-4 text-center">
+                                <a class="mb-3">
+                                    <div class="px-4 pt-4">
+                                        <img src="img/ED.png" class="img-fluid card-img-hover landing-img" alt=""
+                                            style="opacity: 50%">
+                                    </div>
+                                </a>
+                            </div>
+                        @endrole
+
+                        <div class="col-md-6 col-lg-2 text-center">
+                        </div>
+                    </div>
+                @endrole
             </div>
-
-
-            @role('PPD|MPB|KT|ED|MD')
-                <div class="row pb-3">
-                    @role('PPD')
-                        <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3" href="PPD/fokusutama">
-                                <div class="px-4 pt-4">
-                                    <img src="img/PPD.png" class="img-fluid card-img-hover landing-img" alt="Pelan Pelaksanaan">
-                                </div>
-                            </a>
-                        </div>
-                    @else
-                        <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3">
-                                <div class="px-4 pt-4">
-                                    <img src="img/PPD.png" class="img-fluid card-img-hover landing-img" alt="Pelan Pelaksanaan"
-                                        style="opacity: 50%">
-                                </div>
-                            </a>
-                        </div>
-                    @endrole
-
-
-                    @role('MPB')
-                        <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3" href="/MPB/dashboardMPB">
-                                <div class="px-4 pt-4">
-                                    <img src="img/MPB.png" class="img-fluid card-img-hover landing-img" alt="">
-                                </div>
-                            </a>
-                        </div>
-                    @else
-                        <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3">
-                                <div class="px-4 pt-4">
-                                    <img src="img/MPB.png" class="img-fluid card-img-hover landing-img" alt=""
-                                        style="opacity: 50%">
-                                </div>
-                            </a>
-                        </div>
-                    @endrole
-
-                    @role('KT')
-                        <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3" href="KT/lokaliti/index/">
-                                <div class="px-4 pt-4">
-                                    <img src="img/KT.png" class="img-fluid card-img-hover landing-img" alt="">
-                                </div>
-                            </a>
-                        </div>
-                    @else
-                        <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3">
-                                <div class="px-4 pt-4">
-                                    <img src="img/KT.png" class="img-fluid card-img-hover landing-img" alt=""
-                                        style="opacity: 50%">
-                                </div>
-                            </a>
-                        </div>
-                    @endrole
-
-
-                </div>
-
-                <div class="row pb-3">
-                    <div class="col-md-6 col-lg-2 text-center">
-
-                    </div>
-                    @role('MD')
-                        <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3" href="MD/cluster">
-                                <div class="px-4 pt-4">
-                                    <img src="img/MD.png" class="img-fluid card-img-hover landing-img" alt="">
-                                </div>
-                            </a>
-                        </div>
-                    @else
-                        <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3">
-                                <div class="px-4 pt-4">
-                                    <img src="img/MD.png" class="img-fluid card-img-hover landing-img" alt=""
-                                        style="opacity: 50%">
-                                </div>
-                            </a>
-                        </div>
-                    @endrole
-
-                    @role('ED')
-                        <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3" href="ED/user/create">
-                                <div class="px-4 pt-4">
-                                    <img src="img/ED.png" class="img-fluid card-img-hover landing-img" alt="">
-                                </div>
-                            </a>
-                        </div>
-                    @else
-                        <div class="col-md-6 col-lg-4 text-center">
-                            <a class="mb-3">
-                                <div class="px-4 pt-4">
-                                    <img src="img/ED.png" class="img-fluid card-img-hover landing-img" alt=""
-                                        style="opacity: 50%">
-                                </div>
-                            </a>
-                        </div>
-                    @endrole
-
-                    <div class="col-md-6 col-lg-2 text-center">
-                    </div>
-                </div>
-            @endrole
-
 
         </div>
 
         <footer class="risda-bg-dg">
-            <div class="row p-">
+            <div class="row">
                 <div class="col">
                     <div class="text-center">
                         <b>Copyright</b> ©️ <b>UNIT PERANCANG EKONOMI</b>

@@ -47,6 +47,7 @@ class FokusutamaController extends Controller
 
         // $fokusutama = Fokusutama::all();
         // $role = Role::all();
+        dd($permissions = Auth::user()->permissions);
 
         $dalaman = Auth::user()->dalaman;
         if ($dalaman == 1) {

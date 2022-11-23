@@ -29,7 +29,9 @@
                     
                     @if(auth()->user()->can('BPKP'))
                     just checking permission shoing...BPKP
-                    @endif                     
+                    @endif     
+                    
+                    
 
 
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"

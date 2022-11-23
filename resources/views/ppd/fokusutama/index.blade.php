@@ -31,7 +31,7 @@
                     BPKP<br/>
                     @endif   
 
-                    @can('edit articles')
+                    @can('BPKP')
                     //
                     @endcan
                     

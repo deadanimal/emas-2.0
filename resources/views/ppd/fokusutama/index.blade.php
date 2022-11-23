@@ -30,6 +30,10 @@
                     @if(auth()->user()->can('BPKP'))
                     BPKP<br/>
                     @endif   
+
+                    @can('edit articles')
+                    //
+                    @endcan
                     
                     <p>{{$user}}<br/>{{$user->permissions}}</p>
                     

@@ -131,7 +131,7 @@ class KpiController extends Controller
 
         $markah = KpiMarkah::all();
 
-        $temas = Pemangkindasar::first()->kpi_id;
+        $temas = Pemangkindasar::all();
         $bab = Bab::all();
         $bidang = Bidang::all();
         $outcome = Outcome::all();

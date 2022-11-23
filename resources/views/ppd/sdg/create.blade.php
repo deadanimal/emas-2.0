@@ -69,12 +69,7 @@
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label" for="namaSdg">Nama SDG*</label>
                     <div class="col-sm-10">
-                        <select class="form-control" id="pilih1">
-                            <option selected disabled hidden value="null">SILA PILIH</option>
-                            @foreach ($sdgs as $sdg)
-                                <option value="{{ $sdg->id }}">{{ $sdg->namaSdg }}</option>
-                            @endforeach
-                        </select>
+                        <input class="form-control" type="text" name="namaSdg" />
                     </div>
                 </div>
 

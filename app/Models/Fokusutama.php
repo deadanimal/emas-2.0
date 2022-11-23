@@ -32,4 +32,9 @@ class Fokusutama extends Model implements Auditable
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function perkara()
+    {
+        return $this->hasMany(Perkarautama::class, 'perkara_id');
+    }
 }

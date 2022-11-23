@@ -226,7 +226,6 @@
                             <td align="right">
                                 <div>
                                     @can('PPD - Admin')
-                                        {{-- <form action="{{ route('tindakan.destroy', $tindakan->id) }}" method="POST"> --}}
                                         <a class="btn btn-warning" style="border-radius: 38px"
                                             href="/PPD/tindakan1/{{ $tindakan->id }}/edit/"><i class="fas fa-pencil-alt"></i>
                                         </a>
@@ -235,15 +234,14 @@
                                             href="{{ route('tindakan.edit', $tindakan->id) }}"><i class="fas fa-edit"></i>
                                         </a>
 
-                                        {{-- @csrf
-                                        @method('DELETE') --}}
+
                                         <button type="submit" onclick="myFunction({{ $tindakan->id }})"
                                             class="btn btn-danger" style="border-radius: 38px">
                                             <i class="fas fa-trash"></i>
                                         </button>
-                                        <p id="ppd"></p>
-
-                                        {{-- </form> --}}
+                                        <a class="btn btn-success" href="tindakan_cetak/{{ $tindakan->id }}"><i
+                                                class="fas fa-print"></i>
+                                        </a>
                                     @endcan
 
                                 </div>

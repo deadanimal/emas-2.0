@@ -16,10 +16,9 @@
                         <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                             href="/PPD/fokusutama/create">
                             <span class="fas fa-plus-circle"></span>&nbsp;Tambah</a>
-
                     @endcan
 
-                    
+
 
 
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"

@@ -16,13 +16,13 @@
                         {{-- @foreach ($tema as $te)
                             <option value="{{ $te->id }}">{{ $te->namaTema }}</option>
                         @endforeach --}}
-                        
+
                             @foreach ($temas as $tema)
                                 <option value="{{ $tema->id }}">
                                     {{ $tema->namaTema }}
                                 </option>
                             @endforeach
-                        
+
                     </select>
                 </div>
 
@@ -160,128 +160,11 @@
                         href="/PPD/prestasi/pelaporan_prestasi_kpi">
                         <span class="fas fa-backspace"></span>&nbsp;Batal
                     </a>
-                    <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                        type="submit" value="Save">
-                        <span class="fas fa-calculator"></span>&nbsp;Proses
-                    </button>
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                        href="/PPD/paparan/kpi">
-                        <span class="fas fa-print"></span>&nbsp;Papar
-
-                    </a>
+      
                 </div>
 
 
             </div>
 
         </div>
-
-        <script>
-            $(".pencapaian").keyup(function() {
-
-                var checkAllInputFilled = true;
-                jQuery.each($(".pencapaian"), function(key, val) {
-                    if (val.value == '') {
-                        checkAllInputFilled = false;
-                    }
-                });
-
-                if (checkAllInputFilled) {
-
-                    let sasaran = $('input[name="sasaran"]').val();
-                    let wajaran = $('input[name="wajaran"]').val();
-
-                    let pencapaian = $('input[name="q1"]').val();
-                    let result = (pencapaian / sasaran) * wajaran;
-                    $('input[name="peratusPencapaian"]').val(result);
-                    $('input[name="peratusPencapaian"]').trigger('change');
-
-
-
-                    let pencapaian1 = $('input[name="q2"]').val();
-                    let result1 = (pencapaian1 / sasaran) * wajaran;
-                    $('input[name="peratusPencapaian1"]').val(result1);
-                    $('input[name="peratusPencapaian1"]').trigger('change');
-
-
-
-                    let pencapaian2 = $('input[name="q3"]').val();
-                    let result2 = (pencapaian2 / sasaran) * wajaran;
-                    $('input[name="q3"]').val(result2);
-                    $('input[name="q3"]').trigger('change');
-
-
-
-                    let pencapaian3 = $('input[name="q4"]').val();
-                    let result3 = (pencapaian3 / sasaran) * wajaran;
-                    $('input[name="q4"]').val(result3);
-                    $('input[name="q4"]').trigger('change');
-
-
-                }
-            });
-
-            $(document).ready(function() {
-                $('#example').DataTable({
-                    dom: 'Bfrtip',
-                    buttons: [
-
-
-                    ]
-
-
-                });
-            });
-
-            $(".search").change(function() {
-                var result = [];
-                jQuery.each($(".search"), function(key, val) {
-                    result.push(val.value);
-                });
-
-                $.ajax({
-                    method: "POST",
-                    url: "/PPD/search_kpi",
-                    data: {
-                        "_token": "{{ csrf_token() }}",
-                        "result": result,
-                    },
-                }).done(function(response) {
-                    console.log(response);
-                    $("#searchUpdateTable").html('');
-
-                    response.forEach(el => {
-                        $("#searchUpdateTable").append(`
-                    <tr class="align-middle">
-
-
-                        <td>
-                            <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                    data-bs-target="#error-modal-` + el.id + `">
-
-                                <div class="ms-2"><b>` + el.namaKpi + `</b></div>
-                            </div>
-                        </td>
-
-                        <td align="right">
-
-                        <div>
-                                <a class="btn btn-success" style="border-radius: 38px"
-                                    href="/PPD/prestasi_kpi/` + el.id + `/edit/"><i class="fas fa-arrow-alt-circle-right"></i>
-                                </a>
-                            </div>
-                        </td>
-
-                    </tr>
-
-
-
-                    `);
-
-                    });
-                });
-
-
-            });
-        </script>
     @endsection

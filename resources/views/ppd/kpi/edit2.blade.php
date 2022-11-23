@@ -143,14 +143,14 @@
 
                                     <label class="col-sm-2 col-form-label" for="pencapaian">Pencapaian</label>
                                     <div class="col-sm-10" style="width: 30%">
-                                        <input type="number" name="pencapaian" class="form-control pencapaian"
+                                        <input type="number" id="pencapaian" name="pencapaian" onchange="pencapaian_ubah()" class="form-control pencapaian"
                                             placeholder="Pencapaian" />
                                     </div>
 
                                     <label class="col-sm-2 col-form-label" for="peratus_pencapaian">Peratus
                                         Pencapaian</label>
                                     <div class="col-sm-10" style="width: 30%">
-                                        <input type="number" name="peratus_pencapaian"class="form-control"
+                                        <input type="number" id="peratus_pencapaian" name="peratus_pencapaian"class="form-control"
                                             placeholder="Peratus Pencapaian" readonly />
                                     </div>
                                 </div>
@@ -397,6 +397,15 @@
 
             }
         });
+
+        function pencapaian_ubah() {
+            var peratus_pencapaian = document.getElementById("pencapaian").value
+            if (peratus_pencapaian > 100) {
+                document.getElementById("peratus_pencapaian").value = 100.00;
+            } else {
+                document.getElementById("peratus_pencapaian").value = peratus_pencapaian;
+            }
+        }
 
 
 

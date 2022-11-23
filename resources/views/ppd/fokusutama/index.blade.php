@@ -43,9 +43,6 @@
                     ada BPKP
                     @endcan
                     
-                    <p>{{$user}}<br/>{{$user->permissions}}</p>
-                    
-                    
 
 
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"

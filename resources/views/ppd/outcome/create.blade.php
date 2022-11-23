@@ -69,8 +69,8 @@
                         <select class="form-control" name="bidang_id">
                             <option selected disabled hidden>SILA PILIH</option>
 
-                            @foreach ($list as $list)
-                                <option value="{{ $list->id }}">{{ $list->namaBidang }}</option>
+                            @foreach ($bidangs as $bidang)
+                                <option value="{{ $bidang->id }}">{{ $bidang->namaBidang }}</option>
                             @endforeach
 
                         </select>

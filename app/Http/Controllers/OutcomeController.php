@@ -43,11 +43,11 @@ class OutcomeController extends Controller
     {
         $user = Auth::user();
 
-        $list = Bidang::all();
+        $bidangs = Bidang::all();
         $fokus = Fokusutama::all();
         $pemangkin = Pemangkindasar::all();
         $perkaras = Perkarautama::all();
-        return view('ppd.outcome.create', compact('user', 'list', 'pemangkin', 'fokus', 'perkaras'));
+        return view('ppd.outcome.create', compact('user', 'bidangs', 'pemangkin', 'fokus', 'perkaras'));
     }
 
     /**
@@ -82,12 +82,12 @@ class OutcomeController extends Controller
     public function edit(Outcome $outcome)
     {
 
-        $list = Bidang::all();
+        $bidangs = Bidang::all();
         $fokus = Fokusutama::all();
         $pemangkin = Pemangkindasar::all();
         $perkaras = Perkarautama::all();
 
-        return view('ppd.outcome.edit', compact('outcome', 'list', 'pemangkin', 'fokus', 'perkaras'));
+        return view('ppd.outcome.edit', compact('outcome', 'bidangs', 'pemangkin', 'fokus', 'perkaras'));
     }
 
     /**

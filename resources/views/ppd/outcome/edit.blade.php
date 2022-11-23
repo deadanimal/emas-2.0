@@ -64,8 +64,8 @@
                     <div class="col-sm-10">
                         <select class="form-control" name="bidang_id">
 
-                            @foreach ($list as $list)
-                                <option @selected($outcome->bidang_id == $list->id) value="{{ $list->id }}">{{ $list->namaBidang }}
+                            @foreach ($bidangs as $bidang)
+                                <option @selected($outcome->bidang_id == $bidang->id) value="{{ $bidang->id }}">{{ $list->namaBidang }}
                                 </option>
                             @endforeach
 

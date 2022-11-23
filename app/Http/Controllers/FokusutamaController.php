@@ -51,7 +51,7 @@ class FokusutamaController extends Controller
 
         $dalaman = Auth::user()->dalaman;
         $user = Auth::user();
-        $user->givePermissionTo('BPKP', 'web');
+        $user->givePermissionTo('BPKP');
         if ($dalaman == 1) {
 
             $fokusutama = Fokusutama::all();

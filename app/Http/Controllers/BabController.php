@@ -6,6 +6,7 @@ use App\Http\Requests\StoreBabRequest;
 use App\Http\Requests\UpdateBabRequest;
 use App\Models\Bab;
 use App\Models\Fokusutama;
+use App\Models\Organisasi;
 use App\Models\Pemangkindasar;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -48,9 +49,10 @@ class BabController extends Controller
         $user = Auth::user();
         $users = User::permission('Bahagian PPD')->get();
 
+        $organisasis = Organisasi::where('jenis', 'bahagian')->get();
         $temas = Pemangkindasar::all();
         $fokuss = Fokusutama::all();
-        return view('ppd.bab.create', compact('user', 'temas', 'fokuss', 'users'));
+        return view('ppd.bab.create', compact('user', 'temas', 'fokuss', 'users', 'organisasis'));
     }
 
     /**
@@ -61,7 +63,10 @@ class BabController extends Controller
      */
     public function store(StoreBabRequest $request)
     {
+        $user = Auth::user();
         $bab = Bab::create($request->validated());
+        $bab->organisasi_id = $user->organisasi_id;
+        $bab->save();
         return redirect()->route('bab.index');
     }
 

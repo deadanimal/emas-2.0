@@ -9,6 +9,7 @@ use App\Models\Bidang;
 use App\Models\Fokusutama;
 use App\Models\Perkarautama;
 use App\Models\Inisiatif;
+use App\Models\Organisasi;
 use App\Models\Outcome;
 use App\Models\Pemangkindasar;
 use App\Models\Strategi;
@@ -200,10 +201,13 @@ class TindakanController extends Controller
     public function edit1($id_tindakan)
     {
         $tindakans = Tindakan::find($id_tindakan);
+
         $users = User::permission('Bahagian PPD')->get();
+        $organisasis = Organisasi::where('jenis', 'bahagian')->get();
 
 
-        return view('ppd.tindakan.edit1', compact('tindakans', 'users'));
+
+        return view('ppd.tindakan.edit1', compact('tindakans', 'users', 'organisasis'));
     }
 
     public function edit2($id_tindakan)
@@ -231,6 +235,8 @@ class TindakanController extends Controller
 
     public function update1(UpdateTindakanRequest $request, Tindakan $tindakan)
     {
+        $user = Auth::user();
+
         $tindakan->update($request->all());
         return redirect()->route('tindakan.index');
     }

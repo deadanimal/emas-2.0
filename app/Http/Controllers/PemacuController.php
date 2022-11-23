@@ -46,8 +46,7 @@ class PemacuController extends Controller
     public function create()
     {
         $user = Auth::user();
-
-        $babs = Bab::all();
+        $babs = Bab::where('organisasi_id', $user->organisasi_id)->get();
         $fokuss = Fokusutama::all();
         $perkaras = Perkarautama::all();
         return view('ppd.pemacu.create', compact('user', 'babs', 'fokuss', 'perkaras'));
@@ -61,7 +60,10 @@ class PemacuController extends Controller
      */
     public function store(StorePemacuRequest $request)
     {
+        $user = Auth::user();
         $pemacu = Pemacu::create($request->all());
+        $pemacu->organisasi_id = $user->organisasi_id;
+        $pemacu->save();
         return redirect()->route('pemacu.index');
     }
 

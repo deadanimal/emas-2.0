@@ -26,13 +26,11 @@ class PermissionsSeeder extends Seeder
 
         // create roles and assign existing permissions
         $role1 = Role::create(['name' => 'PPD']);
-        Permission::create(['name' => 'Kementerian PPD']);
+        Permission::create(['name' => 'Kementerian/Agensi PPD']);
         Permission::create(['name' => 'Bahagian PPD']);
-        Permission::create(['name' => 'Agensi PPD']);
         Permission::create(['name' => 'BPKP']);
-        $role1->givePermissionTo('Kementerian PPD');
+        $role1->givePermissionTo('Kementerian/Agensi PPD');
         $role1->givePermissionTo('Bahagian PPD');
-        $role1->givePermissionTo('Agensi PPD');
         $role1->givePermissionTo('BPKP');
 
         $role2 = Role::create(['name' => 'MPB']);
@@ -74,9 +72,8 @@ class PermissionsSeeder extends Seeder
 
 
         $role6 = Role::create(['name' => 'SuperAdmin']);
-        $role6->givePermissionTo('Kementerian PPD');
+        $role6->givePermissionTo('Kementerian/Agensi PPD');
         $role6->givePermissionTo('Bahagian PPD');
-        $role6->givePermissionTo('Agensi PPD');
         $role6->givePermissionTo('BPKP');
         $role6->givePermissionTo('User');
         $role6->givePermissionTo('Approver');
@@ -100,9 +97,8 @@ class PermissionsSeeder extends Seeder
 
         ]);
         $user->assignRole($role1);
-        $user->givePermissionTo('Kementerian PPD');
+        $user->givePermissionTo('Kementerian/Agensi PPD');
         $user->givePermissionTo('Bahagian PPD');
-        $user->givePermissionTo('Agensi PPD');
         $user->givePermissionTo('BPKP');
 
         $user = User::create([
@@ -159,9 +155,8 @@ class PermissionsSeeder extends Seeder
 
         ]);
         $user->assignRole([$role1, $role2, $role3, $role4, $role5, $role6]);
-        $user->givePermissionTo('Kementerian PPD');
+        $user->givePermissionTo('Kementerian/Agensi PPD');
         $user->givePermissionTo('Bahagian PPD');
-        $user->givePermissionTo('Agensi PPD');
         $user->givePermissionTo('BPKP');
         $user->givePermissionTo('User');
         $user->givePermissionTo('Approver');

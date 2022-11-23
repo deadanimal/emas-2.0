@@ -169,6 +169,7 @@ class PenggunaController extends Controller
         $roles = Role::with('permissions')->get();
         $permissions = Permission::all();
         $organisasi = Organisasi::all();
+
         return view('user.create', [
             'users' => $user,
             'role' => $roles,
@@ -234,11 +235,16 @@ class PenggunaController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'password_confirmation' => Hash::make(($request->password_confirmation)),
-            'dalaman' => $request->dalaman,
             'organisasi_id' => $request->organisasi_id,
-
-
         ]);
+
+        if ($request->dalaman == "1") {
+            $user->dalaman = true;
+        } else {
+            $user->dalaman = false;
+        }
+        $user->save();
+
 
         // dd($request->all());
 

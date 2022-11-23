@@ -43,10 +43,21 @@ class FokusutamaController extends Controller
 
         // $role->givePermissionTo($permission);
 
-        $fokusutama = Fokusutama::all();
-        $role = Role::all();
 
-        return view('ppd.fokusutama.index', compact('fokusutama', 'role'));
+
+        // $fokusutama = Fokusutama::all();
+        // $role = Role::all();
+
+        $dalaman = Auth::user()->dalaman;
+        if ($dalaman == 1) {
+
+            $fokusutama = Fokusutama::all();
+        } else {
+
+            $fokusutama = Fokusutama::where('organisasi_id', Auth::user()->organisasi_id)->get();
+        }
+
+        return view('ppd.fokusutama.index', compact('fokusutama', 'dalaman'));
     }
 
     /**

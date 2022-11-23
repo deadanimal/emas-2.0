@@ -19,7 +19,7 @@
 
                     @endcan
 
-                    @if(auth()->user()->can('Kementerian/Agensi PPD'))
+                    @if(auth()->user()->can('Agensi PPD'))
                     agensi<br/>
                     @endif     
                     
@@ -31,8 +31,16 @@
                     BPKP<br/>
                     @endif   
 
+                    @can('Agensi PPD')
+                    ada Agensi PPD
+                    @endcan 
+                    
+                    @can('Bahagian PPD')
+                    ada Bahagian PPD
+                    @endcan                    
+
                     @can('BPKP')
-                    //
+                    ada BPKP
                     @endcan
                     
                     <p>{{$user}}<br/>{{$user->permissions}}</p>

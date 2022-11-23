@@ -415,6 +415,9 @@
                                     style="border-radius: 38px">
                                     <i class="fas fa-trash"></i>
                                 </button>
+                                <a class="btn btn-success" href="kpi_cetak/{{ `+el.id+` }}"><i
+                                                class="fas fa-print"></i>
+                                </a>
                             </div>
                                                 ` +
                         @endcan
@@ -457,13 +460,7 @@
 
         $(document).ready(function() {
             $('#example').DataTable({
-                dom: 'Bfrtip',
-                buttons: [
-                    'copyHtml5',
-                    'excelHtml5',
-                    'csvHtml5',
-                    'pdfHtml5'
-                ]
+
 
 
             });

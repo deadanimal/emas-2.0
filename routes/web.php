@@ -125,6 +125,8 @@ Route::group(
         Route::get('/prestasi/pelaporan_prestasi_tindakan/', [TindakanController::class, 'index2']);
         Route::get('/prestasi/{id}/edit/', [TindakanController::class, 'edit2']);
         Route::put('/prestasi/{id}', [TindakanController::class, 'update2']);
+        Route::get('/tindakan_cetak/{id}', [TindakanController::class, 'print_tindakan']);
+
 
 
         //Penilaian KPI

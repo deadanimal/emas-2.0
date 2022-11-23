@@ -18,6 +18,7 @@ use App\Models\TindakanMarkah;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 
 
 
@@ -46,6 +47,15 @@ class TindakanController extends Controller
         $strategi = Strategi::all();
 
         return view('ppd.tindakan.index', compact('tindakans', 'list', 'fokus', 'perkara', 'pemangkin', 'bab', 'bidang', 'strategi'));
+    }
+
+    public function print_tindakan(Request $request, $id)
+    {
+        $tindakan = Tindakan::find($id);
+
+        // generate pdf using DomPDF
+        $pdf = FacadePdf::loadView('ppd.borang.tindakan', compact('tindakan'));
+        return $pdf->stream('Tindakan.pdf');
     }
 
     public function index1()

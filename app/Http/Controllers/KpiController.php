@@ -49,8 +49,8 @@ class KpiController extends Controller
         $kpi = Kpi::find($id);
 
         // generate pdf using DomPDF
-        $pdf = FacadePdf::loadView('ppd.kpi', compact('kpi'));
-        return $pdf->download('kpi.pdf');
+        $pdf = FacadePdf::loadView('ppd.borang.kpi', compact('kpi'));
+        return $pdf->stream('Kpi.pdf');
     }
 
     public function index1(Request $request)

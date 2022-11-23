@@ -50,8 +50,8 @@
                         <select class="form-control" name="bahagian">
                             <option selected disabled hidden>SILA PILIH</option>
 
-                            @foreach ($users as $u)
-                                <option value="{{ $u->id }}">{{ $u->name }}</option>
+                            @foreach ($orgs as $org)
+                                <option value="{{ $org->id }}">{{ $org->nama }}</option>
                             @endforeach
 
                         </select>

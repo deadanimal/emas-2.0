@@ -202,7 +202,7 @@ class TindakanController extends Controller
     {
         $tindakans = Tindakan::find($id_tindakan);
 
-        $users = User::permission('Bahagian PPD')->get();
+        $users = User::permission('PPD - Penyelaras')->get();
         $organisasis = Organisasi::where('jenis', 'bahagian')->get();
 
 

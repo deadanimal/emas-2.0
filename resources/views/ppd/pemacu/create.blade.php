@@ -63,8 +63,8 @@
                             <select class="form-control" name="bab_id" id="pilih3" required>
                                 <option selected disabled hidden>SILA PILIH</option>
 
-                                @foreach ($babs as $list)
-                                    <option value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}
+                                @foreach ($babs as $bab)
+                                    <option value="{{ $bab->id }}">No. {{ $bab->noBab }} ({{ $bab->namaBab }})
                                     </option>
                                 @endforeach
 

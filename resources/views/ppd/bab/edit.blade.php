@@ -50,9 +50,9 @@
                     <label class="col-sm-2 col-form-label" for="bahagian">Bahagian Penyelaras</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="bahagian">
-                            @foreach ($users as $u)
-                                <option @selected($bab->u_id == $u->id) value="{{ $u->id }}">{{ $u->name }}
-                                </option>
+                            @foreach ($orgs as $org)
+                                <option @selected($bab->u_id == $org->id) value="{{ $org->id }}">{{ $org->nama }}
+                                </option>                              
                             @endforeach
 
                         </select>

@@ -104,21 +104,20 @@
 
                                         <select class="form-select" name="permission" required>
                                             <option selected disabled hidden value="null">Sila Pilih</option>
-                                            <option value="PPD - User">PPD - Kementerian/ Agensi</option>
+                                            <option value="PPD - User">PPD - Kementerian / Agensi</option>
                                             <option value="PPD - Penyelaras">PPD - Bahagian</option>
                                             <option value="PPD - Admin">PPD - BPKP</option>
-                                            <option value="User">MPB - User</option>
-                                            <option value="Approver">MPB - Approver</option>
-                                            <option value="Admin">MPB - Admin</option>
-                                            <option value="Agensi KT">KT - Agensi</option>
-                                            <option value="Bahagian KT">KT - Bahagian</option>
-                                            <option value="Kementerian MD">MD - Kementerian</option>
-                                            <option value="Bahagian MD">MD - Bahagian</option>
-                                            <option value="Agensi MD">MD - Agensi</option>
-                                            <option value="Urusetia">MD - Urusetia</option>
-                                            <option value="Epu MD">MD - EPU</option>
-                                            <option value="ICT">ED - SuperAdmin</option>
-                                            <option value="Epu ED">ED - Pengurusan Atasan</option>
+                                            <option value="MPB - User">MPB - User</option>
+                                            <option value="MPB - Approver">MPB - Approver</option>
+                                            <option value="MPB - Admin">MPB - Admin</option>
+                                            <option value="KT - User">KT - Agensi</option>
+                                            <option value="KT - Penyelaras">KT - Bahagian</option>
+                                            <option value="KT - Admin">KT - Admin</option>
+                                            <option value="MD - User">MD - Kementerian / Agensi</option>
+                                            <option value="MD - Penyelaras">MD - Bahagian</option>
+                                            <option value="MD - Admin">MD - EPU</option>
+                                            <option value="ED - Admin">ED - SuperAdmin</option>
+                                            <option value="ED - User">ED - Pengurusan Atasan</option>
 
                                         </select>
 

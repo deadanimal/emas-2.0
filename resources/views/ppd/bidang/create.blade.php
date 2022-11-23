@@ -68,7 +68,7 @@
                             <option selected disabled hidden>SILA PILIH</option>
 
                             @foreach ($babs as $list)
-                                <option value="{{ $list->id }}">Bab {{ $list->noBab }}. {{ $list->namaBab }}</option>
+                                <option value="{{ $list->id }}">No. {{ $list->noBab }} ({{ $list->namaBab }})</option>
                             @endforeach
 
                         </select>
@@ -93,12 +93,12 @@
                     <div class="col-sm-10">
                         <select class="form-control" name="noBidang">
                             <option selected disabled hidden>SILA PILIH</option>
-                            <option value="A">BK A</option>
-                            <option value="B">BK B</option>
-                            <option value="C">BK C</option>
-                            <option value="D">BK D</option>
-                            <option value="E">BK E</option>
-                            <option value="F">BK F</option>
+                            <option value="A">Bidang Keutamaan A</option>
+                            <option value="B">Bidang Keutamaan B</option>
+                            <option value="C">Bidang Keutamaan C</option>
+                            <option value="D">Bidang Keutamaan D</option>
+                            <option value="E">Bidang Keutamaan E</option>
+                            <option value="F">Bidang Keutamaan F</option>
                         </select>
 
                     </div>

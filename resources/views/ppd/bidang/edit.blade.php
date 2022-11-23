@@ -72,8 +72,8 @@
                         <select class="form-control" name="bab_id" id="pilih4">
 
                             @foreach ($babs as $list)
-                                <option @selected($bidang->bab_id == $list->id) value="{{ $list->id }}">Bab {{ $list->noBab }}.
-                                    {{ $list->namaBab }}</option>
+                                <option @selected($bidang->bab_id == $list->id) value="{{ $list->id }}">No. {{ $list->noBab }}
+                                    ({{ $list->namaBab }})</option>
                             @endforeach
 
                         </select>
@@ -98,12 +98,12 @@
                     <label class="col-sm-2 col-form-label" for="noBidang">Bidang Keutamaan:*</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="noBidang">
-                            <option @selected($bidang->noBidang == 'A') value="A">BK A</option>
-                            <option @selected($bidang->noBidang == 'B') value="B">BK B</option>
-                            <option @selected($bidang->noBidang == 'C') value="C">BK C</option>
-                            <option @selected($bidang->noBidang == 'D') value="D">BK D</option>
-                            <option @selected($bidang->noBidang == 'E') value="E">BK E</option>
-                            <option @selected($bidang->noBidang == 'F') value="F">BK F</option>
+                            <option @selected($bidang->noBidang == 'A') value="A">Bidang Keutamaan A</option>
+                            <option @selected($bidang->noBidang == 'B') value="B">Bidang Keutamaan B</option>
+                            <option @selected($bidang->noBidang == 'C') value="C">Bidang Keutamaan C</option>
+                            <option @selected($bidang->noBidang == 'D') value="D">Bidang Keutamaan D</option>
+                            <option @selected($bidang->noBidang == 'E') value="E">Bidang Keutamaan E</option>
+                            <option @selected($bidang->noBidang == 'F') value="F">Bidang Keutamaan F</option>
 
                         </select>
 

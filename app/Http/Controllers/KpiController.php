@@ -147,7 +147,7 @@ class KpiController extends Controller
             ['bab_id', '=', $bab->id],
         ])->get();
 
-        return view('ppd.kpi.penilaian_filter', compact('kpis'))
+        return view('ppd.kpi.penilaian_filter', compact('kpis'));
     }
 
     public function paparan()

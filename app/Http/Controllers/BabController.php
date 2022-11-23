@@ -92,7 +92,7 @@ class BabController extends Controller
         $temas = Pemangkindasar::all();
 
         $fokuss = Fokusutama::all();
-        $users = User::permission('Bahagian PPD')->get();
+        $users = User::permission('PPD - Penyelaras')->get();
 
 
         //cara baru dapatkan ID

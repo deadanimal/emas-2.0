@@ -24,49 +24,11 @@ class FokusutamaController extends Controller
 
     public function index()
     {
-        // $user = auth()->user();
-        // dd($user);
-
-        // if (auth()->user()->hasRole('admin')) {
-        //     dd("admin");
-        // }
-        // dd("bukan admin");
-
-
-        // Role::create(['name'=>'admin']);
-
-        // Permission::create(['name'=>'admin']);
-
-        // $role =Role::findById(1);
-
-        // $permission = Permission::findById(1);
-
-        // $role->givePermissionTo($permission);
-
-
-
-        // $fokusutama = Fokusutama::all();
-        // $role = Role::all();
-
-
-        $dalaman = Auth::user()->dalaman;
         $user = Auth::user();
-        if ($dalaman == 1) {
-
-            $fokusutama = Fokusutama::all();
-        } else {
-
-            $fokusutama = Fokusutama::where('organisasi_id', Auth::user()->organisasi_id)->get();
-        }
-
+        $fokusutama = Fokusutama::all();
         return view('ppd.fokusutama.index', compact('fokusutama', 'dalaman', 'user'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
 
@@ -74,59 +36,29 @@ class FokusutamaController extends Controller
         return view('ppd.fokusutama.create', ['user' => $user]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreFokusutamaRequest  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreFokusutamaRequest $request)
     {
         $fokusutama = Fokusutama::create($request->all());
         return redirect()->route('fokusutama.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Fokusutama  $fokusutama
-     * @return \Illuminate\Http\Response
-     */
     public function show(Fokusutama $fokusutama)
     {
         return view('ppd.fokusutama.show', compact('fokusutama'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Fokusutama  $fokusutama
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Fokusutama $fokusutama)
     {
         return view('ppd.fokusutama.edit', compact('fokusutama'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateFokusutamaRequest  $request
-     * @param  \App\Models\Fokusutama  $fokusutama
-     * @return \Illuminate\Http\Response
-     */
     public function update(UpdateFokusutamaRequest $request, Fokusutama $fokusutama)
     {
         $fokusutama->update($request->all());
         return redirect()->route('fokusutama.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Fokusutama  $fokusutama
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Fokusutama $fokusutama)
     {
         $fokusutama->delete();

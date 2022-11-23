@@ -20,15 +20,15 @@
                     @endcan
 
                     @if(auth()->user()->can('Kementerian/Agensi PPD'))
-                    just checking permission shoing...agensi
+                    agensi<br/>
                     @endif     
                     
                     @if(auth()->user()->can('Bahagian PPD'))
-                    just checking permission shoing...bahagian
+                    bahagian<br/>
                     @endif     
                     
                     @if(auth()->user()->can('BPKP'))
-                    just checking permission shoing...BPKP
+                    BPKP<br/>
                     @endif     
                     
                     

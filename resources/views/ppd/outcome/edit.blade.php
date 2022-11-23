@@ -65,7 +65,7 @@
                         <select class="form-control" name="bidang_id">
 
                             @foreach ($bidangs as $bidang)
-                                <option @selected($outcome->bidang_id == $bidang->id) value="{{ $bidang->id }}">{{ $list->namaBidang }}
+                                <option @selected($outcome->bidang_id == $bidang->id) value="{{ $bidang->id }}">{{ $bidang->namaBidang }}
                                 </option>
                             @endforeach
 

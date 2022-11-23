@@ -29,7 +29,9 @@
                     
                     @if(auth()->user()->can('BPKP'))
                     BPKP<br/>
-                    @endif     
+                    @endif   
+                    
+                    <p>{{$user}}<br/>{{$user->permissions}}</p>
                     
                     
 

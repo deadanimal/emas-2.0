@@ -50,6 +50,7 @@ class FokusutamaController extends Controller
 
 
         $dalaman = Auth::user()->dalaman;
+        $user = Auth::user();
         if ($dalaman == 1) {
 
             $fokusutama = Fokusutama::all();
@@ -58,7 +59,7 @@ class FokusutamaController extends Controller
             $fokusutama = Fokusutama::where('organisasi_id', Auth::user()->organisasi_id)->get();
         }
 
-        return view('ppd.fokusutama.index', compact('fokusutama', 'dalaman'));
+        return view('ppd.fokusutama.index', compact('fokusutama', 'dalaman', 'user'));
     }
 
     /**

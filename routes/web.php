@@ -104,6 +104,8 @@ Route::group(
         Route::get('/kpi1/{id}/edit/', [KpiController::class, 'edit1']);
         Route::post('/kpi1/{id}', [KpiController::class, 'update1']);
         Route::get('/kpi1/index1/', [KpiController::class, 'index1']);
+        Route::get('/kpi_cetak/{id}', [KpiController::class, 'print_kpi']);
+
 
         Route::post('/kpi/lulus/{id}', [KpiController::class, 'lulus'])->name('kpi.lulus');
         Route::post('/kpi/ditolak/{id}', [KpiController::class, 'ditolak'])->name('kpi.ditolak');
@@ -129,6 +131,7 @@ Route::group(
 
         Route::get('/paparan/kpi/', [KpiController::class, 'paparan']);
         Route::get('/penilaian/kpi/', [KpiController::class, 'penilaian']);
+        Route::get('/penilaian/kpi/result', [KpiController::class, 'result_penilaian']);
 
 
         Route::get('/kpi/{id}/penilaian/', [KpiController::class, 'edit3']);

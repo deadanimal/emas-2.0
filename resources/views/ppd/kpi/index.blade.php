@@ -140,6 +140,10 @@
                                             style="border-radius: 38px">
                                             <i class="fas fa-trash"></i>
                                         </button>
+
+                                        <a class="btn btn-success" href="kpi_cetak/{{ $kpi->id }}"><i
+                                                class="fas fa-print"></i>
+                                        </a>
                                     @endcan
                                 </div>
 

@@ -17,6 +17,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+
 
 class KpiController extends Controller
 {
@@ -40,6 +42,15 @@ class KpiController extends Controller
 
 
         return view('ppd.kpi.index', compact('kpis', 'list', 'fokusUtama', 'perkaraUtama', 'temaPemangkin', 'bab', 'bidang'));
+    }
+
+    public function print_kpi(Request $request, $id)
+    {
+        $kpi = Kpi::find($id);
+
+        // generate pdf using DomPDF
+        $pdf = FacadePdf::loadView('ppd.kpi', compact('kpi'));
+        return $pdf->download('kpi.pdf');
     }
 
     public function index1(Request $request)
@@ -139,15 +150,19 @@ class KpiController extends Controller
         return view('ppd.kpi.penilaian', compact('kpis', 'temas', 'bab', 'bidang', 'outcome', 'markah'));
     }
 
-    public function result_penilaan(Request $request) {
+    public function result_penilaian(Request $request)
+    {
         $tema = $request->pemangkin_id;
 
-        $kpis = Kpi::where([
-            ['tema_id', '=', $tema->id],
-            ['bab_id', '=', $bab->id],
-        ])->get();
+        // $kpis = Kpi::where([
+        //     ['pemangkin_id', '=', $pemangkin->id],
+        //     ['bab_id', '=', $bab->id],
+        //     ['bidang_id', '=', $bidang->id],
+        //     ['outcome_id', '=', $outcome->id],
 
-        return view('ppd.kpi.penilaian_filter', compact('kpis'));
+        // ])->get();
+
+        return view('ppd.kpi.result_penilaian', compact('tema'));
     }
 
     public function paparan()

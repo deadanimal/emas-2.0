@@ -52,7 +52,7 @@ class BabController extends Controller
         $orgs = Organisasi::where('jenis', 'bahagian')->get();
         $temas = Pemangkindasar::all();
         $fokuss = Fokusutama::all();
-        return view('ppd.bab.create', compact('user', 'temas', 'fokuss', 'users', 'organisasis'));
+        return view('ppd.bab.create', compact('user', 'temas', 'fokuss', 'users', 'orgs'));
     }
 
     /**

@@ -11,7 +11,7 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>KPI Nasional</b></span>
-                    @can('BPKP')
+                    @can('PPD - Admin')
                         <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                             href="/PPD/kpi/create">
                             <span class="fas fa-plus-circle"></span>&nbsp;Tambah
@@ -126,7 +126,7 @@
 
                             <td class="align-right" id="searchUpdateTable2">
                                 <div>
-                                    @can('BPKP')
+                                    @can('PPD - Admin')
                                         <a class="btn btn-warning" style="border-radius: 38px" onclick="Kpi(this)"
                                             href="kpi1/{{ $kpi->id }}/edit/"><i class="fas fa-pencil-alt"></i>
                                         </a>
@@ -397,7 +397,7 @@
 
                         <div>
                                                           ` +
-                        @can('BPKP')
+                        @can('PPD - Admin')
                             `
                                 <a class="btn btn-warning" style="border-radius: 38px"
                                     href="/PPD/kpi1/` + el.id + `/edit/"><i class="fas fa-pencil-alt"></i>

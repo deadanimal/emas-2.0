@@ -22,7 +22,7 @@
             <img src="/img/image 3.png" alt="banner" width="50%">
         </div>
 
-        @can('BPKP')
+        @can('PPD - Admin')
             <div class="row">
                 <div class="column">
                     <b>Peratusan Dan Bilangan
@@ -332,7 +332,7 @@
 
                                                             <br>
                                                         </form>
-                                                        @can('BPKP')
+                                                        @can('PPD - Admin')
                                                             <div class="mb-3">
                                                                 <label class="col-form-label">Tindakan:</label>
                                                                 @if ($tindakan->lulus == 1 && $tindakan->ditolak == 0)

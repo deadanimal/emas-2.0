@@ -21,7 +21,7 @@
             </div>
         @endcannot --}}
 
-        @can('BPKP')
+        @can('PPD - Admin')
             <div class="row">
                 <div class="column">
                     <b>Peratusan Dan Bilangan
@@ -342,7 +342,7 @@
 
                                                             <br>
                                                         </form>
-                                                        @can('BPKP')
+                                                        @can('PPD - Admin')
                                                             <div class="mb-3">
                                                                 <label class="col-form-label">Tindakan Pengesahan:</label>
                                                                 @if ($kpi->lulus == 1 && $kpi->ditolak == 0)

@@ -11,7 +11,7 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>Tindakan</b></span>
-                    @can('BPKP')
+                    @can('PPD - Admin')
                         <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                             href="/PPD/tindakan/create">
                             <span class="fas fa-plus-circle"></span>&nbsp;Tambah
@@ -225,7 +225,7 @@
 
                             <td align="right">
                                 <div>
-                                    @can('BPKP')
+                                    @can('PPD - Admin')
                                         {{-- <form action="{{ route('tindakan.destroy', $tindakan->id) }}" method="POST"> --}}
                                         <a class="btn btn-warning" style="border-radius: 38px"
                                             href="/PPD/tindakan1/{{ $tindakan->id }}/edit/"><i class="fas fa-pencil-alt"></i>
@@ -293,7 +293,7 @@
 
                             <div>
                                 ` +
-                        @can('BPKP')
+                        @can('PPD - Admin')
                             `
                                     <a class="btn btn-warning" style="border-radius: 38px"
                                         href="/PPD/tindakan1/` + el.id + `/edit/"><i class="fas fa-pencil-alt"></i>

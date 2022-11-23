@@ -11,7 +11,7 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>Inisiatif</b></span>
-                    @can('BPKP')
+                    @can('PPD - Admin')
                         <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                             href="/PPD/inisiatif/create">
                             <span class="fas fa-plus-circle"></span>&nbsp;Tambah
@@ -162,7 +162,7 @@
 
                             <td align="right">
                                 <div>
-                                    @can('BPKP')
+                                    @can('PPD - Admin')
                                         <a class="btn btn-primary" style="border-radius: 38px"
                                             href="{{ route('inisiatif.edit', $inisiatif->id) }}"><i class="fas fa-edit"></i>
                                         </a>
@@ -220,7 +220,7 @@
 
                             <div>
                                                                 ` +
-                        @can('BPKP')
+                        @can('PPD - Admin')
                             `
 
                                     <a class="btn btn-primary" style="border-radius: 38px"

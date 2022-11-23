@@ -51,7 +51,7 @@
                     <div class="col-sm-10">
                         <select class="form-control" name="bahagian">
                             @foreach ($orgs as $org)
-                                <option @selected($bab->u_id == $org->id) value="{{ $org->id }}">{{ $org->name }}
+                                <option @selected($bab->u_id == $org->id) value="{{ $org->id }}">{{ $org->nama }}
                                 </option>                              
                             @endforeach
 

@@ -51,7 +51,7 @@
                             <option selected disabled hidden>SILA PILIH</option>
 
                             @foreach ($orgs as $org)
-                                <option value="{{ $org->id }}">{{ $org->name }}</option>
+                                <option value="{{ $org->id }}">{{ $org->nama }}</option>
                             @endforeach
 
                         </select>

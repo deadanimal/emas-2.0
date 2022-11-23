@@ -20,8 +20,16 @@
                     @endcan
 
                     @if(auth()->user()->can('Kementerian/Agensi PPD'))
-                    just checking permission shoing...
-                    @endif                    
+                    just checking permission shoing...agensi
+                    @endif     
+                    
+                    @if(auth()->user()->can('Bahagian PPD'))
+                    just checking permission shoing...bahagian
+                    @endif     
+                    
+                    @if(auth()->user()->can('BPKP'))
+                    just checking permission shoing...BPKP
+                    @endif                     
 
 
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"

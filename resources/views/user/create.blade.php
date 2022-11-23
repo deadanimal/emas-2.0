@@ -104,9 +104,9 @@
 
                                         <select class="form-select" name="permission" required>
                                             <option selected disabled hidden value="null">Sila Pilih</option>
-                                            <option value="Kementerian/Agensi PPD">PPD - Kementerian/ Agensi</option>
-                                            <option value="Bahagian PPD">PPD - Bahagian</option>
-                                            <option value="BPKP">PPD - BPKP</option>
+                                            <option value="PPD - User">PPD - Kementerian/ Agensi</option>
+                                            <option value="PPD - Penyelaras">PPD - Bahagian</option>
+                                            <option value="PPD - Admin">PPD - BPKP</option>
                                             <option value="User">MPB - User</option>
                                             <option value="Approver">MPB - Approver</option>
                                             <option value="Admin">MPB - Admin</option>

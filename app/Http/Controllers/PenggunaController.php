@@ -249,7 +249,8 @@ class PenggunaController extends Controller
         // dd($request->all());
 
         $user->assignRole($request->role);
-        $user->givePermissionTo($request->permission);
+        $permission = User::firstOrCreate(array('name' => $request->permission));
+        $user->givePermissionTo($permission);
 
         return redirect()->route('user.index');
     }

@@ -90,7 +90,7 @@
                             </div>
                             <td align="right">
                                 <div>
-                                    @can('BPKP')
+                                    @can('PPD - Admin')
                                         <a class="btn btn-primary" style="border-radius: 38px"
                                             href="{{ route('fokusutama.edit', $fokus->id) }}"><i class="fas fa-edit"></i>
                                         </a>

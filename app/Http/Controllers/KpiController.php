@@ -139,6 +139,17 @@ class KpiController extends Controller
         return view('ppd.kpi.penilaian', compact('kpis', 'temas', 'bab', 'bidang', 'outcome', 'markah'));
     }
 
+    public function result_penilaan(Request $request) {
+        $tema = $request->pemangkin_id;
+
+        $kpis = Kpi::where([
+            ['tema_id', '=', $tema->id],
+            ['bab_id', '=', $bab->id],
+        ])->get();
+
+        return view('ppd.kpi.penilaian_filter', compact('kpis'))
+    }
+
     public function paparan()
     {
         $kpis = Kpi::all();

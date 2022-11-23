@@ -47,7 +47,7 @@ class BabController extends Controller
     public function create()
     {
         $user = Auth::user();
-        $users = User::permission('Bahagian PPD')->get();
+        $users = User::permission('PPD - Penyelaras')->get();
 
         $organisasis = Organisasi::where('jenis', 'bahagian')->get();
         $temas = Pemangkindasar::all();

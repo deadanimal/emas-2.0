@@ -51,9 +51,9 @@
                     <div class="col-sm-10">
                         <select class="form-control" name="bab_id">
 
-                            @foreach ($babs as $list)
-                                <option @selected($pemacu->bab_id == $list->id) value="{{ $list->id }}">Bab {{ $list->noBab }}.
-                                    {{ $list->namaBab }}</option>
+                            @foreach ($babs as $bab)
+                                <option @selected($pemacu->bab_id == $bab->id) value="{{ $bab->id }}">No. {{ $bab->noBab }}
+                                    ({{ $bab->namaBab }})</option>
                             @endforeach
 
                         </select>

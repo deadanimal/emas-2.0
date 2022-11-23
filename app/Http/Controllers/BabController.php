@@ -49,7 +49,7 @@ class BabController extends Controller
         $user = Auth::user();
         $users = User::permission('PPD - Penyelaras')->get();
 
-        $organisasis = Organisasi::where('jenis', 'bahagian')->get();
+        $orgs = Organisasi::where('jenis', 'bahagian')->get();
         $temas = Pemangkindasar::all();
         $fokuss = Fokusutama::all();
         return view('ppd.bab.create', compact('user', 'temas', 'fokuss', 'users', 'organisasis'));
@@ -97,6 +97,7 @@ class BabController extends Controller
 
         //cara baru dapatkan ID
         $bab = Bab::with('pemangkin:id')->find($bab->id);
+        $orgs = Organisasi::where('jenis', 'bahagian')->get();
 
         //cara lama dapatkan ID
         // $bab = Bab::with(['pemangkin'=>function($query){
@@ -105,7 +106,7 @@ class BabController extends Controller
 
         // dd($bab);
 
-        return view('ppd.bab.edit', compact('bab', 'temas', 'fokuss', 'users'));
+        return view('ppd.bab.edit', compact('bab', 'temas', 'fokuss', 'users', 'orgs'));
     }
 
     /**

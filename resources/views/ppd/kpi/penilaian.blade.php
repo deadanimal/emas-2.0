@@ -16,13 +16,13 @@
                         {{-- @foreach ($tema as $te)
                             <option value="{{ $te->id }}">{{ $te->namaTema }}</option>
                         @endforeach --}}
-                        @if ($kpis->count())
-                            @foreach ($kpis as $kpi)
-                                <option value="{{ $kpi->id }}">
-                                    {{ $tema == $kpi->id ? 'selected="selected"' : '' }}{{ $kpi->pemangkin->namaTema }}
+                        
+                            @foreach ($temas as $tema)
+                                <option value="{{ $tema->id }}">
+                                    {{ $tema->namaTema }}
                                 </option>
                             @endforeach
-                        @endif
+                        
                     </select>
                 </div>
 

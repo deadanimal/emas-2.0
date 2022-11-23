@@ -12,36 +12,13 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>Fokus Utama</b></span>
-                    @can('BPKP')
+                    @can('PPD - Admin')
                         <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                             href="/PPD/fokusutama/create">
                             <span class="fas fa-plus-circle"></span>&nbsp;Tambah</a>
 
                     @endcan
 
-                    @if(auth()->user()->can('Agensi PPD'))
-                    agensi<br/>
-                    @endif     
-                    
-                    @if(auth()->user()->can('Bahagian PPD'))
-                    bahagian<br/>
-                    @endif     
-                    
-                    @if(auth()->user()->can('BPKP'))
-                    BPKP<br/>
-                    @endif   
-
-                    @can('Agensi PPD')
-                    ada Agensi PPD
-                    @endcan 
-                    
-                    @can('Bahagian PPD')
-                    ada Bahagian PPD
-                    @endcan                    
-
-                    @can('BPKP')
-                    ada BPKP
-                    @endcan
                     
 
 

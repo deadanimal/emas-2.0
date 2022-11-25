@@ -26,47 +26,38 @@ class StoreProgramRequest extends FormRequest
         return [
             'namaProgram' => [
                 'string',
-                'required',
             ],
 
             'programLead' => [
                 'string',
-                'required',
             ],
 
             'programTarget' => [
                 'string',
-                'required',
             ],
 
             'leadAgency' => [
                 'string',
-                'required',
             ],
 
             'progress' => [
                 'string',
-                'required',
             ],
 
             'cost' => [
                 'string',
-                'required',
             ],
 
             'source' => [
                 'string',
-                'required',
             ],
 
             'totalDisbursed' => [
                 'string',
-                'required',
             ],
 
             'totalAmount' => [
                 'string',
-                'required',
             ],
 
             'initiative_id' => [

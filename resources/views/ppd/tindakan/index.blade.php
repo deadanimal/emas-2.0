@@ -239,11 +239,10 @@
                                             class="btn btn-danger" style="border-radius: 38px">
                                             <i class="fas fa-trash"></i>
                                         </button>
-                                        <a class="btn btn-success" href="tindakan_cetak/{{ $tindakan->id }}"><i
+                                        <a class="btn btn-link" href="tindakan_cetak/{{ $tindakan->id }}"><i
                                                 class="fas fa-print"></i>
                                         </a>
                                     @endcan
-
                                 </div>
                             </td>
                         </tr>
@@ -306,6 +305,9 @@
                                         style="border-radius: 38px">
                                         <i class="fas fa-trash"></i>
                                     </button>
+                                      <a class="btn btn-link" href="tindakan_cetak/{{ `+el.id+` }}"><i
+                                                class="fas fa-print"></i>
+                                        </a>
                                 </div>
                                                    ` +
                         @endcan
@@ -351,13 +353,7 @@
     <script>
         $(document).ready(function() {
             $('#example').DataTable({
-                dom: 'Bfrtip',
-                buttons: [
-                    'copyHtml5',
-                    'excelHtml5',
-                    'csvHtml5',
-                    'pdfHtml5'
-                ]
+
 
 
             });

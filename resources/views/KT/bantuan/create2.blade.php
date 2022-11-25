@@ -18,7 +18,7 @@
         </div>
 
         <hr style="width:100%;text-align:center;">
-        <form action="{{ route('kampung.store') }}" method="post">
+        <form action="/KT/" method="post">
             @csrf
             <div class="row g-3" style="width: 100%">
                 <div class="col-6">

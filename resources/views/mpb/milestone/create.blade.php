@@ -88,28 +88,16 @@
                 <div class="row mb-3">
                     <label class="col-form-label" for="baseline">Baseline*</label>
                     <div class="col-sm-10">
-                        <select class="form-control" name="baseline">
-                            <option selected disabled hidden>PLEASE CHOOSE</option>
+                        <input class="form-control target" type="text" name="baseline" />
 
-                            @foreach ($baseline as $kpi)
-                                <option value="{{ $kpi->baseline }}">{{ $kpi->baseline }}</option>
-                            @endforeach
-
-                        </select>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label class="col-form-label" for="national">Outcome*</label>
                     <div class="col-sm-10">
-                        <select class="form-control" name="national">
-                            <option selected disabled hidden>PLEASE CHOOSE</option>
+                        <input class="form-control target" type="text" name="national" />
 
-                            @foreach ($national as $kpi)
-                                <option value="{{ $kpi->national }}">{{ $kpi->national }}</option>
-                            @endforeach
-
-                        </select>
                     </div>
                 </div>
 

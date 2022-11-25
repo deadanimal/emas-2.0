@@ -67,6 +67,7 @@
                             <td>
                                 <div>
 
+
                                     <a class="btn btn-primary" style="border-radius: 38px"
                                         href="{{ route('bantuan.edit', $bantuan->id) }}"><i class="fas fa-edit"></i>
                                     </a>
@@ -80,6 +81,9 @@
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </form>
+                                    <a class="btn btn-link " href="bantuan_cetak/{{ $bantuan->id }}"><i
+                                            class="fas fa-print"></i>
+                                    </a>
                                 </div>
                             </td>
 
@@ -99,13 +103,7 @@
     <script>
         $(document).ready(function() {
             $('#example').DataTable({
-                dom: 'Bfrtip',
-                buttons: [
-                    'copyHtml5',
-                    'excelHtml5',
-                    'csvHtml5',
-                    'pdfHtml5'
-                ]
+
 
 
             });

@@ -61,7 +61,7 @@
                         <div class="mb-3 row">
                             <label class="col-form-label" for="progress">Progress Plan</label>
                             <div class="input-group">
-                                <input class="form-control" type="text" name="progress" />
+                                <input class="form-control" type="number" name="progress" />
                                 <div class="input-group-append">
                                     <span class="input-group-text">%</span>
                                 </div>

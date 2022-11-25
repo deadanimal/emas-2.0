@@ -53,7 +53,7 @@
                                 <td class="align-middle">{{ $loop->iteration }}.
                                 </td>
                                 <td class="align-middle">{{ $thrust->thrust->namaThrust }}</td>
-                                <td class="align-middle">{{ $thrust->national->namaNational ?? '' }}</td>
+                                <td class="align-middle">{{ $thrust->nasional->namaNational ?? '' }}</td>
                                 <td class="align-middle">{{ $thrust->key->namaKey ?? '' }}</td>
                                 <td class="align-middle">{{ $thrust->sub->namaSub ?? '' }}</td>
                                 <td class="align-middle">{{ $thrust->kpi->namaKpi ?? '' }}</td>
@@ -116,7 +116,7 @@
                                                         <div class="mb-3">
                                                             <label class="col-form-label">National:</label>
                                                             <label class="form-control"
-                                                                disabled="disabled">{{ $thrust->national->namaNational ?? '' }}</label>
+                                                                disabled="disabled">{{ $thrust->nasional->namaNational ?? '' }}</label>
                                                         </div>
 
                                                         <div class="mb-3">

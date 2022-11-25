@@ -51,7 +51,7 @@ class Milestone extends Model implements Auditable
         return $this->belongsTo(Kpi2::class, 'kpi_id');
     }
 
-    public function national()
+    public function nasional()
     {
         return $this->belongsTo(National::class, 'national_id');
     }

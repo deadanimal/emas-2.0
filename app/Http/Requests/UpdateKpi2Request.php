@@ -57,12 +57,10 @@ class UpdateKpi2Request extends FormRequest
 
             'baseline' => [
                 'string',
-                'required',
             ],
 
             'national' => [
                 'string',
-                'required',
 
             ],
         ];

@@ -239,11 +239,16 @@ Route::group(
         Route::get('/bantuan1/senarai_ketua_kampung/', [BantuanController::class, 'senarai_ketua_kampung']);
         Route::get('/bantuan1/senarai_kampung_menerima/', [BantuanController::class, 'senarai_kampung_menerima']);
 
+        Route::get('/bantuan_cetak/{id}', [BantuanController::class, 'print_bantuan']);
+
+        Route::get('/bantuan_negeri_cetak/{id}', [BantuanController::class, 'print_bantuan_negeri']);
+
+
         //Ketua Kampung
         Route::resource('/ketuaKampung', KetuaKampungController::class);
 
         //Kampung
-        Route::resource('kampung', KampungController::class);
+        Route::resource('/kampung', KampungController::class);
 
         // Senarai Informasi
         Route::resource('/senarai_informasi', SenaraiInformasiController::class);

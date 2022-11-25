@@ -49,21 +49,17 @@
 
                             <td align="right">
                                 <div>
-                                    {{-- <form action="{{ route('bantuan.destroy', $bantuan->id) }}" method="POST"> --}}
-
                                     <a class="btn btn-primary" style="border-radius: 38px"
                                         href="{{ route('bantuan.edit', $bantuan->id) }}"><i class="fas fa-edit"></i>
                                     </a>
-                                    {{-- @csrf
-                                        @method('DELETE') --}}
-
                                     <button type="submit" onclick="myFunction({{ $bantuan->id }})" class="btn btn-danger"
                                         style="border-radius: 38px">
                                         <i class="fas fa-trash"></i>
                                     </button>
-                                    <p id="ppd"></p>
 
-                                    {{-- </form> --}}
+                                    <a class="btn btn-link " href="/KT/bantuan_negeri_cetak/{{ $bantuan->id }}"><i
+                                            class="fas fa-print"></i>
+                                    </a>
                                 </div>
                             </td>
 

@@ -83,28 +83,17 @@
                     <div class="row mb-3">
                         <label class="col-form-label" for="baseline">Baseline*</label>
                         <div class="col-sm-10">
-                            <select class="form-control" name="baseline">
-                                @foreach ($baseline as $kpi)
-                                    <option @selected($milestone->baseline == $kpi->id) value="{{ $kpi->baseline }}">
-                                        {{ $kpi->baseline }}
-                                    </option>
-                                @endforeach
+                            <input class="form-control" type="text" name="baseline"
+                                value="{{ $milestone->baseline }}" />
 
-                            </select>
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <label class="col-form-label" for="national">Outcome*</label>
                         <div class="col-sm-10">
-                            <select class="form-control" name="national">
-                                @foreach ($national as $kpi)
-                                    <option @selected($milestone->national == $kpi->id) value="{{ $kpi->national }}">
-                                        {{ $kpi->national }}
-                                    </option>
-                                @endforeach
-
-                            </select>
+                            <input class="form-control" type="text" name="national"
+                                value="{{ $milestone->national }}" />
                         </div>
                     </div>
 

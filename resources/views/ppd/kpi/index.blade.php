@@ -122,35 +122,6 @@
                                 </div>
                             </td>
 
-
-
-                            <td class="align-right" id="searchUpdateTable2">
-                                <div>
-                                    @can('PPD - Admin')
-                                        <a class="btn btn-warning" style="border-radius: 38px" onclick="Kpi(this)"
-                                            href="kpi1/{{ $kpi->id }}/edit/"><i class="fas fa-pencil-alt"></i>
-                                        </a>
-
-
-                                        <a type="button" class="btn btn-primary" style="border-radius: 38px"
-                                            href="{{ route('kpi.edit', $kpi->id) }}"><i class="fas fa-edit"></i>
-                                        </a>
-
-                                        <button type="submit" onclick="myFunction({{ $kpi->id }})" class="btn btn-danger"
-                                            style="border-radius: 38px">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-
-                                        <a class="btn btn-success" href="kpi_cetak/{{ $kpi->id }}"><i
-                                                class="fas fa-print"></i>
-                                        </a>
-                                    @endcan
-                                </div>
-
-                            </td>
-
-
-
                             <div class="modal fade" id="error-modal-{{ $kpi->id }}" tabindex="-1" role="dialog"
                                 aria-hidden value="null"="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 1100px">
@@ -356,6 +327,30 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <td align="right">
+                                <div>
+                                    @can('PPD - Admin')
+                                        <a class="btn btn-warning" style="border-radius: 38px" onclick="Kpi(this)"
+                                            href="kpi1/{{ $kpi->id }}/edit/"><i class="fas fa-pencil-alt"></i>
+                                        </a>
+
+
+                                        <a type="button" class="btn btn-primary" style="border-radius: 38px"
+                                            href="{{ route('kpi.edit', $kpi->id) }}"><i class="fas fa-edit"></i>
+                                        </a>
+
+                                        <button type="submit" onclick="myFunction({{ $kpi->id }})"
+                                            class="btn btn-danger" style="border-radius: 38px">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+
+                                        <a class="btn btn-link " href="kpi_cetak/{{ $kpi->id }}"><i
+                                                class="fas fa-print"></i>
+                                        </a>
+                                    @endcan
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
 

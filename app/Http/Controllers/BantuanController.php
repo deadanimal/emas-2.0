@@ -11,6 +11,8 @@ use App\Models\Negeri;
 use App\Models\Profil;
 use App\Models\Maklumat_penghulu_mukim;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+
 
 class BantuanController extends Controller
 {
@@ -31,6 +33,7 @@ class BantuanController extends Controller
 
         return view('KT.bantuan.index', compact('bantuans'));
     }
+
 
     public function berdasarkan_negeri()
     {
@@ -206,5 +209,26 @@ class BantuanController extends Controller
                 ->get();
         }
         return response()->json($bantuan);
+    }
+
+    public function print_bantuan(Request $request, $id)
+    {
+        $bantuan = Bantuan::find($id);
+
+        // generate pdf using DomPDF
+        $pdf = FacadePdf::loadView('kt.borang.bantuan', compact('bantuan'));
+        return $pdf->stream('Jenis_Bantuan.pdf');
+    }
+
+    public function print_bantuan_negeri(Request $request, $id)
+    {
+        $bantuan = Bantuan::with(['negeri'])->get()->sortBy('negeri')->find($id);
+
+        $bantuan['kir'] = Profil::where([['bantuan_id', $bantuan->id], ['kategori', 'KIR']])->count();
+        $bantuan['air'] = Profil::where([['bantuan_id', $bantuan->id], ['kategori', 'AIR']])->count();
+
+        // generate pdf using DomPDF
+        $pdf = FacadePdf::loadView('kt.borang.bantuan_negeri', compact('bantuan'));
+        return $pdf->stream('Jenis_Bantuan_Negeri.pdf');
     }
 }

@@ -11,12 +11,12 @@
         <br>
 
         <div class="form-floating;">
-            <form action="MPB/thrust/{{ $thrust->id }}" method="POST">
+            <form action="/MPB/thrust/{{ $thrust->id }}" method="POST">
                 @csrf
                 @method('PUT')
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="namaThrust">Thrust</label>
+                    <label class="col-sm-2 col-form-label" for="namaThrust">Thrust*</label>
                     <div class="col-sm-10" style="width:30%">
                         <input class="form-control" type="text" name="namaThrust" value="{{ $thrust->namaThrust }}" />
 
@@ -24,17 +24,17 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="bahagian">Bahagian</label>
+                    <label class="col-sm-2 col-form-label" for="division">Division*</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="bahagian" value="{{ $thrust->user }}" />
+                        <input class="form-control" type="text" name="division" value="{{ $thrust->division }}" />
 
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="user">Agensi</label>
+                    <label class="col-sm-2 col-form-label" for="agency">Ministry / Agency*</label>
                     <div class="col-sm-10" style="width:30%">
-                        <input class="form-control" type="text" name="user" value="{{ $thrust->user }}" />
+                        <input class="form-control" type="text" name="agency" value="{{ $thrust->agency }}" />
 
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                 <div class="row">
                     <div class="col">
                         <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                            href="MPB/thrust">
+                            href="/MPB/thrust">
                             <span class="fas fa-times-circle"></span>&nbsp;Cancel
                         </a>
                     </div>

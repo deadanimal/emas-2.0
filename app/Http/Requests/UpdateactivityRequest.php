@@ -26,52 +26,42 @@ class UpdateactivityRequest extends FormRequest
         return [
             'namaActivity' => [
                 'string',
-                'required',
             ],
 
             'startDate' => [
                 'string',
-                'required',
             ],
 
             'endDate' => [
                 'string',
-                'required',
             ],
 
             'output' => [
                 'string',
-                'required',
             ],
 
             'weightage' => [
                 'string',
-                'required',
             ],
 
             'weightage_progress' => [
                 'string',
-                'required',
             ],
 
             'output_progress' => [
                 'string',
-                'required',
             ],
 
             'additionalOutput' => [
                 'string',
-                'required',
             ],
 
             'remarks' => [
                 'string',
-                'required',
             ],
 
             'leadAgency' => [
                 'string',
-                'required',
             ],
 
             'document_pdf' => [
@@ -100,12 +90,10 @@ class UpdateactivityRequest extends FormRequest
 
             'PIC' => [
                 'string',
-                'required',
             ],
 
             'unit' => [
                 'string',
-                'required',
             ],
         ];
     }

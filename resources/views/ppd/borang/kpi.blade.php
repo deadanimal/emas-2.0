@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+<title>PPD - KPI Nasional</title>
+
 
 <head>
     <style>
@@ -18,26 +20,13 @@
         .div1 {
             text-align: center;
         }
-
-        .content {
-            max-width: 900px;
-            margin: auto;
-        }
-
-        .cb {
-            border: 2px solid;
-            padding: 50px;
-            width: 600px;
-            resize: both;
-            overflow: auto;
-        }
     </style>
 </head>
-<div class="card-body cb">
+<div class="card-body ">
     {{-- h1 dynamic --}}
-    <h1><u>KPI Nasional</u></h1>
+    <h1>PELAN PELAKSANAAN DASAR - KPI NASIONAL</h1>
     <div class="p1 ">
-        <h3> {{ $kpi->namaKpi }}
+        <h3>
         </h3>
     </div><br>
 
@@ -103,11 +92,14 @@
                 <b>Prestasi Kpi:</b>
 
                 @if ($kpi->peratusPencapaian > 80)
-                    <img src='/img/green.png'>
+                    <img
+                        src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/green.png'))) }}">
                 @elseif ($kpi->peratusPencapaian <= 80 && $kpi->peratusPencapaian >= 50)
-                    <img src='/img/yellow.png'>
+                    <img
+                        src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/yellow.png'))) }}">
                 @elseif ($kpi->peratusPencapaian < 50)
-                    <img src='/img/red.png'>
+                    <img
+                        src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/red.png'))) }}">
                 @endif
                 </label>
             </div><br>

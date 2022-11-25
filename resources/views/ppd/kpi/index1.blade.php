@@ -193,7 +193,7 @@
                         <tbody class="list myTable" id="searchUpdateTable">
                             @foreach ($kpis as $kpi)
                                 <tr class="kpi">
-                                    <td class="align-middle">{{ $loop->iteration }}. {{ $kpi->user->name }}
+                                    <td class="align-middle">{{ $loop->iteration }}. {{ $kpi->user->name ?? '' }}
                                     </td>
                                     <td class="align-middle">{{ $kpi->namaKpi }}</td>
                                     <td class="align-middle">{{ $kpi->pemangkin->namaTema ?? '' }}</td>

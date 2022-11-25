@@ -25,44 +25,45 @@
 
                         </select>
                     </div>
+                </div>
 
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="namaKey">Key Activity*</label>
-                        <div class="col-sm-10">
-                            <input class="form-control" type="text" name="namaKey" />
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label" for="namaKey">Key Activity*</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="namaKey" />
 
-                        </div>
                     </div>
                 </div>
-
-
-
-
-                <br>
-                <br>
-
-                <div class="mb-3">
-                    <label class="form-label" for="keteranganKey"><b>Key Activities Information:</b></label>
-                    <textarea class="form-control" name="keteranganKey" rows="5"></textarea>
-                </div>
-
-
-
-                <div class="col" style="text-align: right">
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3" href="/MPB/key">
-                        <span class="fas fa-times-circle"></span>&nbsp;Cancel
-                    </a>
-                    <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                        type="submit" value="Save" onclick="return confirm('Are you sure want to save this data?')"><span
-                            class="fas fa-save"></span>&nbsp;Save
-                    </button>
-                </div>
-                <input class="form-control" name="user_id" type="hidden" value="{{ $user->id }}" />
-
-
-            </form>
-
         </div>
+
+
+
+
+        <br>
+        <br>
+
+        <div class="mb-3">
+            <label class="form-label" for="keteranganKey"><b>Key Activities Information:</b></label>
+            <textarea class="form-control" name="keteranganKey" rows="5"></textarea>
+        </div>
+
+
+
+        <div class="col" style="text-align: right">
+            <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3" href="/MPB/key">
+                <span class="fas fa-times-circle"></span>&nbsp;Cancel
+            </a>
+            <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;" type="submit"
+                value="Save" onclick="return confirm('Are you sure want to save this data?')"><span
+                    class="fas fa-save"></span>&nbsp;Save
+            </button>
+        </div>
+        <input class="form-control" name="user_id" type="hidden" value="{{ $user->id }}" />
+
+
+        </form>
+
+    </div>
 
     </div>
 

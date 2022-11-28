@@ -52,7 +52,7 @@
                                 </td>
                                 <td class="align-middle">{{ $loop->iteration }}.
                                 </td>
-                                <td class="align-middle">{{ $thrust->thrust->namaThrust }}</td>
+                                <td class="align-middle">{{ $thrust->thrust->namaThrust ?? '' }}</td>
                                 <td class="align-middle">{{ $thrust->nasional->namaNational ?? '' }}</td>
                                 <td class="align-middle">{{ $thrust->key->namaKey ?? '' }}</td>
                                 <td class="align-middle">{{ $thrust->sub->namaSub ?? '' }}</td>
@@ -109,7 +109,7 @@
                                                             <label class="col-form-label" for="namaThrust">Thrust
                                                                 :</label>
                                                             <label class="form-control"
-                                                                disabled="disabled">{{ $thrust->thrust->namaThrust }}</label>
+                                                                disabled="disabled">{{ $thrust->thrust->namaThrust ?? '' }}</label>
 
                                                         </div>
 

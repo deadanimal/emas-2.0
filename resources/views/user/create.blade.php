@@ -79,7 +79,7 @@
                                     <label for="role">Dashboard :</label>
                                     <div class="form-group">
 
-                                        <select class="form-control mb-3" name="role" id="pilih1" required>
+                                        <select class="form-select mb-3" name="role" id="pilih1" required>
                                             <option value="" selected hidden>Sila pilih</option>
                                             @foreach ($role as $r)
                                                 <option value="{{ $r->name }}">{{ $r->name }}
@@ -102,7 +102,7 @@
                                             @endforeach
                                         </select> --}}
 
-                                        <select class="form-select" name="permission" required>
+                                        <select class="form-select mb-3" name="permission" required>
                                             <option selected disabled hidden value="null">Sila Pilih</option>
                                             <option value="PPD - User">PPD - Kementerian / Agensi</option>
                                             <option value="PPD - Penyelaras">PPD - Bahagian</option>
@@ -125,10 +125,40 @@
                                 </div>
 
                                 <div class="col-6">
+                                    <label for="">Thrust:</label>
+                                    <div class="input-group">
+                                        <select class="form-select mb-3" name="thrust" required>
+                                            <option selected disabled hidden value="null">Sila Pilih</option>
+                                            <option value="1">Thrust 1</option>
+                                            <option value="1">Thrust 2</option>
+                                            <option value="1">Thrust 3</option>
+                                            <option value="1">Thrust 4</option>
+                                            <option value="1">Thrust 5</option>
+
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <label for="">Divison:</label>
+                                    <div class="input-group">
+                                        <select class="form-select mb-3" name="division" required>
+                                            <option selected disabled hidden value="null">Sila Pilih</option>
+                                            <option value="1">Thrust 1</option>
+                                            <option value="1">Thrust 2</option>
+                                            <option value="1">Thrust 3</option>
+                                            <option value="1">Thrust 4</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
                                     <label for="">Dalaman:</label>
                                     <div class="input-group">
 
-                                        <select class="form-select" name="dalaman" required>
+                                        <select class="form-select mb-3" name="dalaman" required>
                                             <option selected disabled hidden value="null">Sila Pilih</option>
                                             <option value="1">Ya</option>
                                             <option value="0">Tidak</option>
@@ -139,7 +169,7 @@
                                 <div class="col-6">
                                     <label for="">Organisasi:</label>
                                     <div class="input-group">
-                                        <select class="form-control mb-3" name="organisasi_id" required>
+                                        <select class="form-select mb-3" name="organisasi_id" required>
                                             <option selected disabled hidden>Sila pilih</option>
                                             @foreach ($organisasi as $organ)
                                                 <option value="{{ $organ->id }}">

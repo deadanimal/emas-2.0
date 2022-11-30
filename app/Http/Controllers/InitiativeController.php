@@ -14,18 +14,12 @@ use Illuminate\Http\Request;
 
 class InitiativeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function __construct()
-    {
+
+    public function __construct() {
         $this->middleware('auth');
     }
 
-    public function index()
-    {
+    public function index() {
         $initiatives = Initiative::all();
         $cluster = Cluster::all();
 
@@ -35,30 +29,17 @@ class InitiativeController extends Controller
         return view('md.initiative.index', compact('initiatives', 'cluster'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+
+    public function create() {
         $user = Auth::user();
         $cluster = Cluster::all();
 
         return view('md.initiative.create', compact('user', 'cluster'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreInitiativeRequest  $request
-     * @return \Illuminate\Http\Response
-     */
 
 
-
-    public function store(StoreInitiativeRequest $request)
-    {
+    public function store(StoreInitiativeRequest $request) {
 
 
         // $initiative = Initiative::create($request->all());
@@ -108,25 +89,11 @@ class InitiativeController extends Controller
         return redirect()->route('initiative.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Initiative  $initiative
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Initiative $initiative)
-    {
+    public function show(Initiative $initiative) {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Initiative  $initiative
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Initiative $initiative)
-    {
+    public function edit(Initiative $initiative) {
 
         // dd($initiative);
         // $initiative = Initiative::all();
@@ -134,8 +101,7 @@ class InitiativeController extends Controller
         return view('md.initiative.edit', compact('cluster', 'initiative'));
     }
 
-    public function edit1(Initiative $id)
-    {
+    public function edit1(Initiative $id) {
         $initiative = $id;
         $initiative_update = Initiative_update::where('initiative_id', $initiative->id)->get();
 
@@ -144,15 +110,7 @@ class InitiativeController extends Controller
         return view('md.initiative.update', compact('cluster', 'initiative', 'initiative_update'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateInitiativeRequest  $request
-     * @param  \App\Models\Initiative  $initiative
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         // $initiative->update($request->all());
 
         $initiative = Initiative::find($id);
@@ -192,8 +150,7 @@ class InitiativeController extends Controller
         return redirect()->route('initiative.index');
     }
 
-    public function update1(Request $request, $id)
-    {
+    public function update1(Request $request, $id) {
         $initiative_update = new Initiative_update();
 
         $initiative_update->initiative_id = $request->initiative_id;
@@ -217,21 +174,13 @@ class InitiativeController extends Controller
         return back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Initiative  $initiative
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Initiative $initiative)
-    {
+    public function destroy(Initiative $initiative) {
         $initiative->delete();
         return redirect()->route('initiative.index')
             ->with('Berjaya', 'Keterangan berjaya dibuang');
     }
 
-    public function searchInitiative(Request $request)
-    {
+    public function searchInitiative(Request $request) {
         $initiative = Initiative::where('id', '!=', 'null');
 
         if ($request->result[0] != 'null') {

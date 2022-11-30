@@ -11,56 +11,44 @@ use Spatie\Permission\Models\Role;
 
 class FokusutamaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
-    public function __construct()
-    {
+
+    public function __construct() {
         $this->middleware('auth');
     }
 
-    public function index()
-    {
+    public function index() {
         $user = Auth::user();
         $fokusutama = Fokusutama::all();
         return view('ppd.fokusutama.index', compact('fokusutama', 'user'));
     }
 
-    public function create()
-    {
+    public function create() {
 
         $user = Auth::user();
         return view('ppd.fokusutama.create', ['user' => $user]);
     }
 
-    public function store(StoreFokusutamaRequest $request)
-    {
+    public function store(StoreFokusutamaRequest $request) {
         $fokusutama = Fokusutama::create($request->all());
         return redirect()->route('fokusutama.index');
     }
 
-    public function show(Fokusutama $fokusutama)
-    {
+    public function show(Fokusutama $fokusutama) {
         return view('ppd.fokusutama.show', compact('fokusutama'));
     }
 
 
-    public function edit(Fokusutama $fokusutama)
-    {
+    public function edit(Fokusutama $fokusutama) {
         return view('ppd.fokusutama.edit', compact('fokusutama'));
     }
 
-    public function update(UpdateFokusutamaRequest $request, Fokusutama $fokusutama)
-    {
+    public function update(UpdateFokusutamaRequest $request, Fokusutama $fokusutama) {
         $fokusutama->update($request->all());
         return redirect()->route('fokusutama.index');
     }
 
-    public function destroy(Fokusutama $fokusutama)
-    {
+    public function destroy(Fokusutama $fokusutama) {
         $fokusutama->delete();
 
         return redirect()->route('ppd.fokusutama.index')

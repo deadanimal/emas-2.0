@@ -16,18 +16,12 @@ use Illuminate\Http\Request;
 
 class ThrustController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function __construct()
-    {
+
+    public function __construct() {
         $this->middleware('auth');
     }
 
-    public function index(Request $request)
-    {
+    public function index(Request $request) {
         if ($request->user()->can('Approver')) {
             $thrust = Thrust::all();
 
@@ -55,77 +49,44 @@ class ThrustController extends Controller
     // }
 
    
-    public function create()
-    {
+    public function create() {
         $user = Auth::user();
 
         return view('mpb.thrust.create', compact('user'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreThrustRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreThrustRequest $request)
-    {
+
+    public function store(StoreThrustRequest $request) {
         $thrust = Thrust::create($request->all());
         return redirect()->route('thrust.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Thrust  $thrust
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Thrust $thrust)
-    {
+
+    public function show(Thrust $thrust) {
         return view('mpb.thrust.show', compact('thrust'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Thrust  $thrust
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Thrust $thrust)
-    {
+
+    public function edit(Thrust $thrust) {
         $user = Auth::user();
         return view('mpb.thrust.edit', compact('thrust'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateThrustRequest  $request
-     * @param  \App\Models\Thrust  $thrust
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateThrustRequest $request, Thrust $thrust)
-    {
+
+    public function update(UpdateThrustRequest $request, Thrust $thrust) {
         $thrust->update($request->all());
         return redirect()->route('thrust.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Thrust  $thrust
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Thrust $thrust)
-    {
+
+    public function destroy(Thrust $thrust) {
         $thrust->delete();
 
         return redirect()->route('thrust.index')
             ->with('Berjaya', 'Thrust berjaya dibuang');
     }
 
-    public function lulus($id)
-    {
+    public function lulus($id) {
 
         $thrust = Thrust::find($id);
         $thrust->lulus = true;
@@ -136,8 +97,7 @@ class ThrustController extends Controller
         return redirect()->to('MPB/displayThrust');
     }
 
-    public function ditolak(Request $request)
-    {
+    public function ditolak(Request $request) {
         $thrust = Thrust::find($request->id);
         $thrust->lulus = false;
         $thrust->ditolak = true;

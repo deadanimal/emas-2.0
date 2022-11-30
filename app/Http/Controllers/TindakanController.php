@@ -24,19 +24,13 @@ use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 
 class TindakanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
-    public function __construct()
-    {
+
+    public function __construct() {
         $this->middleware('auth');
     }
 
-    public function index()
-    {
+    public function index() {
         $tindakans = Tindakan::all();
         $list = Inisiatif::all();
         $fokus = Fokusutama::all();
@@ -49,8 +43,7 @@ class TindakanController extends Controller
         return view('ppd.tindakan.index', compact('tindakans', 'list', 'fokus', 'perkara', 'pemangkin', 'bab', 'bidang', 'strategi'));
     }
 
-    public function print_tindakan(Request $request, $id)
-    {
+    public function print_tindakan(Request $request, $id) {
         $tindakan = Tindakan::find($id);
 
         // generate pdf using DomPDF
@@ -58,8 +51,7 @@ class TindakanController extends Controller
         return $pdf->stream('Tindakan.pdf');
     }
 
-    public function index1()
-    {
+    public function index1() {
         $tindakans = Tindakan::all();
         $tema = Pemangkindasar::all();
         $bab = Bab::all();
@@ -113,8 +105,7 @@ class TindakanController extends Controller
         ));
     }
 
-    public function index2()
-    {
+    public function index2() {
         $tindakans = Tindakan::all();
         $list = Inisiatif::all();
         $fokus = Fokusutama::all();
@@ -127,13 +118,8 @@ class TindakanController extends Controller
         return view('ppd.tindakan.index2', compact('tindakans', 'list', 'fokus', 'perkara', 'pemangkin', 'bab', 'bidang', 'strategi'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+
+    public function create() {
         $user = Auth::user();
 
         $list = Inisiatif::all();
@@ -146,20 +132,12 @@ class TindakanController extends Controller
         return view('ppd.tindakan.create', compact('user', 'list', 'fokuss', 'perkaras', 'pemangkin', 'bab', 'bidang', 'strategi'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreTindakanRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreTindakanRequest $request)
-    {
+    public function store(StoreTindakanRequest $request) {
         $tindakan = Tindakan::create($request->all());
         return redirect()->route('tindakan.index');
     }
 
-    public function lulus($id)
-    {
+    public function lulus($id) {
 
         $tindakan = Tindakan::find($id);
         $tindakan->lulus = true;
@@ -169,8 +147,7 @@ class TindakanController extends Controller
         return redirect()->to('tindakan1/index1');
     }
 
-    public function ditolak(Request $request)
-    {
+    public function ditolak(Request $request) {
         $tindakan = Tindakan::find($request->id);
         $tindakan->lulus = false;
         $tindakan->ditolak = true;
@@ -179,25 +156,13 @@ class TindakanController extends Controller
         return redirect()->to('tindakan1/index1');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Tindakan  $tindakan
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Tindakan $tindakan)
-    {
+
+    public function show(Tindakan $tindakan) {
         return view('ppd.tindakan.show', compact('tindakan'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Tindakan  $tindakan
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Tindakan $tindakan)
-    {
+
+    public function edit(Tindakan $tindakan) {
         $list = Inisiatif::all();
         $fokuss = Fokusutama::all();
         $perkaras = Perkarautama::all();
@@ -208,8 +173,7 @@ class TindakanController extends Controller
         return view('ppd.tindakan.edit', compact('tindakan', 'list', 'fokuss', 'perkaras', 'pemangkin', 'bab', 'bidang', 'strategi'));
     }
 
-    public function edit1($id_tindakan)
-    {
+    public function edit1($id_tindakan) {
         $tindakans = Tindakan::find($id_tindakan);
 
         $users = User::permission('PPD - Penyelaras')->get();
@@ -220,8 +184,7 @@ class TindakanController extends Controller
         return view('ppd.tindakan.edit1', compact('tindakans', 'users', 'organisasis'));
     }
 
-    public function edit2($id_tindakan)
-    {
+    public function edit2($id_tindakan) {
         $tindakans = Tindakan::find($id_tindakan);
         $tindakan_markahs = TindakanMarkah::where('tindakan_id', $tindakans->id)->get();
 
@@ -230,29 +193,20 @@ class TindakanController extends Controller
         return view('ppd.tindakan.edit2', compact('tindakans', 'tindakan_markahs'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateTindakanRequest  $request
-     * @param  \App\Models\Tindakan  $tindakan
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateTindakanRequest $request, Tindakan $tindakan)
-    {
+
+    public function update(UpdateTindakanRequest $request, Tindakan $tindakan) {
         $tindakan->update($request->all());
         return redirect()->route('tindakan.index');
     }
 
-    public function update1(UpdateTindakanRequest $request, Tindakan $tindakan)
-    {
+    public function update1(UpdateTindakanRequest $request, Tindakan $tindakan) {
         $user = Auth::user();
 
         $tindakan->update($request->all());
         return redirect()->route('tindakan.index');
     }
 
-    public function update2(Request $request)
-    {
+    public function update2(Request $request) {
         $tindakan_markahs = new TindakanMarkah();
 
         $tindakan_markahs->tindakan_id = $request->tindakan_id;
@@ -269,22 +223,14 @@ class TindakanController extends Controller
         return back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Tindakan  $tindakan
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Tindakan $tindakan)
-    {
+    public function destroy(Tindakan $tindakan) {
         $tindakan->delete();
 
         return redirect()->route('tindakan.index')
             ->with('Berjaya', 'Keterangan berjaya dibuang');
     }
 
-    public function searchTindakan(Request $request)
-    {
+    public function searchTindakan(Request $request) {
         $tindakan = Tindakan::where('id', '!=', 'null');
 
         if ($request->result[0] != 'null') {

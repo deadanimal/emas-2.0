@@ -20,19 +20,13 @@ use Illuminate\Support\Facades\Mail;
 
 class MilestoneController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
-    public function __construct()
-    {
+
+    public function __construct() {
         $this->middleware('auth');
     }
 
-    public function index()
-    {
+    public function index() {
         $miles = Milestone::where('user_id', Auth::user()->id)->get();
         $list = Kpi2::where('user_id', Auth::user()->id)->get();
 
@@ -40,8 +34,7 @@ class MilestoneController extends Controller
         return view('mpb.milestone.index', compact('miles', 'list'));
     }
 
-    public function index1(Request $request)
-    {
+    public function index1(Request $request) {
 
         if ($request->user()->can('Approver')) {
             $miles = Milestone::all();
@@ -53,13 +46,8 @@ class MilestoneController extends Controller
         return view('mpb.display.displayThrust', compact('miles'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+
+    public function create() {
         $user = Auth::user();
 
 
@@ -85,14 +73,7 @@ class MilestoneController extends Controller
         return view('mpb.milestone.create', compact('user', 'miles', 'thrust', 'nation', 'key', 'sub', 'kpi', 'baseline', 'national'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreMilestoneRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreMilestoneRequest $request)
-    {
+    public function store(StoreMilestoneRequest $request) {
         $miles = Milestone::create($request->validated());
         // $data  = User::find($miles->user_id);
 
@@ -102,25 +83,11 @@ class MilestoneController extends Controller
         return redirect()->route('milestone.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Milestone  $milestone
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Milestone $milestone)
-    {
+    public function show(Milestone $milestone) {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Milestone  $milestone
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Milestone $milestone)
-    {
+    public function edit(Milestone $milestone) {
         $miles = Milestone::where('user_id', Auth::user()->id)->get();
         $thrust = Thrust::where('user_id', Auth::user()->id)->get();
         $nation = National::where('user_id', Auth::user()->id)->get();
@@ -137,33 +104,17 @@ class MilestoneController extends Controller
         return view('mpb.milestone.edit', compact('milestone', 'thrust', 'nation', 'key', 'sub', 'kpi', 'baseline', 'national'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateMilestoneRequest  $request
-     * @param  \App\Models\Milestone  $milestone
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateMilestoneRequest $request, Milestone $milestone)
-    {
+    public function update(UpdateMilestoneRequest $request, Milestone $milestone) {
         $milestone->update($request->all());
 
         return redirect()->route('milestone.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Milestone  $milestone
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Milestone $milestone)
-    {
+    public function destroy(Milestone $milestone) {
         //
     }
 
-    public function lulus($id)
-    {
+    public function lulus($id) {
 
         $miles = Milestone::find($id);
         $data  = User::find($miles->user_id);
@@ -179,8 +130,7 @@ class MilestoneController extends Controller
         return redirect()->to('MPB/displayThrust');
     }
 
-    public function ditolak(Request $request)
-    {
+    public function ditolak(Request $request) {
         $miles = Milestone::find($request->id);
         $data  = User::find($miles->user_id);
 

@@ -8,13 +8,8 @@ use App\Models\Profil;
 
 class LokalitiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
+
+    public function index() {
 
         $negeris = Negeri::all();
         foreach ($negeris as $negeri) {
@@ -31,8 +26,7 @@ class LokalitiController extends Controller
         return view('KT.lokaliti.index', compact('negeris'));
     }
 
-    public function index1()
-    {
+    public function index1() {
         $lokaliti = Lokaliti::all();
 
         return view('KT.lokaliti.index1', compact('lokaliti'));

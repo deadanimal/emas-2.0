@@ -10,14 +10,12 @@ use App\Models\User;
 class ResetPasswordController extends Controller
 {
 
-    public function getPassword($token)
-    {
+    public function getPassword($token) {
 
         return view('customauth.passwords.reset', ['token' => $token]);
     }
 
-    public function updatePassword(Request $request)
-    {
+    public function updatePassword(Request $request) {
 
         $request->validate([
             'email' => 'required|email|exists:users',

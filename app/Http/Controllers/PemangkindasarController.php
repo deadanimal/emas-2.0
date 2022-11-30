@@ -12,31 +12,20 @@ use Illuminate\Support\Facades\Auth;
 
 class PemangkindasarController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
-    public function __construct()
-    {
+
+    public function __construct() {
         $this->middleware('auth');
     }
 
-    public function index()
-    {
+    public function index() {
         $pemangkindasar = Pemangkindasar::all();
 
         return view('ppd.pemangkin.index', compact('pemangkindasar'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+
+    public function create() {
         $user = Auth::user();
 
         $perkaras = Perkarautama::all();
@@ -47,37 +36,16 @@ class PemangkindasarController extends Controller
         return view('ppd.pemangkin.create', compact('user', 'perkaras', 'fokuss'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StorePemangkindasarRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StorePemangkindasarRequest $request)
-    {
+    public function store(StorePemangkindasarRequest $request) {
         $pemangkindasar = Pemangkindasar::create($request->all());
         return redirect()->route('pemangkin.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Pemangkindasar  $pemangkindasar
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Pemangkindasar $pemangkindasar)
-    {
+    public function show(Pemangkindasar $pemangkindasar) {
         return view('ppd.pemangkin.show', compact('pemangkindasar'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Pemangkindasar  $pemangkindasar
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
+    public function edit($id) {
         $pemangkindasar = Pemangkindasar::find($id);
         $perkaras = Perkarautama::all();
         $fokuss = Fokusutama::all();
@@ -85,15 +53,7 @@ class PemangkindasarController extends Controller
         return view('ppd.pemangkin.edit', compact('pemangkindasar', 'perkaras', 'fokuss'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdatePemangkindasarRequest  $request
-     * @param  \App\Models\Pemangkindasar  $pemangkindasar
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdatePemangkindasarRequest $request, $id)
-    {
+    public function update(UpdatePemangkindasarRequest $request, $id) {
 
         $pemangkindasar = Pemangkindasar::find($id);
 
@@ -102,14 +62,7 @@ class PemangkindasarController extends Controller
         return redirect()->route('pemangkin.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Pemangkindasar  $pemangkindasar
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         $pemangkindasar = Pemangkindasar::find($id);
         $pemangkindasar->delete();
 

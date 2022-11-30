@@ -15,25 +15,15 @@ use Illuminate\Http\Request;
 
 class MarkahController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
+
+    public function index() {
         $markah = Markah::all();
 
         return view('markah.index', compact('markah'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+
+    public function create() {
         $user = Auth::user();
 
         $list= Outcome::all();
@@ -45,22 +35,14 @@ class MarkahController extends Controller
         return view('markah.create', compact('user', 'list', 'listBidang', 'listBab', 'listTema'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreMarkahRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreMarkahRequest $request)
-    {
+    public function store(StoreMarkahRequest $request) {
         // dd($request);
 
         $markah = Markah::create($request->all());
         return redirect()->route('markah.index');
     }
 
-    public function lulus($id)
-    {
+    public function lulus($id) {
 
         $markah = Markah::find($id);
         $markah->lulus = true;
@@ -72,8 +54,7 @@ class MarkahController extends Controller
 
     }
 
-    public function ditolak(Request $request)
-    {
+    public function ditolak(Request $request) {
         $markah = Markah::find($request->id);
         $markah->lulus = false;
         $markah->save();
@@ -82,25 +63,11 @@ class MarkahController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Markah  $markah
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Markah $markah)
-    {
+    public function show(Markah $markah) {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Markah  $markah
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Markah $markah)
-    {
+    public function edit(Markah $markah) {
 
         $list= Outcome::all();
         $listBidang= Bidang::all();
@@ -111,27 +78,12 @@ class MarkahController extends Controller
 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateMarkahRequest  $request
-     * @param  \App\Models\Markah  $markah
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateMarkahRequest $request, Markah $markah)
-    {
+    public function update(UpdateMarkahRequest $request, Markah $markah) {
         $markah->update($request->all());
         return redirect()->route('markah.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Markah  $markah
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Markah $markah)
-    {
+    public function destroy(Markah $markah) {
         $markah->delete();
 
         return redirect()->route('markah.index')

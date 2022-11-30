@@ -7,14 +7,12 @@ use Illuminate\Http\Request;
 
 class MPBController extends Controller
 {
-    public function index()
-    {
+    public function index() {
         $users = User::role('MPB')->get();
         return view('mpb.thrust.mpb_view', compact('users'));
     }
 
-    public function edit($id)
-    {
+    public function edit($id) {
         $users = User::find($id);
 
         return view('mpb.thrust.mpb', [
@@ -24,8 +22,7 @@ class MPBController extends Controller
         ]);
     }
 
-    public function thrust(Request $request, $id)
-    {
+    public function thrust(Request $request, $id) {
 
         $users = User::find($id);
         $users->update($request->all());

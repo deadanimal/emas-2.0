@@ -16,27 +16,20 @@ use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 
 class BantuanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
-    public function __construct()
-    {
+
+    public function __construct() {
         $this->middleware('auth');
     }
 
-    public function index()
-    {
+    public function index() {
         $bantuans = Bantuan::all();
 
         return view('KT.bantuan.index', compact('bantuans'));
     }
 
 
-    public function berdasarkan_negeri()
-    {
+    public function berdasarkan_negeri() {
         $bantuans = Bantuan::with(['negeri'])->get()->sortBy('negeri');
 
         foreach ($bantuans as $bantuan) {
@@ -46,8 +39,7 @@ class BantuanController extends Controller
         return view('KT.bantuan.berdasarkan_negeri', compact('bantuans'));
     }
 
-    public function senarai_ketua_kampung()
-    {
+    public function senarai_ketua_kampung() {
         $negeris = Negeri::all();
         $daerahs = Daerah::all();
         $kampungs = Kampung::all();
@@ -56,40 +48,27 @@ class BantuanController extends Controller
         return view('KT.bantuan.senarai_ketua_kampung', compact('ketuakampungs', 'negeris', 'daerahs', 'kampungs'));
     }
 
-    public function senarai_kampung_menerima()
-    {
+    public function senarai_kampung_menerima() {
         $bantuans = Info_kampung::all();
 
         return view('KT.bantuan.senarai_kampung_menerima', compact('bantuans'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+
+    public function create() {
         $negeri = Negeri::with('daerah')->get();
 
         return view('KT.bantuan.create', compact('negeri'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
+
+    public function store(Request $request) {
         Bantuan::create($request->all());
 
         return redirect()->route('bantuan.index');
     }
 
-    public function store1(Request $request)
-    {
+    public function store1(Request $request) {
 
         // dd('test');
         $ketua = new Maklumat_penghulu_mukim();
@@ -104,8 +83,7 @@ class BantuanController extends Controller
         return redirect('/bantuan1/senarai_ketua_kampung');
     }
 
-    public function store2(Request $request)
-    {
+    public function store2(Request $request) {
         // dd('test');
         $kampung = new Info_kampung();
         $kampung->nama_kampung = $request->nama_kampung;
@@ -117,60 +95,38 @@ class BantuanController extends Controller
         return redirect('/bantuan1/senarai_kampung_menerima');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Bantuan  $bantuan
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Bantuan $bantuan)
-    {
+
+    public function show(Bantuan $bantuan) {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Bantuan  $bantuan
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Bantuan $bantuan)
-    {
+
+    public function edit(Bantuan $bantuan) {
         $negeri = Negeri::with('daerah')->get();
         $daerah = Daerah::all();
 
         return view('KT.bantuan.edit', compact('bantuan', 'negeri', 'daerah'));
     }
 
-    public function edit1($id)
-    {
+    public function edit1($id) {
         // dd('2');
         $ketua = Maklumat_penghulu_mukim::find($id);
         return view('KT.bantuan.edit1', compact('ketua'));
     }
 
-    public function edit2($id)
-    {
+    public function edit2($id) {
         $kampung = Info_kampung::find($id);
         return view('KT.bantuan.edit2', compact('kampung'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Bantuan  $bantuan
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Bantuan $bantuan)
-    {
+
+    public function update(Request $request, Bantuan $bantuan) {
         $bantuan->update($request->all());
 
         return redirect()->route('bantuan.index');
     }
 
-    public function update2(Request $request, Info_kampung $kampung)
-    {
+    public function update2(Request $request, Info_kampung $kampung) {
         $kampung->nama_kampung = $request->nama_kampung;
         $kampung->maklumat_kampung = $request->maklumat_kampung;
         $kampung->alamat_kampung = $request->alamat_kampung;
@@ -181,20 +137,12 @@ class BantuanController extends Controller
         return redirect('/bantuan1/senarai_kampung_menerima');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Bantuan  $bantuan
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Bantuan $bantuan)
-    {
+    public function destroy(Bantuan $bantuan) {
         $bantuan->delete();
         return back();
     }
 
-    public function find(Request $request)
-    {
+    public function find(Request $request) {
         if ($request->daerah == 'null') {
             $bantuan = Bantuan::where('negeri_id', $request->negeri)
                 ->get();
@@ -211,8 +159,7 @@ class BantuanController extends Controller
         return response()->json($bantuan);
     }
 
-    public function print_bantuan(Request $request, $id)
-    {
+    public function print_bantuan(Request $request, $id) {
         $bantuan = Bantuan::find($id);
 
         // generate pdf using DomPDF
@@ -220,8 +167,7 @@ class BantuanController extends Controller
         return $pdf->stream('Jenis_Bantuan.pdf');
     }
 
-    public function print_bantuan_negeri(Request $request, $id)
-    {
+    public function print_bantuan_negeri(Request $request, $id) {
         $bantuan = Bantuan::with(['negeri'])->get()->sortBy('negeri')->find($id);
 
         $bantuan['kir'] = Profil::where([['bantuan_id', $bantuan->id], ['kategori', 'KIR']])->count();

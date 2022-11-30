@@ -16,19 +16,13 @@ use Illuminate\Http\Request;
 
 class BabController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
-    public function __construct()
-    {
+
+    public function __construct() {
         $this->middleware('auth');
     }
 
-    public function index()
-    {
+    public function index() {
         $babs = Bab::all();
 
         $list = Pemangkindasar::all();
@@ -39,13 +33,8 @@ class BabController extends Controller
         return view('ppd.bab.index', compact('babs', 'list', 'fokus'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+
+    public function create() {
         $user = Auth::user();
         $users = User::permission('PPD - Penyelaras')->get();
 
@@ -55,14 +44,8 @@ class BabController extends Controller
         return view('ppd.bab.create', compact('user', 'temas', 'fokuss', 'users', 'orgs'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreBabRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreBabRequest $request)
-    {
+
+    public function store(StoreBabRequest $request) {
         $user = Auth::user();
         $bab = Bab::create($request->validated());
         $bab->organisasi_id = $user->organisasi_id;
@@ -70,25 +53,13 @@ class BabController extends Controller
         return redirect()->route('bab.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Bab  $bab
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Bab $bab)
-    {
+
+    public function show(Bab $bab) {
         return view('ppd.bab.show', compact('bab'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Bab  $bab
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Bab $bab)
-    {
+
+    public function edit(Bab $bab) {
         $temas = Pemangkindasar::all();
 
         $fokuss = Fokusutama::all();
@@ -109,35 +80,19 @@ class BabController extends Controller
         return view('ppd.bab.edit', compact('bab', 'temas', 'fokuss', 'users', 'orgs'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateBabRequest  $request
-     * @param  \App\Models\Bab  $bab
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateBabRequest $request, Bab $bab)
-    {
+    public function update(UpdateBabRequest $request, Bab $bab) {
         $bab->update($request->all());
         return redirect()->route('bab.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Bab  $bab
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Bab $bab)
-    {
+    public function destroy(Bab $bab) {
         $bab->delete();
 
         return redirect()->route('ppd.bab.index')
             ->with('Berjaya', 'Keterangan berjaya dibuang');
     }
 
-    public function searchBab(Request $request)
-    {
+    public function searchBab(Request $request) {
         $bab = Bab::where('id', '!=', 'null');
 
         if ($request->result[0] != 'null') {

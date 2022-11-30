@@ -8,13 +8,11 @@ use App\Mail\SendMail;
 
 class SendEmailController extends Controller
 {
-    function index()
-    {
+    function index() {
         return view('send_email');
     }
 
-    function send(Request $request)
-    {
+    function send(Request $request) {
         $this->validate($request, [
             'name'     =>  'required',
             'email'  =>  'required|email',

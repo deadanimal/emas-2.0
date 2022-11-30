@@ -19,23 +19,13 @@ use Yajra\DataTables\Contracts\DataTable;
 
 class PenggunaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function __construct()
-    {
+
+    public function __construct() {
         $this->middleware('auth');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Request $request)
-    {
+
+    public function index(Request $request) {
         $role = Role::all();
         $user = User::all();
 
@@ -46,8 +36,7 @@ class PenggunaController extends Controller
         ]);
     }
 
-    public function index1(Request $request)
-    {
+    public function index1(Request $request) {
 
         // $role = Role::all();
         // $user = User::all();
@@ -116,14 +105,12 @@ class PenggunaController extends Controller
     // }
 
 
-    public function userFetchList()
-    {
+    public function userFetchList() {
         $users = User::all();
         echo json_encode($users);
     }
 
-    public function active_deactive_user($id)
-    {
+    public function active_deactive_user($id) {
         $user = User::find($id);
         if ($user->status == 1) {
             $user->status = 0;
@@ -139,8 +126,7 @@ class PenggunaController extends Controller
 
 
 
-    public function index_mydigital(Request $request)
-    {
+    public function index_mydigital(Request $request) {
         // if ($request->user()->can('Urusetia')) {
         //     $user = User::all();
         // } else {
@@ -158,13 +144,8 @@ class PenggunaController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+
+    public function create() {
         $user = User::all();
         $roles = Role::with('permissions')->get();
         $permissions = Permission::all();
@@ -181,8 +162,7 @@ class PenggunaController extends Controller
         // $user->syncPermission('KementerianPPD');
     }
 
-    public function create1()
-    {
+    public function create1() {
         $user = User::all();
         $role = Role::all();
         $permissions = Permission::all();
@@ -194,8 +174,7 @@ class PenggunaController extends Controller
         ]);
     }
 
-    public function create_mydigital(Request $request)
-    {
+    public function create_mydigital(Request $request) {
 
 
 
@@ -211,14 +190,7 @@ class PenggunaController extends Controller
         // $user->syncPermission('KementerianPPD');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StorePenggunaRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         // $user = User::create($request->all());
         // dd($request->all());
         $request->validate([
@@ -255,24 +227,9 @@ class PenggunaController extends Controller
         return redirect()->route('user.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Pengguna  $pengguna
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Pengguna $pengguna)
-    {
-    }
+    public function show(Pengguna $pengguna) {}
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Pengguna  $pengguna
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
+    public function edit($id) {
         $users = User::find($id);
         // $roles = Role::all();
         // $permissions = Permission::all();
@@ -293,15 +250,7 @@ class PenggunaController extends Controller
         // return view('user.edit', compact('users', 'roles', 'permissions'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdatePenggunaRequest  $request
-     * @param  \App\Models\Pengguna  $pengguna
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Pengguna $pengguna, User $user)
-    {
+    public function update(Request $request, Pengguna $pengguna, User $user) {
         // $user->revokePermissionTo('BPKP');
         // dd($user->hasPermissionTo('BPKP'));
         $user->update($request->all());
@@ -325,22 +274,14 @@ class PenggunaController extends Controller
         return redirect()->route('user.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Pengguna  $pengguna
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(User $user)
-    {
+    public function destroy(User $user) {
         $user->delete();
 
         return redirect()->route('user.index')
             ->with('Berjaya', 'Keterangan berjaya dibuang');
     }
 
-    public function set_semula_kata_laluan(Request $request, $user)
-    {
+    public function set_semula_kata_laluan(Request $request, $user) {
         $reset_pass = User::find($user);
 
         $reset_pass->password = Hash::make($request->password);
@@ -352,8 +293,7 @@ class PenggunaController extends Controller
         echo '</script>';
     }
 
-    public function import()
-    {
+    public function import() {
         Excel::import(new UsersImport, request()->file('userfile'));
 
         return back();

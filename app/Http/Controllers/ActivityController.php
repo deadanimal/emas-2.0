@@ -18,19 +18,13 @@ use PDF;
 
 class ActivityController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
-    public function __construct()
-    {
+
+    public function __construct() {
         $this->middleware('auth');
     }
 
-    public function index()
-    {
+    public function index() {
         $activities = activity::all();
         $initiatives = Initiative::all();
         $programs = Program::all();
@@ -39,8 +33,7 @@ class ActivityController extends Controller
         return view('md.activity.index', compact('activities', 'plans', 'initiatives', 'programs'));
     }
 
-    public function cluster(Request $request)
-    {
+    public function cluster(Request $request) {
 
 
         // if ($request->user()->role == 'SuperAdmin') {
@@ -68,8 +61,7 @@ class ActivityController extends Controller
         return view('md.activity.approval', compact('activities'));
     }
 
-    public function lulus($id)
-    {
+    public function lulus($id) {
 
         $activities = activity::find($id);
         $activities->lulus = true;
@@ -79,8 +71,7 @@ class ActivityController extends Controller
         return redirect()->to('MD/approval/cluster');
     }
 
-    public function ditolak(Request $request)
-    {
+    public function ditolak(Request $request) {
         $activities = activity::find($request->id);
         $activities->lulus = false;
         $activities->ditolak = true;
@@ -89,8 +80,7 @@ class ActivityController extends Controller
         return redirect()->to('MD/approval/cluster');
     }
 
-    public function cluster1(Request $request)
-    {
+    public function cluster1(Request $request) {
 
 
         if ($request->user()->role == 'SuperAdmin') {
@@ -106,8 +96,7 @@ class ActivityController extends Controller
         return view('md.activity.display', compact('activities'));
     }
 
-    public function cluster2(Request $request)
-    {
+    public function cluster2(Request $request) {
 
 
         if ($request->user()->role == 'SuperAdmin') {
@@ -123,13 +112,8 @@ class ActivityController extends Controller
         return view('md.activity.display1', compact('activities'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+
+    public function create() {
         $user = Auth::user();
         $clusters = Cluster::all();
         $initiatives = Initiative::all();
@@ -145,8 +129,7 @@ class ActivityController extends Controller
      * @param  \App\Http\Requests\StoreactivityRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreactivityRequest $request)
-    {
+    public function store(StoreactivityRequest $request) {
         // dd($request);
         // $request->validate([
         //     'document' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -214,8 +197,7 @@ class ActivityController extends Controller
      * @param  \App\Models\activity  $activity
      * @return \Illuminate\Http\Response
      */
-    public function show(activity $activity)
-    {
+    public function show(activity $activity) {
         //
     }
 
@@ -225,8 +207,7 @@ class ActivityController extends Controller
      * @param  \App\Models\activity  $activity
      * @return \Illuminate\Http\Response
      */
-    public function edit(activity $activity)
-    {
+    public function edit(activity $activity) {
         $user = Auth::user();
         $clusters = Cluster::all();
         $initiatives = Initiative::all();
@@ -236,8 +217,7 @@ class ActivityController extends Controller
         return view('md.activity.edit', compact('activity', 'plans', 'initiatives', 'programs', 'clusters'));
     }
 
-    public function progress_update(activity $activity, $id)
-    {
+    public function progress_update(activity $activity, $id) {
         // dd($activity);
         $activity = activity::find($id);
         $user = Auth::user();
@@ -256,8 +236,7 @@ class ActivityController extends Controller
      * @param  \App\Models\activity  $activity
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateactivityRequest $request, activity $activity)
-    {
+    public function update(UpdateactivityRequest $request, activity $activity) {
         // $activity->update($request->all());
 
         // $request->validate([
@@ -293,8 +272,7 @@ class ActivityController extends Controller
         return redirect()->route('activity.index');
     }
 
-    public function update_progress(UpdateactivityRequest $request, activity $activity)
-    {
+    public function update_progress(UpdateactivityRequest $request, activity $activity) {
 
         $activity->user_id = Auth::user()->id;
         $activity->year = $request->year;
@@ -313,16 +291,14 @@ class ActivityController extends Controller
      * @param  \App\Models\activity  $activity
      * @return \Illuminate\Http\Response
      */
-    public function destroy(activity $activity)
-    {
+    public function destroy(activity $activity) {
         $activity->delete();
 
         return redirect()->route('activity.index')
             ->with('Berjaya', 'Activity berjaya dibuang');
     }
 
-    public function searchActivity(Request $request)
-    {
+    public function searchActivity(Request $request) {
         $activity = activity::where('id', '!=', 'null');
 
         if ($request->result[0] != 'null') {
@@ -339,8 +315,7 @@ class ActivityController extends Controller
         return response()->json($activity->get());
     }
 
-    public function searchActivity1(Request $request)
-    {
+    public function searchActivity1(Request $request) {
         $activity = activity::where('id', '!=', 'null');
 
         if ($request->result[0] != 'null') {

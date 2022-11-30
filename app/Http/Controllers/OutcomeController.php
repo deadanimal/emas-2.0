@@ -14,19 +14,13 @@ use Illuminate\Support\Facades\Auth;
 
 class OutcomeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
-    public function __construct()
-    {
+
+    public function __construct() {
         $this->middleware('auth');
     }
 
-    public function index()
-    {
+    public function index() {
         $outcomes = Outcome::all();
         $list = Bidang::all();
 
@@ -34,13 +28,8 @@ class OutcomeController extends Controller
         return view('ppd.outcome.index', compact('outcomes', 'list'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+
+    public function create() {
         $user = Auth::user();
 
         $bidangs = Bidang::all();
@@ -56,8 +45,7 @@ class OutcomeController extends Controller
      * @param  \App\Http\Requests\StoreOutcomeRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreOutcomeRequest $request)
-    {
+    public function store(StoreOutcomeRequest $request) {
         $outcome = Outcome::create($request->all());
         return redirect()->route('outcome.index');
     }
@@ -68,8 +56,7 @@ class OutcomeController extends Controller
      * @param  \App\Models\Outcome  $outcome
      * @return \Illuminate\Http\Response
      */
-    public function show(Outcome $outcome)
-    {
+    public function show(Outcome $outcome) {
         return view('ppd.outcome.show', compact('outcome', 'list'));
     }
 
@@ -79,8 +66,7 @@ class OutcomeController extends Controller
      * @param  \App\Models\Outcome  $outcome
      * @return \Illuminate\Http\Response
      */
-    public function edit(Outcome $outcome)
-    {
+    public function edit(Outcome $outcome) {
 
         $bidangs = Bidang::all();
         $fokus = Fokusutama::all();
@@ -97,8 +83,7 @@ class OutcomeController extends Controller
      * @param  \App\Models\Outcome  $outcome
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateOutcomeRequest $request, Outcome $outcome)
-    {
+    public function update(UpdateOutcomeRequest $request, Outcome $outcome) {
         $outcome->update($request->all());
         return redirect()->route('outcome.index');
     }
@@ -109,8 +94,7 @@ class OutcomeController extends Controller
      * @param  \App\Models\Outcome  $outcome
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Outcome $outcome)
-    {
+    public function destroy(Outcome $outcome) {
         $outcome->delete();
 
         return redirect()->route('outcome.index')

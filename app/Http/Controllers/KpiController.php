@@ -23,13 +23,11 @@ use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 class KpiController extends Controller
 {
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->middleware('auth');
     }
 
-    public function index()
-    {
+    public function index() {
         $kpis = Kpi::all();
         $list = Outcome::all();
 
@@ -44,8 +42,7 @@ class KpiController extends Controller
         return view('ppd.kpi.index', compact('kpis', 'list', 'fokusUtama', 'perkaraUtama', 'temaPemangkin', 'bab', 'bidang'));
     }
 
-    public function print_kpi(Request $request, $id)
-    {
+    public function print_kpi(Request $request, $id) {
         $kpi = Kpi::find($id);
 
         // generate pdf using DomPDF
@@ -53,8 +50,7 @@ class KpiController extends Controller
         return $pdf->stream('Kpi.pdf');
     }
 
-    public function index1(Request $request)
-    {
+    public function index1(Request $request) {
         $tema = Pemangkindasar::all();
         $bab = Bab::all();
         $bidang = Bidang::all();
@@ -120,8 +116,7 @@ class KpiController extends Controller
         ));
     }
 
-    public function index2(Request $request)
-    {
+    public function index2(Request $request) {
 
         $kpis = Kpi::all();
         $outcomes = Outcome::all();
@@ -136,8 +131,7 @@ class KpiController extends Controller
         return view('ppd.kpi.index2', compact('kpis', 'fokusUtama', 'perkaraUtama', 'temaPemangkin', 'bab', 'bidang', 'outcomes'));
     }
 
-    public function penilaian()
-    {
+    public function penilaian() {
         $kpis = Kpi::all();
 
         $markah = KpiMarkah::all();
@@ -150,8 +144,7 @@ class KpiController extends Controller
         return view('ppd.kpi.penilaian', compact('kpis', 'temas', 'bab', 'bidang', 'outcome', 'markah'));
     }
 
-    public function result_penilaian(Request $request)
-    {
+    public function result_penilaian(Request $request) {
         $tema = $request->pemangkin_id;
 
         // $kpis = Kpi::where([
@@ -165,8 +158,7 @@ class KpiController extends Controller
         return view('ppd.kpi.result_penilaian', compact('tema'));
     }
 
-    public function paparan()
-    {
+    public function paparan() {
         $kpis = Kpi::all();
 
         $tema = Pemangkindasar::all();
@@ -178,8 +170,7 @@ class KpiController extends Controller
     }
 
 
-    public function create()
-    {
+    public function create() {
         $user = Auth::user();
 
         $list = Outcome::all();
@@ -194,8 +185,7 @@ class KpiController extends Controller
     }
 
 
-    public function store(StoreKpiRequest $request)
-    {
+    public function store(StoreKpiRequest $request) {
 
         $kpi = Kpi::create($request->validated());
 
@@ -204,8 +194,7 @@ class KpiController extends Controller
 
 
 
-    public function lulus($id)
-    {
+    public function lulus($id) {
 
         $kpi = Kpi::find($id);
         $data  = User::find($kpi->user_id);
@@ -219,8 +208,7 @@ class KpiController extends Controller
         return redirect()->to('PPD/kpi1/index1');
     }
 
-    public function ditolak(Request $request)
-    {
+    public function ditolak(Request $request) {
         $kpi = Kpi::find($request->id);
         $data  = User::find($kpi->user_id);
 
@@ -234,14 +222,12 @@ class KpiController extends Controller
         return redirect()->to('PPD/kpi1/index1');
     }
 
-    public function show(Kpi $kpi)
-    {
+    public function show(Kpi $kpi) {
         return view('ppd.kpi.show', compact('kpi'));
     }
 
 
-    public function edit(Kpi $kpi)
-    {
+    public function edit(Kpi $kpi) {
         // $kpi = Kpi::find($kpi);
         $list = Outcome::all();
         $listBidang = Bidang::all();
@@ -254,15 +240,13 @@ class KpiController extends Controller
         return view('ppd.kpi.edit', compact('kpi', 'list', 'listBidang', 'listBab', 'listTema', 'fokuss', 'perkaras'));
     }
 
-    public function edit1($id_kpi)
-    {
+    public function edit1($id_kpi) {
         $kpi = Kpi::find($id_kpi);
 
         return view('ppd.kpi.edit1', compact('kpi'));
     }
 
-    public function edit2($id_kpi)
-    {
+    public function edit2($id_kpi) {
         $kpi = Kpi::find($id_kpi);
         $kpi_markahs = KpiMarkah::where('kpi_id', $kpi->id)->get();
 
@@ -273,21 +257,18 @@ class KpiController extends Controller
 
 
 
-    public function update(UpdateKpiRequest $request, Kpi $kpi)
-    {
+    public function update(UpdateKpiRequest $request, Kpi $kpi) {
 
         $kpi->update($request->all());
         return redirect()->route('kpi.index');
     }
 
-    public function update1(UpdateKpiRequest $request, Kpi $kpi)
-    {
+    public function update1(UpdateKpiRequest $request, Kpi $kpi) {
         $kpi->update($request->all());
         return redirect()->route('kpi.index');
     }
 
-    public function update2(Request $request)
-    {
+    public function update2(Request $request) {
 
         // $kpi = Kpi::find($id);
         // $kpi_markahs = KpiMarkah::where('kpi_id', $kpi->id)->get();
@@ -307,23 +288,20 @@ class KpiController extends Controller
         return back();
     }
 
-    public function update3(UpdateKpiRequest $request, Kpi $kpi)
-    {
+    public function update3(UpdateKpiRequest $request, Kpi $kpi) {
         $kpi->update($request->all());
         return redirect()->route('kpi.index');
     }
 
 
-    public function destroy(Kpi $kpi)
-    {
+    public function destroy(Kpi $kpi) {
         $kpi->delete();
 
         return redirect()->route('kpi.index')
             ->with('Berjaya', 'Keterangan berjaya dibuang');
     }
 
-    public function searchKpi(Request $request)
-    {
+    public function searchKpi(Request $request) {
         $kpi = Kpi::where('id', '!=', 'null');
 
         if ($request->result[0] != 'null') {
@@ -348,8 +326,7 @@ class KpiController extends Controller
         return response()->json($kpi->get());
     }
 
-    public function searchKpi1(Request $request)
-    {
+    public function searchKpi1(Request $request) {
         $kpi = Kpi::where('id', '!=', 'null');
 
         if ($request->result[0] != 'null') {

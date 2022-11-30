@@ -18,19 +18,13 @@ use Illuminate\Http\Request;
 
 class InisiatifController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
-    public function __construct()
-    {
+
+    public function __construct() {
         $this->middleware('auth');
     }
 
-    public function index()
-    {
+    public function index() {
         $inisiatifs = Inisiatif::all();
 
         $list = Strategi::all();
@@ -44,13 +38,8 @@ class InisiatifController extends Controller
         return view('ppd.inisiatif.index', compact('inisiatifs', 'list', 'fokus', 'perkara', 'pemangkin', 'bab', 'bidang'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+
+    public function create() {
         $user = Auth::user();
 
         $list = Strategi::all();
@@ -62,37 +51,16 @@ class InisiatifController extends Controller
         return view('ppd.inisiatif.create', compact('user', 'list', 'fokuss', 'perkaras', 'pemangkin', 'bab', 'bidang'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreInisiatifRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreInisiatifRequest $request)
-    {
+    public function store(StoreInisiatifRequest $request) {
         $inisiatif = Inisiatif::create($request->validated());
         return redirect()->route('inisiatif.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Inisiatif  $inisiatif
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Inisiatif $inisiatif)
-    {
+    public function show(Inisiatif $inisiatif) {
         return view('ppd.inisiatif.show', compact('inisiatif'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Inisiatif  $inisiatif
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Inisiatif $inisiatif)
-    {
+    public function edit(Inisiatif $inisiatif) {
         $list = Strategi::all();
         $fokuss = Fokusutama::all();
         $perkaras = Perkarautama::all();
@@ -103,35 +71,19 @@ class InisiatifController extends Controller
         return view('ppd.inisiatif.edit', compact('inisiatif', 'list', 'fokuss', 'perkaras', 'pemangkin', 'bab', 'bidang'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateInisiatifRequest  $request
-     * @param  \App\Models\Inisiatif  $inisiatif
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateInisiatifRequest $request, Inisiatif $inisiatif)
-    {
+    public function update(UpdateInisiatifRequest $request, Inisiatif $inisiatif) {
         $inisiatif->update($request->all());
         return redirect()->route('inisiatif.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Inisiatif  $inisiatif
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Inisiatif $inisiatif)
-    {
+    public function destroy(Inisiatif $inisiatif) {
         $inisiatif->delete();
 
         return redirect()->route('inisiatif.index')
             ->with('Berjaya', 'Keterangan berjaya dibuang');
     }
 
-    public function searchInisiatif(Request $request)
-    {
+    public function searchInisiatif(Request $request) {
         $inisiatif = Inisiatif::where('id', '!=', 'null');
 
         if ($request->result[0] != 'null') {

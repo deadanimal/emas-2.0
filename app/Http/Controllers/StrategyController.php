@@ -12,19 +12,13 @@ use Illuminate\Support\Facades\DB;
 
 class StrategyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
-    public function __construct()
-    {
+
+    public function __construct() {
         $this->middleware('auth');
     }
 
-    public function index()
-    {
+    public function index() {
         $strategys = Strategy::all();
 
         $thru = Thrus::all();
@@ -33,13 +27,8 @@ class StrategyController extends Controller
         return view('md.strategy.index', compact('strategys', 'thru'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+
+    public function create() {
         $user = Auth::user();
 
         $thrusts = Thrus::all();
@@ -51,39 +40,21 @@ class StrategyController extends Controller
         return view('md.strategy.create', compact('user', 'thrusts', 'categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreStrategyRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreStrategyRequest $request)
-    {
+
+    public function store(StoreStrategyRequest $request) {
 
         // dd($request);
         $strategy = Strategy::create($request->all());
         return redirect()->route('strategy.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Strategy  $strategy
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Strategy $strategy)
-    {
+
+    public function show(Strategy $strategy) {
         return view('md.strategy.show', compact('strategy'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Strategy  $strategy
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Strategy $strategy)
-    {
+ 
+    public function edit(Strategy $strategy) {
         // dd($strategy);
 
         $thrust = Thrus::all();
@@ -93,27 +64,13 @@ class StrategyController extends Controller
         return view('md.strategy.edit', compact('strategy', 'thrust', 'categories'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateStrategyRequest  $request
-     * @param  \App\Models\Strategy  $strategy
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateStrategyRequest $request, Strategy $strategy)
-    {
+
+    public function update(UpdateStrategyRequest $request, Strategy $strategy) {
         $strategy->update($request->all());
         return redirect()->route('strategy.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Strategy  $strategy
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Strategy $strategy)
-    {
+    public function destroy(Strategy $strategy) {
         $strategy->delete();
 
         return redirect()->route('strategy.index')

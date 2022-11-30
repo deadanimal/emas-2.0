@@ -14,8 +14,7 @@ use DataTables;
 
 class Senarai_kir_dan_airController extends Controller
 {
-    public function index()
-    {
+    public function index() {
         $negeris = Negeri::all();
 
         foreach ($negeris as $negeri) {
@@ -32,8 +31,7 @@ class Senarai_kir_dan_airController extends Controller
         return view('KT.senarai_kir_air.index', compact('negeris'));
     }
 
-    public function index1()
-    {
+    public function index1() {
         $negeris = Negeri::with('daerah')->get();
         $daerahs = Daerah::all();
         $kampungs = Kampung::all();
@@ -58,8 +56,7 @@ class Senarai_kir_dan_airController extends Controller
         return view('KT.senarai_kir_air.index1', compact('negeris', 'daerahs', 'kampungs'));
     }
 
-    public function index2()
-    {
+    public function index2() {
         $senarai = Profil::all();
         $senarai1 = Profil::all();
         $kampungs = Kampung::all();
@@ -87,8 +84,7 @@ class Senarai_kir_dan_airController extends Controller
         return view('KT.senarai_kir_air.index2', compact('senarai', 'senarai1', 'kampungs', 'negeris', 'daerahs'));
     }
 
-    public function searchSenarai(Request $request)
-    {
+    public function searchSenarai(Request $request) {
         $senarai = Negeri::where('id', '!=', 'null');
 
         if ($request->result[0] != 'null') {

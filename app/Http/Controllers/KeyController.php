@@ -14,18 +14,12 @@ use Illuminate\Support\Facades\Auth;
 
 class KeyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function __construct()
-    {
+
+    public function __construct() {
         $this->middleware('auth');
     }
 
-    public function index()
-    {
+    public function index() {
         $keys = Key::where('user_id', Auth::user()->id)->get();
 
         $list = National::all();
@@ -33,13 +27,8 @@ class KeyController extends Controller
         return view('mpb.key.index', compact('keys', 'list'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+
+    public function create() {
         $user = Auth::user();
 
 
@@ -49,37 +38,18 @@ class KeyController extends Controller
         return view('mpb.key.create', compact('national', 'user'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreKeyRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreKeyRequest $request)
-    {
+
+    public function store(StoreKeyRequest $request) {
         $key = Key::create($request->all());
         return redirect()->route('key.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Key  $key
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Key $key)
-    {
+    public function show(Key $key) {
         return view('mpb.key.show', compact('key'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Key  $key
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Key $key)
-    {
+
+    public function edit(Key $key) {
 
         $user = Auth::user();
 
@@ -88,27 +58,13 @@ class KeyController extends Controller
         return view('mpb.key.edit', compact('key', 'national'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateKeyRequest  $request
-     * @param  \App\Models\Key  $key
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateKeyRequest $request, Key $key)
-    {
+
+    public function update(UpdateKeyRequest $request, Key $key) {
         $key->update($request->all());
         return redirect()->route('key.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Key  $key
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Key $key)
-    {
+    public function destroy(Key $key) {
         $key->delete();
 
         return redirect()->route('key.index')

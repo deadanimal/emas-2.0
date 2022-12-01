@@ -11,7 +11,6 @@
         <div class="col">
             <div class="row align-items-center">
                 <div class="col col-lg-8">
-                    {{$response}}
 
                     <table>
                         @foreach($rows as $row)

@@ -284,7 +284,6 @@ Route::group(
 
         Route::get('integrasi', [IntegrasiController::class, 'page']);
         Route::post('integrasi', [IntegrasiController::class, 'call_api']);
-        Route::post('integrasi', [IntegrasiController::class, 'store_data']);
     }
 );
 

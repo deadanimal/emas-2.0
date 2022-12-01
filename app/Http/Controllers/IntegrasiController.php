@@ -15,8 +15,18 @@ class IntegrasiController extends Controller
     public function call_api(Request $request) {
         if($request->jenis == 'kampung') {
             $url = 'https://spkpn.epu.gov.my/api_spkpn/emas2_infokampung/read.php?key=fc7fccd39e45a6993be6d38b997e886e';
+        } else if($request->jenis == 'penyelaras') {
+            $url = 'https://spkpn.epu.gov.my/api_spkpn/emas2_penyelaras/read.php?key=fc7fccd39e45a6993be6d38b997e886e';
+        } else if($request->jenis == 'penghulu_mukim') {
+            $url = 'https://spkpn.epu.gov.my/api_spkpn/emas2_penghulu_mukim/read.php?key=fc7fccd39e45a6993be6d38b997e886e';
+        } else if($request->jenis == 'pengerusi_jawatankuasa') {
+            $url = 'https://spkpn.epu.gov.my/api_spkpn/emas2_pengerusi_jawatankuasa/read.php?key=fc7fccd39e45a6993be6d38b997e886e';
+        } else if($request->jenis == 'dunparlimen') {
+            $url = 'https://spkpn.epu.gov.my/api_spkpn/emas2_dunparlimen/read.php?key=fc7fccd39e45a6993be6d38b997e886e';
+        } else if($request->jenis == 'mukimdaerah') {
+            $url = 'https://spkpn.epu.gov.my/api_spkpn/emas2_mukimdaerah/read.php?key=fc7fccd39e45a6993be6d38b997e886e';
         }
-        $response = Http::get($url);
+        $response = Http::get($url)->json();
         return view('KT.integrasi_result', compact('response'));
     }
 }

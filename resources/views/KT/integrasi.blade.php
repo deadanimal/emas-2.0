@@ -14,11 +14,11 @@
                     <form action="/KT/integrasi" method="POST">
                         @csrf
                         <button type="submit" class="btn btn-primary" name="jenis" value="kampung">Maklumat Kampung</button>
-                        <button type="submit" class="btn btn-primary" name="jenis" value="kampung">Maklumat Kampung</button>
-                        <button type="submit" class="btn btn-primary" name="jenis" value="kampung">Maklumat Kampung</button>
-                        <button type="submit" class="btn btn-primary" name="jenis" value="kampung">Maklumat Kampung</button>
-                        <button type="submit" class="btn btn-primary" name="jenis" value="kampung">Maklumat Kampung</button>
-                        <button type="submit" class="btn btn-primary" name="jenis" value="kampung">Maklumat Kampung</button>
+                        <button type="submit" class="btn btn-primary" name="jenis" value="penyelaras">Maklumat penyelaras</button>
+                        <button type="submit" class="btn btn-primary" name="jenis" value="penghulu_mukim">Maklumat penghulu_mukim</button>
+                        <button type="submit" class="btn btn-primary" name="jenis" value="pengerusi_jawatankuasa">Maklumat pengerusi_jawatankuasa</button>
+                        <button type="submit" class="btn btn-primary" name="jenis" value="dunparlimen">Maklumat dunparlimen</button>
+                        <button type="submit" class="btn btn-primary" name="jenis" value="mukimdaerah">Maklumat mukimdaerah</button>
                     </form>
                 </div>
             </div>

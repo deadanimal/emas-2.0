@@ -32,12 +32,15 @@ class IntegrasiController extends Controller
         foreach($records as $record) {
             $new_row = collect();
             foreach($record as $key => $value) {
-                //do something with your $key and $value;
                 $new_row->push($value);
-                //echo '<a href="' . $value . '">' . $key . '</a>';
             }
             $rows->push($new_row);
         }
-        return view('KT.integrasi_result', compact('rows'));
+        $one_record = $records[0];
+        $headers = collect();
+        foreach($one_record as $key => $value) {
+            $headers->push($key);
+        }        
+        return view('KT.integrasi_result', compact('headers','rows'));
     }
 }

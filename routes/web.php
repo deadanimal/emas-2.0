@@ -41,22 +41,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SendEmailController;
 use App\Models\Rolesandpermission;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
- */
+use App\Http\Controllers\TableauController;
+
 
 Route::redirect('/', '/login');
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -350,6 +338,7 @@ Route::group(
         //User
         Route::get('/user/list/', [PenggunaController::class, 'index_mydigital']);
         Route::get('/user/create/', [PenggunaController::class, 'create_mydigital']);
+
     }
 );
 
@@ -431,3 +420,9 @@ Route::view('/MD/Tableau/sectoral_level', 'tableau/md/dashboard4');
 
 Route::get('sendemail', [SendEmailController::class, 'index']);
 Route::post('/sendemail/send', [SendEmailController::class, 'send']);
+
+
+Route::get('md/tableau-dashboard-data-01', [TableauController::class, 'md_dashboard_01']);
+Route::get('md/tableau-dashboard-data-02', [TableauController::class, 'md_dashboard_02']);
+Route::get('md/tableau-dashboard-data-03', [TableauController::class, 'md_dashboard_03']);
+Route::get('md/tableau-dashboard-data-04', [TableauController::class, 'md_dashboard_04']);

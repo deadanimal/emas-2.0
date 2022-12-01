@@ -123,12 +123,6 @@ class ActivityController extends Controller
         return view('md.activity.create', compact('user', 'plans', 'initiatives', 'programs', 'clusters'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreactivityRequest  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreactivityRequest $request) {
         // dd($request);
         // $request->validate([
@@ -229,13 +223,7 @@ class ActivityController extends Controller
         return view('md.activity.progress_update', compact('activity', 'plans', 'initiatives', 'programs', 'clusters'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateactivityRequest  $request
-     * @param  \App\Models\activity  $activity
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(UpdateactivityRequest $request, activity $activity) {
         // $activity->update($request->all());
 

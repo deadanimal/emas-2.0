@@ -350,6 +350,24 @@
                         </div>
                     </a>
 
+                    <a class="nav-link" href="/KT/integrasi" role="button">
+
+                        <div class="d-flex align-items-center">
+                            <div class="col-2">
+                                {{-- <span class="nav-link-icon">
+                                    <span class="fas fa-upload"></span>
+                                </span> --}}
+                            </div>
+                            <div class="col text-center">
+                                <span class="nav-link-text ps-1">Integrasi Data
+                                </span>
+                            </div>
+                            <div class="col-2">
+
+                            </div>
+                        </div>
+                    </a>                    
+
 
 
                     <a class="nav-link btn1" href="/KT/Tableau" role="button">

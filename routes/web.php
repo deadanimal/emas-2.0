@@ -42,7 +42,7 @@ use App\Http\Controllers\SendEmailController;
 use App\Models\Rolesandpermission;
 
 use App\Http\Controllers\TableauController;
-
+use App\Http\Controllers\IntegrasiController;
 
 Route::redirect('/', '/login');
 
@@ -281,6 +281,10 @@ Route::group(
         Route::get('/maklumat/indikator', [KemasukanDataController::class, 'index1']);
         Route::get('/maklumat/pendapatan', [KemasukanDataController::class, 'index2']);
         Route::get('/maklumat/kategori', [KemasukanDataController::class, 'index3']);
+
+        Route::get('integrasi', [IntegrasiController::class, 'page']);
+        Route::post('integrasi', [IntegrasiController::class, 'call_api']);
+        Route::post('integrasi', [IntegrasiController::class, 'store_data']);
     }
 );
 

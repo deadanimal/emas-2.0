@@ -30,7 +30,7 @@ class IntegrasiController extends Controller
         $records = $response['records'];
         $rows = collect();
         foreach($records as $record) {
-            $rows->push($record->id_negeri);
+            $rows->push($record['id_negeri']);
         }
         return view('KT.integrasi_result', compact('rows'));
     }

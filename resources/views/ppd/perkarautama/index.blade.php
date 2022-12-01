@@ -54,7 +54,11 @@
                             <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-{{ $perkara->id }}">
-                                    <div class="ms-2"><b>{{ $perkara->fokus->namaFokus }}</b></div>
+                                    @if($perkara->fokus)
+                                        <div class="ms-2"><b>{{ $perkara->fokus->namaFokus }}</b></div>
+                                    @else
+                                        <div class="ms-2"><b>-</b></div>
+                                    @endif
                                 </div>
                             </td>
                             <td>

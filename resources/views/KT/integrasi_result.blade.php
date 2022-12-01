@@ -18,6 +18,7 @@
                         <tr>
                           <th>{{$row}}</th>
                         </tr>
+                        @endforeach
                     </table>                    
                 </div>
             </div>

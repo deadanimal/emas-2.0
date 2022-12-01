@@ -11,7 +11,7 @@
         <div class="col">
             <div class="row align-items-center">
                 <div class="col col-lg-8">
-                    {{$result}}
+                    {{$response}}
                 </div>
             </div>
         </div>

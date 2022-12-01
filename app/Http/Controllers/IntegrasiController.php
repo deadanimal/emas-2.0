@@ -28,9 +28,6 @@ class IntegrasiController extends Controller
         }
         $response = Http::withoutVerifying()->get($url)->json();
         $rows = $response['records'];
-        foreach($rows as $row) {
-            dd($row);
-        }
         return view('KT.integrasi_result', compact('rows'));
     }
 }

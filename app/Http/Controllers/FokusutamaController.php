@@ -30,6 +30,7 @@ class FokusutamaController extends Controller
     }
 
     public function store(StoreFokusutamaRequest $request) {
+        dd($request->all());
         $fokusutama = Fokusutama::create($request->all());
         return redirect()->route('fokusutama.index');
     }

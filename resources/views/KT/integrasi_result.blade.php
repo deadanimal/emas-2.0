@@ -11,7 +11,7 @@
         <div class="col">
             <div class="row align-items-center">
                 <div class="col col-lg-8">
-                    {{$rows[0]}}
+                    {{$rows}}
                     {{-- <table>
                         @foreach($rows as $row)
                         <tr>

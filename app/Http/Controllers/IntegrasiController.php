@@ -27,7 +27,11 @@ class IntegrasiController extends Controller
             $url = 'https://spkpn.epu.gov.my/api_spkpn/emas2_mukimdaerah/read.php?key=fc7fccd39e45a6993be6d38b997e886e';
         }
         $response = Http::withoutVerifying()->get($url)->json();
-        $rows = $response['records'];
+        $records = $response['records'];
+        $rows = collect();
+        foreach($records as $record) {
+            $rows->push($record->id_negeri);
+        }
         return view('KT.integrasi_result', compact('rows'));
     }
 }

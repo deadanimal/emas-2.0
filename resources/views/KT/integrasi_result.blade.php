@@ -12,14 +12,16 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <table>
-                        @foreach($headers as $header)
                         <tr>
+                        @foreach($headers as $header)            
                           <th><b>{{$header}}</b></th>
-                        </tr>
-                        @endforeach                        
+                        @endforeach                  
+                    </tr>      
                         @foreach($rows as $row)
                         <tr>
-                          <th>{{$row}}</th>
+                            @foreach($row as $key => $value)
+                                <th>{{$value}}</th>
+                            @endforeach                                                      
                         </tr>
                         @endforeach
                     </table>                    

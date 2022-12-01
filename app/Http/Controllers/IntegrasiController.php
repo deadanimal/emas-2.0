@@ -26,8 +26,9 @@ class IntegrasiController extends Controller
         } else if($request->jenis == 'mukimdaerah') {
             $url = 'https://spkpn.epu.gov.my/api_spkpn/emas2_mukimdaerah/read.php?key=fc7fccd39e45a6993be6d38b997e886e';
         }
-        $response = Http::withoutVerifying()->get($url)->records;
-        dd($response);
+        $response = Http::withoutVerifying()->get($url)->json();
+        $array = json_decode($response, true);
+        dd($array->records);
         return view('KT.integrasi_result', compact('response'));
     }
 }

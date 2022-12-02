@@ -35,6 +35,9 @@
                             class="dropzone dropzone-multiple p-0" id="my-awesome-dropzone" data-dropzone="data-dropzone"
                             action="#!">
                             @csrf
+
+                            *Fail Yang Dimuat Naik Mestilah Mengikut Format Asal Yang Disediakan
+                            <br><br>
                             <div class="fallback">
                                 <input name="userfile" type="file"
                                     accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />

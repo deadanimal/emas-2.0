@@ -11,10 +11,11 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>List of Plan</b></span>
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/MD/plan/create">
-                        <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
-
+                    @can('MD - Admin')
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                            href="/MD/plan/create">
+                            <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
+                    @endcan
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">
                         <span class="fas fa-history"></span></a>
@@ -32,8 +33,9 @@
                             <th scope="col">No.</th>
                             <th scope="col">Plan</th>
                             <th scope="col">Progress Plan %</th>
-
-                            <th scope="col">Action</th>
+                            @can('MD - Admin')
+                                <th scope="col">Action</th>
+                            @endcan
                         </tr>
                     </thead>
 
@@ -93,17 +95,18 @@
 
                                 <td>
                                     <div>
+                                        @can('MD - Admin')
+                                            <a class="btn btn-primary" style="border-radius: 38px"
+                                                href="{{ route('plan.edit', $plan->id) }}"><i class="fas fa-edit"></i>
+                                            </a>
 
-                                        <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="{{ route('plan.edit', $plan->id) }}"><i class="fas fa-edit"></i>
-                                        </a>
 
-
-                                        <button type="submit" onclick="myFunction({{ $plan->id }})"
-                                            class="btn btn-danger" style="border-radius: 38px">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                        <p id="ppd"></p>
+                                            <button type="submit" onclick="myFunction({{ $plan->id }})"
+                                                class="btn btn-danger" style="border-radius: 38px">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                            <p id="ppd"></p>
+                                        @endcan
 
                                     </div>
                                 </td>

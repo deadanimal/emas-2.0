@@ -341,7 +341,6 @@ Route::group(
         //User
         Route::get('/user/list/', [PenggunaController::class, 'index_mydigital']);
         Route::get('/user/create/', [PenggunaController::class, 'create_mydigital']);
-
     }
 );
 
@@ -415,6 +414,10 @@ Route::view('/MD/Tableau/cluster_level', 'tableau/md/dashboard2');
 Route::view('/MD/Tableau/initiative_level', 'tableau/md/dashboard3');
 Route::view('/MD/Tableau/sectoral_level', 'tableau/md/dashboard4');
 
+
+Route::view('/KT/Tableau/kir_dan_air_mengikut_jantina', 'tableau/kt/dashboard1');
+Route::view('/KT/Tableau/informasi_kir_air', 'tableau/kt/dashboard2');
+Route::view('/KT/Tableau/maklumat_indikator_jadual', 'tableau/kt/dashboard3');
 
 
 

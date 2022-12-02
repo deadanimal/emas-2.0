@@ -366,11 +366,11 @@
 
                             </div>
                         </div>
-                    </a>                    
+                    </a>
 
 
 
-                    <a class="nav-link btn1" href="/KT/Tableau" role="button">
+                    <a class="nav-link btn1" href="/KT/Tableau/kir_dan_air_mengikut_jantina" role="button">
 
                         <div class="d-flex align-items-center">
                             <div class="col-2">

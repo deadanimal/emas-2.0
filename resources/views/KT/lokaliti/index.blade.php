@@ -20,14 +20,15 @@
 
         <hr style="width:100%;text-align:center;">
 
-        <div class='tableauPlaceholder' id='viz1667881387806' style='position: relative'><noscript><a href='#'><img
+        <div class='tableauPlaceholder' id='viz1669953392612' style='position: relative'><noscript><a href='#'><img
                         alt='Jumlah KIR &amp; AIR mengikut Negeri '
                         src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;BM&#47;BMTKM-Lokaliti&#47;JumlahKIRAIRmengikutNegeri&#47;1_rss.png'
                         style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
                 <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
                 <param name='embed_code_version' value='3' />
-                <param name='path'
-                    value='views&#47;BMTKM-Lokaliti&#47;JumlahKIRAIRmengikutNegeri?:language=en-GB&amp;:embed=true' />
+                <param name='site_root' value='' />
+                <param name='name' value='BMTKM-Lokaliti&#47;JumlahKIRAIRmengikutNegeri' />
+                <param name='tabs' value='no' />
                 <param name='toolbar' value='yes' />
                 <param name='static_image'
                     value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;BM&#47;BMTKM-Lokaliti&#47;JumlahKIRAIRmengikutNegeri&#47;1.png' />
@@ -39,14 +40,14 @@
                 <param name='language' value='en-GB' />
             </object></div>
         <script type='text/javascript'>
-            var divElement = document.getElementById('viz1667881387806');
+            var divElement = document.getElementById('viz1669953392612');
             var vizElement = divElement.getElementsByTagName('object')[0];
             if (divElement.offsetWidth > 800) {
-                vizElement.style.width = '1366px';
-                vizElement.style.height = '795px';
+                vizElement.style.width = '100%';
+                vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
             } else if (divElement.offsetWidth > 500) {
-                vizElement.style.width = '1366px';
-                vizElement.style.height = '795px';
+                vizElement.style.width = '100%';
+                vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
             } else {
                 vizElement.style.width = '100%';
                 vizElement.style.height = '727px';

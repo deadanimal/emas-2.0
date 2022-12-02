@@ -48,7 +48,7 @@ class PerkarautamaController extends Controller
 
     public function edit(Perkarautama $perkarautama) {
         $user = Auth::user();
-
+        $perkarautama = Perkarautama::find($perkarautama->id);
         $list = Fokusutama::all();
 
         return view('ppd.perkarautama.edit', compact('perkarautama', 'list'));

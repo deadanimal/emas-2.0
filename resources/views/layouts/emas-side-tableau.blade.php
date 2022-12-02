@@ -141,6 +141,32 @@
                             </div>
                         </a>
                     @endif
+                    @if (Request::is(
+                        'KT/Tableau/kir_dan_air_mengikut_jantina',
+                        'KT/Tableau/informasi_kir_air',
+                        'KT/Tableau/maklumat_indikator_jadual'))
+                        <a class="nav-link btn1" href="" role="button">
+
+                            <div class="d-flex align-items-center">
+                                <div class="col-2">
+                                    <span class="nav-link-icon">
+                                        <span class="fas fa-tasks"></span>
+                                    </span>
+                                </div>
+                                <div class="col text-center" style="color: #047FC3">
+                                    <span class="nav-link-text ps-1">Pelaksanaan Program
+                                        Pembasmian Kemiskinan
+                                        Tegar Keluarga Malaysia
+                                        (BMTKM)</span>
+                                </div>
+
+                                <div class="col-2">
+
+                                </div>
+
+                            </div>
+                        </a>
+                    @endif
 
                     @if (Request::is(
                         'MD/Tableau/main_page',
@@ -233,8 +259,8 @@
 
                                 <li class="nav-item">
                                     <a class="nav-link btn1 dropdown-indicator  {{ Request::is('PPD/rumusanPPD', 'PPD/rumusanPPD/*', 'PPD/rumusanTindakan', 'PPD/rumusanTindakan/*', 'PPD/KPISummary', 'PPD/KPISummary/*') ? 'active' : '' }}"
-                                        href="#kpi1" role="button" data-bs-toggle="collapse" aria-expanded="false"
-                                        aria-controls="kpi1">
+                                        href="#kpi1" role="button" data-bs-toggle="collapse"
+                                        aria-expanded="false" aria-controls="kpi1">
                                         <div class="d-flex align-items-center">
                                             <span class="nav-link-text1 ps-1">Ringkasan</span>
                                         </div>
@@ -272,6 +298,67 @@
                                         </li>
                                     </ul>
                                 </li>
+                            </ul>
+                        </div>
+                    </li><br>
+                @endif
+
+                @if (Request::is(
+                    'KT/Tableau/kir_dan_air_mengikut_jantina',
+                    'KT/Tableau/informasi_kir_air',
+                    'KT/Tableau/maklumat_indikator_jadual'))
+                    <li class="nav-item1 mx-3 mx-md-0">
+
+
+                        <a class="nav-link dropdown-indicator" href="#tableauPPD" role="button"
+                            data-bs-toggle="collapse" aria-expanded="true" aria-controls="tableauPPD"
+                            style="background-color: #C4D4ED">
+                            <div class="d-flex justify-content-center" style="color: #047FC3">
+                                <span class="nav-link-text1 ps-1">Senarai Dashboard</span>
+                            </div>
+                        </a>
+
+                        <div class="card">
+                            <ul class="nav collapse show" id="tableauPPD" style="background-color: #E7EFFD">
+
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('KT/Tableau/kir_dan_air_mengikut_jantina') ? 'active' : '' }}"
+                                        href="/KT/kir_dan_air_mengikut_jantina">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text1 ps-1">KIR &
+                                                AIR mengikut Jantina, &
+                                                Umur
+
+
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('KT/Tableau/informasi_kir_air') ? 'active' : '' }}"
+                                        href="/KT/Tableau/informasi_kir_air">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text1 ps-1">Informasi KIR & AIR
+
+
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn1 {{ Request::is('KT/Tableau/maklumat_indikator_jadual') ? 'active' : '' }}"
+                                        href="/KT/Tableau/maklumat_indikator_jadual">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text1 ps-1">Maklumat Indikator & Jadual
+
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <!-- more inner pages-->
+                                </li>
+
+
                             </ul>
                         </div>
                     </li><br>
@@ -419,7 +506,7 @@
                                 <span class="nav-link-text ps-1">{{ Auth()->User()->name }}</span>
                                 <br>
                                 <span class="nav-link-text ps-1">{{ Auth()->User()->username }}</span>
-                                <br> 
+                                <br>
                                 <span class="nav-link-text ps-1">{{ Auth()->User()->email }}</span>
 
                             </div>

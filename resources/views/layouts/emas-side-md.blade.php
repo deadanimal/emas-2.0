@@ -240,7 +240,7 @@
                                 </a>
                                 <!-- more inner pages-->
                             </li>
-                            @can('Kementerian MD')
+                            @can('MD - Admin')
                                 <li class="nav-item">
                                     <a class="nav-link btn1 dropdown-indicator  {{ Request::is('MD/approval', 'MD/approval/*', 'MD/display', 'MD/display/*') ? 'active' : '' }}"
                                         href="#cluster" role="button" data-bs-toggle="collapse" aria-expanded="false"

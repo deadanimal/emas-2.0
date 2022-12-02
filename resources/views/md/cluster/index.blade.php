@@ -44,7 +44,9 @@
                             <th scope="col">Contact Number</th>
                             <th scope="col">Email Address</th>
                             <th scope="col">Chairman</th>
-                            <th scope="col">Action</th>
+                            @can('MD - Admin')
+                                <th scope="col">Action</th>
+                            @endcan
 
                         </tr>
                     </thead>

@@ -30,9 +30,7 @@ class SectoralController extends Controller
     public function create()
     {
         $user = Auth::user();
-        $clusters = Cluster::all();
-        // $strategies = Strategy::all();
-        return view('md.sectoral.create', compact('user', 'clusters'));
+        return view('md.sectoral.create', compact('user'));
     }
 
     public function store(StoreSectoralRequest $request)
@@ -47,13 +45,19 @@ class SectoralController extends Controller
 
     public function edit(Sectoral $sectoral)
     {
+
+        $user = Auth::user();
+        return view('md.sectoral.edit', compact('sectoral'));
     }
 
     public function update(UpdateSectoralRequest $request, Sectoral $sectoral)
     {
+        $sectoral->update($request->all());
+        return redirect()->route('sectoral.index');
     }
 
     public function destroy(Sectoral $sectoral)
     {
+        $sectoral->delete();
     }
 }

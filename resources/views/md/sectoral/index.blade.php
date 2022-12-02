@@ -11,9 +11,11 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>List of Sectoral</b></span>
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/MD/sectoral/create">
-                        <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
+                    @can('MD - Admin')
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                            href="/MD/sectoral/create">
+                            <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
+                    @endcan
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">
                         <span class="fas fa-history"></span></a>
@@ -45,7 +47,9 @@
                             <th scope="col">No.</th>
                             <th scope="col">Sectoral</th>
                             <th scope="col">Document</th>
-                            <th scope="col">Action</th>
+                            @can('MD - Admin')
+                                <th scope="col">Action</th>
+                            @endcan
 
                         </tr>
                     </thead>
@@ -69,7 +73,7 @@
                                 <td>
                                     <div class="d-flex align-items-center" data-bs-toggle="modal"
                                         data-bs-target="#error-modal-{{ $sectoral->id }}">
-                                        <div class="ms-2"><b>{{ $sectoral->namaNational }}</b></div>
+                                        <div class="ms-2"><b>{{ $sectoral->category }}</b></div>
                                     </div>
                                 </td>
 
@@ -96,10 +100,9 @@
 
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label class="col-form-label" for="namaNational">National
-                                                                Name:</label>
+                                                            <label class="col-form-label" for="document">Document:</label>
                                                             <label class="form-control"
-                                                                disabled="disabled">{{ $sectoral->namaNational }}</label>
+                                                                disabled="disabled">{{ $sectoral->document }}</label>
 
                                                         </div>
                                                         <br>
@@ -114,17 +117,18 @@
 
                                 <td>
                                     <div>
+                                        @can('MD - Admin')
+                                            <a class="btn btn-primary" style="border-radius: 38px"
+                                                href="{{ route('sectoral.edit', $sectoral->id) }}"><i class="fas fa-edit"></i>
+                                            </a>
 
-                                        <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="{{ route('sectoral.edit', $sectoral->id) }}"><i class="fas fa-edit"></i>
-                                        </a>
 
-
-                                        <button type="submit" onclick="myFunction({{ $sectoral->id }})"
-                                            class="btn btn-danger" style="border-radius: 38px">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                        <p id="ppd"></p>
+                                            <button type="submit" onclick="myFunction({{ $sectoral->id }})"
+                                                class="btn btn-danger" style="border-radius: 38px">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                            <p id="ppd"></p>
+                                        @endcan
 
                                     </div>
                                 </td>

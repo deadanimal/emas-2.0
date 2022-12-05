@@ -272,7 +272,7 @@
         function myFunction(id) {
 
 
-            let alert = "Adakah anda mahu membuang data?";
+            let alert = "Adakah anda mahu menghapuskan data?";
             if (confirm(alert) == true) {
                 $.ajax({
                     method: "DELETE",

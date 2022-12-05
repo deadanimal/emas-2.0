@@ -76,7 +76,7 @@
                                         @csrf
                                         @method('delete')
                                         <button type="submit"
-                                            onclick="return confirm('Adakah anda mahu membuang data ini?')"
+                                            onclick="return confirm('Adakah anda mahu menghapuskan data ini?')"
                                             class="btn btn-danger" style="border-radius: 38px">
                                             <i class="fas fa-trash"></i>
                                         </button>

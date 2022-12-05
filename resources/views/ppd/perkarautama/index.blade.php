@@ -42,8 +42,8 @@
             <table class="table table-bordered user_datatable" id="example">
                 <thead>
                     <tr>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
+                        <th scope="col">Fokus Utama</th>
+                        <th scope="col">Perkara Utama</th>
                         <th scope="col"></th>
 
                     </tr>

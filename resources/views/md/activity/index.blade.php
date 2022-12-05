@@ -138,10 +138,9 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <td class="align-right" id="searchUpdateTable2">
-                                    <div>
-                                        @can('MD - Admin')
+                                @can('MD - Admin')
+                                    <td class="align-right">
+                                        <div>
                                             <a class="btn btn-warning" style="border-radius: 38px"
                                                 href="activity/{{ $activity->id }}/progress/"><i class="fas fa-plus"></i>
                                             </a>
@@ -156,10 +155,11 @@
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
                                             <p id="ppd"></p>
-                                        @endcan
 
-                                    </div>
-                                </td>
+                                        </div>
+                                    </td>
+                                @endcan
+
                             </tr>
                         @endforeach
 

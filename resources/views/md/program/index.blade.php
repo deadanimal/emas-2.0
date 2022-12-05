@@ -108,25 +108,21 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <td>
-                                    <div>
-                                        @can('MD - Admin')
+                                @can('MD - Admin')
+                                    <td>
+                                        <div>
                                             <a class="btn btn-primary" style="border-radius: 38px"
                                                 href="{{ route('program.edit', $program->id) }}"><i class="fas fa-edit"></i>
                                             </a>
-
-
                                             <button type="submit" onclick="myFunction({{ $program->id }})"
                                                 class="btn btn-danger" style="border-radius: 38px">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                             <p id="ppd"></p>
-                                        @endcan
+                                        </div>
+                                    </td>
+                                @endcan
 
-
-                                    </div>
-                                </td>
                             </tr>
                         @endforeach
 

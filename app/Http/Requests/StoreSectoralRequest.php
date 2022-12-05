@@ -13,7 +13,7 @@ class StoreSectoralRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,24 @@ class StoreSectoralRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'namaSectoral' => [
+                'string',
+                'required',
+            ],
+
+            'desc' => [
+                'string',
+                // 'required',
+            ],
+
+            'category' => [
+                'string',
+                'required',
+            ],
+
+            'user_id' => [
+                'string',
+            ],
         ];
     }
 }

@@ -124,7 +124,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-6">
+                                {{-- <div class="col-6">
                                     <label for="">Thrust:</label>
                                     <div class="input-group">
                                         <select class="form-select mb-3" name="thrust" required>
@@ -152,7 +152,7 @@
                                         </select>
 
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="col-6">
                                     <label for="">Dalaman:</label>

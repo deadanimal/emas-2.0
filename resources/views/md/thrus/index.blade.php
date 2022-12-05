@@ -11,10 +11,11 @@
                 <div class="col col-lg-8">
 
                     <span><b>List of Thrust</b></span>
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/MD/thrus/create">
-                        <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
-
+                    @can('MD - Admin')
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                            href="/MD/thrus/create">
+                            <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
+                    @endcan
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">
                         <span class="fas fa-history"></span>
@@ -34,7 +35,9 @@
                             <th scope="col">No.</th>
                             <th scope="col">Thrust</th>
                             <th scope="col">Document</th>
-                            <th scope="col">Action</th>
+                            @can('MD - Admin')
+                                <th scope="col">Action</th>
+                            @endcan
                         </tr>
                     </thead>
 
@@ -107,17 +110,18 @@
                                 <td>
                                     <div>
 
-                                        <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="{{ route('thrus.edit', $thru->id) }}"><i class="fas fa-edit"></i>
-                                        </a>
+                                        @can('MD - Admin')
+                                            <a class="btn btn-primary" style="border-radius: 38px"
+                                                href="{{ route('thrus.edit', $thru->id) }}"><i class="fas fa-edit"></i>
+                                            </a>
 
 
-                                        <button type="submit" onclick="myFunction({{ $thru->id }})"
-                                            class="btn btn-danger" style="border-radius: 38px">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                        <p id="ppd"></p>
-
+                                            <button type="submit" onclick="myFunction({{ $thru->id }})"
+                                                class="btn btn-danger" style="border-radius: 38px">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                            <p id="ppd"></p>
+                                        @endcan
                                     </div>
                                 </td>
                             </tr>

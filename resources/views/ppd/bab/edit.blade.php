@@ -52,7 +52,7 @@
                         <select class="form-control" name="bahagian">
                             @foreach ($orgs as $org)
                                 <option @selected($bab->u_id == $org->id) value="{{ $org->id }}">{{ $org->nama }}
-                                </option>                              
+                                </option>
                             @endforeach
 
                         </select>

@@ -11,9 +11,11 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>List of Initiative</b></span>
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/MD/initiative/create">
-                        <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
+                    @can('MD - Admin')
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                            href="/MD/initiative/create">
+                            <span class="fas fa-plus-circle"></span>&nbsp;Add</a>
+                    @endcan
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">
                         <span class="fas fa-history"></span></a>
@@ -100,7 +102,9 @@
                             {{-- <th scope="col">Phase 2</th>
                             <th scope="col">Phase 3</th> --}}
                             <th scope="col">Lead Agency</th>
-                            <th scope="col">Action</th>
+                            @can('MD - Admin')
+                                <th scope="col">Action</th>
+                            @endcan
 
 
                         </tr>
@@ -229,23 +233,24 @@
 
                                 <td>
                                     <div>
+                                        @can('MD - Admin')
+                                            <a class="btn btn-warning" style="border-radius: 38px" onclick="Kpi(this)"
+                                                href="initiative/{{ $initiative->id }}/update/"><i
+                                                    class="fas fa-pencil-alt"></i>
+                                            </a>
 
-                                        <a class="btn btn-warning" style="border-radius: 38px" onclick="Kpi(this)"
-                                            href="initiative/{{ $initiative->id }}/update/"><i
-                                                class="fas fa-pencil-alt"></i>
-                                        </a>
-
-                                        <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="{{ route('initiative.edit', $initiative->id) }}"><i
-                                                class="fas fa-edit"></i>
-                                        </a>
+                                            <a class="btn btn-primary" style="border-radius: 38px"
+                                                href="{{ route('initiative.edit', $initiative->id) }}"><i
+                                                    class="fas fa-edit"></i>
+                                            </a>
 
 
-                                        <button type="submit" onclick="myFunction({{ $initiative->id }})"
-                                            class="btn btn-danger" style="border-radius: 38px">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                        <p id="ppd"></p>
+                                            <button type="submit" onclick="myFunction({{ $initiative->id }})"
+                                                class="btn btn-danger" style="border-radius: 38px">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                            <p id="ppd"></p>
+                                        @endcan
 
                                     </div>
                                 </td>

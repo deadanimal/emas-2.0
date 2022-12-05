@@ -76,35 +76,38 @@
                                         <label for="permission">Peranan:</label>
                                         <div>
                                             <div class="form-group">
-
-                                                <select class="form-control mb-3" name="permission" id="pilih2">
-
-                                                    {{-- @foreach ($permissions as $p)
-                                                <option value="{{ $p->name }}">{{ $p->name }}
-                                                </option>
-                                            @endforeach --}}
+                                                <select class="form-select mb-3" name="permission" required>
+                                                    <option selected disabled hidden value="null">Sila Pilih</option>
+                                                    <option value="PPD - User">PPD - Kementerian / Agensi</option>
+                                                    <option value="PPD - Penyelaras">PPD - Bahagian</option>
+                                                    <option value="PPD - Admin">PPD - BPKP</option>
+                                                    <option value="MPB - User">MPB - User</option>
+                                                    <option value="MPB - Approver">MPB - Approver</option>
+                                                    <option value="MPB - Admin">MPB - Admin</option>
+                                                    <option value="KT - User">KT - Agensi</option>
+                                                    <option value="KT - Penyelaras">KT - Bahagian</option>
+                                                    <option value="KT - Admin">KT - Admin</option>
+                                                    <option value="MD - User">MD - Kementerian / Agensi</option>
+                                                    <option value="MD - Penyelaras">MD - Bahagian</option>
+                                                    <option value="MD - Admin">MD - EPU</option>
+                                                    <option value="ED - Admin">ED - SuperAdmin</option>
+                                                    <option value="ED - User">ED - Pengurusan Atasan</option>
 
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-6">
+                                        <label for="">Dalaman:</label>
+                                        <div class="input-group">
 
-                                    {{-- <div class="col-6">
-                                        <label for="dalaman">Dalaman:</label>
-                                        <div>
-                                            <div class="form-group">
-
-                                                <select class="form-control mb-3" name="dalaman">
-
-                                                    @foreach ($users as $use)
-                                                        <option value="{{ $use->dalaman }}">{{ $use->dalaman }}
-                                                        </option>
-                                                    @endforeach
-
-                                                </select>
-                                            </div>
+                                            <select class="form-select mb-3" name="dalaman" required>
+                                                <option @selected($users->dalaman == '1') value="1">Ya</option>
+                                                <option @selected($users->dalaman == '0') value="0">Tidak</option>
+                                            </select>
                                         </div>
-                                    </div> --}}
+                                    </div>
+
 
                                     <div class="col-6">
                                         <label for="organisasi_id">Organisasi:</label>

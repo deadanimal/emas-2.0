@@ -10,10 +10,12 @@
             <div class="row align-items-center">
                 <div class="col col-lg-8">
                     <span><b>List of Activities</b></span>
-                    <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
-                        href="/MD/activity/create">
-                        <span class="fas fa-plus-circle"></span>&nbsp;Add
-                    </a>
+                    @can('MD - Admin')
+                        <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
+                            href="/MD/activity/create">
+                            <span class="fas fa-plus-circle"></span>&nbsp;Add
+                        </a>
+                    @endcan
 
                     <a class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white"
                         onClick="window.location.reload();">
@@ -76,7 +78,9 @@
                             <th scope="col">No.</th>
                             <th scope="col">Activities</th>
                             <th scope="col">Weightage Progress (%)</th>
-                            <th scope="col">Action</th>
+                            @can('MD - Admin')
+                                <th scope="col">Action</th>
+                            @endcan
                         </tr>
                     </thead>
 
@@ -137,20 +141,22 @@
 
                                 <td class="align-right" id="searchUpdateTable2">
                                     <div>
-                                        <a class="btn btn-warning" style="border-radius: 38px"
-                                            href="activity/{{ $activity->id }}/progress/"><i class="fas fa-plus"></i>
-                                        </a>
+                                        @can('MD - Admin')
+                                            <a class="btn btn-warning" style="border-radius: 38px"
+                                                href="activity/{{ $activity->id }}/progress/"><i class="fas fa-plus"></i>
+                                            </a>
 
-                                        <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="{{ route('activity.edit', $activity->id) }}"><i class="fas fa-edit"></i>
-                                        </a>
+                                            <a class="btn btn-primary" style="border-radius: 38px"
+                                                href="{{ route('activity.edit', $activity->id) }}"><i class="fas fa-edit"></i>
+                                            </a>
 
 
-                                        <button type="submit" onclick="myFunction({{ $activity->id }})"
-                                            class="btn btn-danger" style="border-radius: 38px">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                        <p id="ppd"></p>
+                                            <button type="submit" onclick="myFunction({{ $activity->id }})"
+                                                class="btn btn-danger" style="border-radius: 38px">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                            <p id="ppd"></p>
+                                        @endcan
 
                                     </div>
                                 </td>

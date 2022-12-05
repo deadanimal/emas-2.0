@@ -677,7 +677,7 @@
                         'PPD/penilaian/kpi',
                         'PPD/paparan/kpi'))
                         <a class="nav-link btn1" href="/PPD/dashboard" role="button">
-                            @can('PPD - Admin|PPD - Penyelaras|PPD - BPKP')
+                            
                                 <div class="d-flex align-items-center">
                                     <div class="col-2">
                                         <span class="nav-link-icon">
@@ -693,7 +693,7 @@
 
                                     </div>
                                 </div>
-                            @endcan
+                            
                         </a>
                     @endif
                     @if (Request::is(

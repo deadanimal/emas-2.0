@@ -231,9 +231,9 @@
                                     </div>
                                 </div>
 
-                                <td>
-                                    <div>
-                                        @can('MD - Admin')
+                                @can('MD - Admin')
+                                    <td>
+                                        <div>
                                             <a class="btn btn-warning" style="border-radius: 38px" onclick="Kpi(this)"
                                                 href="initiative/{{ $initiative->id }}/update/"><i
                                                     class="fas fa-pencil-alt"></i>
@@ -250,10 +250,11 @@
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                             <p id="ppd"></p>
-                                        @endcan
 
-                                    </div>
-                                </td>
+                                        </div>
+                                    </td>
+                                @endcan
+
 
                             </tr>
                         @endforeach

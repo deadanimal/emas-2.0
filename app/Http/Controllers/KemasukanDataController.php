@@ -23,37 +23,43 @@ use Maatwebsite\Excel\Facades\Excel;
 class KemasukanDataController extends Controller
 {
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 
-    public function index() {
+    public function index()
+    {
         // DB::table('profils')->delete();
 
         $profils = Profil::all();
         return view('KT.kemasukanData.index', compact('profils'));
     }
 
-    public function index1() {
+    public function index1()
+    {
 
         $profils = Profil::all();
         return view('KT.maklumat.maklumat', compact('profils'));
     }
 
-    public function index2() {
+    public function index2()
+    {
 
         $profils = Profil::all();
         return view('KT.maklumat.pendapatan', compact('profils'));
     }
 
-    public function index3() {
+    public function index3()
+    {
 
         $profils = Profil::all();
         return view('KT.maklumat.kategori', compact('profils'));
     }
 
 
-    public function bahagian() {
+    public function bahagian()
+    {
 
         $user = auth()->user();
         $profil = Profil::where('user_id', $user->id)->get();
@@ -100,12 +106,14 @@ class KemasukanDataController extends Controller
         return view('KT.kemasukanData.bahagian1', compact('negeri'));
     }
 
-    public function bahagian6() {
+    public function bahagian6()
+    {
         $user = Auth::user();
         return view('KT.kemasukanData.bahagian6', ['user' => $user]);
     }
 
-    public function simpanBahagian1(Request $request) {
+    public function simpanBahagian1(Request $request)
+    {
         $messages = [
             'poskod.min' => ':attribute perlu mempunyai 5 angka.',
             'poskod.max' => ':attribute perlu mempunyai 5 angka sahaja',
@@ -136,7 +144,8 @@ class KemasukanDataController extends Controller
         return back();
     }
 
-    public function simpanBahagian2(Request $request) {
+    public function simpanBahagian2(Request $request)
+    {
         $request->validate([
             // 'tahun_kelahiran' => 'required',
             'tarikh_lahir' => 'required',
@@ -195,7 +204,8 @@ class KemasukanDataController extends Controller
         return back();
     }
 
-    public function simpanBahagian3(Request $request) {
+    public function simpanBahagian3(Request $request)
+    {
         $request->validate([
             'pendapatan_harta' => 'required',
             'kiriman_isi_rumah' => 'required',
@@ -239,7 +249,8 @@ class KemasukanDataController extends Controller
         return back();
     }
 
-    public function simpanBahagian4(Request $request) {
+    public function simpanBahagian4(Request $request)
+    {
         $request->validate([
             'result' => 'required',
         ]);
@@ -252,7 +263,8 @@ class KemasukanDataController extends Controller
         return back();
     }
 
-    public function simpanBahagian5(Request $request) {
+    public function simpanBahagian5(Request $request)
+    {
         KategoriBantuan::create($request->all());
 
         Profil::find($request->profil_id)->update([
@@ -263,18 +275,33 @@ class KemasukanDataController extends Controller
         return back();
     }
 
-    public function store(Request $request) {
+    public function simpanPendapatan(Request $request)
+    {
+        KategoriBantuan::create($request->all());
+
+        Profil::find($request->profil_id)->update([
+            'bantuan_id' => $request->program_yang_diterima,
+            'current_bahagian' => 'Done',
+        ]);
+
+        return back();
+    }
+
+    public function store(Request $request)
+    {
         $data = KemasukanData::create($request->all());
         return redirect()->route('kemasukanData.index');
     }
 
 
-    public function show(KemasukanData $kemasukanData) {
+    public function show(KemasukanData $kemasukanData)
+    {
         //
     }
 
 
-    public function edit($id) {
+    public function edit($id)
+    {
         $profil = Profil::find($id);
 
         $negeri = Negeri::all();
@@ -284,7 +311,8 @@ class KemasukanDataController extends Controller
         return view('KT.kemasukanData.edit', compact('profil', 'negeri', 'daerah'));
     }
 
-    public function edit1($id) {
+    public function edit1($id)
+    {
         $profil = Profil::find($id);
 
         $negeri = Negeri::all();
@@ -294,7 +322,8 @@ class KemasukanDataController extends Controller
         return view('KT.kemasukanData.edit1', compact('profil', 'negeri', 'daerah'));
     }
 
-    public function edit2($id) {
+    public function edit2($id)
+    {
         $profil = Profil::find($id);
 
         $negeri = Negeri::all();
@@ -304,7 +333,8 @@ class KemasukanDataController extends Controller
         return view('KT.kemasukanData.edit2', compact('profil', 'negeri', 'daerah'));
     }
 
-    public function edit3($id) {
+    public function edit3($id)
+    {
         $profil = Profil::find($id);
 
         $negeri = Negeri::all();
@@ -314,7 +344,8 @@ class KemasukanDataController extends Controller
         return view('KT.kemasukanData.edit3', compact('profil', 'negeri', 'daerah'));
     }
 
-    public function edit4($id) {
+    public function edit4($id)
+    {
         $profil = Profil::find($id);
 
         $negeri = Negeri::all();
@@ -325,7 +356,8 @@ class KemasukanDataController extends Controller
     }
 
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         // dd($request);
         $profil = Profil::find($id);
 
@@ -351,7 +383,8 @@ class KemasukanDataController extends Controller
         return redirect('/KT/kemasukanData/index');
     }
 
-    public function update1(Request $request, $id) {
+    public function update1(Request $request, $id)
+    {
 
         $profil = Profil::find($id);
 
@@ -372,7 +405,8 @@ class KemasukanDataController extends Controller
         return redirect('/KT/kemasukanData/index');
     }
 
-    public function update2(Request $request, $id) {
+    public function update2(Request $request, $id)
+    {
 
         $profil = Profil::find($id);
 
@@ -393,7 +427,8 @@ class KemasukanDataController extends Controller
         return redirect('/KT/kemasukanData/index');
     }
 
-    public function update3(Request $request, $id) {
+    public function update3(Request $request, $id)
+    {
 
 
 
@@ -404,7 +439,8 @@ class KemasukanDataController extends Controller
         return redirect('/KT/kemasukanData/index');
     }
 
-    public function update4(Request $request, $id) {
+    public function update4(Request $request, $id)
+    {
 
         $profil = Profil::find($id);
 
@@ -413,7 +449,8 @@ class KemasukanDataController extends Controller
         return redirect('/KT/kemasukanData/index');
     }
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
 
         // dd('test');
         $profil = Profil::where('id', $id)->first();
@@ -425,7 +462,8 @@ class KemasukanDataController extends Controller
         //     ->with('Berjaya', 'Profil berjaya dibuang');
     }
 
-    public function import() {
+    public function import()
+    {
         Excel::import(new ProfilImport, request()->file('profilfile'));
         return back()->with('success');
     }

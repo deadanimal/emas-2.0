@@ -8,7 +8,7 @@
         <div class="col">
             <div class="row align-items-center">
                 <div class="col col-lg-8">
-                    <span><b>Bahagian 5 - Kategori Bantuan</b></span>
+                    <span><b>Bahagian 6 - Kategori Bantuan</b></span>
                 </div>
             </div>
         </div>

@@ -152,7 +152,6 @@
         }
 
         .btn-primary,
-        .navbar-vertical .btn-purchase,
         .tox .tox-menu__footer .tox-button:last-child,
         .tox .tox-dialog__footer .tox-button:last-child {
             color: #fff;
@@ -163,7 +162,6 @@
         }
 
         .btn-primary:hover,
-        .navbar-vertical .btn-purchase:hover,
         .tox .tox-menu__footer .tox-button:hover:last-child,
         .tox .tox-dialog__footer .tox-button:hover:last-child {
             color: #fff;
@@ -172,11 +170,9 @@
         }
 
         .btn-check:focus+.btn-primary,
-        .navbar-vertical .btn-check:focus+.btn-purchase,
         .tox .tox-menu__footer .btn-check:focus+.tox-button:last-child,
         .tox .tox-dialog__footer .btn-check:focus+.tox-button:last-child,
         .btn-primary:focus,
-        .navbar-vertical .btn-purchase:focus,
         .tox .tox-menu__footer .tox-button:focus:last-child,
         .tox .tox-dialog__footer .tox-button:focus:last-child {
             color: #fff;
@@ -271,7 +267,7 @@
 
 
 
-        @media (min-width: 601px) {
+        @media (min-width: 1001px) {
             .navbar-vertical.navbar-expand-xl {
                 max-width: 250px;
                 top: 0;
@@ -296,17 +292,15 @@
                 position: absolute;
                 background: #ffffff;
                 max-width: 350px;
+                overflow: auto;
+                margin: 0;
+
+
             }
 
-            .navbar-vertical-content {
-                background: #ffffff;
-                width: 350px;
-            }
 
-            .navbar-nav {
-                background: #ffffff;
-                width: 350px;
-            }
+
+
 
             .content1 {
                 background-color: white

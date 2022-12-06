@@ -274,6 +274,8 @@ Route::group(
         Route::post('/kemasukanData-bahagian3', [KemasukanDataController::class, 'simpanBahagian3']);
         Route::post('/kemasukanData-bahagian4', [KemasukanDataController::class, 'simpanBahagian4']);
         Route::post('/kemasukanData-bahagian5', [KemasukanDataController::class, 'simpanBahagian5']);
+        Route::post('/kemasukanData-pendapatan', [KemasukanDataController::class, 'simpanPendapatan']);
+
 
         Route::get('/kemasukanData/bahagian-excel', [KemasukanDataController::class, 'bahagian6']);
 

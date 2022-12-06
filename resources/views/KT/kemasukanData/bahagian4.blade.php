@@ -69,13 +69,7 @@
                                 <input class="form-control kiraJumlah" type="number" value="0" aria-describedby="rm4">
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <label class="form-label">Minum Alkohol Dan Tembakau</label>
-                            <div class="input-group">
-                                <span class="input-group-text" id="rm5">RM</span>
-                                <input class="form-control kiraJumlah" type="number" value="0" aria-describedby="rm5">
-                            </div>
-                        </div>
+
                         <div class="col-lg-6">
                             <label class="form-label">Kesihatan</label>
                             <div class="input-group">
@@ -135,6 +129,9 @@
                                 <input class="form-control kiraJumlah" type="number" value="0"
                                     aria-describedby="rm13">
                             </div>
+                        </div>
+                        <div class="col-lg-6">
+
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label">Jumlah Perbelanjaan</label>

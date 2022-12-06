@@ -37,6 +37,7 @@
                         <th colspan="1">Nama</th>
                         <th scope="col">No Kad Pengenalan</th>
                         <th colspan="1">Status</th>
+                        <th scope="col">Pendapatan Bulanan</th>
                         <th scope="col">Tindakan</th>
                     </tr>
                 </thead>
@@ -49,7 +50,11 @@
                             <td>{{ $profil->nama }}</td>
                             <td>{{ $profil->no_kad_pengenalan }}</td>
                             <td>{{ $profil->status_miskin }}</td>
-
+                            <td>RM {{ $profil->pendapatan_id }}
+                                <a class="btn btn-primary" style="border-radius: 38px"
+                                    href="/KT/maklumat/{{ $profil->id }}/pendapatan/"><i class="far fa-plus-square"></i>
+                                </a>
+                            </td>
                             <td>
                                 <a class="btn btn-primary" style="border-radius: 38px"
                                     href="/KT/kemasukanData/{{ $profil->id }}/edit/"><i class="fas fa-edit"></i>

@@ -13,10 +13,13 @@
             </div>
         </div>
 
-        <br>
+        <hr style="width:100%;text-align:center;">
+
+        <x-errors-component :errors="$errors->any() ? $errors->all() : null" />
+
 
         <div class="card-body bg-light">
-            <form action="/KT/senarai-kir-dan-air-excel" method="POST" enctype="multipart/form-data">
+            <form method="POST" action="/KT/kemasukanData-pendapatan">
                 @csrf
 
 

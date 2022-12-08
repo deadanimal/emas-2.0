@@ -267,7 +267,7 @@
 
 
 
-        @media (min-width: 1001px) {
+        @media (min-width: 1440px) {
             .navbar-vertical.navbar-expand-xl {
                 max-width: 250px;
                 top: 0;

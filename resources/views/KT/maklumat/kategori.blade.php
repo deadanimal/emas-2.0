@@ -16,7 +16,7 @@
         <br>
 
         <div class="card-body bg-light">
-            <form action="/KT/senarai-kir-dan-air-excel" method="POST" enctype="multipart/form-data">
+            <form method="POST" action="/KT/kemasukanData-kategori">
                 @csrf
 
 
@@ -25,7 +25,10 @@
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="projek1">
                             <option selected disabled hidden>SILA PILIH JENIS BANTUAN</option>
-                            <option value="Januari">Januari</option>
+
+                            @foreach ($bantuans as $bantuan)
+                                <option value="{{ $bantuan->id }}">{{ $bantuan->nama_bantuan }}</option>
+                            @endforeach
 
                         </select>
                     </div>
@@ -43,8 +46,9 @@
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="projek2">
                             <option selected disabled hidden>SILA PILIH JENIS BANTUAN</option>
-                            <option value="Januari">Januari</option>
-
+                            @foreach ($bantuans as $bantuan)
+                                <option value="{{ $bantuan->id }}">{{ $bantuan->nama_bantuan }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <label class="col-sm-2 col-form-label" for=""></label>
@@ -61,8 +65,9 @@
                     <div class="col-sm-10" style="width:30%">
                         <select class="form-control" name="projek3">
                             <option selected disabled hidden>SILA PILIH JENIS BANTUAN</option>
-                            <option value="Januari">Januari</option>
-
+                            @foreach ($bantuans as $bantuan)
+                                <option value="{{ $bantuan->id }}">{{ $bantuan->nama_bantuan }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <label class="col-sm-2 col-form-label" for=""></label>

@@ -255,7 +255,7 @@
             transition-property: transform, border-color, -webkit-transform;
         }
 
-        @media (min-width: 601px) {
+        @media (min-width: 1001px) {
             .navbar-vertical.navbar-expand-xl {
                 max-width: 350px;
                 top: 0;

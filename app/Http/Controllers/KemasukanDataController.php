@@ -6,11 +6,13 @@ use App\Imports\ProfilImport;
 use App\Models\Bantuan;
 use App\Models\Daerah;
 use App\Models\Harta;
+use App\Models\Indikator;
 use App\Models\KategoriBantuan;
 use App\Models\Kecacatan;
 use App\Models\KemasukanData;
 use App\Models\Negeri;
 use App\Models\Pendapatan;
+use App\Models\Pendapatan_bulanan;
 use App\Models\Penyakit;
 use App\Models\Perbelanjaan;
 use App\Models\Profil;
@@ -43,18 +45,23 @@ class KemasukanDataController extends Controller
         return view('KT.maklumat.maklumat', compact('profils'));
     }
 
-    public function index2()
+    public function index2($profil_id)
     {
 
-        $profils = Profil::all();
-        return view('KT.maklumat.pendapatan', compact('profils'));
+        // $profils = Profil::where('user_id', Auth::user()->id)->get();
+        $profils = Profil::find($profil_id);
+
+        $pendapatan_bulanans = Pendapatan_bulanan::where('profil_id', $profils->id)->get();
+        return view('KT.maklumat.pendapatan', compact('profils', 'pendapatan_bulanans'));
     }
 
     public function index3()
     {
 
         $profils = Profil::all();
-        return view('KT.maklumat.kategori', compact('profils'));
+        $bantuans = Bantuan::all();
+
+        return view('KT.maklumat.kategori', compact('profils', 'bantuans'));
     }
 
 
@@ -277,15 +284,42 @@ class KemasukanDataController extends Controller
 
     public function simpanPendapatan(Request $request)
     {
-        KategoriBantuan::create($request->all());
 
-        Profil::find($request->profil_id)->update([
-            'bantuan_id' => $request->program_yang_diterima,
-            'current_bahagian' => 'Done',
-        ]);
+        $pendapatan_bulanans = new Pendapatan_bulanan();
+
+        $pendapatan_bulanans->profil_id = $request->profil_id;
+        $pendapatan_bulanans->bulan = $request->bulan;
+        $pendapatan_bulanans->pendapatan = $request->pendapatan;
+
+        $pendapatan_bulanans->save();
 
         return back();
     }
+
+    public function simpanIndikator(Request $request)
+    {
+        $indikator = new Indikator();
+
+        $indikator->profil_id = $request->profil_id;
+        $indikator->kts = $request->kts;
+        $indikator->ppg = $request->ppg;
+        $indikator->pikm = $request->pikm;
+
+        $indikator->save();
+
+
+        return back();
+    }
+
+    public function simpanKategori(Request $request, $profil_id)
+    {
+        Profil::find($profil_id);
+
+
+        return back();
+    }
+
+
 
     public function store(Request $request)
     {

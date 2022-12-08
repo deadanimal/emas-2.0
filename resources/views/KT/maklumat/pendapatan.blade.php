@@ -8,7 +8,7 @@
         <div class="col">
             <div class="row align-items-center">
                 <div class="col col-lg-8">
-                    <span><b>Bahagian 5 - Pendapatan Bulanan</b></span>
+                    <span><b>Pendapatan Bulanan</b></span>
                 </div>
             </div>
         </div>
@@ -22,11 +22,39 @@
             <form method="POST" action="/KT/kemasukanData-pendapatan">
                 @csrf
 
+                <input type="hidden" name="profil_id" value="{{ $profils->id }}">
+
+
+                <table class="table table-bordered" style="text-align: center">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="align-middle"> Bulan Semasa</th>
+                            <th class="align-middle">Pendapatan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($pendapatan_bulanans as $bulan)
+                            <tr>
+                                <td> <input class="form-control" value="{{ $bulan->bulan }}" readonly />
+                                </td>
+                                <td>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><b>RM</b></span>
+                                        <input class="form-control" value="{{ $bulan->pendapatan }}" readonly />
+
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+                <br>
 
                 <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label" for="bulan_semasa">Bulan Semasa</label>
+                    <label class="col-sm-2 col-form-label" for="bulan">Bulan Semasa</label>
                     <div class="col-sm-10" style="width:30%">
-                        <select class="form-control" name="bulan_semasa">
+                        <select class="form-control" name="bulan">
                             <option selected disabled hidden>SILA PILIH BULAN</option>
                             <option value="Januari">Januari</option>
                             <option value="Februari">Februari</option>
@@ -42,35 +70,27 @@
                             <option value="Disember">Disember</option>
                         </select>
                     </div>
-                    <label class="col-sm-2 col-form-label" for=""></label>
+                    <label class="col-sm-2 col-form-label" for="pendapatan"></label>
                     <div class="col-sm-10" style="width:30%">
                         <div class="input-group">
                             <span class="input-group-text"><b>RM</b></span>
-                            <input class="form-control" type="number" name="jumlah_bulan_semasa">
+                            <input class="form-control" type="number" name="pendapatan">
                         </div>
                     </div>
                 </div><br>
 
-                <div class="row">
-                    <div class="col" style="text-align: center">
-
-                        <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
-                            href="/KT/maklumat/indikator">
-                            <span class="fas fa-plus-square"></span>&nbsp;Tambah
-                            </a>
-                    </div>
-                </div><br><br><br>
+                <br><br>
 
                 <div class="row">
                     <div class="col" style="text-align: center">
                         <a class="btn btn-falcon-default btn-sm" style="background-color: white; color:#047FC3"
-                            href="/KT/maklumat/indikator">
+                            href="/KT/kemasukanData/index">
                             <span class="fas fa-times-circle"></span>&nbsp;Batal
                         </a>
                         <button class="btn btn-falcon-default btn-sm" style="background-color: #047FC3; color:white;"
                             type="submit" value="Save"
                             onclick="return confirm('Adakah anda mahu menyimpan data ini?')"><span
-                                class="fas fa-save"></span>&nbsp;Simpan
+                                class="fas fa-save"></span>&nbsp;Tambah
                         </button>
                     </div>
                 </div>

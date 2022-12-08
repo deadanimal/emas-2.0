@@ -29,7 +29,7 @@
         <br>
 
         <div class="table-responsive scrollbar">
-            <table class="table table-bordered user_datatable" id="example">
+            <table class="table table-bordered user_datatable" id="example" style="text-align: center">
                 <thead class="table-light">
                     <tr>
                         <th scope="col">No.</th>
@@ -50,9 +50,9 @@
                             <td>{{ $profil->nama }}</td>
                             <td>{{ $profil->no_kad_pengenalan }}</td>
                             <td>{{ $profil->status_miskin }}</td>
-                            <td>RM {{ $profil->pendapatan_id }}
+                            <td>
                                 <a class="btn btn-primary" style="border-radius: 38px"
-                                    href="/KT/maklumat/{{ $profil->id }}/pendapatan/"><i class="far fa-plus-square"></i>
+                                    href="/KT/maklumat/{{ $profil->id }}/pendapatan/"><i class="fas fa-money-bill"></i>
                                 </a>
                             </td>
                             <td>

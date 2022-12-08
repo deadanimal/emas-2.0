@@ -274,15 +274,18 @@ Route::group(
         Route::post('/kemasukanData-bahagian3', [KemasukanDataController::class, 'simpanBahagian3']);
         Route::post('/kemasukanData-bahagian4', [KemasukanDataController::class, 'simpanBahagian4']);
         Route::post('/kemasukanData-bahagian5', [KemasukanDataController::class, 'simpanBahagian5']);
-        Route::post('/kemasukanData-pendapatan', [KemasukanDataController::class, 'simpanPendapatan']);
-
 
         Route::get('/kemasukanData/bahagian-excel', [KemasukanDataController::class, 'bahagian6']);
 
         //Senarai Indikator
         Route::get('/maklumat/indikator', [KemasukanDataController::class, 'index1']);
-        Route::get('/maklumat/pendapatan', [KemasukanDataController::class, 'index2']);
+        Route::get('/maklumat/{id}/pendapatan', [KemasukanDataController::class, 'index2']);
         Route::get('/maklumat/kategori', [KemasukanDataController::class, 'index3']);
+
+        Route::post('/kemasukanData-indikator', [KemasukanDataController::class, 'simpanIndikator']);
+        Route::post('/kemasukanData-pendapatan', [KemasukanDataController::class, 'simpanPendapatan']);
+        Route::post('/kemasukanData-kategori', [KemasukanDataController::class, 'simpanKategori']);
+
 
         Route::get('integrasi', [IntegrasiController::class, 'page']);
         Route::post('integrasi', [IntegrasiController::class, 'call_api']);

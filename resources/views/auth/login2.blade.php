@@ -255,7 +255,7 @@
             transition-property: transform, border-color, -webkit-transform;
         }
 
-        @media (min-width: 601px) {
+        @media (min-width: 1001px) {
             .navbar-vertical.navbar-expand-xl {
                 max-width: 350px;
                 top: 0;
@@ -347,7 +347,6 @@
                 width: 100%;
             }
         }
-
     </style>
     <?php
     use Illuminate\Support\Facades\Auth;
@@ -368,8 +367,7 @@
             </script>
             <div class="row min-vh-100 bg-100">
                 <div class="col-6 d-none d-lg-block position-relative">
-                    <div class="bg-holder"
-                        style="background-image:url(/img/login.jpeg);background-position: 50% 20%;">
+                    <div class="bg-holder" style="background-image:url(/img/login.jpeg);background-position: 50% 20%;">
                     </div>
                     <!--/.bg-holder-->
 

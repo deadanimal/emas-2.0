@@ -40,9 +40,10 @@ class KemasukanDataController extends Controller
 
     public function index1()
     {
+        $user = Auth::user();
 
-        $profils = Profil::all();
-        return view('KT.maklumat.maklumat', compact('profils'));
+        $indikators = Indikator::all();
+        return view('KT.maklumat.maklumat', compact('user', 'indikators'));
     }
 
     public function index2($profil_id)
@@ -300,7 +301,7 @@ class KemasukanDataController extends Controller
     {
         $indikator = new Indikator();
 
-        $indikator->profil_id = $request->profil_id;
+        $indikator->user_id = $request->user_id;
         $indikator->kts = $request->kts;
         $indikator->ppg = $request->ppg;
         $indikator->pikm = $request->pikm;

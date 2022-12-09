@@ -14,13 +14,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('indikators', function (Blueprint $table) {
+        Schema::create('kategori_bulanans', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Profil::class)->nullable();
-            $table->string('kts')->nullable();
-            $table->string('ppg')->nullable();
-            $table->string('pikm')->nullable();
-            $table->string('user_id')->nullable();
+            $table->string('projek1')->nullable();
+            $table->string('projek2')->nullable();
+            $table->string('projek3')->nullable();
+            $table->string('jumlah1')->nullable();
+            $table->string('jumlah2')->nullable();
+            $table->string('jumlah3')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('indikators');
+        Schema::dropIfExists('kategori_bulanans');
     }
 };

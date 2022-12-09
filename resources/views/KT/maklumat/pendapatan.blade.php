@@ -17,6 +17,30 @@
 
         <x-errors-component :errors="$errors->any() ? $errors->all() : null" />
 
+        <table class="table table-bordered" style="text-align: center">
+            <thead class="table-light">
+                <tr>
+                    <th class="align-middle"> Bulan Semasa</th>
+                    <th class="align-middle">Pendapatan</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($pendapatan_bulanans as $bulan)
+                    <tr>
+                        <td> <input class="form-control" value="{{ $bulan->bulan }}" readonly />
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                <span class="input-group-text"><b>RM</b></span>
+                                <input class="form-control" value="{{ $bulan->pendapatan }}" readonly />
+
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+
 
         <div class="card-body bg-light">
             <form method="POST" action="/KT/kemasukanData-pendapatan">
@@ -25,29 +49,6 @@
                 <input type="hidden" name="profil_id" value="{{ $profils->id }}">
 
 
-                <table class="table table-bordered" style="text-align: center">
-                    <thead class="table-light">
-                        <tr>
-                            <th class="align-middle"> Bulan Semasa</th>
-                            <th class="align-middle">Pendapatan</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($pendapatan_bulanans as $bulan)
-                            <tr>
-                                <td> <input class="form-control" value="{{ $bulan->bulan }}" readonly />
-                                </td>
-                                <td>
-                                    <div class="input-group">
-                                        <span class="input-group-text"><b>RM</b></span>
-                                        <input class="form-control" value="{{ $bulan->pendapatan }}" readonly />
-
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
 
                 <br>
 

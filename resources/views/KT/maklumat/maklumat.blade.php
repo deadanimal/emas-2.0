@@ -7,11 +7,43 @@
 
         <br>
 
+        <table class="table table-bordered" style="text-align: center">
+            <thead class="table-light">
+                <tr>
+                    <th class="align-middle">Kemiskinan Tegar Sifar</th>
+                    <th class="align-middle">Pengurangan Pekali Gini</th>
+                    <th class="align-middle">Pengurangan Inisiden Kemiskinan Mutlak</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($indikators as $indika)
+                    <tr>
+                        <td>
+                            <div class="input-group">
+                                <input class="form-control" value="{{ $indika->kts }}" readonly />
+                                <span class="input-group-text"><b>%</b></span>
+
+                            </div>
+                        </td>
+                        <td> <input class="form-control" value="{{ $indika->ppg }}" readonly />
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                <input class="form-control" value="{{ $indika->pikm }}" readonly />
+                                <span class="input-group-text"><b>%</b></span>
+
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+
         <div class="col-12">
             <div class="card-body bg-light">
                 <form method="POST" action="/KT/kemasukanData-indikator">
                     @csrf
-
 
                     <div class="card-body bg-light">
                         <div class="col mb-3">
@@ -39,6 +71,8 @@
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" name="user_id" value="{{ $user->id }}">
+
 
                     <div class="row">
 

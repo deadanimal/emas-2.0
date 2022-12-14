@@ -240,9 +240,9 @@
                                         @csrf
                                         @method('DELETE')
 
-                                        <button type="submit" onclick="myFunction()" class="btn btn-danger"
-                                            style="border-radius: 38px">
-                                            <i class="fas fa-trash"></i>
+                                        <button type="submit" onclick="myFunction({{ `+e.id+` }})" class="btn btn-danger"
+                                        style="border-radius: 38px">
+                                        <i class="fas fa-trash"></i>
                                         </button>
 
                                     </form>

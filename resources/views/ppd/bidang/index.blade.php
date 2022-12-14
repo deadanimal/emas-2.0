@@ -108,6 +108,8 @@
                                     </div>
                                 </div>
 
+
+
                                 <td align="right">
                                     <div>
                                         @can('PPD - Admin')
@@ -148,6 +150,13 @@
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-` + e.id + `">
                                     <div class="ms-2"><b>` + e.namaBidang + `</b></div>
+                                </div>
+                            </td>
+
+                             <td>
+                                <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#error-modal-` + e.id + `">
+                                    <div class="ms-2"><b>BK ` + e.noBidang + `</b></div>
                                 </div>
                             </td>
 
@@ -196,17 +205,17 @@
                                                                    ` +
                             @can('PPD - Admin')
                                 `
-                                    <form action="/bidang/` + e.id + `" method="POST">
+                                    <form action="/PPD/bidang/` + e.id + `" method="POST">
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
-                                            href="/PPD/bidang/` + e.id + `"><i
+                                            href="/PPD/bidang/` + e.id + `/edit"><i
                                                 class="fas fa-edit"></i>
                                         </a>
 
                                         @csrf
                                         @method('DELETE')
 
-                                        <button type="submit" onclick="myFunction()" class="btn btn-danger"
+                                        <button type="submit" onclick="myFunction({{ `+e.id+` }})" class="btn btn-danger"
                                             style="border-radius: 38px">
                                             <i class="fas fa-trash"></i>
                                         </button>
@@ -234,7 +243,7 @@
                 if (confirm(alert) == true) {
                     $.ajax({
                         method: "DELETE",
-                        url: "PPD/bidang/" + id,
+                        url: "/PPD/bidang/" + id,
                         data: {
                             "_token": "{{ csrf_token() }}",
                         }

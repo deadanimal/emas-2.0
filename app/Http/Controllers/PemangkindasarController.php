@@ -14,18 +14,21 @@ class PemangkindasarController extends Controller
 {
 
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 
-    public function index() {
+    public function index()
+    {
         $pemangkindasar = Pemangkindasar::all();
 
         return view('ppd.pemangkin.index', compact('pemangkindasar'));
     }
 
 
-    public function create() {
+    public function create()
+    {
         $user = Auth::user();
 
         $perkaras = Perkarautama::all();
@@ -36,16 +39,19 @@ class PemangkindasarController extends Controller
         return view('ppd.pemangkin.create', compact('user', 'perkaras', 'fokuss'));
     }
 
-    public function store(StorePemangkindasarRequest $request) {
+    public function store(StorePemangkindasarRequest $request)
+    {
         $pemangkindasar = Pemangkindasar::create($request->all());
         return redirect()->route('pemangkin.index');
     }
 
-    public function show(Pemangkindasar $pemangkindasar) {
+    public function show(Pemangkindasar $pemangkindasar)
+    {
         return view('ppd.pemangkin.show', compact('pemangkindasar'));
     }
 
-    public function edit($id) {
+    public function edit($id)
+    {
         $pemangkindasar = Pemangkindasar::find($id);
         $perkaras = Perkarautama::all();
         $fokuss = Fokusutama::all();
@@ -53,7 +59,8 @@ class PemangkindasarController extends Controller
         return view('ppd.pemangkin.edit', compact('pemangkindasar', 'perkaras', 'fokuss'));
     }
 
-    public function update(UpdatePemangkindasarRequest $request, $id) {
+    public function update(UpdatePemangkindasarRequest $request, $id)
+    {
 
         $pemangkindasar = Pemangkindasar::find($id);
 
@@ -62,11 +69,11 @@ class PemangkindasarController extends Controller
         return redirect()->route('pemangkin.index');
     }
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $pemangkindasar = Pemangkindasar::find($id);
         $pemangkindasar->delete();
 
-        return redirect()->route('ppd.pemangkin.index')
-            ->with('Berjaya', 'Keterangan berjaya dibuang');
+        return back();
     }
 }

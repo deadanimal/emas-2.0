@@ -54,7 +54,7 @@
                             <td>
                                 <div class="d-flex align-items-center" data-bs-toggle="modal"
                                     data-bs-target="#error-modal-{{ $perkara->id }}">
-                                    @if($perkara->fokus)
+                                    @if ($perkara->fokus)
                                         <div class="ms-2"><b>{{ $perkara->fokus->namaFokus }}</b></div>
                                     @else
                                         <div class="ms-2"><b>-</b></div>
@@ -110,6 +110,7 @@
                                     </div>
                                 </div>
                             </div>
+                            
                             <td align="right">
                                 <div>
                                     @can('PPD - Admin')
@@ -204,7 +205,9 @@
 
                             <td align="right">
                                 <div>
-                                    ` + @can('PPD - Admin') `
+                                    ` +
+                        @can('PPD - Admin')
+                            `
                                     <form action="/PPD/perkarautama/` + e.id + `" method="POST">
 
                                         <a class="btn btn-primary" style="border-radius: 38px"
@@ -215,13 +218,15 @@
                                         @csrf
                                         @method('DELETE')
 
-                                        <button type="submit" onclick="myFunction()" class="btn btn-danger"
-                                            style="border-radius: 38px">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
+                                          <button type="submit" onclick="myFunction({{ `+e.id+` }})" class="btn btn-danger"
+                                        style="border-radius: 38px">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
 
                                     </form>
-                                    ` + @endcan `
+                                    ` +
+                        @endcan
+                        `
                                 </div>
                             </td>
                         </tr>

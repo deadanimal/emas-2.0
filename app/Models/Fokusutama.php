@@ -13,28 +13,8 @@ class Fokusutama extends Model implements Auditable
 
     use HasFactory;
 
-    public $table = 'fokusutamas';
+    public $table = 'ketua_kampungs';
 
-    // protected $fillable = [
 
-    //     'keteranganFokus',
-    //     'namaFokus',
-    //     'user_id',
-    // ];
     protected $guarded = ['id'];
-
-    protected $with = [
-        'user',
-
-    ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
-
-    public function perkara()
-    {
-        return $this->hasMany(Perkarautama::class, 'perkara_id');
-    }
 }

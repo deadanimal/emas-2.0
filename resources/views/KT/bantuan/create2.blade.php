@@ -18,7 +18,7 @@
         </div>
 
         <hr style="width:100%;text-align:center;">
-        <form action="/KT/" method="post">
+        <form action="{{ route('kampung.store') }}" method="post">
             @csrf
             <div class="row g-3" style="width: 100%">
                 <div class="col-6">
@@ -46,19 +46,19 @@
                     <div class="row g-3">
                         <div class="col-lg-12">
                             <label class="form-label" for="namaKampung">Nama Kampung</label>
-                            <input class="form-control" id="namaKampung" type="text">
+                            <input class="form-control" name="namaKampung" type="text">
                         </div>
                         <div class="col-lg-12">
                             <label class="form-label" for="alamat">Alamat Kampung</label>
-                            <input class="form-control" id="alamat" type="text">
+                            <input class="form-control" name="alamat" type="text">
                         </div>
                         <div class="col-lg-12">
                             <label class="form-label" for="maklumat">Maklumat Kampung</label>
-                            <input class="form-control" id="maklumat" type="text">
+                            <input class="form-control" name="maklumat" type="text">
                         </div>
                         {{-- <div class="col-lg-12">
                             <label class="form-label" for="nama">Gambar Kampung</label>
-                            <input class="form-control" id="nama" type="text">
+                            <input class="form-control" name="nama" type="text">
                         </div> --}}
 
                         <div class="col" style="text-align: center">

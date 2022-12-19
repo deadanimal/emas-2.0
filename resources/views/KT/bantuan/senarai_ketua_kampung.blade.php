@@ -86,6 +86,10 @@
                                 <button type="submit" class="btn btn-danger" style="border-radius: 38px">
                                     <i class="fas fa-trash"></i>
                                 </button>
+
+                                <a class="btn btn-link " href="/KT/ketua_kampung_cetak/{{ $kk->id }}"><i
+                                        class="fas fa-print"></i>
+                                </a>
                             </td>
                         </tr>
                     @endforeach

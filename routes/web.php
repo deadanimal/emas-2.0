@@ -234,6 +234,7 @@ Route::group(
 
         //Ketua Kampung
         Route::resource('/ketuaKampung', KetuaKampungController::class);
+        Route::get('/ketua_kampung_cetak/{id}', [KetuaKampungController::class, 'print_ketua_kampung']);
 
         //Kampung
         Route::resource('/kampung', KampungController::class);

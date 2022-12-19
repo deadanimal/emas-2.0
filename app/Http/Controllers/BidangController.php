@@ -59,7 +59,7 @@ class BidangController extends Controller
         return view('ppd.bidang.edit', compact('bidang', 'babs', 'fokuss', 'temas', 'perkaras'));
     }
 
-    
+
     public function update(UpdateBidangRequest $request, Bidang $bidang) {
         $bidang->update($request->all());
         return redirect()->route('bidang.index');

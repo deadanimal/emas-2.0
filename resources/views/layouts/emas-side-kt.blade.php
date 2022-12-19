@@ -350,13 +350,14 @@
                         </div>
                     </a>
 
-                    <a class="nav-link" href="/KT/integrasi" role="button">
+                    <a class="nav-link {{ Request::is('KT/integrasi') ? 'active' : '' }}" href="/KT/integrasi"
+                        role="button">
 
                         <div class="d-flex align-items-center">
                             <div class="col-2">
-                                {{-- <span class="nav-link-icon">
-                                    <span class="fas fa-upload"></span>
-                                </span> --}}
+                                <span class="nav-link-icon">
+                                    <span class="fas fa-database"></span>
+                                </span>
                             </div>
                             <div class="col text-center">
                                 <span class="nav-link-text ps-1">Integrasi Data

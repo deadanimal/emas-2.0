@@ -24,7 +24,34 @@ class StoreKampungRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'daerah_id' => [
+                'string',
+                'required',
+            ],
+
+            'negeri_id' => [
+                'string',
+                'required',
+
+            ],
+
+            'namaKampung' => [
+                'string',
+                'required',
+            ],
+
+            'alamat' => [
+                'string',
+                'required',
+            ],
+
+            'maklumat' => [
+                'string',
+                'required',
+
+            ],
+
+
         ];
     }
 }

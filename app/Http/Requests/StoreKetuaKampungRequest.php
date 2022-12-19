@@ -24,9 +24,54 @@ class StoreKetuaKampungRequest extends FormRequest
     public function rules()
     {
         return [
-            'negeri_id' => 'required',
-            'daerah_id' => 'required',
-            'kampung_id' => 'required',
+
+            'name' => [
+                'string',
+                'required',
+            ],
+
+            'no_pejabat' => [
+                'string',
+                'required',
+            ],
+
+            'tahun_mula' => [
+                'string',
+                'required',
+
+            ],
+
+            'tahun_akhir' => [
+                'string',
+                'required',
+            ],
+
+            'no_kp' => [
+                'string',
+                'required',
+            ],
+
+            'no_telefon' => [
+                'string',
+                'required',
+
+            ],
+
+            'kampung_id' => [
+                'string',
+                'required',
+            ],
+
+            'daerah_id' => [
+                'string',
+                'required',
+            ],
+
+            'negeri_id' => [
+                'string',
+                'required',
+
+            ],
         ];
     }
 }

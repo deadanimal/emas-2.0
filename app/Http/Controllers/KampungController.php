@@ -11,33 +11,41 @@ use App\Models\Negeri;
 class KampungController extends Controller
 {
 
-    public function index() {
+    public function index()
+    {
     }
 
 
-    public function create() {
+    public function create()
+    {
         $daerah = Daerah::all();
         $negeri = Negeri::all();
         return view('KT.bantuan.create2', compact('negeri', 'daerah'));
     }
 
-    public function store(StoreKampungRequest $request) {
+    public function store(StoreKampungRequest $request)
+    {
+        $kampung = Kampung::create($request->all());
+        return redirect('/KT/bantuan1/senarai_kampung_menerima');
+    }
+
+    public function show(Kampung $kampung)
+    {
         //
     }
 
-    public function show(Kampung $kampung) {
+    public function edit(Kampung $kampung)
+    {
         //
     }
 
-    public function edit(Kampung $kampung) {
+    public function update(UpdateKampungRequest $request, Kampung $kampung)
+    {
         //
     }
 
-    public function update(UpdateKampungRequest $request, Kampung $kampung) {
-        //
-    }
-
-    public function destroy(Kampung $kampung) {
+    public function destroy(Kampung $kampung)
+    {
         //
     }
 }

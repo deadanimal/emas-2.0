@@ -68,13 +68,11 @@
 
                         <div class="col-lg-6">
                             <label class="form-label" for="tahun_mula_berkhidmat">Tahun Mula Berkhidmat</label>
-                            <input type="text" class="form-control tahun" name="tahun_mula" autocomplete="off" required
-                                readonly>
+                            <input type="number" class="form-control tahun" name="tahun_mula" autocomplete="off" required>
                         </div>
                         <div class="col-lg-6">
-                            <label class="form-label" for="tahun_tamat_berkhidmat">Tahun Akhir Berkhidmaat</label>
-                            <input type="text" class="form-control tahun" name="tahun_akhir" autocomplete="off" required
-                                readonly>
+                            <label class="form-label" for="tahun_tamat_berkhidmat">Tahun Akhir Berkhidmat</label>
+                            <input type="number" class="form-control tahun" name="tahun_akhir" autocomplete="off" required>
                         </div>
                         <div class="col-lg-12">
                             <label class="form-label" for="nama">No. Kad Pengenalan</label>

@@ -79,17 +79,24 @@
                             <td>{{ $kk->tahun_mula }}</td>
                             <td>{{ $kk->tahun_akhir }}</td>
                             <td>
-                                <a class="btn btn-primary" style="border-radius: 38px" href=""><i
-                                        class="fas fa-edit"></i>
+                                <a class="btn btn-primary" href="{{ route('ketuaKampung.edit', $kk->id) }}"
+                                    style="border-radius: 38px; float: left;">
+                                    <i class="fas fa-edit"></i>
                                 </a>
 
-                                <button type="submit" class="btn btn-danger" style="border-radius: 38px">
-                                    <i class="fas fa-trash"></i>
-                                </button>
+                                <form action="/KT/ketuakampung/{{ $kk->id }}" method="POST" style="float: left;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger" style="border-radius: 38px;">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
 
-                                <a class="btn btn-link " href="/KT/ketua_kampung_cetak/{{ $kk->id }}"><i
-                                        class="fas fa-print"></i>
+                                <a class="btn btn-link" href="/KT/ketua_kampung_cetak/{{ $kk->id }}"
+                                    style="float: left;">
+                                    <i class="fas fa-print"></i>
                                 </a>
+
                             </td>
                         </tr>
                     @endforeach

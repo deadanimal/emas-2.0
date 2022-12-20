@@ -43,18 +43,26 @@ class KetuaKampungController extends Controller
 
     public function edit(KetuaKampung $ketuaKampung)
     {
-        //
+        $negeris = Negeri::all();
+        $daerahs = Daerah::all();
+        $kampungs = Kampung::all();
+        return view('KT.bantuan.edit1', compact('ketuaKampung', 'negeris', 'daerahs', 'kampungs'));
     }
 
     public function update(UpdateKetuaKampungRequest $request, KetuaKampung $ketuaKampung)
     {
-        //
+        $ketuaKampung->update($request->all());
+        return redirect('/KT/bantuan1/senarai_ketua_kampung');
+        // return back();
     }
 
-    public function destroy(KetuaKampung $ketuaKampung)
+    public function destroy($id)
     {
-        //
+        $ketuakampung = Ketuakampung::findOrFail($id);
+        $ketuakampung->delete();
+        return redirect('/KT/bantuan1/senarai_ketua_kampung');
     }
+
 
     public function find(Request $request)
     {

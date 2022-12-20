@@ -43,6 +43,7 @@ use App\Models\Rolesandpermission;
 
 use App\Http\Controllers\TableauController;
 use App\Http\Controllers\IntegrasiController;
+use App\Models\KetuaKampung;
 
 Route::redirect('/', '/login');
 
@@ -234,6 +235,11 @@ Route::group(
 
         //Ketua Kampung
         Route::resource('/ketuaKampung', KetuaKampungController::class);
+        Route::get('/ketuaKampung/{id}', [KetuaKampungController::class, 'update']);
+        Route::delete('/ketuakampung/{id}', [KetuaKampungController::class, 'destroy']);
+
+
+
         Route::get('/ketua_kampung_cetak/{id}', [KetuaKampungController::class, 'print_ketua_kampung']);
 
         //Kampung

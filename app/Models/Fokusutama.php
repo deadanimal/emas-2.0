@@ -13,7 +13,7 @@ class Fokusutama extends Model implements Auditable
 
     use HasFactory;
 
-    public $table = 'ketua_kampungs';
+    public $table = 'fokusutamas';
 
 
     protected $guarded = ['id'];

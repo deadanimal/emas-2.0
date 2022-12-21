@@ -477,8 +477,22 @@ class KemasukanDataController extends Controller
     public function update4(Request $request, $id)
     {
 
+        // dd('test');
         $profil = Profil::find($id);
+        $profil->user_id = Auth::user()->id;
+        $profil->nama = $request->nama;
+        $profil->no_kad_pengenalan = $request->no_kad_pengenalan;
+        $profil->jumlah_kasar_isi_rumah_sebulan = $request->jumlah_kasar_isi_rumah_sebulan;
+        $profil->jumlah_pendapatan_per_kapita = $request->jumlah_pendapatan_per_kapita;
+        $profil->kategori = $request->kategori;
+        $profil->jumlah_isi_rumah = $request->jumlah_isi_rumah;
+        $profil->status_miskin = $request->status_miskin;
+        $profil->status_terkeluar = $request->status_terkeluar;
+        $profil->strata = $request->strata;
+        $profil->poskod = $request->poskod;
 
+        $profil->negeri_id = $request->negeri_id;
+        $profil->daerah_id = $request->daerah_id;
         $profil->save();
 
         return redirect('/KT/kemasukanData/index');

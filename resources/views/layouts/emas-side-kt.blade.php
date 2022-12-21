@@ -356,7 +356,7 @@
                         <div class="d-flex align-items-center">
                             <div class="col-2">
                                 <span class="nav-link-icon">
-                                    <span class="fas fa-database"></span>
+                                    <span class="fas fa-database fa-bounce"></span>
                                 </span>
                             </div>
                             <div class="col text-center">

@@ -36,82 +36,79 @@
         <hr>
 
         <div class="table-responsive scrollbar">
-            <div class="card scrollbar-overlay" style="max-height: 50rem">
 
-                <table class="table table-bordered user_datatable" id="example">
-                    <thead>
-                        <tr>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
+            <table class="table table-bordered user_datatable" id="example">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody class="list myTable" id="tablebody">
+                    @foreach ($sdgs as $sdg)
+                        <tr class="align-middle">
+                            <td class="text-nowrap">
+                                <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#error-modal-{{ $sdg->id }}">
+                                    <div class="ms-2"><b>{{ $sdg->namaSdg }}</b></div>
+                                </div>
+                            </td>
+
+                            <td align="right">
+                                <div>
+                                    @can('PPD - Admin')
+                                        <a class="btn btn-primary" style="border-radius: 38px"
+                                            href="{{ route('sdg.edit', $sdg->id) }}"><i class="fas fa-edit"></i>
+                                        </a>
+
+
+                                        <button type="submit" onclick="myFunction({{ $sdg->id }})" class="btn btn-danger"
+                                            style="border-radius: 38px">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <p id="ppd"></p>
+                                    @endcan
+                                </div>
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody class="list myTable" id="tablebody">
-                        @foreach ($sdgs as $sdg)
-                            <tr class="align-middle">
-                                <td class="text-nowrap">
-                                    <div class="d-flex align-items-center" data-bs-toggle="modal"
-                                        data-bs-target="#error-modal-{{ $sdg->id }}">
-                                        <div class="ms-2"><b>{{ $sdg->namaSdg }}</b></div>
+
+                        <div class="modal fade" id="error-modal-{{ $sdg->id }}" tabindex="-1" role="dialog"
+                            aria-hidden value="null"="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
+                                <div class="modal-content position-relative">
+                                    <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                                        <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                                            data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                </td>
+                                    <div class="modal-body p-0">
 
-                                <td align="right">
-                                    <div>
-                                        @can('PPD - Admin')
-                                            <a class="btn btn-primary" style="border-radius: 38px"
-                                                href="{{ route('sdg.edit', $sdg->id) }}"><i class="fas fa-edit"></i>
-                                            </a>
+                                        <div class="p-4 pb-0">
+                                            <form>
+                                                <div class="mb-3">
+                                                    <label class="col-form-label">SDG:</label>
+                                                    <label class="form-control"
+                                                        disabled="disabled">{{ $sdg->namaSdg }}</label>
 
+                                                </div>
 
-                                            <button type="submit" onclick="myFunction({{ $sdg->id }})"
-                                                class="btn btn-danger" style="border-radius: 38px">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                            <p id="ppd"></p>
-                                        @endcan
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <div class="modal fade" id="error-modal-{{ $sdg->id }}" tabindex="-1" role="dialog"
-                                aria-hidden value="null"="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
-                                    <div class="modal-content position-relative">
-                                        <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
-                                            <button
-                                                class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
-                                                data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body p-0">
-
-                                            <div class="p-4 pb-0">
-                                                <form>
-                                                    <div class="mb-3">
-                                                        <label class="col-form-label">SDG:</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">{{ $sdg->namaSdg }}</label>
-
-                                                    </div>
-
-                                                    <div class="mb-3">
-                                                        <label class="col-form-label">Keterangan:</label>
-                                                        <label class="form-control"
-                                                            disabled="disabled">{{ $sdg->keteranganSdg }}</label>
-                                                    </div>
-                                                </form>
-                                                <br>
-                                            </div>
-
+                                                <div class="mb-3">
+                                                    <label class="col-form-label">Keterangan:</label>
+                                                    <label class="form-control"
+                                                        disabled="disabled">{{ $sdg->keteranganSdg }}</label>
+                                                </div>
+                                            </form>
+                                            <br>
                                         </div>
 
                                     </div>
+
                                 </div>
                             </div>
-                        @endforeach
+                        </div>
+                    @endforeach
 
-                    </tbody>
-                </table>
-            </div>
+                </tbody>
+            </table>
         </div>
 
 
